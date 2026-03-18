@@ -148,7 +148,11 @@ export default function VIPPage() {
 
           {/* Stephen Curry Testimonial */}
           <div style={{maxWidth:"700px",margin:"0 auto",background:"var(--gi)",borderRadius:"var(--radius)",padding:"48px",textAlign:"center",color:"#fff"}}>
-            <div style={{fontSize:"48px",marginBottom:"16px"}}>★★★★★</div>
+            <div style={{width:"96px",height:"96px",borderRadius:"50%",overflow:"hidden",margin:"0 auto 20px",border:"3px solid rgba(255,255,255,.2)"}}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6626412b8381f2fea60f81a6.jpeg" alt="Stephen Curry" style={{width:"100%",height:"100%",objectFit:"cover"}} />
+            </div>
+            <div style={{fontSize:"32px",marginBottom:"16px"}}>★★★★★</div>
             <blockquote style={{fontFamily:"var(--font-body)",fontSize:"20px",fontStyle:"italic",lineHeight:1.7,color:"rgba(255,255,255,.9)",marginBottom:"24px"}}>
               &ldquo;Jas took care of my boys. He got them straight. They listen to me now. They got the best dog trainer right here.&rdquo;
             </blockquote>
