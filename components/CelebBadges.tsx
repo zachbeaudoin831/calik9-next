@@ -7,7 +7,9 @@ const CELEB_IMAGES: Record<string, string> = {
   "Steph Curry": "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/ca21e46f-9700-4400-8295-1c9adfe69691.png",
   "Kevin Hart": "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a6b9da3-df39-4569-b578-091a6cd954e9.png",
   "Dr. Phil": "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/f2c6b38a-3fc1-4118-a378-f89440decf1a.png",
-  "Coi Leray": "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/25b1c02e-df43-4652-8feb-1c70a4c6b475.png",
+  "Coi Leray": "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/64fa8e7b-12fb-4c60-b4fb-b86c9c604038.png",
+  "Demi Moore": "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/ab72206e-2279-429b-ba30-594f091fd3da.png",
+  "San Jose Police Dept": "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/e3c3e57d-605c-49f6-8ec3-45f6b6068cb9.png",
   "Turks & Caicos Military": "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/e6099d33-e4f3-40c0-9728-47f7f1c0bf21.png",
 };
 
