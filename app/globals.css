@@ -389,8 +389,9 @@ button { font-family: inherit; }
   .ft-disc { text-align: center; }
   .pf-div { display: none; }
   .proof-inner { gap: 20px; }
-  .so-inner { flex-direction: column; align-items: flex-start; gap: 10px; }
-  .so-lbl { border: none; padding: 0; }
+  .so-inner { flex-direction: column; align-items: center; gap: 12px; }
+  .so-lbl { border: none; padding: 0; text-align: center; }
+  .so-logos { gap: 20px; justify-content: center; }
   .wrap, .wrap-md, .wrap-sm { padding: 0 16px; }
   .product-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .shop-filters { top: 72px; }
