@@ -11,7 +11,7 @@ export default function Nav() {
   const { openCart, totalQuantity } = useCart();
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const links = [
+  const links: { href: string; label: string; cta?: boolean; external?: boolean }[] = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
     { href: "/shop", label: "Shop" },
