@@ -4,6 +4,7 @@ import { CartProvider } from "@/context/CartContext";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import CartDrawer from "@/components/CartDrawer";
+import Animations from "@/components/Animations";
 
 export const metadata: Metadata = {
   title: { default: "Cali K9® — Professional Dog Training", template: "%s | Cali K9®" },
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <CartProvider>
           <Nav />
+          <Animations />
           <main>{children}</main>
           <Footer />
           <CartDrawer />

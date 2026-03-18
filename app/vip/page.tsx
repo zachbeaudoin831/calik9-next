@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import AddVIPToCart from "./AddVIPToCart";
 
 export const metadata = {
@@ -29,13 +28,12 @@ export default function VIPPage() {
               <p style={{fontFamily:"var(--font-cond)",fontSize:"18px",letterSpacing:"2px",textTransform:"uppercase",color:"rgba(255,255,255,.7)",marginBottom:"24px"}}>
                 5 Private 2-Hour Sessions · Exclusive Access · Real Education
               </p>
-              <blockquote style={{borderLeft:"3px solid rgba(255,255,255,.4)",paddingLeft:"20px",margin:"0 0 32px",fontFamily:"var(--font-body)",fontSize:"17px",fontStyle:"italic",color:"rgba(255,255,255,.85)",lineHeight:1.7}}>
+              <blockquote className="hero-quote" style={{borderLeft:"3px solid rgba(255,255,255,.4)",paddingLeft:"20px",margin:"0 0 32px",fontFamily:"var(--font-body)",fontSize:"17px",fontStyle:"italic",color:"rgba(255,255,255,.85)",lineHeight:1.7}}>
                 &ldquo;I don&apos;t train dogs. I educate handlers. When you understand the behavior, everything changes.&rdquo;
                 <cite style={{display:"block",marginTop:"8px",fontStyle:"normal",fontFamily:"var(--font-cond)",fontSize:"13px",letterSpacing:"2px",textTransform:"uppercase",color:"rgba(255,255,255,.5)"}}>— Jas Leverette</cite>
               </blockquote>
               <div style={{display:"flex",gap:"16px",flexWrap:"wrap",alignItems:"center"}}>
                 <AddVIPToCart style={{fontSize:"18px",padding:"18px 40px"}} />
-                <Link href="/eval" className="btn btn-outline-white">Free Eval First</Link>
               </div>
               <p style={{fontFamily:"var(--font-cond)",fontSize:"12px",letterSpacing:"1px",color:"rgba(255,255,255,.4)",marginTop:"16px"}}>
                 🔒 Secure checkout powered by Shopify
@@ -78,7 +76,7 @@ export default function VIPPage() {
               {icon:"🧠",item:"Clear Structure and Handling Strategy"},
               {icon:"♾️",item:"Lifetime Access to Cali K9 Online Courses"},
             ].map((r) => (
-              <div key={r.item} style={{display:"flex",gap:"16px",alignItems:"flex-start",padding:"20px 24px",background:"var(--off)",borderRadius:"var(--radius-sm)",border:"1px solid var(--bo)"}}>
+              <div key={r.item} className="inc-item" style={{display:"flex",gap:"16px",alignItems:"flex-start",padding:"20px 24px",background:"var(--off)",borderRadius:"var(--radius-sm)",border:"1px solid var(--bo)"}}>
                 <span style={{fontSize:"24px",lineHeight:1,flexShrink:0}}>{r.icon}</span>
                 <span style={{fontFamily:"var(--font-cond)",fontSize:"16px",fontWeight:700,letterSpacing:"1px",color:"var(--gi)",lineHeight:1.4}}>{r.item}</span>
               </div>
@@ -106,8 +104,8 @@ export default function VIPPage() {
                   "Families serious about a permanent transformation",
                   "Dogs that other trainers have given up on",
                 ].map((item) => (
-                  <div key={item} style={{display:"flex",gap:"12px",alignItems:"flex-start"}}>
-                    <span style={{color:"#4ade80",fontWeight:800,fontSize:"18px",flexShrink:0}}>✓</span>
+                  <div key={item} className="who-item" style={{display:"flex",gap:"12px",alignItems:"flex-start"}}>
+                    <span className="who-check" style={{color:"#4ade80",fontWeight:800,fontSize:"18px",flexShrink:0}}>✓</span>
                     <span style={{fontFamily:"var(--font-body)",fontSize:"16px",color:"rgba(255,255,255,.85)",lineHeight:1.6}}>{item}</span>
                   </div>
                 ))}
@@ -121,7 +119,7 @@ export default function VIPPage() {
                 ["90","Days of Direct Q&A with Jas"],
                 ["∞","Lifetime Online Course Access"],
               ].map(([n,l]) => (
-                <div key={l} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"16px 0",borderBottom:"1px solid rgba(255,255,255,.08)"}}>
+                <div key={l} className="pricing-row" style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"16px 0",borderBottom:"1px solid rgba(255,255,255,.08)"}}>
                   <span style={{fontFamily:"var(--font-body)",fontSize:"15px",color:"rgba(255,255,255,.7)"}}>{l}</span>
                   <span style={{fontFamily:"var(--font-display)",fontSize:"28px",color:"#fff"}}>{n}</span>
                 </div>
@@ -147,7 +145,7 @@ export default function VIPPage() {
           </div>
           <div style={{display:"flex",flexWrap:"wrap",gap:"12px",justifyContent:"center",marginBottom:"48px"}}>
             {["Kendrick Lamar","Steph Curry","Kevin Hart","Dr. Phil","Demi Moore","Jason Derulo","Coi Leray","San Jose Police Dept","Turks & Caicos Military"].map((name) => (
-              <span key={name} style={{fontFamily:"var(--font-cond)",fontSize:"14px",fontWeight:700,letterSpacing:"1px",textTransform:"uppercase",padding:"10px 20px",background:"var(--w)",border:"1px solid var(--bo)",borderRadius:"var(--radius-sm)",color:"var(--gi)"}}>
+              <span key={name} className="celeb-badge" style={{fontFamily:"var(--font-cond)",fontSize:"14px",fontWeight:700,letterSpacing:"1px",textTransform:"uppercase",padding:"10px 20px",background:"var(--w)",border:"1px solid var(--bo)",borderRadius:"var(--radius-sm)",color:"var(--gi)"}}>
                 {name}
               </span>
             ))}
@@ -191,8 +189,8 @@ export default function VIPPage() {
               </p>
               <div style={{display:"flex",gap:"32px",flexWrap:"wrap"}}>
                 {[["Netflix","Featured"],["5,000+","Dogs Trained"],["11","Celebrity Clients"],["18+","Years Exp"]].map(([n,l]) => (
-                  <div key={l}>
-                    <div style={{fontFamily:"var(--font-display)",fontSize:"28px",color:"var(--blue)"}}>{n}</div>
+                  <div key={l} className="about-stat">
+                    <div className="about-stat-num" style={{fontFamily:"var(--font-display)",fontSize:"28px",color:"var(--blue)"}}>{n}</div>
                     <div style={{fontFamily:"var(--font-cond)",fontSize:"11px",letterSpacing:"2px",textTransform:"uppercase",color:"var(--gm)"}}>{l}</div>
                   </div>
                 ))}
@@ -215,7 +213,6 @@ export default function VIPPage() {
           </p>
           <div style={{display:"flex",gap:"16px",justifyContent:"center",flexWrap:"wrap"}}>
             <AddVIPToCart style={{background:"#fff",color:"var(--blue)",fontSize:"18px",padding:"18px 48px"}} />
-            <Link href="/eval" className="btn btn-outline-white">Start with Free Eval</Link>
           </div>
           <p style={{fontFamily:"var(--font-cond)",fontSize:"12px",letterSpacing:"1px",color:"rgba(255,255,255,.4)",marginTop:"20px"}}>
             🔒 Secure checkout powered by Shopify · training@calik9.com for questions

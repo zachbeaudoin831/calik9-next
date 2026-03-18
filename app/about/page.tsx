@@ -123,7 +123,7 @@ export default function AboutPage() {
                   "Trusted by law enforcement, athletes, and families",
                   "Oakland-based with clients nationwide",
                 ].map((c) => (
-                  <div key={c} style={{display:"flex",alignItems:"flex-start",gap:"12px",padding:"14px 0",borderBottom:"1px solid var(--bo)"}}>
+                  <div key={c} className="cred-item" style={{display:"flex",alignItems:"flex-start",gap:"12px",padding:"14px 0",borderBottom:"1px solid var(--bo)"}}>
                     <span style={{color:"var(--blue)",fontWeight:700,flexShrink:0}}>→</span>
                     <span style={{fontSize:"15px",color:"var(--gd)"}}>{c}</span>
                   </div>
