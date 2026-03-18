@@ -14,10 +14,11 @@ export default function ProductCard({ product }: { product: ShopifyProduct }) {
   const price = product.priceRange.minVariantPrice;
   const compareAt = product.compareAtPriceRange.minVariantPrice;
   const hasDiscount = parseFloat(compareAt.amount) > parseFloat(price.amount);
-  const firstVariant = product.variants.edges.find((e) => e.node.availableForSale)?.node
-    ?? product.variants.edges[0]?.node;
-  const variantAvailable = firstVariant?.availableForSale ?? false;
-  // Pre-order: available but no stock (Shopify "continue selling when out of stock")
+  const firstVariant = product.availableForSale
+    ? product.variants.edges.find((e) => e.node.availableForSale)?.node ?? product.variants.edges[0]?.node
+    : product.variants.edges[0]?.node;
+  const variantAvailable = product.availableForSale && (firstVariant?.availableForSale ?? false);
+  // Pre-order: product is "available" in Shopify but has 0 inventory (continue selling when out of stock)
   const isPreorder = variantAvailable && firstVariant?.quantityAvailable === 0;
 
   async function handleAdd() {

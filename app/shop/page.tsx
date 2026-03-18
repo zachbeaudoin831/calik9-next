@@ -6,21 +6,28 @@ import ProductCard from "@/components/ProductCard";
 
 const FILTERS = ["All","Training Equipment","Treats","Apparel","Accessories"];
 
+function isPreorderProduct(p: ShopifyProduct) {
+  const firstAvailable = p.variants.edges.find((e) => e.node.availableForSale)?.node;
+  return p.availableForSale && firstAvailable != null && firstAvailable.quantityAvailable === 0;
+}
+
 export default function ShopPage() {
   const [products, setProducts] = useState<ShopifyProduct[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeFilter, setActiveFilter] = useState("All");
+  const [hidePreorders, setHidePreorders] = useState(true);
 
   useEffect(() => {
     getProducts(50).then((p) => { setProducts(p); setLoading(false); });
   }, []);
 
-  const filtered = activeFilter === "All"
+  const filtered = (activeFilter === "All"
     ? products
     : products.filter((p) =>
         p.productType?.toLowerCase().includes(activeFilter.toLowerCase()) ||
         p.tags?.some((t) => t.toLowerCase().includes(activeFilter.toLowerCase()))
-      );
+      )
+  ).filter((p) => !hidePreorders || !isPreorderProduct(p));
 
   return (
     <>
@@ -41,16 +48,24 @@ export default function ShopPage() {
       {/* FILTERS */}
       <div className="shop-filters">
         <div className="wrap">
-          <div className="filter-tabs">
-            {FILTERS.map((f) => (
-              <button
-                key={f}
-                className={`filter-tab${activeFilter === f ? " active" : ""}`}
-                onClick={() => setActiveFilter(f)}
-              >
-                {f}
-              </button>
-            ))}
+          <div className="filter-bar">
+            <div className="filter-tabs">
+              {FILTERS.map((f) => (
+                <button
+                  key={f}
+                  className={`filter-tab${activeFilter === f ? " active" : ""}`}
+                  onClick={() => setActiveFilter(f)}
+                >
+                  {f}
+                </button>
+              ))}
+            </div>
+            <button
+              className={`preorder-toggle${hidePreorders ? " active" : ""}`}
+              onClick={() => setHidePreorders((v) => !v)}
+            >
+              {hidePreorders ? "Pre-orders Hidden" : "Show Pre-orders"}
+            </button>
           </div>
         </div>
       </div>
