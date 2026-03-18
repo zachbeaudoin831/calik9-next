@@ -1,7 +1,10 @@
 import { Fragment } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { getProducts } from "@/lib/shopify";
 import ProductCard from "@/components/ProductCard";
+
+const JAS_HERO = "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/66a311486dce452f20d2ffcd.png";
 
 export const metadata = {
   title: "Cali K9® — Professional Dog Training | As Seen on Netflix",
@@ -51,8 +54,13 @@ export default async function HomePage() {
           </div>
         </div>
         <div className="hero-right">
-          {/* Replace with actual hero image */}
-          <div style={{width:"100%",height:"100%",background:"linear-gradient(135deg,#122E85,#1A3FAB)"}}/>
+          <Image
+            src={JAS_HERO}
+            alt="Jas Leverette — Cali K9 dog trainer"
+            fill
+            priority
+            style={{objectFit:"cover",objectPosition:"center top"}}
+          />
         </div>
       </section>
 

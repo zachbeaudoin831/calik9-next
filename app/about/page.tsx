@@ -1,4 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
+
+const JAS_HERO = "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/66a311486dce452f20d2ffcd.png";
 
 export const metadata = {
   title: "About Jas Leverette — Founder of Cali K9",
@@ -35,8 +38,14 @@ export default function AboutPage() {
             <Link href="/shop" className="btn btn-outline-white">Shop Gear</Link>
           </div>
         </div>
-        <div className="hero-right" style={{position:"relative"}}>
-          <div style={{width:"100%",height:"100%",background:"linear-gradient(135deg,#0f2460,#1A3FAB)"}}/>
+        <div className="hero-right">
+          <Image
+            src={JAS_HERO}
+            alt="Jas Leverette — Founder of Cali K9"
+            fill
+            priority
+            style={{objectFit:"cover",objectPosition:"center top"}}
+          />
         </div>
       </section>
 

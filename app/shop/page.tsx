@@ -1,8 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { getProducts, ShopifyProduct } from "@/lib/shopify";
 import ProductCard from "@/components/ProductCard";
+
+const SHOP_HERO_IMG = "https://cdn.shopify.com/s/files/1/0534/2275/1922/files/VIP-Training-With-Jas-Leverette-Cali-K9_-63071466.jpg?v=1710190456";
 
 const FILTERS = ["All","Training Equipment","Treats","Apparel","Accessories"];
 
@@ -33,6 +36,13 @@ export default function ShopPage() {
     <>
       {/* HERO */}
       <section className="shop-hero">
+        <Image
+          src={SHOP_HERO_IMG}
+          alt="Cali K9 training"
+          fill
+          priority
+          style={{objectFit:"cover",objectPosition:"center top",opacity:.18,filter:"saturate(.6)"}}
+        />
         <div className="shop-hero-inner">
           <span className="tag">Official Store</span>
           <h1 className="hdg-hero" style={{marginBottom:"16px"}}>
