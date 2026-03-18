@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sudo npm:*)",
+      "Bash(npm run:*)",
+      "Bash(npx vercel:*)"
+    ]
+  }
+}

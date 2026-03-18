@@ -31,12 +31,12 @@ export default function EvalPage() {
       </div>
 
       {/* HERO + FORM */}
-      <section id="book" style={{background:"var(--bd)",minHeight:"100vh",display:"grid",gridTemplateColumns:"1fr 1fr",alignItems:"stretch",position:"relative",overflow:"hidden"}}>
+      <section id="book" className="eval-hero-grid">
         <div style={{position:"absolute",inset:0,backgroundImage:"repeating-linear-gradient(45deg,rgba(255,255,255,.02) 0,rgba(255,255,255,.02) 1px,transparent 1px,transparent 40px)"}}/>
         <div className="hero-orb"/>
 
         {/* Left */}
-        <div className="hero-left" style={{padding:"60px 48px 60px 60px"}}>
+        <div className="hero-left">
           <div style={{display:"inline-flex",alignItems:"center",gap:"10px",background:"rgba(255,255,255,.08)",border:"1px solid rgba(255,255,255,.2)",borderRadius:"var(--radius-sm)",padding:"10px 16px",marginBottom:"24px"}}>
             <div style={{width:"8px",height:"8px",background:"#4ADE80",borderRadius:"50%",animation:"pulse 2s infinite"}}/>
             <span style={{fontFamily:"var(--font-cond)",fontSize:"12px",fontWeight:700,letterSpacing:"2px",textTransform:"uppercase",color:"rgba(255,255,255,.85)"}}>
@@ -142,7 +142,7 @@ export default function EvalPage() {
             <h2 className="hdg">What You Get in Your <span className="b">Free Evaluation</span></h2>
             <div className="div div-c"/>
           </div>
-          <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:"24px"}}>
+          <div className="grid-3col" style={{gap:"24px"}}>
             {[
               {icon:"🎯",title:"Root Cause Analysis",desc:"Jas identifies the exact trigger driving your dog's behavior — not just the symptom."},
               {icon:"🗺️",title:"Custom Training Roadmap",desc:"You leave with a clear, personalized plan tailored to your dog's breed, age, and specific issues."},
@@ -169,8 +169,8 @@ export default function EvalPage() {
             <h2 className="hdg">How It <span className="b">Works</span></h2>
             <div className="div div-c"/>
           </div>
-          <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:"24px",position:"relative"}}>
-            <div style={{position:"absolute",top:"36px",left:"12.5%",right:"12.5%",height:"2px",background:"var(--bo)",zIndex:0}}/>
+          <div className="grid-4col" style={{gap:"24px",position:"relative"}}>
+            <div className="step-connector"/>
             {[
               {n:"1",title:"Submit Form",desc:"Fill out the 60-second form above with your dog's info and biggest challenge."},
               {n:"2",title:"We Reach Out",desc:"Our team contacts you within 24 hours to confirm your evaluation slot."},
@@ -193,7 +193,7 @@ export default function EvalPage() {
       <section className="sec" style={{background:"var(--bd)",position:"relative",overflow:"hidden"}}>
         <div style={{position:"absolute",inset:0,backgroundImage:"repeating-linear-gradient(45deg,rgba(255,255,255,.02) 0,rgba(255,255,255,.02) 1px,transparent 1px,transparent 40px)"}}/>
         <div className="wrap" style={{position:"relative",zIndex:1}}>
-          <div style={{display:"grid",gridTemplateColumns:"5fr 7fr",gap:"72px",alignItems:"center"}}>
+          <div className="grid-asym" style={{gap:"48px",alignItems:"center"}}>
             <div style={{background:"rgba(255,255,255,.05)",borderRadius:"var(--radius-lg)",aspectRatio:"3/4",display:"flex",alignItems:"center",justifyContent:"center"}}>
               <span style={{fontFamily:"var(--font-display)",fontSize:"72px",color:"rgba(255,255,255,.1)"}}>JAS</span>
             </div>
@@ -232,7 +232,7 @@ export default function EvalPage() {
             <h2 className="hdg">What Families <span className="b">Are Saying</span></h2>
             <div className="div div-c"/>
           </div>
-          <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:"20px"}}>
+          <div className="grid-3col" style={{gap:"20px"}}>
             {[
               {stars:"★★★★★",text:"The evaluation alone changed everything. Jas figured out in 20 minutes what we couldn't figure out in 2 years. Our dog is unrecognizable.",author:"Marcus T.",dog:"Rocky — German Shepherd",result:"Reactivity Eliminated"},
               {stars:"★★★★★",text:"I was skeptical about a free evaluation — I thought there'd be a catch. There wasn't. Jas was honest, direct, and gave us a real plan on the spot.",author:"Sarah M.",dog:"Bella — Pit Bull Mix",result:"Aggression Fixed"},

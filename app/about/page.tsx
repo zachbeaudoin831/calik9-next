@@ -43,7 +43,7 @@ export default function AboutPage() {
       {/* ORIGIN STORY */}
       <section className="sec">
         <div className="wrap-md">
-          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"72px",alignItems:"center"}}>
+          <div className="grid-2col" style={{gap:"48px",alignItems:"center"}}>
             <div>
               <span className="tag">The Origin Story</span>
               <h2 className="hdg" style={{marginBottom:"24px"}}>From Oakland to <span className="b">Netflix</span></h2>
@@ -81,7 +81,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:"24px",marginTop:"48px"}}>
+          <div className="grid-3col" style={{gap:"24px",marginTop:"48px"}}>
             {[
               {icon:"🎯",title:"Structure",desc:"Dogs thrive with clear boundaries and consistent rules. Structure is love expressed in a language dogs understand."},
               {icon:"❤️",title:"Relationship",desc:"Every command, every correction, every reward builds or breaks the bond. We build bonds that last a lifetime."},
@@ -100,7 +100,7 @@ export default function AboutPage() {
       {/* CREDENTIALS */}
       <section className="sec">
         <div className="wrap">
-          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"72px",alignItems:"center"}}>
+          <div className="grid-2col" style={{gap:"48px",alignItems:"center"}}>
             <div>
               <span className="tag">Credentials</span>
               <h2 className="hdg" style={{marginBottom:"24px"}}>Why Families <span className="b">Trust Us</span></h2>

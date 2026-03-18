@@ -110,7 +110,7 @@ export default async function HomePage() {
             <div className="div div-c"/>
             <p className="sub">Every program is built around your dog&apos;s individual needs and your family&apos;s goals.</p>
           </div>
-          <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:"24px"}}>
+          <div className="grid-3col" style={{gap:"24px"}}>
             {[
               {name:"Board & Train",price:"From $3,500",desc:"Your dog lives with us for 2–4 weeks of intensive, structured training.",featured:false},
               {name:"Private Sessions",price:"From $250/hr",desc:"One-on-one sessions tailored to your dog&apos;s specific behavior challenges.",featured:true},
@@ -158,7 +158,7 @@ export default async function HomePage() {
             <h2 className="hdg">Real <span className="b">Transformations</span></h2>
             <div className="div div-c"/>
           </div>
-          <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:"24px"}}>
+          <div className="grid-3col" style={{gap:"24px"}}>
             {[
               {stars:"★★★★★",text:"Jas completely transformed our reactive German Shepherd in just 3 weeks. The results are beyond what we imagined possible.",author:"Marcus T.",dog:"Rocky — GSD",result:"Reactivity Resolved"},
               {stars:"★★★★★",text:"After struggling for 2 years with our Pit Bull mix, Cali K9 gave us our life back. Best investment we ever made.",author:"Jennifer R.",dog:"Diesel — Pit Mix",result:"Aggression Fixed"},

@@ -15,8 +15,8 @@ export default function VIPPage() {
       {/* HERO */}
       <section style={{paddingTop:"72px",background:"var(--gi)",color:"#fff",position:"relative",overflow:"hidden"}}>
         <div style={{position:"absolute",inset:0,background:"linear-gradient(135deg,#0a1a5c 0%,#122E85 50%,#1A3FAB 100%)"}}/>
-        <div className="wrap" style={{position:"relative",zIndex:1,padding:"60px 0 80px"}}>
-          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"64px",alignItems:"center"}}>
+        <div className="wrap" style={{position:"relative",zIndex:1,paddingTop:"60px",paddingBottom:"80px"}}>
+          <div className="grid-2col" style={{gap:"64px",alignItems:"center"}}>
             <div>
               <span className="tag" style={{background:"rgba(255,255,255,.15)",color:"#fff",border:"1px solid rgba(255,255,255,.3)"}}>
                 Limited Spots · One-on-One With Jas
@@ -67,7 +67,7 @@ export default function VIPPage() {
             <h2 className="hdg">Everything in Your <span className="b">VIP Package</span></h2>
             <div className="div div-c"/>
           </div>
-          <div style={{display:"grid",gridTemplateColumns:"repeat(2,1fr)",gap:"16px",maxWidth:"800px",margin:"0 auto"}}>
+          <div className="grid-2col" style={{gap:"16px",maxWidth:"800px",margin:"0 auto"}}>
             {[
               {icon:"📞",item:"Live Kickstarter Call with Senior Trainer"},
               {icon:"🐕",item:"Five 2-Hour Private Sessions With Jas Leverette"},
@@ -93,7 +93,7 @@ export default function VIPPage() {
       {/* WHO IT'S FOR */}
       <section style={{background:"var(--gi)",padding:"80px 0"}}>
         <div className="wrap">
-          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"64px",alignItems:"center"}}>
+          <div className="grid-2col" style={{gap:"48px",alignItems:"center"}}>
             <div>
               <span className="tag" style={{background:"rgba(255,255,255,.15)",color:"#fff",border:"1px solid rgba(255,255,255,.3)"}}>Who This Is For</span>
               <h2 style={{fontFamily:"var(--font-display)",fontSize:"clamp(32px,4vw,56px)",color:"#fff",margin:"16px 0 24px",lineHeight:1}}>
@@ -169,7 +169,7 @@ export default function VIPPage() {
       {/* ABOUT JAS */}
       <section className="sec" style={{background:"var(--w)"}}>
         <div className="wrap">
-          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"64px",alignItems:"center"}}>
+          <div className="grid-2col" style={{gap:"48px",alignItems:"center"}}>
             <div>
               <Image
                 src={VIP_IMAGE}
