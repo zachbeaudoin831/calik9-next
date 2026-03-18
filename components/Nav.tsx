@@ -23,7 +23,7 @@ export default function Nav() {
     <>
       <nav className="site-nav">
         <Link href="/" className="nav-brand">
-          <Image src="/logo.svg" alt="Cali K9" width={46} height={46} />
+          <Image src="/logo.avif" alt="Cali K9" width={46} height={46} style={{borderRadius:"6px"}} />
           <span className="nav-brand-name">CALI K9</span>
         </Link>
 

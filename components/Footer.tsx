@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="ft-grid">
           <div>
             <div className="ft-brand">
-              <Image src="/logo.svg" alt="Cali K9" width={44} height={44} />
+              <Image src="/logo.avif" alt="Cali K9" width={44} height={44} style={{borderRadius:"6px"}} />
               <span className="ft-brand-name">CALI K9</span>
             </div>
             <p className="ft-tagline">

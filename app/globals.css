@@ -18,6 +18,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+.reg { font-size: 0.45em; vertical-align: super; line-height: 0; font-weight: inherit; }
 html { scroll-behavior: smooth; }
 body { font-family: var(--font-body); background: var(--w); color: var(--gi); line-height: 1.6; overflow-x: hidden; }
 img { display: block; max-width: 100%; }

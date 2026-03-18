@@ -22,7 +22,7 @@ export default function VIPPage() {
                 Limited Spots · One-on-One With Jas
               </span>
               <h1 style={{fontFamily:"var(--font-display)",fontSize:"clamp(40px,6vw,72px)",color:"#fff",lineHeight:1,margin:"20px 0 8px"}}>
-                CALI K9® VIP<br/>
+                CALI K9<span className="reg">®</span> VIP<br/>
                 <span style={{color:"rgba(255,255,255,.65)"}}>DOG TRAINING</span><br/>
                 WITH JAS LEVERETTE
               </h1>

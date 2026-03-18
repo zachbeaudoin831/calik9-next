@@ -136,7 +136,7 @@ export default async function HomePage() {
           <div className="wrap">
             <div className="sec-hd">
               <span className="tag">Shop</span>
-              <h2 className="hdg">Cali K9® <span className="b">Gear</span></h2>
+              <h2 className="hdg">Cali K9<span className="reg">®</span> <span className="b">Gear</span></h2>
               <div className="div div-c"/>
               <p className="sub">Professional training equipment, apparel, and treats used by Jas and the Cali K9 team.</p>
             </div>
