@@ -1,5 +1,6 @@
 import Image from "next/image";
 import AddVIPToCart from "./AddVIPToCart";
+import CelebBadges from "@/components/CelebBadges";
 
 export const metadata = {
   title: "VIP Dog Training With Jas Leverette | Cali K9®",
@@ -143,13 +144,7 @@ export default function VIPPage() {
             <div className="div div-c"/>
             <p className="sub">See why some of the most recognized names in the world trust Jas Leverette with their dogs.</p>
           </div>
-          <div style={{display:"flex",flexWrap:"wrap",gap:"12px",justifyContent:"center",marginBottom:"48px"}}>
-            {["Kendrick Lamar","Steph Curry","Kevin Hart","Dr. Phil","Demi Moore","Jason Derulo","Coi Leray","San Jose Police Dept","Turks & Caicos Military"].map((name) => (
-              <span key={name} className="celeb-badge" style={{fontFamily:"var(--font-cond)",fontSize:"14px",fontWeight:700,letterSpacing:"1px",textTransform:"uppercase",padding:"10px 20px",background:"var(--w)",border:"1px solid var(--bo)",borderRadius:"var(--radius-sm)",color:"var(--gi)"}}>
-                {name}
-              </span>
-            ))}
-          </div>
+          <CelebBadges />
 
           {/* Stephen Curry Testimonial */}
           <div style={{maxWidth:"700px",margin:"0 auto",background:"var(--gi)",borderRadius:"var(--radius)",padding:"48px",textAlign:"center",color:"#fff"}}>
