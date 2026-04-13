@@ -3,116 +3,240 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useCart } from "@/context/CartContext";
+
+const NAV_LINKS = [
+  { href: "/", label: "Home" },
+  { href: "/services", label: "Services", hasSub: true },
+  { href: "/about", label: "About" },
+  { href: "/team", label: "Team" },
+  { href: "/testimonials", label: "Testimonials" },
+  { href: "/blog", label: "Blog" },
+  { href: "/contact", label: "Contact" },
+  { href: "https://shop.calik9.com", label: "Shop", external: true },
+];
+
+const SERVICE_LINKS = [
+  { href: "/services", label: "All Services" },
+  { href: "/services#new-clients", label: "New Clients" },
+  { href: "/services#returning-clients", label: "Returning Clients" },
+  { href: "/starter-course", label: "Starter Courses" },
+  { href: "/online-training", label: "Online Training" },
+  { href: "/coaching", label: "Coaching" },
+];
 
 export default function Nav() {
   const pathname = usePathname();
   const { openCart, totalQuantity } = useCart();
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [programsOpen, setProgramsOpen] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const subRef = useRef<HTMLLIElement>(null);
 
   useEffect(() => {
-    function handleClick(e: MouseEvent) {
-      if (!(e.target as Element).closest(".nav-has-dropdown")) {
-        setProgramsOpen(false);
-      }
-    }
-    document.addEventListener("click", handleClick);
-    return () => document.removeEventListener("click", handleClick);
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const CartIcon = () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
-      <line x1="3" y1="6" x2="21" y2="6"/>
-      <path d="M16 10a4 4 0 01-8 0"/>
-    </svg>
-  );
+  useEffect(() => {
+    if (drawerOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [drawerOpen]);
 
-  const isProgram = pathname === "/vip" || pathname === "/eval";
+  const isActive = (href: string) => pathname === href;
+  const isServicePage = pathname.startsWith("/services") || pathname.startsWith("/online-training") || pathname.startsWith("/in-person") || pathname.startsWith("/group-class") || pathname.startsWith("/board-and-train") || pathname.startsWith("/vip-with-jas") || pathname.startsWith("/semi-private") || pathname.startsWith("/zoom-group") || pathname.startsWith("/coaching") || pathname.startsWith("/starter-course");
 
   return (
     <>
-      <nav className="site-nav">
-        {/* LEFT: logo + links */}
-        <div className="nav-left">
-          <Link href="/" className="nav-brand">
-            <Image src="/logo.avif" alt="Cali K9" width={46} height={46} style={{ borderRadius: "6px" }} />
-            <span className="nav-brand-name">CALI K9</span>
+      <nav
+        aria-label="Main navigation"
+        className={`fixed top-[var(--banner-h,0px)] left-0 right-0 h-[68px] bg-white border-b-2 border-blue-500 z-[1000] transition-[box-shadow,top] duration-[200ms,450ms] ease-[ease,cubic-bezier(0.16,1,0.3,1)] ${
+          scrolled ? "shadow-[0_2px_16px_rgba(0,0,0,0.1)]" : ""
+        }`}
+      >
+        <div className="max-w-[1280px] mx-auto px-5 flex justify-between items-center h-full">
+          {/* Logo */}
+          <Link href="/" className="inline-flex items-center no-underline">
+            <Image
+              src="/images/logo.webp"
+              alt="Cali K9® logo"
+              width={350}
+              height={54}
+              className="h-8 w-auto block"
+              priority
+            />
           </Link>
 
-          <ul className="nav-links">
-            {[
-              { href: "/", label: "Home" },
-              { href: "/about", label: "About" },
-              { href: "/shop", label: "Shop" },
-            ].map((l) => (
-              <li key={l.href}>
-                <Link href={l.href} className={pathname === l.href ? "active" : ""}>
-                  {l.label}
-                </Link>
-              </li>
-            ))}
+          {/* Hamburger (mobile) */}
+          <button
+            onClick={() => setDrawerOpen(!drawerOpen)}
+            aria-label={drawerOpen ? "Close menu" : "Open menu"}
+            aria-expanded={drawerOpen}
+            className="hidden max-lg:flex flex-col justify-center gap-[5px] w-11 h-11 bg-transparent border-none cursor-pointer p-2"
+          >
+            <span className={`block h-0.5 bg-ink rounded-sm transition-all ${drawerOpen ? "rotate-45 translate-y-[3.5px]" : ""}`} />
+            <span className={`block h-0.5 bg-ink rounded-sm transition-all ${drawerOpen ? "opacity-0" : ""}`} />
+            <span className={`block h-0.5 bg-ink rounded-sm transition-all ${drawerOpen ? "-rotate-45 -translate-y-[3.5px]" : ""}`} />
+          </button>
 
-            {/* Programs dropdown */}
-            <li className="nav-has-dropdown">
-              <button
-                className={isProgram ? "active" : ""}
-                onClick={() => setProgramsOpen((v) => !v)}
+          {/* Desktop links */}
+          <ul className="flex items-center gap-7 list-none max-lg:hidden">
+            {NAV_LINKS.map((link) =>
+              link.hasSub ? (
+                <li key={link.href} ref={subRef} className="relative group">
+                  <Link
+                    href={link.href}
+                    className={`font-ui text-[13px] font-bold uppercase tracking-[2px] no-underline transition-colors ${
+                      isServicePage ? "text-blue-500 border-b-2 border-blue-500 pb-1" : "text-gray-muted hover:text-blue-500"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                  {/* Dropdown */}
+                  <ul className="absolute top-full left-1/2 -translate-x-1/2 bg-white border border-black/8 border-t-[10px] border-t-transparent rounded-xl shadow-[0_10px_36px_rgba(0,0,0,0.14)] py-1.5 min-w-[190px] list-none opacity-0 invisible pointer-events-none transition-[opacity,transform,visibility] duration-[180ms] -translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:visible group-focus-within:pointer-events-auto group-focus-within:translate-y-0 z-[200]">
+                    {SERVICE_LINKS.map((sub) => (
+                      <li key={sub.href}>
+                        <Link
+                          href={sub.href}
+                          className={`block px-4 py-2.5 font-ui text-xs font-bold uppercase tracking-[2px] no-underline whitespace-nowrap transition-colors ${
+                            isActive(sub.href) ? "text-blue-500" : "text-ink hover:text-blue-500 hover:bg-blue-50"
+                          }`}
+                        >
+                          {sub.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ) : (
+                <li key={link.href}>
+                  {link.external ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-ui text-[13px] font-bold uppercase tracking-[2px] text-gray-muted no-underline hover:text-blue-500 transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className={`font-ui text-[13px] font-bold uppercase tracking-[2px] no-underline transition-colors ${
+                        isActive(link.href)
+                          ? "text-blue-500 border-b-2 border-blue-500 pb-1"
+                          : "text-gray-muted hover:text-blue-500"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  )}
+                </li>
+              )
+            )}
+            {/* Evaluation CTA */}
+            <li>
+              <Link
+                href="/evaluation"
+                className="font-ui text-[13px] font-bold uppercase tracking-[2px] bg-blue-500 text-white border-2 border-blue-500 px-4 py-[7px] rounded-sm whitespace-nowrap hover:bg-blue-700 hover:border-blue-700 hover:-translate-y-px transition-all"
               >
-                Programs
-                <span className={`nav-chevron${programsOpen ? " open" : ""}`}>▾</span>
-              </button>
-              <div className={`nav-dropdown${programsOpen ? " open" : ""}`}>
-                <Link href="/vip" className={pathname === "/vip" ? "active" : ""} onClick={() => setProgramsOpen(false)}>
-                  <span className="drop-icon">★</span> VIP Training
-                </Link>
-                <Link href="/eval" className={pathname === "/eval" ? "active" : ""} onClick={() => setProgramsOpen(false)}>
-                  <span className="drop-icon">→</span> Dog Evaluation
-                </Link>
-              </div>
+                Evaluation
+              </Link>
             </li>
           </ul>
-        </div>
 
-        {/* RIGHT: cart + CTA + mobile toggle */}
-        <div className="nav-right">
-          <button onClick={openCart} className="nav-cart-btn" aria-label="Open cart">
-            <CartIcon />
-            {totalQuantity > 0 && <span className="cart-count">{totalQuantity}</span>}
-          </button>
-          <Link href="/eval" className="nav-book">Book Evaluation</Link>
-          <button className="nav-mobile-btn" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Menu">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              {mobileOpen
-                ? <path d="M18 6L6 18M6 6l12 12" />
-                : <><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" /></>
-              }
+          {/* Cart button (always visible) */}
+          <button
+            onClick={openCart}
+            aria-label="Open cart"
+            className="relative bg-transparent border-none cursor-pointer p-2 max-lg:mr-12"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <path d="M16 10a4 4 0 01-8 0" />
             </svg>
+            {totalQuantity > 0 && (
+              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold w-[18px] h-[18px] rounded-full flex items-center justify-center">
+                {totalQuantity}
+              </span>
+            )}
           </button>
         </div>
       </nav>
 
+      {/* Mobile drawer overlay */}
+      {drawerOpen && (
+        <div
+          className="fixed inset-0 bg-black/30 z-[998] lg:hidden"
+          onClick={() => setDrawerOpen(false)}
+        />
+      )}
+
       {/* Mobile drawer */}
-      <div className={`nav-drawer ${mobileOpen ? "open" : ""}`}>
-        {[
-          { href: "/", label: "Home" },
-          { href: "/about", label: "About" },
-          { href: "/vip", label: "VIP Training" },
-          { href: "/eval", label: "Dog Evaluation" },
-          { href: "/shop", label: "Shop" },
-          { href: "/eval", label: "Book Evaluation", cta: true },
-        ].map((l) => (
-          <Link
-            key={l.label}
-            href={l.href}
-            className={`${pathname === l.href ? "active" : ""} ${l.cta ? "book-mobile" : ""}`}
-            onClick={() => setMobileOpen(false)}
-          >
-            {l.label}
-          </Link>
-        ))}
+      <div
+        className={`fixed top-[calc(var(--banner-h,0px)+68px)] right-0 bottom-0 w-[min(320px,85vw)] bg-white border-l-2 border-blue-500 p-8 px-6 z-[999] overflow-y-auto transition-transform duration-300 lg:hidden ${
+          drawerOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <ul className="flex flex-col gap-1 list-none">
+          {NAV_LINKS.map((link) => (
+            <li key={link.href}>
+              {link.external ? (
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block font-ui text-base font-bold uppercase tracking-[2px] text-ink py-3 border-b border-black/5 no-underline hover:text-blue-500 transition-colors"
+                  onClick={() => setDrawerOpen(false)}
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <>
+                  <Link
+                    href={link.href}
+                    className={`block font-ui text-base font-bold uppercase tracking-[2px] py-3 border-b border-black/5 no-underline transition-colors ${
+                      (link.hasSub ? isServicePage : isActive(link.href)) ? "text-blue-500" : "text-ink hover:text-blue-500"
+                    }`}
+                    onClick={() => setDrawerOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                  {link.hasSub && (
+                    <ul className="flex flex-col gap-0 list-none border-l-2 border-blue-500/20 pl-4 ml-2 mt-1">
+                      {SERVICE_LINKS.map((sub) => (
+                        <li key={sub.href}>
+                          <Link
+                            href={sub.href}
+                            className="block font-ui text-xs font-bold uppercase tracking-[2px] text-gray-muted py-[7px] px-2 no-underline hover:text-blue-500 transition-colors"
+                            onClick={() => setDrawerOpen(false)}
+                          >
+                            {sub.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </>
+              )}
+            </li>
+          ))}
+          <li>
+            <Link
+              href="/evaluation"
+              className="block text-center font-ui text-[13px] font-bold uppercase tracking-[2px] bg-blue-500 text-white px-4 py-3 rounded-sm mt-4 no-underline hover:bg-blue-700 transition-colors"
+              onClick={() => setDrawerOpen(false)}
+            >
+              Evaluation
+            </Link>
+          </li>
+        </ul>
       </div>
     </>
   );
