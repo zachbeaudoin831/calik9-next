@@ -14,7 +14,7 @@ const NAV_LINKS = [
   { href: "/testimonials", label: "Testimonials" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
-  { href: "https://shop.calik9.com", label: "Shop", external: true },
+  { href: "/shop", label: "Shop" },
 ];
 
 const SERVICE_LINKS = [
@@ -115,27 +115,16 @@ export default function Nav() {
                 </li>
               ) : (
                 <li key={link.href}>
-                  {link.external ? (
-                    <a
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-ui text-[13px] font-bold uppercase tracking-[2px] text-gray-muted no-underline hover:text-blue-500 transition-colors"
-                    >
-                      {link.label}
-                    </a>
-                  ) : (
-                    <Link
-                      href={link.href}
-                      className={`font-ui text-[13px] font-bold uppercase tracking-[2px] no-underline transition-colors ${
-                        isActive(link.href)
-                          ? "text-blue-500 border-b-2 border-blue-500 pb-1"
-                          : "text-gray-muted hover:text-blue-500"
-                      }`}
-                    >
-                      {link.label}
-                    </Link>
-                  )}
+                  <Link
+                    href={link.href}
+                    className={`font-ui text-[13px] font-bold uppercase tracking-[2px] no-underline transition-colors ${
+                      isActive(link.href)
+                        ? "text-blue-500 border-b-2 border-blue-500 pb-1"
+                        : "text-gray-muted hover:text-blue-500"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
                 </li>
               )
             )}
@@ -187,43 +176,29 @@ export default function Nav() {
         <ul className="flex flex-col gap-1 list-none">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
-              {link.external ? (
-                <a
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block font-ui text-base font-bold uppercase tracking-[2px] text-ink py-3 border-b border-black/5 no-underline hover:text-blue-500 transition-colors"
-                  onClick={() => setDrawerOpen(false)}
-                >
-                  {link.label}
-                </a>
-              ) : (
-                <>
-                  <Link
-                    href={link.href}
-                    className={`block font-ui text-base font-bold uppercase tracking-[2px] py-3 border-b border-black/5 no-underline transition-colors ${
-                      (link.hasSub ? isServicePage : isActive(link.href)) ? "text-blue-500" : "text-ink hover:text-blue-500"
-                    }`}
-                    onClick={() => setDrawerOpen(false)}
-                  >
-                    {link.label}
-                  </Link>
-                  {link.hasSub && (
-                    <ul className="flex flex-col gap-0 list-none border-l-2 border-blue-500/20 pl-4 ml-2 mt-1">
-                      {SERVICE_LINKS.map((sub) => (
-                        <li key={sub.href}>
-                          <Link
-                            href={sub.href}
-                            className="block font-ui text-xs font-bold uppercase tracking-[2px] text-gray-muted py-[7px] px-2 no-underline hover:text-blue-500 transition-colors"
-                            onClick={() => setDrawerOpen(false)}
-                          >
-                            {sub.label}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </>
+              <Link
+                href={link.href}
+                className={`block font-ui text-base font-bold uppercase tracking-[2px] py-3 border-b border-black/5 no-underline transition-colors ${
+                  (link.hasSub ? isServicePage : isActive(link.href)) ? "text-blue-500" : "text-ink hover:text-blue-500"
+                }`}
+                onClick={() => setDrawerOpen(false)}
+              >
+                {link.label}
+              </Link>
+              {link.hasSub && (
+                <ul className="flex flex-col gap-0 list-none border-l-2 border-blue-500/20 pl-4 ml-2 mt-1">
+                  {SERVICE_LINKS.map((sub) => (
+                    <li key={sub.href}>
+                      <Link
+                        href={sub.href}
+                        className="block font-ui text-xs font-bold uppercase tracking-[2px] text-gray-muted py-[7px] px-2 no-underline hover:text-blue-500 transition-colors"
+                        onClick={() => setDrawerOpen(false)}
+                      >
+                        {sub.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               )}
             </li>
           ))}
