@@ -70,11 +70,11 @@ export default function CelebGrid() {
           FROM HOLLYWOOD TO THE FRONT LINES — SEE WHY CELEBRITIES, MILITARY UNITS, LAW ENFORCEMENT AND EVERYDAY PEOPLE RELY ON OUR PROGRAM.
         </h2>
 
-        <div className="grid grid-cols-3 gap-6 max-[900px]:grid-cols-2 max-[540px]:grid-cols-2 max-[540px]:gap-2.5">
+        <div className="grid grid-cols-3 gap-6 max-[480px]:grid-cols-2 max-[480px]:gap-3">
           {CELEBS.map((celeb) => (
             <article
               key={celeb.name}
-              className="relative rounded-xl overflow-hidden aspect-[3/4] cursor-default transition-[transform,box-shadow] duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-[5px] hover:shadow-lg"
+              className="relative rounded-xl overflow-hidden aspect-square cursor-default transition-[transform,box-shadow] duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-[5px] hover:shadow-lg"
               aria-label={`${celeb.name} testimonial`}
             >
               <Image
@@ -90,10 +90,10 @@ export default function CelebGrid() {
                 <div className="flex justify-center gap-0.5 mb-2" role="img" aria-label="5 out of 5 stars">
                   <span className="text-amber-400 text-xs leading-none">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
                 </div>
-                <p className="font-body text-[13px] italic font-light text-white/85 leading-normal mb-3.5 line-clamp-3 max-[540px]:line-clamp-2 max-[540px]:text-xs">
+                <p className="font-body text-[13px] italic font-light text-white/85 leading-normal mb-3.5 line-clamp-3 max-[480px]:line-clamp-2 max-[480px]:text-xs">
                   {celeb.quote}
                 </p>
-                <div className="font-display text-[22px] text-white leading-none tracking-[0.5px] mb-1 max-[540px]:text-lg">
+                <div className="font-display text-xl text-white leading-none tracking-[0.5px] mb-1 max-[480px]:text-lg">
                   {celeb.name}
                 </div>
                 <div className="font-ui text-[13px] font-bold tracking-[2px] uppercase text-white/50">

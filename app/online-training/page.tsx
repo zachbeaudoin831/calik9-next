@@ -181,18 +181,7 @@ export default function OnlineTrainingPage() {
       </ServiceHero>
 
       {/* ── Celebrity Social Proof ── */}
-      <section className="py-20 bg-white">
-        <div className="max-w-[1280px] mx-auto px-5">
-          <span className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-500 block text-center mb-3">
-            Trusted By The Best
-          </span>
-          <h2 className="font-display text-[clamp(28px,4vw,44px)] text-ink text-center max-w-[800px] mx-auto mb-12 leading-[1.1]">
-            FROM HOLLYWOOD TO THE FRONT LINES — SEE WHY CELEBRITIES, MILITARY
-            UNITS, LAW ENFORCEMENT AND EVERYDAY PEOPLE RELY ON OUR PROGRAM.
-          </h2>
-          <CelebGrid />
-        </div>
-      </section>
+      <CelebGrid />
 
       {/* ── Final CTA ── */}
       <CtaBlock

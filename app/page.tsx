@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import Script from "next/script";
-import CelebGrid from "@/components/CelebGrid";
 import CtaBlock from "@/components/CtaBlock";
 
 export const metadata = {
@@ -178,7 +177,7 @@ export default function HomePage() {
           {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, i) => (
             <span key={i} className="font-ui text-sm font-bold tracking-[3px] uppercase text-white/90 mx-6 shrink-0">
               {item}
-              <span className="text-white/30 ml-6">&loz;</span>
+              <span className="text-white/30 ml-6">&#9670;</span>
             </span>
           ))}
         </div>
@@ -209,7 +208,7 @@ export default function HomePage() {
       <section className="py-20 bg-cream">
         <div className="max-w-[1280px] mx-auto px-5">
           <div className="grid grid-cols-2 gap-16 items-center max-[900px]:grid-cols-1 max-[900px]:gap-10">
-            <div>
+            <figure className="relative">
               <Image
                 src="/images/jas-eval.webp"
                 alt="Jas Leverette with NBA champion Steph Curry"
@@ -217,7 +216,11 @@ export default function HomePage() {
                 height={700}
                 className="w-full h-[clamp(220px,35vw,380px)] object-cover object-top rounded-xl"
               />
-            </div>
+              <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm rounded-md px-3 py-1.5">
+                <span className="font-ui text-[10px] font-bold tracking-[2px] uppercase text-white/50 block">Client</span>
+                <span className="font-ui text-xs font-bold tracking-[1px] text-blue-200">Steph Curry</span>
+              </div>
+            </figure>
             <div>
               <span className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-500 block mb-3">
                 Meet the Founder
@@ -321,7 +324,7 @@ export default function HomePage() {
       <section className="py-20 bg-cream">
         <div className="max-w-[1280px] mx-auto px-5">
           <div className="grid grid-cols-2 gap-16 items-center max-[900px]:grid-cols-1 max-[900px]:gap-9">
-            <div>
+            <figure className="relative">
               <Image
                 src="/images/dog-line-up.webp"
                 alt="Dog group training session at the Cali K9 facility"
@@ -329,7 +332,11 @@ export default function HomePage() {
                 height={740}
                 className="w-full h-auto rounded-xl"
               />
-            </div>
+              <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm rounded-md px-3 py-1.5">
+                <span className="font-ui text-[10px] font-bold tracking-[2px] uppercase text-white/50 block">Group Training</span>
+                <span className="font-ui text-xs font-bold tracking-[1px] text-ink/80">Dogs in formation &mdash; Cali K9&reg; Training Facility</span>
+              </div>
+            </figure>
             <div>
               <span className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-500 block mb-3">
                 Why Our Method Works
@@ -344,7 +351,8 @@ export default function HomePage() {
                 testimonials, and client track record confirm it. Evolving since 2009, our method uses
                 <strong> motivational-based training</strong> to keep training a game for your dog. We call a motivated dog
                 <em> &ldquo;ignition&rdquo;</em> and describe the process as <em>&ldquo;gamified.&rdquo;</em> Our 5-pillar
-                system adapts to your dog&rsquo;s specific needs and your training goals.
+                system adapts to your dog&rsquo;s specific needs and your training goals &mdash; any issue you&rsquo;re facing
+                will be addressed and solved.
               </p>
               <div className="flex flex-wrap gap-2.5 mb-8">
                 {["Obedience", "Socialization", "Agility", "Behavior Management", "Problem Solving"].map((p) => (
@@ -529,7 +537,7 @@ export default function HomePage() {
       <section className="py-20 bg-border">
         <div className="max-w-[1280px] mx-auto px-5">
           <div className="grid grid-cols-2 gap-[72px] items-center max-[900px]:grid-cols-1 max-[900px]:gap-10">
-            <div>
+            <figure className="relative">
               <Image
                 src="/images/cdn/jas-board-and-train.webp"
                 alt="Jas Leverette with dogs during board and train program"
@@ -537,7 +545,11 @@ export default function HomePage() {
                 height={1053}
                 className="w-full h-[clamp(320px,42vw,520px)] object-cover object-top rounded-xl"
               />
-            </div>
+              <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm rounded-md px-3 py-1.5">
+                <span className="font-ui text-[10px] font-bold tracking-[2px] uppercase text-white/50 block">Founder</span>
+                <span className="font-ui text-xs font-bold tracking-[1px] text-white/80">Jas Leverette &middot; Cali K9&reg; Founder</span>
+              </div>
+            </figure>
             <div>
               <span className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-500 block mb-3">
                 Free Training Resource
@@ -585,20 +597,18 @@ export default function HomePage() {
 
           <div className="grid grid-cols-4 gap-6 mb-12 max-lg:grid-cols-2 max-sm:grid-cols-1">
             {[
-              { name: "Hoodies & Apparel", icon: "M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.57a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.57a2 2 0 0 0-1.34-2.23z" },
-              { name: "Hats & Headwear", icon: "M3 9c0-3.3 4-6 9-6s9 2.7 9 6M3 9v3h18V9M3 12v6a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-6" },
-              { name: "Training Equipment", icon: "M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM12 8v4l3 3" },
-              { name: "Collars & Leashes", icon: "M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82zM7 7h.01" },
+              { name: "Hoodies & Apparel", icon: "M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.57a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.57a2 2 0 0 0-1.34-2.23z", gradient: "from-[#e8eaf4] to-[#d0d5e8]" },
+              { name: "Hats & Headwear", icon: "M3 9c0-3.3 4-6 9-6s9 2.7 9 6M3 9v3h18V9M3 12v6a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-6", gradient: "from-[#dde1f0] to-[#c8cee4]" },
+              { name: "Training Equipment", icon: "M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM12 8v4l3 3", gradient: "from-[#e2e6f2] to-[#cfd5ea]" },
+              { name: "Collars & Leashes", icon: "M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82zM7 7h.01", gradient: "from-[#dee2f0] to-[#c5cce6]" },
             ].map((item) => (
-              <a
+              <Link
                 key={item.name}
-                href="https://shop.calik9.com"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/shop"
                 className="group bg-white rounded-xl border border-black/8 shadow-sm hover:shadow-lg hover:border-blue-500/25 transition-all no-underline"
               >
-                <div className="aspect-[4/3] rounded-t-xl bg-gradient-to-br from-[#e8eaf4] to-[#d0d5e8] flex items-center justify-center">
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(26,63,171,0.4)" strokeWidth="1.2">
+                <div className={`aspect-[4/3] rounded-t-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center`}>
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="1.2">
                     <path d={item.icon} />
                   </svg>
                 </div>
@@ -606,25 +616,20 @@ export default function HomePage() {
                   <div className="font-ui text-sm font-bold uppercase tracking-[1px] text-ink mb-1">{item.name}</div>
                   <div className="font-ui text-xs font-bold tracking-[2px] uppercase text-blue-500">Shop Now &rarr;</div>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
 
           <div className="text-center">
-            <a
-              href="https://shop.calik9.com"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/shop"
               className="inline-block font-ui text-sm font-bold uppercase tracking-[2px] bg-blue-500 text-white px-8 py-3.5 rounded-sm no-underline hover:bg-blue-700 transition-colors"
             >
               Visit the Shop &rarr;
-            </a>
+            </Link>
           </div>
         </div>
       </section>
-
-      {/* ── CELEBRITY SOCIAL PROOF ── */}
-      <CelebGrid />
 
       {/* ── FINAL CTA ── */}
       <CtaBlock

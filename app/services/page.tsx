@@ -3,7 +3,7 @@ import Image from "next/image";
 import CtaBlock from "@/components/CtaBlock";
 
 export const metadata = {
-  title: "Dog Training Services",
+  title: "Dog Training Services | Cali K9\u00ae",
   description:
     "Dog training services from Cali K9\u00ae \u2014 Board & Train, private sessions, online programs, and more.",
 };
@@ -89,17 +89,17 @@ const SPECIALIZATIONS = [
   { title: "Aggression", desc: "Dog-to-dog aggression, human aggression, resource guarding, and territorial behaviors. We safely address the root cause \u2014 not just the symptoms." },
   { title: "Reactivity", desc: "Leash reactivity, over-arousal, and threshold issues. We build calm, focused responses to triggers through structured desensitization." },
   { title: "Anxiety & Fear", desc: "Separation anxiety, fear of strangers, loud noises, and new environments. We build confidence through the 5-Pillar System." },
-  { title: "Obedience", desc: "Foundational and advanced obedience \u2014 sit, stay, recall, heel, and complex commands \u2014 built for real-world reliability." },
-  { title: "Puppy Training", desc: "Early socialization, crate training, bite inhibition, and foundational obedience. Set your puppy up for a lifetime of good behavior." },
-  { title: "Off-Leash Control", desc: "Advanced off-leash reliability for dogs ready to take their training to the highest level." },
+  { title: "Obedience", desc: "Foundational and advanced obedience \u2014 sit, stay, recall, heel, and complex commands \u2014 built for real-world reliability, not just performance in the yard." },
+  { title: "Puppy Training", desc: "Early socialization, crate training, bite inhibition, and foundational obedience. Set your puppy up for a lifetime of good behavior from day one." },
+  { title: "Off-Leash Control", desc: "Advanced off-leash reliability for dogs ready to take their training to the highest level. Freedom built on a rock-solid foundation of trust and communication." },
 ];
 
 const LOCATIONS = [
-  { name: "Bay Area, CA", address: "950 South 1st Street, San Jose, CA 95110", desc: "Flagship location \u2014 in-person training, Board & Train, and group classes." },
+  { name: "Bay Area, CA", address: "950 South 1st Street, San Jose, CA 95110", desc: "Flagship location \u2014 in-person training, Board & Train, and group classes throughout the San Francisco Bay Area." },
   { name: "Los Angeles, CA", address: "5015 Lankershim Blvd., North Hollywood, CA 91601", desc: "Private sessions and Board & Train programs serving LA and surrounding communities." },
   { name: "Miami, FL", desc: "East Coast private sessions and intensive programs \u2014 same elite Cali K9 standard." },
-  { name: "New York, NY", desc: "Serving the NYC metro area with private sessions and intensive programs." },
-  { name: "Online Worldwide", desc: "Full 5-Pillar system \u2014 train from anywhere on your schedule." },
+  { name: "New York, NY", desc: "Private sessions and select programs available. Contact us to check current availability." },
+  { name: "Online \u00b7 Worldwide", desc: "The full 5-Pillar Online Program and Zoom Group Classes available to clients anywhere in the world.", globe: true },
 ];
 
 function ServiceCard({ card }: { card: typeof NEW_CLIENT_CARDS[0] }) {
@@ -287,10 +287,18 @@ export default function ServicesPage() {
               >
                 <div className="min-w-[200px]">
                   <div className="flex items-center gap-2">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-blue-500 shrink-0">
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                      <circle cx="12" cy="10" r="3" />
-                    </svg>
+                    {loc.globe ? (
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-blue-500 shrink-0">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="2" y1="12" x2="22" y2="12" />
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                      </svg>
+                    ) : (
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-blue-500 shrink-0">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                        <circle cx="12" cy="10" r="3" />
+                      </svg>
+                    )}
                     <span className="font-ui text-sm font-bold uppercase tracking-[1px] text-ink">{loc.name}</span>
                   </div>
                   {loc.address && (
@@ -306,11 +314,11 @@ export default function ServicesPage() {
 
       {/* ── CTA ── */}
       <CtaBlock
-        eyebrow="Get Started Today"
-        heading="READY TO TRANSFORM YOUR DOG?"
-        description="Join thousands of families who\u2019ve trusted Cali K9\u00ae to unlock their dog\u2019s potential."
-        primaryCta={{ label: "Book Evaluation \u2192", href: "/evaluation" }}
-        secondaryCta={{ label: "Call (510) 890-0298", href: "tel:5108900298" }}
+        eyebrow="Not Sure Where to Start?"
+        heading="DON'T KNOW WHICH PROGRAM FITS YOUR DOG?"
+        description="Book an evaluation with Jas. We'll assess your dog's behavior and recommend exactly the right program for you."
+        primaryCta={{ label: "Book an Evaluation \u2192", href: "/evaluation" }}
+        secondaryCta={{ label: "Learn More", href: "/evaluation" }}
       />
     </>
   );
