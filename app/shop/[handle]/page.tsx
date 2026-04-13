@@ -4,7 +4,6 @@ import { notFound, redirect } from "next/navigation";
 import { getProduct, formatMoney } from "@/lib/shopify";
 import AddToCartSection from "./AddToCartSection";
 
-// Handles with dedicated custom pages
 const CUSTOM_PAGES: Record<string, string> = {
   "vip-training-with-jas-leverette": "/vip",
 };
@@ -22,45 +21,55 @@ export default async function ProductPage({ params }: { params: Promise<{ handle
 
   return (
     <>
-      <div style={{paddingTop:"72px",background:"var(--w)"}}>
-        <div className="wrap">
+      <div className="pt-[72px] bg-white">
+        <div className="max-w-[1280px] mx-auto px-5">
           {/* Breadcrumb */}
-          <div style={{padding:"24px 0",fontFamily:"var(--font-cond)",fontSize:"12px",letterSpacing:"2px",textTransform:"uppercase",color:"var(--gm)",display:"flex",gap:"8px",alignItems:"center"}}>
-            <Link href="/" style={{transition:"color .2s"}} className="ft-col">Home</Link>
+          <nav className="py-6 font-ui text-xs tracking-[2px] uppercase text-gray-muted flex gap-2 items-center">
+            <Link href="/" className="hover:text-ink transition-colors">Home</Link>
             <span>/</span>
-            <Link href="/shop" style={{transition:"color .2s"}} className="ft-col">Shop</Link>
+            <Link href="/shop" className="hover:text-ink transition-colors">Shop</Link>
             <span>/</span>
-            <span style={{color:"var(--gd)"}}>{product.title}</span>
-          </div>
+            <span className="text-ink">{product.title}</span>
+          </nav>
 
-          <div className="pdp-grid">
+          {/* Product grid */}
+          <div className="grid grid-cols-2 gap-12 pb-16 max-md:grid-cols-1 max-md:gap-8">
             {/* Images */}
             <div>
-              <div className="pdp-main-img">
+              <div className="rounded-lg overflow-hidden bg-off">
                 {images[0] ? (
                   <Image
                     src={images[0].url}
                     alt={images[0].altText ?? product.title}
                     width={800}
                     height={800}
-                    style={{width:"100%",height:"auto",display:"block"}}
+                    className="w-full h-auto block"
                     priority
                   />
                 ) : (
-                  <div className="prod-img-placeholder" style={{aspectRatio:"1",height:"auto"}}>
-                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" style={{opacity:.2}}>
-                      <rect x="3" y="3" width="18" height="18" rx="2"/>
-                      <circle cx="8.5" cy="8.5" r="1.5"/>
-                      <path d="M21 15l-5-5L5 21"/>
+                  <div className="w-full aspect-square flex items-center justify-center">
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="opacity-20">
+                      <rect x="3" y="3" width="18" height="18" rx="2" />
+                      <circle cx="8.5" cy="8.5" r="1.5" />
+                      <path d="M21 15l-5-5L5 21" />
                     </svg>
                   </div>
                 )}
               </div>
               {images.length > 1 && (
-                <div className="pdp-thumb-row">
+                <div className="flex gap-3 mt-4 overflow-x-auto">
                   {images.map((img, i) => (
-                    <div key={i} className="pdp-thumb">
-                      <Image src={img.url} alt={img.altText ?? ""} width={72} height={72} style={{width:"72px",height:"72px",objectFit:"cover",display:"block"}} />
+                    <div
+                      key={i}
+                      className="w-[72px] h-[72px] rounded-md overflow-hidden border border-border flex-shrink-0 cursor-pointer hover:border-blue-500 transition-colors"
+                    >
+                      <Image
+                        src={img.url}
+                        alt={img.altText ?? ""}
+                        width={72}
+                        height={72}
+                        className="w-[72px] h-[72px] object-cover block"
+                      />
                     </div>
                   ))}
                 </div>
@@ -68,17 +77,24 @@ export default async function ProductPage({ params }: { params: Promise<{ handle
             </div>
 
             {/* Info */}
-            <div className="pdp-info">
-              {product.productType && <p className="pdp-type">{product.productType}</p>}
-              <h1 className="pdp-title">{product.title}</h1>
+            <div>
+              {product.productType && (
+                <p className="font-ui text-[11px] font-bold tracking-[2px] uppercase text-gray-muted mb-2">
+                  {product.productType}
+                </p>
+              )}
+              <h1 className="font-display text-[clamp(28px,3vw,40px)] text-ink leading-[1.1] mb-4">
+                {product.title}
+              </h1>
               {hasDiscount && (
-                <p style={{fontFamily:"var(--font-cond)",fontSize:"13px",letterSpacing:"1px",color:"var(--gm)",textDecoration:"line-through",marginBottom:"4px"}}>
+                <p className="font-ui text-[13px] tracking-[1px] text-gray-muted line-through mb-1">
                   {formatMoney(compareAt.amount, compareAt.currencyCode)}
                 </p>
               )}
-
               {product.description && (
-                <p className="pdp-desc">{product.description}</p>
+                <p className="font-body text-base text-gray-muted leading-relaxed mb-6">
+                  {product.description}
+                </p>
               )}
 
               <AddToCartSection product={product} />
@@ -88,9 +104,14 @@ export default async function ProductPage({ params }: { params: Promise<{ handle
       </div>
 
       {/* Back to shop */}
-      <div style={{padding:"40px 0",background:"var(--off)",borderTop:"1px solid var(--bo)"}}>
-        <div className="wrap" style={{textAlign:"center"}}>
-          <Link href="/shop" className="btn btn-outline">← Back to Shop</Link>
+      <div className="py-10 bg-off border-t border-border text-center">
+        <div className="max-w-[1280px] mx-auto px-5">
+          <Link
+            href="/shop"
+            className="inline-block font-ui text-sm font-bold tracking-[2px] uppercase px-8 py-3.5 rounded-sm border-2 border-blue-500 text-blue-500 hover:bg-blue-50 transition-all no-underline"
+          >
+            &larr; Back to Shop
+          </Link>
         </div>
       </div>
     </>

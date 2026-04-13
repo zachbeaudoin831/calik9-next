@@ -18,7 +18,6 @@ export default function ProductCard({ product }: { product: ShopifyProduct }) {
     ? product.variants.edges.find((e) => e.node.availableForSale)?.node ?? product.variants.edges[0]?.node
     : product.variants.edges[0]?.node;
   const variantAvailable = product.availableForSale && (firstVariant?.availableForSale ?? false);
-  // Pre-order: product is "available" in Shopify but has 0 inventory (continue selling when out of stock)
   const isPreorder = variantAvailable && firstVariant?.quantityAvailable === 0;
 
   async function handleAdd() {
@@ -29,46 +28,71 @@ export default function ProductCard({ product }: { product: ShopifyProduct }) {
   }
 
   return (
-    <div className="prod-card">
-      <Link href={`/shop/${product.handle}`} className="prod-img-wrap" style={{display:"block"}}>
+    <div className="group bg-white rounded-lg overflow-hidden border border-border shadow-sm hover:shadow-md transition-shadow">
+      <Link href={`/shop/${product.handle}`} className="block relative overflow-hidden">
         {image ? (
           <Image
             src={image.url}
             alt={image.altText ?? product.title}
             width={600}
             height={600}
-            style={{ width: "100%", aspectRatio: "1", objectFit: "cover", transition: "transform .6s", display: "block" }}
+            className="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-105"
           />
         ) : (
-          <div className="prod-img-placeholder">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" style={{opacity:.3}}>
-              <rect x="3" y="3" width="18" height="18" rx="2"/>
-              <circle cx="8.5" cy="8.5" r="1.5"/>
-              <path d="M21 15l-5-5L5 21"/>
+          <div className="w-full aspect-square bg-off flex items-center justify-center">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="opacity-30">
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <circle cx="8.5" cy="8.5" r="1.5" />
+              <path d="M21 15l-5-5L5 21" />
             </svg>
           </div>
         )}
-        {hasDiscount && <span className="prod-badge">Sale</span>}
-        {!variantAvailable && <span className="prod-badge" style={{background:"var(--gd)"}}>Sold Out</span>}
-        {isPreorder && <span className="prod-badge" style={{background:"#7C3AED"}}>Pre-order</span>}
+        {hasDiscount && (
+          <span className="absolute top-3 left-3 bg-red-500 text-white font-ui text-xs font-bold tracking-[1px] uppercase px-2.5 py-1 rounded-sm">
+            Sale
+          </span>
+        )}
+        {!variantAvailable && (
+          <span className="absolute top-3 left-3 bg-ink text-white font-ui text-xs font-bold tracking-[1px] uppercase px-2.5 py-1 rounded-sm">
+            Sold Out
+          </span>
+        )}
+        {isPreorder && (
+          <span className="absolute top-3 left-3 bg-[#7C3AED] text-white font-ui text-xs font-bold tracking-[1px] uppercase px-2.5 py-1 rounded-sm">
+            Pre-order
+          </span>
+        )}
       </Link>
 
-      <div className="prod-body">
-        {product.productType && <p className="prod-eye">{product.productType}</p>}
+      <div className="p-4">
+        {product.productType && (
+          <p className="font-ui text-[11px] font-bold tracking-[2px] uppercase text-gray-muted mb-1">
+            {product.productType}
+          </p>
+        )}
         <Link href={`/shop/${product.handle}`}>
-          <h3 className="prod-name">{product.title}</h3>
+          <h3 className="font-ui text-sm font-bold tracking-[0.5px] text-ink leading-snug mb-2 hover:text-blue-500 transition-colors">
+            {product.title}
+          </h3>
         </Link>
-        <div className="prod-price">
+        <div className="font-ui text-base font-bold text-ink mb-3">
           {formatMoney(price.amount, price.currencyCode)}
-          {hasDiscount && <span className="was">{formatMoney(compareAt.amount, compareAt.currencyCode)}</span>}
+          {hasDiscount && (
+            <span className="ml-2 text-sm font-normal text-gray-muted line-through">
+              {formatMoney(compareAt.amount, compareAt.currencyCode)}
+            </span>
+          )}
         </div>
         <button
           onClick={handleAdd}
           disabled={!variantAvailable || isLoading}
-          className="prod-add"
-          style={{width:"100%",cursor: variantAvailable ? "pointer" : "not-allowed"}}
+          className={`w-full font-ui text-xs font-bold tracking-[2px] uppercase py-3 rounded-sm transition-all ${
+            variantAvailable
+              ? "bg-blue-500 text-white hover:bg-blue-700 cursor-pointer"
+              : "bg-gray-muted/20 text-gray-muted cursor-not-allowed"
+          }`}
         >
-          {!variantAvailable ? "Sold Out" : added ? "Added ✓" : isPreorder ? "Pre-order" : "Add to Cart"}
+          {!variantAvailable ? "Sold Out" : added ? "Added \u2713" : isPreorder ? "Pre-order" : "Add to Cart"}
         </button>
       </div>
     </div>

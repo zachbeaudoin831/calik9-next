@@ -9,13 +9,16 @@ export default function AddToCartSection({ product }: { product: ShopifyProduct 
   const [added, setAdded] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState<Record<string, string>>(() => {
     const defaults: Record<string, string> = {};
-    product.options.forEach((o) => { defaults[o.name] = o.values[0]; });
+    product.options.forEach((o) => {
+      defaults[o.name] = o.values[0];
+    });
     return defaults;
   });
 
-  const matchingVariant = product.variants.edges.find(({ node }) =>
-    node.selectedOptions.every((o) => selectedOptions[o.name] === o.value)
-  )?.node ?? product.variants.edges[0]?.node;
+  const matchingVariant =
+    product.variants.edges.find(({ node }) =>
+      node.selectedOptions.every((o) => selectedOptions[o.name] === o.value)
+    )?.node ?? product.variants.edges[0]?.node;
 
   const variantAvailable = matchingVariant?.availableForSale ?? false;
   const isPreorder = variantAvailable && matchingVariant?.quantityAvailable === 0;
@@ -29,44 +32,76 @@ export default function AddToCartSection({ product }: { product: ShopifyProduct 
 
   const price = matchingVariant
     ? formatMoney(matchingVariant.price.amount, matchingVariant.price.currencyCode)
-    : formatMoney(product.priceRange.minVariantPrice.amount, product.priceRange.minVariantPrice.currencyCode);
+    : formatMoney(
+        product.priceRange.minVariantPrice.amount,
+        product.priceRange.minVariantPrice.currencyCode
+      );
 
   return (
     <>
-      <div className="pdp-price">{price}</div>
+      <div className="font-display text-[clamp(28px,3vw,36px)] text-ink leading-none mb-6">
+        {price}
+      </div>
 
-      {product.options.filter((o) => o.values.length > 1).map((option) => (
-        <div key={option.id} className="pdp-options">
-          <p className="pdp-opt-label">{option.name}</p>
-          <div className="pdp-opt-btns">
-            {option.values.map((val) => (
-              <button
-                key={val}
-                className={`pdp-opt-btn${selectedOptions[option.name] === val ? " selected" : ""}`}
-                onClick={() => setSelectedOptions((prev) => ({ ...prev, [option.name]: val }))}
-              >
-                {val}
-              </button>
-            ))}
+      {product.options
+        .filter((o) => o.values.length > 1)
+        .map((option) => (
+          <div key={option.id} className="mb-5">
+            <p className="font-ui text-xs font-bold tracking-[2px] uppercase text-gray-muted mb-2">
+              {option.name}
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {option.values.map((val) => (
+                <button
+                  key={val}
+                  onClick={() =>
+                    setSelectedOptions((prev) => ({ ...prev, [option.name]: val }))
+                  }
+                  className={`font-ui text-xs font-bold tracking-[1px] uppercase px-4 py-2.5 rounded-sm border-2 transition-all ${
+                    selectedOptions[option.name] === val
+                      ? "border-blue-500 bg-blue-500 text-white"
+                      : "border-border text-ink hover:border-blue-500"
+                  }`}
+                >
+                  {val}
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
 
       <button
         onClick={handleAdd}
         disabled={!variantAvailable || isLoading}
-        className="pdp-add"
+        className={`w-full font-ui text-sm font-bold tracking-[2px] uppercase py-4 rounded-sm transition-all mb-4 ${
+          variantAvailable
+            ? "bg-blue-500 text-white hover:bg-blue-700 cursor-pointer"
+            : "bg-gray-muted/20 text-gray-muted cursor-not-allowed"
+        }`}
       >
-        {!variantAvailable ? "Sold Out" : added ? "Added to Cart ✓" : isLoading ? "Adding..." : isPreorder ? "Pre-order" : "Add to Cart"}
+        {!variantAvailable
+          ? "Sold Out"
+          : added
+          ? "Added to Cart \u2713"
+          : isLoading
+          ? "Adding..."
+          : isPreorder
+          ? "Pre-order"
+          : "Add to Cart"}
       </button>
 
-      <p className="pdp-trust">
-        🔒 Secure checkout powered by Shopify · Free shipping on orders $75+
+      <p className="font-ui text-xs text-gray-muted text-center mb-6">
+        🔒 Secure checkout powered by Shopify &middot; Free shipping on orders $75+
       </p>
 
-      <div style={{marginTop:"28px",paddingTop:"28px",borderTop:"1px solid var(--bo)",display:"flex",gap:"16px",flexWrap:"wrap"}}>
-        {["✓ Professional Grade","✓ Jas Approved","✓ Fast Shipping"].map((b) => (
-          <span key={b} style={{fontFamily:"var(--font-cond)",fontSize:"12px",fontWeight:700,letterSpacing:"1px",color:"var(--blue)",background:"var(--bp)",border:"1px solid var(--bm)",padding:"6px 12px",borderRadius:"var(--radius-sm)"}}>{b}</span>
+      <div className="pt-6 border-t border-border flex gap-3 flex-wrap">
+        {["\u2713 Professional Grade", "\u2713 Jas Approved", "\u2713 Fast Shipping"].map((b) => (
+          <span
+            key={b}
+            className="font-ui text-xs font-bold tracking-[1px] text-blue-500 bg-blue-50 border border-blue-100 px-3 py-1.5 rounded-sm"
+          >
+            {b}
+          </span>
         ))}
       </div>
     </>
