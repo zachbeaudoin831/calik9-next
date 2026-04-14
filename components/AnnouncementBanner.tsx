@@ -1,17 +1,34 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 
 const DISMISSED_KEY = "ck_banner_dismissed";
 
 export default function AnnouncementBanner() {
   const [visible, setVisible] = useState(false);
+  const bannerRef = useRef<HTMLDivElement>(null);
+
+  const updateBannerHeight = useCallback((show: boolean) => {
+    if (show && bannerRef.current) {
+      document.documentElement.style.setProperty("--banner-h", bannerRef.current.offsetHeight + "px");
+    } else {
+      document.documentElement.style.setProperty("--banner-h", "0px");
+    }
+  }, []);
 
   useEffect(() => {
     if (!sessionStorage.getItem(DISMISSED_KEY)) {
-      setVisible(true);
+      // Delay like original to avoid layout jump on initial paint
+      const timer = setTimeout(() => {
+        setVisible(true);
+      }, 100);
+      return () => clearTimeout(timer);
     }
   }, []);
+
+  useEffect(() => {
+    updateBannerHeight(visible);
+  }, [visible, updateBannerHeight]);
 
   function dismiss() {
     setVisible(false);
@@ -20,6 +37,7 @@ export default function AnnouncementBanner() {
 
   return (
     <div
+      ref={bannerRef}
       id="site-banner"
       role="region"
       aria-label="Announcement"
@@ -27,7 +45,7 @@ export default function AnnouncementBanner() {
         visible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <p className="font-ui text-[13px] font-semibold tracking-[0.5px] text-white text-center leading-tight max-sm:text-xs max-sm:tracking-normal max-sm:leading-normal">
+      <p className="font-ui text-[13px] font-semibold tracking-[0.5px] text-white text-center leading-[1.3] max-sm:text-xs max-sm:tracking-normal max-sm:leading-normal">
         Don&apos;t know which program fits your dog?{" "}
         <a
           href="/evaluation"

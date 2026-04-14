@@ -7,7 +7,7 @@ interface ServiceHeroProps {
 
 export default function ServiceHero({ children, sidebar }: ServiceHeroProps) {
   return (
-    <section className="relative overflow-hidden bg-blue-700">
+    <section className="relative overflow-hidden" style={{ background: "linear-gradient(135deg, #122E85 0%, #122E85 50%, #1A3FAB 100%)" }}>
       {/* Grid overlay */}
       <div
         className="absolute inset-0 pointer-events-none z-0"
@@ -25,8 +25,8 @@ export default function ServiceHero({ children, sidebar }: ServiceHeroProps) {
         }}
         aria-hidden="true"
       />
-      <div className="max-w-[1280px] mx-auto px-5 relative z-[1]">
-        <div className="grid grid-cols-2 gap-12 items-start py-[60px] pb-20 max-[900px]:grid-cols-1 max-[900px]:gap-10">
+      <div className="max-w-[1200px] mx-auto px-9 max-md:px-6 max-[480px]:px-4 relative z-[1]">
+        <div className="grid grid-cols-2 gap-12 items-start pt-[calc(var(--banner-h,0px)+96px)] pb-20 max-[900px]:grid-cols-1 max-[900px]:gap-10 max-[900px]:pt-[calc(var(--banner-h,0px)+80px)]">
           {/* Left: page content */}
           <div>{children}</div>
           {/* Right: sticky sidebar (form) */}

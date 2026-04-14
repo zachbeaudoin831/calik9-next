@@ -2,29 +2,29 @@
 
 /* ── Tailwind v4 Theme ── */
 @theme {
-  --color-ink: #1F2937;
+  --color-ink: #111111;
   --color-off: #F8F9FC;
-  --color-cream: #FDF8F0;
+  --color-cream: #EEF1F8;
   --color-blue-50: #E8EEFF;
   --color-blue-100: #C5CEEF;
   --color-blue-200: #93b4ff;
-  --color-blue-400: #2D54CC;
+  --color-blue-400: #6A9FFF;
   --color-blue-500: #1A3FAB;
   --color-blue-700: #122E85;
-  --color-green-500: #16A34A;
+  --color-green-500: #059669;
   --color-red-500: #DC2626;
   --color-red-700: #B91C1C;
   --color-amber-400: #F59E0B;
-  --color-gray-muted: #6B7280;
-  --color-border: #E2E6F0;
+  --color-gray-muted: #6B6B6B;
+  --color-border: rgba(0,0,0,0.08);
 
   --font-display: var(--font-ck-display), sans-serif;
   --font-ui: var(--font-ck-ui), sans-serif;
   --font-body: var(--font-ck-body), sans-serif;
 
-  --shadow-sm: 0 2px 12px rgba(26, 63, 171, 0.08);
-  --shadow-md: 0 8px 32px rgba(26, 63, 171, 0.1);
-  --shadow-lg: 0 20px 60px rgba(26, 63, 171, 0.14);
+  --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.07);
+  --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.10);
+  --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.14);
 }
 
 /* ── Animations ── */
@@ -65,4 +65,208 @@
 .reveal.in {
   opacity: 1;
   transform: none;
+}
+
+/* ── Button System (matches original brand.css) ── */
+.btn {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 15px 32px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border: 2px solid transparent;
+  line-height: 1;
+}
+.btn-white {
+  background: #fff;
+  color: var(--color-blue-500);
+  border-color: #fff;
+}
+.btn-white:hover {
+  background: #d8dce8;
+  color: var(--color-blue-500);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(26,63,171,0.18);
+}
+.btn-blue {
+  background: var(--color-blue-500);
+  color: #fff;
+  border-color: var(--color-blue-500);
+}
+.btn-blue:hover {
+  background: var(--color-blue-700);
+  border-color: var(--color-blue-700);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(26,63,171,0.3);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--color-blue-500);
+  border-color: var(--color-blue-500);
+}
+.btn-outline:hover {
+  background: rgba(26,63,171,0.06);
+  color: var(--color-blue-500);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(26,63,171,0.2);
+}
+.btn-outline-white {
+  background: transparent;
+  border: 2px solid rgba(255,255,255,0.4);
+  color: rgba(255,255,255,0.85);
+}
+.btn-outline-white:hover {
+  border-color: #fff;
+  color: #fff;
+  background: rgba(255,255,255,0.08);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(255,255,255,0.12);
+}
+.btn-lg {
+  font-size: 15px;
+  padding: 18px 36px;
+}
+.btn-sm {
+  font-size: 12px;
+  padding: 8px 16px;
+  min-height: 44px;
+}
+
+/* ── Responsive section padding ── */
+@media (max-width: 768px) {
+  .sec-pad { padding-top: 48px; padding-bottom: 48px; }
+}
+@media (max-width: 480px) {
+  .sec-pad { padding-top: 32px; padding-bottom: 32px; }
+}
+
+/* ── Home Hero Backgrounds ── */
+
+/* Desktop (>900px): hero-background.webp with left-to-right gradient */
+.hero-home {
+  background-image:
+    linear-gradient(to right, rgba(10,26,92,0.97) 0%, rgba(10,26,92,0.92) 30%, rgba(18,46,133,0.60) 58%, rgba(10,26,92,0.15) 100%),
+    url('/images/hero-background.webp');
+  background-size: cover;
+  background-position: center top;
+}
+
+/* Grid overlay (desktop + tablet) */
+.hero-home::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Tablet (768–900px): same image, darker vertical gradient */
+@media (max-width: 900px) {
+  .hero-home {
+    min-height: auto;
+    background-image:
+      linear-gradient(to bottom, rgba(10,26,92,0.75) 0%, rgba(10,26,92,0.85) 50%, rgba(10,26,92,0.95) 100%),
+      url('/images/hero-background.webp');
+  }
+}
+
+/* Mobile (≤768px): hero-jas.jpg flipped, vertical gradient overlay */
+@media (max-width: 768px) {
+  .hero-home {
+    background-image: none;
+    background-color: #122E85;
+  }
+  /* Flipped Jas photo as background */
+  .hero-home::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('/images/hero-jas.jpg') center 30% / cover no-repeat;
+    transform: scaleX(-1);
+    z-index: 0;
+  }
+  /* Gradient overlay on top of photo */
+  .hero-home::before {
+    z-index: 2;
+    background-image:
+      linear-gradient(to bottom, rgba(10,26,92,0.65) 0%, rgba(10,26,92,0.7) 40%, rgba(10,26,92,0.88) 75%, rgba(10,26,92,0.95) 100%);
+    background-size: 100% 100%;
+  }
+}
+
+/* ── About Hero Backgrounds ── */
+.hero-about {
+  background-image:
+    linear-gradient(to right, rgba(10,26,92,0.97) 0%, rgba(10,26,92,0.92) 30%, rgba(18,46,133,0.50) 58%, rgba(10,26,92,0.0) 100%),
+    url('/images/cdn/65cc916cfe137aaa640243f8.webp');
+  background-size: cover;
+  background-position: 65% 15%;
+}
+.hero-about::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+@media (max-width: 900px) {
+  .hero-about {
+    background-image:
+      linear-gradient(to bottom, rgba(10,26,92,0.65) 0%, rgba(10,26,92,0.7) 40%, rgba(10,26,92,0.88) 75%, rgba(10,26,92,0.95) 100%),
+      url('/images/hero-jas.jpg');
+    background-position: center 30%;
+  }
+}
+@media (max-width: 768px) {
+  .hero-about {
+    background-image: none;
+    background-color: #122E85;
+  }
+  .hero-about::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('/images/hero-jas.jpg') center 30% / cover no-repeat;
+    transform: scaleX(-1);
+    z-index: 0;
+  }
+  .hero-about::before {
+    z-index: 2;
+    background-image:
+      linear-gradient(to bottom, rgba(10,26,92,0.65) 0%, rgba(10,26,92,0.7) 40%, rgba(10,26,92,0.88) 75%, rgba(10,26,92,0.95) 100%);
+    background-size: 100% 100%;
+  }
+}
+
+/* ── Standard Hero (services, evaluation, etc.) ── */
+.hero-standard {
+  background: linear-gradient(135deg, #122E85 0%, #122E85 50%, #1A3FAB 100%);
+  min-height: 72vh;
+}
+.hero-standard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
 }

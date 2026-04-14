@@ -136,39 +136,32 @@ export default function ServicesPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="relative overflow-hidden bg-blue-700 py-32 pb-20">
+      <section className="hero-standard relative flex items-center overflow-hidden py-[calc(var(--banner-h,0px)+96px)] pb-20 max-[900px]:min-h-0 max-[900px]:py-[calc(var(--banner-h,0px)+80px)] max-[900px]:pb-12">
         <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage: "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
-        <div
-          className="absolute w-[600px] h-[600px] rounded-full pointer-events-none -top-[100px] left-[28%]"
+          className="absolute w-[600px] h-[600px] max-md:w-[360px] max-md:h-[360px] max-[480px]:w-[220px] max-[480px]:h-[220px] rounded-full pointer-events-none z-0 -top-[100px] left-[28%]"
           style={{ background: "radial-gradient(circle, rgba(106,159,255,0.16) 0%, transparent 70%)" }}
         />
-        <div className="max-w-[1280px] mx-auto px-5 relative z-[1] text-center">
-          <div className="flex items-center justify-center gap-3.5 mb-6 flex-wrap">
-            <span className="inline-flex items-center bg-white/15 border border-white/30 rounded-sm px-5 py-2 font-ui text-sm font-bold tracking-[2.5px] uppercase text-white">
+        <div className="max-w-[1200px] mx-auto px-9 max-md:px-6 max-[480px]:px-4 relative z-[1] text-left w-full">
+          <div className="flex items-center gap-[14px] mb-6 flex-wrap max-[900px]:justify-start">
+            <span className="inline-flex items-center bg-white/15 border border-white/30 rounded-sm px-5 py-[9px] font-ui text-sm font-bold tracking-[2.5px] uppercase text-white">
               15+ Years &middot; Celebrity Trainers &middot; Netflix Featured
             </span>
             <span className="font-ui text-sm font-bold tracking-[2px] uppercase text-[#7B8CC4]">
               Est. 2009 &middot; Bay Area &middot; Los Angeles &middot; Miami &middot; New York
             </span>
           </div>
-          <h1 className="font-display text-[clamp(40px,6vw,72px)] leading-none text-white mb-5">
+          <h1 className="font-display text-[clamp(40px,6vw,72px)] leading-none tracking-[1px] text-white mb-5">
             TRAINING <span className="text-[#8A97C4]">SERVICES</span>
           </h1>
-          <p className="font-body text-base text-white/75 leading-relaxed max-w-[560px] mx-auto mb-9">
+          <p className="font-ui text-[18px] text-white/70 tracking-[0.5px] leading-[1.6] max-w-[600px] mb-9">
             World-class dog training built on the 5-Pillar System &mdash; proven with thousands of dogs,
             from anxious rescues to celebrity companions.
           </p>
-          <div className="flex gap-4 justify-center flex-wrap">
-            <a href="#new-clients" className="inline-block font-ui text-sm font-bold uppercase tracking-[2px] bg-white text-ink px-8 py-3.5 rounded-sm no-underline hover:bg-off transition-colors">
+          <div className="flex gap-4 flex-wrap max-[768px]:flex-col max-[768px]:items-stretch">
+            <a href="#new-clients" className="btn btn-white btn-lg">
               New Clients &rarr;
             </a>
-            <a href="#returning-clients" className="inline-block font-ui text-sm font-bold uppercase tracking-[2px] border-2 border-white/40 text-white px-8 py-3.5 rounded-sm no-underline hover:bg-white/10 transition-colors">
+            <a href="#returning-clients" className="btn btn-outline-white btn-lg">
               Returning Clients &rarr;
             </a>
           </div>
@@ -176,8 +169,8 @@ export default function ServicesPage() {
       </section>
 
       {/* ── NEW CLIENTS ── */}
-      <section id="new-clients" className="py-20 bg-off">
-        <div className="max-w-[1280px] mx-auto px-5">
+      <section id="new-clients" className="py-20 max-md:py-12 max-[480px]:py-8 bg-off">
+        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink mb-2">NEW CLIENTS</h2>
           <p className="font-ui text-sm font-bold tracking-[2px] uppercase text-gray-muted mb-10">Choose your service</p>
           <div className="grid grid-cols-3 gap-4 max-[900px]:grid-cols-2 max-[600px]:grid-cols-1">
@@ -199,8 +192,8 @@ export default function ServicesPage() {
       </div>
 
       {/* ── RETURNING CLIENTS ── */}
-      <section id="returning-clients" className="py-20 bg-white">
-        <div className="max-w-[1280px] mx-auto px-5">
+      <section id="returning-clients" className="py-20 max-md:py-12 max-[480px]:py-8 bg-white">
+        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink mb-2">RETURNING CLIENTS</h2>
           <p className="font-ui text-sm font-bold tracking-[2px] uppercase text-gray-muted mb-10">Choose your service</p>
           <div className="grid grid-cols-3 gap-4 max-[900px]:grid-cols-2 max-[600px]:grid-cols-1">
@@ -220,7 +213,7 @@ export default function ServicesPage() {
             backgroundSize: "60px 60px",
           }}
         />
-        <div className="max-w-[1280px] mx-auto px-5 relative z-[1]">
+        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 relative z-[1]">
           <div className="text-center max-w-[700px] mx-auto">
             <span className="font-display text-[80px] text-white/10 leading-none block mb-[-20px]" aria-hidden="true">&ldquo;</span>
             <blockquote>
@@ -238,7 +231,7 @@ export default function ServicesPage() {
               />
               <div className="text-left">
                 <div className="font-display text-lg text-white">STEPHEN CURRY</div>
-                <div className="text-amber-400 text-xs tracking-[2px]">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <div className="text-[#F59E0B] text-xs tracking-[2px]">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
                 <div className="font-ui text-xs font-bold tracking-[2px] uppercase text-white/50">
                   NBA Champion &middot; Golden State Warriors
                 </div>
@@ -249,15 +242,15 @@ export default function ServicesPage() {
       </section>
 
       {/* ── SPECIALIZATIONS ── */}
-      <section className="py-20 bg-off">
-        <div className="max-w-[1280px] mx-auto px-5">
+      <section className="py-20 max-md:py-12 max-[480px]:py-8 bg-off">
+        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <span className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-500 block mb-3">
             What We Address
           </span>
           <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink mb-4">
             Dog Behavior Specializations
           </h2>
-          <div className="w-12 h-[2px] bg-blue-500 mb-10" />
+          <div className="w-12 h-[3px] bg-blue-500 mb-10" />
           <div className="grid grid-cols-3 gap-6 max-lg:grid-cols-2 max-sm:grid-cols-1">
             {SPECIALIZATIONS.map((s) => (
               <div key={s.title} className="bg-white rounded-xl border border-border p-8 hover:-translate-y-1 hover:shadow-lg transition-all">
@@ -270,15 +263,15 @@ export default function ServicesPage() {
       </section>
 
       {/* ── LOCATIONS ── */}
-      <section className="py-20 bg-cream">
-        <div className="max-w-[1280px] mx-auto px-5">
+      <section className="py-20 max-md:py-12 max-[480px]:py-8 bg-cream">
+        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <span className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-500 block mb-3">
             Where We Train
           </span>
           <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink mb-4">
             Service Locations
           </h2>
-          <div className="w-12 h-[2px] bg-blue-500 mb-10" />
+          <div className="w-12 h-[3px] bg-blue-500 mb-10" />
           <ul className="list-none space-y-4">
             {LOCATIONS.map((loc) => (
               <li

@@ -4,8 +4,8 @@ import Image from "next/image";
 const TRAINING_LINKS = [
   { href: "/services", label: "All Services" },
   { href: "/evaluation", label: "Evaluation" },
-  { href: "/services#board-and-train", label: "Board & Train" },
-  { href: "/services#online-program", label: "Online Program" },
+  { href: "/board-and-train", label: "Board & Train" },
+  { href: "/online-training", label: "Online Program" },
 ];
 
 const COMPANY_LINKS = [
@@ -14,6 +14,7 @@ const COMPANY_LINKS = [
   { href: "/testimonials", label: "Testimonials" },
   { href: "/blog", label: "Blog" },
   { href: "/coaching", label: "Trainer Coaching" },
+  { href: "/contact", label: "Contact" },
 ];
 
 const LOCATIONS = [
@@ -35,9 +36,9 @@ const POLICIES = [
 export default function Footer() {
   return (
     <footer className="bg-[#0D111C] text-white/70 pt-16 pb-[60px]">
-      <div className="max-w-[1280px] mx-auto px-5">
+      <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
         {/* Grid */}
-        <div className="grid grid-cols-[1.5fr_1fr_1fr_1fr] gap-12 pb-12 max-md:grid-cols-2 max-md:gap-8 max-sm:grid-cols-1">
+        <div className="grid grid-cols-[1.5fr_1fr_1fr_1fr] gap-12 pb-12 max-[1024px]:grid-cols-2 max-[1024px]:gap-8 max-[480px]:grid-cols-1">
           {/* Brand */}
           <div>
             <div className="mb-2">
@@ -123,7 +124,7 @@ export default function Footer() {
               <Link
                 key={p.href}
                 href={p.href}
-                className="font-ui text-xs uppercase tracking-[1px] text-white/50 no-underline hover:text-white transition-colors"
+                className="font-ui text-xs uppercase tracking-[1px] text-white/50 no-underline hover:text-white/70 transition-colors"
               >
                 {p.label}
               </Link>

@@ -61,8 +61,8 @@ const CELEBS = [
 
 export default function CelebGrid() {
   return (
-    <section className="py-20 px-5">
-      <div className="max-w-[1280px] mx-auto">
+    <section className="py-20 max-md:py-12 max-[480px]:py-8 px-10 max-md:px-6 max-[480px]:px-4">
+      <div className="max-w-[1140px] mx-auto">
         <p className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-500 text-center mb-3">
           Trusted By The Best
         </p>
@@ -88,7 +88,9 @@ export default function CelebGrid() {
               {/* Overlay */}
               <div className="absolute inset-0 flex flex-col justify-end text-center p-[22px_20px]" style={{ background: "linear-gradient(to top, rgba(5,10,30,0.96) 0%, rgba(5,10,30,0.75) 35%, rgba(5,10,30,0.15) 65%, transparent 100%)" }}>
                 <div className="flex justify-center gap-0.5 mb-2" role="img" aria-label="5 out of 5 stars">
-                  <span className="text-amber-400 text-xs leading-none">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                  {[...Array(5)].map((_, i) => (
+                    <span key={i} className="text-[#F59E0B] text-xs leading-none">&#9733;</span>
+                  ))}
                 </div>
                 <p className="font-body text-[13px] italic font-light text-white/85 leading-normal mb-3.5 line-clamp-3 max-[480px]:line-clamp-2 max-[480px]:text-xs">
                   {celeb.quote}

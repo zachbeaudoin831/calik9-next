@@ -22,7 +22,7 @@ export default async function ProductPage({ params }: { params: Promise<{ handle
   return (
     <>
       <div className="pt-[72px] bg-white">
-        <div className="max-w-[1280px] mx-auto px-5">
+        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           {/* Breadcrumb */}
           <nav className="py-6 font-ui text-xs tracking-[2px] uppercase text-gray-muted flex gap-2 items-center">
             <Link href="/" className="hover:text-ink transition-colors">Home</Link>
@@ -105,7 +105,7 @@ export default async function ProductPage({ params }: { params: Promise<{ handle
 
       {/* Back to shop */}
       <div className="py-10 bg-off border-t border-border text-center">
-        <div className="max-w-[1280px] mx-auto px-5">
+        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <Link
             href="/shop"
             className="inline-block font-ui text-sm font-bold tracking-[2px] uppercase px-8 py-3.5 rounded-sm border-2 border-blue-500 text-blue-500 hover:bg-blue-50 transition-all no-underline"

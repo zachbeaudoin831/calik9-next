@@ -19,7 +19,7 @@ export default function CtaBlock({
 }: CtaBlockProps) {
   return (
     <section
-      className={`py-20 text-center ${
+      className={`py-20 max-md:py-12 max-[480px]:py-8 text-center ${
         dark
           ? "bg-gradient-to-br from-blue-700 to-blue-500"
           : "bg-cream"
@@ -41,7 +41,7 @@ export default function CtaBlock({
           {heading}
         </h2>
         <div
-          className={`w-12 h-[2px] mx-auto mb-6 ${
+          className={`w-12 h-[3px] mx-auto mb-6 ${
             dark ? "bg-blue-400" : "bg-blue-500"
           }`}
         />
@@ -52,25 +52,17 @@ export default function CtaBlock({
         >
           {description}
         </p>
-        <div className="flex gap-4 justify-center flex-wrap">
+        <div className="flex gap-4 justify-center flex-wrap max-[480px]:flex-col max-[480px]:items-stretch">
           <Link
             href={primaryCta.href}
-            className={`inline-block font-ui text-sm font-bold uppercase tracking-[2px] px-8 py-3.5 rounded-sm no-underline transition-all ${
-              dark
-                ? "bg-white text-ink hover:bg-off"
-                : "bg-blue-500 text-white hover:bg-blue-700"
-            }`}
+            className={dark ? "btn btn-white" : "btn btn-blue"}
           >
             {primaryCta.label}
           </Link>
           {secondaryCta && (
             <Link
               href={secondaryCta.href}
-              className={`inline-block font-ui text-sm font-bold uppercase tracking-[2px] px-8 py-3.5 rounded-sm no-underline border-2 transition-all ${
-                dark
-                  ? "border-white/40 text-white hover:bg-white/10"
-                  : "border-blue-500 text-blue-500 hover:bg-blue-50"
-              }`}
+              className={dark ? "btn btn-outline-white" : "btn btn-outline"}
             >
               {secondaryCta.label}
             </Link>

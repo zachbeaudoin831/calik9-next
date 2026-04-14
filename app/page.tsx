@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import Script from "next/script";
 import CtaBlock from "@/components/CtaBlock";
+import ShopTeaser from "@/components/ShopTeaser";
+import { getProducts } from "@/lib/shopify";
 
 export const metadata = {
   title: "Elite Dog Training | Cali K9\u00ae",
@@ -24,27 +26,27 @@ const STATS = [
   { num: "3,500+", label: "Dogs Trained" },
   { num: "15+", label: "Years Experience" },
   { num: "Netflix", label: "Canine Intervention" },
-  { num: "4.9\u2605", label: "Average Rating" },
+  { num: "4.9", star: true, label: "Average Rating" },
   { num: "100%", label: "Commitment" },
 ];
 
 const MEDIA_ROW_1 = [
-  { src: "/images/media-logos/netflix.webp", alt: "Netflix", w: 128 },
-  { src: "/images/media-logos/nbc.webp", alt: "NBC", w: 128 },
-  { src: "/images/media-logos/abc.webp", alt: "ABC", w: 128 },
-  { src: "/images/media-logos/ellen-show.webp", alt: "The Ellen Show", w: 171 },
-  { src: "/images/media-logos/dr-phil.webp", alt: "Dr. Phil", w: 128 },
-  { src: "/images/media-logos/people-magazine.webp", alt: "People Magazine", w: 128 },
-  { src: "/images/media-logos/gma3.webp", alt: "GMA3", w: 128 },
+  { src: "/images/media-logos/netflix.webp", alt: "Netflix", w: 128, h: "h-16 max-md:h-12" },
+  { src: "/images/media-logos/nbc.webp", alt: "NBC", w: 128, h: "h-16 max-md:h-12" },
+  { src: "/images/media-logos/abc.webp", alt: "ABC", w: 128, h: "h-16 max-md:h-12" },
+  { src: "/images/media-logos/ellen-show.webp", alt: "The Ellen Show", w: 171, h: "h-16 max-md:h-12" },
+  { src: "/images/media-logos/dr-phil.webp", alt: "Dr. Phil", w: 128, h: "h-16 max-md:h-12" },
+  { src: "/images/media-logos/people-magazine.webp", alt: "People Magazine", w: 128, h: "h-16 max-md:h-12" },
+  { src: "/images/media-logos/gma3.webp", alt: "GMA3", w: 128, h: "h-16 max-md:h-12" },
 ];
 
 const MEDIA_ROW_2 = [
-  { src: "/images/media-logos/sf-chronicle.webp", alt: "San Francisco Chronicle", w: 304 },
-  { src: "/images/media-logos/sfgate.webp", alt: "SFGate", w: 128 },
-  { src: "/images/media-logos/la-times.webp", alt: "Los Angeles Times", w: 176 },
-  { src: "/images/media-logos/washington-post.webp", alt: "The Washington Post", w: 176 },
-  { src: "/images/media-logos/access-hollywood.webp", alt: "Access Hollywood", w: 379 },
-  { src: "/images/media-logos/tmz.webp", alt: "TMZ", w: 192 },
+  { src: "/images/media-logos/sf-chronicle.webp", alt: "San Francisco Chronicle", w: 304, h: "h-16 max-md:h-12" },
+  { src: "/images/media-logos/sfgate.webp", alt: "SFGate", w: 128, h: "h-16 max-md:h-12" },
+  { src: "/images/media-logos/la-times.webp", alt: "Los Angeles Times", w: 176, h: "h-[88px] max-md:h-16" },
+  { src: "/images/media-logos/washington-post.webp", alt: "The Washington Post", w: 176, h: "h-[88px] max-md:h-16" },
+  { src: "/images/media-logos/access-hollywood.webp", alt: "Access Hollywood", w: 379, h: "h-[52px] max-md:h-10" },
+  { src: "/images/media-logos/tmz.webp", alt: "TMZ", w: 192, h: "h-16 max-md:h-12" },
 ];
 
 const PILLARS = [
@@ -83,46 +85,38 @@ const PROGRAMS = [
   {
     title: "BOARD & TRAIN",
     desc: "Full immersive program. Your dog lives with us. Maximum results in minimum time \u2014 2\u20134 weeks, all 5 Pillars addressed, daily video updates, and a handoff session.",
-    href: "/services#board-and-train",
+    href: "/board-and-train",
   },
   {
     title: "IN-PERSON TRAINING",
     desc: "One-on-one, semi-private, and group sessions with certified Cali K9 trainers \u2014 tailored to your dog\u2019s behavior, temperament, and goals.",
-    href: "/services#in-person",
+    href: "/in-person",
   },
   {
     title: "VIP TRAINING",
     desc: "One-on-one sessions with Jas himself. Fully customized to your dog\u2019s specific needs \u2014 the same private training trusted by celebrities.",
-    href: "https://go.calik9.com/vip-with-jas",
+    href: "/vip-with-jas",
     featured: true,
-    external: true,
   },
   {
     title: "ONLINE 5-PILLAR",
     desc: "Jas\u2019s complete method. Self-paced, lifetime access. Train from anywhere worldwide \u2014 full curriculum, community support, and upgrade to in-person anytime.",
-    href: "/services#online-program",
+    href: "/online-training",
   },
 ];
 
-export default function HomePage() {
+export default async function HomePage() {
+  const allProducts = await getProducts(4);
   return (
     <>
       {/* ── HERO ── */}
-      <section
-        className="relative flex items-center min-h-screen overflow-hidden antialiased"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, rgba(10,26,92,0.97) 0%, rgba(10,26,92,0.92) 30%, rgba(18,46,133,0.60) 58%, rgba(10,26,92,0.15) 100%), url('/images/hero-background.webp')",
-          backgroundSize: "cover",
-          backgroundPosition: "center top",
-        }}
-      >
+      <section className="hero-home relative flex items-center min-h-screen max-[900px]:min-h-0 overflow-hidden antialiased">
         <div
-          className="absolute w-[600px] h-[600px] rounded-full pointer-events-none z-0 -top-[100px] left-[28%]"
+          className="absolute w-[600px] h-[600px] max-md:w-[360px] max-md:h-[360px] max-[480px]:w-[220px] max-[480px]:h-[220px] rounded-full pointer-events-none z-0 -top-[100px] left-[28%]"
           style={{ background: "radial-gradient(circle, rgba(106,159,255,0.16) 0%, transparent 70%)" }}
           aria-hidden="true"
         />
-        <div className="relative z-[1] flex flex-col justify-center pt-[calc(var(--banner-h,0px)+96px)] px-12 pb-20 max-w-[1200px] mx-auto w-full max-md:px-5 max-md:pt-[calc(var(--banner-h,0px)+80px)]">
+        <div className="relative z-[3] flex flex-col justify-center pt-[calc(var(--banner-h,0px)+96px)] px-12 pb-20 max-w-[1200px] mx-auto w-full max-md:px-6 max-md:pt-[calc(var(--banner-h,0px)+80px)]">
           {/* Eyebrow row */}
           <div className="flex items-center gap-3.5 mb-6 flex-wrap">
             <span className="inline-flex items-center gap-2 bg-[rgba(229,9,20,0.12)] border border-[rgba(229,9,20,0.35)] rounded-sm px-3.5 py-1.5 font-ui text-xs font-bold tracking-[2.5px] uppercase text-white">
@@ -133,26 +127,20 @@ export default function HomePage() {
             </span>
           </div>
 
-          <h1 className="font-display text-[clamp(40px,6vw,72px)] leading-none tracking-[1px] text-white mb-5 max-w-[640px]">
+          <h1 className="font-display text-[clamp(64px,9vw,112px)] leading-[0.9] tracking-[1px] text-white mb-5 max-w-[640px]">
             THERE ARE NO <span className="text-white/45">BAD</span> DOGS.
           </h1>
 
-          <p className="font-body text-base text-white/75 leading-relaxed max-w-[560px] mb-9">
+          <p className="font-ui text-[18px] text-white/70 tracking-[0.5px] leading-relaxed max-w-[560px] mb-9">
             Jas Leverette and Cali K9&reg; deliver professional dog training rooted in relationship, structure, and results.
             Trusted by thousands of families &mdash; and zero unsolvable dogs.
           </p>
 
           <div className="flex gap-4 flex-wrap max-sm:flex-col max-sm:items-stretch">
-            <Link
-              href="/evaluation"
-              className="inline-flex items-center justify-center min-w-[240px] text-center font-ui text-sm font-bold uppercase tracking-[2px] bg-white text-ink px-8 py-3.5 rounded-sm no-underline hover:bg-off transition-colors"
-            >
+            <Link href="/evaluation" className="btn btn-white btn-lg min-w-[240px]">
               Book Evaluation &rarr;
             </Link>
-            <Link
-              href="/services"
-              className="inline-flex items-center justify-center min-w-[240px] text-center font-ui text-sm font-bold uppercase tracking-[2px] border-2 border-white/40 text-white px-8 py-3.5 rounded-sm no-underline hover:bg-white/10 transition-colors"
-            >
+            <Link href="/services" className="btn btn-outline-white min-w-[240px]">
               View Programs &rarr;
             </Link>
           </div>
@@ -161,7 +149,10 @@ export default function HomePage() {
           <div className="flex gap-9 mt-11 pt-8 border-t border-white/[0.12] flex-wrap max-sm:gap-5">
             {STATS.map((s) => (
               <div key={s.label} className="text-left max-md:text-center">
-                <div className="font-display text-[30px] text-white leading-none">{s.num}</div>
+                <div className="font-display text-[30px] text-white leading-none">
+                  {s.num}
+                  {s.star && <span className="text-[#F59E0B] text-[22px] align-middle ml-0.5">&#9733;</span>}
+                </div>
                 <div className="font-ui text-[13px] font-bold tracking-[2px] uppercase text-white/[0.48] mt-1">
                   {s.label}
                 </div>
@@ -184,29 +175,29 @@ export default function HomePage() {
       </div>
 
       {/* ── MEDIA LOGOS ── */}
-      <section className="bg-white py-12 border-b border-border" aria-label="As featured in media">
-        <div className="max-w-[1280px] mx-auto px-5">
-          <div className="flex items-center gap-4 mb-8">
-            <span className="flex-1 h-px bg-border" />
-            <span className="font-ui text-xs font-bold tracking-[3px] uppercase text-gray-muted">As Featured In</span>
-            <span className="flex-1 h-px bg-border" />
+      <section className="bg-white pt-12 pb-11 border-y border-black/[0.07]" aria-label="As featured in media">
+        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
+          <div className="flex items-center gap-4 mb-9">
+            <span className="flex-1 h-px bg-black/10" />
+            <span className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-[#5a5a5a] whitespace-nowrap">As Featured In</span>
+            <span className="flex-1 h-px bg-black/10" />
           </div>
-          <div className="flex flex-wrap justify-center items-center gap-8 mb-6 max-sm:gap-4">
+          <div className="flex flex-wrap justify-center items-center gap-x-2 gap-y-0 mb-2">
             {MEDIA_ROW_1.map((m) => (
-              <Image key={m.alt} src={m.src} alt={m.alt} width={m.w} height={128} className="h-10 w-auto opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all max-sm:h-7" />
+              <Image key={m.alt} src={m.src} alt={m.alt} width={m.w} height={128} className={`${m.h} w-auto object-contain p-2 px-3 max-md:p-1.5 max-md:px-2.5 hover:scale-[1.07] transition-transform`} />
             ))}
           </div>
-          <div className="flex flex-wrap justify-center items-center gap-8 max-sm:gap-4">
+          <div className="flex flex-wrap justify-center items-center gap-x-2 gap-y-0">
             {MEDIA_ROW_2.map((m) => (
-              <Image key={m.alt} src={m.src} alt={m.alt} width={m.w} height={128} className="h-10 w-auto opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all max-sm:h-7" />
+              <Image key={m.alt} src={m.src} alt={m.alt} width={m.w} height={128} className={`${m.h} w-auto object-contain p-2 px-3 max-md:p-1.5 max-md:px-2.5 hover:scale-[1.07] transition-transform`} />
             ))}
           </div>
         </div>
       </section>
 
       {/* ── ABOUT JAS TEASER ── */}
-      <section className="py-20 bg-cream">
-        <div className="max-w-[1280px] mx-auto px-5">
+      <section className="py-20 max-md:py-12 max-[480px]:py-8 bg-cream">
+        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <div className="grid grid-cols-2 gap-16 items-center max-[900px]:grid-cols-1 max-[900px]:gap-10">
             <figure className="relative">
               <Image
@@ -228,16 +219,13 @@ export default function HomePage() {
               <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink mb-4">
                 THE TRAINER CELEBRITIES TRUST
               </h2>
-              <div className="w-12 h-[2px] bg-blue-500 mb-6" />
+              <div className="w-12 h-[3px] bg-blue-500 mb-6" />
               <p className="font-body text-[15px] text-gray-muted leading-[1.7] mb-6">
                 Born in Yonkers, raised in Oakland &mdash; Jas Leverette built Cali K9&reg; from a van and a phone number in San Jose
                 into America&rsquo;s most trusted dog training brand. 15+ years. 3,500+ dogs. Netflix. And counting. As host of
                 Netflix&rsquo;s <em>Canine Intervention</em>, Jas proves one thing over and over: there is no such thing as an unfixable dog.
               </p>
-              <Link
-                href="/about"
-                className="inline-block font-ui text-sm font-bold uppercase tracking-[2px] bg-blue-500 text-white px-8 py-3.5 rounded-sm no-underline hover:bg-blue-700 transition-colors"
-              >
+              <Link href="/about" className="btn btn-blue">
                 Meet Jas &rarr;
               </Link>
             </div>
@@ -246,8 +234,8 @@ export default function HomePage() {
       </section>
 
       {/* ── TRAINING PROGRAMS ── */}
-      <section className="py-20 bg-white">
-        <div className="max-w-[1280px] mx-auto px-5">
+      <section className="py-20 max-md:py-12 max-[480px]:py-8 bg-white">
+        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <div className="text-center mb-12">
             <span className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-500 block mb-3">
               Training Programs
@@ -255,7 +243,7 @@ export default function HomePage() {
             <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink mb-4">
               TRANSFORM YOUR DOG&apos;S BEHAVIOR
             </h2>
-            <div className="w-12 h-[2px] bg-blue-500 mx-auto mb-6" />
+            <div className="w-12 h-[3px] bg-blue-500 mx-auto mb-6" />
             <p className="font-body text-base text-gray-muted max-w-[520px] mx-auto">
               Every program is built around your dog&apos;s individual needs and your family&apos;s goals.
             </p>
@@ -280,40 +268,22 @@ export default function HomePage() {
                 <p className={`font-body text-sm leading-relaxed mb-6 ${p.featured ? "text-white/80" : "text-gray-muted"}`}>
                   {p.desc}
                 </p>
-                {p.external ? (
-                  <a
-                    href={p.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`inline-block font-ui text-xs font-bold uppercase tracking-[2px] px-5 py-2.5 rounded-sm no-underline transition-colors ${
-                      p.featured
-                        ? "bg-white text-blue-500 hover:bg-off"
-                        : "border border-blue-500 text-blue-500 hover:bg-blue-50"
-                    }`}
-                  >
-                    Learn More &rarr;
-                  </a>
-                ) : (
-                  <Link
-                    href={p.href}
-                    className={`inline-block font-ui text-xs font-bold uppercase tracking-[2px] px-5 py-2.5 rounded-sm no-underline transition-colors ${
-                      p.featured
-                        ? "bg-white text-blue-500 hover:bg-off"
-                        : "border border-blue-500 text-blue-500 hover:bg-blue-50"
-                    }`}
-                  >
-                    Learn More &rarr;
-                  </Link>
-                )}
+                <Link
+                  href={p.href}
+                  className={`inline-block font-ui text-xs font-bold uppercase tracking-[2px] px-5 py-2.5 rounded-sm no-underline transition-colors ${
+                    p.featured
+                      ? "bg-white text-blue-500 hover:bg-off"
+                      : "border border-blue-500 text-blue-500 hover:bg-blue-50"
+                  }`}
+                >
+                  Learn More &rarr;
+                </Link>
               </div>
             ))}
           </div>
 
           <div className="text-center mt-9">
-            <Link
-              href="/services"
-              className="inline-block font-ui text-sm font-bold uppercase tracking-[2px] border-2 border-blue-500 text-blue-500 px-8 py-3.5 rounded-sm no-underline hover:bg-blue-50 transition-colors"
-            >
+            <Link href="/services" className="btn btn-outline">
               View All Programs &rarr;
             </Link>
           </div>
@@ -321,8 +291,8 @@ export default function HomePage() {
       </section>
 
       {/* ── WHY OUR METHOD WORKS ── */}
-      <section className="py-20 bg-cream">
-        <div className="max-w-[1280px] mx-auto px-5">
+      <section className="py-20 max-md:py-12 max-[480px]:py-8 bg-cream">
+        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <div className="grid grid-cols-2 gap-16 items-center max-[900px]:grid-cols-1 max-[900px]:gap-9">
             <figure className="relative">
               <Image
@@ -334,7 +304,7 @@ export default function HomePage() {
               />
               <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm rounded-md px-3 py-1.5">
                 <span className="font-ui text-[10px] font-bold tracking-[2px] uppercase text-white/50 block">Group Training</span>
-                <span className="font-ui text-xs font-bold tracking-[1px] text-ink/80">Dogs in formation &mdash; Cali K9&reg; Training Facility</span>
+                <span className="font-ui text-xs font-bold tracking-[1px] text-white/80">Dogs in formation &mdash; Cali K9&reg; Training Facility</span>
               </div>
             </figure>
             <div>
@@ -345,7 +315,7 @@ export default function HomePage() {
                 THE CALI K9<sup className="text-[0.42em] align-super font-ui">&reg;</sup><br />
                 <span className="text-blue-500">TRAINING METHOD</span>
               </h2>
-              <div className="w-12 h-[2px] bg-blue-500 mb-6" />
+              <div className="w-12 h-[3px] bg-blue-500 mb-6" />
               <p className="font-body text-base text-gray-muted leading-[1.75] mb-7">
                 Our proprietary dog training system is recognized as one of the best in the world &mdash; and our reviews,
                 testimonials, and client track record confirm it. Evolving since 2009, our method uses
@@ -366,7 +336,7 @@ export default function HomePage() {
               </div>
               <Link
                 href="/evaluation"
-                className="inline-block font-ui text-sm font-bold uppercase tracking-[2px] bg-blue-500 text-white px-8 py-3.5 rounded-sm no-underline hover:bg-blue-700 transition-colors"
+                className="btn btn-blue"
               >
                 GET MY DOG EVALUATED &rarr;
               </Link>
@@ -376,7 +346,7 @@ export default function HomePage() {
       </section>
 
       {/* ── 5-PILLAR SYSTEM ── */}
-      <section className="relative overflow-hidden bg-blue-700 py-20">
+      <section className="relative overflow-hidden bg-blue-700 py-20 max-md:py-12 max-[480px]:py-8">
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
@@ -384,7 +354,7 @@ export default function HomePage() {
             backgroundSize: "60px 60px",
           }}
         />
-        <div className="max-w-[1280px] mx-auto px-5 relative z-[1]">
+        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 relative z-[1]">
           <div className="text-center mb-14">
             <span className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-white/65 block mb-3">
               The Method
@@ -392,7 +362,7 @@ export default function HomePage() {
             <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-white mb-4">
               THE CALI K9<sup className="text-[0.42em] align-super font-ui">&reg;</sup><br />5-PILLAR SYSTEM
             </h2>
-            <div className="w-12 h-[2px] bg-white/15 mx-auto mb-6" />
+            <div className="w-12 h-[3px] bg-white/15 mx-auto mb-6" />
             <p className="font-body text-base text-white/70 max-w-[600px] mx-auto leading-[1.7]">
               Jas&rsquo;s comprehensive step-by-step training system &mdash; led by the host of Netflix&rsquo;s <em>Canine Intervention</em>.
               This proven program works in just 15 minutes a day.
@@ -428,10 +398,7 @@ export default function HomePage() {
           </div>
 
           <div className="text-center">
-            <Link
-              href="/services#online-program"
-              className="inline-block font-ui text-sm font-bold uppercase tracking-[2px] bg-white text-ink px-8 py-3.5 rounded-sm no-underline hover:bg-off transition-colors"
-            >
+            <Link href="/online-training" className="btn btn-white btn-lg">
               Get the 5-Pillar Program &rarr;
             </Link>
           </div>
@@ -439,8 +406,8 @@ export default function HomePage() {
       </section>
 
       {/* ── TESTIMONIALS ── */}
-      <section className="py-20 bg-cream">
-        <div className="max-w-[1280px] mx-auto px-5">
+      <section className="py-20 max-md:py-12 max-[480px]:py-8 bg-cream">
+        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <div className="text-center mb-12">
             <span className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-500 block mb-3">
               Real Transformations
@@ -448,16 +415,20 @@ export default function HomePage() {
             <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink mb-4">
               WHAT 3,500+ OWNERS SAY
             </h2>
-            <div className="w-12 h-[2px] bg-blue-500 mx-auto" />
+            <div className="w-12 h-[3px] bg-blue-500 mx-auto" />
           </div>
 
-          <div className="grid grid-cols-3 gap-6 max-lg:grid-cols-1">
+          <div className="grid grid-cols-3 gap-6 max-[1024px]:grid-cols-2 max-sm:grid-cols-1">
             {TESTIMONIALS.map((t) => (
               <div
                 key={t.name}
                 className="bg-white rounded-xl border border-border p-8 hover:-translate-y-1 hover:shadow-lg transition-all"
               >
-                <div className="text-amber-400 text-lg tracking-[2px] mb-4">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <div className="flex gap-[3px] mb-3">
+                  {[...Array(5)].map((_, i) => (
+                    <span key={i} className="text-[#F59E0B] text-sm leading-none">&#9733;</span>
+                  ))}
+                </div>
                 <p className="font-body text-[15px] text-ink/80 leading-relaxed mb-5 italic">{t.quote}</p>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center font-display text-sm text-blue-500">
@@ -476,10 +447,7 @@ export default function HomePage() {
           </div>
 
           <div className="text-center mt-9">
-            <Link
-              href="/testimonials"
-              className="inline-block font-ui text-sm font-bold uppercase tracking-[2px] border-2 border-blue-500 text-blue-500 px-8 py-3.5 rounded-sm no-underline hover:bg-blue-50 transition-colors"
-            >
+            <Link href="/testimonials" className="btn btn-outline">
               Read All Reviews &rarr;
             </Link>
           </div>
@@ -487,7 +455,7 @@ export default function HomePage() {
       </section>
 
       {/* ── MISSION + VIDEO ── */}
-      <section className="relative overflow-hidden bg-blue-700 py-20">
+      <section className="relative overflow-hidden bg-blue-700 py-20 max-md:py-12 max-[480px]:py-8">
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
@@ -495,7 +463,7 @@ export default function HomePage() {
             backgroundSize: "60px 60px",
           }}
         />
-        <div className="max-w-[1280px] mx-auto px-5 relative z-[1]">
+        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 relative z-[1]">
           <div className="grid grid-cols-2 gap-16 items-center max-[900px]:grid-cols-1 max-[900px]:gap-10">
             <div>
               <span className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-400 block mb-3">
@@ -504,16 +472,13 @@ export default function HomePage() {
               <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-white mb-4">
                 THERE ARE NO BAD DOGS.<br />JUST UNINFORMED OWNERS.
               </h2>
-              <div className="w-12 h-[2px] bg-white/15 mb-6" />
+              <div className="w-12 h-[3px] bg-white/15 mb-6" />
               <p className="font-body text-[15px] text-white/70 leading-[1.8] mb-8">
                 Jas Leverette, world-renowned canine behaviorist and dog trainer, is on a mission to help reduce dog bite
                 cases and dogs sent to shelters worldwide. He helps the dog that no one else will. There is no dog he
                 can&rsquo;t help, and he has never turned a dog away.
               </p>
-              <Link
-                href="/about"
-                className="inline-block font-ui text-sm font-bold uppercase tracking-[2px] border-2 border-white/40 text-white px-8 py-3.5 rounded-sm no-underline hover:bg-white/10 transition-colors"
-              >
+              <Link href="/about" className="btn btn-outline-white">
                 Learn More About Jas &rarr;
               </Link>
             </div>
@@ -534,8 +499,8 @@ export default function HomePage() {
       </section>
 
       {/* ── FREE TRAINING RESOURCE ── */}
-      <section className="py-20 bg-border">
-        <div className="max-w-[1280px] mx-auto px-5">
+      <section className="py-20 max-md:py-12 max-[480px]:py-8 bg-border">
+        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <div className="grid grid-cols-2 gap-[72px] items-center max-[900px]:grid-cols-1 max-[900px]:gap-10">
             <figure className="relative">
               <Image
@@ -557,7 +522,7 @@ export default function HomePage() {
               <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink mb-4">
                 START TRAINING FREE!
               </h2>
-              <div className="w-12 h-[2px] bg-blue-500 mb-6" />
+              <div className="w-12 h-[3px] bg-blue-500 mb-6" />
               <p className="font-body text-base text-gray-muted leading-[1.65] mb-8 max-w-[440px]">
                 First steps to the Cali K9 System. Get instant access to our <strong>&ldquo;3 Tips To Motivate Your Dog&rdquo;</strong> Video
                 by filling out the form below.
@@ -580,8 +545,8 @@ export default function HomePage() {
       </section>
 
       {/* ── SHOP TEASER ── */}
-      <section className="py-20 bg-cream">
-        <div className="max-w-[1280px] mx-auto px-5">
+      <section className="py-20 max-md:py-12 max-[480px]:py-8 bg-cream">
+        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <div className="text-center mb-12">
             <span className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-500 block mb-3">
               Cali K9&reg; Gear
@@ -589,41 +554,18 @@ export default function HomePage() {
             <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink mb-4">
               TRAIN LIKE A PRO.<br /><span className="text-blue-500">LOOK THE PART.</span>
             </h2>
-            <div className="w-12 h-[2px] bg-blue-500 mx-auto mb-6" />
+            <div className="w-12 h-[3px] bg-blue-500 mx-auto mb-6" />
             <p className="font-body text-base text-gray-muted max-w-[480px] mx-auto">
               Official Cali K9&reg; apparel and training gear. Represent the method.
             </p>
           </div>
 
-          <div className="grid grid-cols-4 gap-6 mb-12 max-lg:grid-cols-2 max-sm:grid-cols-1">
-            {[
-              { name: "Hoodies & Apparel", icon: "M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.57a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.57a2 2 0 0 0-1.34-2.23z", gradient: "from-[#e8eaf4] to-[#d0d5e8]" },
-              { name: "Hats & Headwear", icon: "M3 9c0-3.3 4-6 9-6s9 2.7 9 6M3 9v3h18V9M3 12v6a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-6", gradient: "from-[#dde1f0] to-[#c8cee4]" },
-              { name: "Training Equipment", icon: "M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM12 8v4l3 3", gradient: "from-[#e2e6f2] to-[#cfd5ea]" },
-              { name: "Collars & Leashes", icon: "M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82zM7 7h.01", gradient: "from-[#dee2f0] to-[#c5cce6]" },
-            ].map((item) => (
-              <Link
-                key={item.name}
-                href="/shop"
-                className="group bg-white rounded-xl border border-black/8 shadow-sm hover:shadow-lg hover:border-blue-500/25 transition-all no-underline"
-              >
-                <div className={`aspect-[4/3] rounded-t-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center`}>
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="1.2">
-                    <path d={item.icon} />
-                  </svg>
-                </div>
-                <div className="p-5">
-                  <div className="font-ui text-sm font-bold uppercase tracking-[1px] text-ink mb-1">{item.name}</div>
-                  <div className="font-ui text-xs font-bold tracking-[2px] uppercase text-blue-500">Shop Now &rarr;</div>
-                </div>
-              </Link>
-            ))}
-          </div>
+          <ShopTeaser products={allProducts} />
 
           <div className="text-center">
             <Link
               href="/shop"
-              className="inline-block font-ui text-sm font-bold uppercase tracking-[2px] bg-blue-500 text-white px-8 py-3.5 rounded-sm no-underline hover:bg-blue-700 transition-colors"
+              className="btn btn-blue btn-lg"
             >
               Visit the Shop &rarr;
             </Link>

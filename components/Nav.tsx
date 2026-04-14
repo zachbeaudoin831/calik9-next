@@ -59,7 +59,7 @@ export default function Nav() {
           scrolled ? "shadow-[0_2px_16px_rgba(0,0,0,0.1)]" : ""
         }`}
       >
-        <div className="max-w-[1280px] mx-auto px-5 flex justify-between items-center h-full">
+        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 flex justify-between items-center h-full">
           {/* Logo */}
           <Link href="/" className="inline-flex items-center no-underline">
             <Image
@@ -77,7 +77,7 @@ export default function Nav() {
             onClick={() => setDrawerOpen(!drawerOpen)}
             aria-label={drawerOpen ? "Close menu" : "Open menu"}
             aria-expanded={drawerOpen}
-            className="hidden max-lg:flex flex-col justify-center gap-[5px] w-11 h-11 bg-transparent border-none cursor-pointer p-2"
+            className="hidden max-[768px]:flex flex-col justify-center gap-[5px] w-11 h-11 bg-transparent border-none cursor-pointer p-2"
           >
             <span className={`block h-0.5 bg-ink rounded-sm transition-all ${drawerOpen ? "rotate-45 translate-y-[3.5px]" : ""}`} />
             <span className={`block h-0.5 bg-ink rounded-sm transition-all ${drawerOpen ? "opacity-0" : ""}`} />
@@ -85,7 +85,7 @@ export default function Nav() {
           </button>
 
           {/* Desktop links */}
-          <ul className="flex items-center gap-7 list-none max-lg:hidden">
+          <ul className="flex items-center gap-7 list-none max-[768px]:hidden">
             {NAV_LINKS.map((link) =>
               link.hasSub ? (
                 <li key={link.href} ref={subRef} className="relative group">
@@ -143,7 +143,7 @@ export default function Nav() {
           <button
             onClick={openCart}
             aria-label="Open cart"
-            className="relative bg-transparent border-none cursor-pointer p-2 max-lg:mr-12"
+            className="relative bg-transparent border-none cursor-pointer p-2 max-[768px]:mr-12"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
@@ -162,14 +162,14 @@ export default function Nav() {
       {/* Mobile drawer overlay */}
       {drawerOpen && (
         <div
-          className="fixed inset-0 bg-black/30 z-[998] lg:hidden"
+          className="fixed inset-0 bg-black/30 z-[998] min-[769px]:hidden"
           onClick={() => setDrawerOpen(false)}
         />
       )}
 
       {/* Mobile drawer */}
       <div
-        className={`fixed top-[calc(var(--banner-h,0px)+68px)] right-0 bottom-0 w-[min(320px,85vw)] bg-white border-l-2 border-blue-500 p-8 px-6 z-[999] overflow-y-auto transition-transform duration-300 lg:hidden ${
+        className={`fixed top-[calc(var(--banner-h,0px)+68px)] right-0 bottom-0 w-[min(320px,85vw)] bg-white border-l-2 border-blue-500 p-8 px-6 z-[999] overflow-y-auto transition-transform duration-300 min-[769px]:hidden ${
           drawerOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >

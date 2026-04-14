@@ -65,7 +65,7 @@ export default function ShopPage() {
 
       {/* ── Filters ── */}
       <div className="sticky top-[var(--banner-h,0px)] z-30 bg-white border-b border-border">
-        <div className="max-w-[1280px] mx-auto px-5">
+        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <div className="flex items-center justify-between gap-4 py-3 overflow-x-auto">
             <div className="flex gap-2">
               {FILTERS.map((f) => (
@@ -98,7 +98,7 @@ export default function ShopPage() {
 
       {/* ── Product Grid ── */}
       <section className="py-12 bg-off">
-        <div className="max-w-[1280px] mx-auto px-5">
+        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           {loading ? (
             <div className="flex justify-center py-20">
               <div className="text-center font-ui text-sm tracking-[2px] uppercase text-gray-muted">
