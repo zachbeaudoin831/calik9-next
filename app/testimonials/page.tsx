@@ -278,44 +278,46 @@ export default function TestimonialsPage() {
         className="py-20 max-md:py-12 max-[480px]:py-8 bg-cream"
       >
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
-          <p className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-500 text-center mb-3">
-            Google &amp; Yelp &middot; 5 Stars
-          </p>
-          <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink text-center mb-4">
-            VERIFIED REVIEWS
-          </h2>
-          <div className="w-12 h-[3px] bg-blue-500 mx-auto mb-10" />
-          <div className="grid grid-cols-3 max-lg:grid-cols-2 max-sm:grid-cols-1 gap-6">
+          <div className="text-center mb-12">
+            <span className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-500 block mb-3">
+              Google &amp; Yelp &middot; 5 Stars
+            </span>
+            <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink mb-4">
+              VERIFIED REVIEWS
+            </h2>
+            <div className="w-12 h-[3px] bg-blue-500 mx-auto" />
+          </div>
+          <div className="grid grid-cols-3 gap-6 max-[1024px]:grid-cols-2 max-sm:grid-cols-1">
             {REVIEWS.map((r) => (
-              <article
+              <div
                 key={r.initials}
-                className="bg-white rounded-xl shadow-sm p-8 flex flex-col"
+                className="bg-white rounded-xl border border-border p-8 card-hover flex flex-col"
               >
-                <Stars />
-                <blockquote className="mt-4 mb-6 flex-1">
-                  <p className="font-body text-[15px] text-gray-muted leading-[1.7]">
-                    {r.quote}
-                  </p>
-                </blockquote>
-                <footer className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center shrink-0">
-                    <span className="font-display text-sm text-blue-500">
-                      {r.initials}
-                    </span>
+                <div className="flex gap-[3px]" role="img" aria-label="5 out of 5 stars">
+                  {[...Array(5)].map((_, i) => (
+                    <span key={i} className="text-[#F59E0B] text-sm leading-none">&#9733;</span>
+                  ))}
+                </div>
+                <p className="font-body text-[15px] text-ink/80 leading-relaxed mb-5 mt-3 italic flex-1">
+                  {r.quote}
+                </p>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center font-display text-sm text-blue-500 shrink-0">
+                    {r.initials}
                   </div>
                   <div>
                     <cite className="font-ui text-sm font-bold text-ink not-italic block">
                       {r.name}
                     </cite>
-                    <span className="font-body text-xs text-gray-muted">
+                    <span className="font-ui text-xs text-gray-muted">
                       {r.location}
                     </span>
                   </div>
-                </footer>
-                <div className="font-ui text-xs font-bold tracking-[1px] uppercase text-green-500 bg-green-500/10 px-3 py-2 rounded-full text-center">
+                </div>
+                <div className="font-ui text-xs font-bold tracking-[1px] uppercase text-green-500 bg-green-500/10 rounded-sm px-3 py-1.5 inline-block">
                   &#10003; {r.result}
                 </div>
-              </article>
+              </div>
             ))}
           </div>
         </div>

@@ -5,6 +5,8 @@ import CtaBlock from "@/components/CtaBlock";
 import ShopTeaser from "@/components/ShopTeaser";
 import HeroEntrance from "@/components/HeroEntrance";
 import CountUp from "@/components/CountUp";
+import TestimonialSection from "@/components/TestimonialSection";
+import type { Testimonial } from "@/components/TestimonialSection";
 import { getProducts } from "@/lib/shopify";
 
 export const metadata = {
@@ -418,53 +420,11 @@ export default async function HomePage() {
       </section>
 
       {/* ── TESTIMONIALS ── */}
-      <section className="py-20 max-md:py-12 max-[480px]:py-8 bg-cream">
-        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
-          <div className="text-center mb-12">
-            <span className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-500 block mb-3">
-              Real Transformations
-            </span>
-            <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink mb-4">
-              WHAT 3,500+ OWNERS SAY
-            </h2>
-            <div className="w-12 h-[3px] bg-blue-500 mx-auto" />
-          </div>
-
-          <div className="grid grid-cols-3 gap-6 max-[1024px]:grid-cols-2 max-sm:grid-cols-1">
-            {TESTIMONIALS.map((t) => (
-              <div
-                key={t.name}
-                className="bg-white rounded-xl border border-border p-8 card-hover"
-              >
-                <div className="flex gap-[3px] mb-3">
-                  {[...Array(5)].map((_, i) => (
-                    <span key={i} className="text-[#F59E0B] text-sm leading-none">&#9733;</span>
-                  ))}
-                </div>
-                <p className="font-body text-[15px] text-ink/80 leading-relaxed mb-5 italic">{t.quote}</p>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center font-display text-sm text-blue-500">
-                    {t.initials}
-                  </div>
-                  <div>
-                    <cite className="font-ui text-sm font-bold text-ink not-italic block">{t.name}</cite>
-                    <span className="font-ui text-xs text-gray-muted">{t.meta}</span>
-                  </div>
-                </div>
-                <div className="font-ui text-xs font-bold tracking-[1px] uppercase text-green-500 bg-green-500/10 rounded-sm px-3 py-1.5 inline-block">
-                  &#10003; {t.result}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-9">
-            <Link href="/testimonials" className="btn btn-outline">
-              Read All Reviews &rarr;
-            </Link>
-          </div>
-        </div>
-      </section>
+      <TestimonialSection
+        testimonials={TESTIMONIALS}
+        ctaHref="/testimonials"
+        ctaLabel="Read All Reviews →"
+      />
 
       {/* ── MISSION + VIDEO ── */}
       <section className="relative overflow-hidden bg-blue-700 py-20 max-md:py-12 max-[480px]:py-8">

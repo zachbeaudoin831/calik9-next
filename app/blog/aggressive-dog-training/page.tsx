@@ -64,7 +64,7 @@ export default function AggressiveDogTrainingPage() {
 
             <div className="relative aspect-[4/3] rounded-xl overflow-hidden my-10">
               <Image
-                src="/trained-dogs1.jpeg"
+                src="/images/trained-dogs1.jpeg"
                 alt="Dogs trained with the Cali K9 method demonstrating calm, controlled behavior"
                 fill
                 className="object-cover"
@@ -291,7 +291,7 @@ export default function AggressiveDogTrainingPage() {
 
             <div className="relative aspect-[4/3] rounded-xl overflow-hidden my-10">
               <Image
-                src="/trained-dogs2.jpeg"
+                src="/images/trained-dogs2.jpeg"
                 alt="Dogs demonstrating real-world obedience results after Cali K9 training"
                 fill
                 className="object-cover"

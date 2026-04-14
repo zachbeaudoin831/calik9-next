@@ -4,6 +4,7 @@ import ServiceHero from "@/components/ServiceHero";
 import PackageHeading from "@/components/PackageHeading";
 import CelebGrid from "@/components/CelebGrid";
 import CtaBlock from "@/components/CtaBlock";
+import TestimonialSection from "@/components/TestimonialSection";
 
 export const metadata: Metadata = {
   title: "Business Coaching for Dog Trainers",
@@ -25,27 +26,30 @@ export const metadata: Metadata = {
   },
 };
 
-const TESTIMONIALS = [
+const COACHING_TESTIMONIALS = [
   {
-    initial: "M",
+    initials: "MT",
     name: "Marcus T.",
-    role: "Dog Trainer, Texas",
+    meta: "Dog Trainer · Texas",
     quote:
       "\u201CBefore working with Jas, I was charging $50 per session and barely getting by. Within 6 months of his coaching program I tripled my revenue and finally hired my first employee.\u201D",
+    result: "Tripled revenue in 6 months",
   },
   {
-    initial: "S",
+    initials: "SK",
     name: "Sarah K.",
-    role: "Dog Trainer, Florida",
+    meta: "Dog Trainer · Florida",
     quote:
       "\u201CJas showed me how to stop trading time for money. I went from solo trainer to running a full team in under a year. The business systems he teaches are worth every penny.\u201D",
+    result: "Built a full team in under a year",
   },
   {
-    initial: "D",
+    initials: "DL",
     name: "Derek L.",
-    role: "Dog Trainer, California",
+    meta: "Dog Trainer · California",
     quote:
       "\u201CThe pricing strategy alone changed everything. I went from undercharging to running premium programs. Jas doesn\u2019t just talk about it \u2014 he\u2019s actually built it.\u201D",
+    result: "Now running premium programs",
   },
 ];
 
@@ -135,59 +139,12 @@ export default function CoachingPage() {
       </ServiceHero>
 
       {/* ── Client Testimonials ── */}
-      <section className="relative overflow-hidden bg-blue-700 py-20 max-md:py-12 max-[480px]:py-8">
-        <div
-          className="absolute inset-0 pointer-events-none z-0"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
-        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 relative z-[1]">
-          <div className="text-center mb-10">
-            <span className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-400 block mb-3 opacity-50">
-              Success Stories
-            </span>
-            <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-white mb-4">
-              CLIENT TESTIMONIALS
-            </h2>
-            <div className="w-12 h-[3px] bg-blue-400 mx-auto" />
-          </div>
-
-          <div className="grid grid-cols-3 gap-6 max-[900px]:grid-cols-1">
-            {TESTIMONIALS.map((t) => (
-              <div
-                key={t.name}
-                className="bg-white/[0.06] border border-white/[0.12] rounded-xl p-7 flex flex-col gap-4"
-              >
-                <div className="flex items-center gap-3.5">
-                  <div className="w-12 h-12 rounded-full bg-white/[0.12] flex items-center justify-center font-display text-xl text-white shrink-0">
-                    {t.initial}
-                  </div>
-                  <div className="flex flex-col gap-0.5">
-                    <div className="font-ui text-base font-bold text-white tracking-[0.02em]">
-                      {t.name}
-                    </div>
-                    <div className="font-ui text-base font-semibold tracking-[0.06em] uppercase text-white/45">
-                      {t.role}
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="text-[#F59E0B] text-base tracking-[2px]"
-                  aria-label="5 out of 5 stars"
-                >
-                  &#9733;&#9733;&#9733;&#9733;&#9733;
-                </div>
-                <p className="font-body text-[15px] leading-relaxed text-white/70 italic">
-                  {t.quote}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TestimonialSection
+        eyebrow="Success Stories"
+        heading="CLIENT TESTIMONIALS"
+        theme="dark"
+        testimonials={COACHING_TESTIMONIALS}
+      />
 
       {/* ── Celebrity Social Proof ── */}
       <CelebGrid />

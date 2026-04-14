@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import CtaBlock from "@/components/CtaBlock";
+import TestimonialSection from "@/components/TestimonialSection";
 
 export const metadata = {
   title: "Dog Training Services | Cali K9\u00ae",
@@ -204,42 +205,37 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ── TESTIMONIAL BLOCK ── */}
-      <section className="relative overflow-hidden bg-blue-700 py-16">
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage: "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
-        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 relative z-[1]">
-          <div className="text-center max-w-[700px] mx-auto">
-            <span className="font-display text-[80px] text-white/10 leading-none block mb-[-20px]" aria-hidden="true">&ldquo;</span>
-            <blockquote>
-              <p className="font-body text-[clamp(18px,2.5vw,24px)] italic font-light text-white/90 leading-relaxed mb-8">
-                Jas took care of my boys. He got them straight. They listen to me now. They got the best dog trainer right here.
-              </p>
-            </blockquote>
-            <div className="inline-flex items-center gap-4 bg-white/[0.08] border border-white/[0.15] rounded-full px-6 py-3">
-              <Image
-                src="/images/celebs/steph-curry.png"
-                alt="Stephen Curry"
-                width={56}
-                height={56}
-                className="w-14 h-14 rounded-full object-cover object-top"
-              />
-              <div className="text-left">
-                <div className="font-display text-lg text-white">STEPHEN CURRY</div>
-                <div className="text-[#F59E0B] text-xs tracking-[2px]">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                <div className="font-ui text-xs font-bold tracking-[2px] uppercase text-white/50">
-                  NBA Champion &middot; Golden State Warriors
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* ── TESTIMONIALS ── */}
+      <TestimonialSection
+        eyebrow="Success Stories"
+        heading="CLIENT RESULTS"
+        theme="dark"
+        testimonials={[
+          {
+            initials: "MT",
+            name: "Marcus T.",
+            meta: "Zeus — German Shepherd · Aggression",
+            quote: "\u201CBefore Cali K9, Zeus was lunging at every dog on the street. After board and train, he walks by my side like a completely different dog.\u201D",
+            result: "Now walks calmly past other dogs",
+          },
+          {
+            initials: "JL",
+            name: "Jennifer L.",
+            meta: "Luna — Pit Bull Rescue · Fear Aggression",
+            quote: "\u201CWe were considering rehoming our rescue. Two weeks in board and train and she came back calm, focused, and loving.\u201D",
+            result: "Calm, focused & thriving after board & train",
+          },
+          {
+            initials: "PK",
+            name: "Priya K.",
+            meta: "Mochi — Shiba Inu · Reactivity",
+            quote: "\u201CI tried three trainers before Cali K9. The online course alone solved problems others couldn\u2019t fix in person.\u201D",
+            result: "Reactivity eliminated — fixed what 3 trainers couldn\u2019t",
+          },
+        ]}
+        ctaHref="/testimonials"
+        ctaLabel="Read All Reviews →"
+      />
 
       {/* ── SPECIALIZATIONS ── */}
       <section className="py-20 max-md:py-12 max-[480px]:py-8 bg-off">

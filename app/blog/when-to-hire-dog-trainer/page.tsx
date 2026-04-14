@@ -323,7 +323,7 @@ export default function WhenToHireDogTrainerPage() {
 
             <div className="relative aspect-[4/3] rounded-xl overflow-hidden my-10">
               <Image
-                src="/trained-dogs2.jpeg"
+                src="/images/trained-dogs2.jpeg"
                 alt="Dogs showing transformation results after professional Cali K9 training"
                 fill
                 className="object-cover"
@@ -419,7 +419,7 @@ export default function WhenToHireDogTrainerPage() {
             >
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
-                  src="/trained-dogs1.jpeg"
+                  src="/images/trained-dogs1.jpeg"
                   alt="Trained dogs demonstrating calm behavior after professional training"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"

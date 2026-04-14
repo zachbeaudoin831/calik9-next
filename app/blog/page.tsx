@@ -15,7 +15,7 @@ const POSTS = [
     title: "How to Train an Aggressive Dog: A Professional Trainer\u2019s Guide",
     excerpt:
       "Aggression is the #1 reason dog owners seek professional help. Learn what causes it, why punishment makes it worse, and how behavior modification actually works.",
-    image: "/trained-dogs1.jpeg",
+    image: "/images/trained-dogs1.jpeg",
     imageAlt:
       "Trained dogs demonstrating calm behavior after professional training",
     date: "April 2, 2026",

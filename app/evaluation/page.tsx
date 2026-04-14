@@ -367,14 +367,14 @@ export default function EvaluationPage() {
           </div>
           <div className="grid grid-cols-2 gap-6 max-w-[960px] mx-auto max-[600px]:grid-cols-1">
             <Image
-              src="/trained-dogs1.jpeg"
+              src="/images/trained-dogs1.jpeg"
               alt="Trained dogs demonstrating obedience and discipline after Cali K9 program"
               width={800}
               height={600}
               className="w-full h-auto rounded-lg block"
             />
             <Image
-              src="/trained-dogs2.jpeg"
+              src="/images/trained-dogs2.jpeg"
               alt="Dogs showcasing real-world training results from Cali K9 experts"
               width={800}
               height={600}
@@ -463,36 +463,34 @@ export default function EvaluationPage() {
           </div>
 
           {/* Client reviews */}
-          <div className="grid grid-cols-3 gap-6 max-[900px]:grid-cols-1">
+          <div className="grid grid-cols-3 gap-6 max-[1024px]:grid-cols-2 max-sm:grid-cols-1">
             {REVIEWS.map((review) => (
               <div
                 key={review.initials}
-                className="bg-white/[0.06] border border-white/[0.12] rounded-xl p-7"
+                className="bg-white/[0.06] border border-white/[0.12] rounded-xl p-8 card-hover flex flex-col"
               >
-                <div className="flex items-center gap-3.5 mb-4">
-                  <div className="w-12 h-12 rounded-full bg-white/[0.12] flex items-center justify-center font-display text-xl text-white shrink-0">
+                <div className="flex gap-[3px] mb-3" role="img" aria-label="5 out of 5 stars">
+                  {[...Array(5)].map((_, i) => (
+                    <span key={i} className="text-[#F59E0B] text-sm leading-none">&#9733;</span>
+                  ))}
+                </div>
+                <p className="font-body text-[15px] leading-relaxed mb-5 mt-0 italic text-white/70 flex-1">
+                  {review.quote}
+                </p>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-white/[0.12] flex items-center justify-center font-display text-sm text-white shrink-0">
                     {review.initials}
                   </div>
                   <div>
-                    <div
-                      className="text-[#F59E0B] text-base tracking-[2px] mb-0.5"
-                      role="img"
-                      aria-label="5 out of 5 stars"
-                    >
-                      &#9733;&#9733;&#9733;&#9733;&#9733;
-                    </div>
-                    <div className="font-ui text-[15px] font-bold tracking-[1px] uppercase text-white">
+                    <cite className="font-ui text-sm font-bold text-white not-italic block">
                       {review.name}
-                    </div>
-                    <div className="font-ui text-xs text-blue-400 tracking-[1px]">
+                    </cite>
+                    <span className="font-ui text-xs text-blue-400">
                       {review.detail}
-                    </div>
+                    </span>
                   </div>
                 </div>
-                <p className="font-body text-[14px] leading-[1.7] text-white/70 italic mb-3">
-                  {review.quote}
-                </p>
-                <div className="inline-flex items-center gap-1.5 bg-[#D1FAE5] text-[#059669] font-ui text-xs font-bold tracking-[2px] uppercase px-2.5 py-1 rounded-sm mt-2">
+                <div className="font-ui text-xs font-bold tracking-[1px] uppercase text-green-500 bg-green-500/10 rounded-sm px-3 py-1.5 inline-block">
                   &#10003; {review.result}
                 </div>
               </div>
