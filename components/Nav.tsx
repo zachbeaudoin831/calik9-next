@@ -91,11 +91,12 @@ export default function Nav() {
                 <li key={link.href} ref={subRef} className="relative group">
                   <Link
                     href={link.href}
-                    className={`font-ui text-[13px] font-bold uppercase tracking-[2px] no-underline transition-colors ${
+                    className={`inline-flex items-center gap-[5px] font-ui text-[13px] font-bold uppercase tracking-[2px] no-underline transition-colors ${
                       isServicePage ? "text-blue-500 border-b-2 border-blue-500 pb-1" : "text-gray-muted hover:text-blue-500"
                     }`}
                   >
                     {link.label}
+                    <span className="w-[5px] h-[5px] border-r-[1.5px] border-b-[1.5px] border-current rotate-45 -translate-y-[2px] opacity-70 transition-transform duration-[180ms] group-hover:rotate-[225deg] group-hover:translate-y-[2px] group-hover:opacity-100 flex-shrink-0" />
                   </Link>
                   {/* Dropdown */}
                   <ul className="absolute top-full left-1/2 -translate-x-1/2 bg-white border border-black/8 border-t-[10px] border-t-transparent rounded-xl shadow-[0_10px_36px_rgba(0,0,0,0.14)] py-1.5 min-w-[190px] list-none opacity-0 invisible pointer-events-none transition-[opacity,transform,visibility] duration-[180ms] -translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:visible group-focus-within:pointer-events-auto group-focus-within:translate-y-0 z-[200]">
