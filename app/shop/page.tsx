@@ -42,7 +42,7 @@ export default function ShopPage() {
           className="absolute w-[600px] h-[600px] max-md:w-[360px] max-md:h-[360px] max-[480px]:w-[220px] max-[480px]:h-[220px] rounded-full pointer-events-none z-0 -top-[100px] left-[28%]"
           style={{ background: "radial-gradient(circle, rgba(106,159,255,0.16) 0%, transparent 70%)" }}
         />
-        <div className="max-w-[1200px] mx-auto px-9 max-md:px-6 max-[480px]:px-4 relative z-[1] text-left w-full">
+        <div className="max-w-[1200px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 relative z-[1] text-left w-full">
           <div className="flex items-center gap-[14px] mb-6 flex-wrap">
             <span className="inline-flex items-center bg-white/15 border border-white/30 rounded-sm px-5 py-[9px] font-ui text-sm font-bold tracking-[2.5px] uppercase text-white">
               Official Store
@@ -92,7 +92,7 @@ export default function ShopPage() {
       </div>
 
       {/* ── Product Grid ── */}
-      <section className="py-12 bg-off">
+      <section className="py-20 max-md:py-12 max-[480px]:py-8 bg-off">
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           {loading ? (
             <div className="flex justify-center py-20">

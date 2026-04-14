@@ -102,7 +102,7 @@ export default function AboutPage() {
           style={{ background: "radial-gradient(circle, rgba(106,159,255,0.16) 0%, transparent 70%)" }}
           aria-hidden="true"
         />
-        <div className="relative z-[3] flex flex-col justify-center pt-[calc(var(--banner-h,0px)+96px)] px-12 pb-20 max-w-[1200px] mx-auto w-full max-md:px-6 max-md:pt-[calc(var(--banner-h,0px)+80px)] max-md:pb-12">
+        <div className="relative z-[3] flex flex-col justify-center pt-[calc(var(--banner-h,0px)+96px)] px-10 pb-20 max-w-[1200px] mx-auto w-full max-md:px-6 max-md:pt-[calc(var(--banner-h,0px)+80px)] max-md:pb-12">
           <div className="max-w-[680px] max-[900px]:mx-auto max-[900px]:text-center max-[768px]:text-left max-[768px]:mx-0">
             <HeroEntrance delay={0}>
               <div className="flex items-center gap-[14px] flex-wrap mb-6 max-[900px]:justify-center max-[768px]:justify-start">
@@ -310,7 +310,7 @@ export default function AboutPage() {
       {/* ── CREDENTIALS & RECOGNITION ── */}
       <section className="py-20 max-md:py-12 max-[480px]:py-8 bg-gradient-to-br from-[#060D24] to-[#0D1640]">
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
-          <div className="text-center mb-14">
+          <div className="text-center mb-12">
             <span className="font-ui text-[18px] font-semibold tracking-[4px] uppercase text-blue-400 block mb-3">
               Credentials &amp; Recognition
             </span>
@@ -459,7 +459,7 @@ export default function AboutPage() {
             </h2>
             <div className="w-12 h-[3px] bg-blue-500 mx-auto" />
           </div>
-          <div className="grid grid-cols-3 max-[900px]:grid-cols-2 max-[600px]:grid-cols-1 gap-6">
+          <div className="grid grid-cols-3 gap-6 max-lg:grid-cols-2 max-sm:grid-cols-1">
             {PRESS.map((p) => (
               <article
                 key={p.pub + p.headline}
@@ -499,7 +499,7 @@ export default function AboutPage() {
       {/* ── CELEBRITY CLIENTELE ── */}
       <section className="py-20 max-md:py-12 max-[480px]:py-8">
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
-          <div className="text-center mb-10">
+          <div className="text-center mb-12">
             <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
               Trusted By The Best
             </span>
@@ -523,7 +523,7 @@ export default function AboutPage() {
       />
 
       {/* ── SOCIAL MEDIA ── */}
-      <section className="bg-off border-t border-black/[0.06] py-16 text-center">
+      <section className="bg-off border-t border-black/[0.06] py-20 max-md:py-12 max-[480px]:py-8 text-center">
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
             Stay Connected

@@ -304,7 +304,7 @@ export default function EvaluationPage() {
             <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink mb-4">
               WHAT TO EXPECT<br />AFTER YOU BOOK
             </h2>
-            <div className="w-12 h-[3px] bg-blue-500 mx-auto mb-12" />
+            <div className="w-12 h-[3px] bg-blue-500 mx-auto" />
           </div>
 
           <div className="grid grid-cols-3 gap-8 max-w-[1000px] mx-auto max-[768px]:grid-cols-1 max-[768px]:gap-6 max-[768px]:max-w-[480px]">
@@ -434,7 +434,7 @@ export default function EvaluationPage() {
           </div>
 
           {/* Social proof photo grid */}
-          <div className="grid grid-cols-3 gap-4 mb-12 max-[900px]:grid-cols-2 max-[600px]:gap-2">
+          <div className="grid grid-cols-3 gap-4 mb-12 max-lg:grid-cols-2 max-sm:gap-2">
             {SOCIAL_CARDS.map((card) => (
               <div
                 key={card.name}

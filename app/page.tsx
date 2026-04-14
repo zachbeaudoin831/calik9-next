@@ -120,7 +120,7 @@ export default async function HomePage() {
           style={{ background: "radial-gradient(circle, rgba(106,159,255,0.16) 0%, transparent 70%)" }}
           aria-hidden="true"
         />
-        <div className="relative z-[3] flex flex-col justify-center pt-[calc(var(--banner-h,0px)+96px)] px-12 pb-20 max-w-[1200px] mx-auto w-full max-md:px-6 max-md:pt-[calc(var(--banner-h,0px)+80px)]">
+        <div className="relative z-[3] flex flex-col justify-center pt-[calc(var(--banner-h,0px)+96px)] px-10 pb-20 max-w-[1200px] mx-auto w-full max-md:px-6 max-md:pt-[calc(var(--banner-h,0px)+80px)]">
           {/* Eyebrow row */}
           <HeroEntrance delay={0}>
             <div className="flex items-center gap-3.5 mb-6 flex-wrap">
@@ -369,7 +369,7 @@ export default async function HomePage() {
           }}
         />
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 relative z-[1]">
-          <div className="text-center mb-14">
+          <div className="text-center mb-12">
             <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-white/65 block mb-3">
               The Method
             </span>
@@ -471,7 +471,7 @@ export default async function HomePage() {
       </section>
 
       {/* ── FREE TRAINING RESOURCE ── */}
-      <section className="py-20 max-md:py-12 max-[480px]:py-8 bg-border">
+      <section className="py-20 max-md:py-12 max-[480px]:py-8 bg-off">
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <div className="grid grid-cols-2 gap-[72px] items-center max-[900px]:grid-cols-1 max-[900px]:gap-10">
             <figure className="relative">

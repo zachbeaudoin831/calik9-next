@@ -187,14 +187,14 @@ export default function InPersonPage() {
 
       {/* ── Info Section (blue gradient bg) ── */}
       <section
-        className="py-[72px] max-md:py-12 max-[480px]:py-8"
+        className="py-20 max-md:py-12 max-[480px]:py-8"
         style={{
           background:
             "linear-gradient(135deg, #0A1A5C 0%, #122E85 50%, #1A3FAB 100%)",
         }}
       >
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
-          <div className="text-center mb-10">
+          <div className="text-center mb-12">
             <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-white/50 block mb-3">
               Before You Start
             </span>
@@ -204,7 +204,7 @@ export default function InPersonPage() {
             <div className="w-12 h-[3px] bg-blue-400 mx-auto" />
           </div>
 
-          <div className="grid grid-cols-3 gap-6 max-[900px]:grid-cols-1">
+          <div className="grid grid-cols-3 gap-6 max-lg:grid-cols-2 max-sm:grid-cols-1">
             {/* Card 1: Requirements */}
             <div className="bg-white/[0.08] border border-white/[0.12] rounded-lg p-8 transition-all hover:bg-white/[0.12] hover:-translate-y-1">
               <div className="w-12 h-12 rounded-xl flex items-center justify-center text-[22px] mb-5 bg-white/[0.12]">

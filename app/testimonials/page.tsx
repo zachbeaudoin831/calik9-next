@@ -151,7 +151,7 @@ export default function TestimonialsPage() {
           style={{ background: "radial-gradient(circle, rgba(106,159,255,0.16) 0%, transparent 70%)" }}
           aria-hidden="true"
         />
-        <div className="max-w-[1200px] mx-auto px-9 max-md:px-6 max-[480px]:px-4 relative z-[1] text-left w-full">
+        <div className="max-w-[1200px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 relative z-[1] text-left w-full">
           <div className="flex items-center gap-[14px] mb-6 flex-wrap">
             <span className="inline-flex items-center bg-white/15 border border-white/30 rounded-sm px-5 py-[9px] font-ui text-sm font-bold tracking-[2.5px] uppercase text-white">
               3,500+ Dogs Transformed
@@ -187,7 +187,7 @@ export default function TestimonialsPage() {
       {/* ── STATS ── */}
       <section className="py-20 max-md:py-12 max-[480px]:py-8 bg-off">
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
-          <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink text-center mb-10">
+          <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink text-center mb-12">
             BY THE NUMBERS
           </h2>
           <div className="grid grid-cols-4 max-md:grid-cols-2 max-[480px]:grid-cols-1 gap-6">

@@ -148,7 +148,7 @@ export default function StarterCoursePage() {
           aria-hidden="true"
         />
 
-        <div className="relative z-[2] max-w-[1200px] mx-auto px-9 max-[960px]:px-6 max-[480px]:px-4 pt-24 pb-20 w-full grid grid-cols-[1fr_480px] gap-[72px] items-center max-[1024px]:grid-cols-[1fr_380px] max-[1024px]:gap-12 max-[960px]:grid-cols-1 max-[960px]:text-center max-[960px]:pt-28 max-[960px]:pb-12">
+        <div className="relative z-[2] max-w-[1200px] mx-auto px-10 max-[960px]:px-6 max-[480px]:px-4 pt-24 pb-20 w-full grid grid-cols-[1fr_480px] gap-[72px] items-center max-[1024px]:grid-cols-[1fr_380px] max-[1024px]:gap-12 max-[960px]:grid-cols-1 max-[960px]:text-center max-[960px]:pt-28 max-[960px]:pb-12">
           {/* Left: text */}
           <div className="min-w-0">
             <p className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-300 mb-[18px]">
@@ -227,7 +227,7 @@ export default function StarterCoursePage() {
         className="py-20 max-md:py-12 max-[480px]:py-8 bg-cream"
       >
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
-          <div className="text-center mb-14">
+          <div className="text-center mb-12">
             <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
               What&apos;s Inside the Bundle
             </span>
@@ -237,7 +237,7 @@ export default function StarterCoursePage() {
             <div className="w-12 h-[3px] bg-blue-500 mx-auto" />
           </div>
 
-          <div className="grid grid-cols-3 gap-6 max-[900px]:grid-cols-1 max-[900px]:max-w-[480px] max-[900px]:mx-auto">
+          <div className="grid grid-cols-3 gap-6 max-lg:grid-cols-2 max-sm:grid-cols-1 max-sm:max-w-[480px] max-sm:mx-auto">
             {COURSES.map((course) => (
               <article
                 key={course.title}
@@ -281,7 +281,7 @@ export default function StarterCoursePage() {
       </section>
 
       {/* ── Testimonial Break ── */}
-      <section className="py-16 max-md:py-10 bg-white">
+      <section className="py-20 max-md:py-12 max-[480px]:py-8 bg-white">
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <div className="relative bg-cream border border-black/[0.06] rounded-xl p-10 max-md:p-6 text-center">
             <span
@@ -329,14 +329,14 @@ export default function StarterCoursePage() {
         className="py-20 max-md:py-12 max-[480px]:py-8 bg-white"
       >
         <div className="max-w-[600px] mx-auto px-6 max-[480px]:px-4">
-          <div className="text-center mb-10">
+          <div className="text-center mb-12">
             <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
               Special Offer
             </span>
             <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink mb-4">
               GET THE BUNDLE
             </h2>
-            <div className="w-12 h-[3px] bg-blue-500 mx-auto mb-4" />
+            <div className="w-12 h-[3px] bg-blue-500 mx-auto" />
             <p className="font-body text-[15px] text-gray-muted leading-[1.65] max-w-[520px] mx-auto">
               Three courses, one unbeatable price. Everything you need to start
               training today.
@@ -426,21 +426,21 @@ export default function StarterCoursePage() {
           aria-hidden="true"
         />
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 relative z-[1]">
-          <div className="text-center mb-14">
+          <div className="text-center mb-12">
             <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-300 block mb-3">
               Add More Mastery
             </span>
             <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-white mb-4">
               DEEPEN YOUR<br />TRAINING SKILLS
             </h2>
-            <div className="w-12 h-[3px] bg-blue-400 mx-auto mb-4" />
+            <div className="w-12 h-[3px] bg-blue-400 mx-auto" />
             <p className="font-body text-[15px] text-white/65 leading-[1.65] max-w-[520px] mx-auto">
               Each mastery course goes deeper on a single skill. Add any to your
               order for just $27 each.
             </p>
           </div>
 
-          <div className="grid grid-cols-3 gap-6 max-[900px]:grid-cols-1 max-[900px]:max-w-[480px] max-[900px]:mx-auto">
+          <div className="grid grid-cols-3 gap-6 max-lg:grid-cols-2 max-sm:grid-cols-1 max-sm:max-w-[480px] max-sm:mx-auto">
             {UPGRADES.map((pkg) => (
               <article
                 key={pkg.name}
