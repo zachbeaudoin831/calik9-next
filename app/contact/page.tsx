@@ -143,13 +143,13 @@ export default function ContactPage() {
   return (
     <main>
       {/* ── HERO ── */}
-      <section className="hero-standard relative overflow-hidden py-[calc(var(--banner-h,0px)+96px)] pb-[60px] max-[768px]:py-[calc(var(--banner-h,0px)+80px)] max-[768px]:pb-10 text-left">
+      <section className="hero-standard relative flex items-center overflow-hidden py-[calc(var(--banner-h,0px)+96px)] pb-20 max-[900px]:min-h-0 max-[900px]:py-[calc(var(--banner-h,0px)+80px)] max-[900px]:pb-12">
         <div
           className="absolute w-[600px] h-[600px] max-md:w-[360px] max-md:h-[360px] max-[480px]:w-[220px] max-[480px]:h-[220px] rounded-full pointer-events-none z-0 -top-[100px] left-[28%]"
           style={{ background: "radial-gradient(circle, rgba(106,159,255,0.16) 0%, transparent 70%)" }}
           aria-hidden="true"
         />
-        <div className="relative z-[1] max-w-[1200px] mx-auto px-9 max-md:px-5 max-[480px]:px-4 w-full">
+        <div className="max-w-[1200px] mx-auto px-9 max-md:px-6 max-[480px]:px-4 relative z-[1] text-left w-full">
           <div className="flex items-center gap-[14px] mb-6 flex-wrap">
             <span className="inline-flex items-center bg-white/15 border border-white/30 rounded-sm px-5 py-[9px] font-ui text-sm font-bold tracking-[2.5px] uppercase text-white">
               We&rsquo;re Here To Help

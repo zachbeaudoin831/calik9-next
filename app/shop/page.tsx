@@ -1,12 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { getProducts, ShopifyProduct } from "@/lib/shopify";
 import ProductCard from "@/components/ProductCard";
-
-const SHOP_HERO_IMG =
-  "https://cdn.shopify.com/s/files/1/0534/2275/1922/files/VIP-Training-With-Jas-Leverette-Cali-K9_-63071466.jpg?v=1710190456";
 
 const FILTERS = ["All", "Training Equipment", "Treats", "Apparel", "Accessories"];
 
@@ -41,22 +37,21 @@ export default function ShopPage() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden bg-ink py-24 text-center">
-        <Image
-          src={SHOP_HERO_IMG}
-          alt="Cali K9 training"
-          fill
-          priority
-          className="object-cover object-top opacity-[0.18] saturate-[.6]"
+      <section className="hero-standard relative flex items-center overflow-hidden py-[calc(var(--banner-h,0px)+96px)] pb-20 max-[900px]:min-h-0 max-[900px]:py-[calc(var(--banner-h,0px)+80px)] max-[900px]:pb-12">
+        <div
+          className="absolute w-[600px] h-[600px] max-md:w-[360px] max-md:h-[360px] max-[480px]:w-[220px] max-[480px]:h-[220px] rounded-full pointer-events-none z-0 -top-[100px] left-[28%]"
+          style={{ background: "radial-gradient(circle, rgba(106,159,255,0.16) 0%, transparent 70%)" }}
         />
-        <div className="relative z-[1] max-w-[640px] mx-auto px-5">
-          <span className="font-ui text-[11px] font-bold tracking-[4px] uppercase text-blue-200 block mb-4">
-            Official Store
-          </span>
-          <h1 className="font-display text-[clamp(48px,7vw,72px)] text-white leading-none mb-4">
-            CALI K9<em className="text-blue-200">GEAR</em>
+        <div className="max-w-[1200px] mx-auto px-9 max-md:px-6 max-[480px]:px-4 relative z-[1] text-left w-full">
+          <div className="flex items-center gap-[14px] mb-6 flex-wrap">
+            <span className="inline-flex items-center bg-white/15 border border-white/30 rounded-sm px-5 py-[9px] font-ui text-sm font-bold tracking-[2.5px] uppercase text-white">
+              Official Store
+            </span>
+          </div>
+          <h1 className="font-display text-[clamp(40px,6vw,72px)] leading-none tracking-[1px] text-white mb-5">
+            CALI K9 <span className="text-[#8A97C4]">GEAR</span>
           </h1>
-          <p className="font-body text-base text-white/70 leading-relaxed">
+          <p className="font-ui text-[18px] text-white/70 tracking-[0.5px] leading-[1.6] max-w-[600px] mb-9">
             Professional training equipment, premium treats, and Cali K9&reg; apparel.
             Everything Jas uses with his dogs.
           </p>
