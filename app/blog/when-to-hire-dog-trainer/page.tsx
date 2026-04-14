@@ -13,19 +13,22 @@ export default function WhenToHireDogTrainerPage() {
   return (
     <>
       {/* ── ARTICLE HERO ── */}
-      <section className="hero-standard relative flex items-center overflow-hidden py-[calc(var(--banner-h,0px)+100px)] pb-14 max-[900px]:py-[calc(var(--banner-h,0px)+80px)] max-[900px]:pb-12">
+      <section className="hero-standard relative flex items-center overflow-hidden py-[calc(var(--banner-h,0px)+96px)] pb-20 max-[900px]:py-[calc(var(--banner-h,0px)+80px)] max-[900px]:pb-12">
         <div
           className="absolute w-[600px] h-[600px] max-md:w-[360px] max-md:h-[360px] max-[480px]:w-[220px] max-[480px]:h-[220px] rounded-full pointer-events-none z-0 -top-[100px] left-[28%]"
           style={{ background: "radial-gradient(circle, rgba(106,159,255,0.16) 0%, transparent 70%)" }}
+          aria-hidden="true"
         />
-        <div className="max-w-[1200px] mx-auto px-9 max-md:px-6 max-[480px]:px-4 relative z-[1]">
-          <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-300 block mb-4">
-            Training Tips
-          </span>
-          <h1 className="font-display text-[clamp(36px,5vw,60px)] leading-[0.93] tracking-[1px] text-white mb-4">
-            WHEN SHOULD YOU HIRE A PROFESSIONAL DOG TRAINER?
+        <div className="max-w-[1200px] mx-auto px-9 max-md:px-6 max-[480px]:px-4 relative z-[1] text-left w-full">
+          <div className="flex items-center gap-[14px] mb-6">
+            <span className="inline-flex items-center bg-white/15 border border-white/30 rounded-sm px-5 py-[9px] font-ui text-sm font-bold tracking-[2.5px] uppercase text-white">
+              Training Tips
+            </span>
+          </div>
+          <h1 className="font-display text-[clamp(40px,6vw,72px)] leading-none tracking-[1px] text-white mb-5">
+            WHEN TO HIRE A <span className="text-white/40">DOG TRAINER</span>
           </h1>
-          <p className="font-body text-[18px] text-white/70 mb-6">
+          <p className="font-ui text-[18px] text-white/70 tracking-[0.5px] leading-[1.6] max-w-[600px] mb-6">
             7 Signs It&apos;s Time
           </p>
           <div className="flex items-center gap-3 font-ui text-sm text-white/50 tracking-[1px]">
