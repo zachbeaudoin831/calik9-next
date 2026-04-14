@@ -50,13 +50,13 @@ export default function BlogPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="hero-standard relative flex items-center justify-center overflow-hidden py-[calc(var(--banner-h,0px)+100px)] pb-14 max-[900px]:min-h-0 max-[900px]:py-[calc(var(--banner-h,0px)+80px)] max-[900px]:pb-12 text-center">
+      <section className="hero-standard relative flex items-center overflow-hidden py-[calc(var(--banner-h,0px)+100px)] pb-14 max-[900px]:min-h-0 max-[900px]:py-[calc(var(--banner-h,0px)+80px)] max-[900px]:pb-12">
         <div
           className="absolute w-[600px] h-[600px] max-md:w-[360px] max-md:h-[360px] max-[480px]:w-[220px] max-[480px]:h-[220px] rounded-full pointer-events-none z-0 -top-[100px] left-[28%]"
           style={{ background: "radial-gradient(circle, rgba(106,159,255,0.16) 0%, transparent 70%)" }}
         />
-        <div className="max-w-[1200px] mx-auto px-6 max-[480px]:px-4 relative z-[1] flex flex-col items-center">
-          <div className="flex items-center justify-center gap-[14px] mb-6">
+        <div className="max-w-[1200px] mx-auto px-9 max-md:px-6 max-[480px]:px-4 relative z-[1]">
+          <div className="flex items-center gap-[14px] mb-6">
             <span className="inline-flex items-center bg-white/15 border border-white/30 rounded-sm px-5 py-[9px] font-ui text-sm font-bold tracking-[2.5px] uppercase text-white">
               Expert Insights
             </span>
@@ -64,7 +64,7 @@ export default function BlogPage() {
           <h1 className="font-display text-[clamp(40px,6vw,72px)] leading-none tracking-[1px] text-white mb-3">
             DOG TRAINING <span className="text-[#8A97C4]">INSIGHTS</span>
           </h1>
-          <p className="font-body text-[18px] text-white/70 leading-relaxed max-w-[560px] mx-auto">
+          <p className="font-body text-[18px] text-white/70 leading-relaxed max-w-[560px]">
             Professional dog training tips, guides, and real-world advice from
             the team behind Netflix&apos;s Canine Intervention.
           </p>

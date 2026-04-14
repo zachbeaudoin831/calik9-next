@@ -152,7 +152,7 @@ export default function AboutPage() {
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <div className="grid grid-cols-2 max-md:grid-cols-1 gap-16 items-center">
             <div>
-              <span className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-500 block mb-3">
+              <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
                 The Origin Story
               </span>
               <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink mb-4">
@@ -237,7 +237,7 @@ export default function AboutPage() {
         />
         <div className="relative z-10 max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <div className="max-w-[760px]">
-            <span className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-white/40 block mb-3">
+            <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-white/40 block mb-3">
               The Method
             </span>
             <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-white mb-4">
@@ -278,7 +278,7 @@ export default function AboutPage() {
       <section className="py-20 max-md:py-12 max-[480px]:py-8 bg-off">
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <div className="text-center mb-12">
-            <span className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-500 block mb-3">
+            <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
               By The Numbers
             </span>
             <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink mb-4">
@@ -311,7 +311,7 @@ export default function AboutPage() {
       <section className="py-20 max-md:py-12 max-[480px]:py-8 bg-gradient-to-br from-[#060D24] to-[#0D1640]">
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <div className="text-center mb-14">
-            <span className="font-ui text-[18px] font-bold tracking-[4px] uppercase text-blue-400 block mb-3">
+            <span className="font-ui text-[18px] font-semibold tracking-[4px] uppercase text-blue-400 block mb-3">
               Credentials &amp; Recognition
             </span>
             <div className="w-12 h-[3px] bg-white/20 mx-auto" />
@@ -326,7 +326,7 @@ export default function AboutPage() {
                   <path d="M2 12l10 5 10-5" />
                 </svg>
               </div>
-              <span className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-400 block mb-3">
+              <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-400 block mb-3">
                 Competitive Dog Sports
               </span>
               <h2 className="font-display text-[clamp(36px,4vw,52px)] text-white leading-none mb-5">
@@ -359,7 +359,7 @@ export default function AboutPage() {
                   <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11" />
                 </svg>
               </div>
-              <span className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-400 block mb-3">
+              <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-400 block mb-3">
                 Awards &amp; Recognition
               </span>
               <h2 className="font-display text-[clamp(36px,4vw,52px)] text-white leading-none mb-5">
@@ -396,7 +396,7 @@ export default function AboutPage() {
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <div className="grid grid-cols-2 max-md:grid-cols-1 gap-16 items-center">
             <div>
-              <span className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-[#E50914] block mb-3">
+              <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-[#E50914] block mb-3">
                 As Seen On Netflix
               </span>
               <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink mb-4">
@@ -451,7 +451,7 @@ export default function AboutPage() {
       <section className="py-20 max-md:py-12 max-[480px]:py-8 bg-off">
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <div className="text-center mb-12">
-            <span className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-500 block mb-3">
+            <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
               Media Coverage
             </span>
             <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink mb-4">
@@ -500,7 +500,7 @@ export default function AboutPage() {
       <section className="py-20 max-md:py-12 max-[480px]:py-8">
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <div className="text-center mb-10">
-            <span className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-500 block mb-3">
+            <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
               Trusted By The Best
             </span>
             <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink mb-4">
@@ -525,7 +525,7 @@ export default function AboutPage() {
       {/* ── SOCIAL MEDIA ── */}
       <section className="bg-off border-t border-black/[0.06] py-16 text-center">
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
-          <span className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-500 block mb-3">
+          <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
             Stay Connected
           </span>
           <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink mb-4">

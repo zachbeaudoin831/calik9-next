@@ -151,7 +151,7 @@ export default function StarterCoursePage() {
         <div className="relative z-[2] max-w-[1200px] mx-auto px-9 max-[960px]:px-6 max-[480px]:px-4 pt-24 pb-20 w-full grid grid-cols-[1fr_480px] gap-[72px] items-center max-[1024px]:grid-cols-[1fr_380px] max-[1024px]:gap-12 max-[960px]:grid-cols-1 max-[960px]:text-center max-[960px]:pt-28 max-[960px]:pb-12">
           {/* Left: text */}
           <div className="min-w-0">
-            <p className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-300 mb-[18px]">
+            <p className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-300 mb-[18px]">
               Starter Course Bundle
             </p>
             <h1 className="text-white font-display text-[clamp(40px,6vw,72px)] leading-[0.95] tracking-[1px] mb-6">
@@ -228,7 +228,7 @@ export default function StarterCoursePage() {
       >
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <div className="text-center mb-14">
-            <span className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-500 block mb-3">
+            <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
               What&apos;s Inside the Bundle
             </span>
             <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink mb-4">
@@ -330,7 +330,7 @@ export default function StarterCoursePage() {
       >
         <div className="max-w-[600px] mx-auto px-6 max-[480px]:px-4">
           <div className="text-center mb-10">
-            <span className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-500 block mb-3">
+            <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
               Special Offer
             </span>
             <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink mb-4">
@@ -427,7 +427,7 @@ export default function StarterCoursePage() {
         />
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 relative z-[1]">
           <div className="text-center mb-14">
-            <span className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-300 block mb-3">
+            <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-300 block mb-3">
               Add More Mastery
             </span>
             <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-white mb-4">

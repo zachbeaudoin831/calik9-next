@@ -108,7 +108,7 @@ export default function BoardAndTrainPage() {
       <section className="py-20 max-md:py-12 max-[480px]:py-8 bg-cream">
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <div className="text-center mb-12">
-            <span className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-500 block mb-3">
+            <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
               Program Details
             </span>
             <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink mb-4">

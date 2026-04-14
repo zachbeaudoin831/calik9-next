@@ -193,7 +193,7 @@ export default async function HomePage() {
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <div className="flex items-center gap-4 mb-9">
             <span className="flex-1 h-px bg-black/10" />
-            <span className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-[#5a5a5a] whitespace-nowrap">As Featured In</span>
+            <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-[#5a5a5a] whitespace-nowrap">As Featured In</span>
             <span className="flex-1 h-px bg-black/10" />
           </div>
           <div className="flex flex-wrap justify-center items-center gap-x-2 gap-y-0 mb-2">
@@ -227,7 +227,7 @@ export default async function HomePage() {
               </div>
             </figure>
             <div>
-              <span className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-500 block mb-3">
+              <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
                 Meet the Founder
               </span>
               <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink mb-4">
@@ -251,7 +251,7 @@ export default async function HomePage() {
       <section className="py-20 max-md:py-12 max-[480px]:py-8 bg-white">
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <div className="text-center mb-12">
-            <span className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-500 block mb-3">
+            <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
               Training Programs
             </span>
             <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink mb-4">
@@ -322,7 +322,7 @@ export default async function HomePage() {
               </div>
             </figure>
             <div>
-              <span className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-500 block mb-3">
+              <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
                 Why Our Method Works
               </span>
               <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink mb-4">
@@ -370,7 +370,7 @@ export default async function HomePage() {
         />
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 relative z-[1]">
           <div className="text-center mb-14">
-            <span className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-white/65 block mb-3">
+            <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-white/65 block mb-3">
               The Method
             </span>
             <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-white mb-4">
@@ -438,7 +438,7 @@ export default async function HomePage() {
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 relative z-[1]">
           <div className="grid grid-cols-2 gap-16 items-center max-[900px]:grid-cols-1 max-[900px]:gap-10">
             <div>
-              <span className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-400 block mb-3">
+              <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-400 block mb-3">
                 The Mission
               </span>
               <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-white mb-4">
@@ -488,7 +488,7 @@ export default async function HomePage() {
               </div>
             </figure>
             <div>
-              <span className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-500 block mb-3">
+              <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
                 Free Training Resource
               </span>
               <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink mb-4">
@@ -520,7 +520,7 @@ export default async function HomePage() {
       <section className="py-20 max-md:py-12 max-[480px]:py-8 bg-cream">
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <div className="text-center mb-12">
-            <span className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-500 block mb-3">
+            <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
               Cali K9&reg; Gear
             </span>
             <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink mb-4">

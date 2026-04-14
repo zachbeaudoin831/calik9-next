@@ -63,7 +63,7 @@ export default function CelebGrid() {
   return (
     <section className="py-20 max-md:py-12 max-[480px]:py-8 px-10 max-md:px-6 max-[480px]:px-4">
       <div className="max-w-[1140px] mx-auto">
-        <p className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-500 text-center mb-3">
+        <p className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 text-center mb-3">
           Trusted By The Best
         </p>
         <h2 className="font-display text-[clamp(28px,4vw,44px)] text-ink text-center max-w-[800px] mx-auto mb-12 leading-[1.1]">

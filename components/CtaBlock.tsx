@@ -27,7 +27,7 @@ export default function CtaBlock({
     >
       <div className="max-w-[640px] mx-auto px-6">
         <span
-          className={`font-ui text-[15px] font-bold tracking-[4px] uppercase block mb-3 ${
+          className={`font-ui text-[15px] font-semibold tracking-[4px] uppercase block mb-3 ${
             dark ? "text-blue-400" : "text-blue-500"
           }`}
         >

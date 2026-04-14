@@ -225,7 +225,7 @@ export default function TestimonialsPage() {
         className="py-20 max-md:py-12 max-[480px]:py-8"
       >
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
-          <p className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-500 text-center mb-3">
+          <p className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 text-center mb-3">
             Trusted by the Best
           </p>
           <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink text-center mb-4">
@@ -241,7 +241,7 @@ export default function TestimonialsPage() {
       {/* ── VIDEO TESTIMONIALS ── */}
       <section className="py-20 max-md:py-12 max-[480px]:py-8 bg-blue-700">
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
-          <p className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-400 text-center mb-3">
+          <p className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-400 text-center mb-3">
             Real Client Results
           </p>
           <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-white text-center mb-4">
@@ -279,7 +279,7 @@ export default function TestimonialsPage() {
       >
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <div className="text-center mb-12">
-            <span className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-500 block mb-3">
+            <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
               Google &amp; Yelp &middot; 5 Stars
             </span>
             <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink mb-4">
@@ -328,7 +328,7 @@ export default function TestimonialsPage() {
       {/* ── CASE STUDIES ── */}
       <section className="py-20 max-md:py-12 max-[480px]:py-8">
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
-          <p className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-500 text-center mb-3">
+          <p className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 text-center mb-3">
             Real Transformations
           </p>
           <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink text-center mb-4">
@@ -342,7 +342,7 @@ export default function TestimonialsPage() {
                 key={cs.heading}
                 className="bg-white rounded-xl shadow-sm p-9 max-md:p-6"
               >
-                <p className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-500 mb-3">
+                <p className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 mb-3">
                   {cs.eyebrow}
                 </p>
                 <h3 className="font-display text-[28px] text-ink mb-3">

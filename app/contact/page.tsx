@@ -247,7 +247,7 @@ export default function ContactPage() {
           <div className="grid grid-cols-2 max-[900px]:grid-cols-1 gap-10 items-start">
             {/* Left: Form */}
             <div>
-              <p className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-400 mb-3">
+              <p className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-400 mb-3">
                 Send A Message
               </p>
               <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-white mb-2">
@@ -281,7 +281,7 @@ export default function ContactPage() {
 
             {/* Right: Locations + Hours */}
             <div>
-              <p className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-400 mb-3">
+              <p className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-400 mb-3">
                 Our Locations
               </p>
               <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-white mb-2">

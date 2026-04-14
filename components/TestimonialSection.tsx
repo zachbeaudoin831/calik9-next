@@ -70,7 +70,7 @@ export default function TestimonialSection({
       <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 relative z-[1]">
         <div className="text-center mb-12">
           <span
-            className={`font-ui text-[15px] font-bold tracking-[4px] uppercase block mb-3 ${
+            className={`font-ui text-[15px] font-semibold tracking-[4px] uppercase block mb-3 ${
               isDark ? "text-blue-400 opacity-60" : "text-blue-500"
             }`}
           >

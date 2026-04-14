@@ -195,7 +195,7 @@ export default function InPersonPage() {
       >
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <div className="text-center mb-10">
-            <span className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-white/50 block mb-3">
+            <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-white/50 block mb-3">
               Before You Start
             </span>
             <h2 className="font-display text-[clamp(28px,3.5vw,42px)] leading-[1.05] text-white mb-4">

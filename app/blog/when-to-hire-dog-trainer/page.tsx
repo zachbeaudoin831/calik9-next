@@ -13,13 +13,13 @@ export default function WhenToHireDogTrainerPage() {
   return (
     <>
       {/* ── ARTICLE HERO ── */}
-      <section className="hero-standard relative flex items-center justify-center overflow-hidden py-[calc(var(--banner-h,0px)+100px)] pb-14 max-[900px]:py-[calc(var(--banner-h,0px)+80px)] max-[900px]:pb-12 text-center">
+      <section className="hero-standard relative flex items-center overflow-hidden py-[calc(var(--banner-h,0px)+100px)] pb-14 max-[900px]:py-[calc(var(--banner-h,0px)+80px)] max-[900px]:pb-12">
         <div
           className="absolute w-[600px] h-[600px] max-md:w-[360px] max-md:h-[360px] max-[480px]:w-[220px] max-[480px]:h-[220px] rounded-full pointer-events-none z-0 -top-[100px] left-[28%]"
           style={{ background: "radial-gradient(circle, rgba(106,159,255,0.16) 0%, transparent 70%)" }}
         />
-        <div className="max-w-[1200px] mx-auto px-6 max-[480px]:px-4 relative z-[1] flex flex-col items-center">
-          <span className="font-ui text-[15px] font-bold tracking-[4px] uppercase text-blue-300 block mb-4">
+        <div className="max-w-[1200px] mx-auto px-9 max-md:px-6 max-[480px]:px-4 relative z-[1]">
+          <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-300 block mb-4">
             Training Tips
           </span>
           <h1 className="font-display text-[clamp(36px,5vw,60px)] leading-[0.93] tracking-[1px] text-white mb-4">
@@ -28,7 +28,7 @@ export default function WhenToHireDogTrainerPage() {
           <p className="font-body text-[18px] text-white/70 mb-6">
             7 Signs It&apos;s Time
           </p>
-          <div className="flex items-center justify-center gap-3 font-ui text-sm text-white/50 tracking-[1px]">
+          <div className="flex items-center gap-3 font-ui text-sm text-white/50 tracking-[1px]">
             <span>By Jas Leverette</span>
             <span>&middot;</span>
             <span>April 2, 2026</span>
