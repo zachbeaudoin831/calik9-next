@@ -3,6 +3,8 @@ import Image from "next/image";
 import Script from "next/script";
 import CtaBlock from "@/components/CtaBlock";
 import ShopTeaser from "@/components/ShopTeaser";
+import HeroEntrance from "@/components/HeroEntrance";
+import CountUp from "@/components/CountUp";
 import { getProducts } from "@/lib/shopify";
 
 export const metadata = {
@@ -118,47 +120,57 @@ export default async function HomePage() {
         />
         <div className="relative z-[3] flex flex-col justify-center pt-[calc(var(--banner-h,0px)+96px)] px-12 pb-20 max-w-[1200px] mx-auto w-full max-md:px-6 max-md:pt-[calc(var(--banner-h,0px)+80px)]">
           {/* Eyebrow row */}
-          <div className="flex items-center gap-3.5 mb-6 flex-wrap">
-            <span className="inline-flex items-center gap-2 bg-[rgba(229,9,20,0.12)] border border-[rgba(229,9,20,0.35)] rounded-sm px-3.5 py-1.5 font-ui text-xs font-bold tracking-[2.5px] uppercase text-white">
-              <span className="text-[#E50914] text-base font-black leading-none">N</span> Canine Intervention
-            </span>
-            <span className="font-ui text-sm font-bold tracking-[2px] uppercase text-[#7B8CC4]">
-              Est. 2009 &middot; Bay Area &middot; Los Angeles &middot; Miami &middot; New York
-            </span>
-          </div>
+          <HeroEntrance delay={0}>
+            <div className="flex items-center gap-3.5 mb-6 flex-wrap">
+              <span className="inline-flex items-center gap-2 bg-[rgba(229,9,20,0.12)] border border-[rgba(229,9,20,0.35)] rounded-sm px-3.5 py-1.5 font-ui text-xs font-bold tracking-[2.5px] uppercase text-white">
+                <span className="text-[#E50914] text-base font-black leading-none">N</span> Canine Intervention
+              </span>
+              <span className="font-ui text-sm font-bold tracking-[2px] uppercase text-[#7B8CC4]">
+                Est. 2009 &middot; Bay Area &middot; Los Angeles &middot; Miami &middot; New York
+              </span>
+            </div>
+          </HeroEntrance>
 
-          <h1 className="font-display text-[clamp(64px,9vw,112px)] leading-[0.9] tracking-[1px] text-white mb-5 max-w-[640px]">
-            THERE ARE NO <span className="text-white/45">BAD</span> DOGS.
-          </h1>
+          <HeroEntrance delay={120}>
+            <h1 className="font-display text-[clamp(64px,9vw,112px)] leading-[0.9] tracking-[1px] text-white mb-5 max-w-[640px]">
+              THERE ARE NO <span className="text-white/45">BAD</span> DOGS.
+            </h1>
+          </HeroEntrance>
 
-          <p className="font-ui text-[18px] text-white/70 tracking-[0.5px] leading-relaxed max-w-[560px] mb-9">
-            Jas Leverette and Cali K9&reg; deliver professional dog training rooted in relationship, structure, and results.
-            Trusted by thousands of families &mdash; and zero unsolvable dogs.
-          </p>
+          <HeroEntrance delay={240}>
+            <p className="font-ui text-[18px] text-white/70 tracking-[0.5px] leading-relaxed max-w-[560px] mb-9">
+              Jas Leverette and Cali K9&reg; deliver professional dog training rooted in relationship, structure, and results.
+              Trusted by thousands of families &mdash; and zero unsolvable dogs.
+            </p>
+          </HeroEntrance>
 
-          <div className="flex gap-4 flex-wrap max-sm:flex-col max-sm:items-stretch">
-            <Link href="/evaluation" className="btn btn-white btn-lg min-w-[240px]">
-              Book Evaluation &rarr;
-            </Link>
-            <Link href="/services" className="btn btn-outline-white min-w-[240px]">
-              View Programs &rarr;
-            </Link>
-          </div>
+          <HeroEntrance delay={360}>
+            <div className="flex gap-4 flex-wrap max-sm:flex-col max-sm:items-stretch">
+              <Link href="/evaluation" className="btn btn-white btn-lg min-w-[240px]">
+                Book Evaluation &rarr;
+              </Link>
+              <Link href="/services" className="btn btn-outline-white min-w-[240px]">
+                View Programs &rarr;
+              </Link>
+            </div>
+          </HeroEntrance>
 
           {/* Stats */}
-          <div className="flex gap-9 mt-11 pt-8 border-t border-white/[0.12] flex-wrap max-sm:gap-5">
-            {STATS.map((s) => (
-              <div key={s.label} className="text-left max-md:text-center">
-                <div className="font-display text-[30px] text-white leading-none">
-                  {s.num}
-                  {s.star && <span className="text-[#F59E0B] text-[22px] align-middle ml-0.5">&#9733;</span>}
+          <HeroEntrance delay={500}>
+            <div className="flex gap-9 mt-11 pt-8 border-t border-white/[0.12] flex-wrap max-sm:gap-5">
+              {STATS.map((s) => (
+                <div key={s.label} className="text-left max-md:text-center">
+                  <div className="font-display text-[30px] text-white leading-none">
+                    <CountUp value={s.num} />
+                    {s.star && <span className="text-[#F59E0B] text-[22px] align-middle ml-0.5">&#9733;</span>}
+                  </div>
+                  <div className="font-ui text-[13px] font-bold tracking-[2px] uppercase text-white/[0.48] mt-1">
+                    {s.label}
+                  </div>
                 </div>
-                <div className="font-ui text-[13px] font-bold tracking-[2px] uppercase text-white/[0.48] mt-1">
-                  {s.label}
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </HeroEntrance>
         </div>
       </section>
 
@@ -253,7 +265,7 @@ export default async function HomePage() {
             {PROGRAMS.map((p) => (
               <div
                 key={p.title}
-                className={`relative rounded-xl border p-8 transition-all hover:-translate-y-1 hover:shadow-lg ${
+                className={`relative rounded-xl border p-8 card-hover ${
                   p.featured
                     ? "bg-blue-500 border-blue-500 text-white"
                     : "bg-white border-border text-ink"
@@ -372,12 +384,12 @@ export default async function HomePage() {
           <div className="grid grid-cols-5 gap-5 mb-12 max-[900px]:grid-cols-3 max-[560px]:grid-cols-2">
             {PILLARS.map((p) => (
               <div key={p.num} className="flex flex-col gap-4">
-                <div className="relative aspect-square rounded-xl overflow-hidden bg-white/[0.08] hover:-translate-y-[5px] hover:shadow-[0_16px_40px_rgba(0,0,0,0.3)] transition-all group">
+                <div className="relative aspect-square rounded-xl overflow-hidden bg-white/[0.08] card-hover group">
                   <Image
                     src={p.img}
                     alt={`${p.name} training`}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-400"
+                    className="object-cover group-hover:scale-[1.05] transition-transform duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
                     sizes="(max-width: 560px) 50vw, (max-width: 900px) 33vw, 20vw"
                   />
                   <span className="absolute bottom-[-8px] right-0.5 font-display text-[clamp(5rem,8vw,7rem)] text-white/[0.07] leading-none select-none pointer-events-none">
@@ -422,7 +434,7 @@ export default async function HomePage() {
             {TESTIMONIALS.map((t) => (
               <div
                 key={t.name}
-                className="bg-white rounded-xl border border-border p-8 hover:-translate-y-1 hover:shadow-lg transition-all"
+                className="bg-white rounded-xl border border-border p-8 card-hover"
               >
                 <div className="flex gap-[3px] mb-3">
                   {[...Array(5)].map((_, i) => (

@@ -3,6 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import CelebGrid from "@/components/CelebGrid";
 import CtaBlock from "@/components/CtaBlock";
+import HeroEntrance from "@/components/HeroEntrance";
+import CountUp from "@/components/CountUp";
 
 export const metadata: Metadata = {
   title: "About Jas Leverette",
@@ -102,37 +104,45 @@ export default function AboutPage() {
         />
         <div className="relative z-[3] flex flex-col justify-center pt-[calc(var(--banner-h,0px)+96px)] px-12 pb-20 max-w-[1200px] mx-auto w-full max-md:px-6 max-md:pt-[calc(var(--banner-h,0px)+80px)] max-md:pb-12">
           <div className="max-w-[680px] max-[900px]:mx-auto max-[900px]:text-center max-[768px]:text-left max-[768px]:mx-0">
-            <div className="flex items-center gap-[14px] flex-wrap mb-6 max-[900px]:justify-center max-[768px]:justify-start">
-              <span className="inline-flex items-center bg-white/15 border border-white/30 rounded-sm px-5 py-[9px] font-ui text-sm font-bold tracking-[2.5px] uppercase text-white">
-                Schutzhund Certified &middot; Est. 2009
-              </span>
-              <span className="font-ui text-sm font-bold tracking-[2px] uppercase text-[#7B8CC4]">
-                Founder &amp; Head Trainer
-              </span>
-            </div>
-            <h1 className="font-display text-[clamp(64px,9vw,112px)] leading-[0.9] tracking-[1px] text-white mb-5">
-              JAS<br />
-              <span className="text-white/40">LEVERETTE</span>
-            </h1>
-            <p className="font-ui text-[18px] text-white/70 tracking-[0.5px] leading-[1.6] max-w-[560px] mb-9">
-              Born in Yonkers. Raised in Oakland. Built worldwide. From the
-              streets to Netflix, Jas Leverette is redefining what professional
-              dog training looks like.
-            </p>
-            <div className="flex gap-4 flex-wrap max-[768px]:flex-col max-[768px]:items-stretch">
-              <Link
-                href="/evaluation"
-                className="btn btn-white btn-lg min-w-[240px] max-[768px]:w-full max-[768px]:justify-center"
-              >
-                Train with Jas &rarr;
-              </Link>
-              <Link
-                href="/services"
-                className="btn btn-outline-white min-w-[240px] max-[768px]:w-full max-[768px]:justify-center"
-              >
-                View Programs &rarr;
-              </Link>
-            </div>
+            <HeroEntrance delay={0}>
+              <div className="flex items-center gap-[14px] flex-wrap mb-6 max-[900px]:justify-center max-[768px]:justify-start">
+                <span className="inline-flex items-center bg-white/15 border border-white/30 rounded-sm px-5 py-[9px] font-ui text-sm font-bold tracking-[2.5px] uppercase text-white">
+                  Schutzhund Certified &middot; Est. 2009
+                </span>
+                <span className="font-ui text-sm font-bold tracking-[2px] uppercase text-[#7B8CC4]">
+                  Founder &amp; Head Trainer
+                </span>
+              </div>
+            </HeroEntrance>
+            <HeroEntrance delay={120}>
+              <h1 className="font-display text-[clamp(64px,9vw,112px)] leading-[0.9] tracking-[1px] text-white mb-5">
+                JAS<br />
+                <span className="text-white/40">LEVERETTE</span>
+              </h1>
+            </HeroEntrance>
+            <HeroEntrance delay={240}>
+              <p className="font-ui text-[18px] text-white/70 tracking-[0.5px] leading-[1.6] max-w-[560px] mb-9">
+                Born in Yonkers. Raised in Oakland. Built worldwide. From the
+                streets to Netflix, Jas Leverette is redefining what professional
+                dog training looks like.
+              </p>
+            </HeroEntrance>
+            <HeroEntrance delay={360}>
+              <div className="flex gap-4 flex-wrap max-[768px]:flex-col max-[768px]:items-stretch">
+                <Link
+                  href="/evaluation"
+                  className="btn btn-white btn-lg min-w-[240px] max-[768px]:w-full max-[768px]:justify-center"
+                >
+                  Train with Jas &rarr;
+                </Link>
+                <Link
+                  href="/services"
+                  className="btn btn-outline-white min-w-[240px] max-[768px]:w-full max-[768px]:justify-center"
+                >
+                  View Programs &rarr;
+                </Link>
+              </div>
+            </HeroEntrance>
           </div>
         </div>
       </section>
@@ -280,10 +290,10 @@ export default function AboutPage() {
             {STATS.map((s) => (
               <div
                 key={s.label}
-                className="bg-white rounded-xl border border-black/[0.06] p-8 text-center"
+                className="bg-white rounded-xl border border-black/[0.06] p-8 text-center card-hover"
               >
                 <div className="font-display text-[48px] text-blue-500 leading-none mb-2">
-                  {s.num}
+                  <CountUp value={s.num} />
                 </div>
                 <div className="font-ui text-xs font-bold tracking-[2px] uppercase text-gray-600 mb-2">
                   {s.label}
@@ -453,15 +463,17 @@ export default function AboutPage() {
             {PRESS.map((p) => (
               <article
                 key={p.pub + p.headline}
-                className="bg-white border border-black/[0.08] rounded-xl overflow-hidden hover:-translate-y-1 hover:shadow-lg transition-all"
+                className="group bg-white border border-black/[0.08] rounded-xl overflow-hidden card-hover"
               >
-                <Image
-                  src={p.image}
-                  width={640}
-                  height={360}
-                  alt={`${p.pub} article about Jas Leverette`}
-                  className="w-full aspect-video object-cover block"
-                />
+                <div className="overflow-hidden">
+                  <Image
+                    src={p.image}
+                    width={640}
+                    height={360}
+                    alt={`${p.pub} article about Jas Leverette`}
+                    className="w-full aspect-video object-cover block transition-transform duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.05]"
+                  />
+                </div>
                 <div className="p-5 pb-6">
                   <p className="font-ui text-base font-bold tracking-[3px] uppercase text-blue-500 mb-2">
                     {p.pub}

@@ -74,14 +74,14 @@ export default function CelebGrid() {
           {CELEBS.map((celeb) => (
             <article
               key={celeb.name}
-              className="relative rounded-xl overflow-hidden aspect-square cursor-default transition-[transform,box-shadow] duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-[5px] hover:shadow-lg"
+              className="group relative rounded-xl overflow-hidden aspect-square cursor-default card-hover"
               aria-label={`${celeb.name} testimonial`}
             >
               <Image
                 src={celeb.image}
                 alt={celeb.name}
                 fill
-                className="object-cover transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-[1.04]"
+                className="object-cover transition-transform duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]"
                 style={{ objectPosition: celeb.objectPosition || "center top" }}
                 sizes="(max-width: 540px) 50vw, (max-width: 900px) 50vw, 33vw"
               />

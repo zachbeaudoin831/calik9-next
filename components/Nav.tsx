@@ -87,7 +87,7 @@ export default function Nav() {
                     <span className="w-[5px] h-[5px] border-r-[1.5px] border-b-[1.5px] border-current rotate-45 -translate-y-[2px] opacity-70 transition-transform duration-[180ms] group-hover:rotate-[225deg] group-hover:translate-y-[2px] group-hover:opacity-100 flex-shrink-0" />
                   </Link>
                   {/* Dropdown */}
-                  <ul className="absolute top-full left-1/2 -translate-x-1/2 bg-white border border-black/8 border-t-[10px] border-t-transparent rounded-xl shadow-[0_10px_36px_rgba(0,0,0,0.14)] py-1.5 min-w-[190px] list-none opacity-0 invisible pointer-events-none transition-[opacity,transform,visibility] duration-[180ms] -translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:visible group-focus-within:pointer-events-auto group-focus-within:translate-y-0 z-[200]">
+                  <ul className="absolute top-full left-1/2 -translate-x-1/2 bg-white border border-black/8 border-t-[10px] border-t-transparent rounded-xl shadow-[0_10px_36px_rgba(0,0,0,0.14)] py-1.5 min-w-[190px] list-none opacity-0 invisible pointer-events-none transition-[opacity,transform,visibility] duration-[220ms] ease-[cubic-bezier(0.16,1,0.3,1)] -translate-y-2 scale-[0.96] origin-top group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:scale-100 group-focus-within:opacity-100 group-focus-within:visible group-focus-within:pointer-events-auto group-focus-within:translate-y-0 group-focus-within:scale-100 z-[200]">
                     {SERVICE_LINKS.map((sub) => (
                       <li key={sub.href}>
                         <Link
@@ -179,17 +179,17 @@ export default function Nav() {
       </nav>
 
       {/* Mobile drawer overlay */}
-      {drawerOpen && (
-        <div
-          className="fixed inset-0 bg-black/30 z-[998] min-[769px]:hidden"
-          onClick={() => setDrawerOpen(false)}
-        />
-      )}
+      <div
+        className={`fixed inset-0 z-[998] min-[769px]:hidden transition-[opacity,visibility] duration-300 ${
+          drawerOpen ? "bg-black/30 opacity-100 visible" : "opacity-0 invisible pointer-events-none"
+        }`}
+        onClick={() => setDrawerOpen(false)}
+      />
 
       {/* Mobile drawer */}
       <div
-        className={`fixed top-[calc(var(--banner-h,0px)+68px)] right-0 bottom-0 w-[min(320px,85vw)] bg-white border-l-2 border-blue-500 p-8 px-6 z-[999] overflow-y-auto transition-transform duration-300 min-[769px]:hidden ${
-          drawerOpen ? "translate-x-0" : "translate-x-full"
+        className={`fixed top-[calc(var(--banner-h,0px)+68px)] right-0 bottom-0 w-[min(320px,85vw)] bg-white border-l-2 border-blue-500 p-8 px-6 z-[999] overflow-y-auto min-[769px]:hidden transition-[transform,opacity] duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
+          drawerOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
         }`}
       >
         <ul className="flex flex-col gap-1 list-none">
