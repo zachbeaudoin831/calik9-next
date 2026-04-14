@@ -61,28 +61,16 @@ export default function Nav() {
       >
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 flex justify-between items-center h-full">
           {/* Logo */}
-          <Link href="/" className="inline-flex items-center no-underline">
+          <Link href="/" className="inline-flex items-center no-underline flex-shrink-0">
             <Image
               src="/images/logo.webp"
               alt="Cali K9® logo"
               width={350}
               height={54}
-              className="h-8 w-auto block"
+              className="h-8 w-auto block max-[480px]:h-7"
               priority
             />
           </Link>
-
-          {/* Hamburger (mobile) */}
-          <button
-            onClick={() => setDrawerOpen(!drawerOpen)}
-            aria-label={drawerOpen ? "Close menu" : "Open menu"}
-            aria-expanded={drawerOpen}
-            className="hidden max-[768px]:flex flex-col justify-center gap-[5px] w-11 h-11 bg-transparent border-none cursor-pointer p-2"
-          >
-            <span className={`block h-0.5 bg-ink rounded-sm transition-all ${drawerOpen ? "rotate-45 translate-y-[3.5px]" : ""}`} />
-            <span className={`block h-0.5 bg-ink rounded-sm transition-all ${drawerOpen ? "opacity-0" : ""}`} />
-            <span className={`block h-0.5 bg-ink rounded-sm transition-all ${drawerOpen ? "-rotate-45 -translate-y-[3.5px]" : ""}`} />
-          </button>
 
           {/* Desktop links */}
           <ul className="flex items-center gap-7 list-none max-[768px]:hidden">
@@ -140,11 +128,41 @@ export default function Nav() {
             </li>
           </ul>
 
-          {/* Cart button (always visible) */}
+          {/* Mobile: cart + hamburger grouped on right */}
+          <div className="hidden max-[768px]:flex items-center gap-2">
+            <button
+              onClick={openCart}
+              aria-label="Open cart"
+              className="relative bg-transparent border-none cursor-pointer p-2"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <path d="M16 10a4 4 0 01-8 0" />
+              </svg>
+              {totalQuantity > 0 && (
+                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold w-[18px] h-[18px] rounded-full flex items-center justify-center">
+                  {totalQuantity}
+                </span>
+              )}
+            </button>
+            <button
+              onClick={() => setDrawerOpen(!drawerOpen)}
+              aria-label={drawerOpen ? "Close menu" : "Open menu"}
+              aria-expanded={drawerOpen}
+              className="flex flex-col justify-center gap-[5px] w-11 h-11 bg-transparent border-none cursor-pointer p-2"
+            >
+              <span className={`block h-0.5 bg-ink rounded-sm transition-all ${drawerOpen ? "rotate-45 translate-y-[3.5px]" : ""}`} />
+              <span className={`block h-0.5 bg-ink rounded-sm transition-all ${drawerOpen ? "opacity-0" : ""}`} />
+              <span className={`block h-0.5 bg-ink rounded-sm transition-all ${drawerOpen ? "-rotate-45 -translate-y-[3.5px]" : ""}`} />
+            </button>
+          </div>
+
+          {/* Desktop cart button */}
           <button
             onClick={openCart}
             aria-label="Open cart"
-            className="relative bg-transparent border-none cursor-pointer p-2 max-[768px]:mr-12"
+            className="relative bg-transparent border-none cursor-pointer p-2 max-[768px]:hidden"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
