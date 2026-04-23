@@ -26,7 +26,7 @@ export default function ServiceHero({ children, sidebar }: ServiceHeroProps) {
         aria-hidden="true"
       />
       <div className="max-w-[1200px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 relative z-[1]">
-        <div className="grid grid-cols-2 gap-12 items-start pt-[calc(var(--banner-h,0px)+96px)] pb-20 max-[900px]:grid-cols-1 max-[900px]:gap-10 max-[900px]:pt-[calc(var(--banner-h,0px)+80px)]">
+        <div className="grid grid-cols-2 gap-12 items-start pt-24 pb-20 max-[900px]:grid-cols-1 max-[900px]:gap-10 max-[900px]:pt-20">
           {/* Left: page content */}
           <div>{children}</div>
           {/* Right: sticky sidebar (form) */}

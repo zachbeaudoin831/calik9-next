@@ -25,13 +25,6 @@ const NEW_CLIENT_CARDS = [
     bg: "linear-gradient(145deg, #061225, #0D2260, #122E85)",
   },
   {
-    tag: "Exclusive \u00b7 Limited Spots",
-    name: "VIP\nWITH JAS",
-    desc: "Direct hands-on training with Jas Leverette himself. Trusted by Stephen Curry, Kevin Hart, and Michael B. Jordan.",
-    href: "/vip-with-jas",
-    bg: "linear-gradient(145deg, #0A0A16, #16103A, #201450)",
-  },
-  {
     tag: "Most Intensive \u00b7 8 Spots/Mo",
     name: "BOARD\n& TRAIN",
     desc: "Your dog lives with us while we build the foundation. Deep obedience, behavior modification, lifetime support.",
@@ -137,7 +130,7 @@ export default function ServicesPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="hero-standard relative flex items-center overflow-hidden py-[calc(var(--banner-h,0px)+96px)] pb-20 max-[900px]:min-h-0 max-[900px]:py-[calc(var(--banner-h,0px)+80px)] max-[900px]:pb-12">
+      <section className="hero-standard relative flex items-center overflow-hidden py-24 pb-20 max-[900px]:min-h-0 max-[900px]:py-20 max-[900px]:pb-12">
         <div
           className="absolute w-[600px] h-[600px] max-md:w-[360px] max-md:h-[360px] max-[480px]:w-[220px] max-[480px]:h-[220px] rounded-full pointer-events-none z-0 -top-[100px] left-[28%]"
           style={{ background: "radial-gradient(circle, rgba(106,159,255,0.16) 0%, transparent 70%)" }}

@@ -135,30 +135,6 @@ export default function InPersonPage() {
 
         <hr className="border-0 border-t border-white/[0.12] my-9" />
 
-        {/* ── VIP Training Package ── */}
-        <PackageHeading as="h2">VIP Training Package</PackageHeading>
-
-        <PackageList
-          title="What's Included:"
-          items={[
-            { text: "20 Private Training Sessions", bold: true },
-            "Everything in Elite Package",
-            "Direct Access to Senior Trainer",
-            "Video Analysis of Sessions",
-            "Lifetime Email Support",
-            "Advanced Behavior Modification",
-            "Real-World Environment Training",
-            "Graduation Assessment",
-          ]}
-        />
-
-        <PriceBlock
-          price="$3,997"
-          note="one-time · Payment plans available"
-        />
-
-        <hr className="border-0 border-t border-white/[0.12] my-9" />
-
         {/* ── Steph Curry Testimonial ── */}
         <div className="flex items-center gap-6 my-2 mb-8 max-md:flex-col max-md:text-center">
           <img

@@ -13,11 +13,11 @@ import CtaBlock from "@/components/CtaBlock";
 export const metadata: Metadata = {
   title: "Board & Train Program | Cali K9®",
   description:
-    "Intensive residential board and train dog training program in Los Angeles and Miami. Two-week and four-week options starting at $2,997.",
+    "Intensive residential board and train dog training program in Los Angeles and Miami. Four-week Elite program with certified trainers.",
   openGraph: {
     title: "Board & Train Program | Cali K9®",
     description:
-      "Intensive residential board and train dog training program in Los Angeles and Miami. Two-week and four-week options starting at $2,997.",
+      "Intensive residential board and train dog training program in Los Angeles and Miami. Four-week Elite program with certified trainers.",
     url: "https://calik9.com/board-and-train",
     images: ["https://calik9.com/images/cdn/66a311486dce452f20d2ffcd.webp"],
   },
@@ -80,21 +80,6 @@ export default function BoardAndTrainPage() {
             "Graduation handoff session with your trainer",
             "60-day email follow-up support",
             "Mid-program review call with trainer",
-          ]}
-        />
-
-        <hr className="border-0 border-t border-white/[0.12] my-9" />
-
-        {/* 2-week */}
-        <PackageList
-          title="2-Week Board & Train Includes:"
-          items={[
-            "Full-board residential training — dog lives with trainer",
-            "3 sessions per day for 14 days (2 weeks)",
-            "Cali K9 Starter Kit included",
-            "Daily photo and video updates",
-            "Graduation handoff session",
-            "30-day email follow-up support",
           ]}
         />
 

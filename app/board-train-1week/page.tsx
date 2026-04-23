@@ -177,15 +177,6 @@ export default function BoardTrain1WeekPage() {
               href="/board-and-train"
               className="text-white/85 underline hover:text-white"
             >
-              2-Week Board &amp; Train (LA)
-            </Link>
-          </div>
-          <div className="flex items-center gap-2.5 font-ui text-base font-semibold tracking-[0.5px] text-white/85 mb-2">
-            <span className="text-green-500 text-xl">&#10003;</span>
-            <Link
-              href="/board-and-train"
-              className="text-white/85 underline hover:text-white"
-            >
               4-Week Board &amp; Train (Miami)
             </Link>
           </div>

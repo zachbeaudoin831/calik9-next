@@ -102,7 +102,7 @@ export default function AboutPage() {
           style={{ background: "radial-gradient(circle, rgba(106,159,255,0.16) 0%, transparent 70%)" }}
           aria-hidden="true"
         />
-        <div className="relative z-[3] flex flex-col justify-center pt-[calc(var(--banner-h,0px)+96px)] px-10 pb-20 max-w-[1200px] mx-auto w-full max-md:px-6 max-md:pt-[calc(var(--banner-h,0px)+80px)] max-md:pb-12">
+        <div className="relative z-[3] flex flex-col justify-center pt-24 px-10 pb-20 max-w-[1200px] mx-auto w-full max-md:px-6 max-md:pt-20 max-md:pb-12">
           <div className="max-w-[680px] max-[900px]:mx-auto max-[900px]:text-center max-[768px]:text-left max-[768px]:mx-0">
             <HeroEntrance delay={0}>
               <div className="flex items-center gap-[14px] flex-wrap mb-6 max-[900px]:justify-center max-[768px]:justify-start">

@@ -168,7 +168,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Will Jas personally do my evaluation?",
-    a: "Due to demand, Jas personally handles VIP and complex cases, while his trained specialists conduct standard evaluations. Every Cali K9 evaluator is trained in Jas\u2019s exact method to the same high standard.",
+    a: "Due to demand, Jas personally handles complex cases, while his trained specialists conduct standard evaluations. Every Cali K9 evaluator is trained in Jas\u2019s exact method to the same high standard.",
   },
   {
     q: "What if I can\u2019t afford the training programs?",

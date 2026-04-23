@@ -41,6 +41,7 @@ const POSTS = [
       "Tried YouTube videos and treat bribes? Here are seven clear signs that your dog needs more than DIY training \u2014 and what professional help actually looks like.",
     image: "/images/jas-eval.webp",
     imageAlt: "Professional dog trainer evaluating a dog\u2019s behavior",
+    imagePosition: "object-top",
     date: "April 2, 2026",
     readTime: "8 min read",
   },
@@ -50,7 +51,7 @@ export default function BlogPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="hero-standard relative flex items-center overflow-hidden py-[calc(var(--banner-h,0px)+96px)] pb-20 max-[900px]:min-h-0 max-[900px]:py-[calc(var(--banner-h,0px)+80px)] max-[900px]:pb-12">
+      <section className="hero-standard relative flex items-center overflow-hidden py-24 pb-20 max-[900px]:min-h-0 max-[900px]:py-20 max-[900px]:pb-12">
         <div
           className="absolute w-[600px] h-[600px] max-md:w-[360px] max-md:h-[360px] max-[480px]:w-[220px] max-[480px]:h-[220px] rounded-full pointer-events-none z-0 -top-[100px] left-[28%]"
           style={{ background: "radial-gradient(circle, rgba(106,159,255,0.16) 0%, transparent 70%)" }}
@@ -87,7 +88,7 @@ export default function BlogPage() {
                     src={post.image}
                     alt={post.imageAlt}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    className={`object-cover ${post.imagePosition ?? ""} group-hover:scale-105 transition-transform duration-500`}
                   />
                 </div>
                 <div className="p-6">

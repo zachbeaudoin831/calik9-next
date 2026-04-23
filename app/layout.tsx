@@ -5,7 +5,6 @@ import { CartProvider } from "@/context/CartContext";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import CartDrawer from "@/components/CartDrawer";
-import AnnouncementBanner from "@/components/AnnouncementBanner";
 import StickyBar from "@/components/StickyBar";
 
 export const metadata: Metadata = {
@@ -26,7 +25,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-[9999] focus:top-2 focus:left-2 focus:bg-blue-500 focus:text-white focus:px-4 focus:py-2 focus:rounded-sm focus:font-ui focus:text-sm focus:font-bold focus:uppercase focus:tracking-[2px]">
             Skip to main content
           </a>
-          <AnnouncementBanner />
           <Nav />
           <main id="main-content">{children}</main>
           <Footer />

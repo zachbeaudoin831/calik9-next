@@ -88,7 +88,7 @@ const TESTIMONIALS = [
 const PROGRAMS = [
   {
     title: "BOARD & TRAIN",
-    desc: "Full immersive program. Your dog lives with us. Maximum results in minimum time \u2014 2\u20134 weeks, all 5 Pillars addressed, daily video updates, and a handoff session.",
+    desc: "Full immersive program. Your dog lives with us. Maximum results in minimum time \u2014 all 5 Pillars addressed, daily video updates, and a handoff session.",
     href: "/board-and-train",
   },
   {
@@ -97,9 +97,9 @@ const PROGRAMS = [
     href: "/in-person",
   },
   {
-    title: "VIP TRAINING",
-    desc: "One-on-one sessions with Jas himself. Fully customized to your dog\u2019s specific needs \u2014 the same private training trusted by celebrities.",
-    href: "/vip-with-jas",
+    title: "SEMI-PRIVATE TRAINING",
+    desc: "Personalized attention in a small-group setting \u2014 targeted behavior work with dedicated trainer oversight and real-world reinforcement.",
+    href: "/semi-private",
     featured: true,
   },
   {
@@ -120,7 +120,7 @@ export default async function HomePage() {
           style={{ background: "radial-gradient(circle, rgba(106,159,255,0.16) 0%, transparent 70%)" }}
           aria-hidden="true"
         />
-        <div className="relative z-[3] flex flex-col justify-center pt-[calc(var(--banner-h,0px)+96px)] px-10 pb-20 max-w-[1200px] mx-auto w-full max-md:px-6 max-md:pt-[calc(var(--banner-h,0px)+80px)]">
+        <div className="relative z-[3] flex flex-col justify-center pt-24 px-10 pb-20 max-w-[1200px] mx-auto w-full max-md:px-6 max-md:pt-20">
           {/* Eyebrow row */}
           <HeroEntrance delay={0}>
             <div className="flex items-center gap-3.5 mb-6 flex-wrap">
@@ -134,8 +134,13 @@ export default async function HomePage() {
           </HeroEntrance>
 
           <HeroEntrance delay={120}>
-            <h1 className="font-display text-[clamp(64px,9vw,112px)] leading-[0.9] tracking-[1px] text-white mb-5 max-w-[640px]">
-              THERE ARE NO <span className="text-white/45">BAD</span> DOGS.
+            <h1 className="font-display leading-[0.9] tracking-[1px] text-white mb-5">
+              <span className="block md:whitespace-nowrap text-[clamp(56px,6.5vw,88px)]">
+                THERE ARE NO <span className="text-white/45">BAD</span> DOGS,
+              </span>
+              <span className="block mt-3 text-[clamp(26px,3vw,40px)] tracking-[2px] text-white/70">
+                JUST UNINFORMED OWNERS
+              </span>
             </h1>
           </HeroEntrance>
 

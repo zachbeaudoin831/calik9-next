@@ -11,6 +11,13 @@ function isPreorderProduct(p: ShopifyProduct) {
   return p.availableForSale && firstAvailable != null && firstAvailable.quantityAvailable === 0;
 }
 
+function isServiceProduct(p: ShopifyProduct) {
+  if (p.productType?.toLowerCase().includes("service")) return true;
+  if (p.tags?.some((t) => t.toLowerCase() === "service")) return true;
+  const variants = p.variants.edges;
+  return variants.length > 0 && variants.every((e) => e.node.requiresShipping === false);
+}
+
 export default function ShopPage() {
   const [products, setProducts] = useState<ShopifyProduct[]>([]);
   const [loading, setLoading] = useState(true);
@@ -24,10 +31,11 @@ export default function ShopPage() {
     });
   }, []);
 
+  const shoppable = products.filter((p) => !isServiceProduct(p));
   const filtered = (
     activeFilter === "All"
-      ? products
-      : products.filter(
+      ? shoppable
+      : shoppable.filter(
           (p) =>
             p.productType?.toLowerCase().includes(activeFilter.toLowerCase()) ||
             p.tags?.some((t) => t.toLowerCase().includes(activeFilter.toLowerCase()))
@@ -37,7 +45,7 @@ export default function ShopPage() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="hero-standard relative flex items-center overflow-hidden py-[calc(var(--banner-h,0px)+96px)] pb-20 max-[900px]:min-h-0 max-[900px]:py-[calc(var(--banner-h,0px)+80px)] max-[900px]:pb-12">
+      <section className="hero-standard relative flex items-center overflow-hidden py-24 pb-20 max-[900px]:min-h-0 max-[900px]:py-20 max-[900px]:pb-12">
         <div
           className="absolute w-[600px] h-[600px] max-md:w-[360px] max-md:h-[360px] max-[480px]:w-[220px] max-[480px]:h-[220px] rounded-full pointer-events-none z-0 -top-[100px] left-[28%]"
           style={{ background: "radial-gradient(circle, rgba(106,159,255,0.16) 0%, transparent 70%)" }}
@@ -59,7 +67,7 @@ export default function ShopPage() {
       </section>
 
       {/* ── Filters ── */}
-      <div className="sticky top-[var(--banner-h,0px)] z-30 bg-white border-b border-border">
+      <div className="sticky top-0 z-30 bg-white border-b border-border">
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <div className="flex items-center justify-between gap-4 py-3 overflow-x-auto">
             <div className="flex gap-2">

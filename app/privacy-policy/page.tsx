@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <div className="pt-[calc(var(--banner-h,0px)+68px)]">
+    <div className="pt-[68px]">
       {/* ── Hero ── */}
       <section className="bg-blue-700 py-20 max-md:py-12 max-[480px]:py-8 text-center">
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
