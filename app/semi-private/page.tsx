@@ -6,6 +6,7 @@ import PackageHeading from "@/components/PackageHeading";
 import CelebMiniGrid from "@/components/CelebMiniGrid";
 import CelebGrid from "@/components/CelebGrid";
 import CtaBlock from "@/components/CtaBlock";
+import FormEmbed from "@/components/FormEmbed";
 
 export const metadata: Metadata = {
   title: "Semi-Private Dog Training | Cali K9\u00ae",
@@ -32,31 +33,12 @@ export default function SemiPrivatePage() {
     <main>
       <ServiceHero
         sidebar={
-          <div className="bg-white/[0.07] border border-white/[0.15] rounded-xl p-7">
-            <div className="font-ui text-base font-bold tracking-[2px] uppercase text-white/85 mb-4">
-              Get Started
-            </div>
-            <p className="font-body text-[15px] text-white/70 leading-relaxed mb-6">
-              A behavior evaluation is required before enrolling in any
-              semi-private program. Book yours today and we&rsquo;ll help you
-              find the right fit for your dog.
-            </p>
-            <Link
-              href="/evaluation"
-              className="btn btn-white block text-center"
-            >
-              Book an Evaluation &rarr;
-            </Link>
-            <p className="font-body text-xs text-white/40 text-center mt-4">
-              Or call us at{" "}
-              <a
-                href="tel:5108900298"
-                className="text-white/60 underline underline-offset-2"
-              >
-                (510) 890-0298
-              </a>
-            </p>
-          </div>
+          <FormEmbed
+            formId="7x1YEgvownKWmvaE2XKw"
+            formName="Semi Private Training"
+            title="Book Semi-Private Training"
+            height={830}
+          />
         }
       >
         <StarsRow />

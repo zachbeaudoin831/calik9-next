@@ -7,6 +7,7 @@ import PackageHeading from "@/components/PackageHeading";
 import CelebMiniGrid from "@/components/CelebMiniGrid";
 import CelebGrid from "@/components/CelebGrid";
 import CtaBlock from "@/components/CtaBlock";
+import FormEmbed from "@/components/FormEmbed";
 
 export const metadata: Metadata = {
   title: "Weekly Zoom Group Training | Cali K9\u00ae",
@@ -33,21 +34,12 @@ export default function ZoomGroupPage() {
     <main>
       <ServiceHero
         sidebar={
-          <div className="bg-white/[0.07] border border-white/[0.15] rounded-xl p-7 text-center">
-            <div className="font-ui text-base font-bold tracking-[2px] uppercase text-white/85 mb-4">
-              Subscribe &mdash; $47/month
-            </div>
-            <p className="font-body text-sm text-white/60 leading-relaxed mb-6">
-              Ready to join our weekly Zoom group training? Start with an
-              evaluation so we can place you in the right group.
-            </p>
-            <Link
-              href="/evaluation"
-              className="btn btn-white w-full text-center"
-            >
-              Book Evaluation &rarr;
-            </Link>
-          </div>
+          <FormEmbed
+            formId="cwARHdUU73yIpW7KMhp9"
+            formName="Zoom Group"
+            title="Join Zoom Group — $47/mo"
+            height={830}
+          />
         }
       >
         <StarsRow />

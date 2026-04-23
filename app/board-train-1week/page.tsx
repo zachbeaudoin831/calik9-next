@@ -63,10 +63,10 @@ export default function BoardTrain1WeekPage() {
       <ServiceHero
         sidebar={
           <FormEmbed
-            formId="GtiGDcoxe0fG5ufwj7Km"
-            formName="Evaluation Form"
-            title="Book Your Evaluation to Get Started"
-            height={896}
+            formId="Vbi7L7H7MbvDi5pkAkX8"
+            formName="1 Week Boarding & Training"
+            title="1-Week Board & Train"
+            height={804}
           />
         }
       >
