@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { getProducts, ShopifyProduct } from "@/lib/shopify";
+import { getProducts, isServiceProduct, ShopifyProduct } from "@/lib/shopify";
 import ProductCard from "@/components/ProductCard";
 
 const FILTERS = ["All", "Training Equipment", "Treats", "Apparel", "Accessories"];
@@ -9,13 +9,6 @@ const FILTERS = ["All", "Training Equipment", "Treats", "Apparel", "Accessories"
 function isPreorderProduct(p: ShopifyProduct) {
   const firstAvailable = p.variants.edges.find((e) => e.node.availableForSale)?.node;
   return p.availableForSale && firstAvailable != null && firstAvailable.quantityAvailable === 0;
-}
-
-function isServiceProduct(p: ShopifyProduct) {
-  if (p.productType?.toLowerCase().includes("service")) return true;
-  if (p.tags?.some((t) => t.toLowerCase() === "service")) return true;
-  const variants = p.variants.edges;
-  return variants.length > 0 && variants.every((e) => e.node.requiresShipping === false);
 }
 
 export default function ShopPage() {

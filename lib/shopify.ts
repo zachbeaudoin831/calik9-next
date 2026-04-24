@@ -166,6 +166,13 @@ export async function getCart(cartId: string): Promise<Cart | null> {
   return data.cart;
 }
 
+export function isServiceProduct(p: ShopifyProduct): boolean {
+  if (p.productType?.toLowerCase().includes("service")) return true;
+  if (p.tags?.some((t) => t.toLowerCase() === "service")) return true;
+  const variants = p.variants.edges;
+  return variants.length > 0 && variants.every((e) => e.node.requiresShipping === false);
+}
+
 export function formatMoney(amount: string, currencyCode = "USD"): string {
   return new Intl.NumberFormat("en-US", { style: "currency", currency: currencyCode }).format(parseFloat(amount));
 }
