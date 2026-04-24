@@ -306,6 +306,32 @@
   }
 }
 
+/* ── Service Hero grid (two-col desktop, stacked mobile with form above-fold) ── */
+.service-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "intro sidebar"
+    "body  sidebar";
+}
+.service-hero-grid[data-no-intro="true"] {
+  grid-template-areas: "body sidebar";
+}
+@media (max-width: 900px) {
+  .service-hero-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "intro"
+      "sidebar"
+      "body";
+  }
+  .service-hero-grid[data-no-intro="true"] {
+    grid-template-areas:
+      "sidebar"
+      "body";
+  }
+}
+
 /* ── Standard Hero (services, evaluation, etc.) ── */
 .hero-standard {
   background: linear-gradient(135deg, #122E85 0%, #122E85 50%, #1A3FAB 100%);

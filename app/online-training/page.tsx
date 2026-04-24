@@ -45,9 +45,29 @@ export default function OnlineTrainingPage() {
             height={896}
           />
         }
-      >
-        <StarsRow />
+        intro={
+          <>
+            <StarsRow />
 
+            {/* ── 5-Pillar Package ── */}
+            <PackageHeading as="h1">
+              <em className="italic" style={{ WebkitTextFillColor: "white" }}>
+                Cali K9 Online Training
+              </em>{" "}
+              + 6 Months Of Weekly Group Zoom Calls
+            </PackageHeading>
+
+            <p className="font-body text-base text-white/70 leading-relaxed mb-6">
+              Train from anywhere with Certified Cali K9 Coaches through structured
+              online sessions and accountability check-in calls.
+            </p>
+            <p className="font-body text-base text-white/70 leading-relaxed mb-6 -mt-3">
+              This is education-based coaching that teaches you how to lead your dog,
+              not just manage problems.
+            </p>
+          </>
+        }
+      >
         {/* Hero video */}
         <video
           className="w-full h-auto rounded-lg mb-8 block bg-black"
@@ -61,23 +81,6 @@ export default function OnlineTrainingPage() {
             type="video/mp4"
           />
         </video>
-
-        {/* ── 5-Pillar Package ── */}
-        <PackageHeading as="h1">
-          <em className="italic" style={{ WebkitTextFillColor: "white" }}>
-            Cali K9 Online Training
-          </em>{" "}
-          + 6 Months Of Weekly Group Zoom Calls
-        </PackageHeading>
-
-        <p className="font-body text-base text-white/70 leading-relaxed mb-6">
-          Train from anywhere with Certified Cali K9 Coaches through structured
-          online sessions and accountability check-in calls.
-        </p>
-        <p className="font-body text-base text-white/70 leading-relaxed mb-6 -mt-3">
-          This is education-based coaching that teaches you how to lead your dog,
-          not just manage problems.
-        </p>
 
         {/* What you'll get */}
         <div className="mb-7">

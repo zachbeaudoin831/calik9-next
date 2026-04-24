@@ -42,23 +42,38 @@ export default function InPersonPage() {
             height={830}
           />
         }
+        intro={
+          <>
+            <StarsRow />
+
+            <h1
+              className="font-display text-[clamp(36px,5vw,56px)] leading-[1.05] tracking-[1px] uppercase mb-6"
+              style={{
+                background: "linear-gradient(135deg, #ffffff 0%, #93b4ff 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              <em className="italic" style={{ WebkitTextFillColor: "#fff" }}>
+                In-Person Dog Training
+              </em>
+            </h1>
+
+            <p className="font-body text-base text-white/70 leading-relaxed mb-6">
+              Work directly with a certified Cali K9 trainer to address your
+              dog&rsquo;s specific behaviors &mdash; in your home, our facility, or
+              both. Every session follows Jas Leverette&rsquo;s proven 5-Pillar
+              Method, not guesswork.
+            </p>
+            <p className="font-body text-base text-white/70 leading-relaxed mb-6 -mt-3">
+              Whether you&rsquo;re dealing with aggression, reactivity, anxiety, or
+              simply want a well-trained companion &mdash; our in-person programs
+              deliver real, lasting results.
+            </p>
+          </>
+        }
       >
-        <StarsRow />
-
-        <h1
-          className="font-display text-[clamp(36px,5vw,56px)] leading-[1.05] tracking-[1px] uppercase mb-6"
-          style={{
-            background: "linear-gradient(135deg, #ffffff 0%, #93b4ff 100%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            backgroundClip: "text",
-          }}
-        >
-          <em className="italic" style={{ WebkitTextFillColor: "#fff" }}>
-            In-Person Dog Training
-          </em>
-        </h1>
-
         {/* Hero video */}
         <video
           className="w-full h-auto rounded-lg mb-8 block bg-black"
@@ -72,18 +87,6 @@ export default function InPersonPage() {
             type="video/mp4"
           />
         </video>
-
-        <p className="font-body text-base text-white/70 leading-relaxed mb-6">
-          Work directly with a certified Cali K9 trainer to address your
-          dog&rsquo;s specific behaviors &mdash; in your home, our facility, or
-          both. Every session follows Jas Leverette&rsquo;s proven 5-Pillar
-          Method, not guesswork.
-        </p>
-        <p className="font-body text-base text-white/70 leading-relaxed mb-6 -mt-3">
-          Whether you&rsquo;re dealing with aggression, reactivity, anxiety, or
-          simply want a well-trained companion &mdash; our in-person programs
-          deliver real, lasting results.
-        </p>
 
         <hr className="border-0 border-t border-white/[0.12] my-9" />
 

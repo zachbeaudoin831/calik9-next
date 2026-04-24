@@ -40,19 +40,22 @@ export default function GroupClassPage() {
             height={896}
           />
         }
+        intro={
+          <>
+            <StarsRow />
+
+            <PackageHeading as="h1">
+              Cali K9 Membership In Person Group &ndash; $197
+            </PackageHeading>
+
+            <p className="font-body text-base text-white/70 leading-relaxed mb-6">
+              Four in-person group training sessions every month. Real dogs, real
+              distractions, real results. The best way to proof your dog&rsquo;s
+              behavior around other animals and people.
+            </p>
+          </>
+        }
       >
-        <StarsRow />
-
-        <PackageHeading as="h1">
-          Cali K9 Membership In Person Group &ndash; $197
-        </PackageHeading>
-
-        <p className="font-body text-base text-white/70 leading-relaxed mb-6">
-          Four in-person group training sessions every month. Real dogs, real
-          distractions, real results. The best way to proof your dog&rsquo;s
-          behavior around other animals and people.
-        </p>
-
         {/* What is included */}
         <PackageList
           title="What is included every month:"

@@ -77,31 +77,34 @@ export default function CoachingPage() {
             />
           </div>
         }
+        intro={
+          <>
+            {/* Badge */}
+            <div className="mb-6">
+              <span className="inline-flex items-center gap-2 bg-white/[0.12] border border-white/[0.22] text-white font-ui text-base font-bold tracking-[0.08em] uppercase px-[18px] py-2 rounded-full backdrop-blur-md">
+                <span
+                  className="w-[7px] h-[7px] bg-green-400 rounded-full animate-pulse"
+                  aria-hidden="true"
+                />
+                Business Coaching
+              </span>
+            </div>
+
+            <PackageHeading as="h1">
+              Learn How to Build a 6-7 Figure Dog Training Business That Runs
+              Without You
+            </PackageHeading>
+
+            <p className="font-body text-base text-white/70 leading-relaxed mb-6">
+              Jas Leverette built Cali K9 from nothing into a global brand featured
+              on Netflix. Now he teaches other dog trainers how to do the same
+              &mdash; the business systems, the pricing, the marketing, the team
+              building, and the mindset it takes to scale past six figures and
+              beyond.
+            </p>
+          </>
+        }
       >
-        {/* Badge */}
-        <div className="mb-6">
-          <span className="inline-flex items-center gap-2 bg-white/[0.12] border border-white/[0.22] text-white font-ui text-base font-bold tracking-[0.08em] uppercase px-[18px] py-2 rounded-full backdrop-blur-md">
-            <span
-              className="w-[7px] h-[7px] bg-green-400 rounded-full animate-pulse"
-              aria-hidden="true"
-            />
-            Business Coaching
-          </span>
-        </div>
-
-        <PackageHeading as="h1">
-          Learn How to Build a 6-7 Figure Dog Training Business That Runs
-          Without You
-        </PackageHeading>
-
-        <p className="font-body text-base text-white/70 leading-relaxed mb-6">
-          Jas Leverette built Cali K9 from nothing into a global brand featured
-          on Netflix. Now he teaches other dog trainers how to do the same
-          &mdash; the business systems, the pricing, the marketing, the team
-          building, and the mindset it takes to scale past six figures and
-          beyond.
-        </p>
-
         {/* Video badge */}
         <div className="mb-5">
           <span className="inline-flex items-center gap-2 bg-green-400/[0.15] border border-green-400/[0.35] text-green-400 font-ui text-base font-bold tracking-[0.1em] uppercase px-4 py-1.5 rounded-full">

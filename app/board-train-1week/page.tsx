@@ -69,19 +69,22 @@ export default function BoardTrain1WeekPage() {
             height={804}
           />
         }
+        intro={
+          <>
+            <StarsRow />
+
+            <PackageHeading as="h1">
+              1-Week Board &amp; Train &mdash; Los Angeles
+            </PackageHeading>
+
+            <p className="font-body text-base text-white/70 leading-relaxed mb-6">
+              The most focused week of training your dog will ever experience. Your
+              dog lives at our LA facility and trains with a certified Cali K9
+              trainer 3 times a day, every day.
+            </p>
+          </>
+        }
       >
-        <StarsRow />
-
-        <PackageHeading as="h1">
-          1-Week Board &amp; Train &mdash; Los Angeles
-        </PackageHeading>
-
-        <p className="font-body text-base text-white/70 leading-relaxed mb-6">
-          The most focused week of training your dog will ever experience. Your
-          dog lives at our LA facility and trains with a certified Cali K9
-          trainer 3 times a day, every day.
-        </p>
-
         {/* Stats row */}
         <div className="grid grid-cols-3 gap-4 mb-8 max-[480px]:gap-2">
           {[

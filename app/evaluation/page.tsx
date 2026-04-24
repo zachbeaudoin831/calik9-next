@@ -208,19 +208,27 @@ export default function EvaluationPage() {
             />
           </>
         }
+        intro={
+          <>
+            {/* Badge */}
+            <div className="mb-4">
+              <span className="inline-flex items-center gap-2 bg-white/[0.12] border border-white/[0.22] text-white font-ui text-base font-bold tracking-[0.08em] uppercase px-[18px] py-2 rounded-full backdrop-blur-md">
+                Evaluation
+              </span>
+            </div>
+
+            <h1 className="font-display text-[clamp(42px,6vw,64px)] text-white leading-[0.93] mb-5">
+              BOOK YOUR<br />
+              <span className="text-white/50">EVALUATION</span>
+            </h1>
+
+            <p className="font-body text-base text-white/70 leading-relaxed mb-6">
+              A direct consultation with a Cali K9 expert &mdash; to assess your
+              dog&rsquo;s behavioral needs and build a custom roadmap to fix them.
+            </p>
+          </>
+        }
       >
-        {/* Badge */}
-        <div className="mb-4">
-          <span className="inline-flex items-center gap-2 bg-white/[0.12] border border-white/[0.22] text-white font-ui text-base font-bold tracking-[0.08em] uppercase px-[18px] py-2 rounded-full backdrop-blur-md">
-            Evaluation
-          </span>
-        </div>
-
-        <h1 className="font-display text-[clamp(42px,6vw,64px)] text-white leading-[0.93] mb-5">
-          BOOK YOUR<br />
-          <span className="text-white/50">EVALUATION</span>
-        </h1>
-
         {/* Hero video */}
         <video
           className="w-full rounded-xl block mb-6 bg-black"
@@ -234,11 +242,6 @@ export default function EvaluationPage() {
             type="video/mp4"
           />
         </video>
-
-        <p className="font-body text-base text-white/70 leading-relaxed mb-6">
-          A direct consultation with a Cali K9 expert &mdash; to assess your
-          dog&rsquo;s behavioral needs and build a custom roadmap to fix them.
-        </p>
 
         {/* We address pills */}
         <div className="mb-6">

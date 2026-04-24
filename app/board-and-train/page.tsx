@@ -42,17 +42,20 @@ export default function BoardAndTrainPage() {
             height={804}
           />
         }
+        intro={
+          <>
+            <StarsRow />
+
+            <PackageHeading as="h1">Board &amp; Train in Los Angeles</PackageHeading>
+
+            <p className="font-body text-base text-white/70 leading-relaxed mb-6">
+              Our most intensive program. Your dog lives with a certified Cali K9
+              trainer and works the 5-Pillar System every single day. 3 structured
+              training sessions per day, 7 days a week.
+            </p>
+          </>
+        }
       >
-        <StarsRow />
-
-        <PackageHeading as="h1">Board &amp; Train in Los Angeles</PackageHeading>
-
-        <p className="font-body text-base text-white/70 leading-relaxed mb-6">
-          Our most intensive program. Your dog lives with a certified Cali K9
-          trainer and works the 5-Pillar System every single day. 3 structured
-          training sessions per day, 7 days a week.
-        </p>
-
         {/* Celebrity mini grid */}
         <div className="mb-8">
           <CelebMiniGrid celebs={MINI_CELEBS} />

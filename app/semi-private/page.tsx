@@ -40,13 +40,16 @@ export default function SemiPrivatePage() {
             height={830}
           />
         }
+        intro={
+          <>
+            <StarsRow />
+
+            <PackageHeading as="h1">
+              In-Person Semi Private Dog Training
+            </PackageHeading>
+          </>
+        }
       >
-        <StarsRow />
-
-        <PackageHeading as="h1">
-          In-Person Semi Private Dog Training
-        </PackageHeading>
-
         {/* Ideal-for checklist */}
         <div className="mb-7">
           <div className="font-ui text-base font-bold tracking-[2px] uppercase text-white/45 mb-3">

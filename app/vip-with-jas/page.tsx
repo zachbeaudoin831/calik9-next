@@ -46,23 +46,26 @@ export default function VipWithJasPage() {
             />
           </>
         }
+        intro={
+          <>
+            <PackageHeading as="h1">
+              Cali K9&reg; VIP Dog Training With Jas Leverette $4997
+            </PackageHeading>
+
+            <p className="font-ui text-base font-bold tracking-[1.5px] uppercase text-blue-400 mb-6">
+              5 Private 2-Hour Sessions | Exclusive Access | Real Education
+            </p>
+
+            <p className="font-body text-base text-white/70 leading-[1.65] mb-6">
+              This is for people who want to work directly with Jas Leverette
+              &mdash; founder of Cali K9, host of Netflix&rsquo;s{" "}
+              <em>Canine Intervention</em>, and the trainer behind 3,500+
+              transformations. No assistants. No junior trainers. Just Jas, your
+              dog, and a plan built specifically for your situation.
+            </p>
+          </>
+        }
       >
-        <PackageHeading as="h1">
-          Cali K9&reg; VIP Dog Training With Jas Leverette $4997
-        </PackageHeading>
-
-        <p className="font-ui text-base font-bold tracking-[1.5px] uppercase text-blue-400 mb-6">
-          5 Private 2-Hour Sessions | Exclusive Access | Real Education
-        </p>
-
-        <p className="font-body text-base text-white/70 leading-[1.65] mb-6">
-          This is for people who want to work directly with Jas Leverette
-          &mdash; founder of Cali K9, host of Netflix&rsquo;s{" "}
-          <em>Canine Intervention</em>, and the trainer behind 3,500+
-          transformations. No assistants. No junior trainers. Just Jas, your
-          dog, and a plan built specifically for your situation.
-        </p>
-
         <hr className="border-0 border-t border-white/[0.12] my-9" />
 
         {/* What You Get */}

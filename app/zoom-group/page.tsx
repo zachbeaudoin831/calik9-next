@@ -41,24 +41,27 @@ export default function ZoomGroupPage() {
             height={830}
           />
         }
+        intro={
+          <>
+            <StarsRow />
+
+            <PackageHeading as="h1">
+              <em
+                style={{ WebkitTextFillColor: "var(--color-white, #fff)", fontStyle: "italic" }}
+              >
+                Cali K9 Membership
+              </em>{" "}
+              Zoom Group $47/mo
+            </PackageHeading>
+
+            <p className="font-body text-base text-white/70 leading-relaxed mb-6">
+              Join live weekly Zoom group training sessions led by certified Cali K9
+              trainers. Get real-time feedback, stay accountable, and keep your
+              dog&rsquo;s training sharp&mdash;from anywhere in the world.
+            </p>
+          </>
+        }
       >
-        <StarsRow />
-
-        <PackageHeading as="h1">
-          <em
-            style={{ WebkitTextFillColor: "var(--color-white, #fff)", fontStyle: "italic" }}
-          >
-            Cali K9 Membership
-          </em>{" "}
-          Zoom Group $47/mo
-        </PackageHeading>
-
-        <p className="font-body text-base text-white/70 leading-relaxed mb-6">
-          Join live weekly Zoom group training sessions led by certified Cali K9
-          trainers. Get real-time feedback, stay accountable, and keep your
-          dog&rsquo;s training sharp&mdash;from anywhere in the world.
-        </p>
-
         {/* What's included */}
         <div className="mb-7">
           <div className="font-ui text-base font-bold tracking-[2px] uppercase text-white/45 mb-3">
