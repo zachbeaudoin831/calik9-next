@@ -7,7 +7,6 @@ const STICKY_BAR_PAGES: Record<string, { text: string; cta: string; href: string
   "/in-person": { text: "Don\u2019t Know Which Program Fits Your Dog?", cta: "Book an Evaluation \u2192", href: "/evaluation" },
   "/online-training": { text: "Don\u2019t Know Which Program Fits Your Dog?", cta: "Book an Evaluation \u2192", href: "/evaluation" },
   "/board-and-train": { text: "Don\u2019t Know Which Program Fits Your Dog?", cta: "Book an Evaluation \u2192", href: "/evaluation" },
-  "/board-train-1week": { text: "Don\u2019t Know Which Program Fits Your Dog?", cta: "Book an Evaluation \u2192", href: "/evaluation" },
   "/semi-private": { text: "Don\u2019t Know Which Program Fits Your Dog?", cta: "Book an Evaluation \u2192", href: "/evaluation" },
   "/zoom-group": { text: "Don\u2019t Know Which Program Fits Your Dog?", cta: "Book an Evaluation \u2192", href: "/evaluation" },
   "/group-class": { text: "In-Person Group Training \u2014 $197/month", cta: "Sign Up Now", href: "#main-content" },

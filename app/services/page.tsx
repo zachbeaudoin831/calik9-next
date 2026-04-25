@@ -70,13 +70,6 @@ const RETURNING_CLIENT_CARDS = [
     href: "/semi-private",
     bg: "linear-gradient(145deg, #180838, #251258, #301A70)",
   },
-  {
-    tag: "Intensive \u00b7 1 Week",
-    name: "1 WEEK BOARD\n& TRAINING",
-    desc: "An intensive one-week residential program. Fast results for returning clients ready to reinforce or escalate.",
-    href: "/board-train-1week",
-    bg: "linear-gradient(145deg, #2A0E00, #3D1500, #501C00)",
-  },
 ];
 
 const SPECIALIZATIONS = [

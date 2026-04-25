@@ -361,15 +361,10 @@ export default function BoardAndTrainWorthItPage() {
             <p>
               At Cali K9, our{" "}
               <Link href="/board-and-train" className="text-blue-500 underline hover:text-blue-700">
-                board and train programs
+                four-week Elite Board &amp; Train program
               </Link>{" "}
-              start at $4,997 for the four-week Elite program. We also offer a{" "}
-              <Link href="/board-train-1week" className="text-blue-500 underline hover:text-blue-700">
-                1-week intensive option at $1,197
-              </Link>{" "}
-              for dogs that need a shorter stay. The investment reflects the level
-              of expertise, daily training volume, and comprehensive owner
-              education included.
+              starts at $4,997. The investment reflects the level of expertise,
+              daily training volume, and comprehensive owner education included.
             </p>
 
             <p>
