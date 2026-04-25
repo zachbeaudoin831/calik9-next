@@ -306,17 +306,18 @@
   }
 }
 
-/* ── Service Hero grid (two-col desktop, stacked mobile with form above-fold) ── */
+/* ── Service Hero grid (two-col desktop, stacked mobile with form above-fold) ──
+   Desktop: left col = intro + body stacked in a single grid cell; right col = sidebar.
+   Mobile (≤900px): the left wrapper dissolves via `display: contents` so intro,
+   body, and sidebar become direct grid items and can be reordered into
+   intro → sidebar → body — putting the checkout form above-the-fold. */
 .service-hero-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-areas:
-    "intro sidebar"
-    "body  sidebar";
+  grid-template-areas: "left sidebar";
 }
-.service-hero-grid[data-no-intro="true"] {
-  grid-template-areas: "body sidebar";
-}
+.service-hero-left   { grid-area: left; }
+.service-hero-sidebar { grid-area: sidebar; }
 @media (max-width: 900px) {
   .service-hero-grid {
     grid-template-columns: 1fr;
@@ -325,11 +326,9 @@
       "sidebar"
       "body";
   }
-  .service-hero-grid[data-no-intro="true"] {
-    grid-template-areas:
-      "sidebar"
-      "body";
-  }
+  .service-hero-left { display: contents; }
+  .service-hero-intro { grid-area: intro; }
+  .service-hero-body  { grid-area: body; }
 }
 
 /* ── Standard Hero (services, evaluation, etc.) ── */

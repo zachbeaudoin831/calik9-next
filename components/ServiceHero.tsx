@@ -27,13 +27,12 @@ export default function ServiceHero({ children, sidebar, intro }: ServiceHeroPro
         aria-hidden="true"
       />
       <div className="max-w-[1200px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 relative z-[1]">
-        <div
-          className="service-hero-grid gap-x-12 items-start pt-24 pb-20 max-[900px]:gap-y-10 max-[900px]:pt-20"
-          data-no-intro={intro ? undefined : "true"}
-        >
-          {intro && <div style={{ gridArea: "intro" }}>{intro}</div>}
-          <div style={{ gridArea: "body" }}>{children}</div>
-          <div className="sticky top-6 max-[900px]:static" style={{ gridArea: "sidebar" }}>
+        <div className="service-hero-grid gap-x-12 items-start pt-24 pb-20 max-[900px]:gap-y-10 max-[900px]:pt-20">
+          <div className="service-hero-left">
+            {intro && <div className="service-hero-intro">{intro}</div>}
+            <div className="service-hero-body">{children}</div>
+          </div>
+          <div className="service-hero-sidebar sticky top-6 max-[900px]:static">
             {sidebar}
           </div>
         </div>
