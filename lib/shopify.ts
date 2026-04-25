@@ -107,6 +107,15 @@ export async function getProducts(first = 24): Promise<ShopifyProduct[]> {
   return data.products.edges.map((e) => e.node);
 }
 
+export async function getProductsByCollection(handle: string, first = 100): Promise<ShopifyProduct[]> {
+  const data = await storefrontFetch<{ collection: { products: { edges: { node: ShopifyProduct }[] } } | null }>(`
+    query { collection(handle: "${handle}") {
+      products(first: ${first}) { edges { node { ${PRODUCT_FIELDS} } } }
+    }}
+  `);
+  return data.collection?.products.edges.map((e) => e.node) ?? [];
+}
+
 export async function getProduct(handle: string): Promise<ShopifyProduct | null> {
   const data = await storefrontFetch<{ product: ShopifyProduct | null }>(`
     query { product(handle: "${handle}") { ${PRODUCT_FIELDS} } }
@@ -171,6 +180,22 @@ export function isServiceProduct(p: ShopifyProduct): boolean {
   if (p.tags?.some((t) => t.toLowerCase() === "service")) return true;
   const variants = p.variants.edges;
   return variants.length > 0 && variants.every((e) => e.node.requiresShipping === false);
+}
+
+// Shopify catalog has many products that are duplicates of one another
+// (separate product entries with identical titles, often from a Printful
+// sync). Collapse them so each unique title shows up once on the storefront.
+// Prefers the entry that is in stock and has imagery.
+export function dedupeProductsByTitle(products: ShopifyProduct[]): ShopifyProduct[] {
+  const score = (p: ShopifyProduct) =>
+    (p.availableForSale ? 2 : 0) + (p.images.edges.length > 0 ? 1 : 0);
+  const map = new Map<string, ShopifyProduct>();
+  for (const p of products) {
+    const key = p.title.trim().toLowerCase();
+    const existing = map.get(key);
+    if (!existing || score(p) > score(existing)) map.set(key, p);
+  }
+  return Array.from(map.values());
 }
 
 export function formatMoney(amount: string, currencyCode = "USD"): string {

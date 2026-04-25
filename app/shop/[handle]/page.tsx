@@ -5,7 +5,7 @@ import { getProduct, formatMoney } from "@/lib/shopify";
 import AddToCartSection from "./AddToCartSection";
 
 const CUSTOM_PAGES: Record<string, string> = {
-  "vip-training-with-jas-leverette": "/vip",
+  "vip-training-with-jas-leverette": "/vip-with-jas",
 };
 
 export default async function ProductPage({ params }: { params: Promise<{ handle: string }> }) {

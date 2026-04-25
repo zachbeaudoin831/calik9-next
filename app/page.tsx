@@ -7,7 +7,7 @@ import HeroEntrance from "@/components/HeroEntrance";
 import CountUp from "@/components/CountUp";
 import TestimonialSection from "@/components/TestimonialSection";
 import type { Testimonial } from "@/components/TestimonialSection";
-import { getProducts, isServiceProduct } from "@/lib/shopify";
+import { dedupeProductsByTitle, getProductsByCollection, isServiceProduct } from "@/lib/shopify";
 
 export const metadata = {
   title: "Elite Dog Training | Cali K9\u00ae",
@@ -110,7 +110,9 @@ const PROGRAMS = [
 ];
 
 export default async function HomePage() {
-  const allProducts = (await getProducts(12)).filter((p) => !isServiceProduct(p)).slice(0, 4);
+  const allProducts = dedupeProductsByTitle(
+    (await getProductsByCollection("cali-k9-shop", 50)).filter((p) => !isServiceProduct(p)),
+  ).slice(0, 4);
   return (
     <>
       {/* ── HERO ── */}
