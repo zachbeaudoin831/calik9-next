@@ -6,7 +6,7 @@ import { useCart } from "@/context/CartContext";
 import { formatMoney } from "@/lib/shopify";
 
 export default function CartDrawer() {
-  const { isOpen, closeCart, lines, cart, removeFromCart, updateQuantity, isLoading } = useCart();
+  const { isOpen, closeCart, lines, cart, removeFromCart, updateQuantity, isUpdatingCart } = useCart();
 
   return (
     <>
@@ -111,7 +111,7 @@ export default function CartDrawer() {
                           <>
                             <button
                               onClick={() => updateQuantity(line.id, line.quantity - 1)}
-                              disabled={isLoading}
+                              disabled={isUpdatingCart}
                               className="w-7 h-7 border border-border rounded-sm bg-transparent text-ink font-bold cursor-pointer disabled:opacity-50 hover:bg-off transition-colors"
                             >
                               &minus;
@@ -121,7 +121,7 @@ export default function CartDrawer() {
                             </span>
                             <button
                               onClick={() => updateQuantity(line.id, line.quantity + 1)}
-                              disabled={isLoading}
+                              disabled={isUpdatingCart}
                               className="w-7 h-7 border border-border rounded-sm bg-transparent text-ink font-bold cursor-pointer disabled:opacity-50 hover:bg-off transition-colors"
                             >
                               +
@@ -134,7 +134,7 @@ export default function CartDrawer() {
                         )}
                         <button
                           onClick={() => removeFromCart(line.id)}
-                          disabled={isLoading}
+                          disabled={isUpdatingCart}
                           className="ml-auto bg-transparent border-none cursor-pointer p-1 text-gray-muted hover:text-red-500 transition-colors disabled:opacity-50"
                           aria-label="Remove"
                         >

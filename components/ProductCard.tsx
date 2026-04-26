@@ -7,7 +7,7 @@ import { useCart } from "@/context/CartContext";
 import { ShopifyProduct, formatMoney } from "@/lib/shopify";
 
 export default function ProductCard({ product }: { product: ShopifyProduct }) {
-  const { addToCart, isLoading } = useCart();
+  const { addToCart, isAddingToCart } = useCart();
   const [added, setAdded] = useState(false);
 
   const image = product.images.edges[0]?.node;
@@ -85,7 +85,7 @@ export default function ProductCard({ product }: { product: ShopifyProduct }) {
         </div>
         <button
           onClick={handleAdd}
-          disabled={!variantAvailable || isLoading}
+          disabled={!variantAvailable || isAddingToCart}
           className={`w-full font-ui text-xs font-bold tracking-[2px] uppercase py-3 rounded-sm transition-all ${
             variantAvailable
               ? "bg-blue-500 text-white hover:bg-blue-700 cursor-pointer"

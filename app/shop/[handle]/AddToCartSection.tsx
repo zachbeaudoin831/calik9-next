@@ -5,7 +5,7 @@ import { useCart } from "@/context/CartContext";
 import { ShopifyProduct, formatMoney } from "@/lib/shopify";
 
 export default function AddToCartSection({ product }: { product: ShopifyProduct }) {
-  const { addToCart, isLoading } = useCart();
+  const { addToCart, isAddingToCart } = useCart();
   const [added, setAdded] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState<Record<string, string>>(() => {
     const defaults: Record<string, string> = {};
@@ -72,7 +72,7 @@ export default function AddToCartSection({ product }: { product: ShopifyProduct 
 
       <button
         onClick={handleAdd}
-        disabled={!variantAvailable || isLoading}
+        disabled={!variantAvailable || isAddingToCart}
         className={`w-full font-ui text-sm font-bold tracking-[2px] uppercase py-4 rounded-sm transition-all mb-4 ${
           variantAvailable
             ? "bg-blue-500 text-white hover:bg-blue-700 cursor-pointer"
@@ -83,7 +83,7 @@ export default function AddToCartSection({ product }: { product: ShopifyProduct 
           ? "Sold Out"
           : added
           ? "Added to Cart \u2713"
-          : isLoading
+          : isAddingToCart
           ? "Adding..."
           : isPreorder
           ? "Pre-order"

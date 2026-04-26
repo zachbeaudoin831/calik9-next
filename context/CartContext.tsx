@@ -6,7 +6,8 @@ import { Cart, CartLine, cartCreate, cartLinesAdd, cartLinesRemove, cartLinesUpd
 interface CartContextType {
   cart: Cart | null;
   isOpen: boolean;
-  isLoading: boolean;
+  isAddingToCart: boolean;
+  isUpdatingCart: boolean;
   openCart: () => void;
   closeCart: () => void;
   addToCart: (variantId: string, quantity?: number) => Promise<void>;
@@ -21,7 +22,8 @@ const CartContext = createContext<CartContextType | null>(null);
 export function CartProvider({ children }: { children: ReactNode }) {
   const [cart, setCart] = useState<Cart | null>(null);
   const [isOpen, setIsOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isAddingToCart, setIsAddingToCart] = useState(false);
+  const [isUpdatingCart, setIsUpdatingCart] = useState(false);
 
   useEffect(() => {
     const cartId = localStorage.getItem("ck_cart_id");
@@ -34,7 +36,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const addToCart = useCallback(async (variantId: string, quantity = 1) => {
-    setIsLoading(true);
+    setIsAddingToCart(true);
     try {
       let updatedCart: Cart;
       const cartId = localStorage.getItem("ck_cart_id");
@@ -47,19 +49,19 @@ export function CartProvider({ children }: { children: ReactNode }) {
       setCart(updatedCart);
       setIsOpen(true);
     } finally {
-      setIsLoading(false);
+      setIsAddingToCart(false);
     }
   }, []);
 
   const removeFromCart = useCallback(async (lineId: string) => {
     const cartId = localStorage.getItem("ck_cart_id");
     if (!cartId) return;
-    setIsLoading(true);
+    setIsUpdatingCart(true);
     try {
       const updatedCart = await cartLinesRemove(cartId, [lineId]);
       setCart(updatedCart);
     } finally {
-      setIsLoading(false);
+      setIsUpdatingCart(false);
     }
   }, []);
 
@@ -67,12 +69,12 @@ export function CartProvider({ children }: { children: ReactNode }) {
     const cartId = localStorage.getItem("ck_cart_id");
     if (!cartId) return;
     if (quantity <= 0) { await removeFromCart(lineId); return; }
-    setIsLoading(true);
+    setIsUpdatingCart(true);
     try {
       const updatedCart = await cartLinesUpdate(cartId, lineId, quantity);
       setCart(updatedCart);
     } finally {
-      setIsLoading(false);
+      setIsUpdatingCart(false);
     }
   }, [removeFromCart]);
 
@@ -81,7 +83,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   return (
     <CartContext.Provider value={{
-      cart, isOpen, isLoading,
+      cart, isOpen, isAddingToCart, isUpdatingCart,
       openCart: () => setIsOpen(true),
       closeCart: () => setIsOpen(false),
       addToCart, removeFromCart, updateQuantity,
