@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { getProduct, formatMoney } from "@/lib/shopify";
 import AddToCartSection from "./AddToCartSection";
+import ExpandableDescription from "./ExpandableDescription";
 import ProductGallery from "./ProductGallery";
 
 const CUSTOM_PAGES: Record<string, string> = {
@@ -53,10 +54,7 @@ export default async function ProductPage({ params }: { params: Promise<{ handle
                 </p>
               )}
               {product.descriptionHtml && (
-                <div
-                  className="product-description font-body text-base text-gray-muted leading-relaxed mb-6"
-                  dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
-                />
+                <ExpandableDescription html={product.descriptionHtml} />
               )}
 
               <AddToCartSection product={product} />
