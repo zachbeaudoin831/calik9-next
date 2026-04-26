@@ -109,10 +109,27 @@ const PROGRAMS = [
   },
 ];
 
+const EQUIPMENT_TYPES = new Set([
+  "Training Gear",
+  "Dog Leashes",
+  "Dog Collars",
+  "Dog Toys",
+  "Tugs",
+  "Pet Training Aids",
+]);
+
 export default async function HomePage() {
-  const allProducts = dedupeProductsByTitle(
-    (await getProductsByCollection("cali-k9-shop", 50)).filter((p) => !isServiceProduct(p)),
-  ).slice(0, 4);
+  const allShop = dedupeProductsByTitle(
+    (await getProductsByCollection("cali-k9-shop", 100)).filter((p) => !isServiceProduct(p)),
+  );
+  const isTreat = (p: typeof allShop[number]) =>
+    /treat/i.test(p.title) || /treat/i.test(p.productType);
+  const treats = allShop.filter(isTreat);
+  const equipment = allShop.filter((p) => !isTreat(p) && EQUIPMENT_TYPES.has(p.productType));
+  const seen = new Set<string>();
+  const allProducts = [...treats, ...equipment]
+    .filter((p) => (seen.has(p.id) ? false : (seen.add(p.id), true)))
+    .slice(0, 4);
   return (
     <>
       {/* ── HERO ── */}
@@ -534,8 +551,9 @@ export default async function HomePage() {
               TRAIN LIKE A PRO.<br /><span className="text-blue-500">LOOK THE PART.</span>
             </h2>
             <div className="w-12 h-[3px] bg-blue-500 mx-auto mb-6" />
-            <p className="font-body text-base text-gray-muted max-w-[480px] mx-auto">
-              Official Cali K9&reg; apparel and training gear. Represent the method.
+            <p className="font-body text-base text-gray-muted max-w-[520px] mx-auto">
+              Premium training treats, professional gear, and Cali K9&reg; apparel
+              &mdash; everything Jas uses with his dogs.
             </p>
           </div>
 

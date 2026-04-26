@@ -9,9 +9,18 @@ import {
 } from "@/lib/shopify";
 import ProductCard from "@/components/ProductCard";
 
-const CATEGORIES: { label: string; handle: string }[] = [
+// `filter` narrows the fetched collection client-side. Used for Treats since
+// there's no dedicated Shopify collection for them yet — we pull from the
+// shared cali-k9-shop collection and pick the treat products by title/type.
+type Category = { label: string; handle: string; filter?: (p: ShopifyProduct) => boolean };
+
+const isTreatProduct = (p: ShopifyProduct) =>
+  /treat/i.test(p.title) || /treat/i.test(p.productType);
+
+const CATEGORIES: Category[] = [
   { label: "All", handle: "cali-k9-shop" },
   { label: "Training Equipment", handle: "training-equipment" },
+  { label: "Treats", handle: "cali-k9-shop", filter: isTreatProduct },
   { label: "Kits & Boxes", handle: "kits-boxes" },
   { label: "Collars & Leashes", handle: "collars-leashes" },
   { label: "Apparel", handle: "apparel" },
@@ -49,9 +58,9 @@ export default function ShopPage() {
   const raw = productsByHandle[active.handle];
   const loading = !raw && loadingHandles.has(active.handle);
   const products = raw
-    ? dedupeProductsByTitle(raw.filter((p) => !isServiceProduct(p))).filter(
-        (p) => !hidePreorders || !isPreorderProduct(p),
-      )
+    ? dedupeProductsByTitle(raw.filter((p) => !isServiceProduct(p)))
+        .filter((p) => (active.filter ? active.filter(p) : true))
+        .filter((p) => !hidePreorders || !isPreorderProduct(p))
     : [];
 
   return (
