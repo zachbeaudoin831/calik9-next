@@ -109,23 +109,13 @@ const PROGRAMS = [
   },
 ];
 
-const EQUIPMENT_TYPES = new Set([
-  "Training Gear",
-  "Dog Leashes",
-  "Dog Collars",
-  "Dog Toys",
-  "Tugs",
-  "Pet Training Aids",
-]);
-
 export default async function HomePage() {
-  const allShop = dedupeProductsByTitle(
-    (await getProductsByCollection("cali-k9-shop", 100)).filter((p) => !isServiceProduct(p)),
-  );
-  const isTreat = (p: typeof allShop[number]) =>
-    /treat/i.test(p.title) || /treat/i.test(p.productType);
-  const treats = allShop.filter(isTreat);
-  const equipment = allShop.filter((p) => !isTreat(p) && EQUIPMENT_TYPES.has(p.productType));
+  const [treatsRaw, equipmentRaw] = await Promise.all([
+    getProductsByCollection("turbo-treats", 10),
+    getProductsByCollection("training-equipment", 30),
+  ]);
+  const treats = dedupeProductsByTitle(treatsRaw.filter((p) => !isServiceProduct(p)));
+  const equipment = dedupeProductsByTitle(equipmentRaw.filter((p) => !isServiceProduct(p)));
   const seen = new Set<string>();
   const allProducts = [...treats, ...equipment]
     .filter((p) => (seen.has(p.id) ? false : (seen.add(p.id), true)))
