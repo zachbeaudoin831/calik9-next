@@ -306,6 +306,86 @@
   }
 }
 
+/* ── Shopify product description (HTML from Storefront API) ── */
+.product-description > * + * {
+  margin-top: 0.85em;
+}
+.product-description p {
+  margin: 0;
+}
+.product-description h1,
+.product-description h2,
+.product-description h3,
+.product-description h4 {
+  font-family: var(--font-display);
+  color: var(--color-ink);
+  letter-spacing: 0.5px;
+  line-height: 1.15;
+  margin-top: 1.4em;
+}
+.product-description h2 { font-size: 1.5rem; }
+.product-description h3 { font-size: 1.25rem; }
+.product-description h4 { font-size: 1.05rem; }
+.product-description strong,
+.product-description b {
+  color: var(--color-ink);
+  font-weight: 700;
+}
+.product-description em,
+.product-description i { font-style: italic; }
+.product-description a {
+  color: var(--color-blue-500);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.product-description a:hover { color: var(--color-blue-700); }
+.product-description ul,
+.product-description ol {
+  padding-left: 1.4em;
+  margin: 0;
+}
+.product-description ul { list-style: disc; }
+.product-description ol { list-style: decimal; }
+.product-description li {
+  margin: 0.25em 0;
+  padding-left: 0.25em;
+}
+.product-description li::marker { color: var(--color-blue-500); }
+.product-description br + br { display: none; } /* collapse double-blank-lines from rich-text editors */
+.product-description hr {
+  border: 0;
+  border-top: 1px solid var(--color-border);
+  margin: 1.25em 0;
+}
+.product-description blockquote {
+  border-left: 3px solid var(--color-blue-500);
+  padding-left: 1em;
+  color: var(--color-ink);
+  font-style: italic;
+}
+.product-description img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin: 1em 0;
+}
+.product-description table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95em;
+}
+.product-description th,
+.product-description td {
+  border: 1px solid var(--color-border);
+  padding: 0.5em 0.75em;
+  text-align: left;
+}
+.product-description th {
+  background: var(--color-off);
+  color: var(--color-ink);
+  font-weight: 700;
+}
+
 /* ── Service Hero grid (two-col desktop, stacked mobile with form above-fold) ──
    Desktop: left col = intro + body stacked in a single grid cell; right col = sidebar.
    Mobile (≤900px): the left wrapper dissolves via `display: contents` so intro,

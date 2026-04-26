@@ -91,10 +91,11 @@ export default async function ProductPage({ params }: { params: Promise<{ handle
                   {formatMoney(compareAt.amount, compareAt.currencyCode)}
                 </p>
               )}
-              {product.description && (
-                <p className="font-body text-base text-gray-muted leading-relaxed mb-6">
-                  {product.description}
-                </p>
+              {product.descriptionHtml && (
+                <div
+                  className="product-description font-body text-base text-gray-muted leading-relaxed mb-6"
+                  dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
+                />
               )}
 
               <AddToCartSection product={product} />
