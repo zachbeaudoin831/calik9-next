@@ -28,7 +28,7 @@ export default function ProductCard({ product }: { product: ShopifyProduct }) {
   }
 
   return (
-    <div className="group bg-white rounded-lg overflow-hidden border border-border shadow-sm hover:shadow-md transition-shadow">
+    <div className="group bg-white rounded-lg overflow-hidden border border-border shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
       <Link href={`/shop/${product.handle}`} className="block relative overflow-hidden">
         {image ? (
           <Image
@@ -64,7 +64,7 @@ export default function ProductCard({ product }: { product: ShopifyProduct }) {
         )}
       </Link>
 
-      <div className="p-4">
+      <div className="p-4 flex flex-col flex-1">
         {product.productType && (
           <p className="font-ui text-[11px] font-bold tracking-[2px] uppercase text-gray-muted mb-1">
             {product.productType}
@@ -75,7 +75,7 @@ export default function ProductCard({ product }: { product: ShopifyProduct }) {
             {product.title}
           </h3>
         </Link>
-        <div className="font-ui text-base font-bold text-ink mb-3">
+        <div className="font-ui text-base font-bold text-ink mb-3 mt-auto">
           {formatMoney(price.amount, price.currencyCode)}
           {hasDiscount && (
             <span className="ml-2 text-sm font-normal text-gray-muted line-through">
