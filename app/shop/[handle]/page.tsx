@@ -1,8 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { getProduct, formatMoney } from "@/lib/shopify";
 import AddToCartSection from "./AddToCartSection";
+import ProductGallery from "./ProductGallery";
 
 const CUSTOM_PAGES: Record<string, string> = {
   "vip-training-with-jas-leverette": "/vip-with-jas",
@@ -35,46 +35,7 @@ export default async function ProductPage({ params }: { params: Promise<{ handle
           {/* Product grid */}
           <div className="grid grid-cols-2 gap-12 pb-16 max-md:grid-cols-1 max-md:gap-8">
             {/* Images */}
-            <div>
-              <div className="rounded-lg overflow-hidden bg-off">
-                {images[0] ? (
-                  <Image
-                    src={images[0].url}
-                    alt={images[0].altText ?? product.title}
-                    width={800}
-                    height={800}
-                    className="w-full h-auto block"
-                    priority
-                  />
-                ) : (
-                  <div className="w-full aspect-square flex items-center justify-center">
-                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="opacity-20">
-                      <rect x="3" y="3" width="18" height="18" rx="2" />
-                      <circle cx="8.5" cy="8.5" r="1.5" />
-                      <path d="M21 15l-5-5L5 21" />
-                    </svg>
-                  </div>
-                )}
-              </div>
-              {images.length > 1 && (
-                <div className="flex gap-3 mt-4 overflow-x-auto">
-                  {images.map((img, i) => (
-                    <div
-                      key={i}
-                      className="w-[72px] h-[72px] rounded-md overflow-hidden border border-border flex-shrink-0 cursor-pointer hover:border-blue-500 transition-colors"
-                    >
-                      <Image
-                        src={img.url}
-                        alt={img.altText ?? ""}
-                        width={72}
-                        height={72}
-                        className="w-[72px] h-[72px] object-cover block"
-                      />
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
+            <ProductGallery images={images} title={product.title} />
 
             {/* Info */}
             <div>
