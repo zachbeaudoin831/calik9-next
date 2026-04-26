@@ -41,7 +41,7 @@ export default function OnlineTrainingPage() {
           <FormEmbed
             formId="1nO3eSfLEZPyIAJuJlpW"
             formName="Online Training Cart"
-            title="Fill out your information below to start"
+            title="Select Training Program"
             height={896}
           />
         }
