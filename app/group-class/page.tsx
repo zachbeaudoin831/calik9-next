@@ -34,10 +34,10 @@ export default function GroupClassPage() {
       <ServiceHero
         sidebar={
           <FormEmbed
-            formId="H1lYuIqvPk8pw9DJqBit"
-            formName="In Person Group Class"
+            formId="xYXyh92NznqxZjAZbL6e"
+            formName="In Person"
             title="Sign Up for In-Person Group Class"
-            height={834}
+            height={830}
           />
         }
         intro={

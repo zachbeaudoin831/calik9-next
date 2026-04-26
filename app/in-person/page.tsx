@@ -36,10 +36,10 @@ export default function InPersonPage() {
       <ServiceHero
         sidebar={
           <FormEmbed
-            formId="xYXyh92NznqxZjAZbL6e"
-            formName="In Person"
+            formId="H1lYuIqvPk8pw9DJqBit"
+            formName="In Person Group Class"
             title="Book Your In-Person Training"
-            height={830}
+            height={834}
           />
         }
         intro={
