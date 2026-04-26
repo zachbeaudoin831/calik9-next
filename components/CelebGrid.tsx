@@ -70,7 +70,7 @@ export default function CelebGrid() {
           FROM HOLLYWOOD TO THE FRONT LINES — SEE WHY CELEBRITIES, MILITARY UNITS, LAW ENFORCEMENT AND EVERYDAY PEOPLE RELY ON OUR PROGRAM.
         </h2>
 
-        <div className="grid grid-cols-3 gap-6 max-[480px]:grid-cols-2 max-[480px]:gap-3">
+        <div className="grid grid-cols-3 gap-6 max-[768px]:grid-cols-2 max-[480px]:gap-3">
           {CELEBS.map((celeb) => (
             <article
               key={celeb.name}

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import ServiceHero from "@/components/ServiceHero";
 import PackageHeading from "@/components/PackageHeading";
 import PackageList from "@/components/PackageList";
@@ -141,7 +142,7 @@ export default function VipWithJasPage() {
 
         {/* Stephen Curry testimonial */}
         <div className="flex items-start gap-6 bg-white/5 border border-white/10 rounded-xl p-8 mb-9 max-[900px]:flex-col max-[900px]:items-center max-[900px]:text-center">
-          <img
+          <Image
             src="/images/celebs/steph-curry.png"
             alt="Stephen Curry"
             width={80}

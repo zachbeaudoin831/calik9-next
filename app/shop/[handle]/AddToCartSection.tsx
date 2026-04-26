@@ -90,8 +90,12 @@ export default function AddToCartSection({ product }: { product: ShopifyProduct 
           : "Add to Cart"}
       </button>
 
-      <p className="font-ui text-xs text-gray-muted text-center mb-6">
-        🔒 Secure checkout powered by Shopify &middot; Free shipping on orders $75+
+      <p className="font-ui text-xs text-gray-muted flex items-center justify-center gap-1.5 mb-6">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+          <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+        </svg>
+        Secure checkout powered by Shopify
       </p>
 
       <div className="pt-6 border-t border-border flex gap-3 flex-wrap">

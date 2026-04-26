@@ -20,7 +20,7 @@ export default function ServiceHero({ children, sidebar, intro }: ServiceHeroPro
       />
       {/* Radial orb */}
       <div
-        className="absolute w-[600px] h-[600px] rounded-full pointer-events-none z-0 -top-[100px] left-[28%] max-md:w-[360px] max-md:h-[360px] max-sm:w-[220px] max-sm:h-[220px]"
+        className="absolute w-[600px] h-[600px] rounded-full pointer-events-none z-0 -top-[100px] left-[28%] max-md:w-[360px] max-md:h-[360px] max-sm:w-[220px] max-sm:h-[220px] max-[900px]:opacity-40"
         style={{
           background: "radial-gradient(circle, rgba(106,159,255,0.16) 0%, transparent 70%)",
         }}
@@ -32,7 +32,7 @@ export default function ServiceHero({ children, sidebar, intro }: ServiceHeroPro
             {intro && <div className="service-hero-intro">{intro}</div>}
             <div className="service-hero-body">{children}</div>
           </div>
-          <div className="service-hero-sidebar sticky top-6 max-[900px]:static">
+          <div className="service-hero-sidebar sticky top-[84px] max-[900px]:static">
             {sidebar}
           </div>
         </div>

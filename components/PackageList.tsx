@@ -12,7 +12,7 @@ export default function PackageList({ title, items, twoColumn = true }: PackageL
       </div>
       <ul
         className={`list-none p-0 m-0 grid gap-x-6 ${
-          twoColumn ? "grid-cols-2 max-[480px]:grid-cols-1" : "grid-cols-1"
+          twoColumn ? "grid-cols-2 max-[768px]:grid-cols-1" : "grid-cols-1"
         }`}
       >
         {items.map((item, i) => {

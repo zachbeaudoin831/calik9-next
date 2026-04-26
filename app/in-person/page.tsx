@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import ServiceHero from "@/components/ServiceHero";
 import StarsRow from "@/components/StarsRow";
@@ -140,13 +141,12 @@ export default function InPersonPage() {
 
         {/* ── Steph Curry Testimonial ── */}
         <div className="flex items-center gap-6 my-2 mb-8 max-md:flex-col max-md:text-center">
-          <img
-            className="shrink-0 w-20 h-20 rounded-full object-cover object-top border-2 border-white/15"
+          <Image
             src="/images/celebs/steph-curry.png"
             alt="Stephen Curry"
             width={160}
             height={160}
-            loading="lazy"
+            className="shrink-0 w-20 h-20 rounded-full object-cover object-top border-2 border-white/15"
           />
           <div>
             <p className="font-body text-[17px] italic text-white/80 leading-relaxed">

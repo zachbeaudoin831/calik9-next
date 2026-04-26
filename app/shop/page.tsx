@@ -156,7 +156,7 @@ export default function ShopPage() {
       </section>
 
       {/* ── Filters ── */}
-      <div className="sticky top-0 z-30 bg-white border-b border-border">
+      <div className="sticky top-[68px] z-30 bg-white border-b border-border">
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           {/* Row 1: category chips */}
           <div className="flex items-center py-3 overflow-x-auto">
@@ -199,7 +199,7 @@ export default function ShopPage() {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search products"
-                className="w-full font-ui text-sm pl-9 pr-3 py-2 rounded-sm border border-border focus:border-blue-500 focus:outline-none transition-colors"
+                className="w-full font-ui text-sm pl-9 pr-3 py-2 rounded-sm border border-border focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-colors"
               />
             </div>
 
@@ -229,7 +229,7 @@ export default function ShopPage() {
                 value={priceMin}
                 onChange={(e) => setPriceMin(e.target.value)}
                 placeholder={priceBounds ? `${priceBounds.min}` : "Min"}
-                className="w-[70px] font-ui text-sm font-normal tracking-normal normal-case text-ink px-2 py-2 rounded-sm border border-border focus:border-blue-500 focus:outline-none transition-colors"
+                className="w-[70px] font-ui text-sm font-normal tracking-normal normal-case text-ink px-2 py-2 rounded-sm border border-border focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-colors"
                 aria-label="Minimum price"
               />
               <span>–</span>
@@ -240,7 +240,7 @@ export default function ShopPage() {
                 value={priceMax}
                 onChange={(e) => setPriceMax(e.target.value)}
                 placeholder={priceBounds ? `${priceBounds.max}` : "Max"}
-                className="w-[70px] font-ui text-sm font-normal tracking-normal normal-case text-ink px-2 py-2 rounded-sm border border-border focus:border-blue-500 focus:outline-none transition-colors"
+                className="w-[70px] font-ui text-sm font-normal tracking-normal normal-case text-ink px-2 py-2 rounded-sm border border-border focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-colors"
                 aria-label="Maximum price"
               />
             </div>
@@ -272,7 +272,7 @@ export default function ShopPage() {
             {activeFilterCount > 0 && (
               <button
                 onClick={clearFilters}
-                className="font-ui text-xs font-bold tracking-[1px] uppercase text-blue-500 hover:text-blue-700 underline underline-offset-2 ml-auto"
+                className="font-ui text-xs font-bold tracking-[1px] uppercase text-blue-500 hover:text-blue-700 underline underline-offset-2"
               >
                 Clear filters
               </button>

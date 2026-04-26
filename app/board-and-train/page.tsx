@@ -37,8 +37,8 @@ export default function BoardAndTrainPage() {
         sidebar={
           <FormEmbed
             formId="y6VSKPK4ruaCbRo0hZnM"
-            formName="2-Week Board and Train"
-            title="2-Week Board & Train"
+            formName="4-Week Board and Train"
+            title="4-Week Board & Train"
             height={804}
           />
         }

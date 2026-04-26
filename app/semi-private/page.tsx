@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import ServiceHero from "@/components/ServiceHero";
 import StarsRow from "@/components/StarsRow";
@@ -144,13 +145,12 @@ export default function SemiPrivatePage() {
 
         {/* ── Steph Curry Testimonial ── */}
         <div className="flex gap-6 items-start mb-9 max-md:flex-col max-md:gap-4">
-          <img
-            className="shrink-0 w-[72px] h-[72px] rounded-full object-cover object-top"
+          <Image
             src="/images/celebs/steph-curry.png"
             alt="Stephen Curry"
             width={72}
             height={72}
-            loading="lazy"
+            className="shrink-0 w-[72px] h-[72px] rounded-full object-cover object-top"
           />
           <div>
             <p className="font-body text-[15px] italic text-white/70 leading-relaxed mb-2">

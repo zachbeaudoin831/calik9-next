@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import ServiceHero from "@/components/ServiceHero";
 import StarsRow from "@/components/StarsRow";
 import PackageHeading from "@/components/PackageHeading";
@@ -75,7 +76,7 @@ export default function GroupClassPage() {
 
         {/* Stephen Curry testimonial */}
         <div className="flex items-start gap-5 bg-white/5 border border-white/10 rounded-xl p-6 mb-9 max-[480px]:flex-col max-[480px]:items-center max-[480px]:text-center">
-          <img
+          <Image
             src="/images/celebs/steph-curry.png"
             alt="Stephen Curry"
             width={72}
