@@ -187,48 +187,6 @@ export default function InPersonPage() {
 
         <hr className="border-0 border-t border-white/[0.12] my-9" />
 
-        {/* ── Returning Clients · Private Coaching ── */}
-        <div className="inline-flex items-center gap-2 bg-white/[0.08] border border-white/20 text-white/80 font-ui text-[11px] font-bold tracking-[2px] uppercase px-3 py-1 rounded-sm mb-3">
-          Returning Clients
-        </div>
-
-        <PackageHeading as="h2">Private Coaching</PackageHeading>
-
-        <p className="font-body text-base text-white/70 leading-relaxed mb-6">
-          Already completed Foundation? Top up sessions to stay sharp and keep
-          progressing &mdash; or take your dog to the next level.
-        </p>
-
-        <div className="grid grid-cols-2 gap-6 mb-9 max-[480px]:grid-cols-1">
-          <div className="bg-white/5 border border-white/[0.12] rounded-[10px] p-6">
-            <div className="font-ui text-xs font-bold tracking-[2px] uppercase text-white/45 mb-2">
-              4 Sessions
-            </div>
-            <div className="font-display text-[clamp(42px,5vw,56px)] text-white leading-none mb-2">
-              $1,097
-            </div>
-            <p className="font-body text-[15px] text-white/70 leading-relaxed">
-              Stay sharp and keep progressing.
-            </p>
-          </div>
-          <div className="bg-white/5 border border-white/[0.12] rounded-[10px] p-6">
-            <div className="font-ui text-xs font-bold tracking-[2px] uppercase text-green-500 mb-2">
-              Best Value
-            </div>
-            <div className="font-display text-[clamp(42px,5vw,56px)] text-white leading-none mb-2">
-              $1,997
-            </div>
-            <p className="font-body text-[15px] text-white/70 leading-relaxed">
-              <span className="font-ui text-xs font-bold tracking-[2px] uppercase text-white/55 block mb-1">
-                8 Sessions
-              </span>
-              Take your dog to the next level.
-            </p>
-          </div>
-        </div>
-
-        <hr className="border-0 border-t border-white/[0.12] my-9" />
-
         {/* ── Steph Curry Testimonial ── */}
         <div className="flex items-center gap-6 my-2 mb-8 max-md:flex-col max-md:text-center">
           <Image

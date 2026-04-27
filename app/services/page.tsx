@@ -53,7 +53,7 @@ const RETURNING_CLIENT_CARDS = [
     tag: "From $1,097 · 4 or 8 sessions",
     name: "PRIVATE\nCOACHING",
     desc: "Stay sharp and keep progressing — or take your dog to the next level.",
-    href: "/in-person",
+    href: "/private-coaching",
     bg: "linear-gradient(145deg, #15192E, #1F2647, #2A3361)",
   },
   {
