@@ -201,7 +201,7 @@ export default function EvaluationPage() {
                 </div>
                 <div className="font-display text-[32px] text-white leading-none mb-1">$27</div>
                 <p className="font-body text-[13px] text-white/60 leading-snug">
-                  A clear, step-by-step plan to fix your dog&rsquo;s behavior &mdash; via Zoom.
+                  Get a clear, step-by-step plan to fix your dog&rsquo;s behavior starting today.
                 </p>
               </div>
               <div className="bg-white/[0.06] border border-white/[0.15] rounded-md p-4">
