@@ -191,14 +191,28 @@ export default function EvaluationPage() {
       <ServiceHero
         sidebar={
           <>
-            <div className="font-ui text-[13px] font-bold tracking-[2px] uppercase text-white/85 mb-2">
+            <div className="font-ui text-[13px] font-bold tracking-[2px] uppercase text-white/85 mb-3">
               Book Your Evaluation &mdash; Takes 60 Seconds
             </div>
-            <div className="flex items-baseline gap-2 mb-5">
-              <span className="font-display text-[40px] text-white leading-none">$27</span>
-              <span className="font-ui text-xs font-semibold tracking-[1px] uppercase text-white/50">
-                One-time &middot; No subscription
-              </span>
+            <div className="grid grid-cols-2 gap-3 mb-5 max-[480px]:grid-cols-1">
+              <div className="bg-white/[0.06] border border-white/[0.15] rounded-md p-4">
+                <div className="font-ui text-[11px] font-bold tracking-[2px] uppercase text-white/55 mb-1">
+                  Virtual
+                </div>
+                <div className="font-display text-[32px] text-white leading-none mb-1">$27</div>
+                <p className="font-body text-[13px] text-white/60 leading-snug">
+                  A clear, step-by-step plan to fix your dog&rsquo;s behavior &mdash; via Zoom.
+                </p>
+              </div>
+              <div className="bg-white/[0.06] border border-white/[0.15] rounded-md p-4">
+                <div className="font-ui text-[11px] font-bold tracking-[2px] uppercase text-white/55 mb-1">
+                  In-Person
+                </div>
+                <div className="font-display text-[32px] text-white leading-none mb-1">$97</div>
+                <p className="font-body text-[13px] text-white/60 leading-snug">
+                  Hands-on correction and a real-time game plan you can see working instantly.
+                </p>
+              </div>
             </div>
             <FormEmbed
               formId="GtiGDcoxe0fG5ufwj7Km"

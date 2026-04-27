@@ -11,11 +11,11 @@ import CtaBlock from "@/components/CtaBlock";
 export const metadata: Metadata = {
   title: "Online Dog Training Program | Cali K9\u00ae",
   description:
-    "Cali K9\u00ae Online Training + 6 Months of Weekly Group Zoom Calls. Train from anywhere with the 5-Pillar System. Self-paced course with live coaching. Starting at $497.",
+    "Cali K9\u00ae Online Training subscription tiers. Train from anywhere with the 5-Pillar System and live group coaching. Plans starting at $97/month.",
   openGraph: {
     title: "Online Dog Training Program | Cali K9\u00ae",
     description:
-      "Cali K9\u00ae Online Training + 6 Months of Weekly Group Zoom Calls. Self-paced course with live coaching. Starting at $497.",
+      "Cali K9\u00ae Online Training subscription tiers with live group coaching. Plans starting at $97/month.",
     url: "https://calik9.com/online-training",
     images: [
       "https://calik9.com/images/cdn/66a311486dce452f20d2ffcd.webp",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Online Dog Training Program | Cali K9\u00ae",
     description:
-      "Cali K9\u00ae Online Training + 6 Months of Weekly Group Zoom Calls. Starting at $497.",
+      "Cali K9\u00ae Online Training subscription tiers. Starting at $97/month.",
     images: [
       "https://calik9.com/images/cdn/66a311486dce452f20d2ffcd.webp",
     ],
@@ -49,21 +49,20 @@ export default function OnlineTrainingPage() {
           <>
             <StarsRow />
 
-            {/* ── 5-Pillar Package ── */}
             <PackageHeading as="h1">
               <em className="italic" style={{ WebkitTextFillColor: "white" }}>
                 Cali K9 Online Training
-              </em>{" "}
-              + 6 Months Of Weekly Group Zoom Calls
+              </em>
             </PackageHeading>
 
             <p className="font-body text-base text-white/70 leading-relaxed mb-6">
               Train from anywhere with Certified Cali K9 Coaches through structured
-              online sessions and accountability check-in calls.
+              online sessions and live group coaching.
             </p>
             <p className="font-body text-base text-white/70 leading-relaxed mb-6 -mt-3">
-              This is education-based coaching that teaches you how to lead your dog,
-              not just manage problems.
+              Education-based coaching that teaches you how to lead your dog,
+              not just manage problems &mdash; with three subscription tiers
+              built for any commitment level.
             </p>
           </>
         }
@@ -82,104 +81,69 @@ export default function OnlineTrainingPage() {
           />
         </video>
 
-        {/* What you'll get */}
-        <div className="mb-7">
-          <div className="font-ui text-base font-bold tracking-[2px] uppercase text-white/45 mb-3">
-            What You&apos;ll Get:
-          </div>
-          <div className="flex items-center gap-2.5 font-ui text-base font-semibold tracking-[0.5px] text-white/85 mb-2">
-            <span className="text-green-500 text-xl">&#10003;</span> Self-Paced
-            Course
-          </div>
-          <div className="flex items-center gap-2.5 font-ui text-base font-semibold tracking-[0.5px] text-white/85 mb-2">
-            <span className="text-green-500 text-xl">&#10003;</span> A system you
-            can apply daily
-          </div>
-        </div>
+        {/* ── Foundation Program ── */}
+        <PackageHeading as="h2">Foundation Program</PackageHeading>
+
+        <p className="font-body text-base text-white/70 leading-relaxed mb-6">
+          Train your dog the right way &mdash; without wasting time guessing.
+        </p>
 
         <PackageList
-          title="What is included in Cali K9's 5-Pillar Dog Training System:"
+          title="What's Included:"
           items={[
-            { text: "6 Months Of Weekly Group Zoom with Senior Trainer (Live)", bold: true },
-            "Train With Jas Series 1.0",
-            "Train With Jas Series 1.0 Advanced",
-            "Train With Jas Series 2.0 Advanced",
-            "Daily Homework to Keep Your Training Consistent",
-            "The 5 Motivation Videos",
-            "10 Rules to Live By Video",
-            "100 Problem-Solving Technique Videos",
-            "Access to our Membership Community",
-            "The Service Dog Training Course",
+            { text: "4 Complete Cali K9 Courses", bold: true },
+            "Weekly Group Coaching",
+            "Structured 5-Pillar System",
           ]}
         />
 
-        <PriceBlock
-          value="Total Value: $9,491"
-          offerLabel="SPECIAL OFFER TODAY ONLY"
-          price="$497.00"
-          note="one-time"
-        />
+        <PriceBlock price="$97" note="per month &middot; Cancel anytime" />
 
-        {/* Divider */}
         <hr className="border-0 border-t border-white/[0.12] my-9" />
 
-        {/* ── Platinum Package ── */}
-        <PackageHeading as="h2">
-          Cali K9 Online Training Platinum Package
-        </PackageHeading>
+        {/* ── Inner Circle VIP ── */}
+        <PackageHeading as="h2">Inner Circle VIP</PackageHeading>
 
-        {/* What your dog will learn */}
-        <h3 className="font-display text-[clamp(22px,3vw,28px)] text-white leading-[1.1] mt-2 mb-4">
-          Your dog will learn to:
-        </h3>
-        <ul className="list-none p-0 m-0 grid grid-cols-2 gap-x-6 max-[480px]:grid-cols-1 mb-8">
-          {[
-            "Focus on you and not other distractions",
-            "Respond to your commands immediately",
-            "Stay calm around other dogs and people",
-            "Become well-balanced and stress-free",
-            "Be your companion and best friend",
-            "Know what is appropriate to chew on",
-            "Heel and recall when you want them to",
-            "Make simple tasks easy and stress-free",
-          ].map((item) => (
-            <li
-              key={item}
-              className="font-body text-[15px] text-white/70 leading-normal py-[5px] pl-6 relative"
-            >
-              <span className="absolute left-0 text-green-500 font-bold">
-                &#10003;
-              </span>
-              {item}
-            </li>
-          ))}
-        </ul>
+        <p className="font-body text-base text-white/70 leading-relaxed mb-6">
+          The closest thing to training with me &mdash; without being there in
+          person.
+        </p>
 
         <PackageList
-          title="What is included in Cali K9's Platinum Online Training Package:"
+          title="What's Included:"
           items={[
-            { text: "Kickstart Call with Top Dog Trainer (Live)", bold: true },
-            { text: "4 Check-In Calls with Senior Trainer (Live)", bold: true },
-            { text: "1 Year Of Weekly Group Zoom with Senior Trainer (Live)", bold: true },
-            { text: "1 Year Of Monthly Q&A calls with Jas Leverette (Live)", bold: true },
-            { text: "1 Year Of Advanced Group Zoom Calls (Live)", bold: true },
-            "Train With Jas Series 1.0",
-            "Train With Jas Series 1.0 Advanced",
-            "Train With Jas Series 2.0 Advanced",
-            "Daily Homework to Keep Your Training Consistent",
-            "The 5 Motivation Videos",
-            "10 Rules to Live By Video",
-            "100 Problem-Solving Technique Videos",
-            "Access to our Membership Community",
-            "The Service Dog Training Course",
+            { text: "Everything in Foundation", bold: true },
+            "Weekly Live Training with Jas Leverette",
+            "Advanced Coaching",
+            "Priority Access",
+          ]}
+        />
+
+        <PriceBlock price="$297" note="per month &middot; Cancel anytime" />
+
+        <hr className="border-0 border-t border-white/[0.12] my-9" />
+
+        {/* ── Executive Annual VIP ── */}
+        <PackageHeading as="h2">Executive Annual VIP</PackageHeading>
+
+        <p className="font-body text-base text-white/70 leading-relaxed mb-6">
+          Commit once, transform your dog for life.
+        </p>
+
+        <PackageList
+          title="What's Included:"
+          items={[
+            { text: "Everything in Inner Circle VIP", bold: true },
+            "Training Kit Included",
+            "Private Cali K9 Community",
+            "Full Course Access",
           ]}
         />
 
         <PriceBlock
-          value="Total Value: $12,988"
-          offerLabel="SPECIAL OFFER TODAY ONLY"
-          price="$997"
-          note="one-time &middot; Payment plans available"
+          offerLabel="BEST VALUE"
+          price="$1,997"
+          note="per year &middot; Save vs monthly"
         />
       </ServiceHero>
 
@@ -191,7 +155,7 @@ export default function OnlineTrainingPage() {
         eyebrow="Start Training Today"
         heading="READY TO TRANSFORM YOUR DOG?"
         description="Join thousands of dog owners who transformed their dog's behavior with the Cali K9 5-Pillar System. Train from anywhere, at your own pace, with expert coaching."
-        primaryCta={{ label: "Get Started \u2014 $497 \u2192", href: "#" }}
+        primaryCta={{ label: "Start From $97/mo \u2192", href: "#main-content" }}
         secondaryCta={{ label: "Book Evaluation First \u2192", href: "/evaluation" }}
       />
     </main>
