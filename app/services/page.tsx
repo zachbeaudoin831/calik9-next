@@ -11,23 +11,23 @@ export const metadata = {
 
 const NEW_CLIENT_CARDS = [
   {
-    tag: "Online Program",
-    name: "ONLINE TRAINING\nPROGRAM 2.0",
-    desc: "The full 5-Pillar system delivered digitally. Learn at your own pace with professional guidance and a complete video library.",
+    tag: "From $97/mo \u00b7 Online Subscription",
+    name: "ONLINE\nTRAINING",
+    desc: "Train your dog the right way without wasting time guessing. Three subscription tiers with live group coaching and the full 5-Pillar System.",
     href: "/online-training",
     bg: "linear-gradient(145deg, #1236A0, #1A3FAB, #2255CC)",
   },
   {
-    tag: "Private Sessions",
+    tag: "From $1,497 \u00b7 Private Sessions",
     name: "IN-PERSON\nTRAINING",
-    desc: "One-on-one, semi-private group classes, and virtual sessions tailored to your dog\u2019s behavior, temperament, and specific goals.",
+    desc: "Foundation, Transformation, and Executive tiers \u2014 one-on-one work tailored to your dog\u2019s behavior, temperament, and goals.",
     href: "/in-person",
     bg: "linear-gradient(145deg, #061225, #0D2260, #122E85)",
   },
   {
-    tag: "Most Intensive \u00b7 8 Spots/Mo",
+    tag: "From $5,997 \u00b7 Most Intensive",
     name: "BOARD\n& TRAIN",
-    desc: "Your dog lives with us while we build the foundation. Deep obedience, behavior modification, lifetime support.",
+    desc: "Your dog lives with us while we build the foundation. 30-day Immersion or 60-day Total Transformation \u2014 deep behavior modification with maintenance support.",
     href: "/board-and-train",
     bg: "linear-gradient(160deg, #04060F, #080C25, #0D1640)",
   },
@@ -50,25 +50,32 @@ const NEW_CLIENT_CARDS = [
 
 const RETURNING_CLIENT_CARDS = [
   {
-    tag: "Virtual",
-    name: "ZOOM\nCOACHING",
-    desc: "Live virtual group sessions with certified Cali K9 trainers. Reinforce training from anywhere in the world.",
-    href: "/zoom-group",
-    bg: "linear-gradient(145deg, #0A3278, #1550B0, #1A5FC0)",
+    tag: "From $1,097 · 4 or 8 sessions",
+    name: "PRIVATE\nCOACHING",
+    desc: "Stay sharp and keep progressing — or take your dog to the next level.",
+    href: "/in-person",
+    bg: "linear-gradient(145deg, #15192E, #1F2647, #2A3361)",
   },
   {
-    tag: "In-Person",
-    name: "IN-PERSON\nGROUP CLASS",
-    desc: "Real-world socialization and obedience reinforcement in a structured group setting at a Cali K9 facility.",
+    tag: "From $597 · 5 or 10 sessions",
+    name: "SEMI-PRIVATE\nTRAINING",
+    desc: "Controlled socialization with guidance, confidence, and real-world exposure.",
+    href: "/semi-private",
+    bg: "linear-gradient(145deg, #180838, #251258, #301A70)",
+  },
+  {
+    tag: "$197/mo · In-Person",
+    name: "GROUP\nCLASSES",
+    desc: "Stay consistent and structured.",
     href: "/group-class",
     bg: "linear-gradient(145deg, #052030, #083548, #0A4560)",
   },
   {
-    tag: "Small Group",
-    name: "SEMI-PRIVATE\nTRAINING",
-    desc: "Personalized attention in a smaller group setting. Targeted behavior work with dedicated trainer oversight.",
-    href: "/semi-private",
-    bg: "linear-gradient(145deg, #180838, #251258, #301A70)",
+    tag: "$97/mo · Virtual",
+    name: "ZOOM\nCOACHING",
+    desc: "Get expert guidance from anywhere.",
+    href: "/zoom-group",
+    bg: "linear-gradient(145deg, #0A3278, #1550B0, #1A5FC0)",
   },
 ];
 
