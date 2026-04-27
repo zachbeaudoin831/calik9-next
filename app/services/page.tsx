@@ -11,23 +11,23 @@ export const metadata = {
 
 const NEW_CLIENT_CARDS = [
   {
-    tag: "From $97/mo \u00b7 Online Subscription",
-    name: "ONLINE\nTRAINING",
-    desc: "Train your dog the right way without wasting time guessing. Three subscription tiers with live group coaching and the full 5-Pillar System.",
+    tag: "Online Program",
+    name: "ONLINE TRAINING\nPROGRAM 2.0",
+    desc: "The full 5-Pillar system delivered digitally. Learn at your own pace with professional guidance and a complete video library.",
     href: "/online-training",
     bg: "linear-gradient(145deg, #1236A0, #1A3FAB, #2255CC)",
   },
   {
-    tag: "From $1,497 \u00b7 Private Sessions",
+    tag: "Private Sessions",
     name: "IN-PERSON\nTRAINING",
-    desc: "Foundation, Transformation, and Executive tiers \u2014 one-on-one work tailored to your dog\u2019s behavior, temperament, and goals.",
+    desc: "One-on-one, semi-private group classes, and virtual sessions tailored to your dog\u2019s behavior, temperament, and specific goals.",
     href: "/in-person",
     bg: "linear-gradient(145deg, #061225, #0D2260, #122E85)",
   },
   {
-    tag: "From $5,997 \u00b7 Most Intensive",
+    tag: "Most Intensive \u00b7 8 Spots/Mo",
     name: "BOARD\n& TRAIN",
-    desc: "Your dog lives with us while we build the foundation. 30-day Immersion or 60-day Total Transformation \u2014 deep behavior modification with maintenance support.",
+    desc: "Your dog lives with us while we build the foundation. Deep obedience, behavior modification, lifetime support.",
     href: "/board-and-train",
     bg: "linear-gradient(160deg, #04060F, #080C25, #0D1640)",
   },
@@ -64,18 +64,11 @@ const RETURNING_CLIENT_CARDS = [
     bg: "linear-gradient(145deg, #180838, #251258, #301A70)",
   },
   {
-    tag: "$197/mo · In-Person",
-    name: "GROUP\nCLASSES",
-    desc: "Stay consistent and structured.",
+    tag: "Group Classes $197/mo · Zoom Coaching $97/mo",
+    name: "MONTHLY\nMEMBERSHIPS",
+    desc: "Stay consistent with in-person Group Classes or get expert guidance from anywhere with Zoom Coaching.",
     href: "/group-class",
     bg: "linear-gradient(145deg, #052030, #083548, #0A4560)",
-  },
-  {
-    tag: "$97/mo · Virtual",
-    name: "ZOOM\nCOACHING",
-    desc: "Get expert guidance from anywhere.",
-    href: "/zoom-group",
-    bg: "linear-gradient(145deg, #0A3278, #1550B0, #1A5FC0)",
   },
 ];
 
