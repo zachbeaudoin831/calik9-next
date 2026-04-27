@@ -92,11 +92,11 @@ const LOCATIONS = [
 function ServiceCard({ card }: { card: typeof NEW_CLIENT_CARDS[0] }) {
   const inner = (
     <div
-      className="relative rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group"
+      className="relative rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group h-full"
       style={{ background: card.bg }}
     >
       {card.disabled && <div className="absolute inset-0 bg-black/15 rounded-xl pointer-events-none z-10" />}
-      <div className="p-6 min-h-[280px] flex flex-col justify-between max-[900px]:p-[18px] max-[900px]:min-h-[240px]">
+      <div className="p-6 h-full min-h-[280px] flex flex-col justify-between max-[900px]:p-[18px] max-[900px]:min-h-[240px]">
         <span className="font-ui text-[11px] font-bold tracking-[2px] uppercase text-white/50 block mb-auto">
           {card.tag}
         </span>
@@ -116,7 +116,7 @@ function ServiceCard({ card }: { card: typeof NEW_CLIENT_CARDS[0] }) {
   );
 
   if (card.disabled || !card.href) return inner;
-  return <Link href={card.href} className="no-underline block">{inner}</Link>;
+  return <Link href={card.href} className="no-underline block h-full">{inner}</Link>;
 }
 
 export default function ServicesPage() {
