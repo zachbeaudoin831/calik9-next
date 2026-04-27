@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import FormEmbed from "@/components/FormEmbed";
 import CelebGrid from "@/components/CelebGrid";
 import CtaBlock from "@/components/CtaBlock";
 
 export const metadata: Metadata = {
   title: "Monthly Memberships | Cali K9®",
   description:
-    "Stay consistent with Cali K9® monthly memberships — In-Person Group Classes ($197/mo) and live Zoom Coaching ($97/mo) for existing Cali K9 clients.",
+    "Cali K9® monthly memberships for existing clients — In-Person Group Classes ($197/mo) and live Zoom Coaching ($97/mo). Pick the cadence that fits your week.",
   openGraph: {
     title: "Monthly Memberships | Cali K9®",
     description:
@@ -32,8 +33,10 @@ const TIERS = [
       "Community app access & training resources",
       "Max 8 dogs per class",
     ],
-    cta: "Sign Up — $197/mo",
-    href: "/group-class",
+    formId: "xYXyh92NznqxZjAZbL6e",
+    formName: "In Person",
+    formTitle: "Sign Up — Group Classes",
+    formHeight: 830,
     bg: "linear-gradient(160deg, #052030, #083548, #0A4560)",
   },
   {
@@ -51,8 +54,10 @@ const TIERS = [
       "Cali K9 app & community access",
       "Cancel anytime",
     ],
-    cta: "Sign Up — $97/mo",
-    href: "/zoom-group",
+    formId: "cwARHdUU73yIpW7KMhp9",
+    formName: "Zoom Coaching",
+    formTitle: "Sign Up — Zoom Coaching",
+    formHeight: 830,
     bg: "linear-gradient(160deg, #0A1F4F, #122E85, #1A3FAB)",
   },
 ];
@@ -113,7 +118,7 @@ export default function MembershipsPage() {
                 <p className="font-body text-[15px] text-white/65 leading-[1.65] mb-6">
                   {tier.description}
                 </p>
-                <ul className="list-none p-0 m-0 mb-8">
+                <ul className="list-none p-0 m-0 mb-7">
                   {tier.bullets.map((b) => (
                     <li
                       key={b}
@@ -126,12 +131,16 @@ export default function MembershipsPage() {
                     </li>
                   ))}
                 </ul>
-                <Link
-                  href={tier.href}
-                  className="mt-auto inline-flex items-center justify-center bg-white text-blue-700 font-ui text-sm font-bold tracking-[2px] uppercase px-6 py-3.5 rounded-sm no-underline hover:bg-off transition-colors"
-                >
-                  {tier.cta} &rarr;
-                </Link>
+
+                {/* Embedded LeadConnector form */}
+                <div className="mt-auto">
+                  <FormEmbed
+                    formId={tier.formId}
+                    formName={tier.formName}
+                    title={tier.formTitle}
+                    height={tier.formHeight}
+                  />
+                </div>
               </div>
             ))}
           </div>

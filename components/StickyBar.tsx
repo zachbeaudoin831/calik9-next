@@ -9,7 +9,7 @@ const STICKY_BAR_PAGES: Record<string, { text: string; cta: string; href: string
   "/online-training": { text: "Don’t Know Which Program Fits Your Dog?", cta: "Book an Evaluation →", href: "/evaluation" },
   "/board-and-train": { text: "Don’t Know Which Program Fits Your Dog?", cta: "Book an Evaluation →", href: "/evaluation" },
   "/semi-private": { text: "Don’t Know Which Program Fits Your Dog?", cta: "Book an Evaluation →", href: "/evaluation" },
-  "/zoom-group": { text: "Don’t Know Which Program Fits Your Dog?", cta: "Book an Evaluation →", href: "/evaluation" },
+  "/memberships": { text: "Memberships for Returning Cali K9 Clients", cta: "Sign Up Now", href: "#main-content" },
   "/group-class": { text: "In-Person Group Training — $197/month", cta: "Sign Up Now", href: "#main-content" },
 };
 

@@ -49,7 +49,7 @@ export default function Nav() {
   }, [drawerOpen]);
 
   const isActive = (href: string) => pathname === href;
-  const isServicePage = pathname.startsWith("/services") || pathname.startsWith("/online-training") || pathname.startsWith("/in-person") || pathname.startsWith("/group-class") || pathname.startsWith("/board-and-train") || pathname.startsWith("/vip-with-jas") || pathname.startsWith("/semi-private") || pathname.startsWith("/zoom-group") || pathname.startsWith("/coaching") || pathname.startsWith("/starter-course");
+  const isServicePage = pathname.startsWith("/services") || pathname.startsWith("/online-training") || pathname.startsWith("/in-person") || pathname.startsWith("/group-class") || pathname.startsWith("/board-and-train") || pathname.startsWith("/vip-with-jas") || pathname.startsWith("/semi-private") || pathname.startsWith("/memberships") || pathname.startsWith("/coaching") || pathname.startsWith("/starter-course");
 
   return (
     <>
