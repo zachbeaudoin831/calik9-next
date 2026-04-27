@@ -21,7 +21,7 @@ export default function AddToCartSection({ product }: { product: ShopifyProduct 
     )?.node ?? product.variants.edges[0]?.node;
 
   const variantAvailable = matchingVariant?.availableForSale ?? false;
-  const isPreorder = variantAvailable && matchingVariant?.quantityAvailable === 0;
+  const isPreorder = variantAvailable && matchingVariant?.currentlyNotInStock === true;
 
   async function handleAdd() {
     if (!matchingVariant || !variantAvailable) return;

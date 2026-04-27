@@ -29,8 +29,12 @@ const SORT_OPTIONS: { value: SortKey; label: string }[] = [
 ];
 
 function isPreorderProduct(p: ShopifyProduct) {
+  // A product is a real pre-order/oversell when Shopify marks the variant
+  // available for sale but flags it as currentlyNotInStock. quantityAvailable
+  // alone reports 0 for any untracked-inventory product, which would
+  // misclassify in-stock items.
   const firstAvailable = p.variants.edges.find((e) => e.node.availableForSale)?.node;
-  return p.availableForSale && firstAvailable != null && firstAvailable.quantityAvailable === 0;
+  return p.availableForSale && firstAvailable != null && firstAvailable.currentlyNotInStock === true;
 }
 
 function priceOf(p: ShopifyProduct) {

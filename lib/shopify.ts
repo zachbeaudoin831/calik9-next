@@ -37,6 +37,7 @@ export interface ShopifyProduct {
         title: string;
         availableForSale: boolean;
         quantityAvailable: number | null; // null = inventory not tracked
+        currentlyNotInStock: boolean; // true = sold but oversell-enabled (real pre-order)
         requiresShipping: boolean; // false = service/digital → max qty 1
         price: { amount: string; currencyCode: string };
         compareAtPrice: { amount: string; currencyCode: string } | null;
@@ -76,7 +77,7 @@ const PRODUCT_FIELDS = `
   images(first: 6) { edges { node { url altText } } }
   variants(first: 20) {
     edges { node {
-      id title availableForSale quantityAvailable requiresShipping
+      id title availableForSale quantityAvailable currentlyNotInStock requiresShipping
       price { amount currencyCode }
       compareAtPrice { amount currencyCode }
       selectedOptions { name value }

@@ -18,7 +18,7 @@ export default function ProductCard({ product }: { product: ShopifyProduct }) {
     ? product.variants.edges.find((e) => e.node.availableForSale)?.node ?? product.variants.edges[0]?.node
     : product.variants.edges[0]?.node;
   const variantAvailable = product.availableForSale && (firstVariant?.availableForSale ?? false);
-  const isPreorder = variantAvailable && firstVariant?.quantityAvailable === 0;
+  const isPreorder = variantAvailable && firstVariant?.currentlyNotInStock === true;
 
   async function handleAdd() {
     if (!firstVariant || !variantAvailable) return;
