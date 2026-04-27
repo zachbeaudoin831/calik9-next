@@ -57,29 +57,174 @@ export default function MembershipsPage() {
           </>
         }
       >
-        {/* ── Group Classes ── */}
-        <PackageHeading as="h2">Group Classes</PackageHeading>
+        {/* ── Cali K9 Training Membership ($197/mo) ── */}
+        <PackageHeading as="h2">Cali K9 Training Membership</PackageHeading>
 
         <p className="font-ui text-base font-bold tracking-[1.5px] uppercase text-blue-400 mb-3">
-          In-Person &middot; $197/mo
+          In-Person + Zoom &middot; $197/mo
         </p>
 
+        <p className="font-body text-lg text-white/85 leading-relaxed mb-3">
+          Everything your dog needs. Structure, coaching, and real-world results.
+        </p>
         <p className="font-body text-base text-white/70 leading-relaxed mb-6">
-          Stay consistent and structured. Four in-person group training sessions
-          every month at a Cali K9 facility, with a certified trainer and a
-          structured monthly curriculum.
+          This isn&rsquo;t just a class. This is a full system that combines
+          in-person training + live coaching so you never feel stuck, confused,
+          or inconsistent again.
         </p>
 
-        <PackageList
-          title="What's Included:"
-          items={[
-            { text: "4 in-person group sessions per month", bold: true },
-            "Certified Cali K9 trainer every session",
-            "Structured monthly curriculum",
-            "Community app access & training resources",
-            "Max 8 dogs per class",
-          ]}
-        />
+        {/* Weekly Group Classes */}
+        <div className="mb-7">
+          <h3 className="font-display text-[clamp(20px,2.5vw,24px)] text-white leading-[1.15] mb-3">
+            Weekly Group Classes (In-Person)
+          </h3>
+          <ul className="list-none p-0 m-0">
+            {[
+              "Structured training sessions using the Cali K9 system",
+              "Real-world socialization around dogs, people, and distractions",
+              "Hands-on corrections from trainers in real time",
+              "Build obedience, control, and confidence step-by-step",
+              "Safe exposure for reactive or high-energy dogs",
+            ].map((b) => (
+              <li key={b} className="font-body text-[15px] text-white/75 leading-normal py-1.5 pl-6 relative">
+                <span className="absolute left-0 text-green-500 font-bold">&#10003;</span>
+                {b}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Weekly Zoom Coaching */}
+        <div className="mb-7">
+          <h3 className="font-display text-[clamp(20px,2.5vw,24px)] text-white leading-[1.15] mb-3">
+            Weekly Zoom Coaching (Included)
+          </h3>
+          <ul className="list-none p-0 m-0">
+            {[
+              "Live coaching from anywhere during the week",
+              "Ask questions and troubleshoot your exact issues",
+              "Get step-by-step guidance between classes",
+              "Stay consistent even when you can’t make it in person",
+            ].map((b) => (
+              <li key={b} className="font-body text-[15px] text-white/75 leading-normal py-1.5 pl-6 relative">
+                <span className="absolute left-0 text-green-500 font-bold">&#10003;</span>
+                {b}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Complete Training System */}
+        <div className="mb-7">
+          <h3 className="font-display text-[clamp(20px,2.5vw,24px)] text-white leading-[1.15] mb-1">
+            Complete Training System
+          </h3>
+          <p className="font-ui text-xs font-bold tracking-[2px] uppercase text-blue-400 mb-3">
+            This is the real value
+          </p>
+          <ul className="list-none p-0 m-0">
+            {[
+              "You’re not guessing what to do — you’re following a proven plan",
+              "In-person = execution and reps",
+              "Zoom = strategy and correction",
+              "This combination accelerates results faster than either alone",
+            ].map((b) => (
+              <li key={b} className="font-body text-[15px] text-white/75 leading-normal py-1.5 pl-6 relative">
+                <span className="absolute left-0 text-green-500 font-bold">&#10003;</span>
+                {b}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Consistency = Results */}
+        <div className="mb-7">
+          <h3 className="font-display text-[clamp(20px,2.5vw,24px)] text-white leading-[1.15] mb-3">
+            Consistency = Results
+          </h3>
+          <ul className="list-none p-0 m-0">
+            {[
+              "No more starting over every few weeks",
+              "Built-in accountability keeps you locked in",
+              "Your dog improves because you stay consistent",
+            ].map((b) => (
+              <li key={b} className="font-body text-[15px] text-white/75 leading-normal py-1.5 pl-6 relative">
+                <span className="absolute left-0 text-green-500 font-bold">&#10003;</span>
+                {b}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Confidence + Control */}
+        <div className="mb-7">
+          <h3 className="font-display text-[clamp(20px,2.5vw,24px)] text-white leading-[1.15] mb-3">
+            Confidence for You, Control for Your Dog
+          </h3>
+          <ul className="list-none p-0 m-0">
+            {[
+              "Learn how to think like a trainer",
+              "Stop relying on treats alone",
+              "Build real leadership and communication",
+            ].map((b) => (
+              <li key={b} className="font-body text-[15px] text-white/75 leading-normal py-1.5 pl-6 relative">
+                <span className="absolute left-0 text-green-500 font-bold">&#10003;</span>
+                {b}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Community + Environment */}
+        <div className="mb-7">
+          <h3 className="font-display text-[clamp(20px,2.5vw,24px)] text-white leading-[1.15] mb-3">
+            Community + Environment
+          </h3>
+          <ul className="list-none p-0 m-0">
+            {[
+              "Train around other dog owners who are working",
+              "Positive pressure = faster growth",
+              "Your dog learns to behave in real-life situations",
+            ].map((b) => (
+              <li key={b} className="font-body text-[15px] text-white/75 leading-normal py-1.5 pl-6 relative">
+                <span className="absolute left-0 text-green-500 font-bold">&#10003;</span>
+                {b}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Bottom Line */}
+        <blockquote className="border-l-2 border-blue-400 pl-5 my-8">
+          <p className="font-ui text-xs font-bold tracking-[2px] uppercase text-blue-400 mb-2">
+            Bottom Line
+          </p>
+          <p className="font-body text-base italic text-white/75 leading-relaxed mb-1">
+            If you just train once in a while&hellip; nothing changes.
+          </p>
+          <p className="font-body text-base italic font-semibold text-white leading-relaxed">
+            If you plug into a system like this&hellip; everything changes.
+          </p>
+        </blockquote>
+
+        {/* Best For */}
+        <div className="mb-7">
+          <h3 className="font-display text-[clamp(20px,2.5vw,24px)] text-white leading-[1.15] mb-3">
+            Best For
+          </h3>
+          <ul className="list-none p-0 m-0">
+            {[
+              "Owners who want structure + guidance + real-world results",
+              "Dogs with obedience issues, leash pulling, reactivity, or lack of control",
+              "Anyone serious about building a well-trained, reliable dog",
+            ].map((b) => (
+              <li key={b} className="font-body text-[15px] text-white/75 leading-normal py-1.5 pl-6 relative">
+                <span className="absolute left-0 text-green-500 font-bold">&#10003;</span>
+                {b}
+              </li>
+            ))}
+          </ul>
+        </div>
 
         <PriceBlock price="$197" note="per month · Cancel anytime" />
 
