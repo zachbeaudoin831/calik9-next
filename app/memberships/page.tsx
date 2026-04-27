@@ -27,12 +27,44 @@ export default function MembershipsPage() {
     <main>
       <ServiceHero
         sidebar={
-          <FormEmbed
-            formId="cwARHdUU73yIpW7KMhp9"
-            formName="Memberships Cart"
-            title="Select Membership"
-            height={896}
-          />
+          <>
+            <div className="font-ui text-[13px] font-bold tracking-[2px] uppercase text-white/85 mb-3">
+              Choose Your Membership
+            </div>
+            <div className="grid grid-cols-2 gap-3 mb-5 max-[480px]:grid-cols-1">
+              <div className="bg-white/[0.06] border border-white/[0.15] rounded-md p-4">
+                <div className="font-ui text-[11px] font-bold tracking-[2px] uppercase text-white/55 mb-1">
+                  In-Person + Zoom
+                </div>
+                <div className="flex items-baseline gap-1 mb-1">
+                  <span className="font-display text-[32px] text-white leading-none">$197</span>
+                  <span className="font-ui text-sm text-white/55">/mo</span>
+                </div>
+                <p className="font-body text-[13px] text-white/60 leading-snug">
+                  Weekly group classes plus included Zoom coaching &mdash; the
+                  full training system.
+                </p>
+              </div>
+              <div className="bg-white/[0.06] border border-white/[0.15] rounded-md p-4">
+                <div className="font-ui text-[11px] font-bold tracking-[2px] uppercase text-white/55 mb-1">
+                  Virtual
+                </div>
+                <div className="flex items-baseline gap-1 mb-1">
+                  <span className="font-display text-[32px] text-white leading-none">$97</span>
+                  <span className="font-ui text-sm text-white/55">/mo</span>
+                </div>
+                <p className="font-body text-[13px] text-white/60 leading-snug">
+                  Live weekly Zoom coaching for guidance from anywhere.
+                </p>
+              </div>
+            </div>
+            <FormEmbed
+              formId="cwARHdUU73yIpW7KMhp9"
+              formName="Memberships Cart"
+              title="Select Membership"
+              height={896}
+            />
+          </>
         }
         intro={
           <>
