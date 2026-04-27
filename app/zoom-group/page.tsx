@@ -10,13 +10,13 @@ import CtaBlock from "@/components/CtaBlock";
 import FormEmbed from "@/components/FormEmbed";
 
 export const metadata: Metadata = {
-  title: "Weekly Zoom Group Training | Cali K9\u00ae",
+  title: "Zoom Coaching | Cali K9\u00ae",
   description:
-    "Monthly Zoom group dog training classes with certified Cali K9 trainers. 4 live sessions per month for $47. Available to existing Cali K9 clients only.",
+    "Monthly Zoom coaching for existing Cali K9 clients. 4 live sessions per month with certified trainers for $97/month.",
   openGraph: {
-    title: "Zoom Group Training Classes | Cali K9\u00ae",
+    title: "Zoom Coaching | Cali K9\u00ae",
     description:
-      "Monthly Zoom group dog training classes with certified Cali K9 trainers. 4 live sessions per month for $47. Available to existing Cali K9 clients only.",
+      "Monthly Zoom coaching for existing Cali K9 clients. 4 live sessions per month with certified trainers for $97/month.",
     url: "https://calik9.com/zoom-group",
     images: ["https://calik9.com/images/cdn/66a311486dce452f20d2ffcd.webp"],
   },
@@ -36,8 +36,8 @@ export default function ZoomGroupPage() {
         sidebar={
           <FormEmbed
             formId="cwARHdUU73yIpW7KMhp9"
-            formName="Zoom Group"
-            title="Join Zoom Group — $47/mo"
+            formName="Zoom Coaching"
+            title="Join Zoom Coaching — $97/mo"
             height={830}
           />
         }
@@ -49,15 +49,15 @@ export default function ZoomGroupPage() {
               <em
                 style={{ WebkitTextFillColor: "var(--color-white, #fff)", fontStyle: "italic" }}
               >
-                Cali K9 Membership
+                Cali K9
               </em>{" "}
-              Zoom Group $47/mo
+              Zoom Coaching $97/mo
             </PackageHeading>
 
             <p className="font-body text-base text-white/70 leading-relaxed mb-6">
-              Join live weekly Zoom group training sessions led by certified Cali K9
-              trainers. Get real-time feedback, stay accountable, and keep your
-              dog&rsquo;s training sharp&mdash;from anywhere in the world.
+              Get expert guidance from anywhere. Live weekly Zoom coaching
+              sessions led by certified Cali K9 trainers &mdash; real-time
+              feedback to keep your dog&rsquo;s training sharp.
             </p>
           </>
         }
@@ -68,8 +68,8 @@ export default function ZoomGroupPage() {
             What is included every month:
           </div>
           <div className="flex items-center gap-2.5 font-ui text-base font-semibold tracking-[0.5px] text-white/85 mb-2">
-            <span className="text-green-500 text-xl">&#10003;</span> 4 Zoom
-            group calls per month (weekly, live)
+            <span className="text-green-500 text-xl">&#10003;</span> 4 live
+            Zoom coaching calls per month (weekly)
           </div>
           <div className="flex items-center gap-2.5 font-ui text-base font-semibold tracking-[0.5px] text-white/85 mb-2">
             <span className="text-green-500 text-xl">&#10003;</span> Access to
@@ -82,7 +82,7 @@ export default function ZoomGroupPage() {
         {/* Disclaimer */}
         <div className="bg-white/[0.06] border border-white/10 rounded-lg px-6 py-5">
           <p className="font-body text-sm text-white/55 leading-relaxed">
-            This membership is a recurring monthly subscription at $47/month. You
+            This membership is a recurring monthly subscription at $97/month. You
             can cancel anytime from your account. No cancellation fees. Sessions
             are held weekly on Zoom with a certified Cali K9 trainer.
           </p>

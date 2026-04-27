@@ -13,11 +13,11 @@ import CtaBlock from "@/components/CtaBlock";
 export const metadata: Metadata = {
   title: "Board & Train Program | Cali K9®",
   description:
-    "Intensive residential board and train dog training program in Los Angeles and Miami. Four-week Elite program with certified trainers.",
+    "Intensive residential board and train dog training program in Los Angeles and Miami. 30-day Immersion and 60-day Total Transformation programs with certified trainers.",
   openGraph: {
     title: "Board & Train Program | Cali K9®",
     description:
-      "Intensive residential board and train dog training program in Los Angeles and Miami. Four-week Elite program with certified trainers.",
+      "Intensive residential board and train dog training program in Los Angeles and Miami. 30-day Immersion and 60-day Total Transformation programs with certified trainers.",
     url: "https://calik9.com/board-and-train",
     images: ["https://calik9.com/images/cdn/66a311486dce452f20d2ffcd.webp"],
   },
@@ -37,8 +37,8 @@ export default function BoardAndTrainPage() {
         sidebar={
           <FormEmbed
             formId="y6VSKPK4ruaCbRo0hZnM"
-            formName="4-Week Board and Train"
-            title="4-Week Board & Train"
+            formName="Board and Train"
+            title="Book Board & Train"
             height={804}
           />
         }
@@ -72,8 +72,8 @@ export default function BoardAndTrainPage() {
           </cite>
         </blockquote>
 
-        {/* ── Elite 4-Week Board & Train ── */}
-        <PackageHeading as="h2">Elite 4-Week Board &amp; Train</PackageHeading>
+        {/* ── Immersion Program (30 Days) ── */}
+        <PackageHeading as="h2">Immersion Program (30 Days)</PackageHeading>
 
         <p className="font-body text-base text-white/70 leading-relaxed mb-6">
           We build the foundation &mdash; so you come home to a better dog.
@@ -82,14 +82,19 @@ export default function BoardAndTrainPage() {
         <PackageList
           title="What's Included:"
           items={[
-            { text: "28 days (4 weeks) of full-board residential training", bold: true },
+            { text: "30 days of full-board residential training", bold: true },
             "3 structured sessions per day, 7 days a week",
+            "6 months of maintenance support",
+            "Full Online Course Access",
             "Cali K9 Starter Kit included",
             "Daily photo and video updates",
             "Graduation handoff session with your trainer",
-            "Mid-program review call with trainer",
-            "60-day email follow-up support",
           ]}
+        />
+
+        <PriceBlock
+          price="$5,997"
+          note="one-time · Payment plans available"
         />
 
         <hr className="border-0 border-t border-white/[0.12] my-9" />

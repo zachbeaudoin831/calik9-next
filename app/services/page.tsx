@@ -51,7 +51,7 @@ const NEW_CLIENT_CARDS = [
 const RETURNING_CLIENT_CARDS = [
   {
     tag: "Virtual",
-    name: "ZOOM\nGROUP CLASS",
+    name: "ZOOM\nCOACHING",
     desc: "Live virtual group sessions with certified Cali K9 trainers. Reinforce training from anywhere in the world.",
     href: "/zoom-group",
     bg: "linear-gradient(145deg, #0A3278, #1550B0, #1A5FC0)",
@@ -86,7 +86,7 @@ const LOCATIONS = [
   { name: "Los Angeles, CA", address: "5015 Lankershim Blvd., North Hollywood, CA 91601", desc: "Private sessions and Board & Train programs serving LA and surrounding communities." },
   { name: "Miami, FL", desc: "East Coast private sessions and intensive programs \u2014 same elite Cali K9 standard." },
   { name: "New York, NY", desc: "Private sessions and select programs available. Contact us to check current availability." },
-  { name: "Online \u00b7 Worldwide", desc: "The full 5-Pillar Online Program and Zoom Group Classes available to clients anywhere in the world.", globe: true },
+  { name: "Online \u00b7 Worldwide", desc: "The full Online Training tiers and Zoom Coaching available to clients anywhere in the world.", globe: true },
 ];
 
 function ServiceCard({ card }: { card: typeof NEW_CLIENT_CARDS[0] }) {

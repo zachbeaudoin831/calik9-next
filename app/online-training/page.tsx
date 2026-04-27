@@ -124,6 +124,10 @@ export default function OnlineTrainingPage() {
         <hr className="border-0 border-t border-white/[0.12] my-9" />
 
         {/* ── Executive Annual VIP ── */}
+        <div className="inline-flex items-center gap-2 bg-green-500/[0.18] border border-green-500/40 text-green-500 font-ui text-[11px] font-bold tracking-[2px] uppercase px-3 py-1 rounded-sm mb-3">
+          Best Value
+        </div>
+
         <PackageHeading as="h2">Executive Annual VIP</PackageHeading>
 
         <p className="font-body text-base text-white/70 leading-relaxed mb-6">
@@ -141,7 +145,6 @@ export default function OnlineTrainingPage() {
         />
 
         <PriceBlock
-          offerLabel="BEST VALUE"
           price="$1,997"
           note="per year &middot; Save vs monthly"
         />

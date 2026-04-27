@@ -12,11 +12,11 @@ import FormEmbed from "@/components/FormEmbed";
 export const metadata: Metadata = {
   title: "Semi-Private Dog Training | Cali K9\u00ae",
   description:
-    "Semi-private dog training sessions with 2-3 dogs per session. More personal than group, more affordable than private. Starting at $497.",
+    "Semi-private dog training sessions with 2-3 dogs per session. More personal than group, more affordable than private. Starting at $597.",
   openGraph: {
     title: "Semi-Private Dog Training | Cali K9\u00ae",
     description:
-      "Semi-private dog training sessions with 2-3 dogs per session. More personal than group, more affordable than private. Starting at $497.",
+      "Semi-private dog training sessions with 2-3 dogs per session. More personal than group, more affordable than private. Starting at $597.",
     url: "https://calik9.com/semi-private",
     images: ["https://calik9.com/images/cdn/66a311486dce452f20d2ffcd.webp"],
   },
@@ -86,7 +86,7 @@ export default function SemiPrivatePage() {
               5 Sessions
             </div>
             <div className="font-display text-[clamp(42px,5vw,56px)] text-white leading-none mb-2">
-              $497
+              $597
             </div>
             <ul className="list-none p-0 m-0 grid grid-cols-1">
               {[
@@ -116,7 +116,7 @@ export default function SemiPrivatePage() {
               Best Value
             </div>
             <div className="font-display text-[clamp(42px,5vw,56px)] text-white leading-none mb-2">
-              $897
+              $997
             </div>
             <ul className="list-none p-0 m-0 grid grid-cols-1">
               {[
