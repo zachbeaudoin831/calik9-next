@@ -54,10 +54,10 @@ export default function PrivateCoachingPage() {
               </div>
             </div>
             <FormEmbed
-              formId="H1lYuIqvPk8pw9DJqBit"
-              formName="Private Coaching"
+              formId="xYXyh92NznqxZjAZbL6e"
+              formName="In Person Private Coaching Returning"
               title="Book Private Coaching"
-              height={830}
+              height={857}
             />
           </>
         }
