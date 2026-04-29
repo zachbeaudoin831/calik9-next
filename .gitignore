@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Mentee testimonial videos that exceed GitHub's 100MB per-file limit.
+# Host these on a CDN (YouTube/Vimeo/Cloudflare Stream) and surface in
+# /coaching MENTEE_VIDEOS once available.
+public/CaliK9 Dog Training mentees testimonials/Mentee Steve.mp4
+public/CaliK9 Dog Training mentees testimonials/Mentee Twahlee.mp4

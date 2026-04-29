@@ -26,6 +26,27 @@ export const metadata: Metadata = {
   },
 };
 
+// Videos live in /public/CaliK9 Dog Training mentees testimonials/.
+// URL paths must encode the spaces. Two videos in the source folder
+// (Mentee Steve.mp4 ~124MB and Mentee Twahlee.mp4 ~103MB) exceed
+// Vercel's 100MB static-asset limit, so we use the smaller 9x16
+// version of Twahlee and skip Steve. Host those two on a CDN if you
+// want them surfaced.
+const VIDEO_DIR = "/CaliK9%20Dog%20Training%20mentees%20testimonials";
+
+const MENTEE_VIDEOS: { name: string; src: string; type: string }[] = [
+  { name: "Apex", src: `${VIDEO_DIR}/Apex%20Testimoniail.mp4`, type: "video/mp4" },
+  { name: "Apex", src: `${VIDEO_DIR}/Apex%20Testimonail%2002.mp4`, type: "video/mp4" },
+  { name: "Demola", src: `${VIDEO_DIR}/Demola.MOV`, type: "video/quicktime" },
+  { name: "Eric Darnell", src: `${VIDEO_DIR}/Eric%20Darnell.MP4`, type: "video/mp4" },
+  { name: "Hector", src: `${VIDEO_DIR}/Hector.MOV`, type: "video/quicktime" },
+  { name: "Jeff", src: `${VIDEO_DIR}/Jeff.MOV`, type: "video/quicktime" },
+  { name: "Kayla", src: `${VIDEO_DIR}/Kayla.MOV`, type: "video/quicktime" },
+  { name: "Mentee Story", src: `${VIDEO_DIR}/Mentee%2001.mp4`, type: "video/mp4" },
+  { name: "Simon", src: `${VIDEO_DIR}/Simon%20Mentee.mov`, type: "video/quicktime" },
+  { name: "Twahlee", src: `${VIDEO_DIR}/Mentee%20Twahlee9x16.mp4`, type: "video/mp4" },
+];
+
 const COACHING_TESTIMONIALS = [
   {
     initials: "MT",
@@ -148,6 +169,48 @@ export default function CoachingPage() {
         theme="dark"
         testimonials={COACHING_TESTIMONIALS}
       />
+
+      {/* ── Mentee Video Testimonials ── */}
+      <section className="py-20 max-md:py-12 max-[480px]:py-8 bg-off">
+        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
+          <div className="text-center mb-12">
+            <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
+              Mentee Testimonials
+            </span>
+            <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink mb-4">
+              REAL TRAINERS, REAL RESULTS
+            </h2>
+            <div className="w-12 h-[3px] bg-blue-500 mx-auto" />
+          </div>
+
+          <div className="grid grid-cols-3 gap-6 max-lg:grid-cols-2 max-sm:grid-cols-1">
+            {MENTEE_VIDEOS.map((v) => (
+              <figure
+                key={v.name}
+                className="rounded-xl overflow-hidden bg-white border border-border shadow-sm flex flex-col"
+              >
+                <video
+                  className="w-full aspect-video object-cover bg-black"
+                  controls
+                  playsInline
+                  preload="metadata"
+                >
+                  <source src={v.src} type={v.type} />
+                  Your browser does not support the video tag.
+                </video>
+                <figcaption className="p-4">
+                  <div className="font-display text-lg text-ink leading-tight">
+                    {v.name}
+                  </div>
+                  <div className="font-ui text-[11px] font-bold tracking-[2px] uppercase text-gray-muted mt-1">
+                    Cali K9 Mentee
+                  </div>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ── Celebrity Social Proof ── */}
       <CelebGrid />
