@@ -158,14 +158,6 @@ export default function CoachingPage() {
         <hr className="border-0 border-t border-white/[0.12] my-9" />
       </ServiceHero>
 
-      {/* ── Client Testimonials ── */}
-      <TestimonialSection
-        eyebrow="Success Stories"
-        heading="CLIENT TESTIMONIALS"
-        theme="dark"
-        testimonials={COACHING_TESTIMONIALS}
-      />
-
       {/* ── Mentee Video Testimonials ── */}
       <section className="py-20 max-md:py-12 max-[480px]:py-8 bg-off">
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
@@ -207,6 +199,14 @@ export default function CoachingPage() {
           </div>
         </div>
       </section>
+
+      {/* ── Client Testimonials ── */}
+      <TestimonialSection
+        eyebrow="Success Stories"
+        heading="CLIENT TESTIMONIALS"
+        theme="dark"
+        testimonials={COACHING_TESTIMONIALS}
+      />
 
       {/* ── Celebrity Social Proof ── */}
       <CelebGrid />
