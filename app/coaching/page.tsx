@@ -26,25 +26,20 @@ export const metadata: Metadata = {
   },
 };
 
-// Videos live in /public/CaliK9 Dog Training mentees testimonials/.
-// URL paths must encode the spaces. Two videos in the source folder
-// (Mentee Steve.mp4 ~124MB and Mentee Twahlee.mp4 ~103MB) exceed
-// Vercel's 100MB static-asset limit, so we use the smaller 9x16
-// version of Twahlee and skip Steve. Host those two on a CDN if you
-// want them surfaced.
-const VIDEO_DIR = "/CaliK9%20Dog%20Training%20mentees%20testimonials";
-
+// Mentee testimonial videos hosted on the LeadConnector CDN so we
+// don't bloat the git repo with hundreds of MB of source files.
 const MENTEE_VIDEOS: { name: string; src: string; type: string }[] = [
-  { name: "Apex", src: `${VIDEO_DIR}/Apex%20Testimoniail.mp4`, type: "video/mp4" },
-  { name: "Apex", src: `${VIDEO_DIR}/Apex%20Testimonail%2002.mp4`, type: "video/mp4" },
-  { name: "Demola", src: `${VIDEO_DIR}/Demola.MOV`, type: "video/quicktime" },
-  { name: "Eric Darnell", src: `${VIDEO_DIR}/Eric%20Darnell.MP4`, type: "video/mp4" },
-  { name: "Hector", src: `${VIDEO_DIR}/Hector.MOV`, type: "video/quicktime" },
-  { name: "Jeff", src: `${VIDEO_DIR}/Jeff.MOV`, type: "video/quicktime" },
-  { name: "Kayla", src: `${VIDEO_DIR}/Kayla.MOV`, type: "video/quicktime" },
-  { name: "Mentee Story", src: `${VIDEO_DIR}/Mentee%2001.mp4`, type: "video/mp4" },
-  { name: "Simon", src: `${VIDEO_DIR}/Simon%20Mentee.mov`, type: "video/quicktime" },
-  { name: "Twahlee", src: `${VIDEO_DIR}/Mentee%20Twahlee9x16.mp4`, type: "video/mp4" },
+  { name: "Apex", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/69f20594e84e52bef4aee443.mp4", type: "video/mp4" },
+  { name: "Apex", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/69f20594fc17decc45e1bc54.mp4", type: "video/mp4" },
+  { name: "Demola", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/69f20594fab44d40209bffef.mov", type: "video/quicktime" },
+  { name: "Eric Darnell", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/69f2059449d7293cbd491c0b.mp4", type: "video/mp4" },
+  { name: "Hector", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/69f20594d6968461202a5e57.mov", type: "video/quicktime" },
+  { name: "Jeff", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/69f20594663e5f92ffe11b4d.mov", type: "video/quicktime" },
+  { name: "Kayla", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/69f2059449d7293cbd491c0a.mov", type: "video/quicktime" },
+  { name: "Mentee Story", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/69f20594590487fe57be4d64.mp4", type: "video/mp4" },
+  { name: "Steve", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/69f20594fc17decc45e1bc55.mp4", type: "video/mp4" },
+  { name: "Twahlee", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/69f205946630fc6c0b431666.mp4", type: "video/mp4" },
+  { name: "Twahlee", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/69f20594fc17decc45e1bc5a.mp4", type: "video/mp4" },
 ];
 
 const COACHING_TESTIMONIALS = [
