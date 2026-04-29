@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 // don't bloat the git repo with hundreds of MB of source files.
 const MENTEE_VIDEOS: { name: string; src: string; type: string }[] = [
   { name: "Apex", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/69f20594e84e52bef4aee443.mp4", type: "video/mp4" },
-  { name: "Apex", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/69f20594fc17decc45e1bc54.mp4", type: "video/mp4" },
+  { name: "Apex 02", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/69f20594fc17decc45e1bc54.mp4", type: "video/mp4" },
   { name: "Demola", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/69f22bd749d7293cbd5401d4.mp4", type: "video/mp4" },
   { name: "Eric Darnell", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/69f2059449d7293cbd491c0b.mp4", type: "video/mp4" },
   { name: "Hector", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/69f22bd7fab44d4020a6d673.mp4", type: "video/mp4" },
@@ -40,7 +40,6 @@ const MENTEE_VIDEOS: { name: string; src: string; type: string }[] = [
   { name: "Simon", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/69f22bd7fc17decc45eceaf5.mp4", type: "video/mp4" },
   { name: "Steve", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/69f20594fc17decc45e1bc55.mp4", type: "video/mp4" },
   { name: "Twahlee", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/69f205946630fc6c0b431666.mp4", type: "video/mp4" },
-  { name: "Twahlee", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/69f20594fc17decc45e1bc5a.mp4", type: "video/mp4" },
 ];
 
 const COACHING_TESTIMONIALS = [
@@ -178,7 +177,7 @@ export default function CoachingPage() {
                 className="rounded-xl overflow-hidden bg-white border border-border shadow-sm flex flex-col"
               >
                 <video
-                  className="w-full aspect-video object-cover bg-black"
+                  className="w-full aspect-video object-contain bg-black"
                   controls
                   playsInline
                   preload="metadata"
