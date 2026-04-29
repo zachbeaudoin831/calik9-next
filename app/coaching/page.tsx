@@ -29,6 +29,8 @@ export const metadata: Metadata = {
 // Mentee testimonial videos hosted on the LeadConnector CDN so we
 // don't bloat the git repo with hundreds of MB of source files.
 const MENTEE_VIDEOS: { name: string; src: string; type: string }[] = [
+  { name: "Twahlee", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/69f205946630fc6c0b431666.mp4", type: "video/mp4" },
+  { name: "Steve", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/69f20594fc17decc45e1bc55.mp4", type: "video/mp4" },
   { name: "Apex", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/69f20594e84e52bef4aee443.mp4", type: "video/mp4" },
   { name: "Apex 02", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/69f20594fc17decc45e1bc54.mp4", type: "video/mp4" },
   { name: "Demola", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/69f22bd749d7293cbd5401d4.mp4", type: "video/mp4" },
@@ -38,8 +40,6 @@ const MENTEE_VIDEOS: { name: string; src: string; type: string }[] = [
   { name: "Kayla", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/69f22bd7d69684612035712b.mp4", type: "video/mp4" },
   { name: "Mentee Story", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/69f20594590487fe57be4d64.mp4", type: "video/mp4" },
   { name: "Simon", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/69f22bd7fc17decc45eceaf5.mp4", type: "video/mp4" },
-  { name: "Steve", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/69f20594fc17decc45e1bc55.mp4", type: "video/mp4" },
-  { name: "Twahlee", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/69f205946630fc6c0b431666.mp4", type: "video/mp4" },
 ];
 
 const COACHING_TESTIMONIALS = [
