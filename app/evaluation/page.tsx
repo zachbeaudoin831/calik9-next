@@ -206,6 +206,27 @@ export default function EvaluationPage() {
               title="Book Your Evaluation"
               height={804}
             />
+
+            {/* Desktop-only AMAVI photo below the cart. Mobile renders the
+                same image inside the intro section to fill the hero. */}
+            <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(0,0,0,0.25)] aspect-[16/10] mt-5 max-[900px]:hidden">
+              <Image
+                src="/images/trained-dogs1.jpeg"
+                alt="Cali K9 trained dogs sitting calmly outside a Miami restaurant"
+                fill
+                className="object-cover"
+                style={{ objectPosition: "center 78%" }}
+                sizes="50vw"
+              />
+              <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm rounded-md px-3 py-1.5">
+                <span className="font-ui text-[10px] font-bold tracking-[2px] uppercase text-white/50 block">
+                  Real Cali K9 Clients
+                </span>
+                <span className="font-ui text-xs font-bold tracking-[1px] text-white/85">
+                  Off-leash control in the real world
+                </span>
+              </div>
+            </div>
           </>
         }
         intro={
@@ -217,7 +238,7 @@ export default function EvaluationPage() {
               </span>
             </div>
 
-            <h1 className="font-display text-[clamp(42px,6vw,64px)] text-white leading-[0.93] mb-5">
+            <h1 className="font-display text-[clamp(42px,6vw,64px)] max-md:text-[clamp(64px,18vw,96px)] text-white leading-[0.93] mb-5">
               BOOK YOUR<br />
               <span className="text-white/50">EVALUATION</span>
             </h1>
@@ -227,14 +248,16 @@ export default function EvaluationPage() {
               dog&rsquo;s behavioral needs and build a custom roadmap to fix them.
             </p>
 
-            <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(0,0,0,0.25)] aspect-[16/10]">
+            {/* Mobile-only image. Desktop renders the same photo below the
+                form in the sidebar so it sits beneath the cart. */}
+            <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(0,0,0,0.25)] aspect-[16/10] min-[901px]:hidden">
               <Image
                 src="/images/trained-dogs1.jpeg"
                 alt="Cali K9 trained dogs sitting calmly outside a Miami restaurant"
                 fill
                 className="object-cover"
                 style={{ objectPosition: "center 78%" }}
-                sizes="(max-width: 900px) 100vw, 50vw"
+                sizes="100vw"
                 priority
               />
               <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm rounded-md px-3 py-1.5">
