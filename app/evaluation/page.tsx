@@ -227,13 +227,13 @@ export default function EvaluationPage() {
               dog&rsquo;s behavioral needs and build a custom roadmap to fix them.
             </p>
 
-            <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(0,0,0,0.25)]">
+            <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(0,0,0,0.25)] aspect-[16/10]">
               <Image
                 src="/images/trained-dogs1.jpeg"
                 alt="Cali K9 trained dogs sitting calmly outside a Miami restaurant"
-                width={900}
-                height={1200}
-                className="w-full h-auto block"
+                fill
+                className="object-cover"
+                style={{ objectPosition: "center 78%" }}
                 sizes="(max-width: 900px) 100vw, 50vw"
                 priority
               />
