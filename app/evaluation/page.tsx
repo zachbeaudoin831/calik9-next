@@ -191,28 +191,14 @@ export default function EvaluationPage() {
       <ServiceHero
         sidebar={
           <>
-            <div className="font-ui text-[13px] font-bold tracking-[2px] uppercase text-white/85 mb-3">
+            <div className="font-ui text-[13px] font-bold tracking-[2px] uppercase text-white/85 mb-2">
               Book Your Evaluation &mdash; Takes 60 Seconds
             </div>
-            <div className="grid grid-cols-2 gap-3 mb-5 max-[480px]:grid-cols-1">
-              <div className="bg-white/[0.06] border border-white/[0.15] rounded-md p-4">
-                <div className="font-ui text-[11px] font-bold tracking-[2px] uppercase text-white/55 mb-1">
-                  Virtual
-                </div>
-                <div className="font-display text-[32px] text-white leading-none mb-1">$27</div>
-                <p className="font-body text-[13px] text-white/60 leading-snug">
-                  Get a clear, step-by-step plan to fix your dog&rsquo;s behavior starting today.
-                </p>
-              </div>
-              <div className="bg-white/[0.06] border border-white/[0.15] rounded-md p-4">
-                <div className="font-ui text-[11px] font-bold tracking-[2px] uppercase text-white/55 mb-1">
-                  In-Person
-                </div>
-                <div className="font-display text-[32px] text-white leading-none mb-1">$97</div>
-                <p className="font-body text-[13px] text-white/60 leading-snug">
-                  Hands-on correction and a real-time game plan you can see working instantly.
-                </p>
-              </div>
+            <div className="flex items-baseline gap-2 mb-5">
+              <span className="font-display text-[40px] text-white leading-none">$27</span>
+              <span className="font-ui text-xs font-semibold tracking-[1px] uppercase text-white/50">
+                One-time &middot; No subscription
+              </span>
             </div>
             <FormEmbed
               formId="GtiGDcoxe0fG5ufwj7Km"
@@ -240,6 +226,26 @@ export default function EvaluationPage() {
               A direct consultation with a Cali K9 expert &mdash; to assess your
               dog&rsquo;s behavioral needs and build a custom roadmap to fix them.
             </p>
+
+            <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(0,0,0,0.25)]">
+              <Image
+                src="/images/trained-dogs1.jpeg"
+                alt="Cali K9 trained dogs sitting calmly outside a Miami restaurant"
+                width={900}
+                height={1200}
+                className="w-full h-auto block"
+                sizes="(max-width: 900px) 100vw, 50vw"
+                priority
+              />
+              <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm rounded-md px-3 py-1.5">
+                <span className="font-ui text-[10px] font-bold tracking-[2px] uppercase text-white/50 block">
+                  Real Cali K9 Clients
+                </span>
+                <span className="font-ui text-xs font-bold tracking-[1px] text-white/85">
+                  Off-leash control in the real world
+                </span>
+              </div>
+            </div>
           </>
         }
       >
