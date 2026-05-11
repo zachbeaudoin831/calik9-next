@@ -223,7 +223,7 @@ export default function ServicesPage() {
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink mb-2">NEW CLIENTS</h2>
           <p className="font-ui text-sm font-bold tracking-[2px] uppercase text-gray-muted mb-10">Choose your service</p>
-          <div className="grid grid-cols-2 gap-6 max-md:grid-cols-1">
+          <div className="grid grid-cols-3 gap-6 max-lg:grid-cols-2 max-md:grid-cols-1">
             {NEW_CLIENT_CARDS.map((card) => (
               <ServiceCard key={card.name} card={card} />
             ))}
@@ -236,7 +236,7 @@ export default function ServicesPage() {
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink mb-2">RETURNING CLIENTS</h2>
           <p className="font-ui text-sm font-bold tracking-[2px] uppercase text-gray-muted mb-10">Choose your service</p>
-          <div className="grid grid-cols-2 gap-6 max-md:grid-cols-1">
+          <div className="grid grid-cols-3 gap-6 max-lg:grid-cols-2 max-md:grid-cols-1">
             {RETURNING_CLIENT_CARDS.map((card) => (
               <ServiceCard key={card.name} card={card as typeof NEW_CLIENT_CARDS[0]} />
             ))}
