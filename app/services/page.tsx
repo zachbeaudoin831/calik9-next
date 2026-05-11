@@ -99,47 +99,49 @@ const LOCATIONS = [
   { name: "Online \u00b7 Worldwide", desc: "The full 5-Pillar Online Program and Zoom Group Classes available to clients anywhere in the world.", globe: true },
 ];
 
+const CARD_PLACEHOLDER_IMAGE = "/images/dog-line-up.webp";
+
 function ServiceCard({ card }: { card: typeof NEW_CLIENT_CARDS[0] }) {
   const inner = (
     <div
-      className="relative rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group h-full"
-      style={{ background: card.bg }}
+      className="relative overflow-hidden rounded-xl border-2 border-blue-500/30 min-h-[210px] max-md:min-h-[160px] transition-all duration-300 hover:-translate-y-1 hover:border-blue-400/70 hover:shadow-[0_12px_40px_rgba(26,63,171,0.25)] group"
+      style={{ background: "linear-gradient(110deg, #061225 0%, #0A1F4F 38%, #122E85 100%)" }}
     >
-      {card.image && (
-        <>
-          <Image
-            src={card.image}
-            alt={card.imageAlt}
-            fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
-            style={{ objectPosition: card.imagePosition }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#030816]/45 via-[#06152c]/65 to-[#02050d]/95" />
-        </>
-      )}
-      {card.disabled && <div className="absolute inset-0 bg-black/15 rounded-xl pointer-events-none z-10" />}
-      <div className="relative z-[1] p-6 h-full min-h-[280px] flex flex-col justify-between max-[900px]:p-[18px] max-[900px]:min-h-[240px]">
-        <span className="font-ui text-[11px] font-bold tracking-[2px] uppercase text-white/50 block mb-auto">
-          {card.tag}
+      {/* Background image masked into a chevron-shape on its left edge */}
+      <div
+        className="absolute right-0 top-0 bottom-0 w-[55%] max-md:w-[48%] overflow-hidden"
+        style={{ clipPath: "polygon(18% 0%, 100% 0%, 100% 100%, 18% 100%, 0% 50%)" }}
+      >
+        <Image
+          src={CARD_PLACEHOLDER_IMAGE}
+          alt={`${card.name.replace(/\n/g, " ")} \u2014 Cali K9`}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-[1.05]"
+          sizes="(max-width: 768px) 50vw, 700px"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#061225]/55 via-transparent to-transparent" />
+      </div>
+
+      {card.disabled && <div className="absolute inset-0 bg-black/35 pointer-events-none z-[2]" />}
+
+      {/* Left: title + CTA */}
+      <div className="relative z-[1] flex flex-col justify-between p-10 max-md:p-6 max-md:py-5 max-w-[60%] max-md:max-w-[60%] min-h-[210px] max-md:min-h-[160px]">
+        <h3 className="font-display text-[clamp(28px,4vw,44px)] max-md:text-[clamp(22px,6vw,30px)] text-white leading-[1.05] tracking-[1px] whitespace-pre-line">
+          {card.name}
+        </h3>
+        <span
+          className={`inline-flex items-center self-start bg-blue-500/15 border border-blue-400/40 text-blue-200 font-ui text-xs font-bold tracking-[2px] uppercase px-4 py-2 rounded-sm max-md:text-[10px] max-md:px-3 max-md:py-1.5 mt-6 transition-all ${
+            card.disabled ? "opacity-60" : "group-hover:bg-blue-500/30 group-hover:border-blue-400/80 group-hover:text-white"
+          }`}
+        >
+          {card.disabled ? "Coming Soon" : "Learn More \u2192"}
         </span>
-        <div className="mt-6">
-          <h3 className="font-display text-[clamp(28px,3.2vw,36px)] text-white leading-[1.05] mb-3 whitespace-pre-line max-[900px]:text-2xl">
-            {card.name}
-          </h3>
-          <p className="font-body text-sm text-white/60 leading-relaxed mb-4 max-[900px]:text-[13px]">
-            {card.desc}
-          </p>
-          <span className={`font-ui text-xs font-bold tracking-[2px] uppercase text-white/70 group-hover:text-white transition-colors ${card.disabled ? "opacity-50" : ""}`}>
-            {card.disabled ? "Coming Soon" : "Get Started \u2192"}
-          </span>
-        </div>
       </div>
     </div>
   );
 
   if (card.disabled || !card.href) return inner;
-  return <Link href={card.href} className="no-underline block h-full">{inner}</Link>;
+  return <Link href={card.href} className="no-underline block">{inner}</Link>;
 }
 
 export default function ServicesPage() {
@@ -183,7 +185,7 @@ export default function ServicesPage() {
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink mb-2">NEW CLIENTS</h2>
           <p className="font-ui text-sm font-bold tracking-[2px] uppercase text-gray-muted mb-10">Choose your service</p>
-          <div className="grid grid-cols-3 gap-6 max-lg:grid-cols-2 max-sm:grid-cols-1">
+          <div className="flex flex-col gap-5">
             {NEW_CLIENT_CARDS.map((card) => (
               <ServiceCard key={card.name} card={card} />
             ))}
@@ -196,7 +198,7 @@ export default function ServicesPage() {
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink mb-2">RETURNING CLIENTS</h2>
           <p className="font-ui text-sm font-bold tracking-[2px] uppercase text-gray-muted mb-10">Choose your service</p>
-          <div className="grid grid-cols-3 gap-6 max-lg:grid-cols-2 max-sm:grid-cols-1">
+          <div className="flex flex-col gap-5">
             {RETURNING_CLIENT_CARDS.map((card) => (
               <ServiceCard key={card.name} card={card as typeof NEW_CLIENT_CARDS[0]} />
             ))}
