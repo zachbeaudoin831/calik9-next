@@ -247,23 +247,24 @@ export default function EvaluationPage() {
               A direct consultation with a Cali K9 expert &mdash; to assess your
               dog&rsquo;s behavioral needs and build a custom roadmap to fix them.
             </p>
+
+            {/* Hero video. Placed in the intro so on mobile it appears
+                above the cart (between intro and sidebar stacking order). */}
+            <video
+              className="w-full rounded-xl block mb-6 bg-black"
+              poster="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/67cf3c0717e9d95dac991999.png"
+              controls
+              playsInline
+              preload="metadata"
+            >
+              <source
+                src="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/67d1be3a9138277227e87326.mp4"
+                type="video/mp4"
+              />
+            </video>
           </>
         }
       >
-        {/* Hero video */}
-        <video
-          className="w-full rounded-xl block mb-6 bg-black"
-          poster="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/67cf3c0717e9d95dac991999.png"
-          controls
-          playsInline
-          preload="metadata"
-        >
-          <source
-            src="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/67d1be3a9138277227e87326.mp4"
-            type="video/mp4"
-          />
-        </video>
-
         {/* Mobile-only image, below the video. Desktop renders the same
             photo below the form in the sidebar so it sits beneath the cart. */}
         <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(0,0,0,0.25)] aspect-[16/10] mb-6 min-[901px]:hidden">
