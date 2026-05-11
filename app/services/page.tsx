@@ -26,6 +26,9 @@ const NEW_CLIENT_CARDS = [
     desc: "The full 5-Pillar system delivered digitally. Learn at your own pace with professional guidance and a complete video library.",
     href: "/online-training",
     bg: "linear-gradient(145deg, #1236A0, #1A3FAB, #2255CC)",
+    image: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/687ba81ce31a778a062563dc.webp",
+    imageAlt: "Online dog training course on a laptop screen",
+    imagePosition: "center center",
   },
   {
     tag: "Private Sessions",
@@ -33,6 +36,9 @@ const NEW_CLIENT_CARDS = [
     desc: "One-on-one, semi-private group classes, and virtual sessions tailored to your dog\u2019s behavior, temperament, and specific goals.",
     href: "/in-person",
     bg: "linear-gradient(145deg, #061225, #0D2260, #122E85)",
+    image: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/687e7d5aca64a6b9d955e632.png",
+    imageAlt: "Certified Cali K9 trainer working with a dog in person",
+    imagePosition: "center center",
   },
   {
     tag: "Most Intensive \u00b7 8 Spots/Mo",
@@ -40,6 +46,9 @@ const NEW_CLIENT_CARDS = [
     desc: "Your dog lives with us while we build the foundation. Deep obedience, behavior modification, lifetime support.",
     href: "/board-and-train",
     bg: "linear-gradient(160deg, #04060F, #080C25, #0D1640)",
+    image: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/67c270a01e6df2ebba9219d2.png",
+    imageAlt: "Cali K9 Board & Train residential dog training facility",
+    imagePosition: "center center",
   },
   {
     tag: "For Professionals",
@@ -47,6 +56,9 @@ const NEW_CLIENT_CARDS = [
     desc: "Built for dog trainers ready to scale. Leverage Jas\u2019s proven framework to grow a high-revenue training business.",
     href: "/coaching",
     bg: "linear-gradient(145deg, #0A1F3C, #0D2A5A, #0A3568)",
+    image: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/654a658a24fa464349af59f7.webp",
+    imageAlt: "Jas Leverette coaching dog trainers to scale their business",
+    imagePosition: "center center",
   },
   {
     tag: "Coming Soon",
@@ -65,6 +77,9 @@ const RETURNING_CLIENT_CARDS = [
     desc: "Live virtual group sessions with certified Cali K9 trainers. Reinforce training from anywhere in the world.",
     href: "/zoom-group",
     bg: "linear-gradient(145deg, #0A3278, #1550B0, #1A5FC0)",
+    image: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/654a6b4092b857c45895e91d.webp",
+    imageAlt: "Live Zoom group dog training session with a certified Cali K9 trainer",
+    imagePosition: "center center",
   },
   {
     tag: "In-Person",
@@ -72,6 +87,9 @@ const RETURNING_CLIENT_CARDS = [
     desc: "Real-world socialization and obedience reinforcement in a structured group setting at a Cali K9 facility.",
     href: "/group-class",
     bg: "linear-gradient(145deg, #052030, #083548, #0A4560)",
+    image: "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/66bd4d94e71424404825b221.jpeg",
+    imageAlt: "Cali K9 in-person group class at the facility",
+    imagePosition: "center center",
   },
   {
     tag: "Small Group",
@@ -79,6 +97,9 @@ const RETURNING_CLIENT_CARDS = [
     desc: "Personalized attention in a smaller group setting. Targeted behavior work with dedicated trainer oversight.",
     href: "/semi-private",
     bg: "linear-gradient(145deg, #180838, #251258, #301A70)",
+    image: "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/66bd4d94e71424404825b221.jpeg",
+    imageAlt: "Cali K9 semi-private dog training in a small group setting",
+    imagePosition: "center center",
   },
 ];
 
@@ -149,7 +170,7 @@ function ServiceCard({ card }: { card: typeof NEW_CLIENT_CARDS[0] }) {
           {card.disabled ? "Coming Soon" : "Learn More"}
           {!card.disabled && (
             <span className="transition-transform duration-300 group-hover:translate-x-1">
-              \u2192
+              →
             </span>
           )}
         </span>
