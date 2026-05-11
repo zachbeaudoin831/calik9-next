@@ -239,8 +239,7 @@ export default function EvaluationPage() {
             </div>
 
             <h1 className="font-display text-[clamp(42px,6vw,64px)] max-md:text-[clamp(64px,18vw,96px)] text-white leading-[0.93] mb-5">
-              BOOK YOUR<br />
-              <span className="text-white/50">EVALUATION</span>
+              BOOK YOUR <span className="text-white/50">EVALUATION</span>
             </h1>
 
             <p className="font-body text-base text-white/70 leading-relaxed mb-6">
