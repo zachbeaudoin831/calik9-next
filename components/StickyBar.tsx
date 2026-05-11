@@ -11,7 +11,6 @@ const STICKY_BAR_PAGES: Record<string, { text: string; cta: string; href: string
   "/semi-private": { text: "Don’t Know Which Program Fits Your Dog?", cta: "Book an Evaluation →", href: "/evaluation" },
   "/zoom-group": { text: "Don’t Know Which Program Fits Your Dog?", cta: "Book an Evaluation →", href: "/evaluation" },
   "/group-class": { text: "In-Person Group Training — $197/month", cta: "Sign Up Now", href: "#main-content" },
-  "/board-train-1week": { text: "Don’t Know Which Program Fits Your Dog?", cta: "Book an Evaluation →", href: "/evaluation" },
 };
 
 const DISMISS_KEY = "calik9_sticky_bar_dismissed";

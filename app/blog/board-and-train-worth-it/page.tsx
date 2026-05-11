@@ -363,11 +363,7 @@ export default function BoardAndTrainWorthItPage() {
               <Link href="/board-and-train" className="text-blue-500 underline hover:text-blue-700">
                 Elite Board &amp; Train program
               </Link>{" "}
-              and{" "}
-              <Link href="/board-train-1week" className="text-blue-500 underline hover:text-blue-700">
-                1-Week Board &amp; Train option
-              </Link>{" "}
-              reflect the level of expertise, daily training volume, and
+              reflects the level of expertise, daily training volume, and
               comprehensive owner education included.
             </p>
 

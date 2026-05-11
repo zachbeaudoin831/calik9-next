@@ -11,6 +11,13 @@ export const metadata = {
 
 const NEW_CLIENT_CARDS = [
   {
+    tag: "Start Here · $27",
+    name: "BEHAVIOR\nEVALUATION",
+    desc: "A direct consultation with a Cali K9 expert to assess your dog's behavioral needs and build a custom training roadmap. The first step for new clients.",
+    href: "/evaluation",
+    bg: "linear-gradient(145deg, #0A1F3C, #1236A0, #1A5FC0)",
+  },
+  {
     tag: "Online Program",
     name: "ONLINE TRAINING\nPROGRAM 2.0",
     desc: "The full 5-Pillar system delivered digitally. Learn at your own pace with professional guidance and a complete video library.",
@@ -69,13 +76,6 @@ const RETURNING_CLIENT_CARDS = [
     desc: "Personalized attention in a smaller group setting. Targeted behavior work with dedicated trainer oversight.",
     href: "/semi-private",
     bg: "linear-gradient(145deg, #180838, #251258, #301A70)",
-  },
-  {
-    tag: "Intensive · 1 Week",
-    name: "1 WEEK BOARD\n& TRAINING",
-    desc: "An intensive one-week residential program. Fast results for returning clients ready to reinforce or escalate.",
-    href: "/board-train-1week",
-    bg: "linear-gradient(145deg, #2A0E00, #3D1500, #501C00)",
   },
 ];
 
