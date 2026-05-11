@@ -191,16 +191,6 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ── HELP STRIP ── */}
-      <div className="bg-blue-500 py-4 text-center">
-        <p className="font-ui text-sm font-bold tracking-[1px] text-white">
-          Don&apos;t know which program fits your dog?{" "}
-          <Link href="/evaluation" className="text-white underline hover:text-blue-100 transition-colors">
-            Schedule an Evaluation &rarr;
-          </Link>
-        </p>
-      </div>
-
       {/* ── RETURNING CLIENTS ── */}
       <section id="returning-clients" className="py-20 max-md:py-12 max-[480px]:py-8 bg-white">
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
