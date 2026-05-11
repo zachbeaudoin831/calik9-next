@@ -107,63 +107,58 @@ function ServiceCard({ card }: { card: typeof NEW_CLIENT_CARDS[0] }) {
 
   const inner = (
     <article
-      className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-[#0A1A40] via-[#0E2155] to-[#122E85] shadow-[0_4px_20px_rgba(0,0,0,0.18)] transition-all duration-300 hover:-translate-y-1 hover:border-blue-400/50 hover:shadow-[0_18px_44px_rgba(26,63,171,0.35)] group"
+      className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-[#0A1A40] via-[#0E2155] to-[#122E85] shadow-[0_4px_20px_rgba(0,0,0,0.18)] transition-all duration-300 hover:-translate-y-1 hover:border-blue-400/50 hover:shadow-[0_18px_44px_rgba(26,63,171,0.35)] group h-full flex flex-col"
     >
-      {/* Subtle inner accent line at the top to feel premium */}
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-400/30 to-transparent pointer-events-none" />
-
       {card.disabled && <div className="absolute inset-0 bg-black/35 pointer-events-none z-[3]" />}
 
-      <div className="relative z-[1] flex items-stretch gap-7 p-7 max-md:p-5 max-md:gap-5 max-sm:flex-col max-sm:gap-4">
-        {/* Left: text content */}
-        <div className="flex-1 flex flex-col justify-between min-w-0">
-          <div>
-            <p className="font-ui text-[11px] font-bold tracking-[3px] uppercase text-blue-300/80 mb-3">
-              {card.tag}
-            </p>
-            <h3 className="font-display text-[clamp(24px,2.8vw,34px)] text-white leading-[1.08] tracking-[1px] whitespace-pre-line mb-3">
-              {card.name}
-            </h3>
-            <p className="font-body text-[15px] max-md:text-sm text-white/70 leading-relaxed mb-6 max-w-[52ch]">
-              {card.desc}
-            </p>
-          </div>
+      {/* Top: image thumbnail */}
+      <div className="relative w-full aspect-[16/9] overflow-hidden">
+        <Image
+          src={imageSrc}
+          alt={`${card.name.replace(/\n/g, " ")} \u2014 Cali K9`}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-[1.05]"
+          style={{ objectPosition: imagePosition }}
+          sizes="(max-width: 768px) 100vw, 560px"
+        />
+        {/* Gradient blends the image into the card body below */}
+        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-b from-transparent to-[#0A1A40]/85 pointer-events-none" />
+      </div>
 
-          <span
-            className={`inline-flex items-center gap-1.5 self-start bg-white/[0.06] border border-white/15 text-white font-ui text-xs font-bold tracking-[2px] uppercase px-4 py-2.5 rounded-sm transition-all ${
-              card.disabled
-                ? "opacity-60"
-                : "group-hover:bg-blue-500/25 group-hover:border-blue-400/60 group-hover:text-white"
-            }`}
-          >
-            {card.disabled ? "Coming Soon" : "Learn More"}
-            {!card.disabled && (
-              <span className="transition-transform duration-300 group-hover:translate-x-1">
-                \u2192
-              </span>
-            )}
-          </span>
+      {/* Bottom: text content */}
+      <div className="relative z-[1] flex-1 flex flex-col justify-between p-7 max-md:p-5">
+        <div>
+          <p className="font-ui text-[11px] font-bold tracking-[3px] uppercase text-blue-300/80 mb-3">
+            {card.tag}
+          </p>
+          <h3 className="font-display text-[clamp(24px,2.8vw,34px)] text-white leading-[1.08] tracking-[1px] whitespace-pre-line mb-3">
+            {card.name}
+          </h3>
+          <p className="font-body text-[15px] max-md:text-sm text-white/70 leading-relaxed mb-6">
+            {card.desc}
+          </p>
         </div>
 
-        {/* Right: image thumbnail */}
-        <div className="relative w-[230px] max-md:w-[170px] max-sm:w-full aspect-square max-sm:aspect-[16/10] rounded-xl overflow-hidden flex-shrink-0 border border-white/10 shadow-[0_8px_24px_rgba(0,0,0,0.25)]">
-          <Image
-            src={imageSrc}
-            alt={`${card.name.replace(/\n/g, " ")} \u2014 Cali K9`}
-            fill
-            className="object-cover transition-transform duration-500 group-hover:scale-[1.05]"
-            style={{ objectPosition: imagePosition }}
-            sizes="(max-width: 640px) 100vw, 240px"
-          />
-          {/* Soft gradient overlay so the thumbnail blends into the card */}
-          <div className="absolute inset-0 bg-gradient-to-tl from-[#061225]/35 via-transparent to-transparent pointer-events-none" />
-        </div>
+        <span
+          className={`inline-flex items-center gap-1.5 self-start bg-white/[0.06] border border-white/15 text-white font-ui text-xs font-bold tracking-[2px] uppercase px-4 py-2.5 rounded-sm transition-all ${
+            card.disabled
+              ? "opacity-60"
+              : "group-hover:bg-blue-500/25 group-hover:border-blue-400/60 group-hover:text-white"
+          }`}
+        >
+          {card.disabled ? "Coming Soon" : "Learn More"}
+          {!card.disabled && (
+            <span className="transition-transform duration-300 group-hover:translate-x-1">
+              \u2192
+            </span>
+          )}
+        </span>
       </div>
     </article>
   );
 
   if (card.disabled || !card.href) return inner;
-  return <Link href={card.href} className="no-underline block">{inner}</Link>;
+  return <Link href={card.href} className="no-underline block h-full">{inner}</Link>;
 }
 
 export default function ServicesPage() {
@@ -207,7 +202,7 @@ export default function ServicesPage() {
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink mb-2">NEW CLIENTS</h2>
           <p className="font-ui text-sm font-bold tracking-[2px] uppercase text-gray-muted mb-10">Choose your service</p>
-          <div className="flex flex-col gap-5">
+          <div className="grid grid-cols-2 gap-6 max-md:grid-cols-1">
             {NEW_CLIENT_CARDS.map((card) => (
               <ServiceCard key={card.name} card={card} />
             ))}
@@ -220,7 +215,7 @@ export default function ServicesPage() {
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink mb-2">RETURNING CLIENTS</h2>
           <p className="font-ui text-sm font-bold tracking-[2px] uppercase text-gray-muted mb-10">Choose your service</p>
-          <div className="flex flex-col gap-5">
+          <div className="grid grid-cols-2 gap-6 max-md:grid-cols-1">
             {RETURNING_CLIENT_CARDS.map((card) => (
               <ServiceCard key={card.name} card={card as typeof NEW_CLIENT_CARDS[0]} />
             ))}
