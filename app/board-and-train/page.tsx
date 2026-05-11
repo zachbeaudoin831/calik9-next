@@ -87,23 +87,6 @@ export default function BoardAndTrainPage() {
           ]}
         />
 
-        <hr className="border-0 border-t border-white/[0.12] my-9" />
-
-        {/* ── 2-Week Board & Train ── */}
-        <PackageHeading as="h2">2-Week Board &amp; Train</PackageHeading>
-
-        <PackageList
-          title="2-Week Board & Train Includes:"
-          items={[
-            "Full-board residential training — dog lives with trainer",
-            "3 sessions per day for 14 days (2 weeks)",
-            "Cali K9 Starter Kit included",
-            "Daily photo and video updates",
-            "Graduation handoff session",
-            "30-day email follow-up support",
-          ]}
-        />
-
         <p className="font-body text-sm text-white/50 italic mt-6">
           * A behavior evaluation is required before enrollment. This ensures we
           set the right expectations and design the right plan for your dog.
