@@ -14,11 +14,11 @@ import CtaBlock from "@/components/CtaBlock";
 export const metadata: Metadata = {
   title: "In-Person Dog Training | Cali K9\u00ae",
   description:
-    "One-on-one in-person dog training sessions with certified Cali K9 trainers. Three program tiers starting at $1,497.",
+    "One-on-one in-person dog training sessions with certified Cali K9 trainers. Three program options starting at $1,097.",
   openGraph: {
     title: "In-Person Dog Training | Cali K9\u00ae",
     description:
-      "One-on-one in-person dog training sessions with certified Cali K9 trainers. Three program tiers starting at $1,497.",
+      "One-on-one in-person dog training sessions with certified Cali K9 trainers. Three program options starting at $1,097.",
     url: "https://calik9.com/in-person",
     images: ["https://calik9.com/images/cdn/66a311486dce452f20d2ffcd.webp"],
   },
@@ -91,99 +91,75 @@ export default function InPersonPage() {
 
         <hr className="border-0 border-t border-white/[0.12] my-9" />
 
-        {/* ── Foundation Program ── */}
-        <PackageHeading as="h2">Foundation Program</PackageHeading>
-
-        <p className="font-body text-base text-white/70 leading-relaxed mb-6">
-          Build obedience, structure, and control from the ground up.
-        </p>
+        {/* ── In-Person Package ── */}
+        <PackageHeading as="h2">In-Person Package</PackageHeading>
 
         <PackageList
           title="What's Included:"
           items={[
-            { text: "12 Sessions (Private + Semi + Group)", bold: true },
+            { text: "5 Private Training Sessions", bold: true },
             "Certified Cali K9 Trainer",
             "Customized Training Plan",
             "Session Recap Notes",
             "Email Support Between Sessions",
+            "Communication & Focus Training",
+            "Obedience Foundation",
             "The 5-Pillar Method",
           ]}
         />
 
         <PriceBlock
-          price="$1,497"
+          price="$1,097"
           note="one-time · Payment plans available"
         />
 
         <hr className="border-0 border-t border-white/[0.12] my-9" />
 
-        {/* ── Transformation Program ── */}
-        <div className="inline-flex items-center gap-2 bg-amber-400/[0.18] border border-amber-400/40 text-amber-400 font-ui text-[11px] font-bold tracking-[2px] uppercase px-3 py-1 rounded-sm mb-3">
-          Most Popular
-        </div>
-
-        <PackageHeading as="h2">Transformation Program</PackageHeading>
-
-        <p className="font-body text-base text-white/70 leading-relaxed mb-6">
-          Double the sessions, faster results, and real behavior change.
-        </p>
+        {/* ── Elite In-Person Package ── */}
+        <PackageHeading as="h2">Elite In-Person Package</PackageHeading>
 
         <PackageList
           title="What's Included:"
           items={[
-            { text: "24 Sessions (Private + Semi + Group)", bold: true },
-            "Everything in Foundation Program",
-            "Training Kit Included",
-            "Online Courses + Community Access",
+            { text: "10 Private Training Sessions", bold: true },
+            "Everything in In-Person Package",
+            "In-Home or Facility Sessions",
             "Mid-Program Progress Review",
             "Priority Scheduling",
+            "Behavior Modification",
+            "Custom Training Plan Updates",
+            "Progress Tracking & Documentation",
           ]}
         />
 
         <PriceBlock
-          price="$2,997"
+          price="$1,997"
           note="one-time · Payment plans available"
         />
 
         <hr className="border-0 border-t border-white/[0.12] my-9" />
 
-        {/* ── Executive Training Program ── */}
-        <PackageHeading as="h2">Executive Training Program</PackageHeading>
-
-        <p className="font-body text-base text-white/70 leading-relaxed mb-6">
-          A complete lifestyle upgrade for you and your dog.
-        </p>
+        {/* ── VIP Training Package ── */}
+        <PackageHeading as="h2">VIP Training Package</PackageHeading>
 
         <PackageList
           title="What's Included:"
           items={[
-            { text: "10 Private Sessions", bold: true },
-            "1 Year of Group Classes",
-            "1 Year of Zoom Coaching",
-            "Training Kit Included",
-            "Full Online Course Access",
-            "Behavior Modification + Custom Plan Updates",
+            { text: "20 Private Training Sessions", bold: true },
+            "Everything in Elite Package",
+            "Direct Access to Senior Trainer",
+            "Video Analysis of Sessions",
+            "Lifetime Email Support",
+            "Advanced Behavior Modification",
+            "Real-World Environment Training",
+            "Graduation Assessment",
           ]}
         />
 
         <PriceBlock
-          price="$4,997"
+          price="$3,997"
           note="one-time · Payment plans available"
         />
-
-        {/* ── Off-Leash Performance Guarantee ── */}
-        <div className="bg-blue-500/[0.08] border border-blue-400/30 rounded-lg p-6 mt-8 mb-2">
-          <div className="font-ui text-[11px] font-bold tracking-[2px] uppercase text-blue-400 mb-2">
-            Off-Leash Performance Guarantee
-          </div>
-          <p className="font-body text-[15px] text-white/80 leading-relaxed mb-2">
-            Your dog will reliably respond off-leash to core commands &mdash; or
-            we continue training at no additional cost until they do.
-          </p>
-          <p className="font-body text-[13px] italic text-white/45 leading-relaxed">
-            Client must follow training plan and attend sessions.
-          </p>
-        </div>
 
         <hr className="border-0 border-t border-white/[0.12] my-9" />
 

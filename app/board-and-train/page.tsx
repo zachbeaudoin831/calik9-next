@@ -4,7 +4,6 @@ import ServiceHero from "@/components/ServiceHero";
 import StarsRow from "@/components/StarsRow";
 import PackageHeading from "@/components/PackageHeading";
 import PackageList from "@/components/PackageList";
-import PriceBlock from "@/components/PriceBlock";
 import FormEmbed from "@/components/FormEmbed";
 import CelebMiniGrid from "@/components/CelebMiniGrid";
 import CelebGrid from "@/components/CelebGrid";
@@ -13,11 +12,11 @@ import CtaBlock from "@/components/CtaBlock";
 export const metadata: Metadata = {
   title: "Board & Train Program | Cali K9®",
   description:
-    "Intensive residential board and train dog training program in Los Angeles and Miami. 30-day Immersion and 60-day Total Transformation programs with certified trainers.",
+    "Intensive residential board and train dog training program in Los Angeles and Miami. Four-week Elite program with certified trainers.",
   openGraph: {
     title: "Board & Train Program | Cali K9®",
     description:
-      "Intensive residential board and train dog training program in Los Angeles and Miami. 30-day Immersion and 60-day Total Transformation programs with certified trainers.",
+      "Intensive residential board and train dog training program in Los Angeles and Miami. Four-week Elite program with certified trainers.",
     url: "https://calik9.com/board-and-train",
     images: ["https://calik9.com/images/cdn/66a311486dce452f20d2ffcd.webp"],
   },
@@ -72,77 +71,42 @@ export default function BoardAndTrainPage() {
           </cite>
         </blockquote>
 
-        {/* ── Immersion Program (30 Days) ── */}
-        <PackageHeading as="h2">Immersion Program (30 Days)</PackageHeading>
-
-        <p className="font-body text-base text-white/70 leading-relaxed mb-6">
-          We build the foundation &mdash; so you come home to a better dog.
-        </p>
+        {/* ── Elite 4-Week Board & Train ── */}
+        <PackageHeading as="h2">Elite Board &amp; Train</PackageHeading>
 
         <PackageList
-          title="What's Included:"
+          title="Elite Board & Train Includes:"
           items={[
-            { text: "30 days of full-board residential training", bold: true },
-            "3 structured sessions per day, 7 days a week",
-            "6 months of maintenance support",
-            "Full Online Course Access",
+            "Full-board residential training — dog lives with trainer",
+            "3 sessions per day for 28 days (4 weeks)",
             "Cali K9 Starter Kit included",
             "Daily photo and video updates",
             "Graduation handoff session with your trainer",
+            "60-day email follow-up support",
+            "Mid-program review call with trainer",
           ]}
-        />
-
-        <PriceBlock
-          price="$5,997"
-          note="one-time · Payment plans available"
         />
 
         <hr className="border-0 border-t border-white/[0.12] my-9" />
 
-        {/* ── Total Transformation 60-Day ── */}
-        <PackageHeading as="h2">Total Transformation Program</PackageHeading>
-
-        <p className="font-body text-base text-white/70 leading-relaxed mb-6">
-          Serious behavior problems fixed &mdash; without the stress of doing it
-          yourself.
-        </p>
+        {/* ── 2-Week Board & Train ── */}
+        <PackageHeading as="h2">2-Week Board &amp; Train</PackageHeading>
 
         <PackageList
-          title="What's Included:"
+          title="2-Week Board & Train Includes:"
           items={[
-            { text: "60 days of intensive residential training", bold: true },
-            "3 structured sessions per day, 7 days a week",
+            "Full-board residential training — dog lives with trainer",
+            "3 sessions per day for 14 days (2 weeks)",
             "Cali K9 Starter Kit included",
             "Daily photo and video updates",
-            "Graduation handoff session with your trainer",
-            "1 year of maintenance support",
-            "Full Online Course Access",
+            "Graduation handoff session",
+            "30-day email follow-up support",
           ]}
         />
 
-        <PriceBlock
-          price="$9,997"
-          note="one-time · Payment plans available"
-        />
-
-        {/* ── Off-Leash Control Guarantee ── */}
-        <div className="bg-blue-500/[0.08] border border-blue-400/30 rounded-lg p-6 mt-8 mb-2">
-          <div className="font-ui text-[11px] font-bold tracking-[2px] uppercase text-blue-400 mb-2">
-            Off-Leash Control Guarantee
-          </div>
-          <p className="font-body text-[15px] text-white/80 leading-relaxed mb-2">
-            Your dog will demonstrate reliable off-leash obedience &mdash; or we
-            provide continued training support until standards are met.
-          </p>
-          <p className="font-body text-[13px] italic text-white/45 leading-relaxed">
-            Requires owner participation in handoff and follow-through.
-          </p>
-        </div>
-
         <p className="font-body text-sm text-white/50 italic mt-6">
-          * A behavior evaluation is required before enrollment in either
-          program. This ensures we set the right expectations and design the
-          right plan for your dog.
+          * A behavior evaluation is required before enrollment. This ensures we
+          set the right expectations and design the right plan for your dog.
         </p>
       </ServiceHero>
 

@@ -13,21 +13,21 @@ const NEW_CLIENT_CARDS = [
   {
     tag: "Online Program",
     name: "ONLINE TRAINING\nPROGRAM 2.0",
-    desc: "Train your dog the right way without wasting time guessing. Three subscription tiers with live group coaching and the full 5-Pillar System.",
+    desc: "The full 5-Pillar system delivered digitally. Learn at your own pace with professional guidance and a complete video library.",
     href: "/online-training",
     bg: "linear-gradient(145deg, #1236A0, #1A3FAB, #2255CC)",
   },
   {
     tag: "Private Sessions",
     name: "IN-PERSON\nTRAINING",
-    desc: "Foundation, Transformation, and Executive tiers \u2014 one-on-one work tailored to your dog\u2019s behavior, temperament, and goals.",
+    desc: "One-on-one, semi-private group classes, and virtual sessions tailored to your dog\u2019s behavior, temperament, and specific goals.",
     href: "/in-person",
     bg: "linear-gradient(145deg, #061225, #0D2260, #122E85)",
   },
   {
     tag: "Most Intensive \u00b7 8 Spots/Mo",
     name: "BOARD\n& TRAIN",
-    desc: "Your dog lives with us while we build the foundation. 30-day Immersion or 60-day Total Transformation \u2014 deep behavior modification with maintenance support.",
+    desc: "Your dog lives with us while we build the foundation. Deep obedience, behavior modification, lifetime support.",
     href: "/board-and-train",
     bg: "linear-gradient(160deg, #04060F, #080C25, #0D1640)",
   },
@@ -50,25 +50,32 @@ const NEW_CLIENT_CARDS = [
 
 const RETURNING_CLIENT_CARDS = [
   {
-    tag: "From $1,097 · 4 or 8 sessions",
-    name: "PRIVATE\nCOACHING",
-    desc: "Stay sharp and keep progressing — or take your dog to the next level.",
-    href: "/private-coaching",
-    bg: "linear-gradient(145deg, #15192E, #1F2647, #2A3361)",
+    tag: "Virtual",
+    name: "ZOOM\nGROUP CLASS",
+    desc: "Live virtual group sessions with certified Cali K9 trainers. Reinforce training from anywhere in the world.",
+    href: "/zoom-group",
+    bg: "linear-gradient(145deg, #0A3278, #1550B0, #1A5FC0)",
   },
   {
-    tag: "From $597 · 5 or 10 sessions",
+    tag: "In-Person",
+    name: "IN-PERSON\nGROUP CLASS",
+    desc: "Real-world socialization and obedience reinforcement in a structured group setting at a Cali K9 facility.",
+    href: "/group-class",
+    bg: "linear-gradient(145deg, #052030, #083548, #0A4560)",
+  },
+  {
+    tag: "Small Group",
     name: "SEMI-PRIVATE\nTRAINING",
-    desc: "Controlled socialization with guidance, confidence, and real-world exposure.",
+    desc: "Personalized attention in a smaller group setting. Targeted behavior work with dedicated trainer oversight.",
     href: "/semi-private",
     bg: "linear-gradient(145deg, #180838, #251258, #301A70)",
   },
   {
-    tag: "Group Classes $197/mo · Zoom Coaching $97/mo",
-    name: "MONTHLY\nMEMBERSHIPS",
-    desc: "Stay consistent with in-person Group Classes or get expert guidance from anywhere with Zoom Coaching.",
-    href: "/memberships",
-    bg: "linear-gradient(145deg, #052030, #083548, #0A4560)",
+    tag: "Intensive · 1 Week",
+    name: "1 WEEK BOARD\n& TRAINING",
+    desc: "An intensive one-week residential program. Fast results for returning clients ready to reinforce or escalate.",
+    href: "/board-train-1week",
+    bg: "linear-gradient(145deg, #2A0E00, #3D1500, #501C00)",
   },
 ];
 
@@ -86,7 +93,7 @@ const LOCATIONS = [
   { name: "Los Angeles, CA", address: "5015 Lankershim Blvd., North Hollywood, CA 91601", desc: "Private sessions and Board & Train programs serving LA and surrounding communities." },
   { name: "Miami, FL", desc: "East Coast private sessions and intensive programs \u2014 same elite Cali K9 standard." },
   { name: "New York, NY", desc: "Private sessions and select programs available. Contact us to check current availability." },
-  { name: "Online \u00b7 Worldwide", desc: "The full Online Training tiers and Zoom Coaching available to clients anywhere in the world.", globe: true },
+  { name: "Online \u00b7 Worldwide", desc: "The full 5-Pillar Online Program and Zoom Group Classes available to clients anywhere in the world.", globe: true },
 ];
 
 function ServiceCard({ card }: { card: typeof NEW_CLIENT_CARDS[0] }) {

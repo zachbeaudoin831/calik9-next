@@ -361,11 +361,14 @@ export default function BoardAndTrainWorthItPage() {
             <p>
               At Cali K9, our{" "}
               <Link href="/board-and-train" className="text-blue-500 underline hover:text-blue-700">
-                30-day Immersion Program
+                Elite Board &amp; Train program
               </Link>{" "}
-              starts at $5,997, and the 60-day Total Transformation Program is
-              $9,997. The investment reflects the level of expertise, daily
-              training volume, and comprehensive owner education included.
+              and{" "}
+              <Link href="/board-train-1week" className="text-blue-500 underline hover:text-blue-700">
+                1-Week Board &amp; Train option
+              </Link>{" "}
+              reflect the level of expertise, daily training volume, and
+              comprehensive owner education included.
             </p>
 
             <p>
