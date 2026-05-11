@@ -97,15 +97,15 @@ const PROGRAMS = [
     href: "/in-person",
   },
   {
-    title: "SEMI-PRIVATE TRAINING",
-    desc: "Personalized attention in a small-group setting \u2014 targeted behavior work with dedicated trainer oversight and real-world reinforcement.",
-    href: "/semi-private",
-    featured: true,
-  },
-  {
     title: "ONLINE 5-PILLAR",
     desc: "Jas\u2019s complete method. Self-paced, lifetime access. Train from anywhere worldwide \u2014 full curriculum, community support, and upgrade to in-person anytime.",
     href: "/online-training",
+    featured: true,
+  },
+  {
+    title: "SEMI-PRIVATE TRAINING",
+    desc: "Personalized attention in a small-group setting \u2014 targeted behavior work with dedicated trainer oversight and real-world reinforcement.",
+    href: "/semi-private",
   },
 ];
 
@@ -289,7 +289,7 @@ export default async function HomePage() {
               >
                 {p.featured && (
                   <span className="absolute top-0 right-0 bg-amber-400 text-ink font-ui text-[10px] font-bold tracking-[2px] uppercase px-4 py-1.5 rounded-bl-lg rounded-tr-xl">
-                    Premium
+                    Most Popular
                   </span>
                 )}
                 <div className="font-display text-xl mb-3">{p.title}</div>
