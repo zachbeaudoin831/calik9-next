@@ -12,10 +12,13 @@ export const metadata = {
 const NEW_CLIENT_CARDS = [
   {
     tag: "Start Here · $27",
-    name: "BEHAVIOR\nEVALUATION",
+    name: "EVALUATION\nWITH CALI K9",
     desc: "A direct consultation with a Cali K9 expert to assess your dog's behavioral needs and build a custom training roadmap. The first step for new clients.",
     href: "/evaluation",
     bg: "linear-gradient(145deg, #0A1F3C, #1236A0, #1A5FC0)",
+    image: "/images/dog-line-up.webp",
+    imageAlt: "Cali K9 trained dogs lined up inside the Cali K9 training facility",
+    imagePosition: "center center",
   },
   {
     tag: "Online Program",
@@ -102,8 +105,21 @@ function ServiceCard({ card }: { card: typeof NEW_CLIENT_CARDS[0] }) {
       className="relative rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group h-full"
       style={{ background: card.bg }}
     >
+      {card.image && (
+        <>
+          <Image
+            src={card.image}
+            alt={card.imageAlt}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            style={{ objectPosition: card.imagePosition }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#030816]/45 via-[#06152c]/65 to-[#02050d]/95" />
+        </>
+      )}
       {card.disabled && <div className="absolute inset-0 bg-black/15 rounded-xl pointer-events-none z-10" />}
-      <div className="p-6 h-full min-h-[280px] flex flex-col justify-between max-[900px]:p-[18px] max-[900px]:min-h-[240px]">
+      <div className="relative z-[1] p-6 h-full min-h-[280px] flex flex-col justify-between max-[900px]:p-[18px] max-[900px]:min-h-[240px]">
         <span className="font-ui text-[11px] font-bold tracking-[2px] uppercase text-white/50 block mb-auto">
           {card.tag}
         </span>
