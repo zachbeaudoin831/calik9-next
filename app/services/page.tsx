@@ -58,7 +58,7 @@ const NEW_CLIENT_CARDS = [
     bg: "linear-gradient(145deg, #0A1F3C, #0D2A5A, #0A3568)",
     image: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/654a658a24fa464349af59f7.webp",
     imageAlt: "Jas Leverette coaching dog trainers to scale their business",
-    imagePosition: "center center",
+    imagePosition: "center top",
   },
   {
     tag: "Coming Soon",
@@ -87,9 +87,9 @@ const RETURNING_CLIENT_CARDS = [
     desc: "Real-world socialization and obedience reinforcement in a structured group setting at a Cali K9 facility.",
     href: "/group-class",
     bg: "linear-gradient(145deg, #052030, #083548, #0A4560)",
-    image: "https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/66bd4d94e71424404825b221.jpeg",
+    image: "/images/trained-dogs1.jpeg",
     imageAlt: "Cali K9 in-person group class at the facility",
-    imagePosition: "center center",
+    imagePosition: "center 70%",
   },
   {
     tag: "Small Group",
