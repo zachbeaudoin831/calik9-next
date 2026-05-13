@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title: "Zoom Group | Cali K9\u00ae",
     description:
       "Monthly Zoom coaching for existing Cali K9 clients. 4 live sessions per month with certified trainers for $47/month.",
-    url: "https://calik9.com/zoom-group",
+    url: "https://calik9.com/zoom-group-class",
     images: ["https://calik9.com/images/cdn/66a311486dce452f20d2ffcd.webp"],
   },
 };
@@ -93,7 +93,7 @@ export default function ZoomGroupPage() {
           This program is available to existing Cali K9 clients only. If you
           haven&rsquo;t trained with us yet,{" "}
           <Link
-            href="/evaluation"
+            href="/evaluation-with-jas"
             className="text-white/70 underline hover:text-white/90"
           >
             start with an evaluation
@@ -140,8 +140,8 @@ export default function ZoomGroupPage() {
         eyebrow="Get Started"
         heading="READY TO TRANSFORM YOUR DOG?"
         description="Join thousands of families who've trusted Cali K9\u00ae to unlock their dog's potential. Results guaranteed."
-        primaryCta={{ label: "Book Evaluation \u2192", href: "/evaluation" }}
-        secondaryCta={{ label: "View Programs \u2192", href: "/services" }}
+        primaryCta={{ label: "Book Evaluation \u2192", href: "/evaluation-with-jas" }}
+        secondaryCta={{ label: "View Programs \u2192", href: "/newclientservices" }}
       />
     </main>
   );

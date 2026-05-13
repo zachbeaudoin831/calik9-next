@@ -100,7 +100,7 @@ export default function BoardAndTrainWorthItPage() {
 
             <p>
               At{" "}
-              <Link href="/about" className="text-blue-500 underline hover:text-blue-700">
+              <Link href="/about-us" className="text-blue-500 underline hover:text-blue-700">
                 Cali K9
               </Link>
               , a board and train dog&apos;s day includes:
@@ -269,7 +269,7 @@ export default function BoardAndTrainWorthItPage() {
               Board and train may not be the best fit if your dog has severe
               separation anxiety (being away from home could make it worse), if
               your budget is limited (consider{" "}
-              <Link href="/services" className="text-blue-500 underline hover:text-blue-700">
+              <Link href="/newclientservices" className="text-blue-500 underline hover:text-blue-700">
                 private sessions or online training
               </Link>{" "}
               instead), or if the behavioral issue is primarily an owner
@@ -399,7 +399,7 @@ export default function BoardAndTrainWorthItPage() {
             <p>
               If you&apos;re not sure whether board and train is right for your
               dog, the best next step is an{" "}
-              <Link href="/evaluation" className="text-blue-500 underline hover:text-blue-700">
+              <Link href="/evaluation-with-jas" className="text-blue-500 underline hover:text-blue-700">
                 evaluation
               </Link>
               . In 30-45 minutes, we&apos;ll assess your dog&apos;s behavior,
@@ -410,7 +410,7 @@ export default function BoardAndTrainWorthItPage() {
             </p>
 
             <p>
-              <Link href="/evaluation" className="text-blue-500 underline hover:text-blue-700">
+              <Link href="/evaluation-with-jas" className="text-blue-500 underline hover:text-blue-700">
                 Book your evaluation
               </Link>{" "}
               and let&apos;s figure out the right path for your dog.
@@ -495,8 +495,8 @@ export default function BoardAndTrainWorthItPage() {
         eyebrow="Start Here"
         heading="BOOK YOUR EVALUATION"
         description="A $27 evaluation gives you a complete behavioral assessment, custom training roadmap, and program recommendation for your dog."
-        primaryCta={{ label: "Book Evaluation \u2014 $27 \u2192", href: "/evaluation" }}
-        secondaryCta={{ label: "View Programs \u2192", href: "/services" }}
+        primaryCta={{ label: "Book Evaluation \u2014 $27 \u2192", href: "/evaluation-with-jas" }}
+        secondaryCta={{ label: "View Programs \u2192", href: "/newclientservices" }}
         dark
       />
     </>

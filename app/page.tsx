@@ -99,7 +99,7 @@ const PROGRAMS = [
   {
     title: "ONLINE 5-PILLAR",
     desc: "Jas\u2019s complete method. Self-paced, lifetime access. Train from anywhere worldwide \u2014 full curriculum, community support, and upgrade to in-person anytime.",
-    href: "/online-training",
+    href: "/online-training-program2",
     featured: true,
   },
   {
@@ -162,10 +162,10 @@ export default async function HomePage() {
 
           <HeroEntrance delay={360}>
             <div className="flex gap-4 flex-wrap max-sm:flex-col max-sm:items-stretch">
-              <Link href="/evaluation" className="btn btn-white btn-lg min-w-[240px]">
+              <Link href="/evaluation-with-jas" className="btn btn-white btn-lg min-w-[240px]">
                 Book Evaluation &rarr;
               </Link>
-              <Link href="/services" className="btn btn-outline-white min-w-[240px]">
+              <Link href="/newclientservices" className="btn btn-outline-white min-w-[240px]">
                 View Programs &rarr;
               </Link>
             </div>
@@ -253,7 +253,7 @@ export default async function HomePage() {
                 into America&rsquo;s most trusted dog training brand. 15+ years. 3,500+ dogs. Netflix. And counting. As host of
                 Netflix&rsquo;s <em>Canine Intervention</em>, Jas proves one thing over and over: there is no such thing as an unfixable dog.
               </p>
-              <Link href="/about" className="btn btn-blue">
+              <Link href="/about-us" className="btn btn-blue">
                 Meet Jas &rarr;
               </Link>
             </div>
@@ -311,7 +311,7 @@ export default async function HomePage() {
           </div>
 
           <div className="text-center mt-9">
-            <Link href="/services" className="btn btn-outline">
+            <Link href="/newclientservices" className="btn btn-outline">
               View All Programs &rarr;
             </Link>
           </div>
@@ -363,7 +363,7 @@ export default async function HomePage() {
                 ))}
               </div>
               <Link
-                href="/evaluation"
+                href="/evaluation-with-jas"
                 className="btn btn-blue"
               >
                 GET MY DOG EVALUATED &rarr;
@@ -426,7 +426,7 @@ export default async function HomePage() {
           </div>
 
           <div className="text-center">
-            <Link href="/online-training" className="btn btn-white btn-lg">
+            <Link href="/online-training-program2" className="btn btn-white btn-lg">
               Get the 5-Pillar Program &rarr;
             </Link>
           </div>
@@ -464,7 +464,7 @@ export default async function HomePage() {
                 cases and dogs sent to shelters worldwide. He helps the dog that no one else will. There is no dog he
                 can&rsquo;t help, and he has never turned a dog away.
               </p>
-              <Link href="/about" className="btn btn-outline-white">
+              <Link href="/about-us" className="btn btn-outline-white">
                 Learn More About Jas &rarr;
               </Link>
             </div>
@@ -565,8 +565,8 @@ export default async function HomePage() {
         eyebrow="Get Started"
         heading="READY TO TRANSFORM YOUR DOG?"
         description="Join thousands of families who've trusted Cali K9® to unlock their dog's potential. Results guaranteed."
-        primaryCta={{ label: "Book Evaluation \u2192", href: "/evaluation" }}
-        secondaryCta={{ label: "View Programs \u2192", href: "/services" }}
+        primaryCta={{ label: "Book Evaluation \u2192", href: "/evaluation-with-jas" }}
+        secondaryCta={{ label: "View Programs \u2192", href: "/newclientservices" }}
       />
 
       <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="lazyOnload" />

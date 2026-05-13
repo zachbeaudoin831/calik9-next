@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "Contact Cali K9\u00ae Dog Training",
     description:
       "Contact Cali K9\u00ae \u2014 reach our San Jose and Los Angeles locations. Call, email, or send a message. Elite dog training since 2009.",
-    url: "https://calik9.com/contact",
+    url: "https://calik9.com/contact-us",
     images: ["https://calik9.com/images/cdn/66a311486dce452f20d2ffcd.webp"],
   },
 };
@@ -167,7 +167,7 @@ export default function ContactPage() {
           </p>
           <div className="flex gap-4 flex-wrap max-[768px]:flex-col max-[768px]:items-stretch">
             <Link
-              href="/evaluation"
+              href="/evaluation-with-jas"
               className="btn btn-white btn-lg max-[768px]:w-full max-[768px]:justify-center"
             >
               Book Evaluation &rarr;
@@ -375,8 +375,8 @@ export default function ContactPage() {
         eyebrow="Not Sure Where To Start?"
         heading="BOOK YOUR EVALUATION"
         description="Don't know which program fits your dog? Schedule an evaluation \u2014 we'll find the right fit for your dog."
-        primaryCta={{ label: "Schedule Evaluation \u2192", href: "/evaluation" }}
-        secondaryCta={{ label: "View All Programs", href: "/services" }}
+        primaryCta={{ label: "Schedule Evaluation \u2192", href: "/evaluation-with-jas" }}
+        secondaryCta={{ label: "View All Programs", href: "/newclientservices" }}
         dark
       />
 

@@ -2,19 +2,19 @@ import Link from "next/link";
 import Image from "next/image";
 
 const TRAINING_LINKS = [
-  { href: "/services", label: "All Services" },
-  { href: "/evaluation", label: "Evaluation" },
+  { href: "/newclientservices", label: "All Services" },
+  { href: "/evaluation-with-jas", label: "Evaluation" },
   { href: "/board-and-train", label: "Board & Train" },
-  { href: "/online-training", label: "Online Program" },
+  { href: "/online-training-program2", label: "Online Program" },
 ];
 
 const COMPANY_LINKS = [
-  { href: "/about", label: "About Jas" },
+  { href: "/about-us", label: "About Jas" },
   { href: "/team", label: "Our Team" },
   { href: "/testimonials", label: "Testimonials" },
   { href: "/blog", label: "Blog" },
-  { href: "/coaching", label: "Trainer Coaching" },
-  { href: "/contact", label: "Contact" },
+  { href: "/business-coaching", label: "Trainer Coaching" },
+  { href: "/contact-us", label: "Contact" },
 ];
 
 const LOCATIONS = [

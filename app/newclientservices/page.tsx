@@ -14,7 +14,7 @@ const NEW_CLIENT_CARDS = [
     tag: "Start Here · $27",
     name: "EVALUATION\nWITH CALI K9",
     desc: "A direct consultation with a Cali K9 expert to assess your dog's behavioral needs and build a custom training roadmap. The first step for new clients.",
-    href: "/evaluation",
+    href: "/evaluation-with-jas",
     bg: "linear-gradient(145deg, #0A1F3C, #1236A0, #1A5FC0)",
     image: "/images/dog-line-up.webp",
     imageAlt: "Cali K9 trained dogs lined up inside the Cali K9 training facility",
@@ -24,7 +24,7 @@ const NEW_CLIENT_CARDS = [
     tag: "Online Program",
     name: "ONLINE TRAINING\nPROGRAM 2.0",
     desc: "The full 5-Pillar system delivered digitally. Learn at your own pace with professional guidance and a complete video library.",
-    href: "/online-training",
+    href: "/online-training-program2",
     bg: "linear-gradient(145deg, #1236A0, #1A3FAB, #2255CC)",
     image: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/687ba81ce31a778a062563dc.webp",
     imageAlt: "Online dog training course on a laptop screen",
@@ -54,7 +54,7 @@ const NEW_CLIENT_CARDS = [
     tag: "For Professionals",
     name: "BUSINESS\nCOACHING",
     desc: "Built for dog trainers ready to scale. Leverage Jas\u2019s proven framework to grow a high-revenue training business.",
-    href: "/coaching",
+    href: "/business-coaching",
     bg: "linear-gradient(145deg, #0A1F3C, #0D2A5A, #0A3568)",
     image: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/654a658a24fa464349af59f7.webp",
     imageAlt: "Jas Leverette coaching dog trainers to scale their business",
@@ -78,7 +78,7 @@ const RETURNING_CLIENT_CARDS = [
     tag: "Virtual",
     name: "ZOOM\nGROUP CLASS",
     desc: "Live virtual group sessions with certified Cali K9 trainers. Reinforce training from anywhere in the world.",
-    href: "/zoom-group",
+    href: "/zoom-group-class",
     bg: "linear-gradient(145deg, #0A3278, #1550B0, #1A5FC0)",
     image: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/654a6b4092b857c45895e91d.webp",
     imageAlt: "Live Zoom group dog training session with a certified Cali K9 trainer",
@@ -348,8 +348,8 @@ export default function ServicesPage() {
         eyebrow="Not Sure Where to Start?"
         heading="DON'T KNOW WHICH PROGRAM FITS YOUR DOG?"
         description="Book an evaluation with Jas. We'll assess your dog's behavior and recommend exactly the right program for you."
-        primaryCta={{ label: "Book an Evaluation \u2192", href: "/evaluation" }}
-        secondaryCta={{ label: "Learn More", href: "/evaluation" }}
+        primaryCta={{ label: "Book an Evaluation \u2192", href: "/evaluation-with-jas" }}
+        secondaryCta={{ label: "Learn More", href: "/evaluation-with-jas" }}
       />
     </>
   );

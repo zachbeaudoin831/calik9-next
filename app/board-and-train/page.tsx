@@ -165,7 +165,7 @@ export default function BoardAndTrainPage() {
                   After completing the Board &amp; Train program, we recommend
                   continued reinforcement through our{" "}
                   <Link
-                    href="/online-training"
+                    href="/online-training-program2"
                     className="text-blue-500 underline hover:text-blue-700"
                   >
                     online training platform
@@ -219,8 +219,8 @@ export default function BoardAndTrainPage() {
         eyebrow="Get Started"
         heading="READY TO TRANSFORM YOUR DOG?"
         description="Join thousands of families who've trusted Cali K9® to unlock their dog's potential. Results guaranteed."
-        primaryCta={{ label: "Book Evaluation →", href: "/evaluation" }}
-        secondaryCta={{ label: "View Programs →", href: "/services" }}
+        primaryCta={{ label: "Book Evaluation →", href: "/evaluation-with-jas" }}
+        secondaryCta={{ label: "View Programs →", href: "/newclientservices" }}
       />
     </main>
   );

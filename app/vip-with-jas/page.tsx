@@ -178,8 +178,8 @@ export default function VipWithJasPage() {
         eyebrow="Get Started"
         heading="READY TO TRANSFORM YOUR DOG?"
         description="Join thousands of families who've trusted Cali K9\u00ae to unlock their dog's potential. Results guaranteed."
-        primaryCta={{ label: "Book Evaluation \u2192", href: "/evaluation" }}
-        secondaryCta={{ label: "View Programs \u2192", href: "/services" }}
+        primaryCta={{ label: "Book Evaluation \u2192", href: "/evaluation-with-jas" }}
+        secondaryCta={{ label: "View Programs \u2192", href: "/newclientservices" }}
       />
     </main>
   );

@@ -8,22 +8,22 @@ import { useCart } from "@/context/CartContext";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
-  { href: "/services", label: "Services", hasSub: true },
-  { href: "/about", label: "About" },
+  { href: "/newclientservices", label: "Services", hasSub: true },
+  { href: "/about-us", label: "About" },
   { href: "/team", label: "Team" },
   { href: "/testimonials", label: "Testimonials" },
   { href: "/blog", label: "Blog" },
-  { href: "/contact", label: "Contact" },
+  { href: "/contact-us", label: "Contact" },
   { href: "/shop", label: "Shop" },
 ];
 
 const SERVICE_LINKS = [
-  { href: "/services", label: "All Services" },
-  { href: "/services#new-clients", label: "New Clients" },
-  { href: "/services#returning-clients", label: "Returning Clients" },
-  { href: "/starter-course", label: "Starter Courses" },
-  { href: "/online-training", label: "Online Training" },
-  { href: "/coaching", label: "Coaching" },
+  { href: "/newclientservices", label: "All Services" },
+  { href: "/newclientservices#new-clients", label: "New Clients" },
+  { href: "/newclientservices#returning-clients", label: "Returning Clients" },
+  { href: "/mini-courses", label: "Starter Courses" },
+  { href: "/online-training-program2", label: "Online Training" },
+  { href: "/business-coaching", label: "Coaching" },
 ];
 
 export default function Nav() {
@@ -49,7 +49,19 @@ export default function Nav() {
   }, [drawerOpen]);
 
   const isActive = (href: string) => pathname === href;
-  const isServicePage = pathname.startsWith("/services") || pathname.startsWith("/online-training") || pathname.startsWith("/in-person") || pathname.startsWith("/group-class") || pathname.startsWith("/board-and-train") || pathname.startsWith("/vip-with-jas") || pathname.startsWith("/semi-private") || pathname.startsWith("/zoom-group") || pathname.startsWith("/coaching") || pathname.startsWith("/starter-course");
+  const isServicePage =
+    pathname.startsWith("/newclientservices") ||
+    pathname.startsWith("/returningclientservices") ||
+    pathname.startsWith("/online-training-program2") ||
+    pathname.startsWith("/in-person") ||
+    pathname.startsWith("/group-class") ||
+    pathname.startsWith("/board-and-train") ||
+    pathname.startsWith("/vip-with-jas") ||
+    pathname.startsWith("/semi-private") ||
+    pathname.startsWith("/zoom-group-class") ||
+    pathname.startsWith("/business-coaching") ||
+    pathname.startsWith("/mini-courses") ||
+    pathname.startsWith("/5pillars");
 
   return (
     <>
@@ -120,7 +132,7 @@ export default function Nav() {
             {/* Evaluation CTA */}
             <li>
               <Link
-                href="/evaluation"
+                href="/evaluation-with-jas"
                 className="font-ui text-[13px] font-bold uppercase tracking-[2px] bg-blue-500 text-white border-2 border-blue-500 px-4 py-[7px] rounded-sm whitespace-nowrap hover:bg-blue-700 hover:border-blue-700 hover:-translate-y-px transition-all"
               >
                 Evaluation
@@ -223,7 +235,7 @@ export default function Nav() {
           ))}
           <li>
             <Link
-              href="/evaluation"
+              href="/evaluation-with-jas"
               className="block text-center font-ui text-[13px] font-bold uppercase tracking-[2px] bg-blue-500 text-white px-4 py-3 rounded-sm mt-4 no-underline hover:bg-blue-700 transition-colors"
               onClick={() => setDrawerOpen(false)}
             >

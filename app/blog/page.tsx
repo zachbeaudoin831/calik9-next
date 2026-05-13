@@ -117,8 +117,8 @@ export default function BlogPage() {
         eyebrow="15 Years. 3,500+ Dogs."
         heading="READY TO TRANSFORM YOUR DOG?"
         description="Reading is a great start. But real change happens when you work with a professional. Book a $27 evaluation and get a custom training plan for your dog."
-        primaryCta={{ label: "Book Evaluation \u2014 $27 \u2192", href: "/evaluation" }}
-        secondaryCta={{ label: "View Programs \u2192", href: "/services" }}
+        primaryCta={{ label: "Book Evaluation \u2014 $27 \u2192", href: "/evaluation-with-jas" }}
+        secondaryCta={{ label: "View Programs \u2192", href: "/newclientservices" }}
         dark
       />
     </>

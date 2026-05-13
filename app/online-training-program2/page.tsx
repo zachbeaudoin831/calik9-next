@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: "Online Dog Training Program | Cali K9®",
     description:
       "Cali K9® Online Training + 6 Months of Weekly Group Zoom Calls. Self-paced course with live coaching. Starting at $497.",
-    url: "https://calik9.com/online-training",
+    url: "https://calik9.com/online-training-program2",
     images: [
       "https://calik9.com/images/cdn/66a311486dce452f20d2ffcd.webp",
     ],
@@ -179,7 +179,7 @@ export default function OnlineTrainingPage() {
         heading="READY TO TRANSFORM YOUR DOG?"
         description="Join thousands of dog owners who transformed their dog's behavior with the Cali K9 5-Pillar System. Train from anywhere, at your own pace, with expert coaching."
         primaryCta={{ label: "Get Started — $497 →", href: "#main-content" }}
-        secondaryCta={{ label: "Book Evaluation First →", href: "/evaluation" }}
+        secondaryCta={{ label: "Book Evaluation First →", href: "/evaluation-with-jas" }}
       />
     </main>
   );

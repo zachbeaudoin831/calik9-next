@@ -194,7 +194,7 @@ export default function CompanyPoliciesPage() {
             </p>
             <p className="font-body text-[16px] text-gray-muted leading-[1.75]">
               Contact us at{" "}
-              <Link href="/contact" className="text-blue-500 font-semibold no-underline hover:underline">
+              <Link href="/contact-us" className="text-blue-500 font-semibold no-underline hover:underline">
                 our contact page
               </Link>
               . We are happy to walk you through any policy before you commit to a program.

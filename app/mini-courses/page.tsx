@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "Starter Course Bundle \u2014 $27 | Cali K9\u00ae",
     description:
       "Get the Cali K9\u00ae Starter Course Bundle for just $27. Includes Online Training 2.0, Dog Psychology 101, and 10 House Rules \u2014 a $291 value.",
-    url: "https://calik9.com/starter-course",
+    url: "https://calik9.com/mini-courses",
     images: ["https://calik9.com/images/cdn/66a311486dce452f20d2ffcd.webp"],
   },
   twitter: {

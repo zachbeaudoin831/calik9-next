@@ -252,7 +252,7 @@ export default function PrivacyPolicyPage() {
             </p>
             <p className="font-body text-[16px] text-gray-muted leading-[1.75]">
               To exercise your rights or ask about how we handle your data, contact us at{" "}
-              <Link href="/contact" className="text-blue-500 font-semibold no-underline hover:underline">
+              <Link href="/contact-us" className="text-blue-500 font-semibold no-underline hover:underline">
                 our contact page
               </Link>
               . We take data privacy seriously and will respond promptly.

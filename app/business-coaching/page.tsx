@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: "Business Coaching for Dog Trainers | Cali K9\u00ae",
     description:
       "Learn how to build a 6-7 figure dog training business that runs without you. Business coaching from Jas Leverette.",
-    url: "https://calik9.com/coaching",
+    url: "https://calik9.com/business-coaching",
     images: ["https://calik9.com/images/cdn/66a311486dce452f20d2ffcd.webp"],
   },
   twitter: {
@@ -216,7 +216,7 @@ export default function CoachingPage() {
         heading="BOOK YOUR FREE STRATEGY CALL"
         description="Join other dog trainers who&rsquo;ve scaled their business with Jas Leverette&rsquo;s proven systems. 30 minutes could change your business forever."
         primaryCta={{ label: "Book Strategy Call \u2192", href: "#main-content" }}
-        secondaryCta={{ label: "Learn More \u2192", href: "/contact" }}
+        secondaryCta={{ label: "Learn More \u2192", href: "/contact-us" }}
       />
     </main>
   );

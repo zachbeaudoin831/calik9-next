@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: "Dog Behavior Evaluation | Cali K9\u00ae",
     description:
       "Book a behavior evaluation with Cali K9\u00ae. Our experts pinpoint the root cause and give you a custom training roadmap. Discover your dog\u2019s path to transformation.",
-    url: "https://calik9.com/evaluation",
+    url: "https://calik9.com/evaluation-with-jas",
     images: ["https://calik9.com/images/cdn/66a311486dce452f20d2ffcd.webp"],
   },
   twitter: {
@@ -591,7 +591,7 @@ export default function EvaluationPage() {
         heading="READY TO START?"
         description="In 15 years and 3,500+ evaluations, our team has yet to encounter a dog they couldn&rsquo;t help."
         primaryCta={{ label: "Book My Evaluation \u2014 $27 \u2192", href: "#main-content" }}
-        secondaryCta={{ label: "Get in Touch \u2192", href: "/contact" }}
+        secondaryCta={{ label: "Get in Touch \u2192", href: "/contact-us" }}
       />
     </main>
   );

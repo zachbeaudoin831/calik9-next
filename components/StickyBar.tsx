@@ -5,11 +5,11 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const STICKY_BAR_PAGES: Record<string, { text: string; cta: string; href: string }> = {
-  "/in-person": { text: "Don’t Know Which Program Fits Your Dog?", cta: "Book an Evaluation →", href: "/evaluation" },
-  "/online-training": { text: "Don’t Know Which Program Fits Your Dog?", cta: "Book an Evaluation →", href: "/evaluation" },
-  "/board-and-train": { text: "Don’t Know Which Program Fits Your Dog?", cta: "Book an Evaluation →", href: "/evaluation" },
-  "/semi-private": { text: "Don’t Know Which Program Fits Your Dog?", cta: "Book an Evaluation →", href: "/evaluation" },
-  "/zoom-group": { text: "Don’t Know Which Program Fits Your Dog?", cta: "Book an Evaluation →", href: "/evaluation" },
+  "/in-person": { text: "Don’t Know Which Program Fits Your Dog?", cta: "Book an Evaluation →", href: "/evaluation-with-jas" },
+  "/online-training-program2": { text: "Don’t Know Which Program Fits Your Dog?", cta: "Book an Evaluation →", href: "/evaluation-with-jas" },
+  "/board-and-train": { text: "Don’t Know Which Program Fits Your Dog?", cta: "Book an Evaluation →", href: "/evaluation-with-jas" },
+  "/semi-private": { text: "Don’t Know Which Program Fits Your Dog?", cta: "Book an Evaluation →", href: "/evaluation-with-jas" },
+  "/zoom-group-class": { text: "Don’t Know Which Program Fits Your Dog?", cta: "Book an Evaluation →", href: "/evaluation-with-jas" },
   "/group-class": { text: "In-Person Group Training — $197/month", cta: "Sign Up Now", href: "#main-content" },
 };
 

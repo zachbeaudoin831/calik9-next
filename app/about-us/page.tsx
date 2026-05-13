@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: "About Jas Leverette | Cali K9\u00ae",
     description:
       "Jas Leverette is the star of Canine Intervention on Netflix. Founder of Cali K9\u00ae, training dogs in Los Angeles, San Jose & online since 2009.",
-    url: "https://calik9.com/about",
+    url: "https://calik9.com/about-us",
     images: ["https://calik9.com/images/cdn/66a3147ce455c59ccdcdbe67.webp"],
   },
   twitter: {
@@ -130,13 +130,13 @@ export default function AboutPage() {
             <HeroEntrance delay={360}>
               <div className="flex gap-4 flex-wrap max-[768px]:flex-col max-[768px]:items-stretch">
                 <Link
-                  href="/evaluation"
+                  href="/evaluation-with-jas"
                   className="btn btn-white btn-lg min-w-[240px] max-[768px]:w-full max-[768px]:justify-center"
                 >
                   Train with Jas &rarr;
                 </Link>
                 <Link
-                  href="/services"
+                  href="/newclientservices"
                   className="btn btn-outline-white min-w-[240px] max-[768px]:w-full max-[768px]:justify-center"
                 >
                   View Programs &rarr;
@@ -213,13 +213,13 @@ export default function AboutPage() {
           </div>
           <div className="flex gap-3 flex-shrink-0 flex-wrap max-md:w-full">
             <Link
-              href="/services"
+              href="/newclientservices"
               className="btn btn-blue"
             >
               View Programs &rarr;
             </Link>
             <Link
-              href="/contact"
+              href="/contact-us"
               className="btn btn-outline"
             >
               Contact Us
@@ -517,8 +517,8 @@ export default function AboutPage() {
         eyebrow="Trusted By The Best \u2014 Now Available To You"
         heading="STEPHEN CURRY\u2019S TRAINER. YOUR DOG\u2019S TRAINER."
         description="The same methodology trusted by NBA champions, Grammy winners, and Hollywood stars is available to everyday dog owners. Your transformation starts today."
-        primaryCta={{ label: "Explore All Programs \u2192", href: "/services" }}
-        secondaryCta={{ label: "Start Online", href: "/online-training" }}
+        primaryCta={{ label: "Explore All Programs \u2192", href: "/newclientservices" }}
+        secondaryCta={{ label: "Start Online", href: "/online-training-program2" }}
         dark
       />
 

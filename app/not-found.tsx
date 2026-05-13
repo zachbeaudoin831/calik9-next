@@ -50,7 +50,7 @@ export default function NotFound() {
             Back to Home &rarr;
           </Link>
           <Link
-            href="/evaluation"
+            href="/evaluation-with-jas"
             className="inline-flex items-center justify-center px-8 py-3.5 border-2 border-white/30 text-white font-ui text-[13px] font-bold tracking-[2px] uppercase rounded-lg hover:border-white/60 transition-colors"
           >
             Book Evaluation
@@ -61,10 +61,10 @@ export default function NotFound() {
           className="mt-14 pt-8 border-t border-white/10 flex gap-6 justify-center flex-wrap"
           aria-label="Site pages"
         >
-          <Link href="/about" className="font-ui text-[12px] font-bold tracking-[2px] uppercase text-white/45 no-underline hover:text-white/85 transition-colors">
+          <Link href="/about-us" className="font-ui text-[12px] font-bold tracking-[2px] uppercase text-white/45 no-underline hover:text-white/85 transition-colors">
             About
           </Link>
-          <Link href="/services" className="font-ui text-[12px] font-bold tracking-[2px] uppercase text-white/45 no-underline hover:text-white/85 transition-colors">
+          <Link href="/newclientservices" className="font-ui text-[12px] font-bold tracking-[2px] uppercase text-white/45 no-underline hover:text-white/85 transition-colors">
             Services
           </Link>
           <Link href="/team" className="font-ui text-[12px] font-bold tracking-[2px] uppercase text-white/45 no-underline hover:text-white/85 transition-colors">
@@ -73,10 +73,10 @@ export default function NotFound() {
           <Link href="/testimonials" className="font-ui text-[12px] font-bold tracking-[2px] uppercase text-white/45 no-underline hover:text-white/85 transition-colors">
             Testimonials
           </Link>
-          <Link href="/coaching" className="font-ui text-[12px] font-bold tracking-[2px] uppercase text-white/45 no-underline hover:text-white/85 transition-colors">
+          <Link href="/business-coaching" className="font-ui text-[12px] font-bold tracking-[2px] uppercase text-white/45 no-underline hover:text-white/85 transition-colors">
             Coaching
           </Link>
-          <Link href="/contact" className="font-ui text-[12px] font-bold tracking-[2px] uppercase text-white/45 no-underline hover:text-white/85 transition-colors">
+          <Link href="/contact-us" className="font-ui text-[12px] font-bold tracking-[2px] uppercase text-white/45 no-underline hover:text-white/85 transition-colors">
             Contact
           </Link>
         </nav>

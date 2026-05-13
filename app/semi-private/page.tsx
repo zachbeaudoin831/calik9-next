@@ -205,7 +205,7 @@ export default function SemiPrivatePage() {
         <p className="font-body text-sm text-white/70 mt-2">
           Not sure if semi-private is right for your dog?{" "}
           <Link
-            href="/evaluation"
+            href="/evaluation-with-jas"
             className="text-blue-400 font-semibold hover:underline"
           >
             Book an Evaluation
@@ -222,8 +222,8 @@ export default function SemiPrivatePage() {
         eyebrow="Get Started"
         heading="READY TO TRANSFORM YOUR DOG?"
         description="Join thousands of families who've trusted Cali K9\u00ae to unlock their dog's potential. Results guaranteed."
-        primaryCta={{ label: "Book Evaluation \u2192", href: "/evaluation" }}
-        secondaryCta={{ label: "View Programs \u2192", href: "/services" }}
+        primaryCta={{ label: "Book Evaluation \u2192", href: "/evaluation-with-jas" }}
+        secondaryCta={{ label: "View Programs \u2192", href: "/newclientservices" }}
       />
     </main>
   );

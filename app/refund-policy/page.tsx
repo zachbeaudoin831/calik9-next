@@ -141,7 +141,7 @@ export default function RefundPolicyPage() {
             </p>
             <p className="font-body text-[16px] text-gray-muted leading-[1.75]">
               Contact us at{" "}
-              <Link href="/contact" className="text-blue-500 font-semibold no-underline hover:underline">
+              <Link href="/contact-us" className="text-blue-500 font-semibold no-underline hover:underline">
                 our contact page
               </Link>{" "}
               or reach out to our team directly. We are happy to clarify any aspect of this policy before you enroll.

@@ -379,7 +379,7 @@ export default function TestimonialsPage() {
         eyebrow="Your Story Starts Here"
         heading="READY FOR YOUR OWN SUCCESS STORY?"
         description="Join 3,500+ dogs transformed by the Cali K9 method. Start with an evaluation."
-        primaryCta={{ label: "Book Evaluation \u2192", href: "/evaluation" }}
+        primaryCta={{ label: "Book Evaluation \u2192", href: "/evaluation-with-jas" }}
         dark
       />
     </main>

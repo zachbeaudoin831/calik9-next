@@ -184,7 +184,7 @@ export default function HealthPolicyPage() {
             </p>
             <p className="font-body text-[16px] text-gray-muted leading-[1.75]">
               Contact us at{" "}
-              <Link href="/contact" className="text-blue-500 font-semibold no-underline hover:underline">
+              <Link href="/contact-us" className="text-blue-500 font-semibold no-underline hover:underline">
                 our contact page
               </Link>{" "}
               before your program starts. We want every dog to be set up for success from day one.
