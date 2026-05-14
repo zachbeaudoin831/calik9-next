@@ -60,7 +60,7 @@ export default function VipWithJasPage() {
             <p className="font-body text-base text-white/70 leading-[1.65] mb-6">
               This is for people who want to work directly with Jas Leverette
               &mdash; founder of Cali K9, host of Netflix&rsquo;s{" "}
-              <em>Canine Intervention</em>, and the trainer behind 3,500+
+              <em>Canine Intervention</em>, and the trainer behind 10,000+
               transformations. No assistants. No junior trainers. Just Jas, your
               dog, and a plan built specifically for your situation.
             </p>

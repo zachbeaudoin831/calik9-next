@@ -72,8 +72,8 @@ const CERT_STEPS = [
     num: "01",
     filled: false,
     title: "5-PILLAR SYSTEM",
-    desc: "Every Cali K9 trainer is immersed in Jas\u2019s 5-Pillar training methodology \u2014 the same balanced system that has transformed over 3,500 dogs and built a global brand. No shortcuts. No exceptions.",
-    statNum: "3,500+",
+    desc: "Every Cali K9 trainer is immersed in Jas\u2019s 5-Pillar training methodology \u2014 the same balanced system that has transformed over 10,000 dogs and built a global brand. No shortcuts. No exceptions.",
+    statNum: "10,000+",
     statLabel: "Dogs Trained",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">

@@ -5,7 +5,7 @@ import CtaBlock from "@/components/CtaBlock";
 export const metadata = {
   title: "Dog Training Blog",
   description:
-    "Expert dog training tips, guides, and insights from Cali K9\u00ae \u2014 trusted by 3,500+ dog owners. Aggression, obedience, behavior modification, and more.",
+    "Expert dog training tips, guides, and insights from Cali K9\u00ae \u2014 trusted by 10,000+ dog owners. Aggression, obedience, behavior modification, and more.",
 };
 
 const POSTS = [
@@ -114,7 +114,7 @@ export default function BlogPage() {
 
       {/* ── CTA ── */}
       <CtaBlock
-        eyebrow="15 Years. 3,500+ Dogs."
+        eyebrow="15 Years. 10,000+ Dogs."
         heading="READY TO TRANSFORM YOUR DOG?"
         description="Reading is a great start. But real change happens when you work with a professional. Book a $27 evaluation and get a custom training plan for your dog."
         primaryCta={{ label: "Book Evaluation \u2014 $27 \u2192", href: "/evaluation-with-behavior-specialist" }}

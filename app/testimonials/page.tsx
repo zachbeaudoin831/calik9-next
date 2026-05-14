@@ -7,11 +7,11 @@ import CtaBlock from "@/components/CtaBlock";
 export const metadata: Metadata = {
   title: "Dog Training Reviews & Results | Cali K9\u00ae",
   description:
-    "Real results from 3,500+ dogs trained. Read Cali K9\u00ae client reviews and success stories.",
+    "Real results from 10,000+ dogs trained. Read Cali K9\u00ae client reviews and success stories.",
   openGraph: {
     title: "Dog Training Reviews & Results | Cali K9\u00ae",
     description:
-      "Real results from 3,500+ dogs trained. Read Cali K9\u00ae client reviews and success stories.",
+      "Real results from 10,000+ dogs trained. Read Cali K9\u00ae client reviews and success stories.",
     url: "https://calik9.com/testimonials",
     images: ["https://calik9.com/images/cdn/66a311486dce452f20d2ffcd.webp"],
   },
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 /* ── Data ── */
 
 const STATS = [
-  { num: "3,500+", label: "Dogs Transformed" },
+  { num: "10,000+", label: "Dogs Transformed" },
   { num: "4.9", star: true, label: "Average Rating" },
   { num: "15+", label: "Years Experience" },
   { num: "190", label: "Countries on Netflix" },
@@ -154,7 +154,7 @@ export default function TestimonialsPage() {
         <div className="max-w-[1200px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 relative z-[1] text-left w-full">
           <div className="flex items-center gap-[14px] mb-6 flex-wrap">
             <span className="inline-flex items-center bg-white/15 border border-white/30 rounded-sm px-5 py-[9px] font-ui text-sm font-bold tracking-[2.5px] uppercase text-white">
-              3,500+ Dogs Transformed
+              10,000+ Dogs Transformed
             </span>
             <span className="font-ui text-sm font-bold tracking-[2px] uppercase text-[#7B8CC4]">
               4.9&#9733; Avg Rating &middot; 500+ Reviews
@@ -378,7 +378,7 @@ export default function TestimonialsPage() {
       <CtaBlock
         eyebrow="Your Story Starts Here"
         heading="READY FOR YOUR OWN SUCCESS STORY?"
-        description="Join 3,500+ dogs transformed by the Cali K9 method. Start with an evaluation."
+        description="Join 10,000+ dogs transformed by the Cali K9 method. Start with an evaluation."
         primaryCta={{ label: "Book Evaluation \u2192", href: "/evaluation-with-behavior-specialist" }}
         dark
       />

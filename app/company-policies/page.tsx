@@ -173,7 +173,7 @@ export default function CompanyPoliciesPage() {
               RESULTS
             </h2>
             <p className="font-body text-[16px] text-gray-muted leading-[1.75] mb-4">
-              While Cali K9&reg; has an outstanding track record with over 3,500 dogs trained, individual results vary based on the dog&#39;s history, temperament, health, and owner follow-through. We do not guarantee specific behavioral outcomes. What we do guarantee is that our team will give every dog their full effort, expertise, and care.
+              While Cali K9&reg; has an outstanding track record with over 10,000 dogs trained, individual results vary based on the dog&#39;s history, temperament, health, and owner follow-through. We do not guarantee specific behavioral outcomes. What we do guarantee is that our team will give every dog their full effort, expertise, and care.
             </p>
           </div>
 

@@ -5,7 +5,7 @@ import CtaBlock from "@/components/CtaBlock";
 export const metadata = {
   title: "How to Train an Aggressive Dog: A Professional Trainer\u2019s Guide",
   description:
-    "Learn what causes dog aggression, why punishment makes it worse, and how professional behavior modification actually works. 15+ years of experience with 3,500+ dogs.",
+    "Learn what causes dog aggression, why punishment makes it worse, and how professional behavior modification actually works. 15+ years of experience with 10,000+ dogs.",
 };
 
 export default function AggressiveDogTrainingPage() {
@@ -48,7 +48,7 @@ export default function AggressiveDogTrainingPage() {
               Dog aggression is the single most common reason owners seek
               professional help. It&apos;s also one of the most misunderstood
               behavioral issues in the dog training world. After 15 years and
-              over 3,500 dogs trained at{" "}
+              over 10,000 dogs trained at{" "}
               <Link href="/about-us" className="text-blue-500 underline hover:text-blue-700">
                 Cali K9
               </Link>

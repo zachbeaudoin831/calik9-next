@@ -263,7 +263,7 @@ export default function EvaluationPage() {
         {/* Mini stats */}
         <div className="flex gap-8 flex-wrap">
           <div className="text-center">
-            <div className="font-display text-4xl text-white leading-none">3,500+</div>
+            <div className="font-display text-4xl text-white leading-none">10,000+</div>
             <div className="font-ui text-xs font-semibold tracking-[2px] uppercase text-white/50 mt-1">
               Dogs Evaluated
             </div>
