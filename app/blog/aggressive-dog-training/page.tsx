@@ -65,12 +65,12 @@ export default function AggressiveDogTrainingPage() {
               realize.
             </p>
 
-            <div className="relative aspect-[4/3] rounded-xl overflow-hidden my-10">
+            <div className="relative aspect-[16/10] rounded-xl overflow-hidden my-10 bg-black">
               <Image
                 src="/images/trained-dogs1.jpeg"
                 alt="Dogs trained with the Cali K9 method demonstrating calm, controlled behavior"
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
 
@@ -181,12 +181,12 @@ export default function AggressiveDogTrainingPage() {
               training.
             </p>
 
-            <div className="relative aspect-[4/3] rounded-xl overflow-hidden my-10">
+            <div className="relative aspect-[16/10] rounded-xl overflow-hidden my-10 bg-black">
               <Image
                 src="/images/jas-eval.webp"
                 alt="Cali K9 trainer conducting a professional behavior evaluation"
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
 
@@ -199,7 +199,7 @@ export default function AggressiveDogTrainingPage() {
             <p>
               Before any training begins, we need to understand exactly what&apos;s
               happening and why. A proper{" "}
-              <Link href="/evaluation-with-jas" className="text-blue-500 underline hover:text-blue-700">
+              <Link href="/evaluation-with-behavior-specialist" className="text-blue-500 underline hover:text-blue-700">
                 behavior evaluation
               </Link>{" "}
               identifies the specific type of aggression, the triggers, the
@@ -292,12 +292,12 @@ export default function AggressiveDogTrainingPage() {
               fundamentally changing how the dog experiences the world.
             </p>
 
-            <div className="relative aspect-[4/3] rounded-xl overflow-hidden my-10">
+            <div className="relative aspect-[16/10] rounded-xl overflow-hidden my-10 bg-black">
               <Image
                 src="/images/trained-dogs2.jpeg"
                 alt="Dogs demonstrating real-world obedience results after Cali K9 training"
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
 
@@ -342,7 +342,7 @@ export default function AggressiveDogTrainingPage() {
             <p>
               If any of these apply, don&apos;t wait. Aggression that&apos;s
               left unaddressed tends to get worse, not better. An{" "}
-              <Link href="/evaluation-with-jas" className="text-blue-500 underline hover:text-blue-700">
+              <Link href="/evaluation-with-behavior-specialist" className="text-blue-500 underline hover:text-blue-700">
                 evaluation with Cali K9
               </Link>{" "}
               costs $27 and gives you a clear picture of what&apos;s happening,
@@ -370,7 +370,7 @@ export default function AggressiveDogTrainingPage() {
             <p>
               If your dog is struggling with aggression, the worst thing you can
               do is nothing. The best thing you can do is{" "}
-              <Link href="/evaluation-with-jas" className="text-blue-500 underline hover:text-blue-700">
+              <Link href="/evaluation-with-behavior-specialist" className="text-blue-500 underline hover:text-blue-700">
                 get a professional assessment
               </Link>{" "}
               &mdash; and build a plan that&apos;s based on your dog&apos;s
@@ -455,7 +455,7 @@ export default function AggressiveDogTrainingPage() {
         eyebrow="Start Here"
         heading="BOOK YOUR EVALUATION"
         description="A $27 evaluation gives you a complete behavioral assessment, custom training roadmap, and program recommendation for your dog."
-        primaryCta={{ label: "Book Evaluation \u2014 $27 \u2192", href: "/evaluation-with-jas" }}
+        primaryCta={{ label: "Book Evaluation \u2014 $27 \u2192", href: "/evaluation-with-behavior-specialist" }}
         secondaryCta={{ label: "View Programs \u2192", href: "/newclientservices" }}
         dark
       />

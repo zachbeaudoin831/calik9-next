@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 
 const STATS = [
   { num: "15+", label: "Years Training", desc: "Over a decade and a half of continuous professional practice." },
-  { num: "3,500+", label: "Dogs Transformed", desc: "From 8-week-old puppies to senior dogs with severe aggression histories." },
+  { num: "10,000+", label: "Dogs Transformed", desc: "From 8-week-old puppies to senior dogs with severe aggression histories." },
   { num: "1M+", label: "Social Following", desc: "A global community of dog owners and training enthusiasts." },
   { num: "11+", label: "Celebrity Clients", desc: "Trusted by athletes, entertainers, and public figures nationwide." },
 ];
@@ -107,7 +107,7 @@ export default function AboutPage() {
             <HeroEntrance delay={0}>
               <div className="flex items-center gap-[14px] flex-wrap mb-6 max-[900px]:justify-center max-[768px]:justify-start">
                 <span className="inline-flex items-center bg-white/15 border border-white/30 rounded-sm px-5 py-[9px] font-ui text-sm font-bold tracking-[2.5px] uppercase text-white">
-                  Schutzhund Certified &middot; Est. 2009
+                  Cali K9 &middot; Est. 2009
                 </span>
                 <span className="font-ui text-sm font-bold tracking-[2px] uppercase text-[#7B8CC4]">
                   Founder &amp; Head Trainer
@@ -130,10 +130,10 @@ export default function AboutPage() {
             <HeroEntrance delay={360}>
               <div className="flex gap-4 flex-wrap max-[768px]:flex-col max-[768px]:items-stretch">
                 <Link
-                  href="/evaluation-with-jas"
+                  href="/evaluation-with-behavior-specialist"
                   className="btn btn-white btn-lg min-w-[240px] max-[768px]:w-full max-[768px]:justify-center"
                 >
-                  Train with Jas &rarr;
+                  Evaluation &rarr;
                 </Link>
                 <Link
                   href="/newclientservices"
@@ -207,7 +207,7 @@ export default function AboutPage() {
               TRAIN WITH THE BEST.
             </h3>
             <p className="font-body text-[15px] text-gray-muted leading-relaxed">
-              15+ years. 3,500+ dogs. The same method Jas uses with celebrities
+              15+ years. 10,000+ dogs. The same method Jas uses with celebrities
               &mdash; available to you.
             </p>
           </div>
@@ -247,7 +247,7 @@ export default function AboutPage() {
             <p className="font-body text-base text-white/80 leading-[1.85] mb-5">
               He has trained dogs and horses his entire life and has many years
               of animal training and pet wellness experience. This includes
-              training dozens of dog trainers and hundreds of family pet dogs,
+              training dozens of dog trainers and thousands of family pet dogs,
               sport dogs, service dogs, and working law enforcement K9s.
             </p>
             <p className="font-body text-base text-white/80 leading-[1.85] mb-5">
@@ -334,11 +334,11 @@ export default function AboutPage() {
               </h2>
               <div className="w-10 h-[2px] bg-blue-500 mb-6" />
               <p className="font-body text-[15px] text-white/70 leading-[1.85] mb-8">
-                Certified in Schutzhund (IPO) and PSA decoy work. Jas trains
-                protection dogs at the highest level &mdash; stamina, agility,
-                temperament, and handler loyalty. He competes at regional,
-                national, and international events and collaborates directly with
-                law enforcement K9 units.
+                Certified in Schutzhund (IPO) and PSA decoy work. Jas has titled
+                dogs in IGP and PSA dog sport. He trains protection dogs at the
+                highest level &mdash; stamina, agility, temperament, and handler
+                loyalty. He competes at regional, national, and international
+                events and collaborates directly with law enforcement K9 units.
               </p>
               <div className="flex flex-wrap gap-2.5">
                 {["Schutzhund / IPO", "PSA Decoy", "Law Enforcement K9", "International Competitor"].map((tag) => (
@@ -368,24 +368,11 @@ export default function AboutPage() {
               <div className="w-10 h-[2px] bg-blue-400 mb-6" />
               <p className="font-body text-[15px] text-white/70 leading-[1.85] mb-8">
                 Voted Best Dog Trainer by Metro Silicon Valley&apos;s readers
-                &mdash; a title Jas has held since 2012. Serving the Bay Area,
-                Los Angeles, Miami, New York, and online, the Cali K9&reg;
-                5-Pillar Method is recognized as the standard for professional
-                dog training in the region.
+                &mdash; a title Cali K9 has received multiple times year after
+                year since 2012. Serving the Bay Area, Los Angeles, Miami, New
+                York, and online, the Cali K9&reg; 5-Pillar Method is recognized
+                as the standard for professional dog training in the region.
               </p>
-              <div className="flex items-center gap-4 bg-white/[0.04] border border-white/10 rounded-lg p-5">
-                <div className="font-display text-[48px] text-blue-400 leading-none flex-shrink-0">
-                  &#9733;
-                </div>
-                <div>
-                  <div className="font-ui text-xs font-bold tracking-[3px] uppercase text-white/50 mb-1">
-                    Metro Silicon Valley
-                  </div>
-                  <div className="font-ui text-[15px] font-bold text-white">
-                    Best Dog Trainer &mdash; Every Year Since 2012
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -512,15 +499,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── MID CTA ── */}
-      <CtaBlock
-        eyebrow="Trusted By The Best \u2014 Now Available To You"
-        heading="STEPHEN CURRY\u2019S TRAINER. YOUR DOG\u2019S TRAINER."
-        description="The same methodology trusted by NBA champions, Grammy winners, and Hollywood stars is available to everyday dog owners. Your transformation starts today."
-        primaryCta={{ label: "Explore All Programs \u2192", href: "/newclientservices" }}
-        secondaryCta={{ label: "Start Online", href: "/online-training-program2" }}
-        dark
-      />
 
       {/* ── SOCIAL MEDIA ── */}
       <section className="bg-off border-t border-black/[0.06] py-20 max-md:py-12 max-[480px]:py-8 text-center">

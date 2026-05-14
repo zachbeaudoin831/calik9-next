@@ -14,7 +14,7 @@ const NEW_CLIENT_CARDS = [
     tag: "Start Here · $27",
     name: "EVALUATION\nWITH CALI K9",
     desc: "A direct consultation with a Cali K9 expert to assess your dog's behavioral needs and build a custom training roadmap. The first step for new clients.",
-    href: "/evaluation-with-jas",
+    href: "/evaluation-with-behavior-specialist",
     bg: "linear-gradient(145deg, #0A1F3C, #1236A0, #1A5FC0)",
     image: "/images/dog-line-up.webp",
     imageAlt: "Cali K9 trained dogs lined up inside the Cali K9 training facility",
@@ -22,7 +22,7 @@ const NEW_CLIENT_CARDS = [
   },
   {
     tag: "Online Program",
-    name: "ONLINE TRAINING\nPROGRAM 2.0",
+    name: "ONLINE TRAINING\nOPTIONS",
     desc: "The full 5-Pillar system delivered digitally. Learn at your own pace with professional guidance and a complete video library.",
     href: "/online-training-program2",
     bg: "linear-gradient(145deg, #1236A0, #1A3FAB, #2255CC)",
@@ -116,8 +116,8 @@ const SPECIALIZATIONS = [
 ];
 
 const LOCATIONS = [
-  { name: "Bay Area, CA", address: "950 South 1st Street, San Jose, CA 95110", desc: "Flagship location \u2014 in-person training, Board & Train, and group classes throughout the San Francisco Bay Area." },
-  { name: "Los Angeles, CA", address: "5015 Lankershim Blvd., North Hollywood, CA 91601", desc: "Private sessions and Board & Train programs serving LA and surrounding communities." },
+  { name: "Bay Area, CA", desc: "Flagship location \u2014 in-person training, Board & Train, and group classes throughout the San Francisco Bay Area." },
+  { name: "Los Angeles, CA", desc: "Private sessions and Board & Train programs serving LA and surrounding communities." },
   { name: "Miami, FL", desc: "East Coast private sessions and intensive programs \u2014 same elite Cali K9 standard." },
   { name: "New York, NY", desc: "Private sessions and select programs available. Contact us to check current availability." },
   { name: "Online \u00b7 Worldwide", desc: "The full 5-Pillar Online Program and Zoom Group Classes available to clients anywhere in the world.", globe: true },
@@ -207,7 +207,7 @@ export default function ServicesPage() {
             TRAINING <span className="text-[#8A97C4]">SERVICES</span>
           </h1>
           <p className="font-ui text-[18px] text-white/70 tracking-[0.5px] leading-[1.6] max-w-[600px] mb-9">
-            World-class dog training built on the 5-Pillar System &mdash; proven with thousands of dogs,
+            World-class dog training built on Cali K9&apos;s proprietary 5-Pillar System &mdash; proven with thousands of dogs,
             from anxious rescues to celebrity companions.
           </p>
           <div className="flex gap-4 flex-wrap max-[768px]:flex-col max-[768px]:items-stretch">
@@ -332,9 +332,6 @@ export default function ServicesPage() {
                     )}
                     <span className="font-ui text-sm font-bold uppercase tracking-[1px] text-ink">{loc.name}</span>
                   </div>
-                  {loc.address && (
-                    <div className="font-body text-xs text-gray-muted mt-1 ml-6">{loc.address}</div>
-                  )}
                 </div>
                 <span className="font-body text-sm text-gray-muted leading-relaxed">{loc.desc}</span>
               </li>
@@ -348,8 +345,7 @@ export default function ServicesPage() {
         eyebrow="Not Sure Where to Start?"
         heading="DON'T KNOW WHICH PROGRAM FITS YOUR DOG?"
         description="Book an evaluation with Jas. We'll assess your dog's behavior and recommend exactly the right program for you."
-        primaryCta={{ label: "Book an Evaluation \u2192", href: "/evaluation-with-jas" }}
-        secondaryCta={{ label: "Learn More", href: "/evaluation-with-jas" }}
+        primaryCta={{ label: "Book an Evaluation \u2192", href: "/evaluation-with-behavior-specialist" }}
       />
     </>
   );

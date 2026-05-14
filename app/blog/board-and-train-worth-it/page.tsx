@@ -63,12 +63,12 @@ export default function BoardAndTrainWorthItPage() {
               sales pitch. Just the reality of how it works.
             </p>
 
-            <div className="relative aspect-[4/3] rounded-xl overflow-hidden my-10">
+            <div className="relative aspect-[16/10] rounded-xl overflow-hidden my-10 bg-black">
               <Image
                 src="/images/dog-line-up.webp"
                 alt="Dogs in formation demonstrating obedience at the Cali K9 training facility"
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
 
@@ -222,12 +222,12 @@ export default function BoardAndTrainWorthItPage() {
               </p>
             </blockquote>
 
-            <div className="relative aspect-[4/3] rounded-xl overflow-hidden my-10">
+            <div className="relative aspect-[16/10] rounded-xl overflow-hidden my-10 bg-black">
               <Image
                 src="/images/trained-dogs1.jpeg"
                 alt="Trained dogs demonstrating calm behavior after completing Cali K9 board and train"
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
 
@@ -376,12 +376,12 @@ export default function BoardAndTrainWorthItPage() {
               it&apos;s cheap, but because it works the first time.
             </p>
 
-            <div className="relative aspect-[4/3] rounded-xl overflow-hidden my-10">
+            <div className="relative aspect-[16/10] rounded-xl overflow-hidden my-10 bg-black">
               <Image
                 src="/images/trained-dogs2.jpeg"
                 alt="Dogs showcasing real-world training results from the Cali K9 board and train program"
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
 
@@ -399,7 +399,7 @@ export default function BoardAndTrainWorthItPage() {
             <p>
               If you&apos;re not sure whether board and train is right for your
               dog, the best next step is an{" "}
-              <Link href="/evaluation-with-jas" className="text-blue-500 underline hover:text-blue-700">
+              <Link href="/evaluation-with-behavior-specialist" className="text-blue-500 underline hover:text-blue-700">
                 evaluation
               </Link>
               . In 30-45 minutes, we&apos;ll assess your dog&apos;s behavior,
@@ -410,7 +410,7 @@ export default function BoardAndTrainWorthItPage() {
             </p>
 
             <p>
-              <Link href="/evaluation-with-jas" className="text-blue-500 underline hover:text-blue-700">
+              <Link href="/evaluation-with-behavior-specialist" className="text-blue-500 underline hover:text-blue-700">
                 Book your evaluation
               </Link>{" "}
               and let&apos;s figure out the right path for your dog.
@@ -495,7 +495,7 @@ export default function BoardAndTrainWorthItPage() {
         eyebrow="Start Here"
         heading="BOOK YOUR EVALUATION"
         description="A $27 evaluation gives you a complete behavioral assessment, custom training roadmap, and program recommendation for your dog."
-        primaryCta={{ label: "Book Evaluation \u2014 $27 \u2192", href: "/evaluation-with-jas" }}
+        primaryCta={{ label: "Book Evaluation \u2014 $27 \u2192", href: "/evaluation-with-behavior-specialist" }}
         secondaryCta={{ label: "View Programs \u2192", href: "/newclientservices" }}
         dark
       />

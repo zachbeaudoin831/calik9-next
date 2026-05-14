@@ -12,7 +12,7 @@ import { dedupeProductsByTitle, getProductsByCollection, isServiceProduct } from
 export const metadata = {
   title: "Elite Dog Training | Cali K9\u00ae",
   description:
-    "Cali K9\u00ae \u2014 elite dog training by Jas Leverette, star of Netflix\u2019s Canine Intervention. 15+ years, 3,500+ dogs transformed. Bay Area, Los Angeles, Miami, New York & online.",
+    "Cali K9\u00ae \u2014 elite dog training by Jas Leverette, star of Netflix\u2019s Canine Intervention. 15+ years, 10,000+ dogs transformed. Bay Area, Los Angeles, Miami, New York & online.",
 };
 
 const MARQUEE_ITEMS = [
@@ -27,7 +27,7 @@ const MARQUEE_ITEMS = [
 ];
 
 const STATS = [
-  { num: "3,500+", label: "Dogs Trained" },
+  { num: "10,000+", label: "Dogs Trained" },
   { num: "15+", label: "Years Experience" },
   { num: "Netflix", label: "Canine Intervention" },
   { num: "4.9", star: true, label: "Average Rating" },
@@ -102,11 +102,6 @@ const PROGRAMS = [
     href: "/online-training-program2",
     featured: true,
   },
-  {
-    title: "SEMI-PRIVATE TRAINING",
-    desc: "Personalized attention in a small-group setting \u2014 targeted behavior work with dedicated trainer oversight and real-world reinforcement.",
-    href: "/semi-private",
-  },
 ];
 
 export default async function HomePage() {
@@ -116,10 +111,18 @@ export default async function HomePage() {
   ]);
   const treats = dedupeProductsByTitle(treatsRaw.filter((p) => !isServiceProduct(p)));
   const equipment = dedupeProductsByTitle(equipmentRaw.filter((p) => !isServiceProduct(p)));
-  const seen = new Set<string>();
-  const allProducts = [...treats, ...equipment]
-    .filter((p) => (seen.has(p.id) ? false : (seen.add(p.id), true)))
-    .slice(0, 4);
+  // Explicit teaser order: Turbo Treats Chicken Hearts → Turbo Treats Beef
+  // Liver → Cali K9 Training Kit. Apparel takes the 4th slot via a custom
+  // card on ShopTeaser (links to /shop).
+  const teaserHandles = [
+    "turbo-treats-chicken-hearts",
+    "turbo-treats-beef-liver",
+    "starter-training-kit",
+  ];
+  const pool = [...treats, ...equipment];
+  const allProducts = teaserHandles
+    .map((h) => pool.find((p) => p.handle === h))
+    .filter((p): p is NonNullable<typeof p> => Boolean(p));
   return (
     <>
       {/* ── HERO ── */}
@@ -162,7 +165,7 @@ export default async function HomePage() {
 
           <HeroEntrance delay={360}>
             <div className="flex gap-4 flex-wrap max-sm:flex-col max-sm:items-stretch">
-              <Link href="/evaluation-with-jas" className="btn btn-white btn-lg min-w-[240px]">
+              <Link href="/evaluation-with-behavior-specialist" className="btn btn-white btn-lg min-w-[240px]">
                 Book Evaluation &rarr;
               </Link>
               <Link href="/newclientservices" className="btn btn-outline-white min-w-[240px]">
@@ -250,7 +253,7 @@ export default async function HomePage() {
               <div className="w-12 h-[3px] bg-blue-500 mb-6" />
               <p className="font-body text-[15px] text-gray-muted leading-[1.7] mb-6">
                 Born in Yonkers, raised in Oakland &mdash; Jas Leverette built Cali K9&reg; from a van and a phone number in San Jose
-                into America&rsquo;s most trusted dog training brand. 15+ years. 3,500+ dogs. Netflix. And counting. As host of
+                into America&rsquo;s most trusted dog training brand. 15+ years. 10,000+ dogs. Netflix. And counting. As host of
                 Netflix&rsquo;s <em>Canine Intervention</em>, Jas proves one thing over and over: there is no such thing as an unfixable dog.
               </p>
               <Link href="/about-us" className="btn btn-blue">
@@ -363,7 +366,7 @@ export default async function HomePage() {
                 ))}
               </div>
               <Link
-                href="/evaluation-with-jas"
+                href="/evaluation-with-behavior-specialist"
                 className="btn btn-blue"
               >
                 GET MY DOG EVALUATED &rarr;
@@ -426,8 +429,8 @@ export default async function HomePage() {
           </div>
 
           <div className="text-center">
-            <Link href="/online-training-program2" className="btn btn-white btn-lg">
-              Get the 5-Pillar Program &rarr;
+            <Link href="/evaluation-with-behavior-specialist" className="btn btn-white btn-lg">
+              Book Evaluation &rarr;
             </Link>
           </div>
         </div>
@@ -484,51 +487,6 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ── FREE TRAINING RESOURCE ── */}
-      <section className="py-20 max-md:py-12 max-[480px]:py-8 bg-off">
-        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
-          <div className="grid grid-cols-2 gap-[72px] items-center max-[900px]:grid-cols-1 max-[900px]:gap-10">
-            <figure className="relative">
-              <Image
-                src="/images/cdn/jas-board-and-train.webp"
-                alt="Jas Leverette with dogs during board and train program"
-                width={900}
-                height={1053}
-                className="w-full h-[clamp(320px,42vw,520px)] object-cover object-top rounded-xl"
-              />
-              <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm rounded-md px-3 py-1.5">
-                <span className="font-ui text-[10px] font-bold tracking-[2px] uppercase text-white/50 block">Founder</span>
-                <span className="font-ui text-xs font-bold tracking-[1px] text-white/80">Jas Leverette &middot; Cali K9&reg; Founder</span>
-              </div>
-            </figure>
-            <div>
-              <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
-                Free Training Resource
-              </span>
-              <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink mb-4">
-                START TRAINING FREE!
-              </h2>
-              <div className="w-12 h-[3px] bg-blue-500 mb-6" />
-              <p className="font-body text-base text-gray-muted leading-[1.65] mb-8 max-w-[440px]">
-                First steps to the Cali K9 System. Get instant access to our <strong>&ldquo;3 Tips To Motivate Your Dog&rdquo;</strong> Video
-                by filling out the form below.
-              </p>
-              <iframe
-                src="https://api.leadconnectorhq.com/widget/form/m3PZaFKdwEQZ40N1n1Ac"
-                id="inline-m3PZaFKdwEQZ40N1n1Ac"
-                data-layout="{'id':'INLINE'}"
-                data-trigger-type="alwaysShow"
-                data-form-name="3 Tips to Keep Your Dog From Being Distracted - New"
-                data-height="386"
-                data-form-id="m3PZaFKdwEQZ40N1n1Ac"
-                title="3 Tips to Keep Your Dog From Being Distracted"
-                className="w-full h-[386px] border-none rounded-sm block overflow-hidden"
-                loading="lazy"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ── SHOP TEASER ── */}
       <section className="py-20 max-md:py-12 max-[480px]:py-8 bg-cream">
@@ -547,7 +505,14 @@ export default async function HomePage() {
             </p>
           </div>
 
-          <ShopTeaser products={allProducts} />
+          <ShopTeaser
+            products={allProducts}
+            apparelCard={{
+              title: "Cali K9 Apparel",
+              href: "/shop",
+              image: "/images/cdn/66f3574be550d972a87c4363.webp",
+            }}
+          />
 
           <div className="text-center">
             <Link
@@ -565,7 +530,7 @@ export default async function HomePage() {
         eyebrow="Get Started"
         heading="READY TO TRANSFORM YOUR DOG?"
         description="Join thousands of families who've trusted Cali K9® to unlock their dog's potential. Results guaranteed."
-        primaryCta={{ label: "Book Evaluation \u2192", href: "/evaluation-with-jas" }}
+        primaryCta={{ label: "Book Evaluation \u2192", href: "/evaluation-with-behavior-specialist" }}
         secondaryCta={{ label: "View Programs \u2192", href: "/newclientservices" }}
       />
 

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const TRAINING_LINKS = [
   { href: "/newclientservices", label: "All Services" },
-  { href: "/evaluation-with-jas", label: "Evaluation" },
+  { href: "/evaluation-with-behavior-specialist", label: "Evaluation" },
   { href: "/board-and-train", label: "Board & Train" },
   { href: "/online-training-program2", label: "Online Program" },
 ];

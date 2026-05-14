@@ -94,7 +94,6 @@ export default function SemiPrivatePage() {
                 "2-3 dogs per session (max)",
                 "Certified Cali K9 trainer",
                 "Custom training focus per session",
-                "Session notes after each class",
                 "Scheduling flexibility",
               ].map((item, i) => (
                 <li
@@ -122,10 +121,8 @@ export default function SemiPrivatePage() {
               {[
                 "10 semi-private training sessions",
                 "Everything in the 5-Session Package",
-                "Mid-program progress review",
                 "Priority scheduling",
                 "Email support between sessions",
-                "Graduation assessment",
               ].map((item, i) => (
                 <li
                   key={i}
@@ -185,11 +182,10 @@ export default function SemiPrivatePage() {
         </div>
         <ul className="list-none p-0 m-0 mb-4">
           {[
-            "A behavior evaluation is required before enrolling in any semi-private program.",
             "All dogs must be current on core vaccinations prior to their first session.",
             "Handler must attend all sessions \u2014 your presence and participation are essential.",
             "Not suitable for dogs with active dog-to-dog aggression. Contact us if unsure.",
-            "Sessions are held at our Bay Area and Los Angeles facilities.",
+            "Sessions are held at our Bay Area, Los Angeles, Miami, and New York facilities.",
           ].map((item) => (
             <li
               key={item}
@@ -205,7 +201,7 @@ export default function SemiPrivatePage() {
         <p className="font-body text-sm text-white/70 mt-2">
           Not sure if semi-private is right for your dog?{" "}
           <Link
-            href="/evaluation-with-jas"
+            href="/evaluation-with-behavior-specialist"
             className="text-blue-400 font-semibold hover:underline"
           >
             Book an Evaluation
@@ -222,7 +218,7 @@ export default function SemiPrivatePage() {
         eyebrow="Get Started"
         heading="READY TO TRANSFORM YOUR DOG?"
         description="Join thousands of families who've trusted Cali K9\u00ae to unlock their dog's potential. Results guaranteed."
-        primaryCta={{ label: "Book Evaluation \u2192", href: "/evaluation-with-jas" }}
+        primaryCta={{ label: "Book Evaluation \u2192", href: "/evaluation-with-behavior-specialist" }}
         secondaryCta={{ label: "View Programs \u2192", href: "/newclientservices" }}
       />
     </main>

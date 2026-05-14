@@ -22,29 +22,35 @@ const LOCATIONS = [
   {
     city: "San Jose",
     brand: "Cali K9\u00ae Bay Area",
-    address: "950 South 1st Street\nSan Jose, CA 95110",
     phone: "(408)\u00a0770\u20117556",
     phoneHref: "tel:4087707556",
   },
   {
     city: "Los Angeles",
     brand: "Cali K9\u00ae LA",
-    address: "5015 Lankershim Blvd.\nNorth Hollywood, CA 91601",
     phone: "(818)\u00a0740\u20117681",
     phoneHref: "tel:8187407681",
+  },
+  {
+    city: "Miami",
+    brand: "Cali K9\u00ae Miami",
+  },
+  {
+    city: "New York",
+    brand: "Cali K9\u00ae New York",
   },
 ];
 
 const BUSINESS_HOURS = [
-  { day: "Tue \u2013 Fri", time: "11am \u2013 8pm" },
-  { day: "Saturday", time: "9am \u2013 5pm" },
-  { day: "Sun \u2013 Mon", time: "Closed", closed: true },
+  { day: "Tue \u2013 Sat", time: "11am \u2013 8pm" },
+  { day: "Sunday (San Jose)", time: "11am \u2013 5pm" },
+  { day: "Monday", time: "Closed", closed: true },
 ];
 
 const TRAINING_HOURS = [
-  { day: "Tue \u2013 Fri", time: "11am \u2013 8pm" },
-  { day: "Saturday", time: "10am \u2013 5pm" },
-  { day: "Sun \u2013 Mon", time: "Closed", closed: true },
+  { day: "Tue \u2013 Sat", time: "11am \u2013 8pm" },
+  { day: "Sunday (San Jose)", time: "11am \u2013 5pm" },
+  { day: "Monday", time: "Closed", closed: true },
 ];
 
 /* ── SVG icons ── */
@@ -167,7 +173,7 @@ export default function ContactPage() {
           </p>
           <div className="flex gap-4 flex-wrap max-[768px]:flex-col max-[768px]:items-stretch">
             <Link
-              href="/evaluation-with-jas"
+              href="/evaluation-with-behavior-specialist"
               className="btn btn-white btn-lg max-[768px]:w-full max-[768px]:justify-center"
             >
               Book Evaluation &rarr;
@@ -302,23 +308,19 @@ export default function ContactPage() {
                     <div className="font-ui text-xs font-bold tracking-[3px] uppercase text-white/40 mb-4">
                       {loc.brand}
                     </div>
-                    <div className="flex gap-2.5 items-start mb-2.5">
-                      <MapPinIcon className="text-blue-400 shrink-0 mt-0.5" />
-                      <div className="font-body text-sm text-white/70 leading-relaxed whitespace-pre-line">
-                        {loc.address}
+                    {loc.phone && (
+                      <div className="flex gap-2.5 items-start">
+                        <PhoneSmallIcon className="text-blue-400 shrink-0 mt-0.5" />
+                        <div className="font-body text-sm text-white/70 leading-relaxed">
+                          <a
+                            href={loc.phoneHref}
+                            className="text-blue-400 hover:underline no-underline"
+                          >
+                            {loc.phone}
+                          </a>
+                        </div>
                       </div>
-                    </div>
-                    <div className="flex gap-2.5 items-start">
-                      <PhoneSmallIcon className="text-blue-400 shrink-0 mt-0.5" />
-                      <div className="font-body text-sm text-white/70 leading-relaxed">
-                        <a
-                          href={loc.phoneHref}
-                          className="text-blue-400 hover:underline no-underline"
-                        >
-                          {loc.phone}
-                        </a>
-                      </div>
-                    </div>
+                    )}
                   </div>
                 ))}
               </div>
@@ -375,7 +377,7 @@ export default function ContactPage() {
         eyebrow="Not Sure Where To Start?"
         heading="BOOK YOUR EVALUATION"
         description="Don't know which program fits your dog? Schedule an evaluation \u2014 we'll find the right fit for your dog."
-        primaryCta={{ label: "Schedule Evaluation \u2192", href: "/evaluation-with-jas" }}
+        primaryCta={{ label: "Schedule Evaluation \u2192", href: "/evaluation-with-behavior-specialist" }}
         secondaryCta={{ label: "View All Programs", href: "/newclientservices" }}
         dark
       />

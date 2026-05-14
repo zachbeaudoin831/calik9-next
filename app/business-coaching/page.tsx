@@ -3,7 +3,6 @@ import Image from "next/image";
 import ServiceHero from "@/components/ServiceHero";
 import PackageHeading from "@/components/PackageHeading";
 import CelebGrid from "@/components/CelebGrid";
-import CtaBlock from "@/components/CtaBlock";
 import TestimonialSection from "@/components/TestimonialSection";
 
 export const metadata: Metadata = {
@@ -77,20 +76,112 @@ export default function CoachingPage() {
         sidebar={
           <div className="bg-white/[0.07] border border-white/[0.15] rounded-xl p-7">
             <div className="font-display text-[clamp(22px,2.5vw,28px)] font-bold tracking-[1px] uppercase text-white mb-2">
-              Book a Free Strategy Call
+              Mentorship Qualifier
             </div>
             <div className="font-body text-sm text-white/50 mb-4 leading-normal">
-              Schedule a 30-minute call with our team to see if coaching is the
-              right fit for you.
+              Fill the form to find out if you qualify for the Mentorship Program.
             </div>
-            <iframe
-              src="https://api.leadconnectorhq.com/widget/booking/6lvTV85e5Qo4Wm27E9qG"
-              className="w-full border-none rounded-sm block overflow-hidden"
-              style={{ height: "700px" }}
-              scrolling="no"
-              title="Business Coaching Calendar"
-              loading="lazy"
-            />
+            <form className="space-y-3 font-body text-sm text-white/80">
+              <div>
+                <label className="block font-ui text-[11px] font-bold tracking-[2px] uppercase text-white/55 mb-1">Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  className="w-full bg-white/[0.06] border border-white/15 rounded-sm px-3 py-2 text-white placeholder-white/30 focus:outline-none focus:border-blue-400 transition-colors"
+                />
+              </div>
+              <div>
+                <label className="block font-ui text-[11px] font-bold tracking-[2px] uppercase text-white/55 mb-1">Phone number</label>
+                <input
+                  type="tel"
+                  name="phone"
+                  required
+                  className="w-full bg-white/[0.06] border border-white/15 rounded-sm px-3 py-2 text-white placeholder-white/30 focus:outline-none focus:border-blue-400 transition-colors"
+                />
+              </div>
+              <div>
+                <label className="block font-ui text-[11px] font-bold tracking-[2px] uppercase text-white/55 mb-1">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  className="w-full bg-white/[0.06] border border-white/15 rounded-sm px-3 py-2 text-white placeholder-white/30 focus:outline-none focus:border-blue-400 transition-colors"
+                />
+              </div>
+              <div>
+                <label className="block font-ui text-[11px] font-bold tracking-[2px] uppercase text-white/55 mb-1">
+                  Current experience level with dogs and dog training
+                </label>
+                <textarea
+                  name="experience"
+                  rows={2}
+                  className="w-full bg-white/[0.06] border border-white/15 rounded-sm px-3 py-2 text-white placeholder-white/30 focus:outline-none focus:border-blue-400 transition-colors resize-none"
+                />
+              </div>
+              <div>
+                <label className="block font-ui text-[11px] font-bold tracking-[2px] uppercase text-white/55 mb-1">
+                  Biggest goal from joining the Cali K9 Mentorship Program
+                </label>
+                <textarea
+                  name="goal"
+                  rows={2}
+                  className="w-full bg-white/[0.06] border border-white/15 rounded-sm px-3 py-2 text-white placeholder-white/30 focus:outline-none focus:border-blue-400 transition-colors resize-none"
+                />
+              </div>
+              <div>
+                <label className="block font-ui text-[11px] font-bold tracking-[2px] uppercase text-white/55 mb-1">
+                  Current monthly income from dog training or related services
+                </label>
+                <input
+                  type="text"
+                  name="income"
+                  className="w-full bg-white/[0.06] border border-white/15 rounded-sm px-3 py-2 text-white placeholder-white/30 focus:outline-none focus:border-blue-400 transition-colors"
+                />
+              </div>
+              <div>
+                <label className="block font-ui text-[11px] font-bold tracking-[2px] uppercase text-white/55 mb-1">
+                  How committed are you to investing time, energy, and money into becoming successful? (1–10)
+                </label>
+                <input
+                  type="number"
+                  name="commitment"
+                  min={1}
+                  max={10}
+                  className="w-full bg-white/[0.06] border border-white/15 rounded-sm px-3 py-2 text-white placeholder-white/30 focus:outline-none focus:border-blue-400 transition-colors"
+                />
+              </div>
+              <div>
+                <label className="block font-ui text-[11px] font-bold tracking-[2px] uppercase text-white/55 mb-1">
+                  Why do you believe you are a good fit for this mentorship program?
+                </label>
+                <textarea
+                  name="fit"
+                  rows={2}
+                  className="w-full bg-white/[0.06] border border-white/15 rounded-sm px-3 py-2 text-white placeholder-white/30 focus:outline-none focus:border-blue-400 transition-colors resize-none"
+                />
+              </div>
+              <div>
+                <label className="block font-ui text-[11px] font-bold tracking-[2px] uppercase text-white/55 mb-1">
+                  Are you prepared to invest in mentorship if accepted into the program?
+                </label>
+                <select
+                  name="invest"
+                  className="w-full bg-white/[0.06] border border-white/15 rounded-sm px-3 py-2 text-white focus:outline-none focus:border-blue-400 transition-colors"
+                >
+                  <option value="" className="bg-blue-700">Select…</option>
+                  <option value="yes" className="bg-blue-700">Yes</option>
+                  <option value="no" className="bg-blue-700">No</option>
+                  <option value="maybe" className="bg-blue-700">Maybe — depends on details</option>
+                </select>
+              </div>
+              <button
+                type="submit"
+                className="w-full font-ui text-sm font-bold tracking-[2px] uppercase bg-blue-500 text-white px-5 py-3 rounded-sm mt-2 hover:bg-blue-700 transition-colors"
+              >
+                Submit Application
+              </button>
+            </form>
           </div>
         }
         intro={
@@ -108,7 +199,7 @@ export default function CoachingPage() {
 
             <PackageHeading as="h1">
               Learn How to Build a 6-7 Figure Dog Training Business That Runs
-              Without You
+              Without Running You to the Ground
             </PackageHeading>
 
             <p className="font-body text-base text-white/70 leading-relaxed mb-6">
@@ -121,29 +212,10 @@ export default function CoachingPage() {
           </>
         }
       >
-        {/* Video badge */}
-        <div className="mb-5">
-          <span className="inline-flex items-center gap-2 bg-green-400/[0.15] border border-green-400/[0.35] text-green-400 font-ui text-base font-bold tracking-[0.1em] uppercase px-4 py-1.5 rounded-full">
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <polygon points="5 3 19 12 5 21 5 3" />
-            </svg>
-            Watch The Video Below!
-          </span>
-        </div>
-
-        {/* Hero video */}
+        {/* Hero video — clean thumbnail (video frame at metadata load,
+            browser will overlay its own play button) */}
         <video
           className="w-full h-auto rounded-xl mb-8 block bg-black"
-          poster="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/66a6bf61161e927f9b55aa1f.png"
           controls
           playsInline
           preload="metadata"
@@ -210,14 +282,6 @@ export default function CoachingPage() {
       {/* ── Celebrity Social Proof ── */}
       <CelebGrid />
 
-      {/* ── Final CTA ── */}
-      <CtaBlock
-        eyebrow="Ready to Scale?"
-        heading="BOOK YOUR FREE STRATEGY CALL"
-        description="Join other dog trainers who&rsquo;ve scaled their business with Jas Leverette&rsquo;s proven systems. 30 minutes could change your business forever."
-        primaryCta={{ label: "Book Strategy Call \u2192", href: "#main-content" }}
-        secondaryCta={{ label: "Learn More \u2192", href: "/contact-us" }}
-      />
     </main>
   );
 }

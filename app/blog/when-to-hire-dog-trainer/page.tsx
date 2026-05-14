@@ -65,12 +65,12 @@ export default function WhenToHireDogTrainerPage() {
               .
             </p>
 
-            <div className="relative aspect-[4/3] rounded-xl overflow-hidden my-10">
+            <div className="relative aspect-[16/10] rounded-xl overflow-hidden my-10 bg-black">
               <Image
                 src="/images/jas-eval.webp"
                 alt="Cali K9 professional trainer conducting a dog behavior evaluation"
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
 
@@ -175,18 +175,18 @@ export default function WhenToHireDogTrainerPage() {
 
             <p>
               When safety is involved, speed matters more than budget. An{" "}
-              <Link href="/evaluation-with-jas" className="text-blue-500 underline hover:text-blue-700">
+              <Link href="/evaluation-with-behavior-specialist" className="text-blue-500 underline hover:text-blue-700">
                 evaluation
               </Link>{" "}
               is the fastest way to get a clear action plan.
             </p>
 
-            <div className="relative aspect-[4/3] rounded-xl overflow-hidden my-10">
+            <div className="relative aspect-[16/10] rounded-xl overflow-hidden my-10 bg-black">
               <Image
                 src="/images/dog-line-up.webp"
                 alt="Multiple dogs trained to hold position at Cali K9 training facility"
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
 
@@ -324,12 +324,12 @@ export default function WhenToHireDogTrainerPage() {
               </li>
             </ul>
 
-            <div className="relative aspect-[4/3] rounded-xl overflow-hidden my-10">
+            <div className="relative aspect-[16/10] rounded-xl overflow-hidden my-10 bg-black">
               <Image
                 src="/images/trained-dogs2.jpeg"
                 alt="Dogs showing transformation results after professional Cali K9 training"
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
 
@@ -391,7 +391,7 @@ export default function WhenToHireDogTrainerPage() {
             <p>
               If any of these signs resonated with you, the best next step is
               simple:{" "}
-              <Link href="/evaluation-with-jas" className="text-blue-500 underline hover:text-blue-700">
+              <Link href="/evaluation-with-behavior-specialist" className="text-blue-500 underline hover:text-blue-700">
                 book an evaluation
               </Link>
               . At Cali K9, evaluations are $27 and give you a complete
@@ -484,7 +484,7 @@ export default function WhenToHireDogTrainerPage() {
         eyebrow="Start Here"
         heading="BOOK YOUR EVALUATION"
         description="A $27 evaluation gives you a complete behavioral assessment, custom training roadmap, and program recommendation for your dog."
-        primaryCta={{ label: "Book Evaluation \u2014 $27 \u2192", href: "/evaluation-with-jas" }}
+        primaryCta={{ label: "Book Evaluation \u2014 $27 \u2192", href: "/evaluation-with-behavior-specialist" }}
         secondaryCta={{ label: "View Programs \u2192", href: "/newclientservices" }}
         dark
       />

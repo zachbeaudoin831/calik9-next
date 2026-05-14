@@ -137,24 +137,19 @@ export default function ShopPage() {
 
   return (
     <>
-      {/* ── Hero ── */}
-      <section className="hero-standard relative flex items-center overflow-hidden py-24 pb-20 max-[900px]:min-h-0 max-[900px]:py-20 max-[900px]:pb-12">
-        <div
-          className="absolute w-[600px] h-[600px] max-md:w-[360px] max-md:h-[360px] max-[480px]:w-[220px] max-[480px]:h-[220px] rounded-full pointer-events-none z-0 -top-[100px] left-[28%]"
-          style={{ background: "radial-gradient(circle, rgba(106,159,255,0.16) 0%, transparent 70%)" }}
-        />
-        <div className="max-w-[1200px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 relative z-[1] text-left w-full">
-          <div className="flex items-center gap-[14px] mb-6 flex-wrap">
-            <span className="inline-flex items-center bg-white/15 border border-white/30 rounded-sm px-5 py-[9px] font-ui text-sm font-bold tracking-[2.5px] uppercase text-white">
+      {/* ── Hero (compact) ── */}
+      <section className="relative overflow-hidden py-10 max-md:py-8" style={{ background: "linear-gradient(135deg, #122E85 0%, #122E85 50%, #1A3FAB 100%)" }}>
+        <div className="max-w-[1200px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 relative z-[1] flex items-end justify-between gap-6 flex-wrap">
+          <div>
+            <span className="inline-flex items-center bg-white/15 border border-white/30 rounded-sm px-3 py-1 font-ui text-[11px] font-bold tracking-[2px] uppercase text-white mb-2">
               Official Store
             </span>
+            <h1 className="font-display text-[clamp(28px,4vw,40px)] leading-none tracking-[1px] text-white">
+              CALI K9 <span className="text-[#8A97C4]">GEAR</span>
+            </h1>
           </div>
-          <h1 className="font-display text-[clamp(40px,6vw,72px)] leading-none tracking-[1px] text-white mb-5">
-            CALI K9 <span className="text-[#8A97C4]">GEAR</span>
-          </h1>
-          <p className="font-ui text-[18px] text-white/70 tracking-[0.5px] leading-[1.6] max-w-[600px] mb-9">
+          <p className="font-ui text-[14px] text-white/70 tracking-[0.5px] leading-[1.5] max-w-[420px]">
             Professional training equipment, premium treats, and Cali K9&reg; apparel.
-            Everything Jas uses with his dogs.
           </p>
         </div>
       </section>

@@ -4,6 +4,7 @@ import ServiceHero from "@/components/ServiceHero";
 import StarsRow from "@/components/StarsRow";
 import PackageHeading from "@/components/PackageHeading";
 import PackageList from "@/components/PackageList";
+import PriceBlock from "@/components/PriceBlock";
 import FormEmbed from "@/components/FormEmbed";
 import CelebMiniGrid from "@/components/CelebMiniGrid";
 import CelebGrid from "@/components/CelebGrid";
@@ -12,11 +13,11 @@ import CtaBlock from "@/components/CtaBlock";
 export const metadata: Metadata = {
   title: "Board & Train Program | Cali K9®",
   description:
-    "Intensive residential board and train dog training program in Los Angeles and Miami. Four-week Elite program with certified trainers.",
+    "Residential board and train dog training. Four-week Board & Train and seven-week Elite Board & Train programs with certified Cali K9 trainers.",
   openGraph: {
     title: "Board & Train Program | Cali K9®",
     description:
-      "Intensive residential board and train dog training program in Los Angeles and Miami. Four-week Elite program with certified trainers.",
+      "Residential board and train dog training. Four-week Board & Train and seven-week Elite Board & Train programs with certified Cali K9 trainers.",
     url: "https://calik9.com/board-and-train",
     images: ["https://calik9.com/images/cdn/66a311486dce452f20d2ffcd.webp"],
   },
@@ -45,12 +46,11 @@ export default function BoardAndTrainPage() {
           <>
             <StarsRow />
 
-            <PackageHeading as="h1">Board &amp; Train in Los Angeles</PackageHeading>
+            <PackageHeading as="h1">Board &amp; Train</PackageHeading>
 
             <p className="font-body text-base text-white/70 leading-relaxed mb-6">
-              Our most intensive program. Your dog lives with a certified Cali K9
-              trainer and works the 5-Pillar System every single day. 3 structured
-              training sessions per day, 7 days a week.
+              Our most transformational program. 3 structured training sessions
+              per day, 7 days a week.
             </p>
           </>
         }
@@ -71,26 +71,66 @@ export default function BoardAndTrainPage() {
           </cite>
         </blockquote>
 
-        {/* ── Elite 4-Week Board & Train ── */}
-        <PackageHeading as="h2">Elite Board &amp; Train</PackageHeading>
+        {/* ── Board & Train (4 weeks) ── */}
+        <PackageHeading as="h2">Board &amp; Train</PackageHeading>
 
         <PackageList
-          title="Elite Board & Train Includes:"
+          title="What's Included:"
           items={[
-            "Full-board residential training — dog lives with trainer",
-            "3 sessions per day for 28 days (4 weeks)",
-            "Cali K9 Starter Kit included",
-            "Daily photo and video updates",
-            "Graduation handoff session with your trainer",
-            "60-day email follow-up support",
-            "Mid-program review call with trainer",
+            { text: "Four weeks of intensive training", bold: true },
+            "3 training sessions per day",
+            "Weekly update calls",
+            "Graduation handoff session with trainer",
+            "4 follow-up semi-private classes",
+            "4 follow-up group classes",
+            "Live Zoom group training (1 year)",
+            "Obedience",
+            "Socialization",
+            "Agility",
+            "Behavior Modification",
+            "Problem Solving Techniques",
           ]}
         />
 
-        <p className="font-body text-sm text-white/50 italic mt-6">
-          * A behavior evaluation is required before enrollment. This ensures we
-          set the right expectations and design the right plan for your dog.
-        </p>
+        <PriceBlock
+          price="$5,997"
+          note="one-time · Payment plans available"
+        />
+
+        {/* Strong visual divide between the two packages */}
+        <div className="my-12 flex items-center gap-4">
+          <span className="flex-1 h-px bg-blue-400/40" />
+          <span className="font-ui text-[11px] font-bold tracking-[3px] uppercase text-blue-300/80">
+            Or Step Up
+          </span>
+          <span className="flex-1 h-px bg-blue-400/40" />
+        </div>
+
+        {/* ── Elite Board & Train (7 weeks) ── */}
+        <PackageHeading as="h2">Elite Board &amp; Train</PackageHeading>
+
+        <PackageList
+          title="What's Included:"
+          items={[
+            { text: "Seven weeks of intensive training", bold: true },
+            "3 training sessions per day",
+            "Weekly update calls",
+            "Graduation handoff session with trainer",
+            "8 follow-up semi-private classes",
+            "Follow-up group classes (1 year)",
+            "Live Zoom group training (1 year)",
+            "Obedience",
+            "Socialization",
+            "Agility",
+            "Behavior Modification",
+            "Problem Solving Techniques",
+          ]}
+        />
+
+        <PriceBlock
+          price="$9,997"
+          note="one-time · Payment plans available"
+        />
       </ServiceHero>
 
       {/* ── About the Program ── */}
@@ -110,36 +150,13 @@ export default function BoardAndTrainPage() {
             {/* Left column */}
             <div>
               <h3 className="font-display text-xl text-ink mb-4 flex items-center gap-2">
-                <span>&#127968;</span> Full-Board Residential Training
-              </h3>
-              <p className="font-body text-[15px] text-gray-muted leading-[1.7] mb-4">
-                Your dog moves into the trainer&rsquo;s home for the full program
-                duration &mdash; no kennel, no cage facility. This is full-board
-                residential training where your dog lives alongside a certified
-                Cali K9 trainer and receives structured work every single day.
-              </p>
-              <p className="font-body text-[15px] text-gray-muted leading-[1.7] mb-4">
-                The program is built on the Cali K9 5-Pillar System: leadership,
-                communication, discipline, socialization, and maintenance. Each
-                day includes 3 professional training sessions covering obedience,
-                behavior modification, and real-world exposure.
-              </p>
-              <p className="font-body text-[15px] text-gray-muted leading-[1.7] mb-6">
-                At the end of the program, you return for a graduation handoff
-                session where you learn every command, routine, and technique
-                your dog has been trained on &mdash; so you can maintain the
-                results at home.
-              </p>
-
-              <h3 className="font-display text-xl text-ink mb-4 flex items-center gap-2">
                 <span>&#9888;&#65039;</span> Important Notes
               </h3>
               <ul className="list-none space-y-2">
                 {[
-                  "A behavior evaluation is required before enrollment in any Board & Train program",
                   "Dogs must be up to date on vaccinations including Bordetella (kennel cough)",
                   "Program duration may be extended based on your dog's needs — discussed during evaluation",
-                  "Board & Train is available in Los Angeles, CA and Miami, FL",
+                  "Board & Train is available in Los Angeles, CA, Miami, FL, and New York, NY",
                   "Spots are limited — we only take a small number of dogs at a time to ensure quality",
                 ].map((note) => (
                   <li
@@ -188,10 +205,8 @@ export default function BoardAndTrainPage() {
                 <ul className="list-none space-y-2">
                   {[
                     "3 professional training sessions per day",
-                    "Daily photo & video updates sent to you",
-                    "Cali K9 Starter Kit (leash, collar, training tools)",
+                    "Weekly video updates and phone call",
                     "Graduation handoff session with your trainer",
-                    "Post-program follow-up support via email",
                     "Access to online training community",
                   ].map((item) => (
                     <li
@@ -219,7 +234,7 @@ export default function BoardAndTrainPage() {
         eyebrow="Get Started"
         heading="READY TO TRANSFORM YOUR DOG?"
         description="Join thousands of families who've trusted Cali K9® to unlock their dog's potential. Results guaranteed."
-        primaryCta={{ label: "Book Evaluation →", href: "/evaluation-with-jas" }}
+        primaryCta={{ label: "Book Evaluation →", href: "/evaluation-with-behavior-specialist" }}
         secondaryCta={{ label: "View Programs →", href: "/newclientservices" }}
       />
     </main>

@@ -35,7 +35,7 @@ function Stars({ dark }: { dark?: boolean }) {
 
 export default function TestimonialSection({
   eyebrow = "Real Transformations",
-  heading = "WHAT 3,500+ OWNERS SAY",
+  heading = "WHAT 10,000+ DOG OWNERS ARE SAYING",
   testimonials,
   theme = "light",
   ctaHref,

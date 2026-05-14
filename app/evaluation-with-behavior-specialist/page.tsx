@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: "Dog Behavior Evaluation | Cali K9\u00ae",
     description:
       "Book a behavior evaluation with Cali K9\u00ae. Our experts pinpoint the root cause and give you a custom training roadmap. Discover your dog\u2019s path to transformation.",
-    url: "https://calik9.com/evaluation-with-jas",
+    url: "https://calik9.com/evaluation-with-behavior-specialist",
     images: ["https://calik9.com/images/cdn/66a311486dce452f20d2ffcd.webp"],
   },
   twitter: {
@@ -58,7 +58,7 @@ const PROCESS_STEPS = [
   {
     num: 2,
     title: "YOUR EVALUATION",
-    desc: "In-person at one of our locations or via Zoom \u2014 a 30\u201345 minute deep dive into your dog\u2019s behavior. A Cali K9 expert conducts a thorough behavioral assessment.",
+    desc: "A 20 minute deep dive into your dog\u2019s behavior. A Cali K9 expert conducts a thorough behavioral assessment and then gives a professional recommendation to help you find solutions.",
   },
   {
     num: 3,
@@ -68,10 +68,9 @@ const PROCESS_STEPS = [
 ];
 
 const STATS = [
-  { num: "3,500+", label: "Dogs Evaluated" },
+  { num: "10,000+", label: "Dogs Evaluated" },
   { num: "15+", label: "Years Experience" },
   { num: "4.9\u2605", label: "Average Rating" },
-  { num: "11", label: "Celebrity Clients" },
   { num: "100%", label: "Commitment" },
 ];
 
@@ -156,15 +155,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "How long does the evaluation take?",
-    a: "A standard evaluation is 30\u201345 minutes. For more complex behavioral issues \u2014 severe aggression, multiple behaviors, trauma \u2014 we may schedule 60 minutes to ensure we get it right. We never rush an evaluation.",
-  },
-  {
-    q: "Can I do the evaluation online over Zoom?",
-    a: "Absolutely. Our Zoom evaluations are just as thorough as in-person. You\u2019ll share video footage of your dog\u2019s behavior, and our specialist guides you through the same diagnostic process. Many clients outside LA, Bay Area, and Miami use this option.",
-  },
-  {
-    q: "My dog is really aggressive. Is it safe?",
-    a: "Yes. We\u2019ve evaluated thousands of aggressive dogs \u2014 including dogs that had bitten their owners. Our team is specifically trained in behavior modification for aggression. We\u2019ll give you safety protocols before you arrive. Aggressive dogs are our specialty.",
+    a: "A standard evaluation is 20 minutes. We never rush an evaluation.",
   },
   {
     q: "Will Jas personally do my evaluation?",
@@ -172,7 +163,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "What if I can\u2019t afford the training programs?",
-    a: "We offer multiple levels \u2014 from the $27/month Skool community to the $500 online course. Payment plans are available for in-person and board and train programs. The evaluation will help us recommend the right program for your budget.",
+    a: "We offer multiple levels \u2014 from the $27/month Skool community to the $497 online course. Payment plans are available for in-person and board and train programs. The evaluation will help us recommend the right program for your budget.",
   },
   {
     q: "What breeds and ages do you work with?",
@@ -180,7 +171,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "How soon can I get an evaluation?",
-    a: "We typically contact you within 24 hours of booking and can often schedule within 3\u20137 days. Zoom evaluations can often be scheduled within 48 hours. Fill out the form and we\u2019ll find the first available slot for you.",
+    a: "As soon as you commit to the evaluation you will receive an email to book yourself on our calendar. We do evaluations Monday through Friday.",
   },
 ];
 
@@ -196,9 +187,6 @@ export default function EvaluationPage() {
             </div>
             <div className="flex items-baseline gap-2 mb-5">
               <span className="font-display text-[40px] text-white leading-none">$27</span>
-              <span className="font-ui text-xs font-semibold tracking-[1px] uppercase text-white/50">
-                One-time &middot; No subscription
-              </span>
             </div>
             <FormEmbed
               formId="GtiGDcoxe0fG5ufwj7Km"
@@ -206,27 +194,6 @@ export default function EvaluationPage() {
               title="Book Your Evaluation"
               height={804}
             />
-
-            {/* Desktop-only AMAVI photo below the cart. Mobile renders the
-                same image inside the intro section to fill the hero. */}
-            <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(0,0,0,0.25)] aspect-[16/10] mt-5 max-[900px]:hidden">
-              <Image
-                src="/images/trained-dogs1.jpeg"
-                alt="Cali K9 trained dogs sitting calmly outside a Miami restaurant"
-                fill
-                className="object-cover"
-                style={{ objectPosition: "center 78%" }}
-                sizes="50vw"
-              />
-              <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm rounded-md px-3 py-1.5">
-                <span className="font-ui text-[10px] font-bold tracking-[2px] uppercase text-white/50 block">
-                  Real Cali K9 Clients
-                </span>
-                <span className="font-ui text-xs font-bold tracking-[1px] text-white/85">
-                  Off-leash control in the real world
-                </span>
-              </div>
-            </div>
           </>
         }
         intro={
@@ -264,27 +231,6 @@ export default function EvaluationPage() {
           </>
         }
       >
-        {/* Mobile-only image, below the video. Desktop renders the same
-            photo below the form in the sidebar so it sits beneath the cart. */}
-        <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-[0_12px_40px_rgba(0,0,0,0.25)] aspect-[16/10] mb-6 min-[901px]:hidden">
-          <Image
-            src="/images/trained-dogs1.jpeg"
-            alt="Cali K9 trained dogs sitting calmly outside a Miami restaurant"
-            fill
-            className="object-cover"
-            style={{ objectPosition: "center 78%" }}
-            sizes="100vw"
-          />
-          <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm rounded-md px-3 py-1.5">
-            <span className="font-ui text-[10px] font-bold tracking-[2px] uppercase text-white/50 block">
-              Real Cali K9 Clients
-            </span>
-            <span className="font-ui text-xs font-bold tracking-[1px] text-white/85">
-              Off-leash control in the real world
-            </span>
-          </div>
-        </div>
-
         {/* We address pills */}
         <div className="mb-6">
           <div className="font-ui text-xs font-bold tracking-[2px] uppercase text-white/45 mb-3">
@@ -587,11 +533,10 @@ export default function EvaluationPage() {
 
       {/* ── Final CTA ── */}
       <CtaBlock
-        eyebrow="15 Years. 3,500+ Dogs."
+        eyebrow="15 Years. 10,000+ Dogs."
         heading="READY TO START?"
-        description="In 15 years and 3,500+ evaluations, our team has yet to encounter a dog they couldn&rsquo;t help."
+        description="In 15 years and 10,000+ evaluations, our team has yet to encounter a dog they couldn&rsquo;t help."
         primaryCta={{ label: "Book My Evaluation \u2014 $27 \u2192", href: "#main-content" }}
-        secondaryCta={{ label: "Get in Touch \u2192", href: "/contact-us" }}
       />
     </main>
   );

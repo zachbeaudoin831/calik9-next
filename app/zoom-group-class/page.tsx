@@ -12,11 +12,11 @@ import FormEmbed from "@/components/FormEmbed";
 export const metadata: Metadata = {
   title: "Zoom Group | Cali K9\u00ae",
   description:
-    "Monthly Zoom coaching for existing Cali K9 clients. 4 live sessions per month with certified trainers for $47/month.",
+    "Monthly Zoom coaching for existing Cali K9 clients. 4 live sessions per month with certified trainers for $97/month.",
   openGraph: {
     title: "Zoom Group | Cali K9\u00ae",
     description:
-      "Monthly Zoom coaching for existing Cali K9 clients. 4 live sessions per month with certified trainers for $47/month.",
+      "Monthly Zoom coaching for existing Cali K9 clients. 4 live sessions per month with certified trainers for $97/month.",
     url: "https://calik9.com/zoom-group-class",
     images: ["https://calik9.com/images/cdn/66a311486dce452f20d2ffcd.webp"],
   },
@@ -37,7 +37,7 @@ export default function ZoomGroupPage() {
           <FormEmbed
             formId="cwARHdUU73yIpW7KMhp9"
             formName="Zoom Group"
-            title="Join Zoom Group — $47/mo"
+            title="Join Zoom Group — $97/mo"
             height={830}
           />
         }
@@ -51,7 +51,7 @@ export default function ZoomGroupPage() {
               >
                 Cali K9
               </em>{" "}
-              Zoom Group $47/mo
+              Zoom Group $97/mo
             </PackageHeading>
 
             <p className="font-body text-base text-white/70 leading-relaxed mb-6">
@@ -82,7 +82,7 @@ export default function ZoomGroupPage() {
         {/* Disclaimer */}
         <div className="bg-white/[0.06] border border-white/10 rounded-lg px-6 py-5">
           <p className="font-body text-sm text-white/55 leading-relaxed">
-            This membership is a recurring monthly subscription at $47/month. You
+            This membership is a recurring monthly subscription at $97/month. You
             can cancel anytime from your account. No cancellation fees. Sessions
             are held weekly on Zoom with a certified Cali K9 trainer.
           </p>
@@ -93,7 +93,7 @@ export default function ZoomGroupPage() {
           This program is available to existing Cali K9 clients only. If you
           haven&rsquo;t trained with us yet,{" "}
           <Link
-            href="/evaluation-with-jas"
+            href="/evaluation-with-behavior-specialist"
             className="text-white/70 underline hover:text-white/90"
           >
             start with an evaluation
@@ -140,7 +140,7 @@ export default function ZoomGroupPage() {
         eyebrow="Get Started"
         heading="READY TO TRANSFORM YOUR DOG?"
         description="Join thousands of families who've trusted Cali K9\u00ae to unlock their dog's potential. Results guaranteed."
-        primaryCta={{ label: "Book Evaluation \u2192", href: "/evaluation-with-jas" }}
+        primaryCta={{ label: "Book Evaluation \u2192", href: "/evaluation-with-behavior-specialist" }}
         secondaryCta={{ label: "View Programs \u2192", href: "/newclientservices" }}
       />
     </main>

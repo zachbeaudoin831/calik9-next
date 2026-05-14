@@ -66,9 +66,7 @@ export default function GroupClassPage() {
             "Certified Cali K9 Trainer Every Session",
             "Structured Monthly Curriculum",
             "Community App Access & Training Resources",
-            "Written Session Notes After Every Class",
-            "Max 8 Dogs Per Class",
-            "Bay Area & Los Angeles Locations",
+            "Bay Area, Los Angeles, Miami & New York Locations",
           ]}
         />
 
@@ -106,7 +104,7 @@ export default function GroupClassPage() {
         eyebrow="Get Started"
         heading="READY TO TRANSFORM YOUR DOG?"
         description="Join thousands of families who've trusted Cali K9\u00ae to unlock their dog's potential. Results guaranteed."
-        primaryCta={{ label: "Book Evaluation \u2192", href: "/evaluation-with-jas" }}
+        primaryCta={{ label: "Book Evaluation \u2192", href: "/evaluation-with-behavior-specialist" }}
         secondaryCta={{ label: "View Programs \u2192", href: "/newclientservices" }}
       />
     </main>

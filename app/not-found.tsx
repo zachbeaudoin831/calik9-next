@@ -50,7 +50,7 @@ export default function NotFound() {
             Back to Home &rarr;
           </Link>
           <Link
-            href="/evaluation-with-jas"
+            href="/evaluation-with-behavior-specialist"
             className="inline-flex items-center justify-center px-8 py-3.5 border-2 border-white/30 text-white font-ui text-[13px] font-bold tracking-[2px] uppercase rounded-lg hover:border-white/60 transition-colors"
           >
             Book Evaluation

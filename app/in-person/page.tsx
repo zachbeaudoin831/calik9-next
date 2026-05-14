@@ -91,20 +91,25 @@ export default function InPersonPage() {
 
         <hr className="border-0 border-t border-white/[0.12] my-9" />
 
-        {/* ── In-Person Package ── */}
-        <PackageHeading as="h2">In-Person Package</PackageHeading>
+        {/* ── In-Person Dog Training Package (12 Sessions) ── */}
+        <PackageHeading as="h2">
+          In-Person Dog Training Package (12 Sessions)
+        </PackageHeading>
+        <p className="font-ui text-sm tracking-[1px] text-white/55 -mt-2 mb-5">
+          (for dogs with no aggression or anxiety issues)
+        </p>
 
         <PackageList
           title="What's Included:"
           items={[
-            { text: "5 Private Training Sessions", bold: true },
-            "Certified Cali K9 Trainer",
-            "Customized Training Plan",
-            "Session Recap Notes",
-            "Email Support Between Sessions",
-            "Communication & Focus Training",
-            "Obedience Foundation",
-            "The 5-Pillar Method",
+            { text: "2 Private Training Sessions", bold: true },
+            "2 Semi-Private Sessions",
+            "4 Group Classes",
+            "4 Group Zoom Classes",
+            "Obedience",
+            "Socialization",
+            "Urban Agility",
+            "Problem Solving Techniques",
           ]}
         />
 
@@ -115,20 +120,22 @@ export default function InPersonPage() {
 
         <hr className="border-0 border-t border-white/[0.12] my-9" />
 
-        {/* ── Elite In-Person Package ── */}
-        <PackageHeading as="h2">Elite In-Person Package</PackageHeading>
+        {/* ── Elite In-Person Dog Training Package (24 Sessions) ── */}
+        <PackageHeading as="h2">
+          Elite In-Person Dog Training Package (24 Sessions)
+        </PackageHeading>
 
         <PackageList
           title="What's Included:"
           items={[
-            { text: "10 Private Training Sessions", bold: true },
-            "Everything in In-Person Package",
-            "In-Home or Facility Sessions",
-            "Mid-Program Progress Review",
-            "Priority Scheduling",
+            { text: "2 Private Training Sessions", bold: true },
+            "6 Semi-Private Sessions",
+            "8 Group Classes",
+            "8 Group Zoom Classes",
+            "Obedience",
+            "Socialization",
             "Behavior Modification",
-            "Custom Training Plan Updates",
-            "Progress Tracking & Documentation",
+            "Problem Solving Techniques",
           ]}
         />
 
@@ -139,20 +146,31 @@ export default function InPersonPage() {
 
         <hr className="border-0 border-t border-white/[0.12] my-9" />
 
-        {/* ── VIP Training Package ── */}
-        <PackageHeading as="h2">VIP Training Package</PackageHeading>
+        {/* ── VIP Dog Training ── */}
+        <PackageHeading as="h2">VIP Dog Training</PackageHeading>
+
+        <p className="font-body text-base text-white/70 leading-relaxed mb-6">
+          Cali K9&rsquo;s VIP package delivers one-on-one, fully personalized
+          training tailored to your dog&rsquo;s needs, lifestyle, and goals.
+          Sessions focus on advanced skills including reliable off-leash
+          obedience, professional service-dog task training, and specialized
+          behaviors for high-performance or lifestyle demands. With flexible
+          scheduling, premium support, and measurable progress plans, this
+          program is ideal for owners who want elite results and lasting
+          reliability.
+        </p>
 
         <PackageList
           title="What's Included:"
           items={[
-            { text: "20 Private Training Sessions", bold: true },
-            "Everything in Elite Package",
-            "Direct Access to Senior Trainer",
-            "Video Analysis of Sessions",
-            "Lifetime Email Support",
-            "Advanced Behavior Modification",
-            "Real-World Environment Training",
-            "Graduation Assessment",
+            { text: "10 Private OR 5 At-Home Sessions", bold: true },
+            "1 Year of Group Classes",
+            "1 Year of Group Zoom Classes",
+            "Obedience",
+            "Socialization",
+            "Agility",
+            "Behavior Modification",
+            "Problem Solving Techniques",
           ]}
         />
 
@@ -222,7 +240,7 @@ export default function InPersonPage() {
               </p>
               <ul className="list-none p-0 m-0">
                 {[
-                  "Dog must have passed a Behavior Evaluation",
+                  "Dog must not be in heat",
                   "No active injury at time of sessions",
                   "All vaccinations current",
                   "Handler must attend all sessions",
@@ -282,9 +300,8 @@ export default function InPersonPage() {
               </p>
               <ul className="list-none p-0 m-0">
                 {[
-                  "Initial Behavior Evaluation ($27) required",
                   "Payment plans available for all packages",
-                  "No refunds after training has begun",
+                  "No refunds",
                 ].map((item) => (
                   <li
                     key={item}
@@ -318,7 +335,7 @@ export default function InPersonPage() {
         eyebrow="Get Started"
         heading="READY TO TRANSFORM YOUR DOG?"
         description="Join thousands of families who've trusted Cali K9® to unlock their dog's potential. Results guaranteed."
-        primaryCta={{ label: "Book Evaluation \u2192", href: "/evaluation-with-jas" }}
+        primaryCta={{ label: "Book Evaluation \u2192", href: "/evaluation-with-behavior-specialist" }}
         secondaryCta={{ label: "View Programs \u2192", href: "/newclientservices" }}
       />
     </main>
