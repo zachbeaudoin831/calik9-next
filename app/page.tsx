@@ -280,11 +280,11 @@ export default async function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-4 gap-6 max-lg:grid-cols-2 max-sm:grid-cols-1">
+          <div className="grid grid-cols-3 gap-6 max-lg:grid-cols-2 max-sm:grid-cols-1">
             {PROGRAMS.map((p) => (
               <div
                 key={p.title}
-                className={`relative rounded-xl border p-8 card-hover ${
+                className={`relative rounded-xl border p-8 card-hover flex flex-col items-center text-center ${
                   p.featured
                     ? "bg-blue-500 border-blue-500 text-white"
                     : "bg-white border-border text-ink"
@@ -301,7 +301,7 @@ export default async function HomePage() {
                 </p>
                 <Link
                   href={p.href}
-                  className={`inline-block font-ui text-xs font-bold uppercase tracking-[2px] px-5 py-2.5 rounded-sm no-underline transition-colors ${
+                  className={`mt-auto inline-block font-ui text-xs font-bold uppercase tracking-[2px] px-5 py-2.5 rounded-sm no-underline transition-colors ${
                     p.featured
                       ? "bg-white text-blue-500 hover:bg-off"
                       : "border border-blue-500 text-blue-500 hover:bg-blue-50"
