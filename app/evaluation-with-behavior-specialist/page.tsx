@@ -70,7 +70,7 @@ const PROCESS_STEPS = [
 const STATS = [
   { num: "10,000+", label: "Dogs Evaluated" },
   { num: "15+", label: "Years Experience" },
-  { num: "4.9\u2605", label: "Average Rating" },
+  { num: "4.9", suffix: "\u2605", label: "Average Rating" },
   { num: "100%", label: "Commitment" },
 ];
 
@@ -396,11 +396,14 @@ export default function EvaluationPage() {
           </div>
 
           {/* Stats grid */}
-          <div className="grid grid-cols-5 gap-8 text-center mb-14 max-[768px]:grid-cols-3 max-[768px]:gap-5 max-[480px]:grid-cols-2 max-[480px]:gap-4">
+          <div className="grid grid-cols-4 gap-8 text-center mb-14 max-[768px]:grid-cols-2 max-[768px]:gap-5">
             {STATS.map((stat) => (
               <div key={stat.label}>
                 <div className="font-display text-5xl text-white leading-none max-[480px]:text-4xl">
                   {stat.num}
+                  {stat.suffix && (
+                    <span className="text-[0.6em] align-middle ml-1">{stat.suffix}</span>
+                  )}
                 </div>
                 <div className="font-ui text-xs font-semibold tracking-[2px] uppercase text-white/50 mt-1.5">
                   {stat.label}
