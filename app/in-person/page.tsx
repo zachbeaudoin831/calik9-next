@@ -78,13 +78,13 @@ export default function InPersonPage() {
         {/* Hero video */}
         <video
           className="w-full h-auto rounded-lg mb-8 block bg-black"
-          poster="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/67f5ad18a327bf43ebed69d4.png"
+          poster="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/67f5b65ea327bf4786ed6f6c.png"
           controls
           playsInline
           preload="metadata"
         >
           <source
-            src="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/67f5accfa327bf440fed6993.mp4"
+            src="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/67f5b5e93116e652821a1357.mp4"
             type="video/mp4"
           />
         </video>
