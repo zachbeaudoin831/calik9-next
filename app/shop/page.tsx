@@ -46,6 +46,15 @@ export default function ShopPage() {
   const [loadingHandles, setLoadingHandles] = useState<Set<string>>(new Set());
   const [activeLabel, setActiveLabel] = useState("All");
 
+  // Honor ?category=<handle> on first paint so teaser tiles can deep-link
+  // into a specific category (e.g. /shop?category=apparel).
+  useEffect(() => {
+    const handle = new URLSearchParams(window.location.search).get("category");
+    if (!handle) return;
+    const match = CATEGORIES.find((c) => c.handle === handle);
+    if (match) setActiveLabel(match.label);
+  }, []);
+
   // Filter state
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState<SortKey>("featured");
