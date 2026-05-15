@@ -56,9 +56,9 @@ const NEW_CLIENT_CARDS = [
     desc: "Built for dog trainers ready to scale. Leverage Jas\u2019s proven framework to grow a high-revenue training business.",
     href: "/business-coaching",
     bg: "linear-gradient(145deg, #0A1F3C, #0D2A5A, #0A3568)",
-    image: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/654a658a24fa464349af59f7.webp",
-    imageAlt: "Jas Leverette coaching dog trainers to scale their business",
-    imagePosition: "center top",
+    image: "/images/jas-coaching.jpeg",
+    imageAlt: "Jas Leverette coaching dog trainers in front of a whiteboard",
+    imagePosition: "center center",
   },
   {
     tag: "Coming Soon",
