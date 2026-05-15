@@ -212,13 +212,13 @@ export default function CoachingPage() {
           </>
         }
       >
-        {/* Hero video — clean thumbnail (video frame at metadata load,
-            browser will overlay its own play button) */}
+        {/* Hero video — custom poster shown until playback starts */}
         <video
           className="w-full h-auto rounded-xl mb-8 block bg-black"
           controls
           playsInline
           preload="metadata"
+          poster="/images/jas-mentorship.jpeg"
         >
           <source
             src="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/66a91067104a606d1d06c968.mp4"
