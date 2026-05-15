@@ -147,7 +147,7 @@ export default function ShopPage() {
   return (
     <>
       {/* ── Hero (compact) ── */}
-      <section className="relative overflow-hidden py-10 max-md:py-8" style={{ background: "linear-gradient(135deg, #122E85 0%, #122E85 50%, #1A3FAB 100%)" }}>
+      <section className="relative overflow-hidden pt-[88px] pb-10 max-md:pt-20 max-md:pb-8" style={{ background: "linear-gradient(135deg, #122E85 0%, #122E85 50%, #1A3FAB 100%)" }}>
         <div className="max-w-[1200px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 relative z-[1] flex items-end justify-between gap-6 flex-wrap">
           <div>
             <span className="inline-flex items-center bg-white/15 border border-white/30 rounded-sm px-3 py-1 font-ui text-[11px] font-bold tracking-[2px] uppercase text-white mb-2">
