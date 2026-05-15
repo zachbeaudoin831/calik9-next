@@ -18,6 +18,10 @@ const CATEGORIES: { label: string; handle: string }[] = [
   { label: "Apparel", handle: "apparel" },
 ];
 
+// Product titles hidden from the storefront (kept in Shopify but suppressed
+// in the UI). Comparison is lowercased + trimmed.
+const HIDDEN_TITLES = new Set<string>(["touchpad training box"]);
+
 type SortKey = "featured" | "price-asc" | "price-desc" | "name-asc" | "name-desc";
 
 const SORT_OPTIONS: { value: SortKey; label: string }[] = [
@@ -87,7 +91,14 @@ export default function ShopPage() {
   // Price bounds across the unfiltered (but cleaned) set so the placeholders
   // hint at the realistic min/max for the active category.
   const cleaned = useMemo(
-    () => (raw ? dedupeProductsByTitle(raw.filter((p) => !isServiceProduct(p))) : []),
+    () =>
+      raw
+        ? dedupeProductsByTitle(
+            raw
+              .filter((p) => !isServiceProduct(p))
+              .filter((p) => !HIDDEN_TITLES.has(p.title.trim().toLowerCase())),
+          )
+        : [],
     [raw],
   );
   const priceBounds = useMemo(() => {
