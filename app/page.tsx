@@ -510,7 +510,7 @@ export default async function HomePage() {
             apparelCard={{
               title: "Cali K9 Apparel",
               href: "/shop",
-              image: "/images/cdn/66f3574be550d972a87c4363.webp",
+              image: "https://cdn.shopify.com/s/files/1/0534/2275/1922/products/CALI-K9_-ALWAYS-TRAINING-Unisex-Hoodie-Cali-K9_-Online-Store-1662076241.jpg?v=1662076242",
             }}
           />
 
