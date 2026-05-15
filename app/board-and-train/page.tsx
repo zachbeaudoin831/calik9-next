@@ -146,9 +146,9 @@ export default function BoardAndTrainPage() {
             <div className="w-12 h-[3px] bg-blue-500 mx-auto" />
           </div>
 
-          <div className="grid grid-cols-2 gap-12 max-[900px]:grid-cols-1 max-[900px]:gap-8">
-            {/* Left column */}
-            <div>
+          <div className="grid grid-cols-3 gap-6 max-lg:grid-cols-2 max-md:grid-cols-1">
+            {/* Important Notes */}
+            <div className="bg-white border border-black/[0.06] rounded-xl p-6 h-full">
               <h3 className="font-display text-xl text-ink mb-4 flex items-center gap-2">
                 <span>&#9888;&#65039;</span> Important Notes
               </h3>
@@ -172,55 +172,54 @@ export default function BoardAndTrainPage() {
               </ul>
             </div>
 
-            {/* Right column */}
-            <div className="space-y-8">
-              <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-6">
-                <h3 className="font-display text-xl text-ink mb-4 flex items-center gap-2">
-                  <span>&#127919;</span> For Continued Training
-                </h3>
-                <p className="font-body text-[15px] text-gray-muted leading-[1.7] mb-3">
-                  After completing the Board &amp; Train program, we recommend
-                  continued reinforcement through our{" "}
-                  <Link
-                    href="/online-training-program2"
-                    className="text-blue-500 underline hover:text-blue-700"
-                  >
-                    online training platform
-                  </Link>{" "}
-                  or private follow-up sessions. Maintaining structure at home is
-                  the key to long-term success.
-                </p>
-                <p className="font-body text-[15px] text-gray-muted leading-[1.7]">
-                  Our team is available for follow-up coaching calls, group Zoom
-                  sessions, and advanced training if you want to take your
-                  dog&rsquo;s skills even further.
-                </p>
-              </div>
+            {/* For Continued Training */}
+            <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-6 h-full">
+              <h3 className="font-display text-xl text-ink mb-4 flex items-center gap-2">
+                <span>&#127919;</span> For Continued Training
+              </h3>
+              <p className="font-body text-[15px] text-gray-muted leading-[1.7] mb-3">
+                After completing the Board &amp; Train program, we recommend
+                continued reinforcement through our{" "}
+                <Link
+                  href="/online-training-program2"
+                  className="text-blue-500 underline hover:text-blue-700"
+                >
+                  online training platform
+                </Link>{" "}
+                or private follow-up sessions. Maintaining structure at home is
+                the key to long-term success.
+              </p>
+              <p className="font-body text-[15px] text-gray-muted leading-[1.7]">
+                Our team is available for follow-up coaching calls, group Zoom
+                sessions, and advanced training if you want to take your
+                dog&rsquo;s skills even further.
+              </p>
+            </div>
 
-              <div>
-                <h3 className="font-display text-xl text-ink mb-4 flex items-center gap-2">
-                  <span className="text-green-500">&#10003;</span> What&rsquo;s
-                  Included in Every Program
-                </h3>
-                <ul className="list-none space-y-2">
-                  {[
-                    "3 professional training sessions per day",
-                    "Weekly video updates and phone call",
-                    "Graduation handoff session with your trainer",
-                    "Access to online training community",
-                  ].map((item) => (
-                    <li
-                      key={item}
-                      className="font-body text-[15px] text-gray-muted leading-[1.6] pl-6 relative"
-                    >
-                      <span className="absolute left-0 text-green-500 font-bold">
-                        &#10003;
-                      </span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            {/* What's Included */}
+            <div className="bg-white border border-black/[0.06] rounded-xl p-6 h-full">
+              <h3 className="font-display text-xl text-ink mb-4 flex items-center gap-2">
+                <span className="text-green-500">&#10003;</span> What&rsquo;s
+                Included in Every Program
+              </h3>
+              <ul className="list-none space-y-2">
+                {[
+                  "3 professional training sessions per day",
+                  "Weekly video updates and phone call",
+                  "Graduation handoff session with your trainer",
+                  "Access to online training community",
+                ].map((item) => (
+                  <li
+                    key={item}
+                    className="font-body text-[15px] text-gray-muted leading-[1.6] pl-6 relative"
+                  >
+                    <span className="absolute left-0 text-green-500 font-bold">
+                      &#10003;
+                    </span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
