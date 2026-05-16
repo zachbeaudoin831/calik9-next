@@ -309,8 +309,8 @@ export default function TeamPage() {
             <blockquote>
               <p className="font-body text-base italic font-light text-white/85 leading-[1.82] mb-4">
                 &ldquo;Jas is the architect of the Cali K9 5-Pillar System and
-                the standard every trainer on this team is held to. Born in
-                Yonkers, raised in Oakland, he built Cali K9 from nothing into a
+                the standard every trainer on this team is held to. Raised in
+                Oakland, he built Cali K9 from nothing into a
                 global brand &mdash; and he still trains dogs personally. Every
                 team member learns directly under him.&rdquo;
               </p>

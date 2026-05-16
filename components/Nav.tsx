@@ -10,7 +10,6 @@ const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/newclientservices", label: "Services", hasSub: true },
   { href: "/about-us", label: "About" },
-  { href: "/team", label: "Team" },
   { href: "/testimonials", label: "Testimonials" },
   { href: "/blog", label: "Blog" },
   { href: "/contact-us", label: "Contact" },

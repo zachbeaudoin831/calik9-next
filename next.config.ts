@@ -29,6 +29,8 @@ const nextConfig: NextConfig = {
       { source: "/checkout-1week-board-training", destination: "/board-and-train", permanent: true },
       // Calik9.com had /home as an alias for /
       { source: "/home", destination: "/", permanent: true },
+      // Team page hidden for now — keep the route file but redirect visits.
+      { source: "/team", destination: "/about-us", permanent: false },
     ];
   },
 };

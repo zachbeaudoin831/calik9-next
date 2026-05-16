@@ -22,22 +22,26 @@ const LOCATIONS = [
   {
     city: "San Jose",
     brand: "Cali K9\u00ae Bay Area",
-    phone: "(408)\u00a0770\u20117556",
-    phoneHref: "tel:4087707556",
+    phone: "(510)\u00a0890\u20110298",
+    phoneHref: "tel:5108900298",
   },
   {
     city: "Los Angeles",
     brand: "Cali K9\u00ae LA",
-    phone: "(818)\u00a0740\u20117681",
-    phoneHref: "tel:8187407681",
+    phone: "(510)\u00a0890\u20110298",
+    phoneHref: "tel:5108900298",
   },
   {
     city: "Miami",
     brand: "Cali K9\u00ae Miami",
+    phone: "(510)\u00a0890\u20110298",
+    phoneHref: "tel:5108900298",
   },
   {
     city: "New York",
     brand: "Cali K9\u00ae New York",
+    phone: "(510)\u00a0890\u20110298",
+    phoneHref: "tel:5108900298",
   },
 ];
 

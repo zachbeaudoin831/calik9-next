@@ -252,7 +252,7 @@ export default async function HomePage() {
               </h2>
               <div className="w-12 h-[3px] bg-blue-500 mb-6" />
               <p className="font-body text-[15px] text-gray-muted leading-[1.7] mb-6">
-                Born in Yonkers, raised in Oakland &mdash; Jas Leverette built Cali K9&reg; from a van and a phone number in San Jose
+                Raised in Oakland &mdash; Jas Leverette built Cali K9&reg; from a van and a phone number in San Jose
                 into America&rsquo;s most trusted dog training brand. 15+ years. 10,000+ dogs. Netflix. And counting. As host of
                 Netflix&rsquo;s <em>Canine Intervention</em>, Jas proves one thing over and over: there is no such thing as an unfixable dog.
               </p>

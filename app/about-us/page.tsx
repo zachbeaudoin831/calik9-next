@@ -122,9 +122,9 @@ export default function AboutPage() {
             </HeroEntrance>
             <HeroEntrance delay={240}>
               <p className="font-ui text-[18px] text-white/70 tracking-[0.5px] leading-[1.6] max-w-[560px] mb-9">
-                Born in Yonkers. Raised in Oakland. Built worldwide. From the
-                streets to Netflix, Jas Leverette is redefining what professional
-                dog training looks like.
+                Raised in Oakland. Built worldwide. From the streets to Netflix,
+                Jas Leverette is redefining what professional dog training looks
+                like.
               </p>
             </HeroEntrance>
             <HeroEntrance delay={360}>
@@ -156,7 +156,7 @@ export default function AboutPage() {
                 The Origin Story
               </span>
               <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-ink mb-4">
-                FROM YONKERS<br />TO NETFLIX
+                FROM OAKLAND<br />TO NETFLIX
               </h2>
               <div className="w-12 h-[3px] bg-blue-500 mb-6" />
               <p className="font-body text-[15px] text-gray-muted leading-[1.8] mb-5">

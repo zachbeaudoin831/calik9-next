@@ -10,7 +10,6 @@ const TRAINING_LINKS = [
 
 const COMPANY_LINKS = [
   { href: "/about-us", label: "About Jas" },
-  { href: "/team", label: "Our Team" },
   { href: "/testimonials", label: "Testimonials" },
   { href: "/blog", label: "Blog" },
   { href: "/business-coaching", label: "Trainer Coaching" },
