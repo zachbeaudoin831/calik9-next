@@ -122,9 +122,9 @@ export default function AboutPage() {
             </HeroEntrance>
             <HeroEntrance delay={240}>
               <p className="font-ui text-[18px] text-white/70 tracking-[0.5px] leading-[1.6] max-w-[560px] mb-9">
-                Raised in Oakland. Built worldwide. From the streets to Netflix,
-                Jas Leverette is redefining what professional dog training looks
-                like.
+                Born in Yonkers. Raised in Oakland. Built worldwide. From the
+                streets to Netflix, Jas Leverette is redefining what professional
+                dog training looks like.
               </p>
             </HeroEntrance>
             <HeroEntrance delay={360}>
