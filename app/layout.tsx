@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import { bebasNeue, barlowCondensed, barlow } from "@/lib/fonts";
 import { CartProvider } from "@/context/CartContext";
@@ -31,6 +32,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <StickyBar />
           <CartDrawer />
         </CartProvider>
+        <Script
+          src="https://widgets.leadconnectorhq.com/loader.js"
+          data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+          data-widget-id="66c2826fd1bc9e0c6ef3ace2"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
