@@ -261,27 +261,20 @@ export default function EvaluationPage() {
         </div>
 
         {/* Mini stats */}
-        <div className="flex gap-8 flex-wrap max-[900px]:flex-col max-[900px]:items-center">
-          <div className="text-center">
-            <div className="font-display text-4xl max-[900px]:text-5xl text-white leading-none">10,000+</div>
-            <div className="font-ui text-xs font-semibold tracking-[2px] uppercase text-white/50 mt-1">
-              Dogs Evaluated
+        <div className="grid grid-cols-4 gap-6 text-center max-[900px]:grid-cols-2">
+          {STATS.map((stat) => (
+            <div key={stat.label}>
+              <div className="font-display text-4xl text-white leading-none">
+                {stat.num}
+                {stat.suffix && (
+                  <span className="text-[0.6em] align-middle ml-1">{stat.suffix}</span>
+                )}
+              </div>
+              <div className="font-ui text-xs font-semibold tracking-[2px] uppercase text-white/50 mt-1.5">
+                {stat.label}
+              </div>
             </div>
-          </div>
-          <div className="text-center">
-            <div className="font-display text-4xl max-[900px]:text-5xl text-white leading-none">15+</div>
-            <div className="font-ui text-xs font-semibold tracking-[2px] uppercase text-white/50 mt-1">
-              Years Experience
-            </div>
-          </div>
-          <div className="text-center">
-            <div className="font-display text-4xl max-[900px]:text-5xl text-white leading-none">
-              4.9<span className="text-[22px] align-middle ml-0.5">&#9733;</span>
-            </div>
-            <div className="font-ui text-xs font-semibold tracking-[2px] uppercase text-white/50 mt-1">
-              Average Rating
-            </div>
-          </div>
+          ))}
         </div>
       </ServiceHero>
 
