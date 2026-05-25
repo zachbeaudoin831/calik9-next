@@ -249,7 +249,7 @@ export default function EvaluationPage() {
         </div>
 
         {/* Checklist */}
-        <div className="flex flex-col gap-2.5 mb-8">
+        <div className="flex flex-col gap-2.5 mb-20">
           {CHECKLIST.map((item) => (
             <div
               key={item}
