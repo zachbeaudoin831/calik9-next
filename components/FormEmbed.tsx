@@ -30,7 +30,7 @@ export default function FormEmbed({ formId, formName, title, height = 896 }: For
         data-layout-iframe-id={`inline-${formId}`}
         data-form-id={formId}
         title={formName}
-        loading="lazy"
+        loading="eager"
         className="w-full border-none rounded-sm block overflow-hidden"
         style={{ height: `${height}px` }}
       />
