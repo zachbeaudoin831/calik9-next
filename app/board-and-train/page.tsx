@@ -52,6 +52,18 @@ export default function BoardAndTrainPage() {
               Our most transformational program. 3 structured training sessions
               per day, 7 days a week.
             </p>
+
+            <div className="hidden md:block space-y-4 mb-6">
+              <p className="font-body text-base text-white/70 leading-relaxed">
+                Drop your dog off with us and pick up a transformed animal. Our Board &amp; Train program immerses your dog in Jas Leverette&rsquo;s proven 5-Pillar Method &mdash; full-time, in our facility, with certified Cali K9 trainers guiding every session.
+              </p>
+              <p className="font-body text-base text-white/70 leading-relaxed">
+                No partial progress. No homework you have to figure out alone. While your dog lives and trains with us, we handle the heavy lifting &mdash; breaking through aggression, reactivity, anxiety, and deep-rooted behaviors that need consistent, expert hands to fix.
+              </p>
+              <p className="font-body text-base text-white/70 leading-relaxed">
+                You get your dog back obedient, confident, and ready for real life.
+              </p>
+            </div>
           </>
         }
       >
