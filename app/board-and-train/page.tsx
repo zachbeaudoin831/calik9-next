@@ -48,7 +48,7 @@ export default function BoardAndTrainPage() {
 
             <PackageHeading as="h1">Board &amp; Train</PackageHeading>
 
-            <p className="font-body text-base text-white/70 leading-relaxed mb-6">
+            <p className="font-body text-base text-white/70 leading-relaxed mb-4">
               Our most transformational program. 3 structured training sessions
               per day, 7 days a week.
             </p>
