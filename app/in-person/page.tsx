@@ -140,7 +140,7 @@ export default function InPersonPage() {
         />
 
         <PriceBlock
-          price="$1,997"
+          price="$2,497"
           note="one-time · Payment plans available"
         />
 
@@ -175,7 +175,7 @@ export default function InPersonPage() {
         />
 
         <PriceBlock
-          price="$3,997"
+          price="$4,997"
           note="one-time · Payment plans available"
         />
 
