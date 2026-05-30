@@ -14,11 +14,11 @@ import CtaBlock from "@/components/CtaBlock";
 export const metadata: Metadata = {
   title: "In-Person Dog Training | Cali K9\u00ae",
   description:
-    "One-on-one in-person dog training sessions with certified Cali K9 trainers. Three program options starting at $1,097.",
+    "One-on-one in-person dog training sessions with certified Cali K9 trainers. Three program options starting at $1,497.",
   openGraph: {
     title: "In-Person Dog Training | Cali K9\u00ae",
     description:
-      "One-on-one in-person dog training sessions with certified Cali K9 trainers. Three program options starting at $1,097.",
+      "One-on-one in-person dog training sessions with certified Cali K9 trainers. Three program options starting at $1,497.",
     url: "https://calik9.com/in-person",
     images: ["https://calik9.com/images/cdn/66a311486dce452f20d2ffcd.webp"],
   },
@@ -114,7 +114,7 @@ export default function InPersonPage() {
         />
 
         <PriceBlock
-          price="$1,097"
+          price="$1,497"
           note="one-time · Payment plans available"
         />
 
