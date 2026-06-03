@@ -105,7 +105,7 @@ export default function BoardAndTrainPage() {
         />
 
         <PriceBlock
-          price="$5,997"
+          price="$6,997"
           note="one-time · Payment plans available"
         />
 
