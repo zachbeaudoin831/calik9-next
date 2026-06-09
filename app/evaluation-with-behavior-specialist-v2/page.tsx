@@ -102,13 +102,6 @@ export default function EvaluationV2Page() {
           <div className="inline-block bg-amber-50 border border-amber-300 text-[#D4820A] font-ui text-[11px] font-bold tracking-[3px] uppercase px-5 py-2.5 rounded-sm mb-8">
             For Dog Owners Watching Their Dog Run the House
           </div>
-          <h1 className="font-display text-[clamp(42px,7.5vw,72px)] text-[#0D0D0D] leading-[1.0] uppercase mb-4">
-            What Netflix, Your Favorite Celebrity, and Millions of Instagram Followers All Trust &mdash;{" "}
-            <em className="not-italic text-[#1251CC]">Cali K9.</em>
-          </h1>
-          <p className="font-display text-[clamp(20px,3vw,28px)] text-[#333333] max-w-[620px] mx-auto leading-[1.3] uppercase mb-8">
-            Thousands of dogs transformed. Every breed. Every behavior problem. Now it&rsquo;s your turn.
-          </p>
           <video
             className="w-full rounded-xl block mb-8 bg-black"
             poster="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/67cf3c0717e9d95dac991999.png"
@@ -121,6 +114,13 @@ export default function EvaluationV2Page() {
               type="video/mp4"
             />
           </video>
+          <h1 className="font-display text-[clamp(42px,7.5vw,72px)] text-[#0D0D0D] leading-[1.0] uppercase mb-4">
+            What Netflix, Your Favorite Celebrity, and Millions of Instagram Followers All Trust &mdash;{" "}
+            <em className="not-italic text-[#1251CC]">Cali K9.</em>
+          </h1>
+          <p className="font-display text-[clamp(20px,3vw,28px)] text-[#333333] max-w-[620px] mx-auto leading-[1.3] uppercase mb-8">
+            Thousands of dogs transformed. Every breed. Every behavior problem. Now it&rsquo;s your turn.
+          </p>
           <p className="font-body text-[18px] text-[#333333] max-w-[620px] mx-auto leading-[1.7] mb-8">
             The <strong className="text-[#0D0D0D]">5-Pillar System</strong> is a simple, proven framework &mdash; Obedience,
             Socialization, Agility, Behavior Management, Problem Solving &mdash; that
