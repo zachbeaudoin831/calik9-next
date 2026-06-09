@@ -106,9 +106,21 @@ export default function EvaluationV2Page() {
             What Netflix, Your Favorite Celebrity, and Millions of Instagram Followers All Trust &mdash;{" "}
             <em className="not-italic text-[#1251CC]">Cali K9.</em>
           </h1>
-          <p className="font-display text-[clamp(20px,3vw,28px)] text-[#333333] max-w-[620px] mx-auto leading-[1.3] uppercase mb-6">
+          <p className="font-display text-[clamp(20px,3vw,28px)] text-[#333333] max-w-[620px] mx-auto leading-[1.3] uppercase mb-8">
             Thousands of dogs transformed. Every breed. Every behavior problem. Now it&rsquo;s your turn.
           </p>
+          <video
+            className="w-full rounded-xl block mb-8 bg-black"
+            poster="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/67cf3c0717e9d95dac991999.png"
+            controls
+            playsInline
+            preload="metadata"
+          >
+            <source
+              src="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/67d1be3a9138277227e87326.mp4"
+              type="video/mp4"
+            />
+          </video>
           <p className="font-body text-[18px] text-[#333333] max-w-[620px] mx-auto leading-[1.7] mb-8">
             The <strong className="text-[#0D0D0D]">5-Pillar System</strong> is a simple, proven framework &mdash; Obedience,
             Socialization, Agility, Behavior Management, Problem Solving &mdash; that
