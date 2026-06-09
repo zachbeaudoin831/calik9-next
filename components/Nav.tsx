@@ -64,7 +64,8 @@ export default function Nav() {
     <>
       <nav
         aria-label="Main navigation"
-        className={`fixed top-0 left-0 right-0 h-[68px] bg-white border-b-2 border-blue-500 z-[1000] transition-[box-shadow,top] duration-[200ms,450ms] ease-[ease,cubic-bezier(0.16,1,0.3,1)] ${
+        style={{ top: 'var(--banner-h, 0px)' }}
+        className={`fixed left-0 right-0 h-[68px] bg-white border-b-2 border-blue-500 z-[1000] transition-[box-shadow,top] duration-[200ms,450ms] ease-[ease,cubic-bezier(0.16,1,0.3,1)] ${
           scrolled ? "shadow-[0_2px_16px_rgba(0,0,0,0.1)]" : ""
         }`}
       >
