@@ -249,7 +249,7 @@ export default function EvaluationPage() {
         </div>
 
         {/* Checklist */}
-        <div className="flex flex-col gap-2.5 mb-20">
+        <div className="flex flex-col gap-2.5 mb-10">
           {CHECKLIST.map((item) => (
             <div
               key={item}
@@ -258,6 +258,43 @@ export default function EvaluationPage() {
               <span className="text-green-500 text-xl">&#10003;</span> {item}
             </div>
           ))}
+        </div>
+
+        {/* Free Bonus */}
+        <div className="bg-white/[0.07] border border-white/[0.18] rounded-xl p-5 mb-10">
+          <div className="mb-3">
+            <span className="inline-flex items-center gap-1.5 bg-green-500/20 border border-green-500/40 text-green-400 font-ui text-[11px] font-bold tracking-[2px] uppercase px-3 py-1.5 rounded-full">
+              🎁 Free Bonus &mdash; Included With Your Evaluation
+            </span>
+          </div>
+          <div className="font-display text-[22px] text-white leading-tight mb-1">
+            CALI K9 STARTER COURSE BUNDLE
+          </div>
+          <p className="font-body text-sm text-white/55 mb-4 leading-relaxed">
+            Start training your dog today &mdash; before your evaluation even happens.
+          </p>
+          <div className="flex flex-col gap-2.5 mb-4">
+            {[
+              { name: "Online Training 2.0 Mini Course", value: "$197" },
+              { name: "Dog Psychology 101", value: "$47" },
+              { name: "10 Rules To Stop Destructive Behavior", value: "$47" },
+            ].map((item) => (
+              <div key={item.name} className="flex items-center justify-between">
+                <span className="flex items-center gap-2 font-ui text-[13px] font-semibold text-white/80">
+                  <span className="text-green-400 text-base">&#10003;</span>
+                  {item.name}
+                </span>
+                <span className="font-ui text-xs text-white/35 line-through ml-3 shrink-0">{item.value}</span>
+              </div>
+            ))}
+          </div>
+          <div className="flex items-center justify-between border-t border-white/[0.12] pt-3">
+            <span className="font-ui text-xs font-bold uppercase tracking-[2px] text-white/50">Total Value</span>
+            <div className="flex items-center gap-2">
+              <span className="font-ui text-sm text-white/35 line-through">$291</span>
+              <span className="font-display text-2xl text-green-400 leading-none">FREE</span>
+            </div>
+          </div>
         </div>
 
         {/* Mini stats */}
