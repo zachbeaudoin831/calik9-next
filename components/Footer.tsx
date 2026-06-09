@@ -34,7 +34,7 @@ const POLICIES = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0D111C] text-white/70 pt-16 pb-[60px]">
+    <footer id="site-footer" className="bg-[#0D111C] text-white/70 pt-16 pb-[60px]">
       <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
         {/* Grid */}
         <div className="grid grid-cols-[1.5fr_1fr_1fr_1fr] gap-12 pb-12 max-[1024px]:grid-cols-[1.4fr_1fr_1fr] max-[1024px]:gap-8 max-[768px]:grid-cols-2 max-[480px]:grid-cols-1">

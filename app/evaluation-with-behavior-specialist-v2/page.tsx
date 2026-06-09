@@ -89,6 +89,10 @@ export default function EvaluationV2Page() {
   return (
     <main className="bg-white text-[#0D0D0D]">
       <style>{`
+        #site-nav,
+        #sale-banner,
+        #site-footer,
+        #sticky-bar,
         #chat-widget-container,
         .chat-widget-container,
         #lc-chat-widget,

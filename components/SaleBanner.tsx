@@ -13,7 +13,7 @@ export default function SaleBanner() {
   if (dismissed) return null;
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-[1001] h-10 bg-[#F59E0B] text-[#122E85] flex items-center justify-center px-4">
+    <div id="sale-banner" className="fixed top-0 left-0 right-0 z-[1001] h-10 bg-[#F59E0B] text-[#122E85] flex items-center justify-center px-4">
       <p className="font-ui text-sm font-bold tracking-[1px] uppercase text-center leading-none">
         ☀️ Summer Sale &mdash; 20% off all dog training packages.{" "}
         Use code{" "}

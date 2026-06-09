@@ -63,6 +63,7 @@ export default function Nav() {
   return (
     <>
       <nav
+        id="site-nav"
         aria-label="Main navigation"
         style={{ top: 'var(--banner-h, 0px)' }}
         className={`fixed left-0 right-0 h-[68px] bg-white border-b-2 border-blue-500 z-[1000] transition-[box-shadow,top] duration-[200ms,450ms] ease-[ease,cubic-bezier(0.16,1,0.3,1)] ${
