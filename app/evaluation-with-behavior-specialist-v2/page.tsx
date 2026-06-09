@@ -111,14 +111,14 @@ export default function EvaluationV2Page() {
       {/* ── Announcement bar ── */}
       <div className="bg-[#1251CC] text-white text-center py-3 px-4">
         <span className="font-ui text-[12px] font-bold tracking-[2px] uppercase">
-          🐾 &nbsp; A Dog Training System &mdash; The 5-Pillar Dog Behavior System &nbsp; 🐾
+          🐾 &nbsp; The Cali K9 5-Pillar Dog Training System &nbsp; 🐾
         </span>
       </div>
 
       {/* ════════════ HERO ════════════ */}
-      <div className="bg-white border-b border-gray-200 pt-20 pb-16 max-md:pt-14 max-md:pb-10 px-6 text-center">
+      <div className="bg-white border-b border-gray-200 pt-10 pb-16 max-md:pt-8 max-md:pb-10 px-6 text-center">
         <div className="max-w-[760px] mx-auto">
-          <div className="inline-block bg-amber-50 border border-amber-300 text-[#D4820A] font-ui text-[11px] font-bold tracking-[3px] uppercase px-5 py-2.5 rounded-sm mb-8">
+          <div className="inline-block bg-amber-50 border border-amber-300 text-[#D4820A] font-ui text-[11px] font-bold tracking-[3px] uppercase px-5 py-2.5 rounded-sm mb-10">
             For Dog Owners Watching Their Dog Run the House
           </div>
           <video
