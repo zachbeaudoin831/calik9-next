@@ -10,20 +10,20 @@ function BookingModal({ onClose }: { onClose: () => void }) {
       style={{ background: "rgba(0,0,0,0.75)" }}
       onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
     >
-      <div className="bg-white rounded-xl w-full max-w-[520px] max-h-[90vh] overflow-y-auto relative shadow-2xl">
+      <div className="rounded-xl w-full max-w-[520px] max-h-[90vh] overflow-y-auto relative shadow-2xl" style={{ background: "linear-gradient(135deg, #122E85 0%, #122E85 50%, #1A3FAB 100%)" }}>
         <button
           onClick={onClose}
           aria-label="Close"
-          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center text-gray-400 hover:text-gray-700 text-xl font-bold leading-none z-10 transition-colors"
+          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center text-white/50 hover:text-white text-xl font-bold leading-none z-10 transition-colors"
         >
           ✕
         </button>
         <div className="p-6 pt-10">
-          <div className="font-ui text-[13px] font-bold tracking-[2px] uppercase text-gray-500 mb-1">
+          <div className="font-ui text-[13px] font-bold tracking-[2px] uppercase text-white/60 mb-1">
             Book Your Evaluation &mdash; Takes 60 Seconds
           </div>
           <div className="flex items-baseline gap-2 mb-5">
-            <span className="font-display text-[40px] text-ink leading-none">$27</span>
+            <span className="font-display text-[40px] text-white leading-none">$27</span>
           </div>
           <FormEmbed
             formId="GtiGDcoxe0fG5ufwj7Km"
