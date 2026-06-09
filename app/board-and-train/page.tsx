@@ -140,7 +140,7 @@ export default function BoardAndTrainPage() {
         />
 
         <PriceBlock
-          price="$9,997"
+          price="$10,997"
           note="one-time · Payment plans available"
         />
       </ServiceHero>
