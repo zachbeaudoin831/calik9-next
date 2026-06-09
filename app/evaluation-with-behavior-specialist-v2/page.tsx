@@ -88,7 +88,21 @@ export default function EvaluationV2Page() {
 
   return (
     <main className="bg-white text-[#0D0D0D]">
-      <style>{`#chat-widget-container { display: none !important; }`}</style>
+      <style>{`
+        #chat-widget-container,
+        .chat-widget-container,
+        #lc-chat-widget,
+        iframe[src*="leadconnectorhq.com"],
+        iframe[src*="msgsndr.com"],
+        div[data-widget-id],
+        #LeadConnector,
+        .lc-chat-bubble,
+        .lc-chat-wrapper,
+        [id*="chat-widget"],
+        [class*="chat-widget"] {
+          display: none !important;
+        }
+      `}</style>
 
       {/* ── Announcement bar ── */}
       <div className="bg-[#1251CC] text-white text-center py-3 px-4">
