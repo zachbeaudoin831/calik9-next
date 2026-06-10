@@ -48,7 +48,9 @@ const NEW_CLIENT_CARDS = [
     bg: "linear-gradient(160deg, #04060F, #080C25, #0D1640)",
     image: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/67c270a01e6df2ebba9219d2.png",
     imageAlt: "Cali K9 Board & Train residential dog training facility",
-    imagePosition: "center center",
+    imagePosition: "center 65%",
+    imageScale: 1.4,
+    imageOrigin: "center 65%",
   },
   {
     tag: "For Professionals",
