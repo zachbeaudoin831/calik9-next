@@ -14,9 +14,9 @@ export default function Image() {
           height: "630px",
           display: "flex",
           backgroundImage:
-            "url(https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/67c270a01e6df2ebba9219d2.png)",
+            "url(https://calik9.com/images/returning-bt-dogs.png)",
           backgroundSize: "cover",
-          backgroundPosition: "center 45%",
+          backgroundPosition: "center center",
         }}
       />
     ),
