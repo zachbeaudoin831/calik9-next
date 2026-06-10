@@ -82,7 +82,9 @@ const RETURNING_CLIENT_CARDS = [
     bg: "linear-gradient(160deg, #04060F, #080C25, #0D1640)",
     image: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/67c270a01e6df2ebba9219d2.png",
     imageAlt: "Cali K9 Board & Train residential dog training facility",
-    imagePosition: "center center",
+    imagePosition: "center 65%",
+    imageScale: 1.4,
+    imageOrigin: "center 65%",
   },
   {
     tag: "Virtual",
@@ -135,9 +137,17 @@ const LOCATIONS = [
 
 const CARD_PLACEHOLDER_IMAGE = "/images/dog-line-up.webp";
 
-function ServiceCard({ card }: { card: typeof NEW_CLIENT_CARDS[0] }) {
+type CardData = typeof NEW_CLIENT_CARDS[0] & {
+  imageScale?: number;
+  imageOrigin?: string;
+  disabled?: boolean;
+};
+
+function ServiceCard({ card }: { card: CardData }) {
   const imageSrc = card.image ?? CARD_PLACEHOLDER_IMAGE;
   const imagePosition = card.imagePosition ?? "center";
+  const imageScale = card.imageScale ?? 1;
+  const imageOrigin = card.imageOrigin ?? "center center";
 
   const inner = (
     <article
@@ -147,14 +157,23 @@ function ServiceCard({ card }: { card: typeof NEW_CLIENT_CARDS[0] }) {
 
       {/* Top: image thumbnail */}
       <div className="relative w-full aspect-[16/9] overflow-hidden">
-        <Image
-          src={imageSrc}
-          alt={`${card.name.replace(/\n/g, " ")} \u2014 Cali K9`}
-          fill
-          className="object-cover transition-transform duration-500 group-hover:scale-[1.05]"
-          style={{ objectPosition: imagePosition }}
-          sizes="(max-width: 768px) 100vw, 560px"
-        />
+        {/* Static zoom layer \u2014 scales the image without conflicting with hover */}
+        <div
+          className="absolute inset-0"
+          style={{ transform: `scale(${imageScale})`, transformOrigin: imageOrigin }}
+        >
+          {/* Hover layer */}
+          <div className="w-full h-full transition-transform duration-500 group-hover:scale-[1.05]">
+            <Image
+              src={imageSrc}
+              alt={`${card.name.replace(/\n/g, " ")} \u2014 Cali K9`}
+              fill
+              className="object-cover"
+              style={{ objectPosition: imagePosition }}
+              sizes="(max-width: 768px) 100vw, 560px"
+            />
+          </div>
+        </div>
         {/* Gradient blends the image into the card body below */}
         <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-b from-transparent to-[#0A1A40]/85 pointer-events-none" />
       </div>
@@ -251,7 +270,7 @@ export default function ServicesPage() {
           <p className="font-ui text-sm font-bold tracking-[2px] uppercase text-gray-muted mb-10">Choose your service</p>
           <div className="grid grid-cols-3 gap-6 max-lg:grid-cols-2 max-md:grid-cols-1">
             {RETURNING_CLIENT_CARDS.map((card) => (
-              <ServiceCard key={card.name} card={card as typeof NEW_CLIENT_CARDS[0]} />
+              <ServiceCard key={card.name} card={card as CardData} />
             ))}
           </div>
         </div>
