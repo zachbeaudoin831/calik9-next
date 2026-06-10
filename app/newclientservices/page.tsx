@@ -75,6 +75,16 @@ const NEW_CLIENT_CARDS = [
 
 const RETURNING_CLIENT_CARDS = [
   {
+    tag: "Intensive · $2,997",
+    name: "2-WEEK\nBOARD & TRAIN",
+    desc: "For returning Cali K9 clients. Two weeks of residential intensive training to reinforce, sharpen, and advance your dog's skills.",
+    href: "/returning-board-and-train",
+    bg: "linear-gradient(160deg, #04060F, #080C25, #0D1640)",
+    image: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/67c270a01e6df2ebba9219d2.png",
+    imageAlt: "Cali K9 Board & Train residential dog training facility",
+    imagePosition: "center center",
+  },
+  {
     tag: "Virtual",
     name: "ZOOM\nGROUP CLASS",
     desc: "Live virtual group sessions with certified Cali K9 trainers. Reinforce training from anywhere in the world.",
