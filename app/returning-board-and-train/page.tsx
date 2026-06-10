@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     description:
       "Returning Cali K9 clients: two-week intensive residential Board & Train program to reinforce and advance your dog's training. $2,997.",
     url: "https://calik9.com/returning-board-and-train",
-    images: ["https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/67c270a01e6df2ebba9219d2.png"],
+    images: [],
   },
 };
 
