@@ -156,6 +156,9 @@ export default function EvaluationV2Page() {
             removes the guesswork from your dog&rsquo;s training so you always know
             exactly what your dog needs and what to do next.
           </p>
+          <p className="font-body text-[17px] text-gray-500 leading-relaxed max-w-[580px] mx-auto mb-6">
+            Putting it off now could mean paying far more later. Emergency vet bills often run into the thousands&mdash;and serious cases can cost $5,000 or more.
+          </p>
           <PriceRow badge="72% Off Today" />
           <div className="flex justify-center mb-1">
             <CtaButton onClick={open} size="lg" />
