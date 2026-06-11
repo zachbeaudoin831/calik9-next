@@ -163,6 +163,9 @@ export default function EvaluationV2Page() {
           <h2 className="font-display text-[clamp(32px,5vw,52px)] text-[#0D0D0D] leading-[1.05] uppercase mb-3">
             Here&rsquo;s What Happened When Real Owners Used the 5-Pillar System
           </h2>
+          <p className="font-display text-[clamp(18px,2.5vw,26px)] text-[#1251CC] uppercase leading-tight mb-3">
+            Trusted By The World&rsquo;s Biggest Names
+          </p>
           <div className="w-12 h-[3px] bg-[#1251CC] mb-8" />
           <div className="grid grid-cols-2 gap-5 max-md:grid-cols-1">
             {[
