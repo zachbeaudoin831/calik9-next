@@ -367,7 +367,7 @@ export default function EvaluationV2Page() {
             What To Expect
           </span>
           <h2 className="font-display text-[clamp(32px,5vw,52px)] text-[#0D0D0D] leading-[1.05] uppercase mb-3">
-            Here&rsquo;s What Happens After Your Behavior Breakthrough Assessment
+            Here&rsquo;s What Happens After You Get Your Behavior Breakthrough Bundle
           </h2>
           <div className="w-12 h-[3px] bg-[#1251CC] mb-10" />
           <div className="space-y-10">
