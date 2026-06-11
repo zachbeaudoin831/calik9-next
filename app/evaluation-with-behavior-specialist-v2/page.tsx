@@ -210,10 +210,31 @@ export default function EvaluationV2Page() {
             Here&rsquo;s What Happened When Real Owners Used the 5-Pillar System
           </h2>
           <div className="w-12 h-[3px] bg-[#1251CC] mb-8" />
+
+          {/* ── Video testimonials 2×2 ── */}
+          <div className="grid grid-cols-2 gap-4 max-[600px]:grid-cols-1 mb-10">
+            {[
+              "https://www.youtube.com/embed/MVnCZ9PX8UI",
+              "https://www.youtube.com/embed/hxP9Y7SWZyo",
+              "https://www.youtube.com/embed/_bkEiPII-X4",
+              "https://www.youtube.com/embed/HJ6Jh9DHAwI",
+            ].map((src) => (
+              <div key={src} className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+                <iframe
+                  src={src}
+                  title="Cali K9 testimonial"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="absolute inset-0 w-full h-full rounded-xl"
+                />
+              </div>
+            ))}
+          </div>
+
           <div className="grid grid-cols-2 gap-5 max-md:grid-cols-1">
             {[
               {
-                quote: "My GSD was completely out of control — charging the door, lunging at every dog on the street, wouldn't come when called no matter what. After the assessment with Jas I finally understood WHY. Six weeks in he walks right beside me. My neighbors can't believe it's the same dog.",
+                quote: "My GSD was completely out of control — charging the door, lunging at every dog on the street, wouldn't come when called no matter what. After the training with Jas I finally understood WHY. Six weeks in he walks right beside me. My neighbors can't believe it's the same dog.",
                 name: "Marcus T.", detail: "German Shepherd · Los Angeles",
                 result: "Leash reactive → fully controlled in 6 weeks",
               },
@@ -223,7 +244,7 @@ export default function EvaluationV2Page() {
                 result: "Misdiagnosed by 2 trainers → correct protocol → calm in 4 weeks",
               },
               {
-                quote: "I was about to rehome my Pit Bull. I'm not exaggerating. The $27 assessment was the last thing I tried before making that call. Jas broke down every single behavior and gave me a real plan. That was 3 months ago. My dog is the reason I get up excited every morning now.",
+                quote: "I was about to rehome my Pit Bull. I'm not exaggerating. Cali K9 changed my life. Jas broke down every single behavior and gave me a real plan. That was 3 months ago. My dog is the reason I get up excited every morning now.",
                 name: "Derek J.", detail: "American Pit Bull · New York",
                 result: "Near rehoming → transformed in 90 days",
               },
@@ -296,7 +317,7 @@ export default function EvaluationV2Page() {
           </ul>
           <div className="mt-8 p-7 bg-blue-50 border-l-4 border-[#1251CC] rounded-r-md">
             <p className="font-body text-[17px] leading-[1.8] text-[#222222]">
-              The dog isn&rsquo;t the problem. <strong className="text-[#0D0D0D]">The approach is the problem.</strong> Every solution you&rsquo;ve been sold — a new training tool, a new method, a new trainer — is just a different rod. It doesn&rsquo;t matter how good the rod is if nobody&rsquo;s taught you how to read the water you&rsquo;re fishing in. Your dog&rsquo;s behavior is information. Once you learn to read it, everything becomes obvious.
+              There&rsquo;s no bad dogs, only uninformed owners. It&rsquo;s time to be informed using the Cali K9 5-Pillar System.
             </p>
           </div>
         </div>
@@ -309,7 +330,7 @@ export default function EvaluationV2Page() {
             A Completely Different Approach
           </span>
           <h2 className="font-display text-[clamp(32px,5vw,52px)] text-[#0D0D0D] leading-[1.05] uppercase mb-3">
-            Here&rsquo;s Where the 5-Pillar System Is Built Different
+            Here&rsquo;s Why the 5-Pillar System Is Built Different
           </h2>
           <div className="w-12 h-[3px] bg-[#1251CC] mb-6" />
           <p className="font-body text-[17px] text-[#333333] leading-[1.75] mb-10 max-w-[640px]">
@@ -324,13 +345,13 @@ export default function EvaluationV2Page() {
               },
               {
                 num: "02", label: "Pillar 02 — Socialization",
-                title: "Read Your Dog the Way Jas Reads Every Dog",
-                body: "Once the foundation is set, most owners stare at bad behavior and panic. The 5-Pillar System teaches you to read your dog across 16 temperament dimensions — drive, threshold, social confidence, environmental sensitivity — all at once, the way a professional reads them. When you can read your dog correctly, you'll be able to tell the difference between a dog that needs more exposure and a dog that needs a completely different protocol.",
+                title: "Confidence Around People, Dogs, and Environments",
+                body: "Once obedience is in place, most owners assume the work is done — until their dog loses it around other dogs at parks, shuts down on a busy street, or can't function around strangers. The 5-Pillar System treats socialization not as casual exposure, but as a structured confidence-building process. The Cali K9 System teaches you to introduce your dog to the world — new people, other dogs, unpredictable environments — in a way that builds genuine calm, not forced tolerance. The goal isn't a dog that merely survives new situations. It's a dog that's well-balanced, stress-free, and actually enjoys the world around them.",
               },
               {
                 num: "03", label: "Pillar 03 — Agility",
-                title: "Channel Drive Before It Channels You",
-                body: "This is where most owners quietly give up. High-drive dogs — the Malinois, the Shepherd, the working-line breeds — need an outlet or they will create one. The outlet is usually your furniture, your guests, or your other dog. The 5-Pillar System gives you a clear framework for drive management so your dog's energy is working for you, not against you. No more nervously watching the door when someone knocks.",
+                title: "Physical and Mental Engagement for a Sharp Dog",
+                body: "The 5-Pillar System uses agility to unlock your dog's full potential — body and mind. Through fun, purposeful exercises, your dog builds coordination, sharpens problem-solving skills, and starts to discover what they're actually capable of. But the bigger shift happens in the relationship. Every time your dog works through a challenge and looks to you for the next move, that's trust being built in real time. A dog that learns they can figure things out doesn't just cope with new environments — they walk into them with confidence.",
               },
               {
                 num: "04", label: "Pillar 04 — Behavior Management",
@@ -340,7 +361,7 @@ export default function EvaluationV2Page() {
               {
                 num: "05", label: "Pillar 05 — Problem Solving",
                 title: "Solve the Actual Problem, Not the Symptom",
-                body: "This is what locks everything in. Once the first four pillars are in place, specific problems — aggression, reactivity, separation anxiety, resource guarding — become solvable because you understand the root cause. You stop being the owner whose results depend on which trainer they hired last and start being the one who can look at any behavior and know within minutes what's driving it and what protocol fits.",
+                body: "This is what locks everything in. Once the first four pillars are in place, specific problems — aggression, reactivity, separation anxiety, resource guarding — become solvable because you understand the root cause. You stop being the owner whose results depend on which trainer they hired last and start being the one who can look at any behavior and know within seconds what's driving it and what protocol fits.",
               },
             ].map((p) => (
               <div key={p.num} className="grid grid-cols-[60px_1fr] gap-x-6 items-start max-[480px]:grid-cols-1">
@@ -376,10 +397,10 @@ export default function EvaluationV2Page() {
                 step: "1", title: "In the Next 60 Minutes",
                 sub: "\"Oh. So THAT'S why my dog does that.\"",
                 checks: [
-                  "You'll complete your Behavior Breakthrough Assessment and get the first clear explanation of what's actually driving your dog's specific behaviors",
+                  "With your Evaluation and Behavior Breakthrough Bundle you'll get a clear explanation of what's actually driving your dog's specific behaviors",
                   "You'll identify which of the 16 temperament dimensions are at the root of the problems you've been fighting",
-                  "You'll discover whether your dog is a praise, food, or toy motivator — and why the wrong motivator has been undermining everything you've tried",
-                  "You'll know exactly which of the 5 Pillars your dog is missing and where to start",
+                  "You'll discover whether your dog is motivated by praise, food or toy — and why underutilizing your dog's motivation has not allowed your dog to reach their potential",
+                  "You'll understand exactly why the 5 Pillars will be able to transform your dog",
                 ],
               },
               {
@@ -388,7 +409,7 @@ export default function EvaluationV2Page() {
                 checks: [
                   "You'll apply the correct protocol to your dog's specific temperament profile — not a generic method",
                   "You'll stop reacting to every behavior incident and start responding based on what's actually happening in your dog's drive state",
-                  "You'll implement Place and threshold work as the structural foundation — and your dog's baseline stress level will start to drop",
+                  "You'll implement obedience as the structural foundation — and your dog's baseline stress level will start to drop. Your dog will build more trust and respect for your leadership",
                   "Your dog's behavior will start telling a different story — and you'll know how to read it",
                 ],
               },
@@ -457,10 +478,10 @@ export default function EvaluationV2Page() {
               </div>
               <div className="space-y-3 font-body text-[15px] text-[#333333] leading-[1.8]">
                 <p>I&rsquo;m not a dog training influencer. I&rsquo;m a practitioner who&rsquo;s been in this for 30 years — the last 17 professionally — working with everything from family pets to police K9s to some of the most high-profile dogs in the country.</p>
-                <p>A few years ago I watched the same pattern play out over and over. Owners showing up having already spent thousands — sometimes tens of thousands — on trainers and programs that produced results that lasted three weeks.</p>
+                <p>Owners showing up having already spent thousands — sometimes tens of thousands — on trainers and programs that produced results that lasted three weeks.</p>
                 <p>The problem wasn&rsquo;t the owners. It wasn&rsquo;t even most of the trainers. The problem was that nobody was addressing the foundation. Everyone was treating symptoms. Nobody was building the actual system the dog needed to stay trained.</p>
                 <p>So I took 30 years of what I knew worked — from military and police methodology, from working breeds, from behavioral rehabilitation — and built the 5-Pillar System. Not a method. A complete operating system for any dog.</p>
-                <p>The $27 Behavior Breakthrough Assessment is how it starts. Not because it&rsquo;s cheap — because it&rsquo;s the right first step. You can&rsquo;t build the right program for your dog until you know exactly what your dog actually needs.</p>
+                <p>The Evaluation and the Behavior Breakthrough Bundle is how it starts. Not because it&rsquo;s cheap — because it&rsquo;s the right first step. You can&rsquo;t build the right program for your dog until you know exactly what your dog actually needs.</p>
               </div>
               <div className="flex flex-wrap gap-6 mt-6 pt-6 border-t border-gray-200">
                 {[
@@ -541,8 +562,8 @@ export default function EvaluationV2Page() {
               { q: "My dog is older. Is it too late?", a: "No. The idea that you can't teach an old dog new tricks is one of the most damaging myths in dog training. Older dogs require a slightly different approach to proofing and securing — but the 5-Pillar framework applies at every age. We've seen dramatic turnarounds in dogs 8, 10, and 12 years old." },
               { q: "Will this work for my breed?", a: "Yes. The 5-Pillar System was built on 30 years of working with every breed category — working dogs, herding breeds, terriers, toy breeds, mixed breeds, and everything in between. The pillars are breed-agnostic. The temperament mapping inside the assessment is specifically designed to capture breed-specific drive and threshold differences." },
               { q: "I've tried everything. Why would this be different?", a: "Because everything you've tried was built on the same assumption — that training is about teaching commands. The 5-Pillar System is built on a different assumption: that behavior is a direct output of temperament, drive state, and social structure. Once you address those, commands aren't something you have to enforce. They become natural." },
-              { q: "What if I want more than the assessment?", a: "The assessment is the starting point. After completion, you'll have a clear picture of where your dog is and which Cali K9 program — In-Person Training, Board & Train, or Elite Package — is the right fit. The $27 is a qualifier, not a replacement for real training. It just makes sure you start in the right place." },
-              { q: "Is there a guarantee?", a: "Yes. Complete the full assessment within 30 days. If you don't have an entirely new understanding of your dog's behavior and what to do about it, email us and we'll refund every dollar. No questions, no hoops." },
+              { q: "What if I want more than the evaluation and the Behavior Breakthrough Bundle?", a: "The bundle and the evaluation is the starting point. After completion, you'll have a clear picture of where your dog is and which Cali K9 program — In-Person Training, Board & Train, or VIP Training — is the right fit. The $27 is a qualifier, not a replacement for real training. It just makes sure you start in the right place." },
+              { q: "Is there a guarantee?", a: "Yes. If you don't have an entirely new understanding of your dog's behavior and what to do about it, email us within 30 days and we'll refund every dollar. No questions asked, no hoops." },
             ].map((faq) => (
               <div key={faq.q} className="py-5">
                 <div className="font-ui text-[15px] font-bold text-[#0D0D0D] mb-2.5">{faq.q}</div>
