@@ -446,8 +446,9 @@ export default function EvaluationV2Page() {
           </h2>
           <div className="w-12 h-[3px] bg-[#1251CC] mb-8" />
           <div className="grid grid-cols-[120px_1fr] gap-x-8 items-start max-[480px]:grid-cols-1">
-            <div className="w-[120px] h-[120px] rounded-full bg-[#F8F8F8] border-[3px] border-[#1251CC] flex items-center justify-center text-5xl shrink-0 max-[480px]:mb-5">
-              🐾
+            <div className="w-[120px] h-[120px] rounded-full border-[3px] border-[#1251CC] overflow-hidden shrink-0 max-[480px]:mb-5">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/jas-headshot.jpg" alt="Jas Leverette" className="w-full h-full object-cover object-top" />
             </div>
             <div>
               <div className="font-display text-[28px] tracking-[2px] uppercase text-[#0D0D0D] mb-1">Jas Leverette</div>
