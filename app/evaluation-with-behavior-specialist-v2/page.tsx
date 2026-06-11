@@ -106,6 +106,16 @@ export default function EvaluationV2Page() {
         [class*="chat-widget"] {
           display: none !important;
         }
+        @keyframes celebMarquee {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .celeb-marquee {
+          animation: celebMarquee 32s linear infinite;
+        }
+        .celeb-marquee:hover {
+          animation-play-state: paused;
+        }
       `}</style>
 
       {/* ── Announcement bar ── */}
@@ -163,9 +173,39 @@ export default function EvaluationV2Page() {
           <h2 className="font-display text-[clamp(32px,5vw,52px)] text-[#0D0D0D] leading-[1.05] uppercase mb-3">
             Here&rsquo;s What Happened When Real Owners Used the 5-Pillar System
           </h2>
-          <p className="font-display text-[clamp(18px,2.5vw,26px)] text-[#1251CC] uppercase leading-tight mb-3">
+          <p className="font-display text-[clamp(18px,2.5vw,26px)] text-[#1251CC] uppercase leading-tight mb-6">
             Trusted By The World&rsquo;s Biggest Names
           </p>
+
+          {/* ── Celebrity marquee scroller ── */}
+          {(() => {
+            const celebs = [
+              { name: "Steph Curry",       image: "/images/celeb-scroller/stephc.jpg" },
+              { name: "Ellen DeGeneres",   image: "/images/celeb-scroller/ellen.jpeg" },
+              { name: "Demi Moore",        image: "/images/celeb-scroller/damim.jpeg" },
+              { name: "Kevin Hart",        image: "/images/celeb-scroller/kavinh.jpeg" },
+              { name: "Jason Derulo",      image: "/images/celeb-scroller/jasond.jpeg" },
+              { name: "Dr. Phil",          image: "/images/celeb-scroller/drphil.jpeg" },
+              { name: "Michael B. Jordan", image: "/images/celeb-scroller/jordan.jpeg" },
+            ];
+            return (
+              <div className="overflow-hidden -mx-6 mb-8 bg-[#EAF0FA] py-6">
+                <div className="celeb-marquee flex gap-4 w-max px-6">
+                  {[...celebs, ...celebs].map((c, i) => (
+                    <div key={i} className="flex-shrink-0 w-[200px] rounded-xl overflow-hidden shadow-md">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={c.image}
+                        alt={c.name}
+                        className="w-full h-auto block"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          })()}
+
           <div className="w-12 h-[3px] bg-[#1251CC] mb-8" />
           <div className="grid grid-cols-2 gap-5 max-md:grid-cols-1">
             {[
