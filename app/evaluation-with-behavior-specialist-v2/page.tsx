@@ -144,7 +144,7 @@ export default function EvaluationV2Page() {
             />
           </video>
           <h1 className="font-display text-[clamp(34px,5.5vw,56px)] text-[#0D0D0D] leading-[1.0] uppercase mb-4">
-            What Netflix, Your Favorite Celebrity, and Millions of Instagram Followers All Trust &mdash;{" "}
+            Who Netflix, Your Favorite Celebrity, and Millions of Social Media Followers All Trust &mdash;{" "}
             <em className="not-italic text-[#1251CC]">Cali K9.</em>
           </h1>
           <p className="font-display text-[clamp(20px,3vw,28px)] text-[#333333] max-w-[620px] mx-auto leading-[1.3] uppercase mb-8">
