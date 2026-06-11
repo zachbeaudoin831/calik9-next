@@ -189,7 +189,7 @@ export default function EvaluationV2Page() {
               { name: "Michael B. Jordan", image: "/images/celeb-scroller/jordan.jpeg" },
             ];
             return (
-              <div className="overflow-hidden -mx-6 mb-8 bg-[#EAF0FA] py-6">
+              <div className="overflow-hidden -mx-6 mb-8 bg-white py-6">
                 <div className="celeb-marquee flex gap-4 w-max px-6">
                   {[...celebs, ...celebs].map((c, i) => (
                     <div key={i} className="flex-shrink-0 w-[200px] rounded-xl overflow-hidden shadow-md">
