@@ -407,8 +407,8 @@ html.banner-dismissed { --banner-h: 0px; }
     grid-template-columns: 1fr;
     grid-template-areas:
       "intro"
-      "sidebar"
-      "body";
+      "body"
+      "sidebar";
 
   }
   .service-hero-left { display: contents; }
