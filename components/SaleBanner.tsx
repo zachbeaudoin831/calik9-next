@@ -1,12 +1,26 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function SaleBanner() {
   const [dismissed, setDismissed] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const update = () => {
+      if (ref.current) {
+        const h = ref.current.offsetHeight;
+        document.documentElement.style.setProperty("--banner-h", `${h}px`);
+      }
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
 
   const handleDismiss = () => {
     setDismissed(true);
+    document.documentElement.style.setProperty("--banner-h", "0px");
     document.documentElement.classList.add("banner-dismissed");
   };
 
@@ -14,8 +28,9 @@ export default function SaleBanner() {
 
   return (
     <div
+      ref={ref}
       id="sale-banner"
-      className="fixed top-0 left-0 right-0 z-[1001] h-10 max-[600px]:h-16 flex items-center justify-center px-4"
+      className="fixed top-0 left-0 right-0 z-[1001] min-h-10 py-2 flex items-center justify-center px-10"
       style={{ background: "#B22234" }}
     >
       <p className="font-ui text-[16px] font-bold tracking-[1px] uppercase text-center leading-none text-white">

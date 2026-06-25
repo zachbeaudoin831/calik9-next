@@ -27,7 +27,7 @@ export default function ServiceHero({ children, sidebar, intro }: ServiceHeroPro
         aria-hidden="true"
       />
       <div className="max-w-[1200px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 relative z-[1]">
-        <div className="service-hero-grid gap-x-12 items-start pb-20 max-[900px]:gap-y-10 pt-[136px] max-[900px]:pt-[120px] max-[600px]:pt-[140px]">
+        <div className="service-hero-grid gap-x-12 items-start pb-20 max-[900px]:gap-y-10 pt-[136px] max-[900px]:pt-[120px]">
           <div className="service-hero-left">
             {intro && <div className="service-hero-intro">{intro}</div>}
             <div className="service-hero-body">{children}</div>
