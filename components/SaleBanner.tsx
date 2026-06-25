@@ -15,7 +15,7 @@ export default function SaleBanner() {
   return (
     <div
       id="sale-banner"
-      className="fixed top-0 left-0 right-0 z-[1001] h-10 flex items-center justify-center px-4"
+      className="fixed top-0 left-0 right-0 z-[1001] h-10 max-[600px]:h-16 flex items-center justify-center px-4"
       style={{ background: "#B22234" }}
     >
       <p className="font-ui text-[16px] font-bold tracking-[1px] uppercase text-center leading-none text-white">
