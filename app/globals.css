@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* ── Sale Banner ── */
-:root { --banner-h: 0px; }
+:root { --banner-h: 40px; }
 html.banner-dismissed { --banner-h: 0px; }
 
 /* ── Tailwind v4 Theme ── */
