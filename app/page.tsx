@@ -88,7 +88,7 @@ const TESTIMONIALS = [
 const PROGRAMS = [
   {
     title: "BOARD & TRAIN",
-    desc: "Full immersive program. Your dog lives with us. Maximum results in minimum time \u2014 all 5 Pillars addressed, daily video updates, and a handoff session.",
+    desc: "Full immersive program. Maximum results in minimum time \u2014 all 5 Pillars addressed, weekly video updates, and a handoff session.",
     href: "/board-and-train",
   },
   {
