@@ -244,7 +244,7 @@ export default function EvaluationPage() {
 
             <Link
               href="https://go.calik9.com/evaluation-checkout"
-              className="btn btn-blue w-full text-center block"
+              className="btn btn-white btn-lg w-full text-center block"
             >
               Book Evaluation &mdash; $27
             </Link>
