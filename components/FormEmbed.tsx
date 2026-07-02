@@ -31,6 +31,7 @@ export default function FormEmbed({ formId, formName, title, height = 896 }: For
         data-form-id={formId}
         title={formName}
         loading="eager"
+        allow="payment *"
         className="w-full border-none rounded-sm block overflow-hidden"
         style={{ height: `${height}px` }}
       />
