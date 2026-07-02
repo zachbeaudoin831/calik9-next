@@ -188,12 +188,14 @@ export default function EvaluationPage() {
             <div className="flex items-baseline gap-2 mb-5">
               <span className="font-display text-[40px] text-white leading-none">$27</span>
             </div>
+            {/* FormEmbed temporarily removed for testing — GHL trackingId error
             <FormEmbed
               formId="GtiGDcoxe0fG5ufwj7Km"
               formName="Evaluation Cart"
               title="Book Your Evaluation"
               height={804}
             />
+            */}
           </>
         }
         intro={
