@@ -34,7 +34,7 @@ export default function FormEmbed({ formId, formName, title, height = 896 }: For
         className="w-full border-none rounded-sm block overflow-hidden"
         style={{ height: `${height}px` }}
       />
-      <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="lazyOnload" />
+      <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="afterInteractive" />
     </div>
   );
 }
