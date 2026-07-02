@@ -221,7 +221,7 @@ export default function EvaluationPage() {
             </div>
 
             {/* Mini stats */}
-            <div className="flex gap-6 flex-wrap justify-center mb-6">
+            <div className="flex gap-6 flex-wrap justify-center my-[30px]">
               <div className="text-center">
                 <div className="font-display text-3xl text-white leading-none">10,000+</div>
                 <div className="font-ui text-[10px] font-semibold tracking-[1.5px] uppercase text-white/50 mt-1">
@@ -244,12 +244,14 @@ export default function EvaluationPage() {
               </div>
             </div>
 
-            <Link
-              href="https://go.calik9.com/evaluation-checkout"
-              className="btn btn-white btn-lg w-full text-center block"
-            >
-              Book Evaluation &mdash; $27
-            </Link>
+            <div className="bg-white/[0.07] border border-white/[0.18] rounded-xl p-5">
+              <Link
+                href="https://go.calik9.com/evaluation-checkout"
+                className="btn btn-white btn-lg w-full text-center block"
+              >
+                Book Evaluation &mdash; $27
+              </Link>
+            </div>
           </>
         }
         intro={

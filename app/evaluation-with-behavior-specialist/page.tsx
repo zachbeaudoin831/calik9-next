@@ -226,7 +226,7 @@ export default function EvaluationPage() {
             </div>
 
             {/* Mini stats */}
-            <div className="grid grid-cols-4 gap-4 text-center mb-6 max-[480px]:grid-cols-2">
+            <div className="grid grid-cols-4 gap-4 text-center my-[30px] max-[480px]:grid-cols-2">
               {STATS.map((stat) => (
                 <div key={stat.label}>
                   <div className="font-display text-3xl text-white leading-none">
@@ -242,12 +242,14 @@ export default function EvaluationPage() {
               ))}
             </div>
 
-            <Link
-              href="https://go.calik9.com/evaluation-checkout"
-              className="btn btn-white btn-lg w-full text-center block"
-            >
-              Book Evaluation &mdash; $27
-            </Link>
+            <div className="bg-white/[0.07] border border-white/[0.18] rounded-xl p-5">
+              <Link
+                href="https://go.calik9.com/evaluation-checkout"
+                className="btn btn-white btn-lg w-full text-center block"
+              >
+                Book Evaluation &mdash; $27
+              </Link>
+            </div>
           </>
         }
         intro={
