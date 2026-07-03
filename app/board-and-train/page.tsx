@@ -5,7 +5,6 @@ import StarsRow from "@/components/StarsRow";
 import PackageHeading from "@/components/PackageHeading";
 import PackageList from "@/components/PackageList";
 import PriceBlock from "@/components/PriceBlock";
-import FormEmbed from "@/components/FormEmbed";
 import CelebMiniGrid from "@/components/CelebMiniGrid";
 import CelebGrid from "@/components/CelebGrid";
 import CtaBlock from "@/components/CtaBlock";
@@ -35,12 +34,17 @@ export default function BoardAndTrainPage() {
     <main>
       <ServiceHero
         sidebar={
-          <FormEmbed
-            formId="y6VSKPK4ruaCbRo0hZnM"
-            formName="Board and Train"
-            title="Book Board & Train"
-            height={804}
-          />
+          <div className="bg-white/[0.07] border border-white/[0.18] rounded-xl p-5">
+            <div className="font-ui text-[13px] font-bold tracking-[2px] uppercase text-white/85 mb-4">
+              Book Board &amp; Train
+            </div>
+            <Link
+              href="https://go.calik9.com/board-and-train"
+              className="btn btn-white btn-lg w-full text-center block"
+            >
+              Book Board &amp; Train
+            </Link>
+          </div>
         }
         intro={
           <>

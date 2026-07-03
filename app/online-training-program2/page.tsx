@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import ServiceHero from "@/components/ServiceHero";
 import StarsRow from "@/components/StarsRow";
 import PackageHeading from "@/components/PackageHeading";
 import PackageList from "@/components/PackageList";
 import PriceBlock from "@/components/PriceBlock";
-import FormEmbed from "@/components/FormEmbed";
 import CelebGrid from "@/components/CelebGrid";
 import CtaBlock from "@/components/CtaBlock";
 
@@ -38,12 +38,17 @@ export default function OnlineTrainingPage() {
       {/* ── Hero: Two-column layout ── */}
       <ServiceHero
         sidebar={
-          <FormEmbed
-            formId="1nO3eSfLEZPyIAJuJlpW"
-            formName="Online Training Cart"
-            title="Select Training Program"
-            height={896}
-          />
+          <div className="bg-white/[0.07] border border-white/[0.18] rounded-xl p-5">
+            <div className="font-ui text-[13px] font-bold tracking-[2px] uppercase text-white/85 mb-4">
+              Select Training Program
+            </div>
+            <Link
+              href="https://go.calik9.com/online-training-program2"
+              className="btn btn-white btn-lg w-full text-center block"
+            >
+              Select Training Program
+            </Link>
+          </div>
         }
         intro={
           <>

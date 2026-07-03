@@ -6,7 +6,6 @@ import StarsRow from "@/components/StarsRow";
 import PackageHeading from "@/components/PackageHeading";
 import PackageList from "@/components/PackageList";
 import PriceBlock from "@/components/PriceBlock";
-import FormEmbed from "@/components/FormEmbed";
 import CelebMiniGrid from "@/components/CelebMiniGrid";
 import CelebGrid from "@/components/CelebGrid";
 import CtaBlock from "@/components/CtaBlock";
@@ -36,12 +35,17 @@ export default function InPersonPage() {
     <main>
       <ServiceHero
         sidebar={
-          <FormEmbed
-            formId="H1lYuIqvPk8pw9DJqBit"
-            formName="In Person Group Class"
-            title="Book Your In-Person Training"
-            height={834}
-          />
+          <div className="bg-white/[0.07] border border-white/[0.18] rounded-xl p-5">
+            <div className="font-ui text-[13px] font-bold tracking-[2px] uppercase text-white/85 mb-4">
+              Book Your In-Person Training
+            </div>
+            <Link
+              href="https://go.calik9.com/in-person"
+              className="btn btn-white btn-lg w-full text-center block"
+            >
+              Book In-Person Training
+            </Link>
+          </div>
         }
         intro={
           <>
