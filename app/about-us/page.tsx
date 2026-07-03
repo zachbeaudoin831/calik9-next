@@ -130,7 +130,7 @@ export default function AboutPage() {
             <HeroEntrance delay={360}>
               <div className="flex gap-4 flex-wrap max-[768px]:flex-col max-[768px]:items-stretch">
                 <Link
-                  href="/evaluation-with-behavior-specialist"
+                  href="https://go.calik9.com/evaluation-with-jas"
                   className="btn btn-white btn-lg min-w-[240px] max-[768px]:w-full max-[768px]:justify-center"
                 >
                   Evaluation &rarr;

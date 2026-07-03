@@ -3,9 +3,9 @@ import Image from "next/image";
 
 const TRAINING_LINKS = [
   { href: "/newclientservices", label: "All Services" },
-  { href: "/evaluation-with-behavior-specialist", label: "Evaluation" },
-  { href: "/board-and-train", label: "Board & Train" },
-  { href: "/online-training-program2", label: "Online Program" },
+  { href: "https://go.calik9.com/evaluation-with-jas", label: "Evaluation" },
+  { href: "https://go.calik9.com/board-and-train", label: "Board & Train" },
+  { href: "https://go.calik9.com/online-training-program2", label: "Online Program" },
 ];
 
 const COMPANY_LINKS = [

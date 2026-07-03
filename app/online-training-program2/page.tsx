@@ -197,7 +197,7 @@ export default function OnlineTrainingPage() {
         heading="READY TO TRANSFORM YOUR DOG?"
         description="Join thousands of dog owners who transformed their dog's behavior with the Cali K9 5-Pillar System. Train from anywhere, at your own pace, with expert coaching."
         primaryCta={{ label: "Get Started — $497 →", href: "#main-content" }}
-        secondaryCta={{ label: "Book Evaluation First →", href: "/evaluation-with-behavior-specialist" }}
+        secondaryCta={{ label: "Book Evaluation First →", href: "https://go.calik9.com/evaluation-with-jas" }}
       />
     </main>
   );

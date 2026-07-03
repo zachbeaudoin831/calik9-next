@@ -153,7 +153,7 @@ export default function ReturningClientServicesPage() {
         eyebrow="Need Something New?"
         heading="STILL HAVE A PROBLEM TO SOLVE?"
         description="Book a private follow-up evaluation with our team and we'll recommend the right next step."
-        primaryCta={{ label: "Book Evaluation →", href: "/evaluation-with-behavior-specialist" }}
+        primaryCta={{ label: "Book Evaluation →", href: "https://go.calik9.com/evaluation-with-jas" }}
         secondaryCta={{ label: "View All Services →", href: "/newclientservices" }}
       />
     </>

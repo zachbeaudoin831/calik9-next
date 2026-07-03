@@ -275,7 +275,7 @@ export default function InPersonPage() {
                 additional sessions, upgrade to a higher-tier package, or
                 transition into our{" "}
                 <Link
-                  href="/online-training-program2"
+                  href="https://go.calik9.com/online-training-program2"
                   className="text-white/90 underline underline-offset-2"
                 >
                   online program
@@ -339,7 +339,7 @@ export default function InPersonPage() {
         eyebrow="Get Started"
         heading="READY TO TRANSFORM YOUR DOG?"
         description="Join thousands of families who've trusted Cali K9® to unlock their dog's potential. Results guaranteed."
-        primaryCta={{ label: "Book Evaluation \u2192", href: "/evaluation-with-behavior-specialist" }}
+        primaryCta={{ label: "Book Evaluation \u2192", href: "https://go.calik9.com/evaluation-with-jas" }}
         secondaryCta={{ label: "View Programs \u2192", href: "/newclientservices" }}
       />
     </main>

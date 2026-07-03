@@ -14,7 +14,7 @@ const NEW_CLIENT_CARDS = [
     tag: "Start Here · $27",
     name: "EVALUATION\nWITH CALI K9",
     desc: "A direct consultation with a Cali K9 expert to assess your dog's behavioral needs and build a custom training roadmap. The first step for new clients.",
-    href: "/evaluation-with-behavior-specialist",
+    href: "https://go.calik9.com/evaluation-with-jas",
     bg: "linear-gradient(145deg, #0A1F3C, #1236A0, #1A5FC0)",
     image: "/images/dog-line-up.webp",
     imageAlt: "Cali K9 trained dogs lined up inside the Cali K9 training facility",
@@ -24,7 +24,7 @@ const NEW_CLIENT_CARDS = [
     tag: "Online Program",
     name: "ONLINE TRAINING\nOPTIONS",
     desc: "The full 5-Pillar system delivered digitally. Learn at your own pace with professional guidance and a complete video library.",
-    href: "/online-training-program2",
+    href: "https://go.calik9.com/online-training-program2",
     bg: "linear-gradient(145deg, #1236A0, #1A3FAB, #2255CC)",
     image: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/687ba81ce31a778a062563dc.webp",
     imageAlt: "Online dog training course on a laptop screen",
@@ -34,7 +34,7 @@ const NEW_CLIENT_CARDS = [
     tag: "Private Sessions",
     name: "IN-PERSON\nTRAINING",
     desc: "One-on-one, semi-private group classes, and virtual sessions tailored to your dog\u2019s behavior, temperament, and specific goals.",
-    href: "/in-person",
+    href: "https://go.calik9.com/in-person",
     bg: "linear-gradient(145deg, #061225, #0D2260, #122E85)",
     image: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/687e7d5aca64a6b9d955e632.png",
     imageAlt: "Certified Cali K9 trainer working with a dog in person",
@@ -44,7 +44,7 @@ const NEW_CLIENT_CARDS = [
     tag: "Most Intensive \u00b7 8 Spots/Mo",
     name: "BOARD\n& TRAIN",
     desc: "Your dog lives with us while we build the foundation. Deep obedience, behavior modification, lifetime support.",
-    href: "/board-and-train",
+    href: "https://go.calik9.com/board-and-train",
     bg: "linear-gradient(160deg, #04060F, #080C25, #0D1640)",
     image: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/67c270a01e6df2ebba9219d2.png",
     imageAlt: "Cali K9 Board & Train residential dog training facility",
@@ -376,7 +376,7 @@ export default function ServicesPage() {
         eyebrow="Not Sure Where to Start?"
         heading="DON'T KNOW WHICH PROGRAM FITS YOUR DOG?"
         description="Book an evaluation with Jas. We'll assess your dog's behavior and recommend exactly the right program for you."
-        primaryCta={{ label: "Book an Evaluation \u2192", href: "/evaluation-with-behavior-specialist" }}
+        primaryCta={{ label: "Book an Evaluation \u2192", href: "https://go.calik9.com/evaluation-with-jas" }}
       />
     </>
   );
