@@ -70,10 +70,10 @@ export default function FivePillarsPage() {
             puppy basics to full board &amp; train.
           </p>
           <div className="flex gap-4 flex-wrap max-[768px]:flex-col max-[768px]:items-stretch">
-            <Link href="https://go.calik9.com/evaluation-with-jas" className="btn btn-white btn-lg">
+            <Link href="/evaluation-with-behavior-specialist" className="btn btn-white btn-lg">
               Book Evaluation &rarr;
             </Link>
-            <Link href="https://go.calik9.com/online-training-program2" className="btn btn-outline-white btn-lg">
+            <Link href="/online-training-program2" className="btn btn-outline-white btn-lg">
               Train at Home &rarr;
             </Link>
           </div>
@@ -135,7 +135,7 @@ export default function FivePillarsPage() {
           </div>
 
           <div className="text-center">
-            <Link href="https://go.calik9.com/online-training-program2" className="btn btn-white btn-lg">
+            <Link href="/online-training-program2" className="btn btn-white btn-lg">
               Get the 5-Pillar Program &rarr;
             </Link>
           </div>
@@ -147,7 +147,7 @@ export default function FivePillarsPage() {
         eyebrow="See It In Action"
         heading="START WITH AN EVALUATION"
         description="Book a $27 evaluation with our team. We'll assess your dog through the 5-Pillar framework and recommend the right starting point."
-        primaryCta={{ label: "Book Evaluation →", href: "https://go.calik9.com/evaluation-with-jas" }}
+        primaryCta={{ label: "Book Evaluation →", href: "/evaluation-with-behavior-specialist" }}
         secondaryCta={{ label: "View Programs →", href: "/newclientservices" }}
       />
     </main>

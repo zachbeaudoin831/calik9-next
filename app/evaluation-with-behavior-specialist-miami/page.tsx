@@ -4,6 +4,7 @@ import Image from "next/image";
 import ServiceHero from "@/components/ServiceHero";
 import StarsRow from "@/components/StarsRow";
 import PackageHeading from "@/components/PackageHeading";
+import FormEmbed from "@/components/FormEmbed";
 import CelebGrid from "@/components/CelebGrid";
 import CtaBlock from "@/components/CtaBlock";
 
@@ -244,14 +245,12 @@ export default function EvaluationPage() {
               </div>
             </div>
 
-            <div className="bg-white/[0.07] border border-white/[0.18] rounded-xl p-5">
-              <Link
-                href="https://go.calik9.com/evaluation-with-jas"
-                className="btn btn-white btn-lg w-full text-center block"
-              >
-                Book Evaluation &mdash; $27
-              </Link>
-            </div>
+            <FormEmbed
+              formId="GtiGDcoxe0fG5ufwj7Km"
+              formName="Evaluation Cart - Website"
+              title="Book Your Evaluation"
+              height={828}
+            />
           </>
         }
         intro={

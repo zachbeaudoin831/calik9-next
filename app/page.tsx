@@ -89,17 +89,17 @@ const PROGRAMS = [
   {
     title: "BOARD & TRAIN",
     desc: "Full immersive program. Maximum results in minimum time \u2014 all 5 Pillars addressed, weekly video updates, and a handoff session.",
-    href: "https://go.calik9.com/board-and-train",
+    href: "/board-and-train",
   },
   {
     title: "IN-PERSON TRAINING",
     desc: "One-on-one, semi-private, and group sessions with certified Cali K9 trainers \u2014 tailored to your dog\u2019s behavior, temperament, and goals.",
-    href: "https://go.calik9.com/in-person",
+    href: "/in-person",
   },
   {
     title: "ONLINE 5-PILLAR",
     desc: "Jas\u2019s complete method. Self-paced, lifetime access. Train from anywhere worldwide \u2014 full curriculum, community support, and upgrade to in-person anytime.",
-    href: "https://go.calik9.com/online-training-program2",
+    href: "/online-training-program2",
     featured: true,
   },
 ];
@@ -165,7 +165,7 @@ export default async function HomePage() {
 
           <HeroEntrance delay={360}>
             <div className="flex gap-4 flex-wrap max-sm:flex-col max-sm:items-stretch">
-              <Link href="https://go.calik9.com/evaluation-with-jas" className="btn btn-white btn-lg min-w-[240px]">
+              <Link href="/evaluation-with-behavior-specialist" className="btn btn-white btn-lg min-w-[240px]">
                 Book Evaluation &rarr;
               </Link>
               <Link href="/newclientservices" className="btn btn-outline-white min-w-[240px]">
@@ -366,7 +366,7 @@ export default async function HomePage() {
                 ))}
               </div>
               <Link
-                href="https://go.calik9.com/evaluation-with-jas"
+                href="/evaluation-with-behavior-specialist"
                 className="btn btn-blue"
               >
                 GET MY DOG EVALUATED &rarr;
@@ -429,7 +429,7 @@ export default async function HomePage() {
           </div>
 
           <div className="text-center">
-            <Link href="https://go.calik9.com/evaluation-with-jas" className="btn btn-white btn-lg">
+            <Link href="/evaluation-with-behavior-specialist" className="btn btn-white btn-lg">
               Book Evaluation &rarr;
             </Link>
           </div>
@@ -530,7 +530,7 @@ export default async function HomePage() {
         eyebrow="Get Started"
         heading="READY TO TRANSFORM YOUR DOG?"
         description="Join thousands of families who've trusted Cali K9® to unlock their dog's potential. Results guaranteed."
-        primaryCta={{ label: "Book Evaluation \u2192", href: "https://go.calik9.com/evaluation-with-jas" }}
+        primaryCta={{ label: "Book Evaluation \u2192", href: "/evaluation-with-behavior-specialist" }}
         secondaryCta={{ label: "View Programs \u2192", href: "/newclientservices" }}
       />
 

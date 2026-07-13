@@ -161,7 +161,7 @@ export default function ReturningBoardAndTrainPage() {
               <p className="font-body text-[15px] text-gray-muted leading-[1.7]">
                 Not yet a Cali K9 client?{" "}
                 <Link
-                  href="https://go.calik9.com/board-and-train"
+                  href="/board-and-train"
                   className="text-blue-500 underline hover:text-blue-700"
                 >
                   View our full Board &amp; Train programs

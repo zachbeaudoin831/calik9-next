@@ -5,6 +5,7 @@ import StarsRow from "@/components/StarsRow";
 import PackageHeading from "@/components/PackageHeading";
 import PackageList from "@/components/PackageList";
 import PriceBlock from "@/components/PriceBlock";
+import FormEmbed from "@/components/FormEmbed";
 import CelebMiniGrid from "@/components/CelebMiniGrid";
 import CelebGrid from "@/components/CelebGrid";
 import CtaBlock from "@/components/CtaBlock";
@@ -34,17 +35,12 @@ export default function BoardAndTrainPage() {
     <main>
       <ServiceHero
         sidebar={
-          <div className="bg-white/[0.07] border border-white/[0.18] rounded-xl p-5">
-            <div className="font-ui text-[13px] font-bold tracking-[2px] uppercase text-white/85 mb-4">
-              Book Board &amp; Train
-            </div>
-            <Link
-              href="https://go.calik9.com/board-and-train"
-              className="btn btn-white btn-lg w-full text-center block"
-            >
-              Book Board &amp; Train
-            </Link>
-          </div>
+          <FormEmbed
+            formId="y6VSKPK4ruaCbRo0hZnM"
+            formName="Board and Train"
+            title="Book Board & Train"
+            height={804}
+          />
         }
         intro={
           <>
@@ -197,7 +193,7 @@ export default function BoardAndTrainPage() {
                 After completing the Board &amp; Train program, we recommend
                 continued reinforcement through our{" "}
                 <Link
-                  href="https://go.calik9.com/online-training-program2"
+                  href="/online-training-program2"
                   className="text-blue-500 underline hover:text-blue-700"
                 >
                   online training platform
@@ -249,7 +245,7 @@ export default function BoardAndTrainPage() {
         eyebrow="Get Started"
         heading="READY TO TRANSFORM YOUR DOG?"
         description="Join thousands of families who've trusted Cali K9® to unlock their dog's potential. Results guaranteed."
-        primaryCta={{ label: "Book Evaluation →", href: "https://go.calik9.com/evaluation-with-jas" }}
+        primaryCta={{ label: "Book Evaluation →", href: "/evaluation-with-behavior-specialist" }}
         secondaryCta={{ label: "View Programs →", href: "/newclientservices" }}
       />
     </main>

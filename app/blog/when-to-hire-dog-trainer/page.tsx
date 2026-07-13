@@ -175,7 +175,7 @@ export default function WhenToHireDogTrainerPage() {
 
             <p>
               When safety is involved, speed matters more than budget. An{" "}
-              <Link href="https://go.calik9.com/evaluation-with-jas" className="text-blue-500 underline hover:text-blue-700">
+              <Link href="/evaluation-with-behavior-specialist" className="text-blue-500 underline hover:text-blue-700">
                 evaluation
               </Link>{" "}
               is the fastest way to get a clear action plan.
@@ -243,7 +243,7 @@ export default function WhenToHireDogTrainerPage() {
             <p>
               These goals require more than basic obedience &mdash; they require
               structured, progressive training with professional guidance. An{" "}
-              <Link href="https://go.calik9.com/in-person" className="text-blue-500 underline hover:text-blue-700">
+              <Link href="/in-person" className="text-blue-500 underline hover:text-blue-700">
                 in-person training program
               </Link>{" "}
               can take your dog from &ldquo;pretty good&rdquo; to exceptional.
@@ -391,7 +391,7 @@ export default function WhenToHireDogTrainerPage() {
             <p>
               If any of these signs resonated with you, the best next step is
               simple:{" "}
-              <Link href="https://go.calik9.com/evaluation-with-jas" className="text-blue-500 underline hover:text-blue-700">
+              <Link href="/evaluation-with-behavior-specialist" className="text-blue-500 underline hover:text-blue-700">
                 book an evaluation
               </Link>
               . At Cali K9, evaluations are $27 and give you a complete
@@ -484,7 +484,7 @@ export default function WhenToHireDogTrainerPage() {
         eyebrow="Start Here"
         heading="BOOK YOUR EVALUATION"
         description="A $27 evaluation gives you a complete behavioral assessment, custom training roadmap, and program recommendation for your dog."
-        primaryCta={{ label: "Book Evaluation \u2014 $27 \u2192", href: "https://go.calik9.com/evaluation-with-jas" }}
+        primaryCta={{ label: "Book Evaluation \u2014 $27 \u2192", href: "/evaluation-with-behavior-specialist" }}
         secondaryCta={{ label: "View Programs \u2192", href: "/newclientservices" }}
         dark
       />

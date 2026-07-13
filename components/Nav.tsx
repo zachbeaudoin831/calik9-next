@@ -20,7 +20,7 @@ const SERVICE_LINKS = [
   { href: "/newclientservices", label: "All Services" },
   { href: "/newclientservices#new-clients", label: "New Clients" },
   { href: "/newclientservices#returning-clients", label: "Returning Clients" },
-  { href: "https://go.calik9.com/online-training-program2", label: "Online Training" },
+  { href: "/online-training-program2", label: "Online Training" },
   { href: "/business-coaching", label: "Coaching" },
 ];
 
@@ -131,7 +131,7 @@ export default function Nav() {
             {/* Evaluation CTA */}
             <li>
               <Link
-                href="https://go.calik9.com/evaluation-with-jas"
+                href="/evaluation-with-behavior-specialist"
                 className="font-ui text-[13px] font-bold uppercase tracking-[2px] bg-blue-500 text-white border-2 border-blue-500 px-4 py-[7px] rounded-sm whitespace-nowrap hover:bg-blue-700 hover:border-blue-700 hover:-translate-y-px transition-all"
               >
                 Evaluation
@@ -234,7 +234,7 @@ export default function Nav() {
           ))}
           <li>
             <Link
-              href="https://go.calik9.com/evaluation-with-jas"
+              href="/evaluation-with-behavior-specialist"
               className="block text-center font-ui text-[13px] font-bold uppercase tracking-[2px] bg-blue-500 text-white px-4 py-3 rounded-sm mt-4 no-underline hover:bg-blue-700 transition-colors"
               onClick={() => setDrawerOpen(false)}
             >

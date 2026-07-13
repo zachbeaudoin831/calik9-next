@@ -371,7 +371,7 @@ export default function TeamPage() {
         heading="INTERESTED IN JOINING OUR TEAM?"
         description="The Cali K9 Dog Trainer Mentorship is a program for serious practitioners who want to master the 5-Pillar system and build a professional dog training career under direct guidance from Jas. Mentorship graduates go on to become licensed Cali K9 facilitators, running the method in new cities across the US and internationally."
         primaryCta={{ label: "Explore the Coaching Program", href: "/business-coaching" }}
-        secondaryCta={{ label: "Book Evaluation", href: "https://go.calik9.com/evaluation-with-jas" }}
+        secondaryCta={{ label: "Book Evaluation", href: "/evaluation-with-behavior-specialist" }}
         dark
       />
     </main>

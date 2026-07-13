@@ -49,7 +49,7 @@ export default function BoardAndTrainWorthItPage() {
               debated &mdash; topics in dog training. Some people swear by it.
               Others call it a waste of money. After running one of the most
               established{" "}
-              <Link href="https://go.calik9.com/board-and-train" className="text-blue-500 underline hover:text-blue-700">
+              <Link href="/board-and-train" className="text-blue-500 underline hover:text-blue-700">
                 board and train programs
               </Link>{" "}
               in the country for over 15 years, I&apos;m going to give you the
@@ -360,7 +360,7 @@ export default function BoardAndTrainWorthItPage() {
 
             <p>
               At Cali K9, our{" "}
-              <Link href="https://go.calik9.com/board-and-train" className="text-blue-500 underline hover:text-blue-700">
+              <Link href="/board-and-train" className="text-blue-500 underline hover:text-blue-700">
                 Elite Board &amp; Train program
               </Link>{" "}
               reflects the level of expertise, daily training volume, and
@@ -399,7 +399,7 @@ export default function BoardAndTrainWorthItPage() {
             <p>
               If you&apos;re not sure whether board and train is right for your
               dog, the best next step is an{" "}
-              <Link href="https://go.calik9.com/evaluation-with-jas" className="text-blue-500 underline hover:text-blue-700">
+              <Link href="/evaluation-with-behavior-specialist" className="text-blue-500 underline hover:text-blue-700">
                 evaluation
               </Link>
               . In 30-45 minutes, we&apos;ll assess your dog&apos;s behavior,
@@ -410,7 +410,7 @@ export default function BoardAndTrainWorthItPage() {
             </p>
 
             <p>
-              <Link href="https://go.calik9.com/evaluation-with-jas" className="text-blue-500 underline hover:text-blue-700">
+              <Link href="/evaluation-with-behavior-specialist" className="text-blue-500 underline hover:text-blue-700">
                 Book your evaluation
               </Link>{" "}
               and let&apos;s figure out the right path for your dog.
@@ -495,7 +495,7 @@ export default function BoardAndTrainWorthItPage() {
         eyebrow="Start Here"
         heading="BOOK YOUR EVALUATION"
         description="A $27 evaluation gives you a complete behavioral assessment, custom training roadmap, and program recommendation for your dog."
-        primaryCta={{ label: "Book Evaluation \u2014 $27 \u2192", href: "https://go.calik9.com/evaluation-with-jas" }}
+        primaryCta={{ label: "Book Evaluation \u2014 $27 \u2192", href: "/evaluation-with-behavior-specialist" }}
         secondaryCta={{ label: "View Programs \u2192", href: "/newclientservices" }}
         dark
       />

@@ -177,7 +177,7 @@ export default function ContactPage() {
           </p>
           <div className="flex gap-4 flex-wrap max-[768px]:flex-col max-[768px]:items-stretch">
             <Link
-              href="https://go.calik9.com/evaluation-with-jas"
+              href="/evaluation-with-behavior-specialist"
               className="btn btn-white btn-lg max-[768px]:w-full max-[768px]:justify-center"
             >
               Book Evaluation &rarr;
@@ -381,7 +381,7 @@ export default function ContactPage() {
         eyebrow="Not Sure Where To Start?"
         heading="BOOK YOUR EVALUATION"
         description="Don't know which program fits your dog? Schedule an evaluation \u2014 we'll find the right fit for your dog."
-        primaryCta={{ label: "Schedule Evaluation \u2192", href: "https://go.calik9.com/evaluation-with-jas" }}
+        primaryCta={{ label: "Schedule Evaluation \u2192", href: "/evaluation-with-behavior-specialist" }}
         secondaryCta={{ label: "View All Programs", href: "/newclientservices" }}
         dark
       />
