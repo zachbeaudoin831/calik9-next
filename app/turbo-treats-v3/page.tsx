@@ -65,54 +65,57 @@ export default async function TurboTreatsV3Page() {
 
   return (
     <main className="bg-white">
-      {/* ── Hero: big product shot + badge ── */}
+      {/* ── Hero: product shot left, title + buy box right ── */}
       <section className="pt-[140px] max-md:pt-[124px] bg-white">
-        <div className="max-w-[880px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
-          <div className="relative pt-10">
-            <Image
-              src="https://cdn.shopify.com/s/files/1/0534/2275/1922/files/Combo-Pack-Beef-Liver-_-Chicken-Hearts-Cali-K9r-Online-Store-101553793.jpg?v=1777312311"
-              alt="Turbo Treats freeze-dried chicken hearts and beef liver training treats"
-              width={880}
-              height={880}
-              priority
-              className="w-full h-auto rounded-xl"
-            />
-            {/* Circular trainer badge */}
-            <div className="absolute top-2 left-2 w-32 h-32 max-md:w-24 max-md:h-24 rounded-full bg-[#B03A3A] border-4 border-white shadow-lg flex flex-col items-center justify-center text-center rotate-[-8deg]">
-              <span className="font-ui text-[11px] max-md:text-[9px] font-bold tracking-[1px] text-white/85 uppercase leading-tight">
-                Trainer
-              </span>
-              <span className="font-display text-2xl max-md:text-lg text-white leading-none my-0.5">
-                APPROVED
-              </span>
-              <span className="font-ui text-[10px] max-md:text-[8px] font-bold tracking-[1px] text-white/85 uppercase leading-tight">
-                Cali K9&reg;
-              </span>
+        <div className="max-w-[1200px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
+          <div className="grid grid-cols-2 gap-12 max-lg:gap-8 pt-10 pb-14 items-start max-md:grid-cols-1">
+            {/* Left: product image */}
+            <div className="relative sticky top-[100px] max-md:static">
+              <Image
+                src="https://cdn.shopify.com/s/files/1/0534/2275/1922/files/Combo-Pack-Beef-Liver-_-Chicken-Hearts-Cali-K9r-Online-Store-101553793.jpg?v=1777312311"
+                alt="Turbo Treats freeze-dried chicken hearts and beef liver training treats"
+                width={880}
+                height={880}
+                priority
+                className="w-full h-auto rounded-xl"
+              />
+              {/* Circular trainer badge */}
+              <div className="absolute top-2 left-2 w-32 h-32 max-md:w-24 max-md:h-24 rounded-full bg-[#B03A3A] border-4 border-white shadow-lg flex flex-col items-center justify-center text-center rotate-[-8deg]">
+                <span className="font-ui text-[11px] max-md:text-[9px] font-bold tracking-[1px] text-white/85 uppercase leading-tight">
+                  Trainer
+                </span>
+                <span className="font-display text-2xl max-md:text-lg text-white leading-none my-0.5">
+                  APPROVED
+                </span>
+                <span className="font-ui text-[10px] max-md:text-[8px] font-bold tracking-[1px] text-white/85 uppercase leading-tight">
+                  Cali K9&reg;
+                </span>
+              </div>
             </div>
-          </div>
 
-          {/* Title block */}
-          <div className="pt-8 pb-4">
-            <h1 className="font-display text-[clamp(40px,6vw,64px)] text-[#46586B] leading-none mb-2">
-              TURBO TREATS&reg;
-            </h1>
-            <p className="font-body text-xl text-gray-muted mb-4">
-              Premium Freeze-Dried Single-Ingredient Training Treats
-            </p>
-            <span className="inline-flex items-center gap-2 bg-[#1F3D2B] text-white font-ui text-[13px] font-bold tracking-[1.5px] uppercase px-5 py-2.5 mb-4"
-              style={{ clipPath: "polygon(0 0, 100% 0, calc(100% - 12px) 50%, 100% 100%, 0 100%, 12px 50%)" }}
-            >
-              🏆 Over <span className="text-[#E9A13B]">10,000 dogs</span> trained by Cali K9&reg;
-            </span>
-            <p className="font-ui text-base text-[#46586B] flex items-center gap-2">
-              <span className="text-[#E9A13B] text-xl tracking-tight">★★★★★</span>
-              4.9 Average Client Rating
-            </p>
-          </div>
+            {/* Right: title block + buy box */}
+            <div>
+              <h1 className="font-display text-[clamp(40px,5vw,56px)] text-[#46586B] leading-none mb-2">
+                TURBO TREATS&reg;
+              </h1>
+              <p className="font-body text-xl text-gray-muted mb-4">
+                Premium Freeze-Dried Single-Ingredient Training Treats
+              </p>
+              <span className="inline-flex items-center gap-2 bg-[#1F3D2B] text-white font-ui text-[13px] font-bold tracking-[1.5px] uppercase px-5 py-2.5 mb-4"
+                style={{ clipPath: "polygon(0 0, 100% 0, calc(100% - 12px) 50%, 100% 100%, 0 100%, 12px 50%)" }}
+              >
+                🏆 Over <span className="text-[#E9A13B]">10,000 dogs</span> trained by Cali K9&reg;
+              </span>
+              <p className="font-ui text-base text-[#46586B] flex items-center gap-2 mb-8">
+                <span className="text-[#E9A13B] text-xl tracking-tight">★★★★★</span>
+                4.9 Average Client Rating
+              </p>
 
-          {/* Buy box */}
-          <div id="buy" className="pb-14 scroll-mt-[84px]">
-            <BuyBox offers={offers} />
+              {/* Buy box */}
+              <div id="buy" className="scroll-mt-[100px]">
+                <BuyBox offers={offers} />
+              </div>
+            </div>
           </div>
         </div>
       </section>
