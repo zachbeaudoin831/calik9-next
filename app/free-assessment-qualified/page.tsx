@@ -92,7 +92,7 @@ export default function FreeAssessmentQualifiedPage() {
       </noscript>
       {/* ── Hero: assessment results copy + CTA ── */}
       <section
-        className="relative overflow-hidden pt-[128px] pb-16 max-md:pt-28 max-md:pb-10"
+        className="relative overflow-hidden pt-[128px] pb-16 max-md:pt-[168px] max-md:pb-10"
         style={{ background: "linear-gradient(135deg, #0A1F3C 0%, #122E85 55%, #1A3FAB 100%)" }}
       >
         <div className="max-w-[760px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 relative z-[1] text-center">
