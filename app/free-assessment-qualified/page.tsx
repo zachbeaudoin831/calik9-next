@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import Script from "next/script";
 import CelebGrid from "@/components/CelebGrid";
 import TestimonialSection from "@/components/TestimonialSection";
 
@@ -70,6 +71,25 @@ function EvalCta({ className = "" }: { className?: string }) {
 export default function FreeAssessmentQualifiedPage() {
   return (
     <main>
+      {/* Meta Pixel: Lead event. The base pixel (init + PageView) is loaded
+          globally in the root layout — re-running the full snippet here would
+          double-count, so wait for it and fire the Lead event once. */}
+      <Script id="meta-pixel-lead" strategy="afterInteractive">
+        {`(function fireLead(tries){
+          if (typeof window.fbq === 'function') { window.fbq('track','Lead'); }
+          else if (tries > 0) { setTimeout(function(){ fireLead(tries - 1); }, 300); }
+        })(20);`}
+      </Script>
+      <noscript>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          height="1"
+          width="1"
+          style={{ display: "none" }}
+          src="https://www.facebook.com/tr?id=3260974804196034&ev=Lead&noscript=1"
+          alt=""
+        />
+      </noscript>
       {/* ── Hero: assessment results copy + CTA ── */}
       <section
         className="relative overflow-hidden pt-[128px] pb-16 max-md:pt-28 max-md:pb-10"
