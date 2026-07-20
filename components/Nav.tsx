@@ -47,6 +47,8 @@ export default function Nav() {
   }, [drawerOpen]);
 
   const isActive = (href: string) => pathname === href;
+  // Distraction-free lander pages: logo + cart only, no menu/links.
+  const isLander = pathname === "/free-behavioral-assessment";
   const isServicePage =
     pathname.startsWith("/newclientservices") ||
     pathname.startsWith("/returningclientservices") ||
@@ -84,6 +86,7 @@ export default function Nav() {
           </Link>
 
           {/* Desktop links */}
+          {!isLander && (
           <ul className="flex items-center gap-7 list-none max-[768px]:hidden">
             {NAV_LINKS.map((link) =>
               link.hasSub ? (
@@ -138,6 +141,7 @@ export default function Nav() {
               </Link>
             </li>
           </ul>
+          )}
 
           {/* Mobile: cart + hamburger grouped on right */}
           <div className="hidden max-[768px]:flex items-center gap-2">
@@ -157,6 +161,7 @@ export default function Nav() {
                 </span>
               )}
             </button>
+            {!isLander && (
             <button
               onClick={() => setDrawerOpen(!drawerOpen)}
               aria-label={drawerOpen ? "Close menu" : "Open menu"}
@@ -167,6 +172,7 @@ export default function Nav() {
               <span className={`block h-0.5 bg-ink rounded-sm transition-all ${drawerOpen ? "opacity-0" : ""}`} />
               <span className={`block h-0.5 bg-ink rounded-sm transition-all ${drawerOpen ? "-rotate-45 -translate-y-[3.5px]" : ""}`} />
             </button>
+            )}
           </div>
 
           {/* Desktop cart button */}
@@ -189,6 +195,8 @@ export default function Nav() {
         </div>
       </nav>
 
+      {!isLander && (
+      <>
       {/* Mobile drawer overlay */}
       <div
         className={`fixed inset-0 z-[998] min-[769px]:hidden transition-[opacity,visibility] duration-300 ${
@@ -243,6 +251,8 @@ export default function Nav() {
           </li>
         </ul>
       </div>
+      </>
+      )}
     </>
   );
 }

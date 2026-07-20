@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const TRAINING_LINKS = [
   { href: "/newclientservices", label: "All Services" },
@@ -33,6 +36,9 @@ const POLICIES = [
 ];
 
 export default function Footer() {
+  const pathname = usePathname();
+  // Distraction-free lander pages get no footer.
+  if (pathname === "/free-behavioral-assessment") return null;
   return (
     <footer id="site-footer" className="bg-[#0D111C] text-white/70 pt-16 pb-[60px]">
       <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
