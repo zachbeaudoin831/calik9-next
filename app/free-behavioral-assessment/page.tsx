@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import CelebGrid from "@/components/CelebGrid";
-import TestimonialSection from "@/components/TestimonialSection";
+import Carousel from "@/components/Carousel";
+import { CELEBS } from "@/components/CelebGrid";
 
 export const metadata: Metadata = {
   title: "Free Dog Behavioral Assessment",
@@ -55,18 +55,30 @@ function AssessmentCta({ className = "" }: { className?: string }) {
   );
 }
 
+function Stars() {
+  return (
+    <div className="flex justify-center gap-[3px] mb-3" role="img" aria-label="5 out of 5 stars">
+      {[...Array(5)].map((_, i) => (
+        <span key={i} className="text-[#F59E0B] text-base leading-none">
+          &#9733;
+        </span>
+      ))}
+    </div>
+  );
+}
+
 export default function FreeBehavioralAssessmentPage() {
   return (
     <main>
       {/* ── Hero: headline + VSL + CTA ── */}
       <section
-        className="relative overflow-hidden pt-[128px] pb-16 max-md:pt-[168px] max-md:pb-10"
+        className="relative overflow-hidden pt-[108px] pb-14 max-md:pt-[96px] max-md:pb-10"
         style={{ background: "linear-gradient(135deg, #0A1F3C 0%, #122E85 55%, #1A3FAB 100%)" }}
       >
         <div className="max-w-[860px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 text-center relative z-[1]">
-          <h1 className="font-display text-[clamp(40px,6vw,68px)] text-white leading-[0.95] mb-4">
+          <h1 className="font-display text-[clamp(52px,8vw,96px)] text-white leading-[0.92] mb-5">
             STRUGGLING WITH YOUR DOG&rsquo;S{" "}
-            <span className="text-white/50">BEHAVIOR?</span>
+            <span className="text-white/60">BEHAVIOR?</span>
           </h1>
 
           <p className="font-body text-lg text-white/70 leading-relaxed mb-8 max-w-[560px] mx-auto">
@@ -99,12 +111,12 @@ export default function FreeBehavioralAssessmentPage() {
       </section>
 
       {/* ── Netflix / Canine Intervention band ── */}
-      <section className="bg-ink py-10">
+      <section className="bg-ink py-8">
         <div className="max-w-[860px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 text-center">
-          <p className="font-ui text-[13px] font-semibold tracking-[3px] uppercase text-white/50 mb-5">
+          <p className="font-ui text-[13px] font-semibold tracking-[3px] uppercase text-white/50 mb-4">
             You&rsquo;ve seen the team on
           </p>
-          <div className="flex items-center justify-center gap-4 mb-4">
+          <div className="flex items-center justify-center gap-4">
             <Image
               src="/images/media-logos/netflix.webp"
               alt="Netflix"
@@ -116,39 +128,123 @@ export default function FreeBehavioralAssessmentPage() {
               CANINE INTERVENTION
             </span>
           </div>
-          <p className="font-body text-base text-white/60 leading-relaxed max-w-[560px] mx-auto">
-            Jas Leverette and the Cali K9&reg; team took the toughest behavior
-            cases on Netflix — and used the same 5-Pillar system your assessment
-            is built on.
-          </p>
         </div>
       </section>
 
-      {/* ── Client testimonials ── */}
-      <TestimonialSection testimonials={TESTIMONIALS} />
+      {/* ── Client reviews carousel ── */}
+      <section className="py-14 max-md:py-10 bg-cream">
+        <div className="max-w-[720px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
+          <div className="text-center mb-8">
+            <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
+              Real Transformations
+            </span>
+            <h2 className="font-display text-[clamp(32px,4vw,44px)] leading-[0.93] text-ink">
+              WHAT 10,000+ DOG OWNERS ARE SAYING
+            </h2>
+          </div>
 
-      {/* ── Celebrity social proof ── */}
-      <CelebGrid />
+          <Carousel
+            ariaLabel="Client reviews"
+            slides={TESTIMONIALS.map((t) => (
+              <div
+                key={t.initials}
+                className="bg-white border border-border rounded-xl p-8 max-[480px]:p-6 text-center h-full"
+              >
+                <Stars />
+                <p className="font-body text-base text-ink/80 italic leading-relaxed mb-5">
+                  {t.quote}
+                </p>
+                <div className="flex items-center justify-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-blue-50 text-blue-500 flex items-center justify-center font-display text-sm shrink-0">
+                    {t.initials}
+                  </div>
+                  <div className="text-left">
+                    <cite className="font-ui text-sm font-bold not-italic block text-ink">
+                      {t.name}
+                    </cite>
+                    <span className="font-ui text-xs text-gray-muted">{t.meta}</span>
+                  </div>
+                </div>
+                <div className="font-ui text-xs font-bold tracking-[1px] uppercase text-green-500 bg-green-500/10 rounded-sm px-3 py-1.5 inline-block">
+                  &#10003; {t.result}
+                </div>
+              </div>
+            ))}
+          />
+        </div>
+      </section>
+
+      {/* ── Celebrity carousel ── */}
+      <section className="py-14 max-md:py-10 bg-white">
+        <div className="max-w-[640px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
+          <div className="text-center mb-8">
+            <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
+              Trusted By The Best
+            </span>
+            <h2 className="font-display text-[clamp(32px,4vw,44px)] leading-[0.93] text-ink">
+              CELEBRITIES, MILITARY &amp; LAW ENFORCEMENT RELY ON CALI K9
+            </h2>
+          </div>
+
+          <Carousel
+            ariaLabel="Celebrity testimonials"
+            slides={CELEBS.map((celeb) => (
+              <article
+                key={celeb.name}
+                className="relative rounded-xl overflow-hidden aspect-square max-w-[440px] mx-auto"
+                aria-label={`${celeb.name} testimonial`}
+              >
+                <Image
+                  src={celeb.image}
+                  alt={celeb.name}
+                  fill
+                  className="object-cover"
+                  style={{ objectPosition: celeb.objectPosition || "center top" }}
+                  sizes="(max-width: 540px) 90vw, 440px"
+                />
+                <div
+                  className="absolute inset-0 flex flex-col justify-end text-center p-[22px_20px]"
+                  style={{
+                    background:
+                      "linear-gradient(to top, rgba(5,10,30,0.96) 0%, rgba(5,10,30,0.75) 35%, rgba(5,10,30,0.15) 65%, transparent 100%)",
+                  }}
+                >
+                  <div className="flex justify-center gap-0.5 mb-2" role="img" aria-label="5 out of 5 stars">
+                    {[...Array(5)].map((_, i) => (
+                      <span key={i} className="text-[#F59E0B] text-xs leading-none">
+                        &#9733;
+                      </span>
+                    ))}
+                  </div>
+                  <p className="font-body text-[13px] italic font-light text-white/85 leading-normal mb-3.5">
+                    {celeb.quote}
+                  </p>
+                  <div className="font-display text-xl text-white leading-none tracking-[0.5px] mb-1">
+                    {celeb.name}
+                  </div>
+                  <div className="font-ui text-[13px] font-bold tracking-[2px] uppercase text-white/50">
+                    {celeb.meta}
+                  </div>
+                </div>
+              </article>
+            ))}
+          />
+        </div>
+      </section>
 
       {/* ── Final CTA ── */}
       <section
-        className="py-20 max-md:py-12 max-[480px]:py-8 text-center"
+        className="py-14 max-md:py-10 text-center"
         style={{ background: "linear-gradient(135deg, #0A1F3C 0%, #122E85 55%, #1A3FAB 100%)" }}
       >
         <div className="max-w-[640px] mx-auto px-6">
-          <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-400 block mb-3">
-            It Starts With Two Minutes
-          </span>
-          <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-white mb-4">
+          <h2 className="font-display text-[clamp(34px,4.5vw,48px)] leading-[0.93] text-white mb-6">
             FIND OUT WHAT&rsquo;S REALLY GOING ON WITH YOUR DOG
           </h2>
-          <div className="w-12 h-[3px] bg-blue-400 mx-auto mb-6" />
-          <p className="font-body text-base text-white/70 leading-relaxed mb-8">
-            Answer a few quick questions about your dog&rsquo;s behavior and
-            we&rsquo;ll point you toward the right next step — the same way we
-            started with 10,000+ dogs before yours.
-          </p>
           <AssessmentCta />
+          <p className="font-ui text-xs tracking-[1.5px] uppercase text-white/40 mt-4">
+            Free &middot; Takes 2 Minutes &middot; No Obligation
+          </p>
         </div>
       </section>
     </main>

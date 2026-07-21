@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const CELEBS = [
+export const CELEBS = [
   {
     name: "STEPHEN CURRY",
     meta: "NBA Champion \u00b7 Golden State Warriors",

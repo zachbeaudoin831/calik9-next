@@ -1,12 +1,20 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 
 export default function SaleBanner() {
   const [dismissed, setDismissed] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+  // Distraction-free lander pages get no promo banner.
+  const hidden = dismissed || pathname === "/free-behavioral-assessment";
 
   useEffect(() => {
+    if (hidden) {
+      document.documentElement.style.setProperty("--banner-h", "0px");
+      return;
+    }
     const update = () => {
       if (ref.current) {
         const h = ref.current.offsetHeight;
@@ -16,7 +24,7 @@ export default function SaleBanner() {
     update();
     window.addEventListener("resize", update);
     return () => window.removeEventListener("resize", update);
-  }, []);
+  }, [hidden]);
 
   const handleDismiss = () => {
     setDismissed(true);
@@ -24,7 +32,7 @@ export default function SaleBanner() {
     document.documentElement.classList.add("banner-dismissed");
   };
 
-  if (dismissed) return null;
+  if (hidden) return null;
 
   return (
     <div
