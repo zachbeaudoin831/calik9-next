@@ -133,7 +133,7 @@ export default function FreeBehavioralAssessmentPage() {
 
       {/* ── Client reviews carousel ── */}
       <section className="py-14 max-md:py-10 bg-cream">
-        <div className="max-w-[720px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
+        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <div className="text-center mb-8">
             <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
               Real Transformations
@@ -145,6 +145,7 @@ export default function FreeBehavioralAssessmentPage() {
 
           <Carousel
             ariaLabel="Client reviews"
+            desktopPerView={3}
             slides={TESTIMONIALS.map((t) => (
               <div
                 key={t.initials}
@@ -176,18 +177,19 @@ export default function FreeBehavioralAssessmentPage() {
 
       {/* ── Celebrity carousel ── */}
       <section className="py-14 max-md:py-10 bg-white">
-        <div className="max-w-[640px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
+        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <div className="text-center mb-8">
             <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
               Trusted By The Best
             </span>
-            <h2 className="font-display text-[clamp(32px,4vw,44px)] leading-[0.93] text-ink">
+            <h2 className="font-display text-[clamp(32px,4vw,44px)] leading-[0.93] text-ink max-w-[800px] mx-auto">
               CELEBRITIES, MILITARY &amp; LAW ENFORCEMENT RELY ON CALI K9
             </h2>
           </div>
 
           <Carousel
             ariaLabel="Celebrity testimonials"
+            desktopPerView={3}
             slides={CELEBS.map((celeb) => (
               <article
                 key={celeb.name}
