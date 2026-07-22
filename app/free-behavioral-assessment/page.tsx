@@ -13,7 +13,18 @@ export const metadata: Metadata = {
     description:
       "Struggling with your dog's behavior? Take Cali K9's free behavioral assessment — from the team behind Netflix's Canine Intervention.",
     url: "https://calik9.com/free-behavioral-assessment",
-    images: ["https://calik9.com/images/cdn/66a311486dce452f20d2ffcd.webp"],
+    images: [
+      "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/67cf3c0717e9d95dac991999.png",
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Free Dog Behavioral Assessment | Cali K9®",
+    description:
+      "Struggling with your dog's behavior? Take Cali K9's free behavioral assessment — from the team behind Netflix's Canine Intervention.",
+    images: [
+      "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/67cf3c0717e9d95dac991999.png",
+    ],
   },
 };
 
