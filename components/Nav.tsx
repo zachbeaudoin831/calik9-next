@@ -5,6 +5,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import { useCart } from "@/context/CartContext";
+import { isLanderPath } from "@/lib/lander-routes";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -48,7 +49,7 @@ export default function Nav() {
 
   const isActive = (href: string) => pathname === href;
   // Distraction-free lander pages: logo + cart only, no menu/links.
-  const isLander = pathname === "/free-behavioral-assessment";
+  const isLander = isLanderPath(pathname);
   const isServicePage =
     pathname.startsWith("/newclientservices") ||
     pathname.startsWith("/returningclientservices") ||

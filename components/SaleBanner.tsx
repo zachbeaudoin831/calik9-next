@@ -2,13 +2,14 @@
 
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
+import { isLanderPath } from "@/lib/lander-routes";
 
 export default function SaleBanner() {
   const [dismissed, setDismissed] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   // Distraction-free lander pages get no promo banner.
-  const hidden = dismissed || pathname === "/free-behavioral-assessment";
+  const hidden = dismissed || isLanderPath(pathname);
 
   useEffect(() => {
     if (hidden) {
