@@ -145,6 +145,7 @@ export default function Nav() {
           )}
 
           {/* Mobile: cart + hamburger grouped on right */}
+          {!isLander && (
           <div className="hidden max-[768px]:flex items-center gap-2">
             <button
               onClick={openCart}
@@ -162,7 +163,6 @@ export default function Nav() {
                 </span>
               )}
             </button>
-            {!isLander && (
             <button
               onClick={() => setDrawerOpen(!drawerOpen)}
               aria-label={drawerOpen ? "Close menu" : "Open menu"}
@@ -173,10 +173,11 @@ export default function Nav() {
               <span className={`block h-0.5 bg-ink rounded-sm transition-all ${drawerOpen ? "opacity-0" : ""}`} />
               <span className={`block h-0.5 bg-ink rounded-sm transition-all ${drawerOpen ? "-rotate-45 -translate-y-[3.5px]" : ""}`} />
             </button>
-            )}
           </div>
+          )}
 
           {/* Desktop cart button */}
+          {!isLander && (
           <button
             onClick={openCart}
             aria-label="Open cart"
@@ -193,6 +194,7 @@ export default function Nav() {
               </span>
             )}
           </button>
+          )}
         </div>
       </nav>
 
