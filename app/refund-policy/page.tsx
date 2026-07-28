@@ -27,7 +27,7 @@ export default function RefundPolicyPage() {
             REFUND POLICY
           </h1>
           <p className="font-ui text-[12px] font-semibold tracking-[2px] uppercase text-white/50">
-            Last Updated: March 2026
+            Last Updated: July 2026
           </p>
         </div>
       </section>
@@ -66,28 +66,11 @@ export default function RefundPolicyPage() {
             <h2 className="font-display text-[32px] text-ink tracking-[0.04em] mb-4 pb-3 border-b-2 border-blue-500 inline-block">
               PROGRAM PAYMENTS
             </h2>
-            <h3 className="font-ui text-[13px] font-bold tracking-[2px] uppercase text-blue-500 mt-7 mb-2.5">
-              Before Training Begins
-            </h3>
             <p className="font-body text-[16px] text-gray-muted leading-[1.75] mb-4">
-              If you cancel before your program start date and have paid beyond the deposit, the following applies:
+              All program payments are non-refundable. Cali K9&reg; does not issue refunds for any training program, service, session, or purchase &mdash; before or after training begins. <strong className="text-ink">All sales are final.</strong>
             </p>
-            <ul className="list-none mb-4">
-              <li className="font-body text-[16px] text-gray-muted leading-[1.75] py-1.5 pl-6 relative before:content-[''] before:absolute before:left-0 before:top-[15px] before:w-2 before:h-0.5 before:bg-blue-500">
-                Cancellation 14+ days before start: full refund of program fees (excluding deposit)
-              </li>
-              <li className="font-body text-[16px] text-gray-muted leading-[1.75] py-1.5 pl-6 relative before:content-[''] before:absolute before:left-0 before:top-[15px] before:w-2 before:h-0.5 before:bg-blue-500">
-                Cancellation 7&ndash;13 days before start: 50% refund of program fees (excluding deposit)
-              </li>
-              <li className="font-body text-[16px] text-gray-muted leading-[1.75] py-1.5 pl-6 relative before:content-[''] before:absolute before:left-0 before:top-[15px] before:w-2 before:h-0.5 before:bg-blue-500">
-                Cancellation less than 7 days before start: no refund of program fees
-              </li>
-            </ul>
-            <h3 className="font-ui text-[13px] font-bold tracking-[2px] uppercase text-blue-500 mt-7 mb-2.5">
-              After Training Begins
-            </h3>
             <p className="font-body text-[16px] text-gray-muted leading-[1.75] mb-4">
-              Once a program has begun &mdash; including Board &amp; Train intake, the first private session, or access to online course materials &mdash; no refunds will be issued. All sales are final once services have commenced.
+              If you need to change your program start date, please see the deposit transfer terms above &mdash; we will always do our best to work with you on scheduling.
             </p>
           </div>
 
