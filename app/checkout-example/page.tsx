@@ -65,7 +65,7 @@ export default function CheckoutExamplePage() {
       {/* ── Trust Bar ── */}
       <div className="bg-[#122E85] text-white py-2.5 px-4 text-center">
         <div className="flex items-center justify-center gap-4 flex-wrap font-ui text-[12px] font-bold tracking-[1px] uppercase max-md:text-[11px] max-md:gap-2">
-          <span className="flex items-center gap-1.5">✅ 30-Day Money Back Guarantee</span>
+          <span className="flex items-center gap-1.5">✅ Results Guaranteed</span>
           <span className="text-white/30 max-md:hidden">|</span>
           <span className="flex items-center gap-1.5">🔒 Secure Order</span>
           <span className="text-white/30 max-md:hidden">|</span>
@@ -268,7 +268,7 @@ export default function CheckoutExamplePage() {
             <div className="flex justify-center gap-5 mt-3 font-ui text-[11px] text-gray-400 flex-wrap">
               <span>🔒 256-bit SSL</span>
               <span>⚡ Instant Confirmation</span>
-              <span>✅ 30-Day Guarantee</span>
+              <span>✅ Results Guaranteed</span>
             </div>
           </div>
 
@@ -280,10 +280,10 @@ export default function CheckoutExamplePage() {
               </div>
               <div>
                 <p className="font-ui text-[11px] font-bold uppercase tracking-[1.5px] text-[#122E85] mb-2 leading-relaxed">
-                  Your Booking Is Backed By Our Unconditional 30-Day Money-Back Guarantee
+                  All Sales Are Final
                 </p>
                 <p className="font-body text-sm text-gray-600 italic leading-relaxed">
-                  Book your evaluation with complete confidence. If for any reason you&rsquo;re not satisfied with your evaluation session, contact us within 30 days and we&rsquo;ll refund your purchase in full &mdash; no questions asked.
+                  Cali K9&reg; does not offer refunds &mdash; all sales are final. Please review your booking details before completing your purchase. Questions? Reach out to our team before you book and we&rsquo;ll be happy to help.
                 </p>
               </div>
             </div>

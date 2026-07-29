@@ -103,7 +103,7 @@ export default function RefundPolicyPage() {
               MERCHANDISE
             </h2>
             <p className="font-body text-[16px] text-gray-muted leading-[1.75] mb-4">
-              Physical products purchased through Cali K9&reg; may be returned within 14 days of delivery if unused and in original packaging. Return shipping costs are the responsibility of the buyer. Custom or personalized items are non-refundable.
+              All merchandise sales are final. No returns or refunds are offered on physical products. If your order arrives damaged or you receive the wrong item, contact us and we will make it right.
             </p>
           </div>
 
@@ -113,7 +113,7 @@ export default function RefundPolicyPage() {
               MEDICAL EXCEPTIONS
             </h2>
             <p className="font-body text-[16px] text-gray-muted leading-[1.75] mb-4">
-              If your dog experiences a documented medical emergency that prevents participation in a program, please contact us immediately. We will review medical documentation on a case-by-case basis and may offer a credit toward a future program. We are not required to issue a cash refund under medical exceptions but will make every reasonable effort to work with you.
+              If your dog experiences a documented medical emergency that prevents participation in a program, please contact us immediately. We will review medical documentation on a case-by-case basis and may offer a credit toward a future program at our discretion. All sales remain final and no refunds are issued under medical exceptions, but we will make every reasonable effort to work with you.
             </p>
           </div>
 

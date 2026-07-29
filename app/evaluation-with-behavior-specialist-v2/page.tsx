@@ -61,7 +61,7 @@ function TrustRow() {
       <span>&middot;</span>
       <span>⚡ Instant Access</span>
       <span>&middot;</span>
-      <span>✅ 30-Day Guarantee</span>
+      <span>✅ Results Guaranteed</span>
     </div>
   );
 }
@@ -537,10 +537,10 @@ export default function EvaluationV2Page() {
           <div className="bg-blue-50 border-2 border-[#1251CC] rounded-lg p-10 max-md:p-7 text-center">
             <span className="text-5xl block mb-4">🛡️</span>
             <h3 className="font-display text-[32px] tracking-[2px] uppercase text-[#0D0D0D] mb-4">
-              Your Assessment Is Backed by a 30-Day Money-Back Guarantee
+              Built on 15+ Years and 10,000+ Dogs
             </h3>
             <p className="font-body text-[15px] text-[#333333] max-w-[540px] mx-auto leading-[1.7]">
-              Complete the Behavior Breakthrough Assessment, work through all five modules, run the Temperament Map on your own dog — and if you don&rsquo;t have a completely new understanding of why your dog has been behaving the way they have, just email us within 30 days. We&rsquo;ll refund your $27 and let you keep the entire assessment free of charge. That&rsquo;s how confident we are that this changes everything.
+              Complete the Behavior Breakthrough Assessment, work through all five modules, and run the Temperament Map on your own dog — the same 5-Pillar System behind more than 10,000 transformations, including the dogs other trainers turned away. Please note: all sales are final and no refunds are issued.
             </p>
           </div>
         </div>
@@ -563,7 +563,7 @@ export default function EvaluationV2Page() {
               { q: "Will this work for my breed?", a: "Yes. The 5-Pillar System was built on 30 years of working with every breed category — working dogs, herding breeds, terriers, toy breeds, mixed breeds, and everything in between. The pillars are breed-agnostic. The temperament mapping inside the assessment is specifically designed to capture breed-specific drive and threshold differences." },
               { q: "I've tried everything. Why would this be different?", a: "Because everything you've tried was built on the same assumption — that training is about teaching commands. The 5-Pillar System is built on a different assumption: that behavior is a direct output of temperament, drive state, and social structure. Once you address those, commands aren't something you have to enforce. They become natural." },
               { q: "What if I want more than the evaluation and the Behavior Breakthrough Bundle?", a: "The bundle and the evaluation is the starting point. After completion, you'll have a clear picture of where your dog is and which Cali K9 program — In-Person Training, Board & Train, or VIP Training — is the right fit. The $27 is a qualifier, not a replacement for real training. It just makes sure you start in the right place." },
-              { q: "Is there a guarantee?", a: "Yes. If you don't have an entirely new understanding of your dog's behavior and what to do about it, email us within 30 days and we'll refund every dollar. No questions asked, no hoops." },
+              { q: "Is there a guarantee?", a: "All sales are final and no refunds are issued. What we do stand behind is the system itself — 15+ years, 10,000+ dogs, and the same 5-Pillar method you've seen on Netflix's Canine Intervention. If you have questions before purchasing, reach out and our team will help you decide if it's the right fit." },
             ].map((faq) => (
               <div key={faq.q} className="py-5">
                 <div className="font-ui text-[15px] font-bold text-[#0D0D0D] mb-2.5">{faq.q}</div>
