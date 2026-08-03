@@ -87,11 +87,6 @@ const TESTIMONIALS = [
 
 const PROGRAMS = [
   {
-    title: "BOARD & TRAIN",
-    desc: "Full immersive program. Maximum results in minimum time \u2014 all 5 Pillars addressed, weekly video updates, and a handoff session.",
-    href: "/board-and-train",
-  },
-  {
     title: "IN-PERSON TRAINING",
     desc: "One-on-one, semi-private, and group sessions with certified Cali K9 trainers \u2014 tailored to your dog\u2019s behavior, temperament, and goals.",
     href: "/in-person",
@@ -280,7 +275,7 @@ export default async function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-3 gap-6 max-lg:grid-cols-2 max-sm:grid-cols-1">
+          <div className="grid grid-cols-2 gap-6 max-sm:grid-cols-1 max-w-[780px] mx-auto">
             {PROGRAMS.map((p) => (
               <div
                 key={p.title}

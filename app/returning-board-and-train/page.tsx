@@ -5,7 +5,6 @@ import StarsRow from "@/components/StarsRow";
 import PackageHeading from "@/components/PackageHeading";
 import PackageList from "@/components/PackageList";
 import PriceBlock from "@/components/PriceBlock";
-import FormEmbed from "@/components/FormEmbed";
 import CelebMiniGrid from "@/components/CelebMiniGrid";
 import CelebGrid from "@/components/CelebGrid";
 import CtaBlock from "@/components/CtaBlock";
@@ -21,6 +20,9 @@ export const metadata: Metadata = {
     url: "https://calik9.com/returning-board-and-train",
     images: [],
   },
+  // Program discontinued — keep the page reachable for anyone with an old
+  // link/bookmark, but out of Google entirely.
+  robots: { index: false, follow: false },
 };
 
 const MINI_CELEBS = [
@@ -35,12 +37,21 @@ export default function ReturningBoardAndTrainPage() {
     <main>
       <ServiceHero
         sidebar={
-          <FormEmbed
-            formId="XNqOx4mrwsWmS3c21fXO"
-            formName="Returning Client B&T- Website"
-            title="Book 2-Week Board & Train"
-            height={825}
-          />
+          <div className="bg-white/[0.07] border border-white/[0.18] rounded-xl p-6 text-center">
+            <div className="font-ui text-[13px] font-bold tracking-[2px] uppercase text-white/85 mb-3">
+              This Program Is No Longer Available
+            </div>
+            <p className="font-body text-sm text-white/60 leading-relaxed mb-5">
+              We&rsquo;ve retired our Board &amp; Train program. Explore our
+              current training options instead.
+            </p>
+            <Link
+              href="/newclientservices"
+              className="btn btn-white btn-lg w-full text-center block"
+            >
+              View Current Programs
+            </Link>
+          </div>
         }
         intro={
           <>
@@ -161,10 +172,10 @@ export default function ReturningBoardAndTrainPage() {
               <p className="font-body text-[15px] text-gray-muted leading-[1.7]">
                 Not yet a Cali K9 client?{" "}
                 <Link
-                  href="/board-and-train"
+                  href="/newclientservices"
                   className="text-blue-500 underline hover:text-blue-700"
                 >
-                  View our full Board &amp; Train programs
+                  View our current training programs
                 </Link>{" "}
                 to get started.
               </p>
@@ -206,9 +217,9 @@ export default function ReturningBoardAndTrainPage() {
       <CtaBlock
         eyebrow="Get Started"
         heading="READY TO TAKE YOUR DOG TO THE NEXT LEVEL?"
-        description="Book your 2-Week Board & Train and continue the transformation with Cali K9's certified trainers."
-        primaryCta={{ label: "Book Now →", href: "#top" }}
-        secondaryCta={{ label: "View All Services →", href: "/newclientservices" }}
+        description="This program is no longer available, but our certified trainers offer other ways to continue your dog's transformation."
+        primaryCta={{ label: "View Current Programs →", href: "/newclientservices" }}
+        secondaryCta={{ label: "Book Evaluation →", href: "/evaluation-with-behavior-specialist" }}
       />
     </main>
   );

@@ -5,7 +5,6 @@ import StarsRow from "@/components/StarsRow";
 import PackageHeading from "@/components/PackageHeading";
 import PackageList from "@/components/PackageList";
 import PriceBlock from "@/components/PriceBlock";
-import FormEmbed from "@/components/FormEmbed";
 import CelebMiniGrid from "@/components/CelebMiniGrid";
 import CelebGrid from "@/components/CelebGrid";
 import CtaBlock from "@/components/CtaBlock";
@@ -21,6 +20,9 @@ export const metadata: Metadata = {
     url: "https://calik9.com/board-and-train",
     images: ["https://calik9.com/images/cdn/66a311486dce452f20d2ffcd.webp"],
   },
+  // Program discontinued — keep the page reachable for anyone with an old
+  // link/bookmark, but out of Google entirely.
+  robots: { index: false, follow: false },
 };
 
 const MINI_CELEBS = [
@@ -35,12 +37,21 @@ export default function BoardAndTrainPage() {
     <main>
       <ServiceHero
         sidebar={
-          <FormEmbed
-            formId="y6VSKPK4ruaCbRo0hZnM"
-            formName="Board and Train"
-            title="Book Board & Train"
-            height={804}
-          />
+          <div className="bg-white/[0.07] border border-white/[0.18] rounded-xl p-6 text-center">
+            <div className="font-ui text-[13px] font-bold tracking-[2px] uppercase text-white/85 mb-3">
+              This Program Is No Longer Available
+            </div>
+            <p className="font-body text-sm text-white/60 leading-relaxed mb-5">
+              We&rsquo;ve retired our Board &amp; Train program. Explore our
+              current training options instead.
+            </p>
+            <Link
+              href="/newclientservices"
+              className="btn btn-white btn-lg w-full text-center block"
+            >
+              View Current Programs
+            </Link>
+          </div>
         }
         intro={
           <>

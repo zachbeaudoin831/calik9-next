@@ -49,7 +49,7 @@ export default function BoardAndTrainWorthItPage() {
               debated &mdash; topics in dog training. Some people swear by it.
               Others call it a waste of money. After running one of the most
               established{" "}
-              <Link href="/board-and-train" className="text-blue-500 underline hover:text-blue-700">
+              <Link href="/newclientservices" className="text-blue-500 underline hover:text-blue-700">
                 board and train programs
               </Link>{" "}
               in the country for over 15 years, I&apos;m going to give you the
@@ -360,7 +360,7 @@ export default function BoardAndTrainWorthItPage() {
 
             <p>
               At Cali K9, our{" "}
-              <Link href="/board-and-train" className="text-blue-500 underline hover:text-blue-700">
+              <Link href="/newclientservices" className="text-blue-500 underline hover:text-blue-700">
                 Elite Board &amp; Train program
               </Link>{" "}
               reflects the level of expertise, daily training volume, and

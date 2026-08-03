@@ -8,7 +8,6 @@ import { isLanderPath } from "@/lib/lander-routes";
 const TRAINING_LINKS = [
   { href: "/newclientservices", label: "All Services" },
   { href: "/evaluation-with-behavior-specialist", label: "Evaluation" },
-  { href: "/board-and-train", label: "Board & Train" },
   { href: "/online-training-program2", label: "Online Program" },
 ];
 

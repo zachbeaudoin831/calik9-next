@@ -41,18 +41,6 @@ const NEW_CLIENT_CARDS = [
     imagePosition: "center center",
   },
   {
-    tag: "Most Intensive \u00b7 8 Spots/Mo",
-    name: "BOARD\n& TRAIN",
-    desc: "Your dog lives with us while we build the foundation. Deep obedience, behavior modification, lifetime support.",
-    href: "/board-and-train",
-    bg: "linear-gradient(160deg, #04060F, #080C25, #0D1640)",
-    image: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/67c270a01e6df2ebba9219d2.png",
-    imageAlt: "Cali K9 Board & Train residential dog training facility",
-    imagePosition: "center 65%",
-    imageScale: 1.4,
-    imageOrigin: "center 65%",
-  },
-  {
     tag: "For Professionals",
     name: "BUSINESS\nCOACHING",
     desc: "Built for dog trainers ready to scale. Leverage Jas\u2019s proven framework to grow a high-revenue training business.",
@@ -76,18 +64,6 @@ const NEW_CLIENT_CARDS = [
 ];
 
 const RETURNING_CLIENT_CARDS = [
-  {
-    tag: "Intensive · $2,997",
-    name: "2-WEEK\nBOARD & TRAIN",
-    desc: "For returning Cali K9 clients. Two weeks of residential intensive training to reinforce, sharpen, and advance your dog's skills.",
-    href: "/returning-board-and-train",
-    bg: "linear-gradient(160deg, #04060F, #080C25, #0D1640)",
-    image: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/67c270a01e6df2ebba9219d2.png",
-    imageAlt: "Cali K9 Board & Train residential dog training facility",
-    imagePosition: "center 65%",
-    imageScale: 1.4,
-    imageOrigin: "center 65%",
-  },
   {
     tag: "Virtual",
     name: "ZOOM\nGROUP CLASS",
@@ -130,8 +106,8 @@ const SPECIALIZATIONS = [
 ];
 
 const LOCATIONS = [
-  { name: "Bay Area, CA", desc: "Flagship location \u2014 in-person training, Board & Train, and group classes throughout the San Francisco Bay Area." },
-  { name: "Los Angeles, CA", desc: "Private sessions and Board & Train programs serving LA and surrounding communities." },
+  { name: "Bay Area, CA", desc: "Flagship location \u2014 in-person training and group classes throughout the San Francisco Bay Area." },
+  { name: "Los Angeles, CA", desc: "Private sessions and intensive programs serving LA and surrounding communities." },
   { name: "Miami, FL", desc: "East Coast private sessions and intensive programs \u2014 same elite Cali K9 standard." },
   { name: "New York, NY", desc: "Private sessions and select programs available. Contact us to check current availability." },
   { name: "Online \u00b7 Worldwide", desc: "The full 5-Pillar Online Program and Zoom Group Classes available to clients anywhere in the world.", globe: true },
