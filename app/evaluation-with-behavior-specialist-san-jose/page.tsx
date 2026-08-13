@@ -289,7 +289,7 @@ export default function EvaluationPage() {
         }
       >
         {/* We address pills */}
-        <div className="mb-6">
+        <div id="what-we-address" className="mb-6 scroll-mt-[84px]">
           <div className="font-ui text-xs font-bold tracking-[2px] uppercase text-white/45 mb-3">
             We address:
           </div>
@@ -319,7 +319,7 @@ export default function EvaluationPage() {
       </ServiceHero>
 
       {/* ── What to Expect ── */}
-      <section className="py-20 max-md:py-12 max-[480px]:py-8">
+      <section id="the-process" className="py-20 max-md:py-12 max-[480px]:py-8 scroll-mt-[84px]">
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <div className="text-center mb-12">
             <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
@@ -378,7 +378,7 @@ export default function EvaluationPage() {
       </section>
 
       {/* ── Results Gallery ── */}
-      <section className="py-20 max-md:py-12 max-[480px]:py-8 bg-cream">
+      <section id="proven-results" className="py-20 max-md:py-12 max-[480px]:py-8 bg-cream scroll-mt-[84px]">
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <div className="text-center mb-12">
             <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
@@ -533,7 +533,7 @@ export default function EvaluationPage() {
       </section>
 
       {/* ── FAQ ── */}
-      <section className="py-20 max-md:py-12 max-[480px]:py-8 bg-cream">
+      <section id="common-question" className="py-20 max-md:py-12 max-[480px]:py-8 bg-cream scroll-mt-[84px]">
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <div className="text-center mb-12">
             <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
