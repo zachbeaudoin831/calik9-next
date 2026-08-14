@@ -163,7 +163,7 @@ export default function InPersonPage() {
         <PackageList
           title="What's Included:"
           items={[
-            { text: "10 Private OR 5 At-Home Sessions", bold: true },
+            { text: "8 VIP Sessions", bold: true },
             "1 Year of Group Classes",
             "1 Year of Group Zoom Classes",
             "Obedience",
