@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Free Live Dog Training Class",
   description:
     "Free live training class with Jas Leverette, host of Netflix's Canine Intervention: take your dog from aggressive & reactive to calm & relaxed with the 15-minute training method.",
-  // Draft ad-campaign registration lander — keep out of search while in review.
+  // Draft ad-campaign registration lander. Keep out of search while in review.
   robots: { index: false, follow: false },
 };
 
@@ -15,17 +15,17 @@ const LEARN = [
   {
     icon: "⏱️",
     title: "EFFICIENT TRAINING",
-    desc: "How to transform your dog's behavior with just 15 minutes of focused training a day — no marathon sessions required.",
+    desc: "How to transform your dog's behavior with just 15 minutes of focused training a day. No marathon sessions required.",
   },
   {
     icon: "🧩",
     title: "REAL-TIME PROBLEM-SOLVING",
-    desc: "Live answers to the everyday challenges you're actually facing — barking, lunging, pulling, door manners, and more.",
+    desc: "Live answers to the everyday challenges you're actually facing: barking, lunging, pulling, door manners, and more.",
   },
   {
     icon: "🐕",
     title: "SOCIALIZATION SKILLS",
-    desc: "How to build calm, confident interactions with other dogs and people — without the chaos.",
+    desc: "How to build calm, confident interactions with other dogs and people, without the chaos.",
   },
   {
     icon: "🎯",
@@ -35,7 +35,7 @@ const LEARN = [
   {
     icon: "📉",
     title: "REDUCE REACTIVITY",
-    desc: "How to read your dog's body language and catch reactivity before it explodes — the skill that changes everything.",
+    desc: "How to read your dog's body language and catch reactivity before it explodes. This is the skill that changes everything.",
   },
 ];
 
@@ -43,7 +43,7 @@ const TESTIMONIALS = [
   {
     initials: "MT",
     name: "Marcus T.",
-    meta: "Zeus — German Shepherd · Aggression",
+    meta: "Zeus · German Shepherd · Aggression",
     quote:
       "“Before Cali K9, Zeus was lunging at every dog on the street. After board and train, he walks by my side like a completely different dog.”",
     result: "Now walks calmly past other dogs",
@@ -51,7 +51,7 @@ const TESTIMONIALS = [
   {
     initials: "JL",
     name: "Jennifer L.",
-    meta: "Luna — Pit Bull Rescue · Fear Aggression",
+    meta: "Luna · Pit Bull Rescue · Fear Aggression",
     quote:
       "“We were considering rehoming our rescue. Two weeks in board and train and she came back calm, focused, and loving. I’m emotional typing this.”",
     result: "Calm, focused & thriving",
@@ -59,10 +59,10 @@ const TESTIMONIALS = [
   {
     initials: "PK",
     name: "Priya K.",
-    meta: "Mochi — Shiba Inu · Reactivity",
+    meta: "Mochi · Shiba Inu · Reactivity",
     quote:
       "“I tried three trainers before Jas. The online course alone solved problems others couldn’t fix in person. The 5-Pillar system just makes sense.”",
-    result: "Reactivity eliminated — fixed what 3 trainers couldn’t",
+    result: "Reactivity eliminated. Fixed what 3 trainers couldn’t",
   },
 ];
 
@@ -144,7 +144,7 @@ export default function RegisterNowPage() {
 
           <p className="font-body text-xl text-white/75 leading-relaxed mb-7 max-w-[560px] mx-auto">
             With the <strong className="text-white">15-minute training
-            method</strong> from Jas Leverette — celebrity trainer and host of
+            method</strong> from Jas Leverette, celebrity trainer and host of
             Netflix&rsquo;s <em>Canine Intervention</em>.
           </p>
 
@@ -209,7 +209,7 @@ export default function RegisterNowPage() {
           </div>
 
           <p className="font-body text-base text-gray-muted text-center mt-8 italic">
-            Not sure if this is for you? Come along — you&rsquo;ll find out in
+            Not sure if this is for you? Come along. You&rsquo;ll find out in
             the first 7 minutes.
           </p>
         </div>
@@ -351,7 +351,7 @@ export default function RegisterNowPage() {
           </h2>
           <p className="font-body text-base text-white/70 leading-relaxed mb-8">
             One free class. 15 minutes a day. The same method behind 10,000+
-            transformed dogs — live with Jas Leverette.
+            transformed dogs, live with Jas Leverette.
           </p>
           <RegisterCta />
         </div>

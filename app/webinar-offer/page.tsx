@@ -4,10 +4,10 @@ import Carousel from "@/components/Carousel";
 import { CELEBS } from "@/components/CelebGrid";
 
 export const metadata: Metadata = {
-  title: "Webinar Special — Online Training + Evaluation Call for $79",
+  title: "Webinar Special: Online Training + Evaluation Call for $79",
   description:
-    "Webinar attendees only: get the complete Cali K9® Online Training System ($497 value) plus a one-on-one evaluation call about your dog — for $79.",
-  // Post-webinar offer page — keep out of search.
+    "Webinar attendees only: get the complete Cali K9® Online Training System ($497 value) plus a one-on-one evaluation call about your dog, all for $79.",
+  // Post-webinar offer page. Keep out of search.
   robots: { index: false, follow: false },
 };
 
@@ -36,15 +36,15 @@ const TESTIMONIALS = [
   {
     initials: "PK",
     name: "Priya K.",
-    meta: "Mochi — Shiba Inu · Reactivity",
+    meta: "Mochi · Shiba Inu · Reactivity",
     quote:
       "“I tried three trainers before Jas. The online course alone solved problems others couldn’t fix in person. The 5-Pillar system just makes sense.”",
-    result: "Reactivity eliminated — fixed what 3 trainers couldn’t",
+    result: "Reactivity eliminated. Fixed what 3 trainers couldn’t",
   },
   {
     initials: "AK",
     name: "Amanda K.",
-    meta: "Miami, FL — Google Review",
+    meta: "Miami, FL · Google Review",
     quote:
       "“The online program is incredible value. I’ve done 3 other dog training courses and nothing comes close to the depth of Jas’s system. My dog is off-leash reliable at 8 months old.”",
     result: "Off-leash reliable at 8 months old",
@@ -52,7 +52,7 @@ const TESTIMONIALS = [
   {
     initials: "MT",
     name: "Marcus T.",
-    meta: "Zeus — German Shepherd · Aggression",
+    meta: "Zeus · German Shepherd · Aggression",
     quote:
       "“Before Cali K9, Zeus was lunging at every dog on the street. Now he walks by my side like a completely different dog.”",
     result: "Now walks calmly past other dogs",
@@ -62,19 +62,19 @@ const TESTIMONIALS = [
 const FAQS = [
   {
     q: "What exactly do I get for $79?",
-    a: "Lifetime access to the complete Cali K9 Online Training System — every course, the 100 problem-solving videos, daily homework, and the membership community — plus a private one-on-one evaluation call where a Cali K9 specialist assesses your dog and maps out your next steps.",
+    a: "Lifetime access to the complete Cali K9 Online Training System (every course, the 100 problem-solving videos, daily homework, and the membership community), plus a private one-on-one evaluation call where a Cali K9 specialist assesses your dog and maps out your next steps.",
   },
   {
     q: "How does the evaluation call work?",
-    a: "After purchase you'll get a link to book your call. It's a direct consultation with a Cali K9 behavior specialist — bring your toughest issues (reactivity, aggression, anxiety, obedience) and leave with a custom roadmap.",
+    a: "After purchase you'll get a link to book your call. It's a direct consultation with a Cali K9 behavior specialist. Bring your toughest issues (reactivity, aggression, anxiety, obedience) and leave with a custom roadmap.",
   },
   {
     q: "Is this really the same $497 program?",
-    a: "Yes — the same online curriculum listed on our site at $497. This webinar-attendee price bundles it with the evaluation call for $79.",
+    a: "Yes. It is the same online curriculum listed on our site at $497. This webinar-attendee price bundles it with the evaluation call for $79.",
   },
   {
     q: "Will this work for my dog's breed or age?",
-    a: "The 5-Pillar System is breed-agnostic and works at every age. We've used it on 10,000+ dogs — puppies, seniors, working breeds, rescues, and the dogs other trainers turned away.",
+    a: "The 5-Pillar System is breed-agnostic and works at every age. We've used it on 10,000+ dogs: puppies, seniors, working breeds, rescues, and the dogs other trainers turned away.",
   },
   {
     q: "What's your refund policy?",
@@ -101,7 +101,7 @@ function BuyCta({ className = "" }: { className?: string }) {
   return (
     <div className={`text-center ${className}`}>
       <a href={CHECKOUT_URL} className="btn btn-white btn-lg text-center max-md:w-full">
-        Get Instant Access — $79
+        Get Instant Access for $79
         <span aria-hidden="true" className="ml-2 relative -top-[2.5px] leading-none">
           &rarr;
         </span>
@@ -144,8 +144,8 @@ export default function WebinarOfferPage() {
           </h1>
 
           <p className="font-body text-xl text-white/75 leading-relaxed mb-8 max-w-[600px] mx-auto">
-            Everything Jas teaches — the full 5-Pillar course library behind
-            10,000+ transformed dogs — plus a private call with a Cali K9
+            Everything Jas teaches, the full 5-Pillar course library behind
+            10,000+ transformed dogs, plus a private call with a Cali K9
             specialist about <em>your</em> dog.
           </p>
 
@@ -199,7 +199,7 @@ export default function WebinarOfferPage() {
             <p className="font-body text-[15px] text-gray-muted leading-[1.7] mb-5">
               Jas&rsquo;s entire 5-Pillar method, delivered digitally. Self-paced,
               lifetime access, and built to fix the problems other trainers
-              can&rsquo;t — reactivity, aggression, anxiety, and everything in
+              can&rsquo;t: reactivity, aggression, anxiety, and everything in
               between.
             </p>
             <ul className="list-none p-0 m-0 grid grid-cols-2 gap-x-6 max-md:grid-cols-1">
@@ -235,7 +235,7 @@ export default function WebinarOfferPage() {
             </div>
             <p className="font-body text-[15px] text-gray-muted leading-[1.7] mb-5">
               A direct consultation with a Cali K9 behavior specialist about
-              your dog — not a webinar, not a group call. We assess what&rsquo;s
+              your dog. Not a webinar, not a group call. We assess what&rsquo;s
               really driving the behavior and hand you a custom roadmap so you
               know exactly where to start inside the courses.
             </p>
@@ -449,7 +449,7 @@ export default function WebinarOfferPage() {
             THE WHOLE SYSTEM. A CALL ABOUT YOUR DOG. $79.
           </h2>
           <p className="font-body text-base text-white/70 leading-relaxed mb-8">
-            $524 of training for $79 — the same 5-Pillar System behind 10,000+
+            $524 of training for $79. The same 5-Pillar System behind 10,000+
             transformed dogs, plus a specialist in your corner. Only for
             webinar attendees.
           </p>
