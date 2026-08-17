@@ -99,7 +99,10 @@ function RegisterCta({ className = "" }: { className?: string }) {
         href="https://go.calik9.com/register-now"
         className="btn btn-white btn-lg text-center max-md:w-full"
       >
-        Register For Free &rarr;
+        Register For Free
+        <span aria-hidden="true" className="ml-2 relative -top-[2.5px] leading-none">
+          &rarr;
+        </span>
       </a>
       <p className="font-ui text-xs tracking-[1.5px] uppercase text-white/40 mt-4">
         Free &middot; Live on Zoom &middot; Only 100 Spots Per Time Slot
