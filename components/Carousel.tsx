@@ -5,8 +5,10 @@ import { ReactNode, useEffect, useRef, useState } from "react";
 interface CarouselProps {
   slides: ReactNode[];
   ariaLabel: string;
-  /** How many slides are visible at once on desktop (>=768px). Mobile always shows 1. */
+  /** How many slides are visible per row on desktop (>=768px). Mobile always shows 1. */
   desktopPerView?: number;
+  /** How many rows are visible per page on desktop. Mobile always shows 1 row. */
+  desktopRows?: number;
   /** Arrow/dot colors for dark backgrounds */
   dark?: boolean;
 }
@@ -15,22 +17,28 @@ export default function Carousel({
   slides,
   ariaLabel,
   desktopPerView = 1,
+  desktopRows = 1,
   dark = false,
 }: CarouselProps) {
   const [perView, setPerView] = useState(1);
+  const [rows, setRows] = useState(1);
   const [page, setPage] = useState(0);
   const touchX = useRef<number | null>(null);
   const count = slides.length;
 
   useEffect(() => {
     const mq = window.matchMedia("(min-width: 768px)");
-    const update = () => setPerView(mq.matches ? desktopPerView : 1);
+    const update = () => {
+      setPerView(mq.matches ? desktopPerView : 1);
+      setRows(mq.matches ? desktopRows : 1);
+    };
     update();
     mq.addEventListener("change", update);
     return () => mq.removeEventListener("change", update);
-  }, [desktopPerView]);
+  }, [desktopPerView, desktopRows]);
 
-  const pages = Math.max(1, Math.ceil(count / perView));
+  const pageSize = perView * rows;
+  const pages = Math.max(1, Math.ceil(count / pageSize));
 
   useEffect(() => {
     setPage((p) => Math.min(p, pages - 1));
@@ -38,8 +46,10 @@ export default function Carousel({
 
   const go = (delta: number) => setPage((p) => (p + delta + pages) % pages);
 
-  // First visible slide, clamped so the last page never shows empty space.
-  const first = Math.min(page * perView, Math.max(0, count - perView));
+  // Single-row mode slides item-by-item (clamped so the last page never shows
+  // empty space). Multi-row mode pages through fixed grids instead.
+  const first =
+    rows > 1 ? page * pageSize : Math.min(page * perView, Math.max(0, count - perView));
   const showControls = pages > 1;
 
   const arrowClass = `absolute top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full border flex items-center justify-center cursor-pointer transition-colors ${
@@ -62,21 +72,41 @@ export default function Carousel({
           touchX.current = null;
         }}
       >
-        <div
-          className="flex items-stretch transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
-          style={{ transform: `translateX(-${first * (100 / perView)}%)` }}
-        >
-          {slides.map((slide, i) => (
-            <div
-              key={i}
-              className="shrink-0 px-2.5"
-              style={{ width: `${100 / perView}%` }}
-              aria-hidden={i < first || i >= first + perView}
-            >
-              {slide}
-            </div>
-          ))}
-        </div>
+        {rows > 1 ? (
+          <div
+            className="flex items-stretch transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+            style={{ transform: `translateX(-${page * 100}%)` }}
+          >
+            {Array.from({ length: pages }, (_, p) => (
+              <div
+                key={p}
+                className="shrink-0 w-full grid gap-5 px-2.5"
+                style={{ gridTemplateColumns: `repeat(${perView}, minmax(0, 1fr))` }}
+                aria-hidden={p !== page}
+              >
+                {slides.slice(p * pageSize, (p + 1) * pageSize).map((slide, i) => (
+                  <div key={i}>{slide}</div>
+                ))}
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div
+            className="flex items-stretch transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+            style={{ transform: `translateX(-${first * (100 / perView)}%)` }}
+          >
+            {slides.map((slide, i) => (
+              <div
+                key={i}
+                className="shrink-0 px-2.5"
+                style={{ width: `${100 / perView}%` }}
+                aria-hidden={i < first || i >= first + perView}
+              >
+                {slide}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
       {showControls && (

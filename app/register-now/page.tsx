@@ -66,6 +66,23 @@ const TESTIMONIALS = [
   },
 ];
 
+// Alternate Jas-with-a-man / Jas-with-a-woman as far as the roster allows
+// (only two women in the set), then the remaining men and organizations.
+const CELEB_ORDER = [
+  "STEPHEN CURRY",
+  "DEMI MOORE",
+  "KEVIN HART",
+  "COI LERAY",
+  "KENDRICK LAMAR",
+  "DR. PHIL",
+  "JASON DERULO",
+  "SAN JOSE POLICE",
+  "TURKS & CAICOS MILITARY",
+];
+const ORDERED_CELEBS = CELEB_ORDER.map((n) => CELEBS.find((c) => c.name === n)).filter(
+  (c): c is (typeof CELEBS)[number] => Boolean(c),
+);
+
 const MEDIA_LOGOS = [
   { src: "/images/media-logos/netflix.webp", alt: "Netflix" },
   { src: "/images/media-logos/nbc.webp", alt: "NBC" },
@@ -275,7 +292,8 @@ export default function RegisterNowPage() {
           <Carousel
             ariaLabel="Celebrity testimonials"
             desktopPerView={3}
-            slides={CELEBS.map((celeb) => (
+            desktopRows={2}
+            slides={ORDERED_CELEBS.map((celeb) => (
               <article
                 key={celeb.name}
                 className="relative rounded-xl overflow-hidden aspect-square max-w-[440px] mx-auto"
