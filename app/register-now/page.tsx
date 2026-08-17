@@ -5,38 +5,43 @@ import RegisterModal from "./RegisterModal";
 import { CELEBS } from "@/components/CelebGrid";
 
 export const metadata: Metadata = {
-  title: "Free Live Dog Training Class",
+  title: "Your Dream Dog Is Possible: Free Live Training Class",
   description:
-    "Free live training class with Jas Leverette, host of Netflix's Canine Intervention: take your dog from aggressive & reactive to calm & relaxed with the 15-minute training method.",
+    "Free live class with Jas Leverette, host of Netflix's Canine Intervention: how to create an obedient, confident, well-behaved off-leash dog you can take anywhere. Saturday 9AM PST.",
   // Draft ad-campaign registration lander. Keep out of search while in review.
   robots: { index: false, follow: false },
 };
 
 const LEARN = [
   {
-    icon: "⏱️",
-    title: "EFFICIENT TRAINING",
-    desc: "How to transform your dog's behavior with just 15 minutes of focused training a day. No marathon sessions required.",
+    icon: "🔍",
+    title: "FIGURE OUT EXACTLY HOW TO FIX YOUR DOG'S BEHAVIOR",
+    desc: "Stop guessing. Learn how to pinpoint what's actually driving your dog's behavior and what to do about it.",
   },
   {
-    icon: "🧩",
-    title: "REAL-TIME PROBLEM-SOLVING",
-    desc: "Live answers to the everyday challenges you're actually facing: barking, lunging, pulling, door manners, and more.",
+    icon: "🏛️",
+    title: "THE 5 PILLARS OF THE CALI K9 TRAINING SYSTEM",
+    desc: "The framework behind 10,000+ transformed dogs: Obedience, Socialization, Agility, Behavior Modification, and Problem Solving.",
   },
   {
-    icon: "🐕",
-    title: "SOCIALIZATION SKILLS",
-    desc: "How to build calm, confident interactions with other dogs and people, without the chaos.",
+    icon: "🧠",
+    title: "THE 16 DIMENSIONS OF A DOG'S TEMPERAMENT",
+    desc: "Understand your dog's temperament profile so you're training the dog in front of you, not a generic one.",
   },
   {
     icon: "🎯",
-    title: "BEHAVIOR MANAGEMENT",
-    desc: "The management techniques Cali K9 trainers use to stop bad habits from rehearsing while the real training takes hold.",
+    title: "THE 3 OBJECTIVES OF THE CALI K9 SYSTEM",
+    desc: "The three goals every training session is built around, and how they add up to a reliable dog.",
   },
   {
-    icon: "📉",
-    title: "REDUCE REACTIVITY",
-    desc: "How to read your dog's body language and catch reactivity before it explodes. This is the skill that changes everything.",
+    icon: "⚡",
+    title: "THE CALI K9 DOPAMINE STATE REWARD SYSTEM",
+    desc: "How to use your dog's reward drive to lock in the behaviors you want, faster than punishment ever could.",
+  },
+  {
+    icon: "🛡️",
+    title: "HOW TO REINFORCE AND BLOCK BEHAVIOR",
+    desc: "So you have a predictable dog that is not a liability, at home, on the leash, and off it.",
   },
 ];
 
@@ -115,18 +120,21 @@ export default function RegisterNowPage() {
       >
         <div className="max-w-[860px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 text-center relative z-[1]">
           <span className="inline-flex items-center gap-2 bg-green-500/20 border border-green-500/40 text-green-400 font-ui text-[12px] font-bold tracking-[2px] uppercase px-4 py-2 rounded-full mb-6">
-            Free Live Training Class
+            Cali K9 Presents &middot; Free Live Training Class
           </span>
 
-          <h1 className="font-display text-[clamp(40px,5.5vw,68px)] text-white leading-[0.95] mb-5">
-            TAKE YOUR DOG FROM{" "}
-            <span className="text-red-500">AGGRESSIVE &amp; REACTIVE</span> TO{" "}
-            <span className="text-[#6A9FFF]">CALM &amp; RELAXED</span>
+          <h1 className="font-display text-[clamp(44px,6.5vw,80px)] text-white leading-[0.93] mb-5">
+            YOUR <span className="text-[#6A9FFF]">DREAM DOG</span> IS POSSIBLE!
           </h1>
 
-          <p className="font-body text-xl text-white/75 leading-relaxed mb-7 max-w-[560px] mx-auto">
-            With the <strong className="text-white">15-minute training
-            method</strong> from Jas Leverette, celebrity trainer and host of
+          <p className="font-display text-[clamp(22px,2.6vw,30px)] text-white/90 leading-tight mb-5 max-w-[680px] mx-auto">
+            HOW TO CREATE AN OBEDIENT, CONFIDENT AND WELL-BEHAVED OFF-LEASH DOG
+            YOU CAN TAKE ANYWHERE
+          </p>
+
+          <p className="font-body text-lg text-white/70 leading-relaxed mb-7 max-w-[560px] mx-auto">
+            Even if your dog is <span className="text-red-400 font-semibold">reactive or aggressive</span> today.
+            Taught live by Jas Leverette, celebrity trainer and host of
             Netflix&rsquo;s <em>Canine Intervention</em>.
           </p>
 
@@ -169,7 +177,7 @@ export default function RegisterNowPage() {
               In This Free Class
             </span>
             <h2 className="font-display text-[clamp(32px,4vw,44px)] leading-[0.93] text-ink">
-              WHAT YOU&rsquo;LL LEARN
+              WHAT WILL YOU LEARN?
             </h2>
           </div>
 
