@@ -3,6 +3,7 @@ const LANDER_ROUTES = new Set([
   "/free-behavioral-assessment",
   "/dog-behavior-assessment",
   "/register-now",
+  "/webinar-offer",
 ]);
 
 export function isLanderPath(pathname: string): boolean {
