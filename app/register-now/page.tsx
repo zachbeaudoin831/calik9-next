@@ -168,7 +168,7 @@ export default function RegisterNowPage() {
           <div className="inline-flex items-center gap-3 bg-white/[0.08] border border-white/[0.18] rounded-xl px-6 py-3.5 mb-8">
             <span className="text-2xl">🗓️</span>
             <span className="font-ui text-base font-bold tracking-[1px] uppercase text-white">
-              Wednesday &middot; 6PM PST / 9PM EST
+              Saturday &middot; 9AM PST / 12PM EST
             </span>
           </div>
 
@@ -344,7 +344,7 @@ export default function RegisterNowPage() {
       >
         <div className="max-w-[640px] mx-auto px-6">
           <h2 className="font-display text-[clamp(34px,4.5vw,48px)] leading-[0.93] text-white mb-4">
-            YOUR DOG CAN CHANGE. IT STARTS WEDNESDAY.
+            YOUR DOG CAN CHANGE. IT STARTS SATURDAY.
           </h2>
           <p className="font-body text-base text-white/70 leading-relaxed mb-8">
             One free class. 15 minutes a day. The same method behind 10,000+
