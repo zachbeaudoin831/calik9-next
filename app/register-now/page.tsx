@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Carousel from "@/components/Carousel";
+import RegisterModal from "./RegisterModal";
 import { CELEBS } from "@/components/CelebGrid";
 
 export const metadata: Metadata = {
@@ -92,25 +93,6 @@ const MEDIA_LOGOS = [
   { src: "/images/media-logos/people-magazine.webp", alt: "People Magazine" },
 ];
 
-function RegisterCta({ className = "" }: { className?: string }) {
-  return (
-    <div className={`text-center ${className}`}>
-      <a
-        href="https://go.calik9.com/register-now"
-        className="btn btn-white btn-lg text-center max-md:w-full"
-      >
-        Register For Free
-        <span aria-hidden="true" className="ml-2 relative -top-[2.5px] leading-none">
-          &rarr;
-        </span>
-      </a>
-      <p className="font-ui text-xs tracking-[1.5px] uppercase text-white/40 mt-4">
-        Free &middot; Live on Zoom &middot; Only 100 Spots Per Time Slot
-      </p>
-    </div>
-  );
-}
-
 function Stars() {
   return (
     <div className="flex justify-center gap-[3px] mb-3" role="img" aria-label="5 out of 5 stars">
@@ -175,7 +157,7 @@ export default function RegisterNowPage() {
             </span>
           </div>
 
-          <RegisterCta />
+          <RegisterModal />
         </div>
       </section>
 
@@ -353,7 +335,7 @@ export default function RegisterNowPage() {
             One free class. 15 minutes a day. The same method behind 10,000+
             transformed dogs, live with Jas Leverette.
           </p>
-          <RegisterCta />
+          <RegisterModal />
         </div>
       </section>
     </main>
