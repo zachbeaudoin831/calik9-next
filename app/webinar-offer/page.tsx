@@ -107,7 +107,7 @@ function BuyCta({ className = "" }: { className?: string }) {
         </span>
       </a>
       <p className="font-ui text-xs tracking-[1.5px] uppercase text-white/40 mt-4">
-        Webinar Attendee Pricing &middot; Instant Access &middot; Secure Checkout
+        One-Time Payment &middot; No Subscription &middot; Instant Access
       </p>
     </div>
   );
