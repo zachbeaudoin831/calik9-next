@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Carousel from "@/components/Carousel";
 import { CELEBS } from "@/components/CelebGrid";
+import BuyModal from "./BuyModal";
 
 export const metadata: Metadata = {
   title: "Webinar Special: Online Training + Evaluation Call for $79",
@@ -10,10 +11,6 @@ export const metadata: Metadata = {
   // Post-webinar offer page. Keep out of search.
   robots: { index: false, follow: false },
 };
-
-// TODO: swap for the real checkout link (GHL order form / Shopify product)
-// once it exists. Every CTA on the page reads from this one constant.
-const CHECKOUT_URL = "#checkout";
 
 const COURSES = [
   "Train With Jas Series 1.0",
@@ -97,22 +94,6 @@ const ORDERED_CELEBS = CELEB_ORDER.map((n) => CELEBS.find((c) => c.name === n)).
   (c): c is (typeof CELEBS)[number] => Boolean(c),
 );
 
-function BuyCta({ className = "" }: { className?: string }) {
-  return (
-    <div className={`text-center ${className}`}>
-      <a href={CHECKOUT_URL} className="btn btn-white btn-lg text-center max-md:w-full">
-        Get Instant Access for $79
-        <span aria-hidden="true" className="ml-2 relative -top-[2.5px] leading-none">
-          &rarr;
-        </span>
-      </a>
-      <p className="font-ui text-xs tracking-[1.5px] uppercase text-white/40 mt-4">
-        One-Time Payment &middot; No Subscription &middot; Instant Access
-      </p>
-    </div>
-  );
-}
-
 function Stars() {
   return (
     <div className="flex justify-center gap-[3px] mb-3" role="img" aria-label="5 out of 5 stars">
@@ -162,7 +143,7 @@ export default function WebinarOfferPage() {
             </span>
           </div>
 
-          <BuyCta />
+          <BuyModal />
         </div>
       </section>
 
@@ -288,7 +269,7 @@ export default function WebinarOfferPage() {
         style={{ background: "linear-gradient(135deg, #0A1F3C 0%, #122E85 55%, #1A3FAB 100%)" }}
       >
         <div className="max-w-[640px] mx-auto px-6">
-          <BuyCta />
+          <BuyModal />
         </div>
       </section>
 
@@ -453,7 +434,7 @@ export default function WebinarOfferPage() {
             transformed dogs, plus a specialist in your corner. Only for
             webinar attendees.
           </p>
-          <BuyCta />
+          <BuyModal />
           <p className="font-body text-xs text-white/35 mt-8 max-w-[440px] mx-auto">
             All sales are final. Cali K9&reg; does not issue refunds. Questions?
             Reach out to our team before purchasing.
