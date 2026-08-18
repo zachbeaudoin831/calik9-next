@@ -81,15 +81,11 @@ export default function WebinarOfferThankYouPage() {
 
           <div className="bg-white rounded-xl border border-black/[0.06] p-4 max-[480px]:p-2 shadow-sm">
             <BookingEmbed />
-            {/* Fallback shown until the calendar embed is wired up */}
-            <div className="text-center py-10 px-6 [&:not(:only-child)]:hidden">
-              <p className="font-body text-base text-gray-muted leading-relaxed max-w-[480px] mx-auto">
-                Your booking link is in your confirmation email. Open it to pick
-                a time for your evaluation call. Questions? Reply to that email
-                and our team will help.
-              </p>
-            </div>
           </div>
+          <p className="font-body text-sm text-gray-muted text-center mt-6">
+            Can&rsquo;t book right now? The same link is in your confirmation
+            email. Questions? Reply to that email and our team will help.
+          </p>
         </div>
       </section>
     </main>
