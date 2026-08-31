@@ -352,9 +352,17 @@ const FAQS = [
   { q: "What should I do if my dog has serious aggression or safety issues?", a: "The Academy is built for everyday obedience, communication and behavior challenges. For serious aggression or safety concerns, please book an evaluation with our team first. These cases often need hands-on, professional support before or alongside a self-directed program." },
 ];
 
-function JoinCta({ label = "Join The Academy for $97/Month", light = false }: { label?: string; light?: boolean }) {
+function JoinCta({
+  label = "Join The Academy for $97/Month",
+  light = false,
+  left = false,
+}: {
+  label?: string;
+  light?: boolean;
+  left?: boolean;
+}) {
   return (
-    <div className="text-center">
+    <div className={left ? "text-left max-md:text-center" : "text-center"}>
       <a
         href={JOIN_URL}
         className={`btn btn-lg text-center max-md:w-full ${light ? "btn-blue" : "btn-white"}`}
@@ -407,7 +415,7 @@ export default function AcademyPage() {
               <p className="font-body text-base font-semibold text-white/85 mb-7">
                 Immediate access the moment you join. Cancel anytime.
               </p>
-              <JoinCta />
+              <JoinCta left />
             </div>
 
             <div className="max-md:order-first">
