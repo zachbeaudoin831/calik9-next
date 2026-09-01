@@ -37,7 +37,7 @@ const RESULTS: Record<
     price: "$997",
     priceNote: " one-time",
     seeText: "See Elite details",
-    url: null,
+    url: "/elite",
     testi: "“Worth every penny. Dog came back calm, focused, obedient.” — Jessica R., Oakland, CA",
   },
   vip: {
@@ -46,7 +46,7 @@ const RESULTS: Record<
     price: "$2,497",
     priceNote: " one-time",
     seeText: "See VIP details",
-    url: null,
+    url: "/vip",
     testi: "“The transformation in 30 days was something we never thought possible.” — Robert J., New York, NY",
   },
 };
