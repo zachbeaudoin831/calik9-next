@@ -63,7 +63,7 @@ const COVER_POSITIONS = [
   "bottom-3 right-0.5 -rotate-[6deg] z-[4]",
 ];
 
-const FAQS = [
+const FAQS: { q: string; a: React.ReactNode }[] = [
   {
     q: "Is this a subscription?",
     a: "No. This is a one-time payment of $27 (plus the optional $17 add-on). Nothing recurs.",
@@ -74,7 +74,16 @@ const FAQS = [
   },
   {
     q: "How do I access it?",
-    a: "Instantly. You'll get login details by email the moment your payment goes through, along with a link to book your free evaluation call whenever you're ready for it.",
+    a: (
+      <>
+        Instantly. You&rsquo;ll get login details by email the moment your payment goes through,
+        along with a link to{" "}
+        <Link href="/book-your-call" className="text-blue-500 underline">
+          book your free evaluation call
+        </Link>{" "}
+        whenever you&rsquo;re ready for it.
+      </>
+    ),
   },
   {
     q: "What happens on the evaluation call?",

@@ -4,11 +4,9 @@ import { useState } from "react";
 import Link from "next/link";
 
 // ── Result routing destinations ─────────────────────────────────────────────
-// The original funnel design sends every result to a $7, 20-minute call page.
-// That page doesn't exist on the site yet, so BOOK_CALL_URL points at the live
-// $27 evaluation instead. Swap these as the Elite / VIP / call pages go live.
-const BOOK_CALL_URL = "/evaluation-with-behavior-specialist";
-const BOOK_CALL_LABEL = "Book Your $27 Evaluation →";
+// Every result routes to the $7, 20-minute reservation call.
+const BOOK_CALL_URL = "/book-your-call";
+const BOOK_CALL_LABEL = "Reserve Your Call — $7 →";
 
 type TierKey = "academy" | "platinum" | "vip";
 

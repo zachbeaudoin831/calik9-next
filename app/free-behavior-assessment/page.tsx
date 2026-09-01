@@ -101,11 +101,8 @@ export default function FreeBehaviorAssessmentPage() {
             </h5>
             <p className="font-body text-[13px] text-gray-muted leading-normal">
               Skip the quiz and{" "}
-              <Link
-                href="/evaluation-with-behavior-specialist"
-                className="text-blue-500 underline"
-              >
-                book a $27 evaluation
+              <Link href="/book-your-call" className="text-blue-500 underline">
+                reserve a $7, 20-minute call
               </Link>{" "}
               instead.
             </p>
