@@ -93,24 +93,15 @@ const REVIEW_SCREENSHOTS = [
   { src: "/images/funnel/review-2.png", width: 1376, height: 596, alt: "Five-star client review of Cali K9" },
 ];
 
-const TESTIMONIALS = [
+// Owner testimonial videos, hosted on the GHL media CDN.
+const TESTIMONIAL_VIDEOS = [
   {
-    quote:
-      "“Before Cali K9, Zeus was lunging at every dog on the street. After board and train, he walks by my side like a completely different dog.”",
-    who: "Marcus T.",
-    meta: "Zeus — German Shepherd · Aggression",
+    name: "Manuel & Riyo",
+    src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a96e0b528f06327141e25a1.mp4",
   },
   {
-    quote:
-      "“We were considering rehoming our rescue. Two weeks in board and train and she came back calm, focused, and loving.”",
-    who: "Jennifer L.",
-    meta: "Luna — Pit Bull Rescue · Fear Aggression",
-  },
-  {
-    quote:
-      "“I tried three trainers before Jas. The online course alone solved problems others couldn't fix in person. The 5-Pillar system just makes sense.”",
-    who: "Priya K.",
-    meta: "Mochi — Shiba Inu · Reactivity",
+    name: "Michelle & Yolo",
+    src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a96e0d728f06327141e28b7.mp4",
   },
 ];
 
@@ -418,21 +409,20 @@ export default function FreeMasterclassPage() {
       <section className="py-14 max-md:py-10">
         <div className="max-w-[1000px] mx-auto px-6 max-[480px]:px-4">
           <SectionHead eyebrow="Real Results" title="REAL DOGS. REAL OWNERS. REAL TRANSFORMATIONS." />
-          <div className="grid grid-cols-3 gap-5 max-md:grid-cols-1">
-            {TESTIMONIALS.map((t) => (
-              <div key={t.who} className="bg-white border border-border rounded-xl p-6 shadow-sm">
-                <div className="flex gap-[3px] mb-3" role="img" aria-label="5 out of 5 stars">
-                  {[...Array(5)].map((_, i) => (
-                    <span key={i} className="text-amber-400 text-sm leading-none">
-                      &#9733;
-                    </span>
-                  ))}
+          <div className="grid grid-cols-2 gap-5 max-w-[760px] mx-auto max-md:grid-cols-1">
+            {TESTIMONIAL_VIDEOS.map((v) => (
+              <div key={v.name}>
+                <video
+                  className="w-full rounded-xl bg-black shadow-md"
+                  controls
+                  playsInline
+                  preload="metadata"
+                >
+                  <source src={v.src} type="video/mp4" />
+                </video>
+                <div className="font-ui text-sm font-bold tracking-[1px] uppercase text-ink mt-3 text-center">
+                  {v.name}
                 </div>
-                <p className="font-body text-[14px] italic text-ink/80 leading-relaxed mb-4">
-                  {t.quote}
-                </p>
-                <div className="font-ui text-sm font-bold text-ink">{t.who}</div>
-                <div className="font-ui text-xs text-gray-muted">{t.meta}</div>
               </div>
             ))}
           </div>

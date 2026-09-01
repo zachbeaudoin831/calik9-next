@@ -298,6 +298,34 @@ const JAS_BULLETS = [
   "Featured on Ellen, TMZ, LA Times, SFGATE & CBS News",
 ];
 
+// Real lesson clips from inside the Academy, hosted on the GHL media CDN.
+const SAMPLE_VIDEOS = [
+  {
+    title: "Foundation: Building Value & Engagement",
+    desc: "How the system builds motivation with food, toys and praise from the very first session.",
+    src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a96ddd7389c8c4614069da5.mp4",
+  },
+  {
+    title: "Heeling: From One Step To Five",
+    desc: "The exact progression that turns one good step into calm, focused heeling.",
+    src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a96ddfca227fec6bd91923a.mp4",
+  },
+  {
+    title: "Off-Leash Reliability in the Real World",
+    desc: "Removing the help, step by step, until obedience holds without a leash.",
+    src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a96de23c7069f4fc79a22c9.mp4",
+  },
+];
+
+const MEMBER_VIDEOS = [
+  { name: "Evan", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a96de9dd47ab15319010591.mp4" },
+  { name: "Jen & Prince", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a96deb8389c8c461406b4ad.mp4" },
+  { name: "Rachel & Zara", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a96ded3389c8c461406b7da.mp4" },
+  { name: "Kristen", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a96dee5c7069f4fc79a363b.mp4" },
+  { name: "Courtney", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a96df0cfac7854efe093ca3.mp4" },
+  { name: "VIP Member — Miami", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a96df1efac7854efe093e8f.mp4" },
+];
+
 const MEDIA_LOGOS = [
   { src: "/images/media-logos/netflix.webp", alt: "Netflix" },
   { src: "/images/media-logos/ellen-show.webp", alt: "The Ellen Show" },
@@ -675,8 +703,42 @@ export default function AcademyPage() {
         </div>
       </section>
 
-      {/* ── Results ── */}
+      {/* ── Video samples of the training system ── */}
       <section className="py-16 max-md:py-10 bg-white">
+        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
+          <div className="text-center mb-10">
+            <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
+              See The System In Action
+            </span>
+            <h2 className="font-display text-[clamp(30px,4vw,44px)] leading-[0.95] text-ink max-w-[760px] mx-auto">
+              REAL LESSONS FROM INSIDE THE ACADEMY
+            </h2>
+            <p className="font-body text-base text-gray-muted mt-4 max-w-[560px] mx-auto">
+              These aren&rsquo;t highlight reels &mdash; they&rsquo;re actual samples of the
+              step-by-step lessons you follow with your own dog.
+            </p>
+          </div>
+          <div className="grid grid-cols-3 gap-6 max-md:grid-cols-1">
+            {SAMPLE_VIDEOS.map((v) => (
+              <div key={v.title} className="flex flex-col">
+                <video
+                  className="w-full rounded-xl bg-black shadow-md"
+                  controls
+                  playsInline
+                  preload="metadata"
+                >
+                  <source src={v.src} type="video/mp4" />
+                </video>
+                <h3 className="font-display text-lg text-ink mt-4 mb-1">{v.title}</h3>
+                <p className="font-body text-[14px] text-gray-muted leading-relaxed">{v.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Results ── */}
+      <section className="py-16 max-md:py-10 bg-cream">
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <div className="text-center mb-10">
             <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
@@ -692,7 +754,7 @@ export default function AcademyPage() {
 
           <div className="grid grid-cols-3 gap-6 max-lg:grid-cols-2 max-md:grid-cols-1">
             {RESULTS.map((r) => (
-              <div key={r.name} className="bg-cream border border-black/[0.05] rounded-xl p-7 flex flex-col">
+              <div key={r.name} className="bg-white border border-black/[0.05] rounded-xl p-7 flex flex-col">
                 <div className="font-ui text-[13px] font-bold tracking-[1px] uppercase text-blue-500 mb-3">
                   {r.tag}
                 </div>
@@ -701,6 +763,37 @@ export default function AcademyPage() {
                 <div className="font-ui text-xs text-gray-muted mb-3">{r.meta}</div>
                 <div className="font-ui text-xs font-bold tracking-[1px] uppercase text-green-500 bg-green-500/10 rounded-sm px-3 py-1.5 inline-block self-start">
                   &#10003; {r.result}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Member video testimonials ── */}
+      <section className="py-16 max-md:py-10 bg-white">
+        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
+          <div className="text-center mb-10">
+            <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
+              In Their Own Words
+            </span>
+            <h2 className="font-display text-[clamp(30px,4vw,44px)] leading-[0.95] text-ink max-w-[760px] mx-auto">
+              HEAR IT FROM MEMBERS
+            </h2>
+          </div>
+          <div className="grid grid-cols-3 gap-6 max-lg:grid-cols-2 max-md:grid-cols-1">
+            {MEMBER_VIDEOS.map((v) => (
+              <div key={v.name}>
+                <video
+                  className="w-full rounded-xl bg-black shadow-md"
+                  controls
+                  playsInline
+                  preload="metadata"
+                >
+                  <source src={v.src} type="video/mp4" />
+                </video>
+                <div className="font-ui text-sm font-bold tracking-[1px] uppercase text-ink mt-3 text-center">
+                  {v.name}
                 </div>
               </div>
             ))}
