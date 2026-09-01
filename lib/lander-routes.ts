@@ -10,6 +10,7 @@ const LANDER_ROUTES = new Set([
   "/academy/thank-you",
   "/starter-bundle",
   "/book-your-call",
+  "/book-your-call/thank-you",
   "/free-masterclass",
 ]);
 
