@@ -36,7 +36,12 @@ export default function KitOffer() {
     <>
       {/* Product card */}
       <div className="max-w-[720px] mx-auto mt-8 bg-white border-2 border-blue-500 rounded-[18px] overflow-hidden shadow-lg text-left">
-        <div className="grid grid-cols-[0.9fr_1.1fr] gap-6 p-7 max-md:grid-cols-1 max-[480px]:p-5">
+        <div className="p-7 pb-0 max-[480px]:p-5 max-[480px]:pb-0">
+          <div className="font-ui text-[11px] font-bold tracking-[1.2px] uppercase text-blue-700 bg-blue-50 inline-block px-3 py-1.5 rounded-full">
+            Implementation Accelerator &middot; One-Time Offer
+          </div>
+        </div>
+        <div className="grid grid-cols-[0.9fr_1.1fr] gap-6 p-7 pt-4 max-md:grid-cols-1 max-[480px]:p-5 max-[480px]:pt-4">
           <Image
             src="/images/funnel/training-kit.webp"
             alt="The complete Cali K9 Training Kit"
@@ -45,9 +50,6 @@ export default function KitOffer() {
             className="w-full h-auto rounded-xl bg-cream"
           />
           <div>
-            <div className="font-ui text-[11px] font-bold tracking-[1.2px] uppercase text-blue-700 bg-blue-50 inline-block px-3 py-1.5 rounded-full mb-3">
-              Implementation Accelerator &middot; One-Time Offer
-            </div>
             <h2 className="font-display text-[26px] text-ink leading-tight mb-2.5">
               CALI K9 COMPLETE TRAINING KIT
             </h2>

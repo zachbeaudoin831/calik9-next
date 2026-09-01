@@ -51,8 +51,13 @@ export default function TreatsOffer() {
     <>
       {/* Product card */}
       <div className="max-w-[720px] mx-auto mt-8 bg-white border-2 border-blue-500 rounded-[18px] overflow-hidden shadow-lg text-left">
-        <div className="grid grid-cols-[0.9fr_1.1fr] gap-6 p-7 max-md:grid-cols-1 max-[480px]:p-5">
-          <div className="grid grid-cols-2 gap-2 items-center">
+        <div className="p-7 pb-0 max-[480px]:p-5 max-[480px]:pb-0">
+          <div className="font-ui text-[11px] font-bold tracking-[1.2px] uppercase text-blue-700 bg-blue-50 inline-block px-3 py-1.5 rounded-full">
+            Motivation + Engagement Accelerator &middot; One-Time Offer
+          </div>
+        </div>
+        <div className="grid grid-cols-[0.9fr_1.1fr] gap-6 p-7 pt-4 max-md:grid-cols-1 max-[480px]:p-5 max-[480px]:pt-4">
+          <div className="grid grid-cols-2 gap-2 items-start">
             <Image
               src="/images/funnel/turbo-beef.webp"
               alt="Cali K9 Turbo Treats — Beef Hearts"
@@ -69,9 +74,6 @@ export default function TreatsOffer() {
             />
           </div>
           <div>
-            <div className="font-ui text-[11px] font-bold tracking-[1.2px] uppercase text-blue-700 bg-blue-50 inline-block px-3 py-1.5 rounded-full mb-3">
-              Motivation + Engagement Accelerator &middot; One-Time Offer
-            </div>
             <h2 className="font-display text-[26px] text-ink leading-tight mb-2.5">
               CALI K9 TURBO TREATS &mdash; 2 BAGS
             </h2>

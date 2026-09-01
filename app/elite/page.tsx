@@ -306,7 +306,7 @@ export default function ElitePage() {
           <div className="grid grid-cols-3 gap-6 max-md:grid-cols-1">
             <div>
               <video
-                className="w-full rounded-xl bg-black shadow-md"
+                className="w-full aspect-[4/3] object-cover rounded-xl bg-black shadow-md"
                 controls
                 playsInline
                 preload="metadata"
@@ -322,7 +322,7 @@ export default function ElitePage() {
             </div>
             <div>
               <video
-                className="w-full rounded-xl bg-black shadow-md"
+                className="w-full aspect-[4/3] object-cover rounded-xl bg-black shadow-md"
                 controls
                 playsInline
                 preload="metadata"
@@ -342,7 +342,7 @@ export default function ElitePage() {
                 alt="Jas Leverette on a live trainer check-in call"
                 width={794}
                 height={898}
-                className="w-full h-auto rounded-xl shadow-md"
+                className="w-full aspect-[4/3] object-cover object-top rounded-xl shadow-md"
               />
               <p className="font-ui text-sm font-bold tracking-[1px] uppercase text-ink mt-3">
                 A Live Wednesday Check-In With Jas

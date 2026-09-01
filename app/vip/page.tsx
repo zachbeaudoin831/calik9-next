@@ -288,7 +288,7 @@ export default function VipPage() {
           <div className="grid grid-cols-3 gap-6 max-md:grid-cols-1">
             <div>
               <video
-                className="w-full rounded-xl bg-black shadow-md"
+                className="w-full aspect-[4/3] object-cover rounded-xl bg-black shadow-md"
                 controls
                 playsInline
                 preload="metadata"
@@ -308,7 +308,7 @@ export default function VipPage() {
                 alt="An online VIP training session with Jas Leverette"
                 width={1600}
                 height={1167}
-                className="w-full h-auto rounded-xl shadow-md"
+                className="w-full aspect-[4/3] object-cover rounded-xl shadow-md"
               />
               <p className="font-ui text-sm font-bold tracking-[1px] uppercase text-ink mt-3">
                 An Online VIP Session With Jas
@@ -316,7 +316,7 @@ export default function VipPage() {
             </div>
             <div>
               <video
-                className="w-full rounded-xl bg-black shadow-md"
+                className="w-full aspect-[4/3] object-cover rounded-xl bg-black shadow-md"
                 controls
                 playsInline
                 preload="metadata"
