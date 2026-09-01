@@ -49,11 +49,40 @@ const BUNDLE_ITEMS = [
   },
 ];
 
+// Cover-art placeholders drawn in code — swap for real cover images when the
+// finished art exists.
+const BUNDLE_VIDEO =
+  "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6660dc34c6bcc82fd3e84b3a.mp4";
+
 const COVERS = [
-  { title: "10-Step Quick-Start Roadmap", bg: "linear-gradient(160deg, #1A3FAB, #122E85)", icon: "map" },
-  { title: "7-Day Training Plan", bg: "linear-gradient(160deg, #5468e8, #1A3FAB)", icon: "calendar" },
-  { title: "Equipment Checklist", bg: "linear-gradient(160deg, #232838, #12162a)", icon: "list" },
-  { title: "Troubleshooting Guide", bg: "linear-gradient(160deg, #2c3149, #151827)", icon: "help" },
+  {
+    title: "10-Step Quick-Start Roadmap",
+    tag: "GUIDE 01",
+    bg: "linear-gradient(160deg, #1A3FAB, #122E85)",
+    accent: "#F59E0B",
+    icon: "map",
+  },
+  {
+    title: "7-Day Training Plan",
+    tag: "GUIDE 02",
+    bg: "linear-gradient(160deg, #5468e8, #1A3FAB)",
+    accent: "#FFFFFF",
+    icon: "calendar",
+  },
+  {
+    title: "Equipment Checklist",
+    tag: "GUIDE 03",
+    bg: "linear-gradient(160deg, #232838, #12162a)",
+    accent: "#6A9FFF",
+    icon: "list",
+  },
+  {
+    title: "Troubleshooting Guide",
+    tag: "GUIDE 04",
+    bg: "linear-gradient(160deg, #2c3149, #151827)",
+    accent: "#F59E0B",
+    icon: "help",
+  },
 ];
 
 const COVER_POSITIONS = [
@@ -163,24 +192,17 @@ function ProductMockup() {
       </div>
 
       <div className="relative h-[400px] mx-auto max-md:h-auto max-md:flex max-md:flex-col max-md:items-center max-md:gap-4">
-        {/* Laptop */}
+        {/* Laptop playing the real bundle video */}
         <div className="absolute top-[30px] left-1/2 -translate-x-1/2 w-[300px] z-[2] max-md:static max-md:translate-x-0 max-md:w-[88%] max-md:max-w-[280px]">
-          <div
-            className="rounded-[10px_10px_3px_3px] border-[6px] border-[#1c2440] aspect-[16/10] relative overflow-hidden"
-            style={{ background: "linear-gradient(155deg, #28316b, #12162e)" }}
-          >
-            <div className="absolute top-[44%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[46px] h-[46px] rounded-full bg-white/[0.16] border-[1.5px] border-white/[0.45] flex items-center justify-center">
-              <svg width={16} height={16} viewBox="0 0 24 24" fill="#fff">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </div>
-            <div className="absolute left-3 bottom-7 text-white text-[10px] flex items-center gap-1.5 font-ui tracking-[0.4px] uppercase">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#7c8bf5]" /> Foundation Phase &middot;
-              Step 3
-            </div>
-            <div className="absolute left-3 right-3 bottom-3.5 h-[3px] bg-white/[0.22] rounded overflow-hidden">
-              <div className="h-full w-[32%] bg-[#7c8bf5]" />
-            </div>
+          <div className="rounded-[10px_10px_3px_3px] border-[6px] border-[#1c2440] aspect-[16/10] relative overflow-hidden bg-black">
+            <video
+              className="absolute inset-0 w-full h-full object-cover"
+              controls
+              playsInline
+              preload="metadata"
+            >
+              <source src={BUNDLE_VIDEO} type="video/mp4" />
+            </video>
           </div>
           <div
             className="h-[9px] rounded-b-lg -mx-2.5"
@@ -223,16 +245,39 @@ function ProductMockup() {
           </div>
         </div>
 
-        {/* Guide covers */}
+        {/* Guide covers — drawn placeholder cover art */}
         <div className="contents max-md:grid max-md:grid-cols-2 max-md:gap-3 max-md:w-full max-md:max-w-[280px]">
           {COVERS.map((cover, i) => (
             <div
               key={cover.title}
-              className={`absolute w-[88px] aspect-[3/4] rounded-[9px] p-[11px_9px] flex flex-col justify-between text-white font-ui text-[9.5px] font-semibold leading-[1.25] shadow-[0_12px_22px_rgba(17,18,20,0.18)] ${COVER_POSITIONS[i]} max-md:static max-md:rotate-0 max-md:w-auto`}
+              className={`absolute w-[96px] aspect-[3/4] rounded-[9px] overflow-hidden flex flex-col text-white shadow-[0_12px_22px_rgba(17,18,20,0.25)] border-l-2 border-white/10 ${COVER_POSITIONS[i]} max-md:static max-md:rotate-0 max-md:w-auto`}
               style={{ background: cover.bg }}
             >
-              <CoverIcon name={cover.icon} />
-              <span>{cover.title}</span>
+              <div className="flex items-center justify-between px-2 pt-2">
+                <span className="font-ui text-[6px] font-bold tracking-[0.5px] text-white/80">
+                  CALI K9&reg;
+                </span>
+                <span
+                  className="font-ui text-[5.5px] font-bold tracking-[0.5px]"
+                  style={{ color: cover.accent }}
+                >
+                  {cover.tag}
+                </span>
+              </div>
+              <div className="flex-1 flex flex-col items-center justify-center gap-1.5 px-2 text-center">
+                <span className="w-6 h-6 rounded-full bg-white/[0.12] border border-white/[0.25] flex items-center justify-center">
+                  <CoverIcon name={cover.icon} size={12} />
+                </span>
+                <span className="font-ui text-[8.5px] font-bold leading-[1.25] uppercase tracking-[0.3px]">
+                  {cover.title}
+                </span>
+              </div>
+              <div className="px-2 pb-2">
+                <div className="h-[2px] w-7 mx-auto mb-1 rounded" style={{ background: cover.accent }} />
+                <div className="font-ui text-[5px] font-semibold tracking-[0.5px] text-white/60 text-center uppercase">
+                  The 5 Pillar, 50-Step System&trade;
+                </div>
+              </div>
             </div>
           ))}
         </div>
