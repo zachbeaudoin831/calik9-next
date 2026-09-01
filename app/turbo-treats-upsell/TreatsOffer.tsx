@@ -1,16 +1,14 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
-
-// One-click add-to-order endpoints — not wired yet. These should charge the
-// card from the original checkout (GHL one-click upsell links).
-const ADD_URL_ONETIME: string | null = null;
-const ADD_URL_SUBSCRIBE: string | null = null;
-
-// Final step in the post-purchase flow.
-const NEXT_URL = "/book-your-call";
+import { useSearchParams } from "next/navigation";
+import {
+  KIT_PRICE,
+  TIER_INFO,
+  TREATS_PRICE,
+  checkoutUrl,
+  parseTier,
+} from "@/lib/package-checkout";
 
 const FEATURES = [
   "Pea-sized — built for the split-second timing that turns a reward into real communication",
@@ -19,18 +17,35 @@ const FEATURES = [
 ];
 
 export default function TreatsOffer() {
-  const [mode, setMode] = useState<"one-time" | "subscribe">("one-time");
+  const params = useSearchParams();
+  const tier = parseTier(params.get("tier"));
+  // VIP includes the Training Kit, so VIP visitors never see the kit step.
+  const kit = tier === "elite" && params.get("kit") === "1";
+  const flavor = params.get("flavor") ?? undefined;
 
-  const addUrl = mode === "one-time" ? ADD_URL_ONETIME : ADD_URL_SUBSCRIBE;
+  const tierInfo = TIER_INFO[tier];
+  const baseTotal = tierInfo.price + (kit ? KIT_PRICE : 0);
 
-  const addToOrder = () => {
-    if (!addUrl) return; // placeholder until the one-click upsell links are wired
+  const goToCheckout = (withTreats: boolean) => {
+    const url = checkoutUrl(tier, kit, withTreats, flavor);
+    if (!url) return; // placeholder until the payment links are wired
     const w = window as typeof window & { fbq?: (...args: unknown[]) => void };
     if (typeof w.fbq === "function") {
-      w.fbq("track", "AddToCart", { value: mode === "one-time" ? 27 : 23, currency: "USD" });
+      w.fbq("track", "InitiateCheckout", {
+        value: baseTotal + (withTreats ? TREATS_PRICE : 0),
+        currency: "USD",
+      });
     }
-    window.location.href = addUrl;
+    window.location.href = url;
   };
+
+  const orderLines = [
+    { label: tierInfo.name, price: tierInfo.price },
+    ...(kit
+      ? [{ label: `Cali K9 Training Kit${flavor ? ` (${flavor})` : ""}`, price: KIT_PRICE }]
+      : []),
+    ...(tier === "vip" ? [{ label: "Cali K9 Training Kit — included with VIP", price: 0 }] : []),
+  ];
 
   return (
     <>
@@ -74,90 +89,66 @@ export default function TreatsOffer() {
                 </li>
               ))}
             </ul>
+            <div className="font-display text-[28px] text-ink mt-4">
+              $27 <span className="font-body text-[13px] text-gray-muted line-through">$39.98</span>{" "}
+              <span className="font-body text-[13px] text-gray-muted">
+                2 bags, ships with your order
+              </span>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Purchase options */}
-      <div className="max-w-[720px] mx-auto mt-5 grid grid-cols-2 gap-4 max-md:grid-cols-1 text-left">
-        <button
-          type="button"
-          onClick={() => setMode("one-time")}
-          className={`rounded-xl border-2 p-5 cursor-pointer transition-colors bg-white ${
-            mode === "one-time" ? "border-blue-500" : "border-border hover:border-blue-500"
-          }`}
-        >
-          <div className="flex items-center gap-2.5 mb-2">
-            <span
-              className={`w-[18px] h-[18px] rounded-full border-[1.5px] shrink-0 ${
-                mode === "one-time" ? "bg-blue-500 border-blue-500" : "border-gray-muted"
-              }`}
-            />
-            <span className="font-ui text-sm font-bold tracking-[0.5px] uppercase text-ink">
-              One-Time Purchase
-            </span>
+      {/* Order summary */}
+      <div className="max-w-[640px] mx-auto mt-6 bg-cream border border-border rounded-xl px-6 py-5 text-left">
+        <div className="font-ui text-[12px] font-bold tracking-[1.5px] uppercase text-gray-muted mb-3">
+          Your Order So Far
+        </div>
+        {orderLines.map((line) => (
+          <div
+            key={line.label}
+            className="flex justify-between font-body text-[14px] text-ink/80 py-1"
+          >
+            <span>{line.label}</span>
+            <span>{line.price === 0 ? "Included" : `$${line.price.toLocaleString()}`}</span>
           </div>
-          <div className="font-display text-[28px] text-ink">
-            $27{" "}
-            <span className="font-body text-[13px] text-gray-muted line-through">$39.98</span>
-          </div>
-          <div className="font-body text-[12.5px] text-gray-muted mt-1">
-            2 bags, ships once with your order
-          </div>
-        </button>
-        <button
-          type="button"
-          onClick={() => setMode("subscribe")}
-          className={`relative rounded-xl border-2 p-5 cursor-pointer transition-colors bg-white ${
-            mode === "subscribe" ? "border-blue-500" : "border-border hover:border-blue-500"
-          }`}
-        >
-          <span className="absolute -top-2.5 right-4 bg-amber-400 text-[#2b1d05] font-ui text-[10px] font-bold tracking-[0.5px] uppercase px-2.5 py-1 rounded-full">
-            Best Value &mdash; Save 15%
-          </span>
-          <div className="flex items-center gap-2.5 mb-2">
-            <span
-              className={`w-[18px] h-[18px] rounded-full border-[1.5px] shrink-0 ${
-                mode === "subscribe" ? "bg-blue-500 border-blue-500" : "border-gray-muted"
-              }`}
-            />
-            <span className="font-ui text-sm font-bold tracking-[0.5px] uppercase text-ink">
-              Subscribe &amp; Save
-            </span>
-          </div>
-          <div className="font-display text-[28px] text-ink">
-            $23<span className="font-body text-[13px] text-gray-muted">/mo</span>
-          </div>
-          <div className="font-body text-[12.5px] text-gray-muted mt-1">
-            2 fresh bags shipped every month &middot; free shipping &middot; cancel anytime
-          </div>
-        </button>
+        ))}
+        <div className="flex justify-between font-body text-[14px] text-gray-muted py-1">
+          <span>Turbo Treats &mdash; 2 bags (this offer)</span>
+          <span>+ ${TREATS_PRICE}</span>
+        </div>
+        <div className="flex justify-between font-display text-lg text-ink border-t border-border mt-2 pt-2.5">
+          <span>TOTAL WITH TREATS</span>
+          <span>${(baseTotal + TREATS_PRICE).toLocaleString()}</span>
+        </div>
       </div>
 
-      {/* CTA */}
+      {/* CTAs */}
       <div className="max-w-[640px] mx-auto mt-6">
-        <button type="button" onClick={addToOrder} className="btn btn-blue btn-lg w-full !py-5">
-          {mode === "one-time"
-            ? "Yes! Add 2 Bags To My Order — $27"
-            : "Yes! Start My Subscription — $23/mo"}
+        <button
+          type="button"
+          onClick={() => goToCheckout(true)}
+          className="btn btn-blue btn-lg w-full !py-5"
+        >
+          Yes! Add 2 Bags &amp; Continue To Checkout &mdash; $
+          {(baseTotal + TREATS_PRICE).toLocaleString()}
         </button>
         <p className="font-body text-[12.5px] text-gray-muted mt-3 text-center">
-          {mode === "one-time"
-            ? "Charged to the card you just used · Ships with your order confirmation · No extra checkout steps"
-            : "Charged to the card you just used · First 2 bags ship with your order · Cancel anytime from your account"}
+          One secure checkout for your whole order &middot; Ships with your order confirmation
         </p>
-        <Link
-          href={NEXT_URL}
-          className="block text-center font-body text-[13px] text-gray-muted underline mt-5"
+        <button
+          type="button"
+          onClick={() => goToCheckout(false)}
+          className="block w-full text-center font-body text-[13px] text-gray-muted underline mt-5 cursor-pointer bg-transparent border-none"
         >
-          No thanks, I&rsquo;ll pass on the treats my dog would love &mdash; continue without
-          adding this
-        </Link>
+          No thanks, I&rsquo;ll pass on the treats my dog would love &mdash; continue to checkout
+          without them (${baseTotal.toLocaleString()})
+        </button>
       </div>
 
       {/* Trust row */}
       <ul className="flex justify-center gap-6 flex-wrap mt-7 font-body text-[12.5px] text-ink/70">
-        {["One click, no re-checkout", "Ships in 3–5 business days", "Secure order"].map((item) => (
+        {["One combined checkout", "Ships in 3–5 business days", "Secure order"].map((item) => (
           <li key={item} className="flex items-center gap-1.5">
             <span className="text-green-500 font-bold">&#10003;</span> {item}
           </li>

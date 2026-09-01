@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import Link from "next/link";
 import TreatsOffer from "./TreatsOffer";
 
@@ -11,10 +12,10 @@ export const metadata: Metadata = {
 };
 
 const STEPS = [
-  { label: "Checkout", state: "done" },
+  { label: "Choose Your Package", state: "done" },
   { label: "Training Kit Offer", state: "done" },
   { label: "Turbo Treats Offer", state: "active" },
-  { label: "Book Your Call", state: "todo" },
+  { label: "Secure Checkout", state: "todo" },
 ];
 
 export default function TurboTreatsUpsellPage() {
@@ -70,12 +71,14 @@ export default function TurboTreatsUpsellPage() {
             and reward timing at every stage of the Cali K9 System &mdash; and Turbo Treats are the
             exact high-value treats Jas uses in every session he films.{" "}
             <strong className="text-ink">
-              One click adds them to the order you just placed &mdash; no need to re-enter your
-              card.
+              One click adds them to your order &mdash; you&rsquo;ll pay for everything together in
+              one secure checkout on the next step.
             </strong>
           </p>
 
-          <TreatsOffer />
+          <Suspense fallback={null}>
+            <TreatsOffer />
+          </Suspense>
         </div>
       </section>
 

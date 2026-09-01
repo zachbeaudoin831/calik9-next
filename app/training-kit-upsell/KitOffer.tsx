@@ -3,14 +3,8 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-
-// One-click add-to-order endpoints — not wired yet. These should charge the
-// card from the original checkout (GHL one-click upsell links), one per flavor.
-const ADD_URL_BEEF: string | null = null;
-const ADD_URL_CHICKEN: string | null = null;
-
-// Next step in the post-purchase flow.
-const NEXT_URL = "/turbo-treats-upsell";
+import { useRouter, useSearchParams } from "next/navigation";
+import { KIT_PRICE, parseTier } from "@/lib/package-checkout";
 
 const KIT_CONTENTS = [
   "Training Box",
@@ -25,17 +19,17 @@ const KIT_CONTENTS = [
 const FLAVORS = ["Beef Hearts", "Chicken Hearts"] as const;
 
 export default function KitOffer() {
+  const router = useRouter();
+  const params = useSearchParams();
+  const tier = parseTier(params.get("tier"));
   const [flavor, setFlavor] = useState<(typeof FLAVORS)[number]>("Beef Hearts");
 
-  const addUrl = flavor === "Beef Hearts" ? ADD_URL_BEEF : ADD_URL_CHICKEN;
-
   const addToOrder = () => {
-    if (!addUrl) return; // placeholder until the one-click upsell links are wired
     const w = window as typeof window & { fbq?: (...args: unknown[]) => void };
     if (typeof w.fbq === "function") {
-      w.fbq("track", "AddToCart", { value: 197, currency: "USD" });
+      w.fbq("track", "AddToCart", { value: KIT_PRICE, currency: "USD" });
     }
-    window.location.href = addUrl;
+    router.push(`/turbo-treats-upsell?tier=${tier}&kit=1&flavor=${encodeURIComponent(flavor)}`);
   };
 
   return (
@@ -107,7 +101,7 @@ export default function KitOffer() {
           <div className="font-display text-[32px] text-ink">
             $197{" "}
             <span className="font-body text-[13px] text-gray-muted">
-              one-time, ships with your order
+              one-time, added to your order total
             </span>
           </div>
           <div className="font-ui text-[11.5px] font-bold tracking-[0.5px] uppercase text-green-500">
@@ -122,11 +116,11 @@ export default function KitOffer() {
           Yes! Add My Implementation Accelerator &mdash; $197
         </button>
         <p className="font-body text-[12.5px] text-gray-muted mt-3 text-center">
-          Charged to the card you just used &middot; Ships with your order confirmation &middot; No
-          extra checkout steps
+          Added to your order total &middot; One combined checkout at the end &middot; Ships with
+          your order
         </p>
         <Link
-          href={NEXT_URL}
+          href={`/turbo-treats-upsell?tier=${tier}&kit=0`}
           className="block text-center font-body text-[13px] text-gray-muted underline mt-5"
         >
           No thanks, I&rsquo;ll guess at my own gear and skip the tools built for this system
@@ -136,7 +130,7 @@ export default function KitOffer() {
 
       {/* Trust row */}
       <ul className="flex justify-center gap-6 flex-wrap mt-7 font-body text-[12.5px] text-ink/70">
-        {["One click, no re-checkout", "Ships in 3–5 business days", "Secure order"].map((item) => (
+        {["One combined checkout", "Ships in 3–5 business days", "Secure order"].map((item) => (
           <li key={item} className="flex items-center gap-1.5">
             <span className="text-green-500 font-bold">&#10003;</span> {item}
           </li>

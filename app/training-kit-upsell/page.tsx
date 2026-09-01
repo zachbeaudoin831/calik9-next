@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import Link from "next/link";
 import KitOffer from "./KitOffer";
 
@@ -11,10 +12,10 @@ export const metadata: Metadata = {
 };
 
 const STEPS = [
-  { label: "Checkout", state: "done" },
+  { label: "Choose Your Package", state: "done" },
   { label: "Training Kit Offer", state: "active" },
   { label: "Turbo Treats Offer", state: "todo" },
-  { label: "Book Your Call", state: "todo" },
+  { label: "Secure Checkout", state: "todo" },
 ];
 
 export default function TrainingKitUpsellPage() {
@@ -70,7 +71,8 @@ export default function TrainingKitUpsellPage() {
             your Foundation Phase videos assume you already have on hand &mdash; so you&rsquo;re
             never left wondering what leash, treats, or tools Cali K9 actually uses.{" "}
             <strong className="text-ink">
-              One click adds it to the order you just placed &mdash; no need to re-enter your card.
+              One click adds it to your order &mdash; you&rsquo;ll pay for everything together in
+              one secure checkout at the end.
             </strong>
           </p>
 
@@ -81,7 +83,9 @@ export default function TrainingKitUpsellPage() {
             </span>
           </blockquote>
 
-          <KitOffer />
+          <Suspense fallback={null}>
+            <KitOffer />
+          </Suspense>
         </div>
       </section>
 

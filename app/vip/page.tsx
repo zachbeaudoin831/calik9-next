@@ -10,8 +10,10 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-// $2,497 VIP checkout — payment link not wired yet. Drop it in here.
-const CHECKOUT_URL: string | null = null;
+// VIP checkout runs through the order-builder flow. VIP already includes the
+// Training Kit, so it skips the kit offer and goes straight to treats (see
+// lib/package-checkout.ts).
+const START_ORDER_URL = "/turbo-treats-upsell?tier=vip";
 
 const INCLUDED = [
   {
@@ -105,14 +107,10 @@ const FAQS = [
 ];
 
 function PricingCta() {
-  return CHECKOUT_URL ? (
-    <a href={CHECKOUT_URL} className="btn btn-blue btn-lg w-full text-center">
+  return (
+    <Link href={START_ORDER_URL} className="btn btn-blue btn-lg w-full text-center">
       Get VIP &mdash; $2,497 &rarr;
-    </a>
-  ) : (
-    <button type="button" className="btn btn-blue btn-lg w-full">
-      Get VIP &mdash; $2,497 &rarr;
-    </button>
+    </Link>
   );
 }
 

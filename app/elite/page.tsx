@@ -10,8 +10,10 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-// $997 Elite checkout — payment link not wired yet. Drop it in here.
-const CHECKOUT_URL: string | null = null;
+// Elite checkout runs through the order-builder flow: kit offer → treats
+// offer → the combined payment link for the exact selection (see
+// lib/package-checkout.ts).
+const START_ORDER_URL = "/training-kit-upsell?tier=elite";
 
 const INCLUDED = [
   {
@@ -101,14 +103,10 @@ const FAQS = [
 ];
 
 function PricingCta() {
-  return CHECKOUT_URL ? (
-    <a href={CHECKOUT_URL} className="btn btn-blue btn-lg w-full text-center">
+  return (
+    <Link href={START_ORDER_URL} className="btn btn-blue btn-lg w-full text-center">
       Get Elite &mdash; $997 &rarr;
-    </a>
-  ) : (
-    <button type="button" className="btn btn-blue btn-lg w-full">
-      Get Elite &mdash; $997 &rarr;
-    </button>
+    </Link>
   );
 }
 
