@@ -296,23 +296,61 @@ export default function ElitePage() {
 
       {/* ── Proof ── */}
       <section className="py-14 max-md:py-10">
-        <div className="max-w-[760px] mx-auto px-6 max-[480px]:px-4 text-center">
+        <div className="max-w-[1140px] mx-auto px-6 max-[480px]:px-4 text-center">
           <span className="font-ui text-[14px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
             Real Members, Real Dogs
           </span>
           <h2 className="font-display text-[clamp(28px,4vw,40px)] leading-[0.95] text-ink mb-8">
-            A COACH IS ACTUALLY WATCHING YOUR PROGRESS
+            ELITE MEMBERS IN PROGRESS
           </h2>
-          <Image
-            src="/images/funnel/jas-zoom.jpg"
-            alt="Jas Leverette on a live trainer check-in call"
-            width={794}
-            height={898}
-            className="w-full max-w-[440px] mx-auto h-auto rounded-xl shadow-md"
-          />
-          <p className="font-body text-[13.5px] text-gray-muted mt-4">
-            A live Wednesday Train With Jas check-in &mdash; video review, feedback, and roadmap
-            adjustments with a real trainer.
+          <div className="grid grid-cols-3 gap-6 max-md:grid-cols-1">
+            <div>
+              <video
+                className="w-full rounded-xl bg-black shadow-md"
+                controls
+                playsInline
+                preload="metadata"
+              >
+                <source
+                  src="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a97035928f063271421e825.mp4"
+                  type="video/mp4"
+                />
+              </video>
+              <p className="font-ui text-sm font-bold tracking-[1px] uppercase text-ink mt-3">
+                Dawn &mdash; Elite Member
+              </p>
+            </div>
+            <div>
+              <video
+                className="w-full rounded-xl bg-black shadow-md"
+                controls
+                playsInline
+                preload="metadata"
+              >
+                <source
+                  src="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a9703d4d47ab15319050db5.mp4"
+                  type="video/mp4"
+                />
+              </video>
+              <p className="font-ui text-sm font-bold tracking-[1px] uppercase text-ink mt-3">
+                Before &amp; After &mdash; Max The Boxer
+              </p>
+            </div>
+            <div>
+              <Image
+                src="/images/funnel/jas-zoom.jpg"
+                alt="Jas Leverette on a live trainer check-in call"
+                width={794}
+                height={898}
+                className="w-full h-auto rounded-xl shadow-md"
+              />
+              <p className="font-ui text-sm font-bold tracking-[1px] uppercase text-ink mt-3">
+                A Live Wednesday Check-In With Jas
+              </p>
+            </div>
+          </div>
+          <p className="font-body text-[13.5px] text-gray-muted mt-6">
+            Video review, feedback, and roadmap adjustments with a real trainer &mdash; every week.
           </p>
         </div>
       </section>
