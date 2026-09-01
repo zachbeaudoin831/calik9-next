@@ -6,6 +6,7 @@ const LANDER_ROUTES = new Set([
   "/webinar-offer",
   "/webinar-offer/thank-you",
   "/academy",
+  "/academy/thank-you",
 ]);
 
 export function isLanderPath(pathname: string): boolean {

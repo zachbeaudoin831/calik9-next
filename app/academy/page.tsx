@@ -10,9 +10,9 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-// TODO: swap for the real GHL checkout link for the $97/mo membership once it
-// exists. Every Join CTA on the page reads from this one constant.
-const JOIN_URL = "#offer";
+// $97/mo membership checkout. Every Join CTA on the page reads from this
+// one constant.
+const JOIN_URL = "https://link.fastpaydirect.com/payment-link/6a9617c6d6768df054449011";
 
 const STATS = [
   { big: "10,000+", small: "Dogs Trained by Jas" },
