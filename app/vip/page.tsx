@@ -278,22 +278,61 @@ export default function VipPage() {
 
       {/* ── Proof ── */}
       <section className="py-14 max-md:py-10">
-        <div className="max-w-[760px] mx-auto px-6 max-[480px]:px-4 text-center">
+        <div className="max-w-[1140px] mx-auto px-6 max-[480px]:px-4 text-center">
           <span className="font-ui text-[14px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
             Real Members, Real Dogs
           </span>
           <h2 className="font-display text-[clamp(28px,4vw,40px)] leading-[0.95] text-ink mb-8">
             VIP MEMBERS MOVING THROUGH THE SYSTEM
           </h2>
-          <Image
-            src="/images/funnel/vip-session.jpg"
-            alt="An online VIP training session with Jas Leverette"
-            width={1600}
-            height={1167}
-            className="w-full h-auto rounded-xl shadow-md"
-          />
-          <p className="font-body text-[13.5px] text-gray-muted mt-4">
-            An online VIP session with Jas &mdash; direct, individualized coaching on your dog.
+          <div className="grid grid-cols-3 gap-6 max-md:grid-cols-1">
+            <div>
+              <video
+                className="w-full rounded-xl bg-black shadow-md"
+                controls
+                playsInline
+                preload="metadata"
+              >
+                <source
+                  src="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a970427c7069f4fc79e45f5.mp4"
+                  type="video/mp4"
+                />
+              </video>
+              <p className="font-ui text-sm font-bold tracking-[1px] uppercase text-ink mt-3">
+                Mylene &mdash; VIP Member
+              </p>
+            </div>
+            <div>
+              <Image
+                src="/images/funnel/vip-session.jpg"
+                alt="An online VIP training session with Jas Leverette"
+                width={1600}
+                height={1167}
+                className="w-full h-auto rounded-xl shadow-md"
+              />
+              <p className="font-ui text-sm font-bold tracking-[1px] uppercase text-ink mt-3">
+                An Online VIP Session With Jas
+              </p>
+            </div>
+            <div>
+              <video
+                className="w-full rounded-xl bg-black shadow-md"
+                controls
+                playsInline
+                preload="metadata"
+              >
+                <source
+                  src="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a97042bef6af944f0f9a708.mp4"
+                  type="video/mp4"
+                />
+              </video>
+              <p className="font-ui text-sm font-bold tracking-[1px] uppercase text-ink mt-3">
+                Before &amp; After &mdash; VIP Transformation
+              </p>
+            </div>
+          </div>
+          <p className="font-body text-[13.5px] text-gray-muted mt-6">
+            Direct, individualized coaching on your dog &mdash; through the full 12-month term.
           </p>
         </div>
       </section>
