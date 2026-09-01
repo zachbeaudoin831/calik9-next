@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import Carousel from "@/components/Carousel";
-import { CELEBS } from "@/components/CelebGrid";
 import FormEmbed from "@/components/FormEmbed";
 import EventDate from "./EventDate";
 import Faq from "./Faq";
@@ -78,11 +76,21 @@ const OBJECTIVES = [
 
 const PRESS_LOGOS = [
   { src: "/images/media-logos/netflix.webp", alt: "Netflix" },
-  { src: "/images/media-logos/nbc.webp", alt: "NBC" },
-  { src: "/images/media-logos/abc.webp", alt: "ABC" },
+  { src: "/images/media-logos/access-hollywood.webp", alt: "Access Hollywood" },
   { src: "/images/media-logos/ellen-show.webp", alt: "The Ellen Show" },
   { src: "/images/media-logos/dr-phil.webp", alt: "Dr. Phil" },
-  { src: "/images/media-logos/gma3.webp", alt: "GMA3" },
+];
+
+const RECOGNIZABLE_NAMES = [
+  { name: "Demi Moore", image: "/images/funnel/demi-circle.png" },
+  { name: "Steph Curry", image: "/images/funnel/steph-circle.png" },
+  { name: "Kevin Hart", image: "/images/funnel/kevin-circle.png" },
+  { name: "Kendrick Lamar", image: "/images/funnel/kendrick-circle.png" },
+];
+
+const REVIEW_SCREENSHOTS = [
+  { src: "/images/funnel/review-1.png", width: 1376, height: 1688, alt: "Five-star client review of Cali K9" },
+  { src: "/images/funnel/review-2.png", width: 1376, height: 596, alt: "Five-star client review of Cali K9" },
 ];
 
 const TESTIMONIALS = [
@@ -192,10 +200,10 @@ export default function FreeMasterclassPage() {
             <div>
               <div className="relative rounded-xl overflow-hidden mb-6">
                 <Image
-                  src="/images/hero-jas.jpg"
+                  src="/images/funnel/masterclass-jas-training.jpg"
                   alt="Jas Leverette training a dog"
                   width={560}
-                  height={380}
+                  height={295}
                   className="w-full h-auto object-cover"
                   priority
                 />
@@ -428,6 +436,23 @@ export default function FreeMasterclassPage() {
               </div>
             ))}
           </div>
+
+          <div className="grid grid-cols-2 gap-5 max-w-[760px] mx-auto mt-6 max-md:grid-cols-1">
+            {REVIEW_SCREENSHOTS.map((shot) => (
+              <div
+                key={shot.src}
+                className="bg-white border border-border rounded-xl p-3 shadow-sm flex items-center"
+              >
+                <Image
+                  src={shot.src}
+                  alt={shot.alt}
+                  width={shot.width}
+                  height={shot.height}
+                  className="w-full h-auto rounded-md"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -436,10 +461,10 @@ export default function FreeMasterclassPage() {
         <div className="max-w-[1000px] mx-auto px-6 max-[480px]:px-4">
           <div className="grid grid-cols-[0.9fr_1.1fr] gap-10 items-center max-md:grid-cols-1">
             <Image
-              src="/images/jas-coaching.jpeg"
-              alt="Jas Leverette coaching a dog owner"
+              src="/images/funnel/jas-class.jpg"
+              alt="Jas Leverette teaching a training class"
               width={480}
-              height={480}
+              height={270}
               className="w-full h-auto rounded-xl object-cover"
             />
             <div>
@@ -475,45 +500,24 @@ export default function FreeMasterclassPage() {
 
       {/* ── Celebrity authority ── */}
       <section className="py-14 max-md:py-10">
-        <div className="max-w-[1140px] mx-auto px-6 max-[480px]:px-4">
+        <div className="max-w-[860px] mx-auto px-6 max-[480px]:px-4">
           <SectionHead title="TRUSTED TO TRAIN DOGS FOR SOME OF THE WORLD'S MOST RECOGNIZABLE NAMES" />
-          <Carousel
-            ariaLabel="Celebrity testimonials"
-            desktopPerView={3}
-            slides={CELEBS.map((celeb) => (
-              <article
-                key={celeb.name}
-                className="relative rounded-xl overflow-hidden aspect-square max-w-[440px] mx-auto"
-                aria-label={`${celeb.name} testimonial`}
-              >
+          <div className="grid grid-cols-4 gap-6 max-[560px]:grid-cols-2">
+            {RECOGNIZABLE_NAMES.map((celeb) => (
+              <div key={celeb.name} className="text-center">
                 <Image
                   src={celeb.image}
                   alt={celeb.name}
-                  fill
-                  className="object-cover"
-                  style={{ objectPosition: celeb.objectPosition || "center top" }}
-                  sizes="(max-width: 540px) 90vw, 440px"
+                  width={300}
+                  height={300}
+                  className="w-full max-w-[170px] mx-auto h-auto rounded-full"
                 />
-                <div
-                  className="absolute inset-0 flex flex-col justify-end text-center p-[22px_20px]"
-                  style={{
-                    background:
-                      "linear-gradient(to top, rgba(5,10,30,0.96) 0%, rgba(5,10,30,0.75) 35%, rgba(5,10,30,0.15) 65%, transparent 100%)",
-                  }}
-                >
-                  <p className="font-body text-[13px] italic font-light text-white/85 leading-normal mb-3.5">
-                    {celeb.quote}
-                  </p>
-                  <div className="font-display text-xl text-white leading-none tracking-[0.5px] mb-1">
-                    {celeb.name}
-                  </div>
-                  <div className="font-ui text-[13px] font-bold tracking-[2px] uppercase text-white/50">
-                    {celeb.meta}
-                  </div>
-                </div>
-              </article>
+                <span className="block font-ui text-[13px] font-bold tracking-[1px] uppercase text-ink mt-3">
+                  {celeb.name}
+                </span>
+              </div>
             ))}
-          />
+          </div>
         </div>
       </section>
 

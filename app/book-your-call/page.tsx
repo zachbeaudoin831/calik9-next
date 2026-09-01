@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import FormEmbed from "@/components/FormEmbed";
-import { CELEBS } from "@/components/CelebGrid";
 
 export const metadata: Metadata = {
   title: "Reserve Your Call — $7",
@@ -43,9 +42,28 @@ const PRESS_LOGOS = [
 ];
 
 const TESTIMONIALS = [
-  { quote: "“Jas completely transformed our reactive German Shepherd in weeks.”", who: "Marcus T. — San Jose, CA" },
-  { quote: "“Worth every penny. Dog came back calm, focused, obedient.”", who: "Jessica R. — Oakland, CA" },
-  { quote: "“My dog is off-leash reliable at 8 months old.”", who: "Amanda K. — Miami, FL" },
+  {
+    quote:
+      "“I had the most educational session with my cali k9 trainer. The training information that was shared with me has helped me tremendously with training me dog. I'll be signing up again as a returning client.”",
+    who: "Robert Walker — San Jose, CA",
+  },
+  {
+    quote:
+      "“Cali K9 has been a great experience! Every week we have seen improvements with our dog's obedience. Each week we are becoming more confident in being the leaders our dog needs and desires.”",
+    who: "Phil Cano — North Hollywood, CA",
+  },
+  {
+    quote:
+      "“We signed up for Cali K9 at the end of March, and it was the best decision that we made for our dog Maverick… We have seen changes in him since day 1 of the training, his behavior has changed, he has become more obedient… I would definitely recommend Cali K9 to any of my friends and family.”",
+    who: "John T — North Hollywood, CA",
+  },
+];
+
+const CELEB_PHOTOS = [
+  { name: "Steph Curry", image: "/images/funnel/jas-steph-curry.jpg" },
+  { name: "Kendrick Lamar", image: "/images/funnel/jas-kendrick.jpg" },
+  { name: "Dr. Phil", image: "/images/funnel/jas-dr-phil.jpg" },
+  { name: "Kevin Hart", image: "/images/funnel/jas-kevin-hart.jpg" },
 ];
 
 export default function BookYourCallPage() {
@@ -89,10 +107,10 @@ export default function BookYourCallPage() {
           </blockquote>
 
           <Image
-            src="/images/jas-eval.webp"
-            alt="Jas Leverette reviewing a dog's evaluation"
+            src="/images/funnel/bookcall-jas-hero.jpg"
+            alt="Jas Leverette with a client's dog"
             width={760}
-            height={480}
+            height={492}
             className="w-full h-auto rounded-xl object-cover mt-8 shadow-md"
           />
 
@@ -178,15 +196,15 @@ export default function BookYourCallPage() {
           <div className="text-center font-ui text-[12px] font-semibold tracking-[2px] uppercase text-gray-muted mt-10 mb-4">
             Trained Dogs For
           </div>
-          <div className="grid grid-cols-4 gap-4 max-w-[600px] mx-auto max-[480px]:grid-cols-2">
-            {CELEBS.slice(0, 4).map((celeb) => (
+          <div className="grid grid-cols-4 gap-4 max-w-[640px] mx-auto max-[480px]:grid-cols-2">
+            {CELEB_PHOTOS.map((celeb) => (
               <div key={celeb.name} className="text-center">
                 <Image
                   src={celeb.image}
-                  alt={celeb.name}
-                  width={150}
-                  height={150}
-                  className="w-full aspect-square object-cover object-top rounded-lg h-auto"
+                  alt={`Jas Leverette with ${celeb.name}`}
+                  width={300}
+                  height={300}
+                  className="w-full aspect-square object-cover rounded-lg h-auto"
                 />
                 <span className="block font-ui text-xs font-bold tracking-[1px] uppercase text-gray-muted mt-2">
                   {celeb.name}

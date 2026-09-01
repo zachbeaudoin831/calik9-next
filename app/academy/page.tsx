@@ -420,12 +420,12 @@ export default function AcademyPage() {
 
             <div className="max-md:order-first">
               <Image
-                src="/images/hero-jas.jpg"
-                alt="Jas Leverette training a dog"
+                src="/images/funnel/academy-jas-hero.jpg"
+                alt="Jas Leverette with his Dutch Shepherd"
                 width={640}
                 height={720}
                 priority
-                className="w-full h-auto rounded-xl object-cover shadow-[0_20px_60px_rgba(0,0,0,0.4)]"
+                className="w-full h-auto aspect-[4/5] rounded-xl object-cover shadow-[0_20px_60px_rgba(0,0,0,0.4)]"
               />
             </div>
           </div>
@@ -801,11 +801,11 @@ export default function AcademyPage() {
         <div className="max-w-[1000px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <div className="grid grid-cols-2 gap-12 items-center max-md:grid-cols-1">
             <Image
-              src="/images/jas-headshot.jpg"
+              src="/images/funnel/jas-studio.jpg"
               alt="Jas Leverette, founder of Cali K9 and star of Netflix's Canine Intervention"
               width={600}
               height={700}
-              className="w-full h-auto rounded-xl object-cover"
+              className="w-full h-auto aspect-[6/7] rounded-xl object-cover"
             />
             <div>
               <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
