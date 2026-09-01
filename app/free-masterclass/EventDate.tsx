@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 // Computed client-side so the date never goes stale: the upcoming Saturday,
 // 11:00 AM Pacific / 2:00 PM Eastern — matching the live Saturday class the
 // /register-now funnel promotes. Update here if the webinar slot changes.
-export default function EventDate() {
+export default function EventDate({ center = false }: { center?: boolean }) {
   const [dateStr, setDateStr] = useState("Saturday");
   const [localTime, setLocalTime] = useState("");
 
@@ -39,7 +39,7 @@ export default function EventDate() {
 
   return (
     <>
-      <div className="flex items-center justify-center gap-3 flex-wrap lg:justify-start">
+      <div className={`flex items-center justify-center gap-3 flex-wrap ${center ? "" : "lg:justify-start"}`}>
         <span className="bg-amber-400 text-[#2b1d05] font-ui text-[11px] font-bold tracking-[1.2px] uppercase px-3.5 py-1.5 rounded-full">
           Live Saturday on Zoom
         </span>
@@ -48,7 +48,7 @@ export default function EventDate() {
         </span>
       </div>
       {localTime && (
-        <p className="font-body text-[12.5px] text-white/50 mt-2 text-center lg:text-left">
+        <p className={`font-body text-[12.5px] text-white/50 mt-2 text-center ${center ? "" : "lg:text-left"}`}>
           {localTime}
         </p>
       )}
