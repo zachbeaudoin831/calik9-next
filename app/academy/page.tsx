@@ -473,7 +473,7 @@ function JoinCta({
     <div className={left ? "text-left max-md:text-center" : "text-center"}>
       <a
         href={JOIN_URL}
-        className={`btn btn-lg text-center max-md:w-full ${light ? "btn-blue" : "btn-white"}`}
+        className="btn btn-gold btn-lg text-center max-md:w-full"
       >
         {label}
         <span aria-hidden="true" className="ml-2 relative -top-[2.5px] leading-none">

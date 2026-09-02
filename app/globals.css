@@ -162,6 +162,18 @@
   transform: translateY(-2px);
   box-shadow: 0 6px 24px rgba(26,63,171,0.3);
 }
+.btn-gold {
+  background: #F59E0D;
+  color: #2b1d05;
+  border-color: #F59E0D;
+}
+.btn-gold:hover {
+  background: #d98a06;
+  border-color: #d98a06;
+  color: #2b1d05;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(245, 158, 13, 0.35);
+}
 .btn-outline {
   background: transparent;
   color: var(--color-blue-500);
