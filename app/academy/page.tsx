@@ -916,10 +916,10 @@ export default function AcademyPage() {
         <div className="max-w-[1000px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <div className="grid grid-cols-[0.85fr_1.15fr] gap-12 items-center max-md:grid-cols-1">
             <Image
-              src="/images/jas-headshot.jpg"
-              alt="Jas Leverette, Founder & Training Director of Cali K9"
-              width={600}
-              height={700}
+              src="/images/funnel/bookcall-jas-hero.jpg"
+              alt="Jas Leverette, Founder & Training Director of Cali K9, with two of his dogs"
+              width={800}
+              height={517}
               className="w-full h-auto rounded-xl object-cover"
             />
             <div>
