@@ -651,19 +651,6 @@ export default function AcademyPage() {
             ))}
           </div>
 
-          <div className="bg-blue-50 border border-blue-100 rounded-xl p-5 text-center">
-            <p className="font-body text-sm text-gray-muted leading-relaxed">
-              <strong className="text-ink">A note on serious behavior cases:</strong>{" "}
-              the Academy is built for everyday obedience, communication and
-              household-behavior challenges. If your dog is showing serious
-              aggression or safety-related behavior, please{" "}
-              <Link href="/evaluation-with-behavior-specialist" className="text-blue-500 underline hover:text-blue-700">
-                book an evaluation
-              </Link>{" "}
-              with our team first. Some cases need hands-on professional support
-              before starting a self-directed program.
-            </p>
-          </div>
         </div>
       </section>
 
