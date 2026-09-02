@@ -359,7 +359,7 @@ const SAMPLE_VIDEOS = [
 ];
 
 const MEMBER_VIDEOS = [
-  { name: "Evan", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a96de9dd47ab15319010591.mp4" },
+  { name: "Sam & Jax", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a985a23a1f3f48f4b9d915b.mp4" },
   { name: "Jen & Prince", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a96deb8389c8c461406b4ad.mp4" },
   { name: "Rachel & Zara", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a96ded3389c8c461406b7da.mp4" },
   { name: "Kristen", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a96dee5c7069f4fc79a363b.mp4" },
