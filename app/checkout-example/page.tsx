@@ -27,7 +27,7 @@ function BookingModal({ onClose }: { onClose: () => void }) {
             Book Your Evaluation &mdash; Takes 60 Seconds
           </div>
           <div className="flex items-baseline gap-2 mb-5">
-            <span className="font-display text-[40px] text-white leading-none">$27</span>
+            <span className="font-display text-[40px] text-white leading-none">$7</span>
           </div>
           <FormEmbed
             formId="GtiGDcoxe0fG5ufwj7Km"
@@ -244,7 +244,7 @@ export default function CheckoutExamplePage() {
             <div className="divide-y divide-gray-100">
               <div className="flex justify-between py-3 text-sm">
                 <span className="text-gray-600">Cali K9 Behavior Evaluation</span>
-                <span className="font-semibold">$27.00</span>
+                <span className="font-semibold">$7.00</span>
               </div>
               {orderBump && (
                 <div className="flex justify-between py-3 text-sm">
@@ -344,7 +344,7 @@ export default function CheckoutExamplePage() {
               ))}
             </ul>
             <div className="mt-5 pt-4 border-t border-gray-100 flex items-center gap-3">
-              <span className="font-display text-3xl font-bold text-[#122E85]">$27</span>
+              <span className="font-display text-3xl font-bold text-[#122E85]">$7</span>
               <span className="text-gray-400 line-through text-lg">$97</span>
               <span className="bg-[#122E85] text-white font-ui text-[10px] font-bold uppercase tracking-[2px] px-2.5 py-1 rounded">
                 72% OFF

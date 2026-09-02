@@ -8,7 +8,7 @@ import TestimonialSection from "@/components/TestimonialSection";
 export const metadata: Metadata = {
   title: "Your Assessment Results — You're a Fit",
   description:
-    "Based on your free behavioral assessment, your dog is a perfect fit for the Cali K9® 5-Pillar System. Book your $27 evaluation with a Professional Dog Training Specialist.",
+    "Based on your free behavioral assessment, your dog is a perfect fit for the Cali K9® 5-Pillar System. Book your $7 evaluation with a Professional Dog Training Specialist.",
   // Funnel destination reached via survey conditional logic — keep out of search.
   robots: { index: false, follow: false },
 };
@@ -63,7 +63,7 @@ function EvalCta({ className = "" }: { className?: string }) {
       href="/evaluation-with-behavior-specialist"
       className={`btn btn-white btn-lg text-center ${className}`}
     >
-      Book Your $27 Evaluation &rarr;
+      Book Your $7 Evaluation &rarr;
     </Link>
   );
 }
@@ -199,7 +199,7 @@ export default function FreeAssessmentQualifiedPage() {
           </h2>
           <div className="w-12 h-[3px] bg-blue-400 mx-auto mb-6" />
           <p className="font-body text-base text-white/70 leading-relaxed mb-8">
-            Book your $27 evaluation and get a complete behavioral assessment,
+            Book your $7 evaluation and get a complete behavioral assessment,
             a custom training roadmap, and the right program recommendation for
             your dog — before these issues escalate.
           </p>

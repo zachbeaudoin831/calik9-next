@@ -494,8 +494,8 @@ export default function BoardAndTrainWorthItPage() {
       <CtaBlock
         eyebrow="Start Here"
         heading="BOOK YOUR EVALUATION"
-        description="A $27 evaluation gives you a complete behavioral assessment, custom training roadmap, and program recommendation for your dog."
-        primaryCta={{ label: "Book Evaluation \u2014 $27 \u2192", href: "/evaluation-with-behavior-specialist" }}
+        description="A $7 evaluation gives you a complete behavioral assessment, custom training roadmap, and program recommendation for your dog."
+        primaryCta={{ label: "Book Evaluation \u2014 $7 \u2192", href: "/evaluation-with-behavior-specialist" }}
         secondaryCta={{ label: "View Programs \u2192", href: "/newclientservices" }}
         dark
       />

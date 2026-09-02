@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-// The $7 reservation is its own GHL product (separate from the $27 evaluation
+// The $7 reservation is its own GHL product (separate from the $7 evaluation
 // cart used elsewhere on the site). Drop its GHL form ID in here once the
 // product exists — from the embed URL api.leadconnectorhq.com/widget/form/<ID>.
 const BOOKING_FORM_ID: string | null = null;

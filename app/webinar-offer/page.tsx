@@ -26,7 +26,7 @@ const COURSES = [
 
 const STACK = [
   { item: "Complete Cali K9 Online Training System", value: "$497" },
-  { item: "One-on-One Evaluation Call About Your Dog", value: "$27" },
+  { item: "One-on-One Evaluation Call About Your Dog", value: "$7" },
 ];
 
 const TESTIMONIALS = [
@@ -133,7 +133,7 @@ export default function WebinarOfferPage() {
           {/* Price stack */}
           <div className="inline-flex items-end gap-4 mb-8">
             <span className="font-display text-[clamp(28px,3vw,36px)] text-white/40 line-through leading-none">
-              $524
+              $504
             </span>
             <span className="font-display text-[clamp(72px,9vw,110px)] text-white leading-[0.85]">
               $79
@@ -208,7 +208,7 @@ export default function WebinarOfferPage() {
                 </h3>
               </div>
               <div className="text-right max-[480px]:text-left shrink-0">
-                <div className="font-display text-3xl text-ink leading-none">$27</div>
+                <div className="font-display text-3xl text-ink leading-none">$7</div>
                 <div className="font-ui text-[11px] font-bold tracking-[1.5px] uppercase text-gray-muted mt-1">
                   Value
                 </div>
@@ -430,7 +430,7 @@ export default function WebinarOfferPage() {
             THE WHOLE SYSTEM. A CALL ABOUT YOUR DOG. $79.
           </h2>
           <p className="font-body text-base text-white/70 leading-relaxed mb-8">
-            $524 of training for $79. The same 5-Pillar System behind 10,000+
+            $504 of training for $79. The same 5-Pillar System behind 10,000+
             transformed dogs, plus a specialist in your corner. Only for
             webinar attendees.
           </p>
