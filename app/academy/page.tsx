@@ -476,12 +476,12 @@ export default function AcademyPage() {
               <span className="font-ui text-[13px] font-semibold tracking-[3px] uppercase text-[#6A9FFF] block mb-4">
                 The Cali K9&reg; Online Academy
               </span>
-              <h1 className="font-display text-[clamp(40px,5vw,62px)] text-white leading-[0.95] mb-5">
+              <h1 className="font-display text-[clamp(40px,5vw,62px)] text-white leading-[0.95] mb-4">
+                TRAIN LIVE WITH <span className="text-[#F59E0B]">JAS LEVERETTE</span>
+              </h1>
+              <h2 className="font-display text-[clamp(22px,2.4vw,30px)] text-white/90 leading-tight mb-5">
                 THE COMPLETE CALI K9 TRAINING SYSTEM &mdash;{" "}
                 <span className="text-[#6A9FFF]">YOU CAN FOLLOW FROM HOME.</span>
-              </h1>
-              <h2 className="font-display text-[clamp(20px,2.2vw,28px)] text-[#F59E0B] tracking-[1px] mb-5">
-                TRAIN LIVE WITH JAS LEVERETTE
               </h2>
               <p className="font-body text-lg text-white/70 leading-relaxed mb-4 max-w-[540px]">
                 Fearful and reactive. Pushy and overconfident. Or just a good dog
