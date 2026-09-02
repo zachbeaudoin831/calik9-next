@@ -12,11 +12,11 @@ import CtaBlock from "@/components/CtaBlock";
 export const metadata: Metadata = {
   title: "In-Person Group Dog Training Classes | Cali K9\u00ae",
   description:
-    "Monthly in-person group dog training classes with certified Cali K9 trainers. 4 sessions per month for $197. Bay Area, LA, Miami & New York.",
+    "Monthly in-person group dog training classes with certified Cali K9 trainers. Attend as often as you'd like for $197/month. Bay Area, LA, Miami & New York.",
   openGraph: {
     title: "In-Person Group Dog Training Classes | Cali K9\u00ae",
     description:
-      "Monthly in-person group dog training classes with certified Cali K9 trainers. 4 sessions per month for $197. Bay Area, LA, Miami & New York.",
+      "Monthly in-person group dog training classes with certified Cali K9 trainers. Attend as often as you'd like for $197/month. Bay Area, LA, Miami & New York.",
     url: "https://calik9.com/group-class",
     images: ["https://calik9.com/images/cdn/66a311486dce452f20d2ffcd.webp"],
   },
@@ -50,9 +50,9 @@ export default function GroupClassPage() {
             </PackageHeading>
 
             <p className="font-body text-base text-white/70 leading-relaxed mb-6">
-              Four in-person group training sessions every month. Real dogs, real
-              distractions, real results. The best way to proof your dog&rsquo;s
-              behavior around other animals and people.
+              Your monthly subscription gives you access to any and all Group
+              Classes that you attend during the month. Attend as often as
+              you&rsquo;d like while your subscription is active.
             </p>
           </>
         }
@@ -62,7 +62,7 @@ export default function GroupClassPage() {
           title="What is included every month:"
           twoColumn={true}
           items={[
-            "4 In-Person Group Sessions Per Month",
+            "Unlimited In-Person Group Sessions",
             "Certified Cali K9 Trainer Every Session",
             "Structured Monthly Curriculum",
             "Community App Access & Training Resources",
