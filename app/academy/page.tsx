@@ -476,7 +476,7 @@ export default function AcademyPage() {
               <span className="font-ui text-[13px] font-semibold tracking-[3px] uppercase text-[#6A9FFF] block mb-4">
                 The Cali K9&reg; Online Academy
               </span>
-              <h1 className="font-display text-[clamp(40px,5vw,62px)] text-white leading-[0.95] mb-4">
+              <h1 className="font-display text-[clamp(30px,3.6vw,46px)] text-white leading-[0.95] mb-4 md:whitespace-nowrap">
                 TRAIN LIVE WITH <span className="text-[#F59E0B]">JAS LEVERETTE</span>
               </h1>
               <h2 className="font-display text-[clamp(22px,2.4vw,30px)] text-white/90 leading-tight mb-5">
