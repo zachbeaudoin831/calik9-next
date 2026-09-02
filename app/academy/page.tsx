@@ -1019,6 +1019,16 @@ export default function AcademyPage() {
         </div>
       </section>
 
+      {/* ── Post-testimonials CTA ── */}
+      <section className="py-12 max-md:py-10 text-center" style={{ background: "linear-gradient(135deg, #8f9fe8 0%, #7c8bf5 100%)" }}>
+        <div className="max-w-[760px] mx-auto px-6">
+          <h2 className="font-display text-[clamp(24px,3vw,32px)] text-ink leading-tight mb-6">
+            YOUR DOG&rsquo;S TRANSFORMATION STORY COULD START TODAY.
+          </h2>
+          <JoinCta label="Join The Academy — $97/Month" />
+        </div>
+      </section>
+
       {/* ── Landscape comparison ── */}
       <section className="py-16 max-md:py-10 bg-cream">
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
