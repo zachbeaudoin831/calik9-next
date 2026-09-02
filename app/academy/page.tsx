@@ -665,7 +665,7 @@ export default function AcademyPage() {
               The Academy System
             </span>
             <h2 className="font-display text-[clamp(30px,4vw,44px)] leading-[0.95] text-white">
-              YOUR DOG&rsquo;S 50-STEP TRANSFORMATION ROADMAP
+              YOUR DOG&rsquo;S 50-STEP TRANSFORMATION ROADMAP&trade;
             </h2>
             <p className="font-body text-base text-white/60 mt-4 max-w-[620px] mx-auto">
               The exact progression Cali K9 uses, from household foundation to
