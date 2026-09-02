@@ -302,7 +302,7 @@ const LANDSCAPE = [
   },
   {
     name: "Board & Train",
-    price: "$3,000+",
+    price: "$5,000+",
     desc: "Can work well, but puts training in someone else's hands. You still have to learn to maintain and reproduce it.",
     featured: false,
   },
