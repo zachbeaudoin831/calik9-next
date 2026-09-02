@@ -498,9 +498,6 @@ export default function AcademyPage() {
                 long-term contract.
               </p>
               <JoinCta left />
-              <p className="font-ui text-xs tracking-[1.5px] uppercase text-white/40 mt-4 max-md:text-center">
-                Cancel anytime &middot; Instant access &middot; No equipment required to start
-              </p>
             </div>
 
             <div className="max-md:order-first">
