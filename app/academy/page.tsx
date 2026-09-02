@@ -758,6 +758,14 @@ export default function AcademyPage() {
             ))}
           </div>
 
+          <Image
+            src="/images/funnel/jas-with-class.jpg"
+            alt="Jas Leverette with a Cali K9 training class and their dogs"
+            width={1400}
+            height={786}
+            className="w-full h-auto rounded-xl object-cover mb-8"
+          />
+
           <blockquote className="max-w-[560px] mx-auto mb-14 border-l-[3px] border-blue-500 pl-4.5 font-ui text-base italic text-ink text-left">
             &ldquo;You can take a dog out of the pack, but not the pack out of the dog.&rdquo;
             <span className="block mt-1.5 font-ui text-[11.5px] not-italic tracking-[0.5px] uppercase text-gray-muted">
