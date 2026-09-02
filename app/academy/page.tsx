@@ -758,6 +758,13 @@ export default function AcademyPage() {
             ))}
           </div>
 
+          <blockquote className="max-w-[560px] mx-auto mb-14 border-l-[3px] border-blue-500 pl-4.5 font-ui text-base italic text-ink text-left">
+            &ldquo;You can take a dog out of the pack, but not the pack out of the dog.&rdquo;
+            <span className="block mt-1.5 font-ui text-[11.5px] not-italic tracking-[0.5px] uppercase text-gray-muted">
+              &mdash; Jas Leverette
+            </span>
+          </blockquote>
+
           <div className="text-center mb-8">
             <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
               The Methodology
