@@ -19,6 +19,7 @@ const STATS = [
   { big: "15+ Yrs", small: "Professional Experience" },
   { big: "Netflix", small: "Canine Intervention" },
   { big: "4.9★", small: "Average Member Rating" },
+  { big: "Gives Back", small: "A Portion Of Profits Fund Street Dog Rescue" },
 ];
 
 const BEFORE = [
@@ -54,14 +55,22 @@ const PROBLEMS = [
 const PHASES = [
   {
     num: 1,
-    title: "Foundation & Household Structure",
-    steps: "Steps 1–9",
+    title: "Household Foundation",
+    steps: "Steps 1–4",
     detail: "Establishing Household Boundaries · Building Food Value & Motivation · Hand-Feeding Meals",
     list: [
       "Establishing Boundaries in the Home",
       "Building Value for Food & Rewards",
       "Hand-Feeding Meals",
       "Increasing Food Motivation (“Ignition”)",
+    ],
+  },
+  {
+    num: 2,
+    title: "Engagement & Training Structure",
+    steps: "Steps 5–9",
+    detail: "Leash-On Approach Inside the Home · Household Rules & Boundaries · Building Break/Play Value",
+    list: [
       "Leash-On Approach Inside the Home",
       "Establishing Household Rules & Boundaries",
       "No Beds/Couches During the Foundation Phase",
@@ -70,7 +79,7 @@ const PHASES = [
     ],
   },
   {
-    num: 2,
+    num: 3,
     title: "Markers, Luring & The Training Box",
     steps: "Steps 10–17",
     detail: "Basic Luring Mechanics · Introducing the Training Box · Sustainment & Release Markers",
@@ -86,8 +95,8 @@ const PHASES = [
     ],
   },
   {
-    num: 3,
-    title: "Core Positions",
+    num: 4,
+    title: "Core Positions (Flip Box: In-The-Box vs. On-The-Box)",
     steps: "Steps 18–25",
     detail: "Down, Stand & Front · Heel Position · Middle & Right Position",
     list: [
@@ -102,8 +111,8 @@ const PHASES = [
     ],
   },
   {
-    num: 4,
-    title: "Heeling & Movement Progression",
+    num: 5,
+    title: "Heeling & Movement Progression (Flip Box: In-The-Box vs. On-The-Box)",
     steps: "Steps 26–31",
     detail: "Extending Recall Into Front · One, Three & Five-Step Heeling · Phasing Out the Lure",
     list: [
@@ -116,8 +125,8 @@ const PHASES = [
     ],
   },
   {
-    num: 5,
-    title: "Distance, Duration & Distraction",
+    num: 6,
+    title: "Distance, Duration & Distraction (Flip Box: In-The-Box vs. On-The-Box)",
     steps: "Steps 32–38",
     detail: "Adding Mild Distractions · Introducing the Touchpad · Rear-End Awareness",
     list: [
@@ -131,7 +140,7 @@ const PHASES = [
     ],
   },
   {
-    num: 6,
+    num: 7,
     title: "Engagement & Real-World Reliability",
     steps: "Steps 39–44",
     detail: "Building Engagement Around Distractions · Handler Communication & Leadership",
@@ -145,7 +154,7 @@ const PHASES = [
     ],
   },
   {
-    num: 7,
+    num: 8,
     title: "Off-Leash Mastery & Generalization",
     steps: "Steps 45–50",
     detail: "Generalizing Commands · Reliable Recall & Heel · Off-Leash Reliability",
@@ -169,7 +178,7 @@ const PHILOSOPHY = [
   {
     num: "2",
     title: "PACK LEADERSHIP",
-    desc: "You become someone your dog understands, follows and respects. Not through force, but through consistent, fair structure.",
+    desc: "You become someone your dog understands, follows and respects — not through force, but through consistent, fair structure. As Jas puts it: “If you treat a dog like a human, it will treat you like a dog.”",
   },
   {
     num: "3",
@@ -179,11 +188,32 @@ const PHILOSOPHY = [
 ];
 
 const PILLARS = [
-  { name: "Obedience", desc: "Foundational and advanced commands built for real-world reliability." },
-  { name: "Socialization", desc: "Calm, confident behavior around dogs, people and new environments." },
-  { name: "Agility", desc: "Body awareness, confidence and physical engagement through movement." },
-  { name: "Behavior Modification", desc: "Addressing the root cause of unwanted behaviors, not just the symptoms." },
-  { name: "Problem Solving", desc: "Techniques for the everyday challenges every owner runs into." },
+  { name: "Obedience", desc: "Reliable core commands built through the 50-step roadmap." },
+  { name: "Socialization", desc: "Calm, confident exposure to other dogs, people and environments." },
+  { name: "Agility", desc: "Controlled movement and body awareness through structured drills." },
+  { name: "Behavior Management", desc: "Managing triggers and energy before they become habits." },
+  { name: "Problem-Solving Technique", desc: "Diagnosing why a command breaks down — and fixing it." },
+];
+
+const MOTIVATORS = [
+  {
+    num: "Motivator 1",
+    name: "Praise",
+    desc: "Verbal and physical affection that tells your dog, in the moment, exactly when they've gotten it right.",
+    image: "/images/funnel/motivator-praise.png",
+  },
+  {
+    num: "Motivator 2",
+    name: "Food",
+    desc: "The most immediate, controllable reward — used to build value, engagement and precision from Step 1.",
+    image: "/images/funnel/motivator-food.png",
+  },
+  {
+    num: "Motivator 3",
+    name: "Toy",
+    desc: "Play and drive-based engagement that channels your dog's energy into focus instead of suppressing it.",
+    image: "/images/funnel/motivator-toy.png",
+  },
 ];
 
 const CONCEPT_CHIPS = [
@@ -279,14 +309,22 @@ const LANDSCAPE = [
 ];
 
 const OFFER_STACK = [
-  { item: "Complete Training Curriculum & Member Portal", detail: "Built on the 5-Pillar System. Every phase, every lesson, unlocked immediately", value: "$497" },
-  { item: "The Full 50-Step Roadmap", detail: "Foundation → Positions → Leash → Recall → Distraction → Real-World", value: "$997" },
-  { item: "Step-By-Step Training Demonstration Videos", detail: "Filmed lessons for every step, from Jas himself", value: "$697" },
-  { item: "Owner Education", detail: "Learn how to train, not just what to train", value: "$197" },
-  { item: "Member Resources & Problem-Solving Library", detail: "Know exactly what step to do next", value: "$147" },
-  { item: "Private Community Access", detail: "Get support and share wins with other owners", value: "$97" },
-  { item: "Live / Group Training Access", detail: "Get your specific questions answered", value: "$147" },
-  { item: "Ongoing Access To Future & New Lessons", detail: "Your membership grows as the curriculum grows", value: "$197" },
+  { item: "All 8 Training Modules & Member Portal", detail: "Built on The Cali K9 5 Pillar, 50-Step System™ — every one of the 8 modules, every lesson, unlocked immediately", value: "$497 value" },
+  { item: "The Full Cali K9 50-Step Roadmap™", detail: "Foundation → Positions → Leash → Recall → Distraction → Real-World", value: "$997 value" },
+  { item: "Start Here Onboarding Video", detail: "Your welcome walkthrough of the 50-Step Roadmap, the 8 phases, where to begin, and how to use your progress tracker", value: "Included Free" },
+  { item: "Full Video Training Library — Organized By 8 Modules + 50 Steps", detail: "Filmed step-by-step lessons for every step, from Jas himself, mapped directly to the roadmap so you always know what's next", value: "$697 value" },
+  { item: "50-Step Roadmap Progress Tracker", detail: "Mark videos watched, skills practiced and milestones completed as you move through the roadmap", value: "Included Free" },
+  { item: "Personalized Training Path & First 30-Day Action Plan", detail: "A recommended path built for your dog, plus a First 30-Day Action Plan, training checklists and progress milestones", value: "$197 value" },
+  { item: "Member Resources & Problem-Solving Library", detail: "Your training library and problem-solving resources — know exactly what step to do next", value: "$147 value" },
+  { item: "Private Member Community Access", detail: "Connect with other members working the same roadmap — share progress, wins and questions between sessions", value: "$97 value" },
+  { item: "Saturday Kickstart & Saturday Academy Live With Jas", detail: "Weekly live Q&A and case breakdowns — get your specific questions answered every Saturday", value: "$147 value" },
+  { item: "Certificate of Completion", detail: "Submit video evidence of your roadmap skills and earn your Cali K9 50-Step Roadmap™ Certificate of Completion", value: "Included Free" },
+  { item: "Ongoing Access To Future & New Lessons", detail: "Your membership grows as the curriculum grows", value: "$197 value" },
+  { item: "30-Day Progress Guarantee™", detail: "Follow your plan for 30 days — if you're not seeing measurable progress, we'll review your training and adjust your plan", value: "Included Free" },
+  { item: "1 Bag Of Turbo Treats", detail: "Shipped to every new buyer when you join", value: "Included Free" },
+  { item: "Evaluation Call With Our Team", detail: "A 20-minute call to talk through your dog and point you to the right next step — held with a $7 refundable reservation, credited toward any program, book it whenever you're ready", value: "$7 reservation" },
+  { item: "Re-Enrollment Opportunity", detail: "At the end of your term you're offered the chance to re-enroll or keep going month to month", value: "Included Free" },
+  { item: "Part Of The Street Dog Rescue Mission", detail: "A portion of your membership helps fund rescue, rehab & rehoming — every month you're a member", value: "Included" },
 ];
 
 const JAS_BULLETS = [
@@ -301,18 +339,21 @@ const JAS_BULLETS = [
 // Real lesson clips from inside the Academy, hosted on the GHL media CDN.
 const SAMPLE_VIDEOS = [
   {
+    level: "Beginner · Module 1–3",
     title: "Foundation: Building Value & Engagement",
-    desc: "How the system builds motivation with food, toys and praise from the very first session.",
+    desc: "Watch Jas demonstrate the step, then see an owner and dog practice it and reach the finished result.",
     src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a96ddd7389c8c4614069da5.mp4",
   },
   {
+    level: "Intermediate · Module 5",
     title: "Heeling: From One Step To Five",
-    desc: "The exact progression that turns one good step into calm, focused heeling.",
+    desc: "The exact drill progression Jas uses to build clean heel position — demonstrated, then practiced.",
     src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a96ddfca227fec6bd91923a.mp4",
   },
   {
+    level: "Advanced · Module 7–8",
     title: "Off-Leash Reliability in the Real World",
-    desc: "Removing the help, step by step, until obedience holds without a leash.",
+    desc: "See the finished result — a bulletproof recall around heavy distractions, the payoff of the full roadmap.",
     src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a96de23c7069f4fc79a22c9.mp4",
   },
 ];
@@ -336,18 +377,37 @@ const MEDIA_LOGOS = [
 ];
 
 const TIER_ROWS: { label: string; academy: string; platinum: string; vip: string }[] = [
-  { label: "50-Step Roadmap", academy: "✓", platinum: "✓", vip: "✓" },
-  { label: "Full Academy & 5-Pillar System", academy: "✓", platinum: "✓", vip: "✓" },
-  { label: "Training videos", academy: "✓", platinum: "✓", vip: "✓" },
-  { label: "Problem-solving library", academy: "✓", platinum: "✓", vip: "✓" },
-  { label: "Community", academy: "✓", platinum: "✓", vip: "✓" },
-  { label: "Group Zoom training", academy: "✓", platinum: "✓", vip: "✓" },
-  { label: "Kickstart Call", academy: "—", platinum: "1", vip: "1" },
-  { label: "Private trainer check-ins", academy: "—", platinum: "4", vip: "8" },
-  { label: "Personalized training plan", academy: "—", platinum: "✓", vip: "✓" },
-  { label: "Progress / accountability reviews", academy: "—", platinum: "✓", vip: "✓" },
-  { label: "Private call with Jas", academy: "—", platinum: "—", vip: "1" },
-  { label: "Priority support", academy: "—", platinum: "—", vip: "✓" },
+  { label: "Best for", academy: "DIY owner", platinum: "Wants coaching & accountability", vip: "Wants a personalized transformation" },
+  { label: "Cali K9 50-Step Roadmap™", academy: "✓", platinum: "✓", vip: "✓" },
+  { label: "All 8 Training Modules", academy: "✓", platinum: "✓", vip: "✓" },
+  { label: "Full Video Training Library", academy: "✓", platinum: "✓", vip: "✓" },
+  { label: "Start Here Onboarding Video", academy: "✓", platinum: "✓", vip: "✓" },
+  { label: "50-Step Roadmap Progress Tracker", academy: "✓", platinum: "✓", vip: "✓" },
+  { label: "Personalized Training Path", academy: "✓", platinum: "✓", vip: "✓" },
+  { label: "First 30-Day Action Plan", academy: "✓", platinum: "✓", vip: "✓" },
+  { label: "Training Checklists + Progress Milestones", academy: "✓", platinum: "✓", vip: "✓" },
+  { label: "Member Community Access", academy: "✓", platinum: "✓", vip: "✓" },
+  { label: "Saturday Kickstart + Saturday Academy Live With Jas", academy: "✓", platinum: "✓", vip: "✓" },
+  { label: "Live Q&A + Case Breakdowns", academy: "✓", platinum: "✓", vip: "✓" },
+  { label: "Certificate of Completion", academy: "✓", platinum: "✓", vip: "✓" },
+  { label: "Re-Enrollment Opportunity At End Of Term", academy: "✓", platinum: "✓", vip: "✓" },
+  { label: "30-Day Progress Guarantee™", academy: "✓", platinum: "✓", vip: "✓" },
+  { label: "1 Bag Of Turbo Treats Included", academy: "✓", platinum: "✓", vip: "✓" },
+  { label: "Booking Calendar + Session Tokens", academy: "—", platinum: "4 Tokens", vip: "8 Tokens" },
+  { label: "Academy Access", academy: "Monthly", platinum: "6 Months", vip: "1 Year" },
+  { label: "Wednesday Train With Jas Small-Group Coaching", academy: "—", platinum: "✓", vip: "✓" },
+  { label: "Session Redemption Window", academy: "—", platinum: "6 Months", vip: "12 Months" },
+  { label: "Personalized Troubleshooting", academy: "—", platinum: "✓", vip: "✓" },
+  { label: "Video Review + Coaching Feedback", academy: "—", platinum: "✓", vip: "✓" },
+  { label: "Accountability + Roadmap Adjustments", academy: "—", platinum: "✓", vip: "✓" },
+  { label: "Advanced Problem-Solving Support", academy: "—", platinum: "✓", vip: "✓" },
+  { label: "Priority RSVP / Booking", academy: "—", platinum: "—", vip: "✓" },
+  { label: "Private VIP WhatsApp Group", academy: "—", platinum: "—", vip: "✓" },
+  { label: "Text + Video Support Within 24 Hours", academy: "—", platinum: "—", vip: "✓" },
+  { label: "Priority Support", academy: "—", platinum: "—", vip: "✓" },
+  { label: "Training Kit Included", academy: "—", platinum: "—", vip: "✓" },
+  { label: "Training Library Access", academy: "While Membership Active", platinum: "6 Months", vip: "12 Months" },
+  { label: "Best positioning", academy: "Do it yourself", platinum: "Do it with a coach", vip: "Do it with our highest support" },
 ];
 
 const JOIN_STEPS = [
@@ -395,7 +455,8 @@ const FAQS = [
   { q: "What happens immediately after purchasing?", a: "You get instant access to the member portal and can start Step 1 right away. See the “What Happens The Moment You Join” section above for the full walkthrough." },
   { q: "Can I cancel?", a: "Yes. There's no contract. Manage or cancel your membership anytime from your account." },
   { q: "What happens to my access if I cancel?", a: "Your access continues through the end of your current billing period, then ends. You can rejoin anytime." },
-  { q: "What's the difference between Academy, Platinum and VIP?", a: "All three include the exact same Cali K9 method and 50-step roadmap. The difference is access, accountability and personalization, not the training system. Academy gives you the system. Platinum adds a Kickstart Call, a personalized plan and 4 private trainer check-ins. VIP adds 8 check-ins, priority support and one private call directly with Jas." },
+  { q: "My dog has already finished the 50-step roadmap — why keep my membership?", a: "Plenty of members do. You'll keep access to new and updated lessons, the community, and live group training as refreshers. But most of all, a portion of every month you stay funds the street dog rescue mission — so your membership keeps doing good long after your own dog's transformation is complete." },
+  { q: "What's the difference between Academy, Elite and VIP?", a: "All three include the exact same Cali K9 method and 50-step roadmap — the difference is access, accountability and personalization, not the training system. Academy is a $97/month membership with the full system. Elite ($997) adds a 6-month Academy term and 4 Train With Jas session tokens for Wednesday small-group coaching — personalized troubleshooting, video review and accountability — so you implement it correctly. VIP ($2,497) adds a full 12-month term, 8 session tokens, priority RSVP/booking, a private VIP WhatsApp group with 24-hour text and video support, priority support, and the Training Kit for the most hands-on experience." },
   { q: "What should I do if my dog has serious aggression or safety issues?", a: "The Academy is built for everyday obedience, communication and behavior challenges. For serious aggression or safety concerns, please book an evaluation with our team first. These cases often need hands-on, professional support before or alongside a self-directed program." },
 ];
 
@@ -448,32 +509,48 @@ export default function AcademyPage() {
               <span className="font-ui text-[13px] font-semibold tracking-[3px] uppercase text-[#6A9FFF] block mb-4">
                 The Cali K9&reg; Online Academy
               </span>
-              <h1 className="font-display text-[clamp(42px,5.5vw,68px)] text-white leading-[0.95] mb-5">
-                TRAIN THE DOG YOU&rsquo;VE ALWAYS WANTED.{" "}
-                <span className="text-[#6A9FFF]">FROM HOME, STEP BY STEP.</span>
+              <h1 className="font-display text-[clamp(40px,5vw,62px)] text-white leading-[0.95] mb-5">
+                THE COMPLETE CALI K9 TRAINING SYSTEM &mdash;{" "}
+                <span className="text-[#6A9FFF]">YOU CAN FOLLOW FROM HOME.</span>
               </h1>
-              <p className="font-body text-lg text-white/70 leading-relaxed mb-4 max-w-[520px]">
-                A structured, sequential dog-training system, not a random
-                library of videos. Follow the same proven method Jas Leverette
-                uses with celebrity clients and on Netflix, broken into a
-                50-step roadmap that teaches <em>you</em> how to train{" "}
-                <em>your</em> dog.
+              <p className="font-body text-lg text-white/70 leading-relaxed mb-4 max-w-[540px]">
+                Fearful and reactive. Pushy and overconfident. Or just a good dog
+                who&rsquo;s never had real training. The Cali K9 5 Pillar, 50-Step
+                System&trade; meets your dog exactly where they are and hands you
+                the roadmap to where you want them to be &mdash; the same 8
+                Modules &rarr; 50 Simple Steps &rarr; One Fully Trained Dog method
+                Jas Leverette uses with celebrity clients and on Netflix, built
+                for puppies, adult dogs, and owners chasing real off-leash
+                reliability.
               </p>
               <p className="font-body text-base font-semibold text-white/85 mb-7">
-                Immediate access the moment you join. Cancel anytime.
+                Immediate access the moment you join. Cancel anytime &mdash; no
+                long-term contract.
               </p>
               <JoinCta left />
+              <p className="font-ui text-xs tracking-[1.5px] uppercase text-white/40 mt-4 max-md:text-center">
+                Cancel anytime &middot; Instant access &middot; No equipment required to start
+              </p>
             </div>
 
             <div className="max-md:order-first">
-              <Image
-                src="/images/funnel/academy-jas-hero.jpg"
-                alt="Jas Leverette with his Dutch Shepherd"
-                width={640}
-                height={720}
-                priority
-                className="w-full h-auto aspect-[4/5] rounded-xl object-cover shadow-[0_20px_60px_rgba(0,0,0,0.4)]"
-              />
+              {/* Stand-in for the 60–90s Academy preview montage — swap the
+                  src when the montage is cut. */}
+              <video
+                className="w-full rounded-xl bg-black shadow-[0_20px_60px_rgba(0,0,0,0.4)]"
+                poster="/images/funnel/academy-jas-hero.jpg"
+                controls
+                playsInline
+                preload="metadata"
+              >
+                <source
+                  src="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/67d1be3a9138277227e87326.mp4"
+                  type="video/mp4"
+                />
+              </video>
+              <p className="font-ui text-[11px] font-bold tracking-[1.5px] uppercase text-white/40 text-center mt-3">
+                Preview: Inside The Academy
+              </p>
             </div>
           </div>
 
@@ -696,10 +773,41 @@ export default function AcademyPage() {
               The Methodology
             </span>
             <h2 className="font-display text-[clamp(28px,3.5vw,40px)] leading-[0.95] text-ink">
-              BUILT ON THE 5-PILLAR SYSTEM
+              BUILT ON THE CALI K9 5 PILLAR, 50-STEP SYSTEM&trade;
             </h2>
+            <p className="font-body text-base text-gray-muted max-w-[640px] mx-auto mt-4">
+              The Academy isn&rsquo;t generic obedience lessons &mdash; it&rsquo;s a proprietary
+              framework: 8 Modules &rarr; 50 Simple Steps &rarr; One Fully Trained Dog, built
+              around 3 Motivators and 5 Pillars that work whether your dog is fearful and
+              reactive, pushy and overconfident, or simply undertrained.
+            </p>
           </div>
 
+          <div className="text-center font-ui text-[13px] font-bold tracking-[2px] uppercase text-gray-muted mb-5">
+            The 3 Motivators
+          </div>
+          <div className="grid grid-cols-3 gap-5 max-md:grid-cols-1 mb-12">
+            {MOTIVATORS.map((m) => (
+              <div key={m.name} className="bg-white border border-black/[0.06] rounded-xl p-6 text-center">
+                <Image
+                  src={m.image}
+                  alt={`${m.name} — Cali K9 motivator`}
+                  width={200}
+                  height={200}
+                  className="w-24 h-24 object-contain mx-auto mb-3"
+                />
+                <div className="font-ui text-[11px] font-bold tracking-[1.5px] uppercase text-blue-500 mb-1">
+                  {m.num}
+                </div>
+                <h3 className="font-display text-xl text-ink mb-2">{m.name.toUpperCase()}</h3>
+                <p className="font-body text-[14px] text-gray-muted leading-[1.6]">{m.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center font-ui text-[13px] font-bold tracking-[2px] uppercase text-gray-muted mb-5">
+            The 5-Pillar System
+          </div>
           <div className="grid grid-cols-5 gap-4 max-lg:grid-cols-3 max-md:grid-cols-1 mb-8">
             {PILLARS.map((pillar, i) => (
               <div key={pillar.name} className="bg-white border border-black/[0.06] rounded-xl p-5 text-center">
@@ -727,14 +835,14 @@ export default function AcademyPage() {
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <div className="text-center mb-10">
             <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
-              See The System In Action
+              Preview The Product
             </span>
             <h2 className="font-display text-[clamp(30px,4vw,44px)] leading-[0.95] text-ink max-w-[760px] mx-auto">
-              REAL LESSONS FROM INSIDE THE ACADEMY
+              SEE THE TRAINING IN ACTION
             </h2>
-            <p className="font-body text-base text-gray-muted mt-4 max-w-[560px] mx-auto">
-              These aren&rsquo;t highlight reels &mdash; they&rsquo;re actual samples of the
-              step-by-step lessons you follow with your own dog.
+            <p className="font-body text-base text-gray-muted mt-4 max-w-[620px] mx-auto">
+              Look inside before you buy &mdash; the training library and the step-by-step
+              lessons you follow with your own dog.
             </p>
           </div>
           <div className="grid grid-cols-3 gap-6 max-md:grid-cols-1">
@@ -748,10 +856,19 @@ export default function AcademyPage() {
                 >
                   <source src={v.src} type="video/mp4" />
                 </video>
-                <h3 className="font-display text-lg text-ink mt-4 mb-1">{v.title}</h3>
+                <div className="font-ui text-[11px] font-bold tracking-[1.5px] uppercase text-blue-500 mt-4 mb-1">
+                  {v.level}
+                </div>
+                <h3 className="font-display text-lg text-ink mb-1">{v.title}</h3>
                 <p className="font-body text-[14px] text-gray-muted leading-relaxed">{v.desc}</p>
               </div>
             ))}
+          </div>
+          <div className="text-center mt-10">
+            <p className="font-body text-[15px] font-semibold text-ink mb-4">
+              You&rsquo;ve seen what&rsquo;s inside. Your dog&rsquo;s roadmap starts at Step 1.
+            </p>
+            <JoinCta light />
           </div>
         </div>
       </section>
@@ -954,7 +1071,11 @@ export default function AcademyPage() {
                     <div className="font-ui text-[15px] font-bold text-white">{row.item}</div>
                     <div className="font-body text-sm text-white/55">{row.detail}</div>
                   </div>
-                  <span className="font-ui text-sm font-bold text-white/50 line-through shrink-0 mt-0.5">
+                  <span
+                    className={`font-ui text-sm font-bold shrink-0 mt-0.5 ${
+                      row.value.endsWith(" value") ? "text-white/50 line-through" : "text-[#F59E0B]"
+                    }`}
+                  >
                     {row.value}
                   </span>
                 </li>
@@ -982,13 +1103,31 @@ export default function AcademyPage() {
       <section className="py-16 max-md:py-10 bg-white">
         <div className="max-w-[1000px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <div className="grid grid-cols-2 gap-12 items-center max-md:grid-cols-1">
-            <Image
-              src="/images/funnel/jas-studio.jpg"
-              alt="Jas Leverette, founder of Cali K9 and star of Netflix's Canine Intervention"
-              width={600}
-              height={700}
-              className="w-full h-auto aspect-[6/7] rounded-xl object-cover"
-            />
+            <div className="flex flex-col gap-4">
+              <Image
+                src="/images/funnel/jas-studio.jpg"
+                alt="Jas Leverette, founder of Cali K9 and star of Netflix's Canine Intervention"
+                width={600}
+                height={340}
+                className="w-full h-auto aspect-[16/9] rounded-xl object-cover"
+              />
+              <div className="grid grid-cols-2 gap-4">
+                <Image
+                  src="/images/funnel/jas-class.jpg"
+                  alt="Jas Leverette teaching a training seminar"
+                  width={300}
+                  height={225}
+                  className="w-full aspect-[4/3] rounded-xl object-cover"
+                />
+                <Image
+                  src="/images/funnel/jas-celeb.jpg"
+                  alt="Jas Leverette with a celebrity client"
+                  width={300}
+                  height={225}
+                  className="w-full aspect-[4/3] rounded-xl object-cover"
+                />
+              </div>
+            </div>
             <div>
               <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
                 Meet Your Trainer
@@ -1038,13 +1177,13 @@ export default function AcademyPage() {
               Choose Your Path
             </span>
             <h2 className="font-display text-[clamp(30px,4vw,44px)] leading-[0.95] text-ink">
-              ACADEMY, PLATINUM OR VIP?
+              ACADEMY, ELITE OR VIP?
             </h2>
             <p className="font-body text-base text-gray-muted mt-4 max-w-[640px] mx-auto">
-              Every tier gets the exact same Cali K9 system: the 50-step
-              roadmap, the 5-Pillar System, the full video curriculum. The
-              difference isn&rsquo;t the training method. It&rsquo;s access,
-              accountability and personalization.
+              Every tier gets the exact same Cali K9 5 Pillar, 50-Step System&trade; &mdash; the
+              full 50-Step Roadmap, the 5 Pillars, the full video curriculum. The difference
+              isn&rsquo;t the training method. It&rsquo;s access, accountability and
+              personalization.
             </p>
           </div>
 
@@ -1059,7 +1198,7 @@ export default function AcademyPage() {
                     <div className="font-ui text-[10px] font-bold tracking-[1.5px] uppercase text-green-600 mt-1">Start Here</div>
                   </th>
                   <th className="text-center p-4 border-b border-border">
-                    <div className="font-display text-xl text-ink leading-none">Platinum</div>
+                    <div className="font-display text-xl text-ink leading-none">Elite</div>
                     <div className="font-ui text-sm font-bold text-blue-500 mt-1">$997</div>
                   </th>
                   <th className="text-center p-4 border-b border-border">
@@ -1091,33 +1230,49 @@ export default function AcademyPage() {
 
           <div className="grid grid-cols-3 gap-5 max-md:grid-cols-1 mb-8">
             <div className="bg-white border-2 border-blue-500 rounded-xl p-6">
-              <div className="font-ui text-xs font-bold tracking-[1.5px] uppercase text-blue-500 mb-2">Academy · Do It Yourself</div>
+              <div className="font-ui text-xs font-bold tracking-[1.5px] uppercase text-blue-500 mb-2">$97/month · Academy</div>
+              <p className="font-body text-sm font-semibold text-ink mb-2">&ldquo;Give me the system and show me exactly what to do.&rdquo;</p>
               <p className="font-body text-sm text-gray-muted leading-[1.7]">
-                &ldquo;Give me the system and show me exactly what to do.&rdquo;
-                The 50-step roadmap, full curriculum, community and group
-                coaching. Everything you need to train your own dog.
+                You&rsquo;re buying The Cali K9 5 Pillar, 50-Step System&trade; itself: the full
+                50-Step Roadmap, the 5 Pillars, full video curriculum, training library, progress
+                tracker, weekly live support, community and group coaching.
               </p>
             </div>
             <div className="bg-white border border-black/[0.06] rounded-xl p-6">
-              <div className="font-ui text-xs font-bold tracking-[1.5px] uppercase text-blue-500 mb-2">Platinum · Do It With Us</div>
+              <div className="font-ui text-xs font-bold tracking-[1.5px] uppercase text-blue-500 mb-2">$997 · Elite</div>
+              <p className="font-body text-sm font-semibold text-ink mb-2">&ldquo;Don&rsquo;t just give me the system. Help me do it correctly.&rdquo;</p>
               <p className="font-body text-sm text-gray-muted leading-[1.7]">
-                Everything in Academy, plus a Kickstart Call, a personalized
-                plan, and 4 private trainer check-ins so you implement it
-                correctly.
+                Everything in Academy, plus a full 6-month Academy term and 4 Train With Jas
+                session tokens &mdash; small-group Wednesday coaching covering personalized
+                troubleshooting, video review and feedback, and accountability with roadmap
+                adjustments.
               </p>
             </div>
             <div className="bg-white border border-black/[0.06] rounded-xl p-6">
-              <div className="font-ui text-xs font-bold tracking-[1.5px] uppercase text-blue-500 mb-2">VIP · Our Highest Support</div>
+              <div className="font-ui text-xs font-bold tracking-[1.5px] uppercase text-blue-500 mb-2">$2,497 · VIP</div>
+              <p className="font-body text-sm font-semibold text-ink mb-2">&ldquo;I want you guys involved &mdash; tell me exactly what to do with MY dog, and help me when I get stuck, fast.&rdquo;</p>
               <p className="font-body text-sm text-gray-muted leading-[1.7]">
-                Everything in Platinum, plus 8 trainer check-ins, priority
-                support, a customized progression, and one private call directly
-                with Jas.
+                Everything in Elite, plus a full 12-month Academy term and 8 Train With Jas
+                session tokens, priority RSVP and booking, a private VIP WhatsApp group with text
+                + video support within 24 hours, priority support, and the full Cali K9 Training
+                Kit included.
               </p>
             </div>
           </div>
 
+          <div className="bg-white border border-black/[0.06] rounded-xl p-6 text-center mb-8">
+            <div className="font-ui text-xs font-bold tracking-[1.5px] uppercase text-gray-muted mb-2">
+              The One-Sentence Explanation
+            </div>
+            <p className="font-body text-[15px] text-ink/80 leading-relaxed">
+              <strong>Academy</strong> gives you the system. <strong>Elite</strong> gives you the
+              system plus Wednesday coaching and session tokens. <strong>VIP</strong> gives you
+              the system, more coaching sessions, and priority access to Jas.
+            </p>
+          </div>
+
           <p className="font-body text-base text-gray-muted text-center mb-6">
-            Most owners start here. Join the Academy today.
+            Most owners start here &mdash; join the Academy today.
           </p>
           <JoinCta light />
         </div>
