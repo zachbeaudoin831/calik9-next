@@ -311,6 +311,7 @@ const LANDSCAPE = [
 const OFFER_STACK = [
   { item: "All 8 Training Modules & Member Portal", detail: "Built on The Cali K9 5 Pillar, 50-Step System™ — every one of the 8 modules, every lesson, unlocked immediately", value: "$497 value" },
   { item: "The Full Cali K9 50-Step Roadmap™", detail: "Foundation → Positions → Leash → Recall → Distraction → Real-World", value: "$997 value" },
+  { item: "Start Here Onboarding Video", detail: "Your welcome walkthrough of the 50-Step Roadmap, the 8 phases, where to begin, and how to use your progress tracker", value: "Included Free" },
   { item: "Full Video Training Library — Organized By 8 Modules + 50 Steps", detail: "Filmed step-by-step lessons for every step, from Jas himself, mapped directly to the roadmap so you always know what's next", value: "$697 value" },
   { item: "50-Step Roadmap Progress Tracker", detail: "Mark videos watched, skills practiced and milestones completed as you move through the roadmap", value: "Included Free" },
   { item: "Personalized Training Path & First 30-Day Action Plan", detail: "A recommended path built for your dog, plus a First 30-Day Action Plan, training checklists and progress milestones", value: "$197 value" },
@@ -380,6 +381,7 @@ const TIER_ROWS: { label: string; academy: string; platinum: string; vip: string
   { label: "Cali K9 50-Step Roadmap™", academy: "✓", platinum: "✓", vip: "✓" },
   { label: "All 8 Training Modules", academy: "✓", platinum: "✓", vip: "✓" },
   { label: "Full Video Training Library", academy: "✓", platinum: "✓", vip: "✓" },
+  { label: "Start Here Onboarding Video", academy: "✓", platinum: "✓", vip: "✓" },
   { label: "50-Step Roadmap Progress Tracker", academy: "✓", platinum: "✓", vip: "✓" },
   { label: "Personalized Training Path", academy: "✓", platinum: "✓", vip: "✓" },
   { label: "First 30-Day Action Plan", academy: "✓", platinum: "✓", vip: "✓" },
