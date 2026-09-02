@@ -1294,14 +1294,6 @@ export default function AcademyPage() {
                 Follow On Instagram
               </a>
             </div>
-            <p className="font-ui text-base italic text-white/85 max-w-[640px] mx-auto mb-6">
-              Every Academy member becomes part of the mission. Train your dog. Change your
-              relationship. Help save another.
-            </p>
-            <JoinCta />
-            <div className="font-ui text-xs font-bold tracking-[2px] uppercase text-white/40 mt-6">
-              Better Dogs. Better Owners. A Bigger Purpose.
-            </div>
           </div>
         </div>
       </section>
