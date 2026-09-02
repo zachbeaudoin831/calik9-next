@@ -513,6 +513,9 @@ export default function AcademyPage() {
                 THE COMPLETE CALI K9 TRAINING SYSTEM &mdash;{" "}
                 <span className="text-[#6A9FFF]">YOU CAN FOLLOW FROM HOME.</span>
               </h1>
+              <h2 className="font-display text-[clamp(20px,2.2vw,28px)] text-[#F59E0B] tracking-[1px] mb-5">
+                TRAIN LIVE WITH JAS LEVERETTE
+              </h2>
               <p className="font-body text-lg text-white/70 leading-relaxed mb-4 max-w-[540px]">
                 Fearful and reactive. Pushy and overconfident. Or just a good dog
                 who&rsquo;s never had real training. The Cali K9 5 Pillar, 50-Step
