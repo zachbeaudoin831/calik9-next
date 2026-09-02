@@ -352,11 +352,30 @@ const TIER_ROWS: { label: string; academy: string; platinum: string; vip: string
 
 const JOIN_STEPS = [
   { num: "01", title: "Join The Academy", desc: "Complete your $97/month membership in under two minutes." },
-  { num: "02", title: "Get Immediate Access", desc: "You're logged into the full member portal right away. No waiting." },
-  { num: "03", title: "Start At Step 1", desc: "Begin the roadmap from the very first foundation step." },
-  { num: "04", title: "Follow The Roadmap", desc: "Move through each step in order. No guessing what's next." },
-  { num: "05", title: "Train Consistently", desc: "A few focused minutes a day builds real, lasting progress." },
-  { num: "06", title: "Progress When Your Dog Is Ready", desc: "You advance to the next step only once your dog demonstrates understanding. Never rushed." },
+  { num: "02", title: "Get Immediate Access", desc: "You're logged into the full member portal right away — no waiting. Your welcome email also includes the link to book your free evaluation call whenever you're ready." },
+  { num: "03", title: "Attend Your Saturday Kickstart", desc: "Join the live Saturday Kickstart call to get oriented, meet the community, and start strong from day one." },
+  { num: "04", title: "Start At Step 1", desc: "Begin the roadmap from the very first foundation step." },
+  { num: "05", title: "Follow The Roadmap", desc: "Move through each step in order. No guessing what's next." },
+  { num: "06", title: "Train Consistently", desc: "A few focused minutes a day builds real, lasting progress." },
+  { num: "07", title: "Progress As Your Dog Demonstrates Understanding", desc: "You advance to the next step only once your dog is ready — never rushed." },
+  { num: "08", title: "Your Goals Don't Care About Your Excuses", desc: "Show up, follow the roadmap, and put in the reps — that's what gets your dog (and you) to the finish line." },
+];
+
+const SCHEDULE = [
+  { day: "Sat · 5:00 PM", title: "Kickstart", access: "Free · Community", tone: "free" },
+  { day: "Sat · 6:00 PM", title: "Live Webinar", access: "Open To Guests", tone: "guest" },
+  { day: "Sat · 7:15 PM", title: "Academy Live With Jas", access: "Members Only", tone: "members" },
+  { day: "Wed · Evening", title: "Trainer-Led Academy Live", access: "Members Only", tone: "members" },
+];
+
+const MISSION_LIST = [
+  "Rescue vulnerable street dogs",
+  "Provide veterinary care & vaccinations",
+  "Feed and rehabilitate dogs in need",
+  "Train and socialize rescued dogs",
+  "Find responsible homes & adoptions",
+  "Partner with local trainers & organizations",
+  "Build a model that can expand beyond Morocco to other countries",
 ];
 
 const FAQS = [
@@ -737,6 +756,76 @@ export default function AcademyPage() {
         </div>
       </section>
 
+      {/* ── Weekly schedule ── */}
+      <section className="py-16 max-md:py-10 bg-ink">
+        <div className="max-w-[1000px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
+          <div className="text-center mb-10">
+            <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-200 block mb-3">
+              It Never Goes Quiet
+            </span>
+            <h2 className="font-display text-[clamp(30px,4vw,44px)] leading-[0.95] text-white">
+              TWO LIVE TOUCHPOINTS, EVERY SINGLE WEEK
+            </h2>
+          </div>
+          <div className="grid grid-cols-4 gap-4 max-lg:grid-cols-2 max-[480px]:grid-cols-1">
+            {SCHEDULE.map((s) => (
+              <div key={s.title} className="bg-white/5 border border-white/10 rounded-xl p-6 text-center">
+                <div className="font-ui text-[12px] font-bold tracking-[1.5px] uppercase text-blue-200 mb-2">
+                  {s.day}
+                </div>
+                <h5 className="font-display text-lg text-white mb-3">{s.title}</h5>
+                <span
+                  className={`inline-block font-ui text-[10.5px] font-bold tracking-[1px] uppercase px-3 py-1 rounded-full ${
+                    s.tone === "members"
+                      ? "bg-blue-500 text-white"
+                      : s.tone === "guest"
+                        ? "bg-amber-400 text-[#2b1d05]"
+                        : "bg-white/15 text-white/80"
+                  }`}
+                >
+                  {s.access}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Founder ── */}
+      <section className="py-16 max-md:py-10 bg-white">
+        <div className="max-w-[1000px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
+          <div className="grid grid-cols-[0.85fr_1.15fr] gap-12 items-center max-md:grid-cols-1">
+            <Image
+              src="/images/jas-headshot.jpg"
+              alt="Jas Leverette, Founder & Training Director of Cali K9"
+              width={600}
+              height={700}
+              className="w-full h-auto rounded-xl object-cover"
+            />
+            <div>
+              <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
+                Who&rsquo;s Behind It
+              </span>
+              <h2 className="font-display text-[clamp(28px,3.5vw,40px)] leading-[0.95] text-ink mb-5">
+                BUILT BY SOMEONE WHO HAD NO PLAN B
+              </h2>
+              <p className="font-body text-[15px] text-[#4b4f58] leading-relaxed mb-3">
+                Jas Leverette grew up in Oakland and found in dogs the outlet &mdash; and later,
+                the business &mdash; that a rough start didn&rsquo;t hand him. He built Cali K9
+                from working dogs at the local park into a facility that&rsquo;s trained thousands
+                of dogs, earned a roster of celebrity and pro-athlete clients, and became the
+                subject of Netflix&rsquo;s <em>Canine Intervention</em>.
+              </p>
+              <p className="font-body text-[15px] text-[#4b4f58] leading-relaxed">
+                The Academy is Jas&rsquo;s answer to the question he gets asked constantly:
+                &ldquo;I don&rsquo;t live near you &mdash; can you still help me?&rdquo; Now the
+                answer is yes.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── Results ── */}
       <section className="py-16 max-md:py-10 bg-cream">
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
@@ -1034,6 +1123,41 @@ export default function AcademyPage() {
         </div>
       </section>
 
+      {/* ── Upgrade pathway ── */}
+      <section className="py-16 max-md:py-10 bg-white">
+        <div className="max-w-[860px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
+          <div className="text-center mb-10">
+            <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
+              The Bigger Picture
+            </span>
+            <h2 className="font-display text-[clamp(30px,4vw,44px)] leading-[0.95] text-ink">
+              YOUR PATH DOESN&rsquo;T HAVE TO STOP AT $97
+            </h2>
+            <p className="font-body text-base text-gray-muted mt-4">
+              The Academy is the entry point into the full Cali K9 ecosystem &mdash; every tier
+              trains the same method; you simply add more access, accountability and
+              personalization as you move up.
+            </p>
+          </div>
+          <div className="flex items-center justify-center gap-4 flex-wrap max-md:flex-col">
+            <div className="bg-cream border-2 border-blue-500 rounded-xl px-7 py-5 text-center">
+              <div className="font-display text-xl text-ink">$97 ACADEMY</div>
+              <div className="font-body text-[13px] text-gray-muted mt-1">The system, self-directed</div>
+            </div>
+            <span className="font-display text-2xl text-blue-500 max-md:rotate-90" aria-hidden="true">&rarr;</span>
+            <Link href="/elite" className="bg-cream border border-border rounded-xl px-7 py-5 text-center hover:border-blue-500 transition-colors">
+              <div className="font-display text-xl text-ink">ELITE</div>
+              <div className="font-body text-[13px] text-gray-muted mt-1">+ Coaching &amp; session tokens</div>
+            </Link>
+            <span className="font-display text-2xl text-blue-500 max-md:rotate-90" aria-hidden="true">&rarr;</span>
+            <Link href="/vip" className="bg-cream border border-border rounded-xl px-7 py-5 text-center hover:border-blue-500 transition-colors">
+              <div className="font-display text-xl text-ink">VIP</div>
+              <div className="font-body text-[13px] text-gray-muted mt-1">+ More sessions &amp; priority access to Jas</div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ── What happens when you join ── */}
       <section className="py-16 max-md:py-10 bg-white">
         <div className="max-w-[1000px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
@@ -1080,6 +1204,104 @@ export default function AcademyPage() {
                 <p className="font-body text-[15px] text-gray-muted leading-[1.75] px-5 pb-5">{faq.a}</p>
               </details>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Cause / mission ── */}
+      <section className="py-16 max-md:py-10 bg-ink">
+        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
+          <div className="grid grid-cols-[0.9fr_1.1fr] gap-12 items-center max-md:grid-cols-1">
+            <Image
+              src="/images/funnel/jas-with-class.jpg"
+              alt="Jas Leverette with a group of dogs"
+              width={1000}
+              height={561}
+              className="w-full h-auto rounded-xl object-cover"
+            />
+            <div>
+              <span className="inline-block bg-amber-400 text-[#2b1d05] font-ui text-[11px] font-bold tracking-[1.5px] uppercase px-3.5 py-1.5 rounded-full mb-4">
+                &#10022; The Cali K9 Mission
+              </span>
+              <h2 className="font-display text-[clamp(28px,3.5vw,42px)] leading-[0.95] text-white mb-4">
+                TRAIN YOUR DOG. HELP SAVE ANOTHER.
+              </h2>
+              <p className="font-body text-base text-white/80 leading-relaxed mb-3">
+                Your membership isn&rsquo;t only transforming your dog &mdash; it&rsquo;s helping
+                save dogs around the world.
+              </p>
+              <p className="font-body text-[14.5px] text-white/65 leading-relaxed mb-5">
+                When you join the Cali K9 Online Academy, you&rsquo;re becoming part of a much
+                bigger mission.{" "}
+                <strong className="text-white">
+                  A portion of all Academy profits go toward helping save street dogs around the
+                  world
+                </strong>
+                , beginning in Morocco. Jas Leverette and the Cali K9 team are working to:
+              </p>
+              <ul className="grid grid-cols-2 gap-x-6 gap-y-2 max-[480px]:grid-cols-1 mb-6">
+                {MISSION_LIST.map((item) => (
+                  <li key={item} className="font-body text-[13.5px] text-white/80 pl-5 relative">
+                    <span className="absolute left-0 text-blue-200 font-bold">&#10003;</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <div className="bg-white/5 border border-white/10 rounded-xl p-5">
+                <h4 className="font-body text-[15px] font-bold text-white mb-1.5">
+                  Even after your dog masters Step 50, your membership keeps working.
+                </h4>
+                <p className="font-body text-[13.5px] text-white/65 leading-relaxed">
+                  Most training programs lose members the moment the dog is trained. The Academy is
+                  built to be different &mdash;{" "}
+                  <strong className="text-white/85">
+                    every month you stay is another month funding rescue, veterinary care and
+                    rehabilitation for a street dog who needs it.
+                  </strong>{" "}
+                  Your dog&rsquo;s transformation might be complete. The mission isn&rsquo;t.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="border-t border-white/10 mt-12 pt-10 text-center">
+            <span className="font-ui text-[13px] font-semibold tracking-[3px] uppercase text-blue-200 block mb-2">
+              From The Streets To A Second Chance
+            </span>
+            <h3 className="font-display text-[clamp(24px,3vw,32px)] text-white mb-3">
+              WE&rsquo;RE DOCUMENTING THE ENTIRE JOURNEY
+            </h3>
+            <p className="font-body text-[14.5px] text-white/65 leading-relaxed max-w-[560px] mx-auto mb-6">
+              From rescue, to rehabilitation, to training, to finding these dogs a new home &mdash;
+              follow Jas&rsquo;s mission on YouTube and Instagram and see exactly what we&rsquo;re
+              working toward.
+            </p>
+            <div className="flex items-center justify-center gap-3 flex-wrap mb-10">
+              <a
+                href="https://www.youtube.com/channel/UCGtJ7tl98bL-dl7lyanHmMg"
+                target="_blank"
+                rel="noopener"
+                className="btn btn-outline !border-white/40 !text-white hover:!border-white"
+              >
+                Follow On YouTube
+              </a>
+              <a
+                href="https://www.instagram.com/calik9/"
+                target="_blank"
+                rel="noopener"
+                className="btn btn-outline !border-white/40 !text-white hover:!border-white"
+              >
+                Follow On Instagram
+              </a>
+            </div>
+            <p className="font-ui text-base italic text-white/85 max-w-[640px] mx-auto mb-6">
+              Every Academy member becomes part of the mission. Train your dog. Change your
+              relationship. Help save another.
+            </p>
+            <JoinCta />
+            <div className="font-ui text-xs font-bold tracking-[2px] uppercase text-white/40 mt-6">
+              Better Dogs. Better Owners. A Bigger Purpose.
+            </div>
           </div>
         </div>
       </section>
