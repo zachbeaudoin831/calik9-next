@@ -188,11 +188,11 @@ const PHILOSOPHY = [
 ];
 
 const PILLARS = [
-  { name: "Obedience", desc: "Reliable core commands built through the 50-step roadmap." },
-  { name: "Socialization", desc: "Calm, confident exposure to other dogs, people and environments." },
-  { name: "Agility", desc: "Controlled movement and body awareness through structured drills." },
-  { name: "Behavior Management", desc: "Managing triggers and energy before they become habits." },
-  { name: "Problem-Solving Technique", desc: "Diagnosing why a command breaks down — and fixing it." },
+  { name: "Obedience", desc: "Reliable core commands built through the 50-step roadmap.", image: "/images/funnel/pillar-1.jpg" },
+  { name: "Socialization", desc: "Calm, confident exposure to other dogs, people and environments.", image: "/images/funnel/pillar-2.jpg" },
+  { name: "Agility", desc: "Controlled movement and body awareness through structured drills.", image: "/images/funnel/pillar-3.jpg" },
+  { name: "Behavior Management", desc: "Managing triggers and energy before they become habits.", image: "/images/funnel/pillar-4.jpg" },
+  { name: "Problem-Solving Technique", desc: "Diagnosing why a command breaks down — and fixing it.", image: "/images/funnel/pillar-5.jpg" },
 ];
 
 const MOTIVATORS = [
@@ -816,6 +816,13 @@ export default function AcademyPage() {
           <div className="grid grid-cols-5 gap-4 max-lg:grid-cols-3 max-md:grid-cols-1 mb-8">
             {PILLARS.map((pillar, i) => (
               <div key={pillar.name} className="bg-white border border-black/[0.06] rounded-xl p-5 text-center">
+                <Image
+                  src={pillar.image}
+                  alt={`Pillar ${i + 1} — ${pillar.name}`}
+                  width={498}
+                  height={381}
+                  className="w-full h-auto rounded-lg mb-4"
+                />
                 <div className="font-ui text-[11px] font-bold tracking-[1.5px] uppercase text-blue-500 mb-1.5">
                   Pillar {i + 1}
                 </div>
