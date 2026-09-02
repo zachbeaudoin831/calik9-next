@@ -14,11 +14,11 @@ import CtaBlock from "@/components/CtaBlock";
 export const metadata: Metadata = {
   title: "In-Person Dog Training | Cali K9\u00ae",
   description:
-    "One-on-one in-person dog training sessions with certified Cali K9 trainers. Three program options starting at $1,497.",
+    "In-person dog training with certified Cali K9 trainers. The Elite 24-session package with the Dog Training Starter Kit included. $2,997.",
   openGraph: {
     title: "In-Person Dog Training | Cali K9\u00ae",
     description:
-      "One-on-one in-person dog training sessions with certified Cali K9 trainers. Three program options starting at $1,497.",
+      "In-person dog training with certified Cali K9 trainers. The Elite 24-session package with the Dog Training Starter Kit included. $2,997.",
     url: "https://calik9.com/in-person",
     images: ["https://calik9.com/images/cdn/66a311486dce452f20d2ffcd.webp"],
   },
@@ -91,35 +91,6 @@ export default function InPersonPage() {
 
         <hr className="border-0 border-t border-white/[0.12] my-9" />
 
-        {/* ── In-Person Dog Training Package (12 Sessions) ── */}
-        <PackageHeading as="h2">
-          In-Person Dog Training Package (12 Sessions)
-        </PackageHeading>
-        <p className="font-ui text-sm tracking-[1px] text-white/55 -mt-2 mb-5">
-          (for dogs with no aggression or anxiety issues)
-        </p>
-
-        <PackageList
-          title="What's Included:"
-          items={[
-            { text: "2 Private Training Sessions", bold: true },
-            "2 Semi-Private Sessions",
-            "4 Group Classes",
-            "4 Group Zoom Classes",
-            "Obedience",
-            "Socialization",
-            "Urban Agility",
-            "Problem Solving Techniques",
-          ]}
-        />
-
-        <PriceBlock
-          price="$1,497"
-          note="one-time · Payment plans available"
-        />
-
-        <hr className="border-0 border-t border-white/[0.12] my-9" />
-
         {/* ── Elite In-Person Dog Training Package (24 Sessions) ── */}
         <PackageHeading as="h2">
           Elite In-Person Dog Training Package (24 Sessions)
@@ -129,6 +100,7 @@ export default function InPersonPage() {
           title="What's Included:"
           items={[
             { text: "2 Private Training Sessions", bold: true },
+            { text: "Dog Training Starter Kit", bold: true },
             "6 Semi-Private Sessions",
             "8 Group Classes",
             "8 Group Zoom Classes",
@@ -140,43 +112,7 @@ export default function InPersonPage() {
         />
 
         <PriceBlock
-          price="$2,497"
-          note="one-time · Payment plans available"
-        />
-
-        <hr className="border-0 border-t border-white/[0.12] my-9" />
-
-        {/* ── VIP Dog Training ── */}
-        <PackageHeading as="h2">VIP Dog Training</PackageHeading>
-
-        <p className="font-body text-base text-white/70 leading-relaxed mb-6">
-          Cali K9&rsquo;s VIP package delivers one-on-one, fully personalized
-          training tailored to your dog&rsquo;s needs, lifestyle, and goals.
-          Sessions focus on advanced skills including reliable off-leash
-          obedience, professional service-dog task training, and specialized
-          behaviors for high-performance or lifestyle demands. With flexible
-          scheduling, premium support, and measurable progress plans, this
-          program is ideal for owners who want elite results and lasting
-          reliability.
-        </p>
-
-        <PackageList
-          title="What's Included:"
-          items={[
-            { text: "8 VIP Sessions", bold: true },
-            { text: "Dog Training Starter Kit", bold: true },
-            "1 Year of Group Classes",
-            "1 Year of Group Zoom Classes",
-            "Obedience",
-            "Socialization",
-            "Agility",
-            "Behavior Modification",
-            "Problem Solving Techniques",
-          ]}
-        />
-
-        <PriceBlock
-          price="$4,997"
+          price="$2,997"
           note="one-time · Payment plans available"
         />
 
