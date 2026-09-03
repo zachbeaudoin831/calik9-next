@@ -501,22 +501,21 @@ export default function AcademyPage() {
             </div>
 
             <div className="max-md:order-first">
-              {/* Stand-in for the 60–90s Academy preview montage — swap the
-                  src when the montage is cut. */}
-              <video
-                className="w-full rounded-xl bg-black shadow-[0_20px_60px_rgba(0,0,0,0.4)]"
-                poster="/images/funnel/academy-jas-hero.jpg"
-                controls
-                playsInline
-                preload="metadata"
-              >
-                <source
-                  src="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/67d1be3a9138277227e87326.mp4"
-                  type="video/mp4"
-                />
-              </video>
+              {/* Photo placeholder for the 60–90s Academy preview montage.
+                  When the montage is cut, replace this Image with:
+                  <video controls playsInline preload="metadata" poster="/images/funnel/academy-jas-teaching.jpg">
+                    <source src="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/<montage-id>.mp4" type="video/mp4" />
+                  </video> */}
+              <Image
+                src="/images/funnel/academy-jas-teaching.jpg"
+                alt="Jas Leverette coaching a live Cali K9 Academy class from the studio"
+                width={1080}
+                height={839}
+                priority
+                className="w-full h-auto rounded-xl shadow-[0_20px_60px_rgba(0,0,0,0.4)]"
+              />
               <p className="font-ui text-[11px] font-bold tracking-[1.5px] uppercase text-white/40 text-center mt-3">
-                Preview: Inside The Academy
+                Jas Teaching Academy Live From The Cali K9 Studio
               </p>
             </div>
           </div>
@@ -851,17 +850,31 @@ export default function AcademyPage() {
 
       {/* ── Weekly schedule ── */}
       <section className="py-16 max-md:py-10 bg-ink">
-        <div className="max-w-[1000px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
-          <div className="text-center mb-10">
-            <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-200 block mb-3">
-              It Never Goes Quiet
-            </span>
-            <h2 className="font-display text-[clamp(30px,4vw,44px)] leading-[0.95] text-white">
-              TWO LIVE TOUCHPOINTS, EVERY SINGLE WEEK
-            </h2>
-          </div>
-          <div className="grid grid-cols-4 gap-4 max-lg:grid-cols-2 max-[480px]:grid-cols-1">
-            {SCHEDULE.map((s) => (
+        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
+          <div className="grid grid-cols-[0.75fr_1.25fr] gap-12 items-center max-md:grid-cols-1 max-md:gap-8">
+            <div>
+              <Image
+                src="/images/funnel/jas-zoom.jpg"
+                alt="Jas Leverette giving a thumbs up in front of a live Academy class on screen"
+                width={884}
+                height={1000}
+                className="w-full h-auto rounded-xl shadow-[0_20px_60px_rgba(0,0,0,0.4)] max-md:max-w-[420px] max-md:mx-auto"
+              />
+              <p className="font-ui text-[11px] font-bold tracking-[1.5px] uppercase text-white/40 text-center mt-3">
+                Members Train Live With Jas Every Week
+              </p>
+            </div>
+            <div>
+              <div className="mb-8 max-md:text-center">
+                <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-200 block mb-3">
+                  It Never Goes Quiet
+                </span>
+                <h2 className="font-display text-[clamp(30px,4vw,44px)] leading-[0.95] text-white">
+                  TWO LIVE TOUCHPOINTS, EVERY SINGLE WEEK
+                </h2>
+              </div>
+              <div className="grid grid-cols-2 gap-4 max-[480px]:grid-cols-1">
+                {SCHEDULE.map((s) => (
               <div key={s.title} className="bg-white/5 border border-white/10 rounded-xl p-6 text-center">
                 <div className="font-ui text-[12px] font-bold tracking-[1.5px] uppercase text-blue-200 mb-2">
                   {s.day}
@@ -880,6 +893,8 @@ export default function AcademyPage() {
                 </span>
               </div>
             ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
