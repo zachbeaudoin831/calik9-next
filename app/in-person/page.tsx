@@ -12,13 +12,13 @@ import CelebGrid from "@/components/CelebGrid";
 import CtaBlock from "@/components/CtaBlock";
 
 export const metadata: Metadata = {
-  title: "In-Person Dog Training | Cali K9\u00ae",
+  title: "In-Person Dog Training",
   description:
-    "In-person dog training with certified Cali K9 trainers. The Elite 24-session package with the Dog Training Starter Kit included. $2,997.",
+    "In-person dog training with certified Cali K9 trainers. Elite 24-session package and VIP one-on-one training, with the Dog Training Starter Kit included.",
   openGraph: {
     title: "In-Person Dog Training | Cali K9\u00ae",
     description:
-      "In-person dog training with certified Cali K9 trainers. The Elite 24-session package with the Dog Training Starter Kit included. $2,997.",
+      "In-person dog training with certified Cali K9 trainers. Elite 24-session package and VIP one-on-one training, with the Dog Training Starter Kit included.",
     url: "https://calik9.com/in-person",
     images: ["https://calik9.com/images/cdn/66a311486dce452f20d2ffcd.webp"],
   },
@@ -113,6 +113,42 @@ export default function InPersonPage() {
 
         <PriceBlock
           price="$2,997"
+          note="one-time · Payment plans available"
+        />
+
+        <hr className="border-0 border-t border-white/[0.12] my-9" />
+
+        {/* ── VIP Dog Training ── */}
+        <PackageHeading as="h2">VIP Dog Training</PackageHeading>
+
+        <p className="font-body text-base text-white/70 leading-relaxed mb-6">
+          Cali K9&rsquo;s VIP package delivers one-on-one, fully personalized
+          training tailored to your dog&rsquo;s needs, lifestyle, and goals.
+          Sessions focus on advanced skills including reliable off-leash
+          obedience, professional service-dog task training, and specialized
+          behaviors for high-performance or lifestyle demands. With flexible
+          scheduling, premium support, and measurable progress plans, this
+          program is ideal for owners who want elite results and lasting
+          reliability.
+        </p>
+
+        <PackageList
+          title="What's Included:"
+          items={[
+            { text: "8 VIP Sessions", bold: true },
+            { text: "Dog Training Starter Kit", bold: true },
+            "1 Year of Group Classes",
+            "1 Year of Group Zoom Classes",
+            "Obedience",
+            "Socialization",
+            "Agility",
+            "Behavior Modification",
+            "Problem Solving Techniques",
+          ]}
+        />
+
+        <PriceBlock
+          price="$5,997"
           note="one-time · Payment plans available"
         />
 
