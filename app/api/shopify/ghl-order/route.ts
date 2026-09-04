@@ -12,7 +12,11 @@ import { NextResponse } from "next/server";
  *
  * Required Vercel env vars (Settings → Environment Variables):
  *   SHOPIFY_STORE_DOMAIN         e.g. cali-k9.myshopify.com  (falls back to NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN)
- *   SHOPIFY_ADMIN_API_TOKEN      shpat_… from a custom app with write_orders, read_orders, read_products, write_customers
+ *   SHOPIFY_CLIENT_ID            from the Dev Dashboard app (App settings) — the app needs scopes
+ *   SHOPIFY_CLIENT_SECRET          write_orders, read_orders, read_products, write_customers and must be
+ *                                installed on the store. Tokens are minted via the client-credentials
+ *                                grant and cached in memory (they last ~24h).
+ *   SHOPIFY_ADMIN_API_TOKEN      alternative: a permanent shpat_… token from a legacy custom app
  *   SHOPIFY_PRODUCT_MAP          JSON: {"kit":"<variantId>","treats-beef":"<variantId>","treats-chicken":"<variantId>"}
  *   GHL_SHOPIFY_WEBHOOK_SECRET   any long random string; GHL sends it back so we know the call is real
  *
@@ -39,6 +43,8 @@ type ProductMap = Record<string, string>;
 function config() {
   const domain = (process.env.SHOPIFY_STORE_DOMAIN || process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN || "").trim();
   const token = (process.env.SHOPIFY_ADMIN_API_TOKEN || "").trim();
+  const clientId = (process.env.SHOPIFY_CLIENT_ID || "").trim();
+  const clientSecret = (process.env.SHOPIFY_CLIENT_SECRET || "").trim();
   const secret = (process.env.GHL_SHOPIFY_WEBHOOK_SECRET || "").trim();
   let productMap: ProductMap = {};
   let productMapError: string | null = null;
@@ -47,7 +53,30 @@ function config() {
   } catch {
     productMapError = "SHOPIFY_PRODUCT_MAP is not valid JSON";
   }
-  return { domain, token, secret, productMap, productMapError };
+  return { domain, token, clientId, clientSecret, secret, productMap, productMapError };
+}
+
+// Client-credentials grant (Dev Dashboard apps). Cached per warm serverless
+// instance; refreshed a few minutes before Shopify's expiry.
+let cachedToken: { value: string; expiresAt: number } | null = null;
+
+async function accessToken(): Promise<string> {
+  const { domain, token, clientId, clientSecret } = config();
+  if (token) return token;
+  if (cachedToken && cachedToken.expiresAt > Date.now()) return cachedToken.value;
+  const res = await fetch(`https://${domain}/admin/oauth/access_token`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ client_id: clientId, client_secret: clientSecret, grant_type: "client_credentials" }),
+    cache: "no-store",
+  });
+  const data = (await res.json().catch(() => ({}))) as { access_token?: string; expires_in?: number; error?: string; error_description?: string };
+  if (!res.ok || !data.access_token) {
+    throw new Error(`Shopify token exchange failed (${res.status}): ${data.error_description || data.error || "no access_token"}`);
+  }
+  const ttl = (data.expires_in ?? 86400) * 1000;
+  cachedToken = { value: data.access_token, expiresAt: Date.now() + ttl - 5 * 60 * 1000 };
+  return data.access_token;
 }
 
 // GHL webhook bodies vary by trigger. Look in custom data first, then the
@@ -78,7 +107,8 @@ function splitName(full: string): [string, string] {
 }
 
 async function shopify(path: string, init: RequestInit = {}) {
-  const { domain, token } = config();
+  const { domain } = config();
+  const token = await accessToken();
   const res = await fetch(`https://${domain}/admin/api/${API_VERSION}/${path}`, {
     ...init,
     headers: {
@@ -100,10 +130,21 @@ async function shopify(path: string, init: RequestInit = {}) {
 
 export async function GET() {
   const c = config();
+  const hasAuth = Boolean(c.token || (c.clientId && c.clientSecret));
+  let shopifyAuth: string = "not tested";
+  if (c.domain && hasAuth) {
+    try {
+      await accessToken();
+      shopifyAuth = "ok";
+    } catch (e) {
+      shopifyAuth = e instanceof Error ? e.message : String(e);
+    }
+  }
   return NextResponse.json({
-    configured: Boolean(c.domain && c.token && c.secret && Object.keys(c.productMap).length && !c.productMapError),
+    configured: Boolean(c.domain && hasAuth && c.secret && Object.keys(c.productMap).length && !c.productMapError && shopifyAuth === "ok"),
     store: c.domain || null,
-    hasAdminToken: Boolean(c.token),
+    auth: c.token ? "admin-token" : c.clientId && c.clientSecret ? "client-credentials" : "missing",
+    shopifyAuth,
     hasWebhookSecret: Boolean(c.secret),
     products: Object.keys(c.productMap),
     error: c.productMapError,
@@ -112,7 +153,7 @@ export async function GET() {
 
 export async function POST(req: Request) {
   const c = config();
-  if (!c.domain || !c.token || !c.secret || c.productMapError) {
+  if (!c.domain || !(c.token || (c.clientId && c.clientSecret)) || !c.secret || c.productMapError) {
     return NextResponse.json({ error: "Endpoint not configured", detail: c.productMapError }, { status: 503 });
   }
 
@@ -170,6 +211,12 @@ export async function POST(req: Request) {
       { error: `Missing shipping fields: ${missing.join(", ")}`, received: Object.keys(body) },
       { status: 400 },
     );
+  }
+
+  try {
+    await accessToken();
+  } catch (e) {
+    return NextResponse.json({ error: e instanceof Error ? e.message : String(e) }, { status: 502 });
   }
 
   // ── Idempotency: one Shopify order per GHL purchase ──
