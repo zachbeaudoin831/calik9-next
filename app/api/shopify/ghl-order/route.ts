@@ -128,9 +128,29 @@ async function shopify(path: string, init: RequestInit = {}) {
   return { ok: res.ok, status: res.status, json };
 }
 
-export async function GET() {
+export async function GET(req: Request) {
   const c = config();
   const hasAuth = Boolean(c.token || (c.clientId && c.clientSecret));
+
+  // ?products=1 → list product titles + variant IDs to fill in SHOPIFY_PRODUCT_MAP.
+  // Read-only, and only works once the Shopify credentials are in place.
+  if (new URL(req.url).searchParams.get("products") && c.domain && hasAuth) {
+    try {
+      const r = await shopify("products.json?limit=250&fields=id,title,status,variants");
+      type V = { id: number; title: string; price: string; sku: string };
+      const products = ((r.json as { products?: { id: number; title: string; status: string; variants: V[] }[] })?.products) || [];
+      return NextResponse.json({
+        products: products.map((p) => ({
+          title: p.title,
+          status: p.status,
+          variants: p.variants.map((v) => ({ variantId: String(v.id), title: v.title, price: v.price, sku: v.sku })),
+        })),
+      });
+    } catch (e) {
+      return NextResponse.json({ error: e instanceof Error ? e.message : String(e) }, { status: 502 });
+    }
+  }
+
   let shopifyAuth: string = "not tested";
   if (c.domain && hasAuth) {
     try {
