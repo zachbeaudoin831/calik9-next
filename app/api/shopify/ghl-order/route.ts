@@ -37,9 +37,9 @@ const API_VERSION = "2025-01";
 type ProductMap = Record<string, string>;
 
 function config() {
-  const domain = process.env.SHOPIFY_STORE_DOMAIN || process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN || "";
-  const token = process.env.SHOPIFY_ADMIN_API_TOKEN || "";
-  const secret = process.env.GHL_SHOPIFY_WEBHOOK_SECRET || "";
+  const domain = (process.env.SHOPIFY_STORE_DOMAIN || process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN || "").trim();
+  const token = (process.env.SHOPIFY_ADMIN_API_TOKEN || "").trim();
+  const secret = (process.env.GHL_SHOPIFY_WEBHOOK_SECRET || "").trim();
   let productMap: ProductMap = {};
   let productMapError: string | null = null;
   try {
