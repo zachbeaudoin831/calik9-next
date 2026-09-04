@@ -41,20 +41,46 @@ const ENDPOINT_VERSION = 3; // bump to confirm which build is live
 
 type ProductMap = Record<string, string>;
 
+// Accepts JSON ({"kit":"123"}) or a simple list (kit=123, treats-beef=456),
+// and forgives the usual copy/paste damage: smart quotes, a wrapping pair of
+// quotes, or the KEY= prefix pasted into the value box.
+function parseProductMap(raw: string): { productMap: ProductMap; productMapError: string | null; productMapRaw: string } {
+  let v = raw.trim().replace(/[\u201c\u201d]/g, '"').replace(/[\u2018\u2019]/g, "'");
+  v = v.replace(/^SHOPIFY_PRODUCT_MAP\s*=\s*/i, "");
+  if ((v.startsWith("'") && v.endsWith("'")) || (v.startsWith('"') && v.endsWith('"') && !v.startsWith('"{') === false) || (v.startsWith('"') && v.endsWith('"') && !v.slice(1, -1).includes('"'))) {
+    v = v.slice(1, -1).trim();
+  }
+  const preview = v.length > 60 ? `${v.slice(0, 40)}…${v.slice(-15)}` : v;
+  if (!v) return { productMap: {}, productMapError: null, productMapRaw: "" };
+  try {
+    const parsed = JSON.parse(v) as Record<string, unknown>;
+    const map: ProductMap = {};
+    for (const [k, id] of Object.entries(parsed)) {
+      const s = String(id).trim();
+      if (!/^\d+$/.test(s)) return { productMap: {}, productMapError: `SHOPIFY_PRODUCT_MAP: "${k}" is not a numeric variant id`, productMapRaw: preview };
+      map[k.trim().toLowerCase()] = s;
+    }
+    return { productMap: map, productMapError: null, productMapRaw: preview };
+  } catch {
+    // fall through to key=value form
+  }
+  const map: ProductMap = {};
+  for (const pair of v.split(/[,\n;]+/)) {
+    const m = pair.trim().match(/^["']?([\w-]+)["']?\s*[=:]\s*["']?(\d+)["']?$/);
+    if (!m) return { productMap: {}, productMapError: `SHOPIFY_PRODUCT_MAP is not valid JSON or key=id pairs (got: ${preview})`, productMapRaw: preview };
+    map[m[1].toLowerCase()] = m[2];
+  }
+  return { productMap: map, productMapError: null, productMapRaw: preview };
+}
+
 function config() {
   const domain = (process.env.SHOPIFY_STORE_DOMAIN || process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN || "").trim();
   const token = (process.env.SHOPIFY_ADMIN_API_TOKEN || "").trim();
   const clientId = (process.env.SHOPIFY_CLIENT_ID || "").trim();
   const clientSecret = (process.env.SHOPIFY_CLIENT_SECRET || "").trim();
   const secret = (process.env.GHL_SHOPIFY_WEBHOOK_SECRET || "").trim();
-  let productMap: ProductMap = {};
-  let productMapError: string | null = null;
-  try {
-    productMap = process.env.SHOPIFY_PRODUCT_MAP ? JSON.parse(process.env.SHOPIFY_PRODUCT_MAP) : {};
-  } catch {
-    productMapError = "SHOPIFY_PRODUCT_MAP is not valid JSON";
-  }
-  return { domain, token, clientId, clientSecret, secret, productMap, productMapError };
+  const { productMap, productMapError, productMapRaw } = parseProductMap(process.env.SHOPIFY_PRODUCT_MAP || "");
+  return { domain, token, clientId, clientSecret, secret, productMap, productMapError, productMapRaw };
 }
 
 // Client-credentials grant (Dev Dashboard apps). Cached per warm serverless
@@ -170,6 +196,7 @@ export async function GET(req: Request) {
     hasWebhookSecret: Boolean(c.secret),
     products: Object.keys(c.productMap),
     error: c.productMapError,
+    ...(c.productMapError ? { productMapReceived: c.productMapRaw } : {}),
   });
 }
 
