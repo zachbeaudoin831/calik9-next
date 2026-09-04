@@ -37,6 +37,7 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 const API_VERSION = "2025-01";
+const ENDPOINT_VERSION = 3; // bump to confirm which build is live
 
 type ProductMap = Record<string, string>;
 
@@ -162,6 +163,7 @@ export async function GET(req: Request) {
   }
   return NextResponse.json({
     configured: Boolean(c.domain && hasAuth && c.secret && Object.keys(c.productMap).length && !c.productMapError && shopifyAuth === "ok"),
+    version: ENDPOINT_VERSION,
     store: c.domain || null,
     auth: c.token ? "admin-token" : c.clientId && c.clientSecret ? "client-credentials" : "missing",
     shopifyAuth,
