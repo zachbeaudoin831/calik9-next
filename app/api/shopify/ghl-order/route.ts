@@ -159,9 +159,50 @@ export async function GET(req: Request) {
   const c = config();
   const hasAuth = Boolean(c.token || (c.clientId && c.clientSecret));
 
+  // ?recent=1 (with the x-webhook-secret header) → last 10 orders this bridge
+  // created, for verifying live tests without opening Shopify.
+  const url = new URL(req.url);
+  if (url.searchParams.get("recent") && c.domain && hasAuth) {
+    if (req.headers.get("x-webhook-secret") !== c.secret) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+    try {
+      const since = new Date(Date.now() - 30 * 24 * 3600 * 1000).toISOString();
+      const r = await shopify(
+        `orders.json?status=any&limit=50&created_at_min=${encodeURIComponent(since)}&fields=id,name,created_at,financial_status,fulfillment_status,cancelled_at,total_price,tags,email,shipping_address,line_items,note_attributes`,
+      );
+      type O = {
+        id: number; name: string; created_at: string; financial_status: string; fulfillment_status: string | null;
+        cancelled_at: string | null; total_price: string; tags: string; email: string;
+        shipping_address?: { name?: string; address1?: string; city?: string; province_code?: string; zip?: string };
+        line_items: { title: string; quantity: number }[]; note_attributes: { name: string; value: string }[];
+      };
+      const orders = (((r.json as { orders?: O[] })?.orders) || [])
+        .filter((o) => o.tags.split(",").map((t) => t.trim()).includes("GHL"))
+        .slice(0, 10)
+        .map((o) => ({
+          order: o.name,
+          created: o.created_at,
+          paid: o.financial_status,
+          fulfillment: o.fulfillment_status || "unfulfilled",
+          cancelled: Boolean(o.cancelled_at),
+          total: o.total_price,
+          items: o.line_items.map((li) => `${li.quantity}× ${li.title}`),
+          shipTo: o.shipping_address
+            ? `${o.shipping_address.name}, ${o.shipping_address.address1}, ${o.shipping_address.city} ${o.shipping_address.province_code} ${o.shipping_address.zip}`
+            : null,
+          email: o.email,
+          ghl: Object.fromEntries(o.note_attributes.map((n) => [n.name, n.value])),
+        }));
+      return NextResponse.json({ orders });
+    } catch (e) {
+      return NextResponse.json({ error: e instanceof Error ? e.message : String(e) }, { status: 502 });
+    }
+  }
+
   // ?products=1 → list product titles + variant IDs to fill in SHOPIFY_PRODUCT_MAP.
   // Read-only, and only works once the Shopify credentials are in place.
-  if (new URL(req.url).searchParams.get("products") && c.domain && hasAuth) {
+  if (url.searchParams.get("products") && c.domain && hasAuth) {
     try {
       const r = await shopify("products.json?limit=250&fields=id,title,status,variants");
       type V = { id: number; title: string; price: string; sku: string };
