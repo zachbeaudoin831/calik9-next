@@ -89,7 +89,10 @@ let cachedToken: { value: string; expiresAt: number } | null = null;
 
 // Last few webhook attempts seen by this (warm) instance — surfaced via
 // ?recent=1 so live tests can be diagnosed without Vercel log access.
-type Attempt = { at: string; status: number; result: string; keys?: string[]; items?: string; ghlOrderId?: string };
+type Attempt = {
+  at: string; status: number; result: string; keys?: string[]; items?: string; ghlOrderId?: string;
+  detail?: unknown; payload?: Record<string, unknown>;
+};
 const attempts: Attempt[] = [];
 function record(a: Attempt) {
   attempts.unshift(a);
@@ -255,25 +258,31 @@ export async function POST(req: Request) {
   let keys: string[] | undefined;
   let items: string | undefined;
   let ghlOrderId: string | undefined;
+  let payload: Record<string, unknown> | undefined;
   try {
     const res = await handlePost(req, (info) => {
       keys = info.keys ?? keys;
       items = info.items ?? items;
       ghlOrderId = info.ghlOrderId ?? ghlOrderId;
+      payload = info.payload ?? payload;
     });
     const body = (await res.clone().json().catch(() => ({}))) as Record<string, unknown>;
-    record({ at, status: res.status, result: String(body.error || body.shopifyOrder || "ok"), keys, items, ghlOrderId });
+    const failed = res.status >= 400;
+    record({
+      at, status: res.status, result: String(body.error || body.shopifyOrder || "ok"), keys, items, ghlOrderId,
+      ...(failed ? { detail: body.shopify ?? body.detail ?? body.received, payload } : {}),
+    });
     return res;
   } catch (e) {
     const msg = e instanceof Error ? e.message : String(e);
-    record({ at, status: 500, result: msg, keys, items, ghlOrderId });
+    record({ at, status: 500, result: msg, keys, items, ghlOrderId, payload });
     return NextResponse.json({ error: msg }, { status: 500 });
   }
 }
 
 async function handlePost(
   req: Request,
-  trace: (info: { keys?: string[]; items?: string; ghlOrderId?: string }) => void,
+  trace: (info: { keys?: string[]; items?: string; ghlOrderId?: string; payload?: Record<string, unknown> }) => void,
 ) {
   const c = config();
   if (!c.domain || !(c.token || (c.clientId && c.clientSecret)) || !c.secret || c.productMapError) {
@@ -287,8 +296,10 @@ async function handlePost(
     return NextResponse.json({ error: "Body must be JSON" }, { status: 400 });
   }
 
+  const KEEP = ["contact_id", "first_name", "last_name", "full_name", "email", "phone", "address1", "address2", "city", "state", "country", "postal_code", "full_address", "customData", "order"];
   trace({
     keys: Object.keys(body).concat(Object.keys((body.customData as Payload) || {}).map((k) => `customData.${k}`)),
+    payload: Object.fromEntries(KEEP.filter((k) => k in body).map((k) => [k, body[k]])),
   });
   const provided = req.headers.get("x-webhook-secret") || pick(body, "secret");
   if (provided !== c.secret) {
@@ -349,7 +360,7 @@ async function handlePost(
   // ── Idempotency: one Shopify order per GHL purchase ──
   const ghlOrderId = pick(body, "order_id", "orderId", "transaction_id", "payment_id", "id");
   trace({ ghlOrderId });
-  const dedupTag = ghlOrderId ? `ghl-order-${ghlOrderId}`.slice(0, 250) : "";
+  const dedupTag = ghlOrderId ? `ghl-order-${ghlOrderId.replace(/[^A-Za-z0-9_-]+/g, "-")}`.slice(0, 250) : "";
   if (dedupTag) {
     const since = new Date(Date.now() - 30 * 24 * 3600 * 1000).toISOString();
     const existing = await shopify(
@@ -396,7 +407,6 @@ async function handlePost(
   const source = pick(body, "source", "funnel") || "GHL checkout";
   const order = {
     email,
-    phone: phone || undefined,
     financial_status: "paid",
     send_receipt: false, // GHL already emailed the receipt
     send_fulfillment_receipt: true, // Shopify sends tracking when the 3PL ships
