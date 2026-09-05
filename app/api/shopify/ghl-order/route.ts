@@ -87,6 +87,15 @@ function config() {
 // instance; refreshed a few minutes before Shopify's expiry.
 let cachedToken: { value: string; expiresAt: number } | null = null;
 
+// Last few webhook attempts seen by this (warm) instance — surfaced via
+// ?recent=1 so live tests can be diagnosed without Vercel log access.
+type Attempt = { at: string; status: number; result: string; keys?: string[]; items?: string; ghlOrderId?: string };
+const attempts: Attempt[] = [];
+function record(a: Attempt) {
+  attempts.unshift(a);
+  if (attempts.length > 10) attempts.length = 10;
+}
+
 async function accessToken(): Promise<string> {
   const { domain, token, clientId, clientSecret } = config();
   if (token) return token;
@@ -194,7 +203,7 @@ export async function GET(req: Request) {
           email: o.email,
           ghl: Object.fromEntries(o.note_attributes.map((n) => [n.name, n.value])),
         }));
-      return NextResponse.json({ orders });
+      return NextResponse.json({ recentAttemptsThisInstance: attempts, orders });
     } catch (e) {
       return NextResponse.json({ error: e instanceof Error ? e.message : String(e) }, { status: 502 });
     }
@@ -242,6 +251,30 @@ export async function GET(req: Request) {
 }
 
 export async function POST(req: Request) {
+  const at = new Date().toISOString();
+  let keys: string[] | undefined;
+  let items: string | undefined;
+  let ghlOrderId: string | undefined;
+  try {
+    const res = await handlePost(req, (info) => {
+      keys = info.keys ?? keys;
+      items = info.items ?? items;
+      ghlOrderId = info.ghlOrderId ?? ghlOrderId;
+    });
+    const body = (await res.clone().json().catch(() => ({}))) as Record<string, unknown>;
+    record({ at, status: res.status, result: String(body.error || body.shopifyOrder || "ok"), keys, items, ghlOrderId });
+    return res;
+  } catch (e) {
+    const msg = e instanceof Error ? e.message : String(e);
+    record({ at, status: 500, result: msg, keys, items, ghlOrderId });
+    return NextResponse.json({ error: msg }, { status: 500 });
+  }
+}
+
+async function handlePost(
+  req: Request,
+  trace: (info: { keys?: string[]; items?: string; ghlOrderId?: string }) => void,
+) {
   const c = config();
   if (!c.domain || !(c.token || (c.clientId && c.clientSecret)) || !c.secret || c.productMapError) {
     return NextResponse.json({ error: "Endpoint not configured", detail: c.productMapError }, { status: 503 });
@@ -254,6 +287,9 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Body must be JSON" }, { status: 400 });
   }
 
+  trace({
+    keys: Object.keys(body).concat(Object.keys((body.customData as Payload) || {}).map((k) => `customData.${k}`)),
+  });
   const provided = req.headers.get("x-webhook-secret") || pick(body, "secret");
   if (provided !== c.secret) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -264,6 +300,7 @@ export async function POST(req: Request) {
     .split(",")
     .map((s) => s.trim().toLowerCase())
     .filter(Boolean);
+  trace({ items: itemKeys.join(",") });
   if (!itemKeys.length) {
     return NextResponse.json({ error: "No items given (custom data key `items`)" }, { status: 400 });
   }
@@ -311,6 +348,7 @@ export async function POST(req: Request) {
 
   // ── Idempotency: one Shopify order per GHL purchase ──
   const ghlOrderId = pick(body, "order_id", "orderId", "transaction_id", "payment_id", "id");
+  trace({ ghlOrderId });
   const dedupTag = ghlOrderId ? `ghl-order-${ghlOrderId}`.slice(0, 250) : "";
   if (dedupTag) {
     const since = new Date(Date.now() - 30 * 24 * 3600 * 1000).toISOString();
