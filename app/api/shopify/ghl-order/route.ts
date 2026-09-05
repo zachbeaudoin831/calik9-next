@@ -358,9 +358,17 @@ async function handlePost(
   }
 
   // ── Idempotency: one Shopify order per GHL purchase ──
-  const ghlOrderId = pick(body, "order_id", "orderId", "transaction_id", "payment_id", "id");
+  // Prefer GHL's real order id (nested in the Order Submitted payload) over
+  // whatever the workflow's custom data supplies.
+  const ghlOrder = (body.order as Payload) || {};
+  const lineItems0 = (Array.isArray(ghlOrder.line_items) ? (ghlOrder.line_items as Payload[])[0] : undefined) || {};
+  const nestedOrderId = String(
+    ((lineItems0.meta as Payload) || {}).order_id || ghlOrder.id || ghlOrder.order_id || ghlOrder._id || "",
+  ).trim();
+  const ghlOrderId = nestedOrderId || pick(body, "order_id", "orderId", "transaction_id", "payment_id", "id");
   trace({ ghlOrderId });
-  const dedupTag = ghlOrderId ? `ghl-order-${ghlOrderId.replace(/[^A-Za-z0-9_-]+/g, "-")}`.slice(0, 250) : "";
+  // Shopify tags: max 40 chars, keep to safe characters.
+  const dedupTag = ghlOrderId ? `ghl-${ghlOrderId.replace(/[^A-Za-z0-9_-]+/g, "-")}`.slice(0, 40) : "";
   if (dedupTag) {
     const since = new Date(Date.now() - 30 * 24 * 3600 * 1000).toISOString();
     const existing = await shopify(
