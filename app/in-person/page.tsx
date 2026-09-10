@@ -14,11 +14,11 @@ import CtaBlock from "@/components/CtaBlock";
 export const metadata: Metadata = {
   title: "In-Person Dog Training",
   description:
-    "In-person dog training with certified Cali K9 trainers. Elite 24-session package and VIP one-on-one training, with the Dog Training Starter Kit included.",
+    "In-person dog training with certified Cali K9 trainers. 12-session and Elite 24-session packages, plus VIP one-on-one training. Bay Area, LA, Miami & New York.",
   openGraph: {
     title: "In-Person Dog Training | Cali K9\u00ae",
     description:
-      "In-person dog training with certified Cali K9 trainers. Elite 24-session package and VIP one-on-one training, with the Dog Training Starter Kit included.",
+      "In-person dog training with certified Cali K9 trainers. 12-session and Elite 24-session packages, plus VIP one-on-one training. Bay Area, LA, Miami & New York.",
     url: "https://calik9.com/in-person",
     images: ["https://calik9.com/images/cdn/66a311486dce452f20d2ffcd.webp"],
   },
@@ -88,6 +88,35 @@ export default function InPersonPage() {
             type="video/mp4"
           />
         </video>
+
+        <hr className="border-0 border-t border-white/[0.12] my-9" />
+
+        {/* ── In-Person Dog Training Package (12 Sessions) ── */}
+        <PackageHeading as="h2">
+          In-Person Dog Training Package (12 Sessions)
+        </PackageHeading>
+        <p className="font-ui text-sm tracking-[1px] text-white/55 -mt-2 mb-5">
+          (for dogs with no aggression or anxiety issues)
+        </p>
+
+        <PackageList
+          title="What's Included:"
+          items={[
+            { text: "2 Private Training Sessions", bold: true },
+            "2 Semi-Private Sessions",
+            "4 Group Classes",
+            "4 Group Zoom Classes",
+            "Obedience",
+            "Socialization",
+            "Urban Agility",
+            "Problem Solving Techniques",
+          ]}
+        />
+
+        <PriceBlock
+          price="$1,497"
+          note="one-time · Payment plans available"
+        />
 
         <hr className="border-0 border-t border-white/[0.12] my-9" />
 
