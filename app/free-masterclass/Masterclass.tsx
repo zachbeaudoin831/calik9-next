@@ -84,8 +84,8 @@ const RECOGNIZABLE_NAMES = [
 ];
 
 const REVIEW_SCREENSHOTS = [
-  { src: "/images/funnel/review-1.png", width: 1376, height: 1688, alt: "Five-star client review of Cali K9" },
-  { src: "/images/funnel/review-2.png", width: 1376, height: 596, alt: "Five-star client review of Cali K9" },
+  { src: "/images/funnel/review-antonio-choice.png", width: 1246, height: 576, alt: "Five-star Google review from Antonio Choice: walks calmly without pulling or reacting after a year with Cali K9" },
+  { src: "/images/funnel/review-robert-walker.png", width: 1234, height: 532, alt: "Five-star Google review from Robert Walker: the most educational session, signing up again as a returning client" },
 ];
 
 // Owner testimonial videos, hosted on the GHL media CDN.
