@@ -68,10 +68,10 @@ const OBJECTIVES = [
 ];
 
 const PRESS_LOGOS = [
-  { src: "/images/media-logos/netflix.webp", alt: "Netflix" },
-  { src: "/images/media-logos/access-hollywood.webp", alt: "Access Hollywood" },
-  { src: "/images/media-logos/ellen-show.webp", alt: "The Ellen Show" },
-  { src: "/images/media-logos/dr-phil.webp", alt: "Dr. Phil" },
+  { src: "/images/media-logos/lg/netflix.webp", alt: "Netflix", w: 1191, h: 320 },
+  { src: "/images/media-logos/lg/access-hollywood.webp", alt: "Access Hollywood", w: 1398, h: 320 },
+  { src: "/images/media-logos/lg/ellen-show.webp", alt: "The Ellen Show", w: 840, h: 320 },
+  { src: "/images/media-logos/lg/dr-phil.webp", alt: "Dr. Phil", w: 1225, h: 320 },
 ];
 
 // Circle crops of Jas with each client, hosted on the GHL media CDN (1200×1200, transparent outside the circle).
@@ -217,19 +217,20 @@ export default function Masterclass({ intro }: { intro?: React.ReactNode }) {
 
       {/* ── As seen on ── */}
       <section className="bg-white py-8 border-b border-border">
-        <div className="max-w-[860px] mx-auto px-6 text-center">
-          <div className="font-ui text-[12px] font-semibold tracking-[2px] uppercase text-gray-muted mb-4">
+        <div className="max-w-[760px] mx-auto px-6 max-[480px]:px-4 text-center">
+          <div className="font-ui text-[12px] font-semibold tracking-[2px] uppercase text-gray-muted mb-6">
             As Seen On
           </div>
-          <div className="flex items-center justify-center gap-x-8 gap-y-4 flex-wrap">
+          <div className="flex items-center justify-between max-md:justify-center max-md:gap-x-8 gap-y-5 flex-wrap">
             {PRESS_LOGOS.map((logo) => (
               <Image
                 key={logo.alt}
                 src={logo.src}
                 alt={logo.alt}
-                width={110}
-                height={40}
-                className="h-8 w-auto opacity-70"
+                width={logo.w}
+                height={logo.h}
+                sizes="(max-width: 768px) 130px, 170px"
+                className="h-auto w-auto max-h-11 max-w-[170px] max-md:max-h-8 max-md:max-w-[130px] object-contain opacity-70"
               />
             ))}
           </div>
