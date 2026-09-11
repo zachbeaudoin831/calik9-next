@@ -281,6 +281,44 @@ export default function AssessmentQuiz() {
     // Base pixel (init + PageView) loads globally in the root layout.
     const w = window as typeof window & { fbq?: (...args: unknown[]) => void };
     if (typeof w.fbq === "function") w.fbq("track", "Lead");
+
+    // Send the assessment to GHL (contact + tags + note + custom fields).
+    // Fire-and-forget so the result screen never waits on the network.
+    const opt = (q: number) => (answers[q] ? SINGLE_SELECT[q]?.options[answers[q] - 1] : undefined);
+    const tierKey = score();
+    const payload = {
+      name: name.trim(),
+      email: email.trim(),
+      phone: phone.trim(),
+      tier: tierKey === "platinum" ? "elite" : tierKey,
+      answers: {
+        dogType: opt(1),
+        age,
+        breed,
+        problems,
+        urgency: opt(4),
+        previousTraining: opt(5),
+        outcome: opt(6),
+        ownerExperience: opt(7),
+        learningFormat: opt(8),
+        location,
+        timePerWeek: opt(10),
+        budget: opt(11),
+        trainingFormat: opt(12),
+        offLeash: answers[13],
+      },
+    };
+    try {
+      fetch("/api/quiz/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+        keepalive: true,
+      }).catch(() => {});
+    } catch {
+      // never block the result screen
+    }
+
     setHistory((h) => [...h, "contact"]);
     setStep("result");
   };

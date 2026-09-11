@@ -1,0 +1,205 @@
+import { NextResponse } from "next/server";
+
+/**
+ * Free Behavior Assessment → GHL.
+ *
+ * The quiz posts the finished assessment here. We upsert the contact in GHL
+ * (name / email / phone), tag it for automations, write the full Q&A as a
+ * contact note, and — when matching custom fields exist in GHL — store each
+ * answer in its own field.
+ *
+ * Vercel env: GHL_API_TOKEN (Private Integration, scopes: View Contacts, Edit
+ * Contacts, optionally View Custom Fields). GHL_SHOPIFY_WEBHOOK_SECRET gates the
+ * GET diagnostic.
+ *
+ * Custom fields are matched by name (case-insensitive) — create any of these in
+ * GHL → Settings → Custom Fields (contact, single-line text) and they fill
+ * automatically: see FIELD_NAMES below.
+ */
+
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+
+const GHL = "https://services.leadconnectorhq.com";
+const LOCATION_ID = "9RVPGbjB6dCgPVsRbKEE";
+const VERSION = "2021-07-28";
+
+const FIELD_NAMES: Record<string, string> = {
+  tier: "Quiz: Recommended Tier",
+  dogType: "Quiz: Dog Type",
+  age: "Quiz: Dog Age",
+  breed: "Quiz: Dog Breed",
+  problems: "Quiz: Behavior Problems",
+  urgency: "Quiz: Urgency",
+  previousTraining: "Quiz: Previous Training",
+  outcome: "Quiz: Desired Outcome",
+  ownerExperience: "Quiz: Owner Experience",
+  learningFormat: "Quiz: Learning Format",
+  location: "Quiz: Location",
+  timePerWeek: "Quiz: Time Per Week",
+  budget: "Quiz: Budget",
+  trainingFormat: "Quiz: Training Format",
+  offLeash: "Quiz: Off-Leash Score (1-10)",
+  submittedAt: "Quiz: Submitted At",
+};
+
+const QUESTION_LABELS: Record<string, string> = {
+  dogType: "Which dog do you have?",
+  age: "Dog's age",
+  breed: "Dog's breed",
+  problems: "Behavior problems (select all)",
+  urgency: "How urgent is this?",
+  previousTraining: "Tried training before?",
+  outcome: "What does success look like?",
+  ownerExperience: "Dog experience level",
+  learningFormat: "How do you like to learn?",
+  location: "Closest city",
+  timePerWeek: "Time per week",
+  budget: "Budget range",
+  trainingFormat: "Training format of interest",
+  offLeash: "Off-leash obedience today (1–10)",
+};
+
+type Submission = {
+  name: string;
+  email: string;
+  phone?: string;
+  tier: "academy" | "elite" | "vip";
+  answers: Record<string, string | number | string[] | undefined>;
+};
+
+function headers() {
+  return {
+    Authorization: `Bearer ${(process.env.GHL_API_TOKEN || "").trim()}`,
+    Version: VERSION,
+    "Content-Type": "application/json",
+    Accept: "application/json",
+  };
+}
+
+async function ghl(path: string, init: RequestInit = {}) {
+  const res = await fetch(`${GHL}${path}`, { ...init, headers: { ...headers(), ...(init.headers || {}) }, cache: "no-store" });
+  const text = await res.text();
+  let json: unknown = null;
+  try { json = text ? JSON.parse(text) : null; } catch { json = { raw: text.slice(0, 300) }; }
+  return { ok: res.ok, status: res.status, json };
+}
+
+function slug(s: string) {
+  return s.toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 40);
+}
+
+function splitName(full: string): [string, string] {
+  const parts = full.trim().split(/\s+/);
+  if (parts.length < 2) return [parts[0] || "", ""];
+  return [parts[0], parts.slice(1).join(" ")];
+}
+
+// Custom-field lookup, cached per warm instance. Returns {} if the token
+// lacks the custom-fields scope — everything else still works.
+let fieldCache: { at: number; byName: Record<string, string> } | null = null;
+async function customFieldIds(): Promise<Record<string, string>> {
+  if (fieldCache && Date.now() - fieldCache.at < 10 * 60 * 1000) return fieldCache.byName;
+  const r = await ghl(`/locations/${LOCATION_ID}/customFields?model=contact`);
+  const byName: Record<string, string> = {};
+  if (r.ok) {
+    const fields = ((r.json as { customFields?: { id: string; name: string }[] })?.customFields) || [];
+    for (const f of fields) byName[f.name.trim().toLowerCase()] = f.id;
+  }
+  fieldCache = { at: Date.now(), byName };
+  return byName;
+}
+
+function asText(v: unknown): string {
+  if (Array.isArray(v)) return v.join(", ");
+  if (v === undefined || v === null) return "";
+  return String(v);
+}
+
+export async function GET(req: Request) {
+  const secret = (process.env.GHL_SHOPIFY_WEBHOOK_SECRET || "").trim();
+  if (!secret || req.headers.get("x-webhook-secret") !== secret) {
+    return NextResponse.json({ configured: Boolean((process.env.GHL_API_TOKEN || "").trim()) });
+  }
+  const token = await ghl(`/contacts/?locationId=${LOCATION_ID}&limit=1`);
+  const fields = await ghl(`/locations/${LOCATION_ID}/customFields?model=contact`);
+  const byName = await customFieldIds();
+  const wanted = Object.values(FIELD_NAMES);
+  return NextResponse.json({
+    hasToken: Boolean((process.env.GHL_API_TOKEN || "").trim()),
+    contactsScope: token.ok ? "ok" : `HTTP ${token.status}`,
+    customFieldsScope: fields.ok ? "ok" : `HTTP ${fields.status}`,
+    fieldsFound: wanted.filter((n) => byName[n.toLowerCase()]),
+    fieldsMissing: wanted.filter((n) => !byName[n.toLowerCase()]),
+  });
+}
+
+export async function POST(req: Request) {
+  if (!(process.env.GHL_API_TOKEN || "").trim()) {
+    return NextResponse.json({ error: "GHL_API_TOKEN not set" }, { status: 503 });
+  }
+  let body: Submission;
+  try { body = (await req.json()) as Submission; } catch {
+    return NextResponse.json({ error: "Body must be JSON" }, { status: 400 });
+  }
+  const email = (body.email || "").trim().toLowerCase();
+  const name = (body.name || "").trim();
+  const phone = (body.phone || "").trim();
+  if (!name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return NextResponse.json({ error: "Name and a valid email are required" }, { status: 400 });
+  }
+  const tier = (["academy", "elite", "vip"] as const).includes(body.tier) ? body.tier : "academy";
+  const a = body.answers || {};
+  const submittedAt = new Date().toISOString();
+
+  const tags = ["quiz-completed", `quiz-${tier}`];
+  if (a.dogType) tags.push(`quiz-dog-${slug(asText(a.dogType).split("—")[0])}`);
+  if (a.urgency) tags.push(`quiz-urgency-${slug(asText(a.urgency).split("—")[0])}`);
+  if (a.budget) tags.push(`quiz-budget-${slug(asText(a.budget))}`);
+
+  const byName = await customFieldIds();
+  const customFields: { id: string; field_value: string }[] = [];
+  const values: Record<string, string> = { ...Object.fromEntries(Object.entries(a).map(([k, v]) => [k, asText(v)])), tier, submittedAt };
+  for (const [key, fieldName] of Object.entries(FIELD_NAMES)) {
+    const id = byName[fieldName.toLowerCase()];
+    const value = values[key];
+    if (id && value) customFields.push({ id, field_value: value });
+  }
+
+  const [firstName, lastName] = splitName(name);
+  const upsert = await ghl(`/contacts/upsert`, {
+    method: "POST",
+    body: JSON.stringify({
+      locationId: LOCATION_ID,
+      firstName,
+      lastName,
+      name,
+      email,
+      ...(phone ? { phone } : {}),
+      source: "Free Behavior Assessment",
+      tags,
+      ...(customFields.length ? { customFields } : {}),
+    }),
+  });
+  if (!upsert.ok) {
+    console.error("GHL upsert failed", upsert.status, JSON.stringify(upsert.json));
+    return NextResponse.json({ error: "GHL rejected the contact", ghl: upsert.json }, { status: 502 });
+  }
+  const contactId = (upsert.json as { contact?: { id?: string } })?.contact?.id;
+
+  // Full transcript as a note, so nothing is lost even without custom fields.
+  const lines = [
+    `Free Behavior Assessment — ${new Date(submittedAt).toLocaleString("en-US", { timeZone: "America/Los_Angeles" })} PT`,
+    `Recommended: ${tier.toUpperCase()}`,
+    "",
+    ...Object.entries(QUESTION_LABELS).map(([k, q]) => `${q}: ${values[k] || "—"}`),
+  ];
+  let noteOk = false;
+  if (contactId) {
+    const note = await ghl(`/contacts/${contactId}/notes`, { method: "POST", body: JSON.stringify({ body: lines.join("\n") }) });
+    noteOk = note.ok;
+    if (!note.ok) console.error("GHL note failed", note.status, JSON.stringify(note.json));
+  }
+
+  return NextResponse.json({ ok: true, contactId, tags, fieldsWritten: customFields.length, noteOk });
+}
