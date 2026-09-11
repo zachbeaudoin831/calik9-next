@@ -1106,11 +1106,11 @@ export default function AcademyPage() {
           <div className="grid grid-cols-2 gap-12 items-center max-md:grid-cols-1">
             <div className="flex flex-col gap-4">
               <Image
-                src="/images/funnel/jas-studio.jpg"
-                alt="Jas Leverette, founder of Cali K9 and star of Netflix's Canine Intervention"
-                width={600}
-                height={340}
-                className="w-full h-auto aspect-[16/9] rounded-xl object-cover"
+                src="/images/funnel/jas-san-jose-police.jpg"
+                alt="Jas Leverette with two San Jose Police K-9 officers and their dogs in front of the Cali K9 training van"
+                width={1600}
+                height={900}
+                className="w-full h-auto aspect-[16/9] rounded-xl object-cover object-top"
               />
               <div className="grid grid-cols-2 gap-4">
                 <Image
@@ -1121,10 +1121,10 @@ export default function AcademyPage() {
                   className="w-full aspect-[4/3] rounded-xl object-cover"
                 />
                 <Image
-                  src="/images/funnel/jas-celeb.jpg"
-                  alt="Jas Leverette with a celebrity client"
-                  width={300}
-                  height={225}
+                  src="/images/funnel/jas-turks-caicos-military.jpg"
+                  alt="Jas Leverette with Turks and Caicos military K-9 handlers holding their training certificates"
+                  width={1200}
+                  height={900}
                   className="w-full aspect-[4/3] rounded-xl object-cover"
                 />
               </div>
