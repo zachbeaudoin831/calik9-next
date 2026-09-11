@@ -74,11 +74,13 @@ const PRESS_LOGOS = [
   { src: "/images/media-logos/dr-phil.webp", alt: "Dr. Phil" },
 ];
 
+// Circle crops of Jas with each client, hosted on the GHL media CDN (1200×1200, transparent outside the circle).
+const CDN = "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media";
 const RECOGNIZABLE_NAMES = [
-  { name: "Demi Moore", image: "/images/funnel/demi-circle.png" },
-  { name: "Steph Curry", image: "/images/funnel/steph-circle.png" },
-  { name: "Kevin Hart", image: "/images/funnel/kevin-circle.png" },
-  { name: "Kendrick Lamar", image: "/images/funnel/kendrick-circle.png" },
+  { name: "Demi Moore", image: `${CDN}/6aa4587785678ef96c59f5f5.png` },
+  { name: "Steph Curry", image: `${CDN}/6aa45888cbbb253811900262.png` },
+  { name: "Kevin Hart", image: `${CDN}/6aa45898f4e2fd8aa0feb41a.png` },
+  { name: "Kendrick Lamar", image: `${CDN}/6aa458abcbbb2538119005d2.png` },
 ];
 
 const REVIEW_SCREENSHOTS = [
@@ -490,7 +492,7 @@ export default function Masterclass({ intro }: { intro?: React.ReactNode }) {
               <div key={celeb.name} className="text-center">
                 <Image
                   src={celeb.image}
-                  alt={celeb.name}
+                  alt={`Jas Leverette with ${celeb.name}`}
                   width={300}
                   height={300}
                   className="w-full max-w-[170px] mx-auto h-auto rounded-full"
