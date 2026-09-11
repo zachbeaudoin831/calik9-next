@@ -368,12 +368,12 @@ const MEMBER_VIDEOS = [
 ];
 
 const MEDIA_LOGOS = [
-  { src: "/images/media-logos/netflix.webp", alt: "Netflix" },
-  { src: "/images/media-logos/ellen-show.webp", alt: "The Ellen Show" },
-  { src: "/images/media-logos/tmz.webp", alt: "TMZ" },
-  { src: "/images/media-logos/la-times.webp", alt: "LA Times" },
-  { src: "/images/media-logos/sfgate.webp", alt: "SFGATE" },
-  { src: "/images/media-logos/nbc.webp", alt: "NBC" },
+  { src: "/images/media-logos/lg/netflix.webp", alt: "Netflix", w: 1191, h: 320 },
+  { src: "/images/media-logos/lg/ellen-show.webp", alt: "The Ellen Show", w: 840, h: 320 },
+  { src: "/images/media-logos/lg/tmz.webp", alt: "TMZ", w: 755, h: 320 },
+  { src: "/images/media-logos/lg/la-times.webp", alt: "LA Times", w: 2468, h: 320 },
+  { src: "/images/media-logos/lg/sfgate.webp", alt: "SFGATE", w: 778, h: 320 },
+  { src: "/images/media-logos/lg/nbc.webp", alt: "NBC", w: 311, h: 320 },
 ];
 
 
@@ -1155,15 +1155,16 @@ export default function AcademyPage() {
             </div>
           </div>
 
-          <div className="flex items-center justify-center gap-x-10 gap-y-5 flex-wrap mt-12 pt-8 border-t border-black/[0.06]">
+          <div className="flex items-center justify-center gap-x-10 max-md:gap-x-7 gap-y-6 flex-wrap mt-12 pt-10 border-t border-black/[0.06]">
             {MEDIA_LOGOS.map((logo) => (
               <Image
                 key={logo.alt}
                 src={logo.src}
                 alt={logo.alt}
-                width={128}
-                height={64}
-                className="h-9 w-auto opacity-60"
+                width={logo.w}
+                height={logo.h}
+                sizes="(max-width: 768px) 130px, 160px"
+                className="h-auto w-auto max-h-11 max-w-[160px] max-md:max-h-8 max-md:max-w-[130px] object-contain opacity-70"
               />
             ))}
           </div>
