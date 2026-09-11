@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import FormEmbed from "@/components/FormEmbed";
 
 export const metadata: Metadata = {
   title: "Reserve Your Call — $7",
@@ -11,10 +10,10 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-// The $7 reservation is its own GHL product (separate from the $7 evaluation
-// cart used elsewhere on the site). Drop its GHL form ID in here once the
-// product exists — from the embed URL api.leadconnectorhq.com/widget/form/<ID>.
-const BOOKING_FORM_ID: string | null = null;
+// The $7 reservation is its own GHL product (separate from the $27 evaluation
+// cart used elsewhere on the site). Hosted GHL payment page; its post-purchase
+// redirect should point at /book-your-call/thank-you.
+const BOOKING_URL = "https://link.fastpaydirect.com/payment-link/6aa4849be9a073174b3b5e5b";
 
 const WHAT_ITEMS = [
   "Go over your Free Behavior Assessment results together",
@@ -114,25 +113,22 @@ export default function BookYourCallPage() {
             className="w-full h-auto rounded-xl object-cover mt-8 shadow-md"
           />
 
-          {/* Booking — the new $7 reservation product's GHL form. */}
+          {/* Booking — the new $7 reservation product's hosted GHL payment page. */}
           <div className="mt-8 rounded-[18px] bg-ink p-6 max-[480px]:p-3 text-left">
-            {BOOKING_FORM_ID ? (
-              <FormEmbed
-                formId={BOOKING_FORM_ID}
-                formName="$7 Call Reservation"
-                title="Reserve Your Call — $7"
-                height={828}
-              />
-            ) : (
-              <div className="bg-white/[0.07] border border-white/[0.15] rounded-xl p-7 text-center">
-                <div className="font-ui text-base font-bold tracking-[2px] uppercase text-white/85 mb-2">
-                  Reserve Your Call &mdash; $7
-                </div>
-                <p className="font-body text-[14px] text-white/60">
-                  Booking opens shortly &mdash; check back soon.
-                </p>
+            <div className="bg-white/[0.07] border border-white/[0.15] rounded-xl p-7 max-[480px]:p-5 text-center">
+              <div className="font-ui text-base font-bold tracking-[2px] uppercase text-white/85 mb-2">
+                Reserve Your Call &mdash; $7
               </div>
-            )}
+              <p className="font-body text-[14px] text-white/60 mb-6">
+                Secure your 20-minute call with the Cali K9 team. Takes about a minute.
+              </p>
+              <a href={BOOKING_URL} className="btn btn-gold btn-lg text-center max-md:w-full">
+                Reserve My Call &mdash; $7
+                <span aria-hidden="true" className="ml-2 relative -top-[2.5px] leading-none">
+                  &rarr;
+                </span>
+              </a>
+            </div>
             <p className="font-body text-[12.5px] text-white/50 text-center mt-4">
               $7 refundable reservation &middot; 20-minute call &middot; Credited toward any
               program
