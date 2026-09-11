@@ -2,9 +2,27 @@
 
 import { useEffect, useState } from "react";
 
-// Computed client-side so the date never goes stale: the upcoming Saturday,
-// 11:00 AM Pacific / 2:00 PM Eastern — matching the live Saturday class the
-// /register-now funnel promotes. Update here if the webinar slot changes.
+// The live masterclass slot. Change these two lines if the time moves —
+// every page that shows the date (masterclass, invite, call thank-you)
+// reads from here.
+const SLOT_HOUR_PACIFIC = 10; // 10:00 AM Pacific
+const SLOT_LABEL = "10:00 AM Pacific / 1:00 PM Eastern";
+
+// UTC instant of SLOT_HOUR_PACIFIC on a given calendar date in Los Angeles,
+// correct across daylight-saving changes.
+function slotInstant(y: number, m: number, d: number): Date {
+  const guess = new Date(Date.UTC(y, m, d, SLOT_HOUR_PACIFIC + 7, 0, 0)); // assume PDT (UTC-7)
+  try {
+    const laHour = Number(
+      new Intl.DateTimeFormat("en-US", { timeZone: "America/Los_Angeles", hour: "numeric", hour12: false }).format(guess),
+    );
+    const drift = laHour - SLOT_HOUR_PACIFIC; // +1 when the date is on PST (UTC-8)
+    return new Date(guess.getTime() - drift * 3600 * 1000);
+  } catch {
+    return guess;
+  }
+}
+
 export default function EventDate({ center = false }: { center?: boolean }) {
   const [dateStr, setDateStr] = useState("Saturday");
   const [localTime, setLocalTime] = useState("");
@@ -12,26 +30,20 @@ export default function EventDate({ center = false }: { center?: boolean }) {
   useEffect(() => {
     const now = new Date();
     let daysUntilSat = (6 - now.getDay() + 7) % 7;
-    // If it's already past the slot today, roll to next week.
-    if (daysUntilSat === 0 && now.getHours() >= 14) daysUntilSat = 7;
-    const target = new Date(now);
-    target.setDate(now.getDate() + daysUntilSat);
-    setDateStr(
-      target.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" }),
-    );
+    let target = new Date(now.getFullYear(), now.getMonth(), now.getDate() + daysUntilSat);
+    let instant = slotInstant(target.getFullYear(), target.getMonth(), target.getDate());
+    // Already past this Saturday's slot → roll to next week.
+    if (instant.getTime() < now.getTime()) {
+      daysUntilSat += 7;
+      target = new Date(now.getFullYear(), now.getMonth(), now.getDate() + daysUntilSat);
+      instant = slotInstant(target.getFullYear(), target.getMonth(), target.getDate());
+    }
+    setDateStr(target.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" }));
 
-    // Best-effort local-time display, anchoring 11:00 AM Pacific (PDT ≈ 18:00 UTC).
     try {
-      const anchorUTC = new Date(
-        Date.UTC(target.getFullYear(), target.getMonth(), target.getDate(), 18, 0, 0),
-      );
-      const localStr = anchorUTC.toLocaleTimeString("en-US", {
-        hour: "numeric",
-        minute: "2-digit",
-        timeZoneName: "short",
-      });
+      const localStr = instant.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", timeZoneName: "short" });
       const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-      setLocalTime(`Your local time: approximately ${localStr} (${tz})`);
+      setLocalTime(`Your local time: ${localStr} (${tz})`);
     } catch {
       // Intl unsupported — skip local time display
     }
@@ -44,7 +56,7 @@ export default function EventDate({ center = false }: { center?: boolean }) {
           Live Saturday on Zoom
         </span>
         <span className="font-body text-[15px] text-white/85">
-          <b>{dateStr}</b> &middot; 11:00 AM Pacific / 2:00 PM Eastern
+          <b>{dateStr}</b> &middot; {SLOT_LABEL}
         </span>
       </div>
       {localTime && (

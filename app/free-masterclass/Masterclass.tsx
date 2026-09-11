@@ -244,13 +244,12 @@ export default function Masterclass({ intro }: { intro?: React.ReactNode }) {
           />
           <video
             className="w-full rounded-xl block bg-black shadow-lg"
-            poster="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/67cf3c0717e9d95dac991999.png"
             controls
             playsInline
             preload="metadata"
           >
             <source
-              src="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/67d1be3a9138277227e87326.mp4"
+              src="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6aa4429ecbbb2538118db472.mp4"
               type="video/mp4"
             />
           </video>
