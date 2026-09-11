@@ -186,7 +186,7 @@ export default function EvaluationPage() {
               Book Your Evaluation &mdash; Takes 60 Seconds
             </div>
             <div className="flex items-baseline gap-2 mb-5">
-              <span className="font-display text-[40px] text-white leading-none">$27</span>
+              <span className="font-display text-[40px] text-white leading-none">$7</span>
             </div>
 
             {/* Free Bonus */}
@@ -369,7 +369,7 @@ export default function EvaluationPage() {
               href="#main-content"
               className="btn btn-blue"
             >
-              Book Your Evaluation &mdash; $27
+              Book Your Evaluation &mdash; $7
             </Link>
           </div>
         </div>
@@ -570,7 +570,7 @@ export default function EvaluationPage() {
         eyebrow="15 Years. 10,000+ Dogs."
         heading="READY TO START?"
         description="In 15 years and 10,000+ evaluations, our team has yet to encounter a dog they couldn&rsquo;t help."
-        primaryCta={{ label: "Book My Evaluation \u2014 $27 \u2192", href: "#main-content" }}
+        primaryCta={{ label: "Book My Evaluation \u2014 $7 \u2192", href: "#main-content" }}
       />
     </main>
   );

@@ -5,7 +5,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Dog Training Menu",
   description:
-    "Choose your next step with Cali K9® — a $27 evaluation, the full 5-Pillar online training program, or a private hour with Jas Leverette.",
+    "Choose your next step with Cali K9® — a $7 evaluation, the full 5-Pillar online training program, or a private hour with Jas Leverette.",
   // Draft funnel page promoted after the free training class — keep out of search.
   robots: { index: false, follow: false },
 };
@@ -15,7 +15,7 @@ const OFFERS = [
     num: "01",
     tag: "Start Here",
     name: "EVALUATION",
-    price: "$27",
+    price: "$7",
     priceNote: "one-time",
     desc: "A direct consultation with a Cali K9 behavior specialist. We assess what's driving your dog's behavior — reactivity, aggression, anxiety, anything — and build your custom training roadmap.",
     bullets: [
@@ -159,7 +159,7 @@ export default function DogTrainingMenuPage() {
           ))}
 
           <p className="font-body text-sm text-gray-muted text-center pt-2">
-            Not sure which fits your dog? Start with the $27 evaluation — we&rsquo;ll
+            Not sure which fits your dog? Start with the $7 evaluation — we&rsquo;ll
             point you to the right program.
           </p>
         </div>

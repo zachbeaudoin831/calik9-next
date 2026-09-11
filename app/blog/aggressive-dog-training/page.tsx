@@ -345,7 +345,7 @@ export default function AggressiveDogTrainingPage() {
               <Link href="/evaluation-with-behavior-specialist" className="text-blue-500 underline hover:text-blue-700">
                 evaluation with Cali K9
               </Link>{" "}
-              costs $27 and gives you a clear picture of what&apos;s happening,
+              costs $7 and gives you a clear picture of what&apos;s happening,
               why, and exactly what to do about it.
             </p>
 
@@ -454,8 +454,8 @@ export default function AggressiveDogTrainingPage() {
       <CtaBlock
         eyebrow="Start Here"
         heading="BOOK YOUR EVALUATION"
-        description="A $27 evaluation gives you a complete behavioral assessment, custom training roadmap, and program recommendation for your dog."
-        primaryCta={{ label: "Book Evaluation \u2014 $27 \u2192", href: "/evaluation-with-behavior-specialist" }}
+        description="A $7 evaluation gives you a complete behavioral assessment, custom training roadmap, and program recommendation for your dog."
+        primaryCta={{ label: "Book Evaluation \u2014 $7 \u2192", href: "/evaluation-with-behavior-specialist" }}
         secondaryCta={{ label: "View Programs \u2192", href: "/newclientservices" }}
         dark
       />

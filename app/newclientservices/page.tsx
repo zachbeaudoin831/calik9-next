@@ -11,7 +11,7 @@ export const metadata = {
 
 const NEW_CLIENT_CARDS = [
   {
-    tag: "Start Here · $27",
+    tag: "Start Here · $7",
     name: "EVALUATION\nWITH CALI K9",
     desc: "A direct consultation with a Cali K9 expert to assess your dog's behavioral needs and build a custom training roadmap. The first step for new clients.",
     href: "/evaluation-with-behavior-specialist",

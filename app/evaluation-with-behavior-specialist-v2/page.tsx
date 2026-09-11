@@ -27,7 +27,7 @@ function BookingModal({ onClose }: { onClose: () => void }) {
             Book Your Evaluation &mdash; Takes 60 Seconds
           </div>
           <div className="flex items-baseline gap-2 mb-5">
-            <span className="font-display text-[40px] text-white leading-none">$27</span>
+            <span className="font-display text-[40px] text-white leading-none">$7</span>
           </div>
           <FormEmbed
             formId="GtiGDcoxe0fG5ufwj7Km"
@@ -70,7 +70,7 @@ function TrustRow() {
 function PriceRow({ badge }: { badge: string }) {
   return (
     <div className="flex items-center justify-center gap-3 mb-6">
-      <span className="font-display text-[56px] text-[#1251CC] leading-none">$27</span>
+      <span className="font-display text-[56px] text-[#1251CC] leading-none">$7</span>
       <span className="font-body text-2xl text-gray-400 line-through">$97</span>
       <span className="bg-[#1251CC] text-white font-ui text-[11px] font-bold tracking-[2px] uppercase px-3 py-1.5 rounded-sm">
         {badge}
@@ -562,7 +562,7 @@ export default function EvaluationV2Page() {
               { q: "My dog is older. Is it too late?", a: "No. The idea that you can't teach an old dog new tricks is one of the most damaging myths in dog training. Older dogs require a slightly different approach to proofing and securing — but the 5-Pillar framework applies at every age. We've seen dramatic turnarounds in dogs 8, 10, and 12 years old." },
               { q: "Will this work for my breed?", a: "Yes. The 5-Pillar System was built on 30 years of working with every breed category — working dogs, herding breeds, terriers, toy breeds, mixed breeds, and everything in between. The pillars are breed-agnostic. The temperament mapping inside the assessment is specifically designed to capture breed-specific drive and threshold differences." },
               { q: "I've tried everything. Why would this be different?", a: "Because everything you've tried was built on the same assumption — that training is about teaching commands. The 5-Pillar System is built on a different assumption: that behavior is a direct output of temperament, drive state, and social structure. Once you address those, commands aren't something you have to enforce. They become natural." },
-              { q: "What if I want more than the evaluation and the Behavior Breakthrough Bundle?", a: "The bundle and the evaluation is the starting point. After completion, you'll have a clear picture of where your dog is and which Cali K9 program — In-Person Training, Board & Train, or VIP Training — is the right fit. The $27 is a qualifier, not a replacement for real training. It just makes sure you start in the right place." },
+              { q: "What if I want more than the evaluation and the Behavior Breakthrough Bundle?", a: "The bundle and the evaluation is the starting point. After completion, you'll have a clear picture of where your dog is and which Cali K9 program — In-Person Training, Board & Train, or VIP Training — is the right fit. The $7 is a qualifier, not a replacement for real training. It just makes sure you start in the right place." },
               { q: "Is there a guarantee?", a: "All sales are final and no refunds are issued. What we do stand behind is the system itself — 15+ years, 10,000+ dogs, and the same 5-Pillar method you've seen on Netflix's Canine Intervention. If you have questions before purchasing, reach out and our team will help you decide if it's the right fit." },
             ].map((faq) => (
               <div key={faq.q} className="py-5">
@@ -581,7 +581,7 @@ export default function EvaluationV2Page() {
             Ready To Finally Understand Your Dog?
           </h2>
           <p className="font-body text-[17px] text-[#333333] max-w-[560px] mx-auto leading-[1.7] mb-8">
-            Get the Behavior Breakthrough Assessment for just $27. Know exactly what your dog needs. Build the right plan. Stop guessing.
+            Get the Behavior Breakthrough Assessment for just $7. Know exactly what your dog needs. Build the right plan. Stop guessing.
           </p>
           <PriceRow badge="Today Only" />
           <div className="flex justify-center mb-1">

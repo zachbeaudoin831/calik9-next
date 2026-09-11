@@ -394,7 +394,7 @@ export default function WhenToHireDogTrainerPage() {
               <Link href="/evaluation-with-behavior-specialist" className="text-blue-500 underline hover:text-blue-700">
                 book an evaluation
               </Link>
-              . At Cali K9, evaluations are $27 and give you a complete
+              . At Cali K9, evaluations are $7 and give you a complete
               behavioral assessment, a custom training roadmap, and a program
               recommendation &mdash; whether that&apos;s one of our programs or
               not.
@@ -483,8 +483,8 @@ export default function WhenToHireDogTrainerPage() {
       <CtaBlock
         eyebrow="Start Here"
         heading="BOOK YOUR EVALUATION"
-        description="A $27 evaluation gives you a complete behavioral assessment, custom training roadmap, and program recommendation for your dog."
-        primaryCta={{ label: "Book Evaluation \u2014 $27 \u2192", href: "/evaluation-with-behavior-specialist" }}
+        description="A $7 evaluation gives you a complete behavioral assessment, custom training roadmap, and program recommendation for your dog."
+        primaryCta={{ label: "Book Evaluation \u2014 $7 \u2192", href: "/evaluation-with-behavior-specialist" }}
         secondaryCta={{ label: "View Programs \u2192", href: "/newclientservices" }}
         dark
       />

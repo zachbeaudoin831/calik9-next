@@ -146,7 +146,7 @@ export default function FivePillarsPage() {
       <CtaBlock
         eyebrow="See It In Action"
         heading="START WITH AN EVALUATION"
-        description="Book a $27 evaluation with our team. We'll assess your dog through the 5-Pillar framework and recommend the right starting point."
+        description="Book a $7 evaluation with our team. We'll assess your dog through the 5-Pillar framework and recommend the right starting point."
         primaryCta={{ label: "Book Evaluation →", href: "/evaluation-with-behavior-specialist" }}
         secondaryCta={{ label: "View Programs →", href: "/newclientservices" }}
       />
