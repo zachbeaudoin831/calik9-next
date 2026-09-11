@@ -187,10 +187,10 @@ export default function Masterclass({ intro }: { intro?: React.ReactNode }) {
             <div>
               <div className="relative rounded-xl overflow-hidden mb-6">
                 <Image
-                  src="/images/funnel/masterclass-jas-training.jpg"
+                  src={`${CDN}/6aa475c9cbbb25381192ef2d.webp`}
                   alt="Jas Leverette training a dog"
-                  width={560}
-                  height={295}
+                  width={1535}
+                  height={1024}
                   className="w-full h-auto object-cover"
                   priority
                 />
