@@ -1225,10 +1225,10 @@ export default function AcademyPage() {
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <div className="grid grid-cols-[0.9fr_1.1fr] gap-12 items-center max-md:grid-cols-1">
             <Image
-              src="/images/funnel/jas-with-class.jpg"
-              alt="Jas Leverette with a group of dogs"
-              width={1000}
-              height={561}
+              src="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6aa43e77cbbb2538118d3b55.webp"
+              alt="A street dog resting on a curb in Morocco"
+              width={1172}
+              height={774}
               className="w-full h-auto rounded-xl object-cover"
             />
             <div>
