@@ -68,9 +68,16 @@ type Submission = {
   answers: Record<string, string | number | string[] | undefined>;
 };
 
+// Forgive the usual copy/paste damage: KEY= prefix, wrapping quotes, "Bearer ".
+function token(): string {
+  let t = (process.env.GHL_API_TOKEN || "").trim();
+  t = t.replace(/^GHL_API_TOKEN\s*=\s*/i, "").replace(/^["']|["']$/g, "").replace(/^Bearer\s+/i, "").trim();
+  return t;
+}
+
 function headers() {
   return {
-    Authorization: `Bearer ${(process.env.GHL_API_TOKEN || "").trim()}`,
+    Authorization: `Bearer ${token()}`,
     Version: VERSION,
     "Content-Type": "application/json",
     Accept: "application/json",
@@ -119,15 +126,18 @@ function asText(v: unknown): string {
 export async function GET(req: Request) {
   const secret = (process.env.GHL_SHOPIFY_WEBHOOK_SECRET || "").trim();
   if (!secret || req.headers.get("x-webhook-secret") !== secret) {
-    return NextResponse.json({ configured: Boolean((process.env.GHL_API_TOKEN || "").trim()) });
+    return NextResponse.json({ configured: Boolean(token()) });
   }
-  const token = await ghl(`/contacts/?locationId=${LOCATION_ID}&limit=1`);
+  const probe = await ghl(`/contacts/?locationId=${LOCATION_ID}&limit=1`);
   const fields = await ghl(`/locations/${LOCATION_ID}/customFields?model=contact`);
   const byName = await customFieldIds();
   const wanted = Object.values(FIELD_NAMES);
+  const t = token();
   return NextResponse.json({
-    hasToken: Boolean((process.env.GHL_API_TOKEN || "").trim()),
-    contactsScope: token.ok ? "ok" : `HTTP ${token.status}`,
+    hasToken: Boolean(t),
+    tokenShape: t ? `${t.slice(0, 4)}… (${t.length} chars)` : null,
+    contactsError: probe.ok ? undefined : probe.json,
+    contactsScope: probe.ok ? "ok" : `HTTP ${probe.status}`,
     customFieldsScope: fields.ok ? "ok" : `HTTP ${fields.status}`,
     fieldsFound: wanted.filter((n) => byName[n.toLowerCase()]),
     fieldsMissing: wanted.filter((n) => !byName[n.toLowerCase()]),
@@ -135,7 +145,7 @@ export async function GET(req: Request) {
 }
 
 export async function POST(req: Request) {
-  if (!(process.env.GHL_API_TOKEN || "").trim()) {
+  if (!token()) {
     return NextResponse.json({ error: "GHL_API_TOKEN not set" }, { status: 503 });
   }
   let body: Submission;
