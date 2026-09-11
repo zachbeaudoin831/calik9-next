@@ -143,8 +143,9 @@ export default function Masterclass({ intro }: { intro?: React.ReactNode }) {
         style={{ background: "linear-gradient(135deg, #0A1F3C 0%, #122E85 55%, #1A3FAB 100%)" }}
       >
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 relative z-[1]">
-          <div className="grid grid-cols-[1.05fr_0.95fr] gap-12 items-start max-lg:grid-cols-1">
-            <div className="max-lg:text-center">
+          <div className="grid grid-cols-[1.05fr_0.95fr] gap-12 items-stretch max-lg:grid-cols-1">
+            <div className="max-lg:text-center lg:flex lg:flex-col lg:justify-between">
+              <div>
               <span className="inline-flex items-center gap-2 bg-white/[0.12] border border-white/[0.22] text-white font-ui text-[11.5px] font-bold tracking-[1.5px] uppercase px-4 py-2 rounded-full backdrop-blur-md mb-5">
                 <span className="w-1.5 h-1.5 rounded-full bg-amber-400" /> Cali K9 Presents &middot;
                 Free Live Training Class
@@ -152,7 +153,7 @@ export default function Masterclass({ intro }: { intro?: React.ReactNode }) {
               <span className="font-ui text-[13px] font-semibold tracking-[3px] uppercase text-blue-200 block mb-3">
                 Free Live Dog Training Masterclass
               </span>
-              <h1 className="font-display text-[clamp(38px,5vw,62px)] text-white leading-[0.95] mb-5">
+              <h1 className="font-display text-[clamp(38px,5vw,68px)] text-white leading-[0.95] mb-6">
                 TRANSFORM YOUR DOG IN JUST 15 MINUTES A DAY
               </h1>
               <p className="font-body text-lg text-white/70 leading-relaxed mb-6 max-w-[520px] max-lg:mx-auto">
@@ -160,7 +161,9 @@ export default function Masterclass({ intro }: { intro?: React.ReactNode }) {
                 transform thousands of dogs &mdash; from basic obedience to pulling, reactivity,
                 anxiety, aggression and reliable real-world control.
               </p>
+              </div>
 
+              <div>
               <div className="mb-6">
                 <span className="inline-flex items-center gap-2 font-ui text-[11px] font-bold tracking-[1.5px] uppercase text-red-400">
                   <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" /> Live With
@@ -173,15 +176,18 @@ export default function Masterclass({ intro }: { intro?: React.ReactNode }) {
                 </div>
               </div>
 
-              <ul className="flex flex-col gap-2.5 mb-7 max-lg:max-w-[440px] max-lg:mx-auto text-left">
+              <ul className="flex flex-col gap-3 mb-7 max-lg:max-w-[440px] max-lg:mx-auto text-left">
                 {BENEFITS.map((benefit) => (
                   <li key={benefit} className="flex items-start gap-2.5 font-body text-[15px] text-white/85">
                     <span className="text-amber-400 font-bold shrink-0">&#10003;</span> {benefit}
                   </li>
                 ))}
               </ul>
+              </div>
 
-              <EventDate />
+              <div>
+                <EventDate />
+              </div>
             </div>
 
             <div>
