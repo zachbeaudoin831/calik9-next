@@ -128,6 +128,31 @@ export async function GET(req: Request) {
   if (!secret || req.headers.get("x-webhook-secret") !== secret) {
     return NextResponse.json({ configured: Boolean(token()) });
   }
+  // ?createFields=1 → create any missing quiz custom fields (needs the
+  // Edit Custom Fields scope). Idempotent: existing names are skipped.
+  if (new URL(req.url).searchParams.get("createFields")) {
+    fieldCache = null;
+    const existing = await customFieldIds();
+    const created: string[] = [];
+    const failed: { name: string; error: unknown }[] = [];
+    for (const [key, name] of Object.entries(FIELD_NAMES)) {
+      if (existing[name.toLowerCase()]) continue;
+      const dataType = key === "problems" ? "LARGE_TEXT" : "TEXT";
+      const r = await ghl(`/locations/${LOCATION_ID}/customFields`, {
+        method: "POST",
+        body: JSON.stringify({ name, dataType, model: "contact", placeholder: "" }),
+      });
+      if (r.ok) created.push(name); else failed.push({ name, error: r.json });
+    }
+    fieldCache = null;
+    const after = await customFieldIds();
+    return NextResponse.json({
+      created, failed,
+      nowPresent: Object.values(FIELD_NAMES).filter((n) => after[n.toLowerCase()]).length,
+      of: Object.keys(FIELD_NAMES).length,
+    });
+  }
+
   const probe = await ghl(`/contacts/?locationId=${LOCATION_ID}&limit=1`);
   const fields = await ghl(`/locations/${LOCATION_ID}/customFields?model=contact`);
   const byName = await customFieldIds();
