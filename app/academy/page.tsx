@@ -367,6 +367,18 @@ const MEMBER_VIDEOS = [
   { name: "VIP Member — Miami", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a96df1efac7854efe093e8f.mp4" },
 ];
 
+// Hero video. Provisional: the masterclass sizzle reel — swap the id for the Academy montage when it's cut.
+const HERO_VIDEO = "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6aa4429ecbbb2538118db472.mp4";
+
+// Circle crops of Jas with each client, hosted on the GHL media CDN (same set as the masterclass page).
+const CDN = "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media";
+const RECOGNIZABLE_NAMES = [
+  { name: "Demi Moore", image: `${CDN}/6aa4587785678ef96c59f5f5.png` },
+  { name: "Steph Curry", image: `${CDN}/6aa45888cbbb253811900262.png` },
+  { name: "Kevin Hart", image: `${CDN}/6aa45898f4e2fd8aa0feb41a.png` },
+  { name: "Kendrick Lamar", image: `${CDN}/6aa458abcbbb2538119005d2.png` },
+];
+
 const MEDIA_LOGOS = [
   { src: "/images/media-logos/lg/netflix.webp", alt: "Netflix", w: 1191, h: 320 },
   { src: "/images/media-logos/lg/ellen-show.webp", alt: "The Ellen Show", w: 840, h: 320 },
@@ -479,12 +491,12 @@ export default function AcademyPage() {
               <h1 className="font-display text-[clamp(30px,3.6vw,46px)] text-white leading-[0.95] mb-4 md:whitespace-nowrap">
                 TRAIN LIVE WITH <span className="text-[#F59E0B]">JAS LEVERETTE</span>
               </h1>
-              <h2 className="font-display text-[clamp(22px,2.4vw,30px)] text-white/90 leading-tight mb-5">
-                THE COMPLETE CALI K9 TRAINING SYSTEM &mdash;{" "}
-                <span className="text-[#6A9FFF]">YOU CAN FOLLOW FROM HOME.</span>
+              <h2 className="font-ui text-[clamp(20px,2.1vw,26px)] font-bold text-white/90 leading-snug mb-5">
+                The complete Cali K9 training system &mdash;{" "}
+                <span className="text-[#6A9FFF]">you can follow from home.</span>
               </h2>
               <p className="font-body text-lg text-white/70 leading-relaxed mb-4 max-w-[540px]">
-                Fearful and reactive. Pushy and overconfident. Or just a good dog
+                Fearful and reactive. Pushy and overconfident, or just a good dog
                 who&rsquo;s never had real training. The Cali K9 5 Pillar, 50-Step
                 System&trade; meets your dog exactly where they are and hands you
                 the roadmap to where you want them to be &mdash; the same 8
@@ -501,21 +513,17 @@ export default function AcademyPage() {
             </div>
 
             <div className="max-md:order-first">
-              {/* Photo placeholder for the 60–90s Academy preview montage.
-                  When the montage is cut, replace this Image with:
-                  <video controls playsInline preload="metadata" poster="/images/funnel/academy-jas-teaching.jpg">
-                    <source src="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/<montage-id>.mp4" type="video/mp4" />
-                  </video> */}
-              <Image
-                src="/images/funnel/academy-jas-teaching.jpg"
-                alt="Jas Leverette coaching a live Cali K9 Academy class from the studio"
-                width={1080}
-                height={839}
-                priority
-                className="w-full h-auto rounded-xl shadow-[0_20px_60px_rgba(0,0,0,0.4)]"
-              />
+              <video
+                className="w-full h-auto rounded-xl bg-black shadow-[0_20px_60px_rgba(0,0,0,0.4)]"
+                controls
+                playsInline
+                preload="metadata"
+                poster="/images/funnel/academy-jas-teaching.jpg"
+              >
+                <source src={HERO_VIDEO} type="video/mp4" />
+              </video>
               <p className="font-ui text-[11px] font-bold tracking-[1.5px] uppercase text-white/40 text-center mt-3">
-                Jas Teaching Academy Live From The Cali K9 Studio
+                Watch: Inside The Cali K9 Academy
               </p>
             </div>
           </div>
@@ -528,6 +536,58 @@ export default function AcademyPage() {
                 <div className="font-ui text-[10px] font-semibold tracking-[1.5px] uppercase text-white/50 mt-1">
                   {s.small}
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── As seen on ── */}
+      <section className="bg-white py-8 border-b border-black/[0.06]">
+        <div className="max-w-[1000px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 text-center">
+          <div className="font-ui text-[12px] font-semibold tracking-[2px] uppercase text-gray-muted mb-6">
+            As Seen On
+          </div>
+          <div className="flex items-center justify-between max-md:justify-center max-md:gap-x-7 gap-y-6 flex-wrap">
+            {MEDIA_LOGOS.map((logo) => (
+              <Image
+                key={logo.alt}
+                src={logo.src}
+                alt={logo.alt}
+                width={logo.w}
+                height={logo.h}
+                sizes="(max-width: 768px) 130px, 160px"
+                className="h-auto w-auto max-h-11 max-w-[160px] max-md:max-h-8 max-md:max-w-[130px] object-contain opacity-70"
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Celebrity authority ── */}
+      <section className="py-16 max-md:py-10 bg-white">
+        <div className="max-w-[900px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
+          <div className="text-center mb-10">
+            <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
+              Trusted By The Best
+            </span>
+            <h2 className="font-display text-[clamp(30px,4vw,44px)] leading-[0.95] text-ink max-w-[760px] mx-auto">
+              TRUSTED TO TRAIN DOGS FOR SOME OF THE WORLD&rsquo;S MOST RECOGNIZABLE NAMES
+            </h2>
+          </div>
+          <div className="grid grid-cols-4 gap-6 max-[560px]:grid-cols-2">
+            {RECOGNIZABLE_NAMES.map((celeb) => (
+              <div key={celeb.name} className="text-center">
+                <Image
+                  src={celeb.image}
+                  alt={`Jas Leverette with ${celeb.name}`}
+                  width={300}
+                  height={300}
+                  className="w-full max-w-[180px] mx-auto h-auto rounded-full"
+                />
+                <span className="block font-ui text-[13px] font-bold tracking-[1px] uppercase text-ink mt-3">
+                  {celeb.name}
+                </span>
               </div>
             ))}
           </div>
@@ -904,10 +964,10 @@ export default function AcademyPage() {
         <div className="max-w-[1000px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <div className="grid grid-cols-[0.85fr_1.15fr] gap-12 items-center max-md:grid-cols-1">
             <Image
-              src="/images/funnel/bookcall-jas-hero.jpg"
-              alt="Jas Leverette, Founder & Training Director of Cali K9, with two of his dogs"
-              width={800}
-              height={517}
+              src="/images/funnel/academy-jas-teaching.jpg"
+              alt="Jas Leverette coaching a live Cali K9 Academy class from the studio"
+              width={1080}
+              height={839}
               className="w-full h-auto rounded-xl object-cover"
             />
             <div>
@@ -929,6 +989,63 @@ export default function AcademyPage() {
                 &ldquo;I don&rsquo;t live near you &mdash; can you still help me?&rdquo; Now the
                 answer is yes.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Meet your trainer ── */}
+      <section className="py-16 max-md:py-10 bg-white">
+        <div className="max-w-[1000px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
+          <div className="grid grid-cols-2 gap-12 items-center max-md:grid-cols-1">
+            <div className="flex flex-col gap-4">
+              <Image
+                src="/images/funnel/jas-san-jose-police.jpg"
+                alt="Jas Leverette with two San Jose Police K-9 officers and their dogs in front of the Cali K9 training van"
+                width={1600}
+                height={900}
+                className="w-full h-auto aspect-[16/9] rounded-xl object-cover object-top"
+              />
+              <div className="grid grid-cols-2 gap-4">
+                <Image
+                  src="/images/funnel/jas-class.jpg"
+                  alt="Jas Leverette teaching a training seminar"
+                  width={300}
+                  height={225}
+                  className="w-full aspect-[4/3] rounded-xl object-cover"
+                />
+                <Image
+                  src="/images/funnel/jas-turks-caicos-military.jpg"
+                  alt="Jas Leverette with Turks and Caicos military K-9 handlers holding their training certificates"
+                  width={1200}
+                  height={900}
+                  className="w-full aspect-[4/3] rounded-xl object-cover"
+                />
+              </div>
+            </div>
+            <div>
+              <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
+                Meet Your Trainer
+              </span>
+              <h2 className="font-display text-[clamp(28px,3.5vw,40px)] leading-[0.95] text-ink mb-6">
+                LEARN DIRECTLY FROM A TRAINER WITH A PROVEN TRACK RECORD
+              </h2>
+              <ul className="list-none p-0 m-0 space-y-2 mb-6">
+                {JAS_BULLETS.map((b) => (
+                  <li key={b} className="font-body text-[15px] text-gray-muted leading-normal pl-6 relative">
+                    <span className="absolute left-0 text-green-500 font-bold">&#10003;</span>
+                    {b}
+                  </li>
+                ))}
+              </ul>
+              <blockquote className="border-l-2 border-blue-500 pl-5">
+                <p className="font-body text-base italic text-ink/80 leading-relaxed mb-1">
+                  &ldquo;There are no bad dogs. Just uninformed owners.&rdquo;
+                </p>
+                <cite className="font-ui text-xs font-bold tracking-[2px] uppercase text-gray-muted not-italic">
+                  Jas Leverette
+                </cite>
+              </blockquote>
             </div>
           </div>
         </div>
@@ -1097,77 +1214,6 @@ export default function AcademyPage() {
             This is a structured, sequential training system, not a random video
             library. Every piece above supports the same 50-step roadmap.
           </p>
-        </div>
-      </section>
-
-      {/* ── Meet your trainer ── */}
-      <section className="py-16 max-md:py-10 bg-white">
-        <div className="max-w-[1000px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
-          <div className="grid grid-cols-2 gap-12 items-center max-md:grid-cols-1">
-            <div className="flex flex-col gap-4">
-              <Image
-                src="/images/funnel/jas-san-jose-police.jpg"
-                alt="Jas Leverette with two San Jose Police K-9 officers and their dogs in front of the Cali K9 training van"
-                width={1600}
-                height={900}
-                className="w-full h-auto aspect-[16/9] rounded-xl object-cover object-top"
-              />
-              <div className="grid grid-cols-2 gap-4">
-                <Image
-                  src="/images/funnel/jas-class.jpg"
-                  alt="Jas Leverette teaching a training seminar"
-                  width={300}
-                  height={225}
-                  className="w-full aspect-[4/3] rounded-xl object-cover"
-                />
-                <Image
-                  src="/images/funnel/jas-turks-caicos-military.jpg"
-                  alt="Jas Leverette with Turks and Caicos military K-9 handlers holding their training certificates"
-                  width={1200}
-                  height={900}
-                  className="w-full aspect-[4/3] rounded-xl object-cover"
-                />
-              </div>
-            </div>
-            <div>
-              <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
-                Meet Your Trainer
-              </span>
-              <h2 className="font-display text-[clamp(28px,3.5vw,40px)] leading-[0.95] text-ink mb-6">
-                LEARN DIRECTLY FROM A TRAINER WITH A PROVEN TRACK RECORD
-              </h2>
-              <ul className="list-none p-0 m-0 space-y-2 mb-6">
-                {JAS_BULLETS.map((b) => (
-                  <li key={b} className="font-body text-[15px] text-gray-muted leading-normal pl-6 relative">
-                    <span className="absolute left-0 text-green-500 font-bold">&#10003;</span>
-                    {b}
-                  </li>
-                ))}
-              </ul>
-              <blockquote className="border-l-2 border-blue-500 pl-5">
-                <p className="font-body text-base italic text-ink/80 leading-relaxed mb-1">
-                  &ldquo;There are no bad dogs. Just uninformed owners.&rdquo;
-                </p>
-                <cite className="font-ui text-xs font-bold tracking-[2px] uppercase text-gray-muted not-italic">
-                  Jas Leverette
-                </cite>
-              </blockquote>
-            </div>
-          </div>
-
-          <div className="flex items-center justify-center gap-x-10 max-md:gap-x-7 gap-y-6 flex-wrap mt-12 pt-10 border-t border-black/[0.06]">
-            {MEDIA_LOGOS.map((logo) => (
-              <Image
-                key={logo.alt}
-                src={logo.src}
-                alt={logo.alt}
-                width={logo.w}
-                height={logo.h}
-                sizes="(max-width: 768px) 130px, 160px"
-                className="h-auto w-auto max-h-11 max-w-[160px] max-md:max-h-8 max-md:max-w-[130px] object-contain opacity-70"
-              />
-            ))}
-          </div>
         </div>
       </section>
 
