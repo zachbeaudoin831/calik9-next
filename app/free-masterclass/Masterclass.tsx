@@ -88,6 +88,17 @@ const REVIEW_SCREENSHOTS = [
   { src: "/images/funnel/review-robert-walker.png", width: 1234, height: 532, alt: "Five-star Google review from Robert Walker: the most educational session, signing up again as a returning client" },
 ];
 
+// Street-dog mission checklist (same list as the Academy page).
+const MISSION_LIST = [
+  "Rescue vulnerable street dogs",
+  "Provide veterinary care & vaccinations",
+  "Feed and rehabilitate dogs in need",
+  "Train and socialize rescued dogs",
+  "Find responsible homes & adoptions",
+  "Partner with local trainers & organizations",
+  "Build a model that can expand beyond Morocco to other countries",
+];
+
 // Owner testimonial videos, hosted on the GHL media CDN.
 const TESTIMONIAL_VIDEOS = [
   {
@@ -529,21 +540,90 @@ export default function Masterclass({ intro }: { intro?: React.ReactNode }) {
       </section>
 
       {/* ── Street dog mission ── */}
-      <section className="py-14 max-md:py-10 bg-ink text-center">
-        <div className="max-w-[640px] mx-auto px-6">
-          <h2 className="font-display text-[clamp(28px,4vw,42px)] text-white leading-[0.95] mb-4">
-            TRAIN YOUR DOG.
-            <br />
-            HELP SAVE ANOTHER.
-          </h2>
-          <p className="font-body text-[15px] text-white/70 leading-relaxed mb-3">
-            Cali K9&rsquo;s mission is expanding beyond helping family dogs. We&rsquo;re working to
-            help rescue, rehabilitate, train and rehome street dogs internationally, beginning in
-            Morocco.
-          </p>
-          <p className="font-body text-[15px] text-white/70 leading-relaxed">
-            A portion of every Cali K9 program supports our international street-dog mission.
-          </p>
+      <section className="py-16 max-md:py-10 bg-ink">
+        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
+          <div className="grid grid-cols-[0.9fr_1.1fr] gap-12 items-center max-md:grid-cols-1">
+            <Image
+              src={`${CDN}/6aa43e77cbbb2538118d3b55.webp`}
+              alt="A street dog resting on a curb in Morocco"
+              width={1172}
+              height={774}
+              className="w-full h-auto rounded-xl object-cover"
+            />
+            <div>
+              <span className="inline-block bg-amber-400 text-[#2b1d05] font-ui text-[11px] font-bold tracking-[1.5px] uppercase px-3.5 py-1.5 rounded-full mb-4">
+                &#10022; The Cali K9 Mission
+              </span>
+              <h2 className="font-display text-[clamp(28px,3.5vw,42px)] leading-[0.95] text-white mb-4">
+                TRAIN YOUR DOG. HELP SAVE ANOTHER.
+              </h2>
+              <p className="font-body text-base text-white/80 leading-relaxed mb-3">
+                Training with Cali K9 isn&rsquo;t only transforming your dog &mdash; it&rsquo;s
+                helping save dogs around the world.
+              </p>
+              <p className="font-body text-[14.5px] text-white/65 leading-relaxed mb-5">
+                Cali K9&rsquo;s mission is expanding beyond helping family dogs.{" "}
+                <strong className="text-white">
+                  A portion of every Cali K9 program goes toward helping save street dogs around
+                  the world
+                </strong>
+                , beginning in Morocco. Jas Leverette and the Cali K9 team are working to:
+              </p>
+              <ul className="grid grid-cols-2 gap-x-6 gap-y-2 max-[480px]:grid-cols-1 mb-6">
+                {MISSION_LIST.map((item) => (
+                  <li key={item} className="font-body text-[13.5px] text-white/80 pl-5 relative">
+                    <span className="absolute left-0 text-blue-200 font-bold">&#10003;</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <div className="bg-white/5 border border-white/10 rounded-xl p-5">
+                <h4 className="font-body text-[15px] font-bold text-white mb-1.5">
+                  Every dog we train helps another dog get a second chance.
+                </h4>
+                <p className="font-body text-[13.5px] text-white/65 leading-relaxed">
+                  Whether you join the Academy, book a call, or train with us in person,{" "}
+                  <strong className="text-white/85">
+                    part of every program funds rescue, veterinary care and rehabilitation for a
+                    street dog who needs it.
+                  </strong>{" "}
+                  Your dog&rsquo;s transformation is the start. The mission is what it builds.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="border-t border-white/10 mt-12 pt-10 text-center">
+            <span className="font-ui text-[13px] font-semibold tracking-[3px] uppercase text-blue-200 block mb-2">
+              From The Streets To A Second Chance
+            </span>
+            <h3 className="font-display text-[clamp(24px,3vw,32px)] text-white mb-3">
+              WE&rsquo;RE DOCUMENTING THE ENTIRE JOURNEY
+            </h3>
+            <p className="font-body text-[14.5px] text-white/65 leading-relaxed max-w-[560px] mx-auto mb-6">
+              From rescue, to rehabilitation, to training, to finding these dogs a new home &mdash;
+              follow Jas&rsquo;s mission on YouTube and Instagram and see exactly what we&rsquo;re
+              working toward.
+            </p>
+            <div className="flex items-center justify-center gap-3 flex-wrap">
+              <a
+                href="https://www.youtube.com/channel/UCGtJ7tl98bL-dl7lyanHmMg"
+                target="_blank"
+                rel="noopener"
+                className="btn btn-outline !border-white/40 !text-white hover:!border-white"
+              >
+                Follow On YouTube
+              </a>
+              <a
+                href="https://www.instagram.com/calik9/"
+                target="_blank"
+                rel="noopener"
+                className="btn btn-outline !border-white/40 !text-white hover:!border-white"
+              >
+                Follow On Instagram
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
