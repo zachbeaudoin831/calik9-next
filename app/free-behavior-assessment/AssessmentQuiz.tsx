@@ -341,6 +341,9 @@ export default function AssessmentQuiz() {
   // severity/urgency (Q4), and budget (Q11). Every other answer is collected
   // for the team to review, not scored.
   const score = (): TierKey => {
+    // Budget gate: "Under $200" (option 1) always gets the Academy result and
+    // the free masterclass invite, no matter how severe or urgent the problem.
+    if (answers[11] === 1) return "academy";
     const total = (answers[1] || 0) + (answers[4] || 0) + (answers[11] || 0);
     if (total <= 4) return "academy";
     if (total <= 7) return "platinum";
