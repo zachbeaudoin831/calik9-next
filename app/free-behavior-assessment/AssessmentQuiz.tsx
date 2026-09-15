@@ -6,7 +6,7 @@ import Link from "next/link";
 // ── Result routing destinations ─────────────────────────────────────────────
 // Every result routes to the $7, 20-minute reservation call.
 const BOOK_CALL_URL = "/book-your-call";
-const BOOK_CALL_LABEL = "Reserve Your Call — $7 →";
+const BOOK_CALL_LABEL = "Reserve Your Call →";
 // Academy-tier results go to the free masterclass invite instead of the call.
 const MASTERCLASS_INVITE_URL = "/free-masterclass/invite";
 const MASTERCLASS_INVITE_LABEL = "Save My Free Seat — This Saturday →";
@@ -25,6 +25,9 @@ const RESULTS: Record<
     testi: string;
     ctaUrl: string;
     ctaLabel: string;
+    // Shown under the primary CTA (Elite/VIP): the free-masterclass escape hatch.
+    secondaryCtaUrl?: string;
+    secondaryCtaLabel?: string;
   }
 > = {
   academy: {
@@ -43,8 +46,10 @@ const RESULTS: Record<
     ctaLabel: BOOK_CALL_LABEL,
     title: "ELITE IS YOUR FIT",
     desc: "Everything in the Academy plus 6 months of access, 4 Wednesday small-group coaching sessions with Jas, and personalized troubleshooting making sure each step is done correctly — moving your dog from chaos to control faster.",
-    price: "$997",
-    priceNote: " one-time",
+    price: "",
+    priceNote: "",
+    secondaryCtaUrl: MASTERCLASS_INVITE_URL,
+    secondaryCtaLabel: "No Thanks, Check Out Our Free Masterclass",
     seeText: "See Elite details",
     url: "/elite",
     testi: "“Worth every penny. Dog came back calm, focused, obedient.” — Jessica R., Oakland, CA",
@@ -54,8 +59,10 @@ const RESULTS: Record<
     ctaLabel: BOOK_CALL_LABEL,
     title: "VIP IS YOUR FIT",
     desc: "The full 5 Pillar, 50-Step System with a full year of access, 8 Wednesday coaching sessions, priority booking, the Training Kit included, and a private WhatsApp line to the team for support within 24 hours — the highest level of support for owners working through fear, reactivity, or a dog that is testing every boundary.",
-    price: "$2,497",
-    priceNote: " one-time",
+    price: "",
+    priceNote: "",
+    secondaryCtaUrl: MASTERCLASS_INVITE_URL,
+    secondaryCtaLabel: "No Thanks, Check Out Our Free Masterclass",
     seeText: "See VIP details",
     url: "/vip",
     testi: "“The transformation in 30 days was something we never thought possible.” — Robert J., New York, NY",
@@ -593,16 +600,23 @@ export default function AssessmentQuiz() {
           <p className="font-body text-[14.5px] text-gray-muted leading-relaxed max-w-[520px] mx-auto mb-6">
             {result.desc}
           </p>
-          <div className="font-display text-[34px] text-ink mb-5">
-            {result.price}
-            <span className="font-body text-[13px] text-gray-muted">{result.priceNote}</span>
-          </div>
+          {result.price && (
+            <div className="font-display text-[34px] text-ink mb-5">
+              {result.price}
+              <span className="font-body text-[13px] text-gray-muted">{result.priceNote}</span>
+            </div>
+          )}
           <div className="bg-cream rounded-xl px-5 py-4 mb-5 font-body text-[13.5px] italic text-ink/80 text-left">
             {result.testi}
           </div>
           <Link href={result.ctaUrl} className="btn btn-blue w-full">
             {result.ctaLabel}
           </Link>
+          {result.secondaryCtaUrl && (
+            <Link href={result.secondaryCtaUrl} className="btn btn-outline w-full mt-3">
+              {result.secondaryCtaLabel}
+            </Link>
+          )}
           {result.url && (
             <p className="font-body text-[13px] text-gray-muted mt-6 pt-6 border-t border-border">
               <Link href={result.url} className="text-blue-500 underline">

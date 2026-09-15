@@ -4,9 +4,9 @@ import Link from "next/link";
 import FormEmbed from "@/components/FormEmbed";
 
 export const metadata: Metadata = {
-  title: "Reserve Your Call — $7",
+  title: "Reserve Your Call",
   description:
-    "Walk through what your Free Behavior Assessment revealed on a 20-minute call with the Cali K9 team. $7 refundable reservation, credited toward any program.",
+    "Walk through what your Free Behavior Assessment revealed on a 20-minute call with the Cali K9 team. Refundable reservation, credited toward any program.",
   // Funnel page. Keep out of search while in review.
   robots: { index: false, follow: false },
 };
@@ -19,7 +19,7 @@ const BOOKING_FORM_ID = "sdUQJblVjKf6jHP7JdzF";
 const WHAT_ITEMS = [
   "Go over your Free Behavior Assessment results together",
   "See where your dog sits on the 50-Step Roadmap",
-  "$7 reservation, credited toward any program — no sales script, no pressure",
+  "Refundable reservation, credited toward any program — no sales script, no pressure",
 ];
 
 const STATS = [
@@ -76,8 +76,8 @@ export default function BookYourCallPage() {
             Your Next Step After The Free Behavior Assessment
           </span>
           <h1 className="font-display text-[clamp(32px,4.5vw,48px)] text-ink leading-[1.02] mb-5">
-            LET&rsquo;S WALK THROUGH WHAT YOUR ASSESSMENT REVEALED. $7 REFUNDABLE RESERVATION, 20
-            MINUTES.
+            LET&rsquo;S WALK THROUGH WHAT YOUR ASSESSMENT REVEALED. 20 MINUTES, FULLY
+            REFUNDABLE.
           </h1>
           <p className="font-body text-base text-[#4b4f58] leading-relaxed max-w-[620px] mx-auto">
             You just completed the Free Behavior Assessment &mdash; this call is where we connect
@@ -86,8 +86,8 @@ export default function BookYourCallPage() {
             <strong className="text-ink">Cali K9 5 Pillar, 50-Step System&trade;</strong> they need
             next, then point you to <strong className="text-ink">Academy</strong>,{" "}
             <strong className="text-ink">Elite</strong>, or{" "}
-            <strong className="text-ink">VIP</strong> &mdash; whichever fits. A $7 reservation
-            holds your spot and is fully credited toward any program you join &mdash; no pressure
+            <strong className="text-ink">VIP</strong> &mdash; whichever fits. A small, refundable
+            reservation holds your spot and is fully credited toward any program you join &mdash; no pressure
             to buy anything.
           </p>
 
@@ -119,11 +119,11 @@ export default function BookYourCallPage() {
             <FormEmbed
               formId={BOOKING_FORM_ID}
               formName="Reserve Call Cart - Academy Funnel"
-              title="Reserve Your Call — $7"
+              title="Reserve Your Call"
               height={828}
             />
             <p className="font-body text-[12.5px] text-white/50 text-center mt-4">
-              $7 refundable reservation &middot; 20-minute call &middot; Credited toward any
+              Refundable reservation &middot; 20-minute call &middot; Credited toward any
               program
             </p>
           </div>
