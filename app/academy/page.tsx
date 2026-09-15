@@ -1146,6 +1146,19 @@ export default function AcademyPage() {
             </p>
           </div>
 
+          <div className="mb-10">
+            <Image
+              src="/images/funnel/academy-jas-teaching.jpg"
+              alt="Jas Leverette coaching a live Cali K9 Academy class from the studio"
+              width={1080}
+              height={839}
+              className="w-full h-auto aspect-[16/9] rounded-xl object-cover object-[center_30%] shadow-[0_20px_60px_rgba(0,0,0,0.4)]"
+            />
+            <p className="font-ui text-[11px] font-bold tracking-[1.5px] uppercase text-white/40 text-center mt-3">
+              Jas Teaching Academy Live From The Cali K9 Studio
+            </p>
+          </div>
+
           <div className="bg-white/[0.06] border border-white/[0.15] rounded-xl p-8 max-[480px]:p-5">
             <ul className="list-none p-0 m-0 divide-y divide-white/10 mb-6">
               {OFFER_STACK.map((row) => (
