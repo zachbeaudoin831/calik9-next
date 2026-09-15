@@ -2,20 +2,21 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import Link from "next/link";
 import FormEmbed from "@/components/FormEmbed";
+import BookingEmbed from "@/components/BookingEmbed";
 import EventDate from "../../free-masterclass/EventDate";
 
 export const metadata: Metadata = {
-  title: "Your Call Is Reserved",
+  title: "Your Call Is Reserved — Pick Your Time",
   description:
-    "Your 20-minute call with the Cali K9 team is booked. One more thing — reserve your free seat at Jas Leverette's live dog training masterclass.",
+    "Your 20-minute call with the Cali K9 team is reserved. Pick a time on the calendar, then reserve your free seat at Jas Leverette's live dog training masterclass.",
   robots: { index: false, follow: false },
 };
 
 const CALL_STEPS = [
   {
     num: "1",
-    title: "CHECK YOUR EMAIL",
-    desc: "Your booking confirmation and calendar invite are on their way. If you don't see them in a few minutes, check spam and promotions.",
+    title: "PICK YOUR TIME",
+    desc: "Choose a slot on the calendar above. Your confirmation and calendar invite land in your inbox right after — check spam and promotions if you don't see them.",
   },
   {
     num: "2",
@@ -59,12 +60,33 @@ export default function BookCallThankYouPage() {
             &#10003; Call Reserved
           </span>
           <h1 className="font-display text-[clamp(40px,5.5vw,64px)] text-white leading-[0.95] mb-5">
-            YOUR CALL IS <span className="text-[#6A9FFF]">BOOKED.</span>
+            YOUR SPOT IS RESERVED. <span className="text-[#6A9FFF]">NOW PICK YOUR TIME.</span>
           </h1>
           <p className="font-body text-lg text-white/70 leading-relaxed max-w-[560px] mx-auto">
-            Your confirmation and calendar invite are on the way to your inbox.
-            Here&rsquo;s what happens next &mdash; and one thing to do before we
-            talk.
+            Choose a time for your 20-minute call on the calendar below. We&rsquo;re
+            also sending this booking link to your inbox in case you want to come
+            back to it.
+          </p>
+        </div>
+      </section>
+
+      {/* ── Pick a time (GHL call calendar) ── */}
+      <section className="py-14 max-md:py-10 bg-cream" id="calendar">
+        <div className="max-w-[860px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
+          <div className="text-center mb-8">
+            <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
+              Step 1
+            </span>
+            <h2 className="font-display text-[clamp(30px,4vw,42px)] leading-[0.93] text-ink">
+              PICK YOUR CALL TIME
+            </h2>
+          </div>
+          <div className="bg-white rounded-xl border border-black/[0.06] p-4 max-[480px]:p-2 shadow-sm">
+            <BookingEmbed title="Book your call with the Cali K9 team" />
+          </div>
+          <p className="font-body text-sm text-gray-muted text-center mt-6">
+            Can&rsquo;t book right now? The same link is in your confirmation email, so you can
+            come back and pick a time whenever you&rsquo;re ready.
           </p>
         </div>
       </section>
@@ -74,7 +96,7 @@ export default function BookCallThankYouPage() {
         <div className="max-w-[860px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <div className="text-center mb-10">
             <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
-              Your Call
+              Then
             </span>
             <h2 className="font-display text-[clamp(30px,4vw,42px)] leading-[0.93] text-ink">
               WHAT HAPPENS NEXT
@@ -94,7 +116,7 @@ export default function BookCallThankYouPage() {
           </div>
 
           <p className="font-body text-sm text-gray-muted text-center mt-8">
-            Didn&rsquo;t get your confirmation within 15 minutes? Reply to your
+            Didn&rsquo;t get your confirmation within 15 minutes of booking? Reply to your
             reservation receipt and our team will get you sorted.
           </p>
         </div>

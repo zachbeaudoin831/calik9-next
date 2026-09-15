@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import BookingEmbed from "./BookingEmbed";
+import BookingEmbed from "@/components/BookingEmbed";
 
 export const metadata: Metadata = {
   title: "You're In: Book Your Evaluation Call",
@@ -80,7 +80,7 @@ export default function WebinarOfferThankYouPage() {
           </div>
 
           <div className="bg-white rounded-xl border border-black/[0.06] p-4 max-[480px]:p-2 shadow-sm">
-            <BookingEmbed />
+            <BookingEmbed title="Book your evaluation call" />
           </div>
           <p className="font-body text-sm text-gray-muted text-center mt-6">
             Can&rsquo;t book right now? The same link is in your confirmation

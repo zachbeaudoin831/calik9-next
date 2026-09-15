@@ -4,13 +4,13 @@ import Script from "next/script";
 
 const CALENDAR_ID = "IHyyYQ8nbtwJM4Wawh8s";
 
-export default function BookingEmbed() {
+export default function BookingEmbed({ title = "Book your call" }: { title?: string }) {
   return (
     <>
       <iframe
         src={`https://api.leadconnectorhq.com/widget/booking/${CALENDAR_ID}`}
         id="hg4TVV9mOCu8kjfapIKg_1787019140353"
-        title="Book your evaluation call"
+        title={title}
         allow="payment"
         scrolling="no"
         className="w-full border-none block overflow-hidden min-h-[700px]"
