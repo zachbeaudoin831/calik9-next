@@ -19,12 +19,12 @@ export const TREATS_PRICE = 27;
 
 // Keys: `${tier}` | `${tier}-kit` | `${tier}-treats` | `${tier}-kit-treats`
 export const PAYMENT_LINKS: Record<string, string | null> = {
-  "elite": null, //           $997
-  "elite-kit": null, //       $1,194
-  "elite-treats": null, //    $1,024
-  "elite-kit-treats": null, // $1,221
-  "vip": null, //             $2,497
-  "vip-treats": null, //      $2,524
+  "elite": "https://link.fastpaydirect.com/payment-link/6aa88de332f95ae35594aa11", // $997
+  "elite-kit": "https://link.fastpaydirect.com/payment-link/6aa891f332f95ae35594aa1c", // $1,194
+  "elite-treats": "https://link.fastpaydirect.com/payment-link/6aa8922fceb12d9fc1a8ce53", // $1,024
+  "elite-kit-treats": "https://link.fastpaydirect.com/payment-link/6aa8927832f95ae35594aa1d", // $1,221
+  "vip": "https://link.fastpaydirect.com/payment-link/6aa8929fceb12d9fc1a8ce54", // $2,497
+  "vip-treats": "https://link.fastpaydirect.com/payment-link/6aa892c932f95ae35594aa1e", // $2,524
 };
 
 export function comboKey(tier: Tier, kit: boolean, treats: boolean): string {
