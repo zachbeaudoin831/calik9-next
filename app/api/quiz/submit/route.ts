@@ -187,10 +187,26 @@ export async function POST(req: Request) {
   const a = body.answers || {};
   const submittedAt = new Date().toISOString();
 
+  // Short, stable tags for workflow branching (see /docs build sheet).
   const tags = ["quiz-completed", `quiz-${tier}`];
-  if (a.dogType) tags.push(`quiz-dog-${slug(asText(a.dogType).split("—")[0])}`);
-  if (a.urgency) tags.push(`quiz-urgency-${slug(asText(a.urgency).split("—")[0])}`);
-  if (a.budget) tags.push(`quiz-budget-${slug(asText(a.budget))}`);
+  const dog = asText(a.dogType).toLowerCase();
+  if (dog.startsWith("pushy")) tags.push("quiz-dog-pushy");
+  else if (dog.startsWith("fearful")) tags.push("quiz-dog-fearful");
+  else if (dog.startsWith("good dog")) tags.push("quiz-dog-untrained");
+  else if (dog.startsWith("a mix")) tags.push("quiz-dog-mixed");
+  else if (dog) tags.push(`quiz-dog-${slug(dog)}`);
+  const urg = asText(a.urgency).toLowerCase();
+  if (urg.startsWith("manageable")) tags.push("quiz-urgency-manageable");
+  else if (urg.startsWith("frustrating")) tags.push("quiz-urgency-frustrating");
+  else if (urg.startsWith("serious")) tags.push("quiz-urgency-safety");
+  else if (urg.startsWith("crisis")) tags.push("quiz-urgency-crisis");
+  else if (urg) tags.push(`quiz-urgency-${slug(urg)}`);
+  const bud = asText(a.budget).replace(/\s/g, "");
+  if (bud.startsWith("Under")) tags.push("quiz-budget-under-200");
+  else if (bud.startsWith("$500")) tags.push("quiz-budget-500-1500");
+  else if (bud.startsWith("$1,500")) tags.push("quiz-budget-1500-5000");
+  else if (bud.startsWith("$5,000")) tags.push("quiz-budget-5000-plus");
+  else if (bud) tags.push(`quiz-budget-${slug(bud)}`);
 
   const byName = await customFieldIds();
   const customFields: { id: string; field_value: string }[] = [];
