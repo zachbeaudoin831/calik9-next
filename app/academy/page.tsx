@@ -959,41 +959,6 @@ export default function AcademyPage() {
         </div>
       </section>
 
-      {/* ── Founder ── */}
-      <section className="py-16 max-md:py-10 bg-white">
-        <div className="max-w-[1000px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
-          <div className="grid grid-cols-[0.85fr_1.15fr] gap-12 items-center max-md:grid-cols-1">
-            <Image
-              src="/images/funnel/academy-jas-teaching.jpg"
-              alt="Jas Leverette coaching a live Cali K9 Academy class from the studio"
-              width={1080}
-              height={839}
-              className="w-full h-auto rounded-xl object-cover"
-            />
-            <div>
-              <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
-                Who&rsquo;s Behind It
-              </span>
-              <h2 className="font-display text-[clamp(28px,3.5vw,40px)] leading-[0.95] text-ink mb-5">
-                BUILT BY SOMEONE WHO HAD NO PLAN B
-              </h2>
-              <p className="font-body text-[15px] text-[#4b4f58] leading-relaxed mb-3">
-                Jas Leverette grew up in Oakland and found in dogs the outlet &mdash; and later,
-                the business &mdash; that a rough start didn&rsquo;t hand him. He built Cali K9
-                from working dogs at the local park into a facility that&rsquo;s trained thousands
-                of dogs, earned a roster of celebrity and pro-athlete clients, and became the
-                subject of Netflix&rsquo;s <em>Canine Intervention</em>.
-              </p>
-              <p className="font-body text-[15px] text-[#4b4f58] leading-relaxed">
-                The Academy is Jas&rsquo;s answer to the question he gets asked constantly:
-                &ldquo;I don&rsquo;t live near you &mdash; can you still help me?&rdquo; Now the
-                answer is yes.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ── Meet your trainer ── */}
       <section className="py-16 max-md:py-10 bg-white">
         <div className="max-w-[1000px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
