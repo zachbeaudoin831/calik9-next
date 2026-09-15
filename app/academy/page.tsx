@@ -482,8 +482,8 @@ export default function AcademyPage() {
         className="relative overflow-hidden py-16 max-md:py-10"
         style={{ background: "linear-gradient(135deg, #0A1F3C 0%, #122E85 55%, #1A3FAB 100%)" }}
       >
-        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 relative z-[1]">
-          <div className="grid grid-cols-[1.1fr_0.9fr] gap-12 items-center max-md:grid-cols-1">
+        <div className="max-w-[1240px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 relative z-[1]">
+          <div className="grid grid-cols-[0.9fr_1.1fr] gap-10 items-center max-md:grid-cols-1">
             <div>
               <span className="font-ui text-[13px] font-semibold tracking-[3px] uppercase text-[#6A9FFF] block mb-4">
                 The Cali K9&reg; Online Academy
