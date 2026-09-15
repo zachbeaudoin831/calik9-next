@@ -22,7 +22,6 @@ const SERVICE_LINKS = [
   { href: "/newclientservices#new-clients", label: "New Clients" },
   { href: "/newclientservices#returning-clients", label: "Returning Clients" },
   { href: "/online-training-program2", label: "Online Training" },
-  { href: "/business-coaching", label: "Coaching" },
 ];
 
 export default function Nav() {
@@ -60,7 +59,6 @@ export default function Nav() {
     pathname.startsWith("/vip-with-jas") ||
     pathname.startsWith("/semi-private") ||
     pathname.startsWith("/zoom-group-class") ||
-    pathname.startsWith("/business-coaching") ||
     pathname.startsWith("/5pillars");
 
   return (

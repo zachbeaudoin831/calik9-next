@@ -73,9 +73,6 @@ export default function NotFound() {
           <Link href="/testimonials" className="font-ui text-[12px] font-bold tracking-[2px] uppercase text-white/45 no-underline hover:text-white/85 transition-colors">
             Testimonials
           </Link>
-          <Link href="/business-coaching" className="font-ui text-[12px] font-bold tracking-[2px] uppercase text-white/45 no-underline hover:text-white/85 transition-colors">
-            Coaching
-          </Link>
           <Link href="/contact-us" className="font-ui text-[12px] font-bold tracking-[2px] uppercase text-white/45 no-underline hover:text-white/85 transition-colors">
             Contact
           </Link>

@@ -15,7 +15,6 @@ const COMPANY_LINKS = [
   { href: "/about-us", label: "About Jas" },
   { href: "/testimonials", label: "Testimonials" },
   { href: "/blog", label: "Blog" },
-  { href: "/business-coaching", label: "Trainer Coaching" },
   { href: "/contact-us", label: "Contact" },
 ];
 
