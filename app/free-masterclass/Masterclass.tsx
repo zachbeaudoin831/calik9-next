@@ -74,6 +74,8 @@ const PRESS_LOGOS = [
   { src: "/images/media-logos/lg/dr-phil.webp", alt: "Dr. Phil", w: 1225, h: 320 },
 ];
 
+const CDN = "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media";
+
 // Media logos for the "as featured on" grid — the four in the hero press row
 // (Netflix, Access Hollywood, Ellen, Dr. Phil) are left out so nothing repeats.
 const FEATURED_LOGOS = [
