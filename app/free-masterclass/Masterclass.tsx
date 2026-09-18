@@ -74,17 +74,13 @@ const PRESS_LOGOS = [
   { src: "/images/media-logos/lg/dr-phil.webp", alt: "Dr. Phil", w: 1225, h: 320 },
 ];
 
-// Media logos for the "as featured on" grid — the four in the hero press row
-// (Netflix, Access Hollywood, Ellen, Dr. Phil) are left out so nothing repeats.
-const FEATURED_LOGOS = [
-  { src: "/images/media-logos/nbc.webp", alt: "NBC" },
-  { src: "/images/media-logos/abc.webp", alt: "ABC" },
-  { src: "/images/media-logos/gma3.webp", alt: "GMA3" },
-  { src: "/images/media-logos/people-magazine.webp", alt: "People" },
-  { src: "/images/media-logos/la-times.webp", alt: "LA Times" },
-  { src: "/images/media-logos/washington-post.webp", alt: "Washington Post" },
-  { src: "/images/media-logos/tmz.webp", alt: "TMZ" },
-  { src: "/images/media-logos/sfgate.webp", alt: "SFGATE" },
+// Circle crops of Jas with each client, hosted on the GHL media CDN (1200×1200, transparent outside the circle).
+const CDN = "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media";
+const RECOGNIZABLE_NAMES = [
+  { name: "Demi Moore", image: `${CDN}/6aa4587785678ef96c59f5f5.png` },
+  { name: "Steph Curry", image: `${CDN}/6aa45888cbbb253811900262.png` },
+  { name: "Kevin Hart", image: `${CDN}/6aa45898f4e2fd8aa0feb41a.png` },
+  { name: "Kendrick Lamar", image: `${CDN}/6aa458abcbbb2538119005d2.png` },
 ];
 
 const REVIEW_SCREENSHOTS = [
@@ -502,17 +498,20 @@ export default function Masterclass({ intro }: { intro?: React.ReactNode }) {
       {/* ── Celebrity authority ── */}
       <section className="py-14 max-md:py-10">
         <div className="max-w-[860px] mx-auto px-6 max-[480px]:px-4">
-          <SectionHead title="AS FEATURED ON" />
-          <div className="grid grid-cols-4 gap-x-8 gap-y-10 items-center max-[560px]:grid-cols-2 max-[560px]:gap-x-6 max-[560px]:gap-y-8">
-            {FEATURED_LOGOS.map((logo) => (
-              <div key={logo.alt} className="flex items-center justify-center">
+          <SectionHead title="TRUSTED TO TRAIN DOGS FOR SOME OF THE WORLD'S MOST RECOGNIZABLE NAMES" />
+          <div className="grid grid-cols-4 gap-6 max-[560px]:grid-cols-2">
+            {RECOGNIZABLE_NAMES.map((celeb) => (
+              <div key={celeb.name} className="text-center">
                 <Image
-                  src={logo.src}
-                  alt={logo.alt}
-                  width={220}
-                  height={80}
-                  className="h-auto w-auto max-h-12 max-w-[160px] max-md:max-h-9 object-contain opacity-75"
+                  src={celeb.image}
+                  alt={`Jas Leverette with ${celeb.name}`}
+                  width={300}
+                  height={300}
+                  className="w-full max-w-[170px] mx-auto h-auto rounded-full"
                 />
+                <span className="block font-ui text-[13px] font-bold tracking-[1px] uppercase text-ink mt-3">
+                  {celeb.name}
+                </span>
               </div>
             ))}
           </div>
