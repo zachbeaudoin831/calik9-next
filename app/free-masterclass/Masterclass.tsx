@@ -5,6 +5,7 @@ import FormEmbed from "@/components/FormEmbed";
 import EventDate from "./EventDate";
 import Faq from "./Faq";
 import StickyCta from "./StickyCta";
+import { posterFor } from "@/lib/video-poster";
 
 
 const BENEFITS = [
@@ -257,6 +258,7 @@ export default function Masterclass({ intro }: { intro?: React.ReactNode }) {
             sub="It's about changing the communication, structure and relationship between you and your dog."
           />
           <video
+            poster="/images/funnel/posters/6aa4429ecbbb2538118db472.jpg"
             className="w-full rounded-xl block bg-black shadow-lg"
             controls
             playsInline
@@ -420,6 +422,7 @@ export default function Masterclass({ intro }: { intro?: React.ReactNode }) {
             {TESTIMONIAL_VIDEOS.map((v) => (
               <div key={v.name}>
                 <video
+                  poster={posterFor(v.src)}
                   className="w-full rounded-xl bg-black shadow-md"
                   controls
                   playsInline

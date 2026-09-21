@@ -306,6 +306,7 @@ export default function ElitePage() {
           <div className="grid grid-cols-3 gap-6 max-md:grid-cols-1">
             <div>
               <video
+                poster="/images/funnel/posters/6a97035928f063271421e825.jpg"
                 className="w-full aspect-[4/3] object-cover rounded-xl bg-black shadow-md"
                 controls
                 playsInline
@@ -322,6 +323,7 @@ export default function ElitePage() {
             </div>
             <div>
               <video
+                poster="/images/funnel/posters/6a9703d4d47ab15319050db5.jpg"
                 className="w-full aspect-[4/3] object-cover rounded-xl bg-black shadow-md"
                 controls
                 playsInline

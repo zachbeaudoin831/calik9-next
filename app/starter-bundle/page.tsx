@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Countdown from "./Countdown";
 import BundleCta from "./BundleCta";
+import { posterFor } from "@/lib/video-poster";
 
 export const metadata: Metadata = {
   title: "Cali K9 Foundation Starter Bundle",
@@ -196,6 +197,7 @@ function ProductMockup() {
         <div className="absolute top-[30px] left-1/2 -translate-x-1/2 w-[300px] z-[2] max-md:static max-md:translate-x-0 max-md:w-[88%] max-md:max-w-[280px]">
           <div className="rounded-[10px_10px_3px_3px] border-[6px] border-[#1c2440] aspect-[16/10] relative overflow-hidden bg-black">
             <video
+              poster={posterFor(BUNDLE_VIDEO)}
               className="absolute inset-0 w-full h-full object-cover"
               controls
               playsInline

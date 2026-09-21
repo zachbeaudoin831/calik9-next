@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { posterFor } from "@/lib/video-poster";
 
 export const metadata: Metadata = {
   title: "Cali K9 Online Academy",
@@ -884,6 +885,7 @@ export default function AcademyPage() {
             {SAMPLE_VIDEOS.map((v) => (
               <div key={v.title} className="flex flex-col">
                 <video
+                  poster={posterFor(v.src)}
                   className="w-full rounded-xl bg-black shadow-md"
                   controls
                   playsInline
@@ -1064,6 +1066,7 @@ export default function AcademyPage() {
             {MEMBER_VIDEOS.map((v) => (
               <div key={v.name}>
                 <video
+                  poster={posterFor(v.src)}
                   className="w-full rounded-xl bg-black shadow-md"
                   controls
                   playsInline

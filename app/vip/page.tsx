@@ -288,6 +288,7 @@ export default function VipPage() {
           <div className="grid grid-cols-3 gap-6 max-md:grid-cols-1">
             <div>
               <video
+                poster="/images/funnel/posters/6a970427c7069f4fc79e45f5.jpg"
                 className="w-full aspect-[4/3] object-cover rounded-xl bg-black shadow-md"
                 controls
                 playsInline
@@ -316,6 +317,7 @@ export default function VipPage() {
             </div>
             <div>
               <video
+                poster="/images/funnel/posters/6a97042bef6af944f0f9a708.jpg"
                 className="w-full aspect-[4/3] object-cover rounded-xl bg-black shadow-md"
                 controls
                 playsInline
