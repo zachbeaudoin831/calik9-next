@@ -368,7 +368,7 @@ const MEMBER_VIDEOS = [
 ];
 
 // Hero video. Provisional: the masterclass sizzle reel — swap the id for the Academy montage when it's cut.
-const HERO_VIDEO = "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6aa4429ecbbb2538118db472.mp4";
+const HERO_VIDEO = "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6ab17858966c1acf6d448da3.mp4";
 
 // Circle crops of Jas with each client, hosted on the GHL media CDN (same set as the masterclass page).
 const CDN = "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media";
