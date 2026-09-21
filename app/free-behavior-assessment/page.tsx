@@ -44,6 +44,7 @@ export default function FreeBehaviorAssessmentPage() {
           </h1>
           <video
             className="w-full max-w-[760px] mx-auto rounded-xl bg-black shadow-[0_20px_60px_rgba(0,0,0,0.4)] mb-6"
+            poster="/images/funnel/quiz-video-poster.jpg"
             controls
             playsInline
             preload="metadata"
