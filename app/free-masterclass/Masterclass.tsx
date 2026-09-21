@@ -24,8 +24,7 @@ const BENEFITS = [
 
 // Three short before → after clips, directly under the hero.
 // Slots 1–2 are the real before/after clips already on the CDN (used on
-// /elite and /vip). Slot 3 is PROVISIONAL: an Academy real-world reliability
-// clip standing in until Zach uploads a dedicated before/after cut.
+// /elite and /vip). Slot 3 is the clip Zach supplied on 2026-09-21.
 const BEFORE_AFTER = [
   {
     before: "Reactive",
@@ -40,10 +39,10 @@ const BEFORE_AFTER = [
     src: `${CDN}/6a97042bef6af944f0f9a708.mp4`,
   },
   {
-    before: "Ignoring You",
-    after: "Focused Obedience",
-    name: "Real-World Recall",
-    src: `${CDN}/6a96de23c7069f4fc79a22c9.mp4`,
+    before: "Aggressive",
+    after: "Calm & Under Control",
+    name: "Aggression Transformation",
+    src: `${CDN}/6ab1b3dc966c1acf6d4aa920.mp4`,
   },
 ];
 
