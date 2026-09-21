@@ -172,14 +172,14 @@ export default async function HomePage() {
           <HeroEntrance delay={360}>
             <div className="flex gap-4 flex-wrap items-start max-sm:flex-col max-sm:items-stretch">
               <div className="flex flex-col gap-2.5 max-sm:items-stretch">
-                <Link href="/free-behavior-assessment" className="btn btn-white btn-lg text-center max-sm:px-5">
+                <Link href="/free-behavior-assessment" className="btn btn-gold btn-lg text-center max-sm:px-5">
                   Free Behavior Assessment &rarr;
                 </Link>
                 <span className="font-ui text-[13px] tracking-[0.5px] text-white/60 text-center">
                   Get your dog&rsquo;s personalized training recommendation.
                 </span>
               </div>
-              <Link href="/newclientservices" className="btn btn-outline-white btn-lg min-w-[240px]">
+              <Link href="/newclientservices" className="btn btn-white btn-lg min-w-[240px]">
                 View Training Programs &rarr;
               </Link>
             </div>
