@@ -173,7 +173,7 @@ export default async function HomePage() {
             <div className="flex gap-4 flex-wrap items-start max-sm:flex-col max-sm:items-stretch">
               <div className="flex flex-col gap-2.5 max-sm:items-stretch">
                 <Link href="/free-behavior-assessment" className="btn btn-white btn-lg text-center max-sm:px-5">
-                  Take the Free 2-Minute Dog Behavior Assessment &rarr;
+                  Free Behavior Assessment &rarr;
                 </Link>
                 <span className="font-ui text-[13px] tracking-[0.5px] text-white/60 text-center">
                   Get your dog&rsquo;s personalized training recommendation.
