@@ -145,9 +145,9 @@ const JAS_BULLETS = [
 const SAMPLE_VIDEOS = [
   {
     level: "Beginner · Module 2",
-    title: "Foundation: Building Value & Engagement",
-    desc: "Watch Jas demonstrate the step, then see an owner and dog practice it and reach the finished result.",
-    src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a96ddd7389c8c4614069da5.mp4",
+    title: "Ignition",
+    desc: "When you have your dog's attention, the reward is ready, and your dog will do anything to earn it, that's ignition. It's like turning the key and revving the gas. When you see that spark in their eye, it's time to train.",
+    src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6ab1ba312e45fddc385233a9.mp4",
   },
   {
     level: "Intermediate · Module 5",
