@@ -5,6 +5,7 @@ import ShopTeaser from "@/components/ShopTeaser";
 import HeroEntrance from "@/components/HeroEntrance";
 import CountUp from "@/components/CountUp";
 import TestimonialSection from "@/components/TestimonialSection";
+import AssessmentQuiz from "@/app/free-behavior-assessment/AssessmentQuiz";
 import type { Testimonial } from "@/components/TestimonialSection";
 import { dedupeProductsByTitle, getProductsByCollection, isServiceProduct } from "@/lib/shopify";
 
@@ -51,11 +52,6 @@ const MEDIA_ROW_2 = [
   { src: "/images/media-logos/access-hollywood.webp", alt: "Access Hollywood", w: 379, h: "h-[52px] max-md:h-10" },
   { src: "/images/media-logos/tmz.webp", alt: "TMZ", w: 192, h: "h-16 max-md:h-12" },
 ];
-
-// Homepage assessment video. PROVISIONAL: reuses the intro clip from
-// /free-behavior-assessment until Zach uploads the dedicated 45–90s cut.
-const ASSESSMENT_VIDEO = "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6ab16f43ff484614db830523.mp4";
-const ASSESSMENT_POSTER = "/images/funnel/quiz-video-poster.jpg";
 
 const ASSESSMENT_CHECKS = [
   "Takes about 2 minutes",
@@ -256,19 +252,12 @@ export default async function HomePage() {
           aria-hidden="true"
         />
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 relative z-[1]">
-          <div className="grid grid-cols-[1.15fr_1fr] gap-14 items-center max-[900px]:grid-cols-1 max-[900px]:gap-9">
-            <div className="rounded-xl overflow-hidden bg-black shadow-[0_24px_64px_rgba(0,0,0,0.45)] ring-1 ring-white/10">
-              <video
-                className="w-full h-auto block"
-                poster={ASSESSMENT_POSTER}
-                controls
-                playsInline
-                preload="metadata"
-              >
-                <source src={ASSESSMENT_VIDEO} type="video/mp4" />
-              </video>
+          <div className="grid grid-cols-[1.15fr_1fr] gap-14 items-start max-[900px]:grid-cols-1 max-[900px]:gap-9">
+            {/* The live 13-question quiz, embedded. Results route to /free-behavior-assessment/results/[type]. */}
+            <div id="assessment-quiz" className="max-[900px]:order-2 scroll-mt-[100px]">
+              <AssessmentQuiz />
             </div>
-            <div>
+            <div className="max-[900px]:order-1 min-[901px]:sticky min-[901px]:top-[120px]">
               <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-amber-400 block mb-3">
                 Not Sure What Your Dog Needs?
               </span>
@@ -291,11 +280,15 @@ export default async function HomePage() {
                   </li>
                 ))}
               </ul>
-              <Link href="/free-behavior-assessment" className="btn btn-gold btn-lg max-sm:w-full">
-                Take My Free Assessment &rarr;
-              </Link>
-              <p className="font-ui text-[12px] tracking-[1.5px] uppercase text-white/45 mt-4">
+              {/* Phone/tablet: quiz stacks below the copy, so give them a jump button. */}
+              <div className="min-[901px]:hidden mb-4">
+                <a href="#assessment-quiz" className="btn btn-gold btn-lg max-sm:w-full">
+                  Take My Free Assessment &darr;
+                </a>
+              </div>
+              <p className="font-ui text-[12px] tracking-[1.5px] uppercase text-white/45">
                 Free &nbsp;&bull;&nbsp; 2 Minutes &nbsp;&bull;&nbsp; Personalized Results
+                <span className="max-[900px]:hidden"> &nbsp;&bull;&nbsp; <span className="text-amber-400">Start on the left &larr;</span></span>
               </p>
             </div>
           </div>
