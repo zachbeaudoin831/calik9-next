@@ -1,77 +1,17 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { DOG_TYPES, SESSION_KEY, resolveDogType, type SessionResult } from "./results/content";
 
-// ── Result routing destinations ─────────────────────────────────────────────
-// Every result routes to the $7, 20-minute reservation call.
-const BOOK_CALL_URL = "/book-your-call";
-const BOOK_CALL_LABEL = "Reserve Your Call →";
-// Academy-tier results go to the free masterclass invite instead of the call.
-const MASTERCLASS_INVITE_URL = "/free-masterclass/invite";
-const MASTERCLASS_INVITE_LABEL = "Save My Free Seat — This Saturday →";
-
-type TierKey = "academy" | "platinum" | "vip";
-
-const RESULTS: Record<
-  TierKey,
-  {
-    title: string;
-    desc: string;
-    price: string;
-    priceNote: string;
-    seeText: string;
-    url: string | null; // null = tier page not on the site yet
-    testi: string;
-    ctaUrl: string;
-    ctaLabel: string;
-    // Shown under the primary CTA (Elite/VIP): the free-masterclass escape hatch.
-    secondaryCtaUrl?: string;
-    secondaryCtaLabel?: string;
-  }
-> = {
-  academy: {
-    ctaUrl: MASTERCLASS_INVITE_URL,
-    ctaLabel: MASTERCLASS_INVITE_LABEL,
-    title: "START WITH THE ACADEMY",
-    desc: "The complete Cali K9 5 Pillar, 50-Step System™ across all 8 modules, laid out as a clear roadmap you follow from home — meet your dog where they are today and work the steps, in order, toward the trained dog you want. Includes Saturday Live sessions with Jas, the 30-Day Progress Guarantee™, and a free bag of Turbo Treats.",
-    price: "$97",
-    priceNote: "/month · Cancel anytime",
-    seeText: "See Academy details",
-    url: "/academy",
-    testi: "“My dog is off-leash reliable at 8 months old.” — Amanda K., Miami, FL",
-  },
-  platinum: {
-    ctaUrl: BOOK_CALL_URL,
-    ctaLabel: BOOK_CALL_LABEL,
-    title: "ELITE IS YOUR FIT",
-    desc: "Everything in the Academy plus 6 months of access, 4 Wednesday small-group coaching sessions with Jas, and personalized troubleshooting making sure each step is done correctly — moving your dog from chaos to control faster.",
-    price: "",
-    priceNote: "",
-    secondaryCtaUrl: MASTERCLASS_INVITE_URL,
-    secondaryCtaLabel: "No Thanks, Check Out Our Free Masterclass",
-    seeText: "See Elite details",
-    url: "/elite",
-    testi: "“Worth every penny. Dog came back calm, focused, obedient.” — Jessica R., Oakland, CA",
-  },
-  vip: {
-    ctaUrl: BOOK_CALL_URL,
-    ctaLabel: BOOK_CALL_LABEL,
-    title: "VIP IS YOUR FIT",
-    desc: "The full 5 Pillar, 50-Step System with a full year of access, 8 Wednesday coaching sessions, priority booking, the Training Kit included, and a private WhatsApp line to the team for support within 24 hours — the highest level of support for owners working through fear, reactivity, or a dog that is testing every boundary.",
-    price: "",
-    priceNote: "",
-    secondaryCtaUrl: MASTERCLASS_INVITE_URL,
-    secondaryCtaLabel: "No Thanks, Check Out Our Free Masterclass",
-    seeText: "See VIP details",
-    url: "/vip",
-    testi: "“The transformation in 30 days was something we never thought possible.” — Robert J., New York, NY",
-  },
-};
+// After the contact gate, the visitor is sent to one of three real result
+// pages: /free-behavior-assessment/results/{pushy|fearful|untrained}.
+// Nothing about paid programs or the call is shown inside the assessment.
+const RESULT_BASE = "/free-behavior-assessment/results";
 
 const TOTAL_STEPS = 13;
 
-type Step = number | "contact" | "result";
+type Step = number | "contact";
 
 const SINGLE_SELECT: Record<number, { eyebrow: string; q: string; sub?: string; options: string[] }> = {
   1: {
@@ -243,17 +183,26 @@ function ContinueButton({ onClick, className = "" }: { onClick: () => void; clas
 }
 
 export default function AssessmentQuiz() {
+  const router = useRouter();
   const [step, setStep] = useState<Step>(1);
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [problems, setProblems] = useState<string[]>([]);
   const [age, setAge] = useState("");
   const [breed, setBreed] = useState("");
   const [location, setLocation] = useState("");
-  const [name, setName] = useState("");
+  const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [contactError, setContactError] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [history, setHistory] = useState<Step[]>([]);
+
+  // Warm the three result pages so the reveal is instant.
+  useEffect(() => {
+    if (step === "contact") {
+      for (const t of DOG_TYPES) router.prefetch(`${RESULT_BASE}/${t}`);
+    }
+  }, [step, router]);
 
   const goNext = (from: Step) => {
     setHistory((h) => [...h, from]);
@@ -278,26 +227,63 @@ export default function AssessmentQuiz() {
     setProblems((list) => (list.includes(p) ? list.filter((x) => x !== p) : [...list, p]));
   };
 
+  // Internal only — never shown to the visitor. Sent to GHL so the team can
+  // see which program the answers point to. Driven by primary challenge
+  // (Q1), urgency (Q4) and budget (Q11).
+  const tier = (): "academy" | "elite" | "vip" => {
+    if (answers[11] === 1) return "academy";
+    const total = (answers[1] || 0) + (answers[4] || 0) + (answers[11] || 0);
+    if (total <= 4) return "academy";
+    if (total <= 7) return "elite";
+    return "vip";
+  };
+
   const submitContact = () => {
     const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
-    if (!name.trim() || !emailOk) {
+    if (!firstName.trim() || !emailOk) {
       setContactError(true);
       return;
     }
     setContactError(false);
+    setSubmitting(true);
+
     // Base pixel (init + PageView) loads globally in the root layout.
     const w = window as typeof window & { fbq?: (...args: unknown[]) => void };
     if (typeof w.fbq === "function") w.fbq("track", "Lead");
 
-    // Send the assessment to GHL (contact + tags + note + custom fields).
-    // Fire-and-forget so the result screen never waits on the network.
     const opt = (q: number) => (answers[q] ? SINGLE_SELECT[q]?.options[answers[q] - 1] : undefined);
-    const tierKey = score();
+    const type = resolveDogType({
+      primary: answers[1],
+      problems,
+      previousTraining: answers[5],
+      outcome: answers[6],
+      offLeash: answers[13],
+    });
+
+    // Personalization for the result page — first name + qualification
+    // signals. Session-only, never in the URL.
+    const session: SessionResult = {
+      firstName: firstName.trim(),
+      type,
+      urgency: opt(4),
+      budget: opt(11),
+      problems,
+      at: Date.now(),
+    };
+    try {
+      window.sessionStorage.setItem(SESSION_KEY, JSON.stringify(session));
+    } catch {
+      // private mode etc. — result page still renders, just not personalized
+    }
+
+    // Send the assessment to GHL (contact + tags + note + custom fields).
+    // Fire-and-forget so the result page never waits on the network.
     const payload = {
-      name: name.trim(),
+      name: firstName.trim(),
       email: email.trim(),
       phone: phone.trim(),
-      tier: tierKey === "platinum" ? "elite" : tierKey,
+      tier: tier(),
+      resultType: type,
       answers: {
         dogType: opt(1),
         age,
@@ -323,51 +309,17 @@ export default function AssessmentQuiz() {
         keepalive: true,
       }).catch(() => {});
     } catch {
-      // never block the result screen
+      // never block the result page
     }
 
-    setHistory((h) => [...h, "contact"]);
-    setStep("result");
-  };
-
-  const retake = () => {
-    setAnswers({});
-    setProblems([]);
-    setAge("");
-    setBreed("");
-    setLocation("");
-    setName("");
-    setEmail("");
-    setPhone("");
-    setContactError(false);
-    setHistory([]);
-    setStep(1);
-  };
-
-  // Recommendation is directional only — driven by primary challenge (Q1),
-  // severity/urgency (Q4), and budget (Q11). Every other answer is collected
-  // for the team to review, not scored.
-  const score = (): TierKey => {
-    // Budget gate: "Under $200" (option 1) always gets the Academy result and
-    // the free masterclass invite, no matter how severe or urgent the problem.
-    if (answers[11] === 1) return "academy";
-    const total = (answers[1] || 0) + (answers[4] || 0) + (answers[11] || 0);
-    if (total <= 4) return "academy";
-    if (total <= 7) return "platinum";
-    return "vip";
+    router.push(`${RESULT_BASE}/${type}`);
   };
 
   const progressN = typeof step === "number" ? step : TOTAL_STEPS;
   const pct = Math.round((progressN / TOTAL_STEPS) * 100);
-  const stepLabel =
-    step === "result"
-      ? "Your Results"
-      : step === "contact"
-        ? "Almost Done"
-        : `Question ${step} of ${TOTAL_STEPS}`;
+  const stepLabel = step === "contact" ? "Results Ready" : `Question ${step} of ${TOTAL_STEPS}`;
 
   const single = typeof step === "number" ? SINGLE_SELECT[step] : undefined;
-  const result = step === "result" ? RESULTS[score()] : undefined;
 
   return (
     <div className="max-w-[680px] mx-auto bg-white border border-border rounded-[18px] shadow-lg p-10 max-md:p-6">
@@ -528,30 +480,29 @@ export default function AssessmentQuiz() {
         </div>
       )}
 
-      {/* Contact gate */}
+      {/* Contact gate — the only thing between Q13 and the result */}
       {step === "contact" && (
         <div>
           <div className="font-ui text-[12px] font-bold tracking-[2px] uppercase text-blue-500 mb-2.5">
-            Almost Done
+            Assessment Complete
           </div>
           <h3 className="font-display text-[26px] max-md:text-[22px] text-ink leading-tight mb-1.5">
-            Where should we send your results?
+            Your Personalized Results Are Ready.
           </h3>
           <p className="font-body text-[13px] text-gray-muted mb-5">
-            Your personalized recommendation is next &mdash; we&rsquo;ll also send a copy to your
-            email.
+            Tell us where to send a copy and we&rsquo;ll show you your dog type right now.
           </p>
           <label className={labelClass} htmlFor="quiz-name">
-            Name
+            First name
           </label>
           <input
             id="quiz-name"
             className={`${fieldClass} mb-4`}
             type="text"
-            autoComplete="name"
-            placeholder="Your name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            autoComplete="given-name"
+            placeholder="Your first name"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
           />
           <label className={labelClass} htmlFor="quiz-email">
             Email
@@ -566,7 +517,7 @@ export default function AssessmentQuiz() {
             onChange={(e) => setEmail(e.target.value)}
           />
           <label className={labelClass} htmlFor="quiz-phone">
-            Phone (optional)
+            Mobile (for a text copy of your results)
           </label>
           <input
             id="quiz-phone"
@@ -577,65 +528,23 @@ export default function AssessmentQuiz() {
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
           />
-          <button type="button" onClick={submitContact} className="btn btn-blue w-full">
-            See My Results &rarr;
+          <button
+            type="button"
+            onClick={submitContact}
+            disabled={submitting}
+            className="btn btn-blue w-full disabled:opacity-70"
+          >
+            {submitting ? "Loading your results…" : "Show Me My Results →"}
           </button>
           {contactError && (
             <p className="font-body text-[12.5px] text-red-500 mt-2.5 text-center" role="alert">
-              Please enter your name and a valid email.
+              Please enter your first name and a valid email.
             </p>
           )}
         </div>
       )}
 
-      {/* Result */}
-      {result && (
-        <div className="text-center">
-          <div className="inline-block bg-amber-400 text-[#2b1d05] font-ui text-[11px] font-bold tracking-[1.5px] uppercase px-3.5 py-1.5 rounded-full mb-4">
-            Recommended For You
-          </div>
-          <h3 className="font-display text-[32px] max-md:text-[26px] text-ink leading-tight mb-3.5">
-            {result.title}
-          </h3>
-          <p className="font-body text-[14.5px] text-gray-muted leading-relaxed max-w-[520px] mx-auto mb-6">
-            {result.desc}
-          </p>
-          {result.price && (
-            <div className="font-display text-[34px] text-ink mb-5">
-              {result.price}
-              <span className="font-body text-[13px] text-gray-muted">{result.priceNote}</span>
-            </div>
-          )}
-          <div className="bg-cream rounded-xl px-5 py-4 mb-5 font-body text-[13.5px] italic text-ink/80 text-left">
-            {result.testi}
-          </div>
-          <Link href={result.ctaUrl} className="btn btn-blue w-full">
-            {result.ctaLabel}
-          </Link>
-          {result.secondaryCtaUrl && (
-            <Link href={result.secondaryCtaUrl} className="btn btn-outline w-full mt-3">
-              {result.secondaryCtaLabel}
-            </Link>
-          )}
-          {result.url && (
-            <p className="font-body text-[13px] text-gray-muted mt-6 pt-6 border-t border-border">
-              <Link href={result.url} className="text-blue-500 underline">
-                {result.seeText} &rarr;
-              </Link>{" "}
-              without booking a call first.
-            </p>
-          )}
-          <button
-            type="button"
-            onClick={retake}
-            className="font-body text-[12.5px] text-gray-muted underline mt-4 cursor-pointer bg-transparent border-none"
-          >
-            &#8635; Retake the quiz
-          </button>
-        </div>
-      )}
-
-      {step !== 1 && step !== "result" && (
+      {step !== 1 && (
         <button
           type="button"
           onClick={goBack}

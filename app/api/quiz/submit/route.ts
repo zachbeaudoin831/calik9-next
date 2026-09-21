@@ -26,6 +26,7 @@ const VERSION = "2021-07-28";
 
 const FIELD_NAMES: Record<string, string> = {
   tier: "Quiz: Recommended Tier",
+  resultType: "Quiz: Result Type",
   dogType: "Quiz: Dog Type",
   age: "Quiz: Dog Age",
   breed: "Quiz: Dog Breed",
@@ -65,6 +66,9 @@ type Submission = {
   email: string;
   phone?: string;
   tier: "academy" | "elite" | "vip";
+  // Which of the three result pages the visitor was shown (mixed dogs are
+  // resolved to their dominant profile client-side).
+  resultType?: "pushy" | "fearful" | "untrained";
   answers: Record<string, string | number | string[] | undefined>;
 };
 
@@ -184,11 +188,20 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Name and a valid email are required" }, { status: 400 });
   }
   const tier = (["academy", "elite", "vip"] as const).includes(body.tier) ? body.tier : "academy";
+  const resultType = (["pushy", "fearful", "untrained"] as const).includes(
+    body.resultType as "pushy" | "fearful" | "untrained",
+  )
+    ? (body.resultType as "pushy" | "fearful" | "untrained")
+    : undefined;
   const a = body.answers || {};
   const submittedAt = new Date().toISOString();
 
   // Short, stable tags for workflow branching (see /docs build sheet).
+  // quiz-result-* is the tag to branch the dog-type email/SMS sequences on:
+  // unlike quiz-dog-*, it never says "mixed" — a mixed dog is resolved to
+  // the profile whose result page they actually saw.
   const tags = ["quiz-completed", `quiz-${tier}`];
+  if (resultType) tags.push(`quiz-result-${resultType}`);
   const dog = asText(a.dogType).toLowerCase();
   if (dog.startsWith("pushy")) tags.push("quiz-dog-pushy");
   else if (dog.startsWith("fearful")) tags.push("quiz-dog-fearful");
@@ -210,7 +223,12 @@ export async function POST(req: Request) {
 
   const byName = await customFieldIds();
   const customFields: { id: string; field_value: string }[] = [];
-  const values: Record<string, string> = { ...Object.fromEntries(Object.entries(a).map(([k, v]) => [k, asText(v)])), tier, submittedAt };
+  const values: Record<string, string> = {
+    ...Object.fromEntries(Object.entries(a).map(([k, v]) => [k, asText(v)])),
+    tier,
+    submittedAt,
+    ...(resultType ? { resultType } : {}),
+  };
   for (const [key, fieldName] of Object.entries(FIELD_NAMES)) {
     const id = byName[fieldName.toLowerCase()];
     const value = values[key];
@@ -242,6 +260,7 @@ export async function POST(req: Request) {
   const lines = [
     `Free Behavior Assessment — ${new Date(submittedAt).toLocaleString("en-US", { timeZone: "America/Los_Angeles" })} PT`,
     `Recommended: ${tier.toUpperCase()}`,
+    ...(resultType ? [`Result page shown: ${resultType} (calik9.com/free-behavior-assessment/results/${resultType})`] : []),
     "",
     ...Object.entries(QUESTION_LABELS).map(([k, q]) => `${q}: ${values[k] || "—"}`),
   ];

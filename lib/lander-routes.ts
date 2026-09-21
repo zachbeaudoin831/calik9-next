@@ -2,6 +2,9 @@
 const LANDER_ROUTES = new Set([
   "/free-behavioral-assessment",
   "/free-behavior-assessment",
+  "/free-behavior-assessment/results/pushy",
+  "/free-behavior-assessment/results/fearful",
+  "/free-behavior-assessment/results/untrained",
   "/dog-behavior-assessment",
   "/register-now",
   "/webinar-offer",
