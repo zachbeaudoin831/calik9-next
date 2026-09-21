@@ -3,27 +3,37 @@
 import { useState } from "react";
 
 const FAQS = [
-  { q: "Is the masterclass really free?", a: "Yes. There is no charge to register." },
   {
-    q: "Is this for beginners?",
-    a: "Yes. The training is designed to be understandable for everyday dog owners.",
+    q: "Is the masterclass really free?",
+    a: "Yes. There is no charge to register or attend, and no credit card is required. The 50-Step Roadmap is included free when you register.",
   },
   {
-    q: "What dog problems will you cover?",
-    a: "The concepts can apply to obedience, pulling, jumping, lack of focus, recall, reactivity, anxiety, aggression and other common training problems.",
+    q: "My dog is reactive or aggressive. Is this for me?",
+    a: "Yes. Reactivity is one of the most common reasons owners join, and Jas covers what's actually driving it. For serious aggression or safety concerns, the masterclass is still the right first step, and our team can point you to hands-on help afterward.",
   },
   {
-    q: "Is this only for puppies?",
-    a: "No. The principles can apply to dogs of different ages depending on the individual dog and behavior.",
-  },
-  { q: "Is the masterclass live?", a: "Yes, this is a live online session." },
-  {
-    q: "What do I need?",
-    a: "A phone, tablet or computer, internet connection and something to take notes with.",
+    q: "I have a puppy. Is it too early?",
+    a: "No. Puppies are the easiest dogs to get right, because you're building good habits from day one instead of undoing bad ones later.",
   },
   {
-    q: "How do I get the 50-Step Roadmap?",
-    a: "It will be delivered after successful registration.",
+    q: "My dog is older. Is it too late?",
+    a: "No. Older dogs can learn the system, and they're often calmer and more focused than puppies once they understand what you're asking.",
+  },
+  {
+    q: "I've tried trainers, classes and YouTube. Why would this be different?",
+    a: "Most training fails because it's random tips and isolated commands with no order. The masterclass shows you the system and the sequence, which is usually the piece that was missing.",
+  },
+  {
+    q: "When is it, and how long does it take?",
+    a: "It's live on Zoom every Saturday at 10:00 AM Pacific / 1:00 PM Eastern. Register and we'll send the link and a reminder.",
+  },
+  {
+    q: "What if I can't make it live?",
+    a: "Register anyway. Everyone who registers gets the 50-Step Roadmap, and we'll send you the replay details.",
+  },
+  {
+    q: "Does my dog need to be with me?",
+    a: "No. All you need is a phone, tablet or computer and something to take notes with. Your dog can relax.",
   },
 ];
 
