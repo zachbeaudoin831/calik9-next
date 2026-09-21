@@ -373,20 +373,20 @@ export default function AcademyPage() {
             ))}
           </div>
 
-          <div className="mt-8 pt-6 border-t border-black/[0.06] flex items-center justify-center gap-x-8 gap-y-4 flex-wrap">
+          <div className="mt-8 pt-7 border-t border-black/[0.06] flex items-center justify-between max-md:justify-center gap-x-8 gap-y-5 flex-wrap">
             <span className="font-ui text-[12px] font-semibold tracking-[2px] uppercase text-gray-muted max-md:w-full">
               Trusted By
             </span>
             {RECOGNIZABLE_NAMES.map((celeb) => (
-              <div key={celeb.name} className="flex items-center gap-2.5">
+              <div key={celeb.name} className="flex items-center gap-3">
                 <Image
                   src={celeb.image}
                   alt={`Jas Leverette with ${celeb.name}`}
                   width={300}
                   height={300}
-                  className="w-11 h-11 rounded-full object-cover"
+                  className="w-16 h-16 max-md:w-12 max-md:h-12 rounded-full object-cover"
                 />
-                <span className="font-ui text-[12px] font-bold tracking-[1px] uppercase text-ink">
+                <span className="font-ui text-[15px] max-md:text-[13px] font-bold tracking-[1px] uppercase text-ink">
                   {celeb.name}
                 </span>
               </div>
