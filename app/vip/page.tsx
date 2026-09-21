@@ -108,7 +108,7 @@ const FAQS = [
 
 function PricingCta() {
   return (
-    <Link href={START_ORDER_URL} className="btn btn-blue btn-lg w-full text-center">
+    <Link href={START_ORDER_URL} className="btn btn-gold btn-lg w-full text-center">
       Get VIP &mdash; $2,497 &rarr;
     </Link>
   );
@@ -139,7 +139,21 @@ export default function VipPage() {
           <p className="font-ui text-base italic text-blue-200 mb-7">
             &ldquo;I want you guys involved &mdash; tell me exactly what to do with MY dog.&rdquo;
           </p>
-          <a href="#pricing" className="btn btn-white btn-lg">
+          <div className="max-w-[640px] mx-auto mb-7">
+            <video
+              poster="/images/funnel/posters/6ab1bf732e45fddc38528f40.jpg"
+              className="w-full h-auto rounded-xl bg-black shadow-[0_20px_60px_rgba(0,0,0,0.4)]"
+              controls
+              playsInline
+              preload="metadata"
+            >
+              <source
+                src="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6ab1bf732e45fddc38528f40.mp4"
+                type="video/mp4"
+              />
+            </video>
+          </div>
+          <a href="#pricing" className="btn btn-gold btn-lg">
             Get VIP &mdash; $2,497 &rarr;
           </a>
           <p className="font-ui text-xs tracking-[1.5px] uppercase text-white/40 mt-4">
@@ -413,7 +427,7 @@ export default function VipPage() {
             full 12 months, priority booking, the private VIP WhatsApp group, the full Training
             Kit, and priority support.
           </p>
-          <a href="#pricing" className="btn btn-white btn-lg">
+          <a href="#pricing" className="btn btn-gold btn-lg">
             Get VIP &mdash; $2,497 &rarr;
           </a>
           <p className="font-ui text-xs text-white/35 mt-10">
