@@ -39,9 +39,20 @@ export default function FreeBehaviorAssessmentPage() {
           <span className="inline-flex items-center gap-2 bg-white/[0.12] border border-white/[0.22] text-white font-ui text-[12px] font-bold tracking-[2px] uppercase px-4 py-2 rounded-full backdrop-blur-md mb-5">
             ★ Free Behavior Assessment &middot; 2 Minutes &middot; Personalized Results
           </span>
-          <h1 className="font-display text-[clamp(40px,6vw,68px)] text-white leading-[0.95] mb-5">
+          <h1 className="font-display text-[clamp(40px,6vw,68px)] text-white leading-[0.95] mb-6">
             WHICH DOG DO YOU HAVE?
           </h1>
+          <video
+            className="w-full max-w-[760px] mx-auto rounded-xl bg-black shadow-[0_20px_60px_rgba(0,0,0,0.4)] mb-6"
+            controls
+            playsInline
+            preload="metadata"
+          >
+            <source
+              src="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6ab16f43ff484614db830523.mp4"
+              type="video/mp4"
+            />
+          </video>
           <p className="font-body text-base text-white/70 leading-relaxed max-w-[600px] mx-auto">
             Every dog needs training &mdash; but every dog starts from a different place. Fearful
             &amp; reactive. Pushy &amp; overconfident. Or a good dog that&rsquo;s simply never been
