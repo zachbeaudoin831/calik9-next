@@ -104,7 +104,7 @@ const FAQS = [
 
 function PricingCta() {
   return (
-    <Link href={START_ORDER_URL} className="btn btn-blue btn-lg w-full text-center">
+    <Link href={START_ORDER_URL} className="btn btn-gold btn-lg w-full text-center">
       Get Elite &mdash; $997 &rarr;
     </Link>
   );
@@ -135,7 +135,21 @@ export default function ElitePage() {
             &ldquo;The roadmap tells you what to do. Elite helps make sure you are doing it
             correctly.&rdquo;
           </p>
-          <a href="#pricing" className="btn btn-white btn-lg">
+          <div className="max-w-[640px] mx-auto mb-7">
+            <video
+              poster="/images/funnel/posters/6ab1bcd0de8ed1c29fb3a4e6.jpg"
+              className="w-full h-auto rounded-xl bg-black shadow-[0_20px_60px_rgba(0,0,0,0.4)]"
+              controls
+              playsInline
+              preload="metadata"
+            >
+              <source
+                src="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6ab1bcd0de8ed1c29fb3a4e6.mp4"
+                type="video/mp4"
+              />
+            </video>
+          </div>
+          <a href="#pricing" className="btn btn-gold btn-lg">
             Get Elite &mdash; $997 &rarr;
           </a>
           <p className="font-ui text-xs tracking-[1.5px] uppercase text-white/40 mt-4">
@@ -450,7 +464,7 @@ export default function ElitePage() {
             Join Elite for $997 and get the full Cali K9 5 Pillar, 50-Step System&trade; plus 6
             months of Academy access and 4 Train With Jas coaching sessions.
           </p>
-          <a href="#pricing" className="btn btn-white btn-lg">
+          <a href="#pricing" className="btn btn-gold btn-lg">
             Get Elite &mdash; $997 &rarr;
           </a>
           <p className="font-ui text-xs text-white/35 mt-10">
