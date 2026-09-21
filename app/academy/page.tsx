@@ -207,13 +207,13 @@ const JOIN_STEPS = [
 
 // Live schedule. Jas runs these from Morocco (UTC+1, no DST); the US times
 // below are the Pacific/Eastern equivalents while the US is on daylight time
-// (Sat 5:00 PM / 6:00 PM and Tue 4:00 PM Morocco; Academy Live is set at 12 PM PT directly). When US clocks fall back in
+// (Sat 5:00 PM / 6:00 PM Morocco; Academy Live 12 PM PT and the Tuesday session 4 PM PT are set in US time directly). When US clocks fall back in
 // November, each becomes one hour earlier here (8:00 AM PT, etc.).
 const SCHEDULE = [
   { day: "Sat · 9:00 AM PT / 12:00 PM ET", title: "Kickstart", access: "Free · Community", tone: "free" },
   { day: "Sat · 10:00 AM PT / 1:00 PM ET", title: "Live Webinar", access: "Open To Guests", tone: "guest" },
   { day: "Sat · 12:00 PM PT / 3:00 PM ET", title: "Academy Live With Jas", access: "Members Only", tone: "members" },
-  { day: "Tue · 8:00 AM PT / 11:00 AM ET", title: "Trainer-Led Academy Live", access: "Members Only", tone: "members" },
+  { day: "Tue · 4:00 PM PT / 7:00 PM ET", title: "Trainer-Led Academy Live", access: "Members Only", tone: "members" },
 ];
 
 const FAQS = [
