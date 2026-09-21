@@ -6,7 +6,7 @@ import { posterFor } from "@/lib/video-poster";
 export const metadata: Metadata = {
   title: "Cali K9 Online Academy",
   description:
-    "Train the dog you've always wanted, from home, step by step. The Cali K9® Online Academy: a 50-step roadmap taught by Jas Leverette of Netflix's Canine Intervention. $97/month, cancel anytime.",
+    "Train live with Jas Leverette every week. The Cali K9® Online Academy: the complete 8-module, 50-step system plus weekly live coaching, taught by the trainer from Netflix's Canine Intervention. $97/month, cancel anytime.",
   // Draft membership sales page. Keep out of search while in review.
   robots: { index: false, follow: false },
 };
@@ -23,223 +23,50 @@ const STATS = [
   { big: "Gives Back", small: "A Portion Of Profits Fund Street Dog Rescue" },
 ];
 
-const BEFORE = [
-  "Piecing together random tips with no order",
-  "Unsure what to train next, or why",
-  "Dog listens sometimes, not consistently",
-  "Tried things before without lasting results",
-];
-
-const AFTER = [
-  "A step-by-step roadmap, start to finish",
-  "Real communication your dog understands",
-  "Progressive, reliable obedience you can build on",
-  "The confidence of being your dog's trainer, not just its owner",
-];
-
 const PROBLEMS = [
   "Dog doesn't listen",
   "Pulling on leash",
   "Jumping on people",
   "Poor recall",
-  "Lack of focus",
   "Overexcitement",
-  "Difficulty around distractions",
-  "Poor household boundaries",
-  "Puppy foundation problems",
-  "Unsure how to communicate clearly",
-  "Dog listens to the trainer, not the owner",
-  "Watched YouTube videos, no structured plan",
-  "Tried training before, no consistent results",
+  "Falls apart around distractions",
+  "Listens to the trainer, not to you",
+  "Tried training before, no lasting results",
 ];
 
 const PHASES = [
-  {
-    num: 1,
-    title: "Household Foundation",
-    steps: "Steps 1–4",
-    detail: "Establishing Household Boundaries · Building Food Value & Motivation · Hand-Feeding Meals",
-    list: [
-      "Establishing Boundaries in the Home",
-      "Building Value for Food & Rewards",
-      "Hand-Feeding Meals",
-      "Increasing Food Motivation (“Ignition”)",
-    ],
-  },
-  {
-    num: 2,
-    title: "Engagement & Training Structure",
-    steps: "Steps 5–9",
-    detail: "Leash-On Approach Inside the Home · Household Rules & Boundaries · Building Break/Play Value",
-    list: [
-      "Leash-On Approach Inside the Home",
-      "Establishing Household Rules & Boundaries",
-      "No Beds/Couches During the Foundation Phase",
-      "Initial Training Sessions",
-      "Building Value for the Break/Play Command",
-    ],
-  },
-  {
-    num: 3,
-    title: "Markers, Luring & The Training Box",
-    steps: "Steps 10–17",
-    detail: "Basic Luring Mechanics · Introducing the Training Box · Sustainment & Release Markers",
-    list: [
-      "Basic Luring Mechanics",
-      "Introducing the Training Box",
-      "Luring Onto the Training Box",
-      "Climbing Onto the Box",
-      "Sit + Focus on the Box",
-      "Maintaining Position While Handler Moves Around Dog",
-      "Establishing the Sustainment Marker",
-      "Establishing & Reinforcing the Release Marker",
-    ],
-  },
-  {
-    num: 4,
-    title: "Core Positions (Flip Box: In-The-Box vs. On-The-Box)",
-    steps: "Steps 18–25",
-    detail: "Down, Stand & Front · Heel Position · Middle & Right Position",
-    list: [
-      "Down",
-      "Circling the Down",
-      "Stand",
-      "Circling the Stand",
-      "Front Position",
-      "Heel Position",
-      "Middle Position",
-      "Right Position",
-    ],
-  },
-  {
-    num: 5,
-    title: "Heeling & Movement Progression (Flip Box: In-The-Box vs. On-The-Box)",
-    steps: "Steps 26–31",
-    detail: "Extending Recall Into Front · One, Three & Five-Step Heeling · Phasing Out the Lure",
-    list: [
-      "Extending Recall Into Front",
-      "Extending Heel",
-      "One-Step Heeling",
-      "Three-Step Heeling",
-      "Five-Step Heeling",
-      "Phasing Out the Lure",
-    ],
-  },
-  {
-    num: 6,
-    title: "Distance, Duration & Distraction (Flip Box: In-The-Box vs. On-The-Box)",
-    steps: "Steps 32–38",
-    detail: "Adding Mild Distractions · Introducing the Touchpad · Rear-End Awareness",
-    list: [
-      "Adding Mild Distractions",
-      "Increasing Distance",
-      "Increasing Duration",
-      "Increasing Distraction",
-      "Introducing the Touchpad",
-      "Rear-End Awareness (Touchpad-Assisted)",
-      "Progressively Cleaner Positioning",
-    ],
-  },
-  {
-    num: 7,
-    title: "Engagement & Real-World Reliability",
-    steps: "Steps 39–44",
-    detail: "Building Engagement Around Distractions · Handler Communication & Leadership",
-    list: [
-      "Building Engagement Around Distractions",
-      "Increasing Obedience Reliability",
-      "Progressing From Training Environments Into Real-World Environments",
-      "Building Handler Communication",
-      "Building Handler Leadership",
-      "Increasing Freedom as Reliability Improves",
-    ],
-  },
-  {
-    num: 8,
-    title: "Off-Leash Mastery & Generalization",
-    steps: "Steps 45–50",
-    detail: "Generalizing Commands · Reliable Recall & Heel · Off-Leash Reliability",
-    list: [
-      "Generalizing Commands in Different Environments",
-      "Advanced Distraction Work",
-      "Reliable Recall",
-      "Reliable Heel",
-      "Real-World Obedience",
-      "Progression Toward Off-Leash Reliability",
-    ],
-  },
+  { num: 1, title: "Household Foundation", steps: "Steps 1–4", detail: "Boundaries at home · Building food value · Hand-feeding meals" },
+  { num: 2, title: "Engagement & Training Structure", steps: "Steps 5–9", detail: "Leash-on in the home · Household rules · Break/play value" },
+  { num: 3, title: "Markers, Luring & The Training Box", steps: "Steps 10–17", detail: "Luring mechanics · The training box · Sustainment & release markers" },
+  { num: 4, title: "Core Positions", steps: "Steps 18–25", detail: "Down, stand & front · Heel position · Middle & right" },
+  { num: 5, title: "Heeling & Movement", steps: "Steps 26–31", detail: "Recall into front · One, three & five-step heeling · Phasing out the lure" },
+  { num: 6, title: "Distance, Duration & Distraction", steps: "Steps 32–38", detail: "The three D's · The touchpad · Rear-end awareness" },
+  { num: 7, title: "Real-World Reliability", steps: "Steps 39–44", detail: "Engagement around distractions · Handler communication & leadership" },
+  { num: 8, title: "Off-Leash Mastery", steps: "Steps 45–50", detail: "Generalizing commands · Reliable recall & heel · Off-leash reliability" },
 ];
 
-const PHILOSOPHY = [
-  {
-    num: "1",
-    title: "CLEAR COMMUNICATION",
-    desc: "Your dog needs to understand exactly what you're asking. We build a shared language before we ask for behavior.",
-  },
-  {
-    num: "2",
-    title: "PACK LEADERSHIP",
-    desc: "You become someone your dog understands, follows and respects — not through force, but through consistent, fair structure. As Jas puts it: “If you treat a dog like a human, it will treat you like a dog.”",
-  },
-  {
-    num: "3",
-    title: "EXPRESSION",
-    desc: "We're not just suppressing behavior. Your dog gets to appropriately express energy and drive while developing real control.",
-  },
+const METHOD_FLOW = [
+  { big: "3", label: "Motivators", sub: "Praise, food, toy" },
+  { big: "5", label: "Pillars", sub: "The skills every dog needs" },
+  { big: "8", label: "Modules", sub: "Foundation to off-leash" },
+  { big: "50", label: "Steps", sub: "One fully trained dog" },
 ];
 
 const PILLARS = [
-  { name: "Obedience", desc: "Reliable core commands built through the 50-step roadmap.", image: "/images/funnel/pillar-1.jpg" },
-  { name: "Socialization", desc: "Calm, confident exposure to other dogs, people and environments.", image: "/images/funnel/pillar-2.jpg" },
-  { name: "Agility", desc: "Controlled movement and body awareness through structured drills.", image: "/images/funnel/pillar-3.jpg" },
-  { name: "Behavior Management", desc: "Managing triggers and energy before they become habits.", image: "/images/funnel/pillar-4.jpg" },
-  { name: "Problem-Solving Technique", desc: "Diagnosing why a command breaks down — and fixing it.", image: "/images/funnel/pillar-5.jpg" },
+  { name: "Obedience", image: "/images/funnel/pillar-1.jpg" },
+  { name: "Socialization", image: "/images/funnel/pillar-2.jpg" },
+  { name: "Agility", image: "/images/funnel/pillar-3.jpg" },
+  { name: "Behavior Management", image: "/images/funnel/pillar-4.jpg" },
+  { name: "Problem-Solving", image: "/images/funnel/pillar-5.jpg" },
 ];
 
 const MOTIVATORS = [
-  {
-    num: "Motivator 1",
-    name: "Praise",
-    desc: "Verbal and physical affection that tells your dog, in the moment, exactly when they've gotten it right.",
-    image: "/images/funnel/motivator-praise.png",
-  },
-  {
-    num: "Motivator 2",
-    name: "Food",
-    desc: "The most immediate, controllable reward — used to build value, engagement and precision from Step 1.",
-    image: "/images/funnel/motivator-food.png",
-  },
-  {
-    num: "Motivator 3",
-    name: "Toy",
-    desc: "Play and drive-based engagement that channels your dog's energy into focus instead of suppressing it.",
-    image: "/images/funnel/motivator-toy.png",
-  },
-];
-
-const CONCEPT_CHIPS = [
-  "Clear Communication",
-  "Leadership",
-  "Reward & Value Building",
-  "Markers",
-  "Luring",
-  "Positioning",
-  "Engagement",
-  "Distance",
-  "Duration",
-  "Distraction",
-  "Real-World Reliability",
+  { name: "Praise", desc: "Tells your dog, in the moment, exactly when they've gotten it right.", image: "/images/funnel/motivator-praise.png" },
+  { name: "Food", desc: "The most controllable reward. Builds value, engagement and precision from Step 1.", image: "/images/funnel/motivator-food.png" },
+  { name: "Toy", desc: "Channels your dog's drive into focus instead of suppressing it.", image: "/images/funnel/motivator-toy.png" },
 ];
 
 const RESULTS = [
-  {
-    tag: "“Couldn't Control Him Around Distractions”",
-    quote:
-      "“Before Cali K9, Zeus was lunging at every dog on the street. Now he walks by my side like a completely different dog.”",
-    name: "Marcus T.",
-    meta: "Zeus · German Shepherd",
-    result: "Now walks calmly past other dogs",
-  },
   {
     tag: "“Reactive And Nothing Worked”",
     quote:
@@ -257,22 +84,6 @@ const RESULTS = [
     result: "Off-leash reliable at 8 months old",
   },
   {
-    tag: "“Anxious And Tense At Home”",
-    quote:
-      "“Jas understands dog psychology on a level that's hard to describe. He gave us a clear plan. Three months later, our dog is a joy to live with.”",
-    name: "Christine M.",
-    meta: "Bay Area, CA",
-    result: "Anxiety resolved. A joy to live with",
-  },
-  {
-    tag: "“A Notoriously Difficult Breed”",
-    quote:
-      "“We have a Belgian Malinois. Jas handled him like it was nothing. The transformation in 30 days was something we never thought possible.”",
-    name: "Robert J.",
-    meta: "New York, NY",
-    result: "Belgian Malinois transformed in 30 days",
-  },
-  {
     tag: "“A Fearful Rescue We Almost Returned”",
     quote:
       "“We were considering rehoming our rescue. She came back calm, focused, and loving. I'm emotional typing this.”",
@@ -286,46 +97,39 @@ const LANDSCAPE = [
   {
     name: "YouTube",
     price: "Free",
-    desc: "Fragmented. You have to guess what to watch, in what order, and whether you're even doing it correctly.",
+    desc: "Random information. No order, no feedback, and no way to know if you're doing it right.",
     featured: false,
   },
   {
-    name: "Cheap Courses",
+    name: "Online Courses",
     price: "$20–$50",
-    desc: "Information without enough structure, progression or accountability. Easy to buy, hard to ever finish.",
+    desc: "Information. A library of videos with no live coaching and no accountability, so most people never finish.",
     featured: false,
   },
   {
     name: "Cali K9 Academy",
     price: "$97/month",
-    desc: "A structured roadmap that teaches the owner and the dog together. Step by step, start to finish.",
+    desc: "A complete system plus live coaching and accountability every week. You learn to train your dog.",
     featured: true,
   },
   {
     name: "Board & Train",
     price: "$5,000+",
-    desc: "Can work well, but puts training in someone else's hands. You still have to learn to maintain and reproduce it.",
+    desc: "The trainer trains the dog. You still have to learn how to maintain it once the dog comes home.",
     featured: false,
   },
 ];
 
 const OFFER_STACK = [
-  { item: "All 8 Training Modules & Member Portal", detail: "Built on The Cali K9 5 Pillar, 50-Step System™ — every one of the 8 modules, every lesson, unlocked immediately", value: "$497 value" },
-  { item: "The Full Cali K9 50-Step Roadmap™", detail: "Foundation → Positions → Leash → Recall → Distraction → Real-World", value: "$997 value" },
-  { item: "Start Here Onboarding Video", detail: "Your welcome walkthrough of the 50-Step Roadmap, the 8 modules, where to begin, and how to use your progress tracker", value: "Included Free" },
-  { item: "Full Video Training Library — Organized By 8 Modules + 50 Steps", detail: "Filmed step-by-step lessons for every step, from Jas himself, mapped directly to the roadmap so you always know what's next", value: "$697 value" },
-  { item: "50-Step Roadmap Progress Tracker", detail: "Mark videos watched, skills practiced and milestones completed as you move through the roadmap", value: "Included Free" },
-  { item: "Personalized Training Path & First 30-Day Action Plan", detail: "A recommended path built for your dog, plus a First 30-Day Action Plan, training checklists and progress milestones", value: "$197 value" },
-  { item: "Member Resources & Problem-Solving Library", detail: "Your training library and problem-solving resources — know exactly what step to do next", value: "$147 value" },
-  { item: "Private Member Community Access", detail: "Connect with other members working the same roadmap — share progress, wins and questions between sessions", value: "$97 value" },
-  { item: "Saturday Kickstart & Saturday Academy Live With Jas", detail: "Weekly live Q&A and case breakdowns — get your specific questions answered every Saturday", value: "$147 value" },
-  { item: "Certificate of Completion", detail: "Submit video evidence of your roadmap skills and earn your Cali K9 50-Step Roadmap™ Certificate of Completion", value: "Included Free" },
-  { item: "Ongoing Access To Future & New Lessons", detail: "Your membership grows as the curriculum grows", value: "$197 value" },
-  { item: "30-Day Progress Guarantee™", detail: "Follow your plan for 30 days — if you're not seeing measurable progress, we'll review your training and adjust your plan", value: "Included Free" },
-  { item: "1 Bag Of Turbo Treats", detail: "Shipped to every new buyer when you join", value: "Included Free" },
-  { item: "Evaluation Call With Our Team", detail: "A 20-minute call to talk through your dog and point you to the right next step — held with a $7 refundable reservation, credited toward any program, book it whenever you're ready", value: "$7 reservation" },
-  { item: "Re-Enrollment Opportunity", detail: "At the end of your term you're offered the chance to re-enroll or keep going month to month", value: "Included Free" },
-  { item: "Part Of The Street Dog Rescue Mission", detail: "A portion of your membership helps fund rescue, rehab & rehoming — every month you're a member", value: "Included" },
+  "Complete 50-Step Roadmap™",
+  "All 8 Training Modules",
+  "Full Training Video Library",
+  "Weekly Live Training With Jas",
+  "Weekly Trainer-Led Live Training",
+  "Personalized Training Path",
+  "Progress Tracker",
+  "Private Member Community",
+  "New Training & Updates As They Release",
 ];
 
 const JAS_BULLETS = [
@@ -359,16 +163,21 @@ const SAMPLE_VIDEOS = [
   },
 ];
 
+// Member transformation videos. The first three run high on the page under
+// the authority bar; the rest appear in "More Member Transformations".
+const TRANSFORMATIONS = [
+  { name: "Sam & Jax", label: "Reactive → Calm", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a985a23a1f3f48f4b9d915b.mp4" },
+  { name: "Jen & Prince", label: "No Control → Reliable Obedience", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a96deb8389c8c461406b4ad.mp4" },
+  { name: "Rachel & Zara", label: "Poor Recall → Off-Leash Reliability", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a96ded3389c8c461406b7da.mp4" },
+];
+
 const MEMBER_VIDEOS = [
-  { name: "Sam & Jax", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a985a23a1f3f48f4b9d915b.mp4" },
-  { name: "Jen & Prince", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a96deb8389c8c461406b4ad.mp4" },
-  { name: "Rachel & Zara", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a96ded3389c8c461406b7da.mp4" },
   { name: "Kristen", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a96dee5c7069f4fc79a363b.mp4" },
   { name: "Courtney", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a96df0cfac7854efe093ca3.mp4" },
   { name: "VIP Member — Miami", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a96df1efac7854efe093e8f.mp4" },
 ];
 
-// Hero video. Provisional: the masterclass sizzle reel — swap the id for the Academy montage when it's cut.
+// "Inside the Academy" hero video.
 const HERO_VIDEO = "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6ab17858966c1acf6d448da3.mp4";
 
 // Circle crops of Jas with each client, hosted on the GHL media CDN (same set as the masterclass page).
@@ -389,18 +198,14 @@ const MEDIA_LOGOS = [
   { src: "/images/media-logos/lg/nbc.webp", alt: "NBC", w: 311, h: 320 },
 ];
 
-
 const JOIN_STEPS = [
-  { num: "01", title: "Join The Academy", desc: "Complete your $97/month membership in under two minutes." },
-  { num: "02", title: "Get Immediate Access", desc: "You're logged into the full member portal right away — no waiting. Your welcome email also includes the link to book your free evaluation call whenever you're ready." },
-  { num: "03", title: "Attend Your Saturday Kickstart", desc: "Join the live Saturday Kickstart call to get oriented, meet the community, and start strong from day one." },
-  { num: "04", title: "Start At Step 1", desc: "Begin the roadmap from the very first foundation step." },
-  { num: "05", title: "Follow The Roadmap", desc: "Move through each step in order. No guessing what's next." },
-  { num: "06", title: "Train Consistently", desc: "A few focused minutes a day builds real, lasting progress." },
-  { num: "07", title: "Progress As Your Dog Demonstrates Understanding", desc: "You advance to the next step only once your dog is ready — never rushed." },
-  { num: "08", title: "Your Goals Don't Care About Your Excuses", desc: "Show up, follow the roadmap, and put in the reps — that's what gets your dog (and you) to the finish line." },
+  { num: "01", title: "Join", desc: "Complete your $97/month membership in under two minutes." },
+  { num: "02", title: "Get Instant Access", desc: "You're inside the full member portal immediately. No waiting." },
+  { num: "03", title: "Start Your Personalized Roadmap", desc: "Begin at Step 1 on a recommended path built for your dog, with your progress tracker ready to go." },
+  { num: "04", title: "Train With Us Live Every Week", desc: "Bring your dog and your questions to Academy Live with Jas on Saturdays and the trainer-led session on Wednesdays." },
 ];
 
+// Live schedule. Times are Pacific.
 const SCHEDULE = [
   { day: "Sat · 5:00 PM", title: "Kickstart", access: "Free · Community", tone: "free" },
   { day: "Sat · 6:00 PM", title: "Live Webinar", access: "Open To Guests", tone: "guest" },
@@ -408,40 +213,21 @@ const SCHEDULE = [
   { day: "Wed · Evening", title: "Trainer-Led Academy Live", access: "Members Only", tone: "members" },
 ];
 
-const MISSION_LIST = [
-  "Rescue vulnerable street dogs",
-  "Provide veterinary care & vaccinations",
-  "Feed and rehabilitate dogs in need",
-  "Train and socialize rescued dogs",
-  "Find responsible homes & adoptions",
-  "Partner with local trainers & organizations",
-  "Build a model that can expand beyond Morocco to other countries",
-];
-
 const FAQS = [
   { q: "Will this work for my breed?", a: "Yes. The 50-step roadmap is built on foundational communication and obedience principles that apply across breeds. Pacing simply adjusts to your individual dog." },
-  { q: "What age should my dog be?", a: "The system works from puppyhood through adulthood. Younger dogs and older dogs both move through the roadmap, just at their own pace." },
+  { q: "What age should my dog be?", a: "The system works from puppyhood through adulthood. Younger dogs and older dogs both move through the roadmap, just at their own pace. Older dogs often move through the foundation quickly since they're typically calmer and more focused." },
   { q: "Can I use this with a puppy?", a: "Absolutely. Many members start the same week they bring their puppy home, building good habits from Step 1 instead of fixing bad ones later." },
-  { q: "Can older dogs learn the system?", a: "Yes. Older dogs often move through the foundation phases quickly since they're typically calmer and more focused." },
-  { q: "What if my dog already knows basic obedience?", a: "You can move through the foundational phases at your own pace and spend more time on the distraction, distance and real-world reliability phases where most dogs actually struggle." },
-  { q: "What if I've already hired a trainer?", a: "The Academy is a great next step. It teaches you, the owner, how to maintain and build on the behaviors long after a trainer hands the dog back." },
-  { q: "What if I've watched a lot of YouTube training?", a: "That's exactly the gap the Academy fills: a single structured system to follow instead of piecing together advice from dozens of unrelated videos." },
-  { q: "How much should I train each day?", a: "Most steps take just 10 to 15 minutes a day. Consistency matters far more than duration." },
-  { q: "Where do I start?", a: "Right at Step 1: Establishing Boundaries in the Home. The roadmap tells you exactly what comes next after that." },
+  { q: "How much time does it take each day?", a: "Most steps take 10 to 15 minutes a day. Consistency matters far more than duration." },
   { q: "What equipment do I need?", a: "Just a leash, treats, and your dog to start. Any additional recommended equipment (like the training box or touchpad) is covered inside the relevant steps." },
-  { q: "How long does the 50-step roadmap take?", a: "It depends on your dog and your consistency. Most members see noticeable changes within the first 1 to 2 phases (roughly 2 to 3 weeks)." },
-  { q: "Can my spouse/family participate?", a: "Yes. One membership covers your household, so everyone can stay consistent with the same commands and approach." },
-  { q: "Is everything online?", a: "Yes, the Academy is 100% online and accessible from your phone, tablet or computer, anywhere." },
-  { q: "What happens immediately after purchasing?", a: "You get instant access to the member portal and can start Step 1 right away. See the “What Happens The Moment You Join” section above for the full walkthrough." },
-  { q: "Can I cancel?", a: "Yes. There's no contract. Manage or cancel your membership anytime from your account." },
-  { q: "What happens to my access if I cancel?", a: "Your access continues through the end of your current billing period, then ends. You can rejoin anytime." },
-  { q: "My dog has already finished the 50-step roadmap — why keep my membership?", a: "Plenty of members do. You'll keep access to new and updated lessons, the community, and live group training as refreshers. But most of all, a portion of every month you stay funds the street dog rescue mission — so your membership keeps doing good long after your own dog's transformation is complete." },
-  { q: "What's the difference between Academy, Elite and VIP?", a: "All three include the exact same Cali K9 method and 50-step roadmap — the difference is access, accountability and personalization, not the training system. Academy is a $97/month membership with the full system. Elite ($997) adds a 6-month Academy term and 4 Train With Jas session tokens for Wednesday small-group coaching — personalized troubleshooting, video review and accountability — so you implement it correctly. VIP ($2,497) adds a full 12-month term, 8 session tokens, priority RSVP/booking, a private VIP WhatsApp group with 24-hour text and video support, priority support, and the Training Kit for the most hands-on experience." },
-  { q: "What should I do if my dog has serious aggression or safety issues?", a: "The Academy is built for everyday obedience, communication and behavior challenges. For serious aggression or safety concerns, please book an evaluation with our team first. These cases often need hands-on, professional support before or alongside a self-directed program." },
+  { q: "What if my dog has serious aggression or safety issues?", a: "The Academy is built for everyday obedience, communication and behavior challenges. For serious aggression or safety concerns, please book an evaluation with our team first. These cases often need hands-on, professional support before or alongside a self-directed program." },
+  { q: "Can I cancel?", a: "Yes. There's no contract. Manage or cancel your membership anytime from your account. Your access continues through the end of your current billing period." },
+  { q: "Can my spouse or family participate?", a: "Yes. One membership covers your household, so everyone can stay consistent with the same commands and approach." },
+  { q: "When will I see progress?", a: "It depends on your dog and your consistency. Most members see noticeable changes within the first one to two modules, roughly two to three weeks." },
+  { q: "What's the difference between Academy, Elite and VIP?", a: "All three include the exact same Cali K9 method and 50-step roadmap. The difference is access, accountability and personalization. Academy is a $97/month membership with the full system and weekly live training. Elite ($997) adds a 6-month term and 4 Train With Jas small-group coaching sessions. VIP ($2,497) adds a 12-month term, 8 sessions, priority booking, a private VIP WhatsApp group and the Training Kit." },
 ];
 
 function JoinCta({
-  label = "Join The Academy for $97/Month",
+  label = "Join The Academy — $97/Month",
   light = false,
   left = false,
 }: {
@@ -461,11 +247,43 @@ function JoinCta({
         </span>
       </a>
       <p className={`font-ui text-xs tracking-[1.5px] uppercase mt-4 ${light ? "text-gray-muted" : "text-white/40"}`}>
-        Cancel Anytime &middot; Instant Access &middot; No Long-Term Contract
+        Instant Access &middot; Cancel Anytime &middot; No Long-Term Contract
       </p>
     </div>
   );
 }
+
+function SectionHeading({
+  eyebrow,
+  title,
+  sub,
+  dark = false,
+  maxW = "760px",
+}: {
+  eyebrow: string;
+  title: React.ReactNode;
+  sub?: React.ReactNode;
+  dark?: boolean;
+  maxW?: string;
+}) {
+  return (
+    <div className="text-center mb-10">
+      <span className={`font-ui text-[15px] font-semibold tracking-[4px] uppercase block mb-3 ${dark ? "text-[#6A9FFF]" : "text-blue-500"}`}>
+        {eyebrow}
+      </span>
+      <h2 className={`font-display text-[clamp(30px,4vw,44px)] leading-[0.95] mx-auto ${dark ? "text-white" : "text-ink"}`} style={{ maxWidth: maxW }}>
+        {title}
+      </h2>
+      {sub && (
+        <p className={`font-body text-base mt-4 max-w-[620px] mx-auto ${dark ? "text-white/60" : "text-gray-muted"}`}>
+          {sub}
+        </p>
+      )}
+    </div>
+  );
+}
+
+const NAVY = "linear-gradient(135deg, #0A1F3C 0%, #122E85 55%, #1A3FAB 100%)";
 
 export default function AcademyPage() {
   return (
@@ -478,11 +296,8 @@ export default function AcademyPage() {
         </p>
       </section>
 
-      {/* ── Hero ── */}
-      <section
-        className="relative overflow-hidden py-16 max-md:py-10"
-        style={{ background: "linear-gradient(135deg, #0A1F3C 0%, #122E85 55%, #1A3FAB 100%)" }}
-      >
+      {/* ── 1. Hero + 2. Inside the Academy video + 3. Authority stats ── */}
+      <section className="relative overflow-hidden py-16 max-md:py-10" style={{ background: NAVY }}>
         <div className="max-w-[1240px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 relative z-[1]">
           <div className="grid grid-cols-[0.9fr_1.1fr] gap-10 items-center max-md:grid-cols-1">
             <div>
@@ -494,21 +309,16 @@ export default function AcademyPage() {
               </h1>
               <h2 className="font-ui text-[clamp(20px,2.1vw,26px)] font-bold text-white/90 leading-snug mb-5">
                 The complete Cali K9 training system &mdash;{" "}
-                <span className="text-[#6A9FFF]">you can follow from home.</span>
+                <span className="text-[#6A9FFF]">with live coaching every week.</span>
               </h2>
               <p className="font-body text-lg text-white/70 leading-relaxed mb-4 max-w-[540px]">
-                Fearful and reactive. Pushy and overconfident, or just a good dog
-                who&rsquo;s never had real training. The Cali K9 5 Pillar, 50-Step
-                System&trade; meets your dog exactly where they are and hands you
-                the roadmap to where you want them to be &mdash; the same 8
-                Modules &rarr; 50 Simple Steps &rarr; One Fully Trained Dog method
-                Jas Leverette uses with celebrity clients and on Netflix, built
-                for puppies, adult dogs, and owners chasing real off-leash
-                reliability.
+                Follow the 8-module, 50-step system from home in 10&ndash;15 minutes a
+                day. Then train live with Jas and the Cali K9 team every week.
+                Whether your dog is reactive, pushy or simply untrained, this is the
+                same method Jas uses with celebrity clients and on Netflix.
               </p>
               <p className="font-body text-base font-semibold text-white/85 mb-7">
-                Immediate access the moment you join. Cancel anytime &mdash; no
-                long-term contract.
+                $97/month. Instant access. Cancel anytime.
               </p>
               <JoinCta left />
             </div>
@@ -529,7 +339,7 @@ export default function AcademyPage() {
             </div>
           </div>
 
-          {/* Stats */}
+          {/* Authority stats */}
           <div className="flex items-center justify-between gap-6 flex-wrap max-md:justify-center mt-12 pt-8 border-t border-white/[0.12]">
             {STATS.map((s) => (
               <div key={s.small} className="text-center">
@@ -543,7 +353,7 @@ export default function AcademyPage() {
         </div>
       </section>
 
-      {/* ── As seen on ── */}
+      {/* ── 3. As seen on + Trusted by strip ── */}
       <section className="bg-white py-8 border-b border-black/[0.06]">
         <div className="max-w-[1000px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 text-center">
           <div className="font-ui text-[12px] font-semibold tracking-[2px] uppercase text-gray-muted mb-6">
@@ -562,31 +372,21 @@ export default function AcademyPage() {
               />
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* ── Celebrity authority ── */}
-      <section className="py-16 max-md:py-10 bg-white">
-        <div className="max-w-[900px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
-          <div className="text-center mb-10">
-            <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
-              Trusted By The Best
+          <div className="mt-8 pt-6 border-t border-black/[0.06] flex items-center justify-center gap-x-8 gap-y-4 flex-wrap">
+            <span className="font-ui text-[12px] font-semibold tracking-[2px] uppercase text-gray-muted max-md:w-full">
+              Trusted By
             </span>
-            <h2 className="font-display text-[clamp(30px,4vw,44px)] leading-[0.95] text-ink max-w-[760px] mx-auto">
-              TRUSTED TO TRAIN DOGS FOR SOME OF THE WORLD&rsquo;S MOST RECOGNIZABLE NAMES
-            </h2>
-          </div>
-          <div className="grid grid-cols-4 gap-6 max-[560px]:grid-cols-2">
             {RECOGNIZABLE_NAMES.map((celeb) => (
-              <div key={celeb.name} className="text-center">
+              <div key={celeb.name} className="flex items-center gap-2.5">
                 <Image
                   src={celeb.image}
                   alt={`Jas Leverette with ${celeb.name}`}
                   width={300}
                   height={300}
-                  className="w-full max-w-[180px] mx-auto h-auto rounded-full"
+                  className="w-11 h-11 rounded-full object-cover"
                 />
-                <span className="block font-ui text-[13px] font-bold tracking-[1px] uppercase text-ink mt-3">
+                <span className="font-ui text-[12px] font-bold tracking-[1px] uppercase text-ink">
                   {celeb.name}
                 </span>
               </div>
@@ -595,76 +395,45 @@ export default function AcademyPage() {
         </div>
       </section>
 
-      {/* ── Transformation ── */}
+      {/* ── 4. Before/after dog transformations ── */}
       <section className="py-16 max-md:py-10 bg-cream">
-        <div className="max-w-[1000px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
-          <div className="text-center mb-10">
-            <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
-              The Transformation
-            </span>
-            <h2 className="font-display text-[clamp(30px,4vw,44px)] leading-[0.95] text-ink max-w-[720px] mx-auto">
-              FROM &ldquo;I DON&rsquo;T KNOW WHAT TO DO&rdquo; TO &ldquo;I HAVE A SYSTEM&rdquo;
-            </h2>
-            <p className="font-body text-base text-gray-muted max-w-[560px] mx-auto mt-4">
-              This isn&rsquo;t access to videos. It&rsquo;s a transformation
-              program that teaches you exactly what to train next, and how to
-              communicate with your dog so it actually works.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 gap-6 max-md:grid-cols-1">
-            <div className="bg-white border border-red-500/20 rounded-xl p-7">
-              <div className="font-ui text-sm font-bold tracking-[1px] uppercase text-red-500 mb-4">
-                Before: &ldquo;I don&rsquo;t know what to do with my dog.&rdquo;
+        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
+          <SectionHeading
+            eyebrow="Real Dogs. Real Results."
+            title="WATCH WHAT MEMBERS BUILT WITH THE SYSTEM"
+            sub="Real owners, training their own dogs at home with the Cali K9 method."
+          />
+          <div className="grid grid-cols-3 gap-6 max-md:grid-cols-1">
+            {TRANSFORMATIONS.map((v) => (
+              <div key={v.name} className="flex flex-col">
+                <video
+                  poster={posterFor(v.src)}
+                  className="w-full rounded-xl bg-black shadow-md"
+                  controls
+                  playsInline
+                  preload="metadata"
+                >
+                  <source src={v.src} type="video/mp4" />
+                </video>
+                <div className="font-ui text-[12px] font-bold tracking-[1.5px] uppercase text-blue-500 mt-4">
+                  {v.label}
+                </div>
+                <div className="font-ui text-sm font-bold text-ink mt-1">{v.name}</div>
               </div>
-              <ul className="list-none p-0 m-0 space-y-2.5">
-                {BEFORE.map((item) => (
-                  <li key={item} className="font-body text-[15px] text-gray-muted leading-normal pl-6 relative">
-                    <span className="absolute left-0 text-red-500 font-bold">&#10007;</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="bg-white border-2 border-blue-500 rounded-xl p-7 shadow-[0_12px_40px_rgba(18,54,160,0.12)]">
-              <div className="font-ui text-sm font-bold tracking-[1px] uppercase text-blue-500 mb-4">
-                After: &ldquo;I have a clear system and know exactly what to do.&rdquo;
-              </div>
-              <ul className="list-none p-0 m-0 space-y-2.5">
-                {AFTER.map((item) => (
-                  <li key={item} className="font-body text-[15px] text-ink/80 leading-normal pl-6 relative">
-                    <span className="absolute left-0 text-green-500 font-bold">&#10003;</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            ))}
           </div>
-
-          <p className="font-body text-base text-gray-muted text-center mt-8 max-w-[560px] mx-auto">
-            Stop guessing what to train next. Follow the Cali K9 system from{" "}
-            <strong className="text-ink">Step 1 through Step 50</strong>, and
-            learn how to become the trainer your dog needs.
-          </p>
         </div>
       </section>
 
-      {/* ── Problems ── */}
+      {/* ── 5. Does this sound like your dog? ── */}
       <section className="py-16 max-md:py-10 bg-white">
         <div className="max-w-[900px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
-          <div className="text-center mb-10">
-            <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
-              Sound Familiar?
-            </span>
-            <h2 className="font-display text-[clamp(30px,4vw,44px)] leading-[0.95] text-ink">
-              BUILT FOR YOUR DOG&rsquo;S EXACT PROBLEM
-            </h2>
-            <p className="font-body text-base text-gray-muted mt-4">
-              Whatever brought you here, there&rsquo;s a step in the roadmap built to address it.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap justify-center gap-2.5 mb-8">
+          <SectionHeading
+            eyebrow="Sound Familiar?"
+            title="DOES THIS SOUND LIKE YOUR DOG?"
+            sub="Whatever brought you here, there's a step in the roadmap built to fix it."
+          />
+          <div className="flex flex-wrap justify-center gap-2.5">
             {PROBLEMS.map((p) => (
               <span
                 key={p}
@@ -674,142 +443,160 @@ export default function AcademyPage() {
               </span>
             ))}
           </div>
-
         </div>
       </section>
 
-      {/* ── 50-step roadmap ── */}
-      <section
-        className="py-16 max-md:py-10"
-        style={{ background: "linear-gradient(135deg, #0A1F3C 0%, #122E85 55%, #1A3FAB 100%)" }}
-      >
-        <div className="max-w-[900px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
-          <div className="text-center mb-10">
-            <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-[#6A9FFF] block mb-3">
-              The Academy System
-            </span>
-            <h2 className="font-display text-[clamp(30px,4vw,44px)] leading-[0.95] text-white">
-              YOUR DOG&rsquo;S 50-STEP TRANSFORMATION ROADMAP&trade;
-            </h2>
-            <p className="font-body text-base text-white/60 mt-4 max-w-[620px] mx-auto">
-              The exact progression Cali K9 uses, from household foundation to
-              off-leash reliability, organized into 8 achievable modules so it
-              never feels overwhelming.
-            </p>
-          </div>
+      {/* ── 6. The solution: 8 modules → 50 steps ── */}
+      <section className="py-16 max-md:py-10" style={{ background: NAVY }}>
+        <div className="max-w-[1000px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
+          <SectionHeading
+            dark
+            eyebrow="The Solution"
+            title={<>8 MODULES &rarr; 50 SIMPLE STEPS &rarr; ONE FULLY TRAINED DOG</>}
+            sub="The exact progression Cali K9 uses, from household foundation to off-leash reliability, so you always know what to train next."
+            maxW="860px"
+          />
 
-          <div className="space-y-3 mb-8">
+          <div className="grid grid-cols-2 gap-3 max-md:grid-cols-1 mb-10">
             {PHASES.map((phase) => (
-              <div key={phase.num} className="bg-white/[0.07] border border-white/[0.15] rounded-xl p-5 flex gap-5 items-start">
+              <div key={phase.num} className="bg-white/[0.07] border border-white/[0.15] rounded-xl p-5 flex gap-4 items-start">
                 <div className="w-11 h-11 rounded-full bg-white text-blue-700 font-display text-xl flex items-center justify-center shrink-0">
                   {phase.num}
                 </div>
                 <div>
-                  <div className="flex items-baseline gap-3 flex-wrap">
-                    <h3 className="font-display text-xl text-white leading-tight">{phase.title}</h3>
-                    <span className="font-ui text-[11px] font-bold tracking-[1.5px] uppercase text-[#F59E0B]">
-                      {phase.steps}
-                    </span>
-                  </div>
-                  <p className="font-body text-sm text-white/55 mt-1">{phase.detail}</p>
+                  <h3 className="font-display text-xl text-white leading-tight">{phase.title}</h3>
+                  <span className="font-ui text-[11px] font-bold tracking-[1.5px] uppercase text-[#F59E0B] block mt-1">
+                    {phase.steps}
+                  </span>
+                  <p className="font-body text-sm text-white/55 mt-1.5">{phase.detail}</p>
                 </div>
               </div>
             ))}
           </div>
 
-          <details className="group bg-white/[0.05] border border-white/[0.12] rounded-xl">
-            <summary className="cursor-pointer list-none p-5 text-center font-ui text-sm font-bold tracking-[2px] uppercase text-white/85 hover:text-white transition-colors">
-              See The Full 50-Step Roadmap
-              <span className="ml-2 inline-block transition-transform group-open:rotate-180">&darr;</span>
-            </summary>
-            <div className="px-6 pb-6 grid grid-cols-2 gap-x-10 gap-y-6 max-md:grid-cols-1">
-              {(() => {
-                let step = 0;
-                return PHASES.map((phase) => (
-                  <div key={phase.num}>
-                    <div className="font-ui text-xs font-bold tracking-[1.5px] uppercase text-[#6A9FFF] mb-2">
-                      Module {phase.num} &middot; {phase.title}
-                    </div>
-                    <ul className="list-none p-0 m-0 space-y-1">
-                      {phase.list.map((item) => {
-                        step += 1;
-                        return (
-                          <li key={item} className="font-body text-sm text-white/70 leading-normal">
-                            <span className="font-ui font-bold text-white/40 mr-2">
-                              {String(step).padStart(2, "0")}
-                            </span>
-                            {item}
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </div>
-                ));
-              })()}
-            </div>
-          </details>
+          <p className="font-display text-2xl text-white text-center mb-6">
+            50 STEPS. ONE SYSTEM. START AT STEP 1 TODAY.
+          </p>
+          <JoinCta />
+        </div>
+      </section>
 
-          <div className="mt-10">
-            <p className="font-display text-2xl text-white text-center mb-6">
-              50 STEPS. ONE SYSTEM. START AT STEP 1 TODAY.
-            </p>
-            <JoinCta />
+      {/* ── 7. Train live every week ── */}
+      <section className="py-16 max-md:py-10 bg-ink">
+        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
+          <div className="grid grid-cols-[0.75fr_1.25fr] gap-12 items-center max-md:grid-cols-1 max-md:gap-8">
+            <div>
+              <Image
+                src="/images/funnel/jas-zoom.jpg"
+                alt="Jas Leverette giving a thumbs up in front of a live Academy class on screen"
+                width={884}
+                height={1000}
+                className="w-full h-auto rounded-xl shadow-[0_20px_60px_rgba(0,0,0,0.4)] max-md:max-w-[420px] max-md:mx-auto"
+              />
+              <p className="font-ui text-[11px] font-bold tracking-[1.5px] uppercase text-white/40 text-center mt-3">
+                Members Train Live With Jas Every Week
+              </p>
+            </div>
+            <div>
+              <div className="mb-8 max-md:text-center">
+                <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-200 block mb-3">
+                  Not Another Course
+                </span>
+                <h2 className="font-display text-[clamp(30px,4vw,44px)] leading-[0.95] text-white mb-4">
+                  TRAIN LIVE WITH JAS EVERY WEEK
+                </h2>
+                <p className="font-body text-base text-white/70 leading-relaxed max-w-[560px] max-md:mx-auto">
+                  This isn&rsquo;t a course you buy and forget. Every Saturday, Jas goes
+                  live with the Academy for Q&amp;A, case breakdowns and coaching on your
+                  dog. Every Wednesday, a Cali K9 trainer runs a second live session.
+                  You&rsquo;re never training alone.
+                </p>
+              </div>
+              <div className="grid grid-cols-2 gap-4 max-[480px]:grid-cols-1">
+                {SCHEDULE.map((s) => (
+                  <div key={s.title} className="bg-white/5 border border-white/10 rounded-xl p-6 text-center">
+                    <div className="font-ui text-[12px] font-bold tracking-[1.5px] uppercase text-blue-200 mb-2">
+                      {s.day}
+                    </div>
+                    <h5 className="font-display text-lg text-white mb-3">{s.title}</h5>
+                    <span
+                      className={`inline-block font-ui text-[10.5px] font-bold tracking-[1px] uppercase px-3 py-1 rounded-full ${
+                        s.tone === "members"
+                          ? "bg-blue-500 text-white"
+                          : s.tone === "guest"
+                            ? "bg-amber-400 text-[#2b1d05]"
+                            : "bg-white/15 text-white/80"
+                      }`}
+                    >
+                      {s.access}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              <p className="font-ui text-[11px] font-bold tracking-[1.5px] uppercase text-white/40 mt-4 max-md:text-center">
+                All Times Pacific (PT)
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── Philosophy + methodology ── */}
-      <section className="py-16 max-md:py-10 bg-cream">
-        <div className="max-w-[1000px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
-          <div className="text-center mb-10">
-            <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
-              Our Training Philosophy
-            </span>
-            <h2 className="font-display text-[clamp(30px,4vw,44px)] leading-[0.95] text-ink">
-              THREE THINGS EVERY STEP IS BUILT AROUND
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-3 gap-6 max-md:grid-cols-1 mb-14">
-            {PHILOSOPHY.map((p) => (
-              <div key={p.num} className="bg-white border border-black/[0.06] rounded-xl p-7">
-                <div className="w-10 h-10 rounded-full bg-blue-500 text-white font-display text-lg flex items-center justify-center mb-4">
-                  {p.num}
-                </div>
-                <h3 className="font-display text-xl text-ink mb-2">{p.title}</h3>
-                <p className="font-body text-[15px] text-gray-muted leading-[1.7]">{p.desc}</p>
-              </div>
-            ))}
-          </div>
-
-          <Image
-            src="/images/funnel/jas-with-class.jpg"
-            alt="Jas Leverette with a Cali K9 training class and their dogs"
-            width={1400}
-            height={786}
-            className="w-full h-auto rounded-xl object-cover mb-8"
+      {/* ── 8. Everything you get for $97/month ── */}
+      <section id="offer" className="py-16 max-md:py-10 scroll-mt-[84px]" style={{ background: NAVY }}>
+        <div className="max-w-[760px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
+          <SectionHeading
+            dark
+            eyebrow="The Offer"
+            title="EVERYTHING YOU GET FOR $97/MONTH"
+            sub="The full system, plus live coaching every week. One membership."
           />
 
-          <blockquote className="max-w-[560px] mx-auto mb-14 border-l-[3px] border-blue-500 pl-4.5 font-ui text-base italic text-ink text-left">
-            &ldquo;You can take a dog out of the pack, but not the pack out of the dog.&rdquo;
-            <span className="block mt-1.5 font-ui text-[11.5px] not-italic tracking-[0.5px] uppercase text-gray-muted">
-              &mdash; Jas Leverette
-            </span>
-          </blockquote>
+          <div className="bg-white/[0.06] border border-white/[0.15] rounded-xl p-8 max-[480px]:p-5">
+            <ul className="list-none p-0 m-0 grid grid-cols-1 gap-y-3 mb-7">
+              {OFFER_STACK.map((item) => (
+                <li key={item} className="font-ui text-[16px] font-bold text-white pl-8 relative leading-snug">
+                  <span className="absolute left-0 top-0 text-[#F59E0B] text-lg leading-none">&#10003;</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <div className="flex items-center justify-between gap-4 pt-6 border-t-2 border-[#F59E0B]/60 mb-7">
+              <span className="font-ui text-sm font-bold tracking-[2px] uppercase text-white">
+                Cancel Anytime
+              </span>
+              <span className="font-display text-4xl text-[#F59E0B] leading-none">
+                $97<span className="text-xl text-white/70">/mo</span>
+              </span>
+            </div>
+            <JoinCta label="Join Now — $97/Month" />
+          </div>
+        </div>
+      </section>
 
-          <div className="text-center mb-8">
-            <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
-              The Methodology
-            </span>
-            <h2 className="font-display text-[clamp(28px,3.5vw,40px)] leading-[0.95] text-ink">
-              BUILT ON THE CALI K9 5 PILLAR, 50-STEP SYSTEM&trade;
-            </h2>
-            <p className="font-body text-base text-gray-muted max-w-[640px] mx-auto mt-4">
-              The Academy isn&rsquo;t generic obedience lessons &mdash; it&rsquo;s a proprietary
-              framework: 8 Modules &rarr; 50 Simple Steps &rarr; One Fully Trained Dog, built
-              around 3 Motivators and 5 Pillars that work whether your dog is fearful and
-              reactive, pushy and overconfident, or simply undertrained.
-            </p>
+      {/* ── 9. The Cali K9 Method™ ── */}
+      <section className="py-16 max-md:py-10 bg-cream">
+        <div className="max-w-[1000px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
+          <SectionHeading
+            eyebrow="The Methodology"
+            title={<>THE CALI K9 METHOD&trade;</>}
+            sub="Not generic obedience lessons. A proprietary framework that works whether your dog is fearful and reactive, pushy and overconfident, or simply undertrained."
+          />
+
+          <div className="grid grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] items-center gap-3 max-md:grid-cols-1 max-md:gap-2 mb-12">
+            {METHOD_FLOW.map((node, i) => (
+              <div key={node.label} className="contents">
+                {i > 0 && (
+                  <span aria-hidden="true" className="font-display text-3xl text-blue-500 text-center max-md:rotate-90 max-md:leading-none">
+                    &rarr;
+                  </span>
+                )}
+                <div className="bg-white border border-black/[0.06] rounded-xl p-6 text-center">
+                  <div className="font-display text-[44px] text-blue-500 leading-none">{node.big}</div>
+                  <div className="font-display text-xl text-ink mt-1">{node.label.toUpperCase()}</div>
+                  <div className="font-ui text-[12px] text-gray-muted mt-1">{node.sub}</div>
+                </div>
+              </div>
+            ))}
           </div>
 
           <div className="text-center font-ui text-[13px] font-bold tracking-[2px] uppercase text-gray-muted mb-5">
@@ -817,70 +604,53 @@ export default function AcademyPage() {
           </div>
           <div className="grid grid-cols-3 gap-5 max-md:grid-cols-1 mb-12">
             {MOTIVATORS.map((m) => (
-              <div key={m.name} className="bg-white border border-black/[0.06] rounded-xl p-6 text-center">
+              <div key={m.name} className="bg-white border border-black/[0.06] rounded-xl p-5 flex items-center gap-4">
                 <Image
                   src={m.image}
                   alt={`${m.name} — Cali K9 motivator`}
                   width={200}
                   height={200}
-                  className="w-24 h-24 object-contain mx-auto mb-3"
+                  className="w-16 h-16 object-contain shrink-0"
                 />
-                <div className="font-ui text-[11px] font-bold tracking-[1.5px] uppercase text-blue-500 mb-1">
-                  {m.num}
+                <div>
+                  <h3 className="font-display text-lg text-ink mb-1">{m.name.toUpperCase()}</h3>
+                  <p className="font-body text-[13.5px] text-gray-muted leading-[1.55]">{m.desc}</p>
                 </div>
-                <h3 className="font-display text-xl text-ink mb-2">{m.name.toUpperCase()}</h3>
-                <p className="font-body text-[14px] text-gray-muted leading-[1.6]">{m.desc}</p>
               </div>
             ))}
           </div>
 
           <div className="text-center font-ui text-[13px] font-bold tracking-[2px] uppercase text-gray-muted mb-5">
-            The 5-Pillar System
+            The 5 Pillars
           </div>
-          <div className="grid grid-cols-5 gap-4 max-lg:grid-cols-3 max-md:grid-cols-1 mb-8">
+          <div className="grid grid-cols-5 gap-4 max-md:grid-cols-3 max-[480px]:grid-cols-2">
             {PILLARS.map((pillar, i) => (
-              <div key={pillar.name} className="bg-white border border-black/[0.06] rounded-xl p-5 text-center">
+              <div key={pillar.name} className="bg-white border border-black/[0.06] rounded-xl p-3 text-center">
                 <Image
                   src={pillar.image}
                   alt={`Pillar ${i + 1} — ${pillar.name}`}
                   width={498}
                   height={381}
-                  className="w-full h-auto rounded-lg mb-4"
+                  className="w-full h-auto rounded-lg mb-3"
                 />
-                <div className="font-ui text-[11px] font-bold tracking-[1.5px] uppercase text-blue-500 mb-1.5">
+                <div className="font-ui text-[10px] font-bold tracking-[1.5px] uppercase text-blue-500 mb-1">
                   Pillar {i + 1}
                 </div>
-                <div className="font-display text-lg text-ink leading-tight mb-2">{pillar.name}</div>
-                <p className="font-body text-[13px] text-gray-muted leading-[1.6]">{pillar.desc}</p>
+                <div className="font-display text-[15px] text-ink leading-tight">{pillar.name}</div>
               </div>
-            ))}
-          </div>
-
-          <div className="flex flex-wrap justify-center gap-2">
-            {CONCEPT_CHIPS.map((c) => (
-              <span key={c} className="font-ui text-xs font-bold tracking-[1px] uppercase text-blue-500 bg-blue-50 border border-blue-100 px-3 py-1.5 rounded-sm">
-                {c}
-              </span>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── Video samples of the training system ── */}
+      {/* ── 10. See the training in action ── */}
       <section className="py-16 max-md:py-10 bg-white">
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
-          <div className="text-center mb-10">
-            <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
-              Preview The Product
-            </span>
-            <h2 className="font-display text-[clamp(30px,4vw,44px)] leading-[0.95] text-ink max-w-[760px] mx-auto">
-              SEE THE TRAINING IN ACTION
-            </h2>
-            <p className="font-body text-base text-gray-muted mt-4 max-w-[620px] mx-auto">
-              Look inside before you buy &mdash; the training library and the step-by-step
-              lessons you follow with your own dog.
-            </p>
-          </div>
+          <SectionHeading
+            eyebrow="Preview The Product"
+            title="SEE THE TRAINING IN ACTION"
+            sub="Look inside before you buy. Real lessons from the library, beginner through advanced."
+          />
           <div className="grid grid-cols-3 gap-6 max-md:grid-cols-1">
             {SAMPLE_VIDEOS.map((v) => (
               <div key={v.title} className="flex flex-col">
@@ -910,59 +680,86 @@ export default function AcademyPage() {
         </div>
       </section>
 
-      {/* ── Weekly schedule ── */}
-      <section className="py-16 max-md:py-10 bg-ink">
+      {/* ── 11. More member transformations ── */}
+      <section className="py-16 max-md:py-10 bg-cream">
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
-          <div className="grid grid-cols-[0.75fr_1.25fr] gap-12 items-center max-md:grid-cols-1 max-md:gap-8">
-            <div>
-              <Image
-                src="/images/funnel/jas-zoom.jpg"
-                alt="Jas Leverette giving a thumbs up in front of a live Academy class on screen"
-                width={884}
-                height={1000}
-                className="w-full h-auto rounded-xl shadow-[0_20px_60px_rgba(0,0,0,0.4)] max-md:max-w-[420px] max-md:mx-auto"
-              />
-              <p className="font-ui text-[11px] font-bold tracking-[1.5px] uppercase text-white/40 text-center mt-3">
-                Members Train Live With Jas Every Week
-              </p>
-            </div>
-            <div>
-              <div className="mb-8 max-md:text-center">
-                <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-200 block mb-3">
-                  It Never Goes Quiet
-                </span>
-                <h2 className="font-display text-[clamp(30px,4vw,44px)] leading-[0.95] text-white">
-                  TWO LIVE TOUCHPOINTS, EVERY SINGLE WEEK
-                </h2>
-              </div>
-              <div className="grid grid-cols-2 gap-4 max-[480px]:grid-cols-1">
-                {SCHEDULE.map((s) => (
-              <div key={s.title} className="bg-white/5 border border-white/10 rounded-xl p-6 text-center">
-                <div className="font-ui text-[12px] font-bold tracking-[1.5px] uppercase text-blue-200 mb-2">
-                  {s.day}
-                </div>
-                <h5 className="font-display text-lg text-white mb-3">{s.title}</h5>
-                <span
-                  className={`inline-block font-ui text-[10.5px] font-bold tracking-[1px] uppercase px-3 py-1 rounded-full ${
-                    s.tone === "members"
-                      ? "bg-blue-500 text-white"
-                      : s.tone === "guest"
-                        ? "bg-amber-400 text-[#2b1d05]"
-                        : "bg-white/15 text-white/80"
-                  }`}
+          <SectionHeading
+            eyebrow="In Their Own Words"
+            title="MORE MEMBER TRANSFORMATIONS"
+          />
+          <div className="grid grid-cols-3 gap-6 max-lg:grid-cols-2 max-md:grid-cols-1 mb-8">
+            {MEMBER_VIDEOS.map((v) => (
+              <div key={v.name}>
+                <video
+                  poster={posterFor(v.src)}
+                  className="w-full rounded-xl bg-black shadow-md"
+                  controls
+                  playsInline
+                  preload="metadata"
                 >
-                  {s.access}
-                </span>
+                  <source src={v.src} type="video/mp4" />
+                </video>
+                <div className="font-ui text-sm font-bold tracking-[1px] uppercase text-ink mt-3 text-center">
+                  {v.name}
+                </div>
               </div>
             ))}
+          </div>
+
+          <div className="grid grid-cols-3 gap-6 max-lg:grid-cols-2 max-md:grid-cols-1">
+            {RESULTS.map((r) => (
+              <div key={r.name} className="bg-white border border-black/[0.05] rounded-xl p-7 flex flex-col">
+                <div className="font-ui text-[13px] font-bold tracking-[1px] uppercase text-blue-500 mb-3">
+                  {r.tag}
+                </div>
+                <p className="font-body text-[15px] text-ink/80 italic leading-relaxed mb-4 flex-1">{r.quote}</p>
+                <div className="font-ui text-sm font-bold text-ink">{r.name}</div>
+                <div className="font-ui text-xs text-gray-muted mb-3">{r.meta}</div>
+                <div className="font-ui text-xs font-bold tracking-[1px] uppercase text-green-500 bg-green-500/10 rounded-sm px-3 py-1.5 inline-block self-start">
+                  &#10003; {r.result}
+                </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ── Meet your trainer ── */}
+      {/* ── 12. Why Academy ── */}
       <section className="py-16 max-md:py-10 bg-white">
+        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
+          <SectionHeading
+            eyebrow="Why The Academy"
+            title="A SYSTEM, LIVE COACHING AND ACCOUNTABILITY. NOT JUST INFORMATION."
+            maxW="820px"
+          />
+
+          <div className="grid grid-cols-4 gap-5 max-lg:grid-cols-2 max-[480px]:grid-cols-1 items-stretch">
+            {LANDSCAPE.map((opt) => (
+              <div
+                key={opt.name}
+                className={`rounded-xl p-6 flex flex-col ${
+                  opt.featured
+                    ? "bg-blue-500 text-white shadow-[0_12px_40px_rgba(18,54,160,0.3)]"
+                    : "bg-cream border border-black/[0.06]"
+                }`}
+              >
+                <div className={`font-display text-xl leading-tight mb-1 ${opt.featured ? "text-white" : "text-ink"}`}>
+                  {opt.name}
+                </div>
+                <div className={`font-ui text-sm font-bold mb-3 ${opt.featured ? "text-[#F59E0B]" : "text-blue-500"}`}>
+                  {opt.price}
+                </div>
+                <p className={`font-body text-sm leading-[1.7] ${opt.featured ? "text-white/85" : "text-gray-muted"}`}>
+                  {opt.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 13. Meet Jas ── */}
+      <section className="py-16 max-md:py-10 bg-cream">
         <div className="max-w-[1000px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <div className="grid grid-cols-2 gap-12 items-center max-md:grid-cols-1">
             <div className="flex flex-col gap-4">
@@ -992,7 +789,7 @@ export default function AcademyPage() {
             </div>
             <div>
               <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
-                Meet Your Trainer
+                Meet Jas
               </span>
               <h2 className="font-display text-[clamp(28px,3.5vw,40px)] leading-[0.95] text-ink mb-6">
                 LEARN DIRECTLY FROM A TRAINER WITH A PROVEN TRACK RECORD
@@ -1018,199 +815,11 @@ export default function AcademyPage() {
         </div>
       </section>
 
-      {/* ── Results ── */}
-      <section className="py-16 max-md:py-10 bg-cream">
-        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
-          <div className="text-center mb-10">
-            <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
-              Real Members, Real Dogs
-            </span>
-            <h2 className="font-display text-[clamp(30px,4vw,44px)] leading-[0.95] text-ink max-w-[760px] mx-auto">
-              TRANSFORMATIONS, ORGANIZED BY YOUR EXACT PROBLEM
-            </h2>
-            <p className="font-body text-base text-gray-muted mt-4">
-              Find the story that sounds like your dog.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-3 gap-6 max-lg:grid-cols-2 max-md:grid-cols-1">
-            {RESULTS.map((r) => (
-              <div key={r.name} className="bg-white border border-black/[0.05] rounded-xl p-7 flex flex-col">
-                <div className="font-ui text-[13px] font-bold tracking-[1px] uppercase text-blue-500 mb-3">
-                  {r.tag}
-                </div>
-                <p className="font-body text-[15px] text-ink/80 italic leading-relaxed mb-4 flex-1">{r.quote}</p>
-                <div className="font-ui text-sm font-bold text-ink">{r.name}</div>
-                <div className="font-ui text-xs text-gray-muted mb-3">{r.meta}</div>
-                <div className="font-ui text-xs font-bold tracking-[1px] uppercase text-green-500 bg-green-500/10 rounded-sm px-3 py-1.5 inline-block self-start">
-                  &#10003; {r.result}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Member video testimonials ── */}
-      <section className="py-16 max-md:py-10 bg-white">
-        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
-          <div className="text-center mb-10">
-            <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
-              In Their Own Words
-            </span>
-            <h2 className="font-display text-[clamp(30px,4vw,44px)] leading-[0.95] text-ink max-w-[760px] mx-auto">
-              HEAR IT FROM MEMBERS
-            </h2>
-          </div>
-          <div className="grid grid-cols-3 gap-6 max-lg:grid-cols-2 max-md:grid-cols-1">
-            {MEMBER_VIDEOS.map((v) => (
-              <div key={v.name}>
-                <video
-                  poster={posterFor(v.src)}
-                  className="w-full rounded-xl bg-black shadow-md"
-                  controls
-                  playsInline
-                  preload="metadata"
-                >
-                  <source src={v.src} type="video/mp4" />
-                </video>
-                <div className="font-ui text-sm font-bold tracking-[1px] uppercase text-ink mt-3 text-center">
-                  {v.name}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Post-testimonials CTA ── */}
-      <section className="py-12 max-md:py-10 text-center" style={{ background: "linear-gradient(135deg, #8f9fe8 0%, #7c8bf5 100%)" }}>
-        <div className="max-w-[760px] mx-auto px-6">
-          <h2 className="font-display text-[clamp(24px,3vw,32px)] text-ink leading-tight mb-6">
-            YOUR DOG&rsquo;S TRANSFORMATION STORY COULD START TODAY.
-          </h2>
-          <JoinCta label="Join The Academy — $97/Month" />
-        </div>
-      </section>
-
-      {/* ── Landscape comparison ── */}
-      <section className="py-16 max-md:py-10 bg-cream">
-        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
-          <div className="text-center mb-10">
-            <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
-              The Competitive Landscape
-            </span>
-            <h2 className="font-display text-[clamp(30px,4vw,44px)] leading-[0.95] text-ink max-w-[820px] mx-auto">
-              A STRUCTURED ROADMAP THAT TEACHES YOU AND YOUR DOG. TOGETHER.
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-4 gap-5 max-lg:grid-cols-2 max-[480px]:grid-cols-1 items-stretch">
-            {LANDSCAPE.map((opt) => (
-              <div
-                key={opt.name}
-                className={`rounded-xl p-6 flex flex-col ${
-                  opt.featured
-                    ? "bg-blue-500 text-white shadow-[0_12px_40px_rgba(18,54,160,0.3)]"
-                    : "bg-white border border-black/[0.06]"
-                }`}
-              >
-                <div className={`font-display text-xl leading-tight mb-1 ${opt.featured ? "text-white" : "text-ink"}`}>
-                  {opt.name}
-                </div>
-                <div className={`font-ui text-sm font-bold mb-3 ${opt.featured ? "text-[#F59E0B]" : "text-blue-500"}`}>
-                  {opt.price}
-                </div>
-                <p className={`font-body text-sm leading-[1.7] ${opt.featured ? "text-white/85" : "text-gray-muted"}`}>
-                  {opt.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── The offer ── */}
-      <section
-        id="offer"
-        className="py-16 max-md:py-10 scroll-mt-[84px]"
-        style={{ background: "linear-gradient(135deg, #0A1F3C 0%, #122E85 55%, #1A3FAB 100%)" }}
-      >
-        <div className="max-w-[860px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
-          <div className="text-center mb-10">
-            <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-[#6A9FFF] block mb-3">
-              The Offer
-            </span>
-            <h2 className="font-display text-[clamp(30px,4vw,44px)] leading-[0.95] text-white">
-              EVERYTHING INSIDE THE CALI K9 ONLINE ACADEMY
-            </h2>
-            <p className="font-body text-base text-white/60 mt-4">
-              Not just $97 for &ldquo;an Academy.&rdquo; Here&rsquo;s the complete curriculum you get access to.
-            </p>
-          </div>
-
-          <div className="mb-10">
-            <Image
-              src="/images/funnel/academy-jas-teaching.jpg"
-              alt="Jas Leverette coaching a live Cali K9 Academy class from the studio"
-              width={1080}
-              height={839}
-              className="w-full h-auto aspect-[16/9] rounded-xl object-cover object-[center_30%] shadow-[0_20px_60px_rgba(0,0,0,0.4)]"
-            />
-            <p className="font-ui text-[11px] font-bold tracking-[1.5px] uppercase text-white/40 text-center mt-3">
-              Jas Teaching Academy Live From The Cali K9 Studio
-            </p>
-          </div>
-
-          <div className="bg-white/[0.06] border border-white/[0.15] rounded-xl p-8 max-[480px]:p-5">
-            <ul className="list-none p-0 m-0 divide-y divide-white/10 mb-6">
-              {OFFER_STACK.map((row) => (
-                <li key={row.item} className="py-3.5 flex items-start justify-between gap-4">
-                  <div>
-                    <div className="font-ui text-[15px] font-bold text-white">{row.item}</div>
-                    <div className="font-body text-sm text-white/55">{row.detail}</div>
-                  </div>
-                  <span
-                    className={`font-ui text-sm font-bold shrink-0 mt-0.5 ${
-                      row.value.endsWith(" value") ? "text-white/50 line-through" : "text-[#F59E0B]"
-                    }`}
-                  >
-                    {row.value}
-                  </span>
-                </li>
-              ))}
-            </ul>
-            <div className="flex items-center justify-between gap-4 pt-5 border-t-2 border-[#F59E0B]/60 mb-7">
-              <span className="font-ui text-sm font-bold tracking-[2px] uppercase text-white">
-                Total Value: <span className="line-through text-white/60">$2,979</span>
-              </span>
-              <span className="font-display text-4xl text-[#F59E0B] leading-none">
-                $97<span className="text-xl text-white/70">/mo</span>
-              </span>
-            </div>
-            <JoinCta label="Join The Academy Now" />
-          </div>
-
-          <p className="font-body text-sm text-white/45 text-center mt-6 max-w-[560px] mx-auto">
-            This is a structured, sequential training system, not a random video
-            library. Every piece above supports the same 50-step roadmap.
-          </p>
-        </div>
-      </section>
-
-      {/* ── What happens when you join ── */}
+      {/* ── 14. What happens when you join ── */}
       <section className="py-16 max-md:py-10 bg-white">
         <div className="max-w-[1000px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
-          <div className="text-center mb-10">
-            <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
-              Zero Guesswork
-            </span>
-            <h2 className="font-display text-[clamp(30px,4vw,44px)] leading-[0.95] text-ink">
-              WHAT HAPPENS THE MOMENT YOU JOIN
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-3 gap-5 max-md:grid-cols-1">
+          <SectionHeading eyebrow="Zero Guesswork" title="WHAT HAPPENS WHEN YOU JOIN" />
+          <div className="grid grid-cols-4 gap-5 max-lg:grid-cols-2 max-[480px]:grid-cols-1">
             {JOIN_STEPS.map((s) => (
               <div key={s.num} className="bg-cream border border-black/[0.05] rounded-xl p-6">
                 <div className="font-display text-2xl text-blue-500 mb-2">{s.num}</div>
@@ -1222,18 +831,20 @@ export default function AcademyPage() {
         </div>
       </section>
 
-      {/* ── FAQ ── */}
+      {/* ── 15. Join the Academy ── */}
+      <section className="py-12 max-md:py-10 text-center" style={{ background: "linear-gradient(135deg, #8f9fe8 0%, #7c8bf5 100%)" }}>
+        <div className="max-w-[760px] mx-auto px-6">
+          <h2 className="font-display text-[clamp(24px,3vw,32px)] text-ink leading-tight mb-6">
+            JOIN THE ACADEMY &mdash; $97/MONTH
+          </h2>
+          <JoinCta label="Join The Academy — $97/Month" />
+        </div>
+      </section>
+
+      {/* ── 16. FAQ ── */}
       <section className="py-16 max-md:py-10 bg-cream">
         <div className="max-w-[760px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
-          <div className="text-center mb-10">
-            <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-blue-500 block mb-3">
-              Questions
-            </span>
-            <h2 className="font-display text-[clamp(30px,4vw,44px)] leading-[0.95] text-ink">
-              FREQUENTLY ASKED QUESTIONS
-            </h2>
-          </div>
-
+          <SectionHeading eyebrow="Questions" title="FREQUENTLY ASKED QUESTIONS" />
           <div className="space-y-3">
             {FAQS.map((faq) => (
               <details key={faq.q} className="group bg-white border border-black/[0.06] rounded-xl">
@@ -1248,7 +859,7 @@ export default function AcademyPage() {
         </div>
       </section>
 
-      {/* ── Cause / mission ── */}
+      {/* ── 17. Rescue mission ── */}
       <section className="py-16 max-md:py-10 bg-ink">
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <div className="grid grid-cols-[0.9fr_1.1fr] gap-12 items-center max-md:grid-cols-1">
@@ -1266,104 +877,31 @@ export default function AcademyPage() {
               <h2 className="font-display text-[clamp(28px,3.5vw,42px)] leading-[0.95] text-white mb-4">
                 TRAIN YOUR DOG. HELP SAVE ANOTHER.
               </h2>
-              <p className="font-body text-base text-white/80 leading-relaxed mb-3">
-                Your membership isn&rsquo;t only transforming your dog &mdash; it&rsquo;s helping
-                save dogs around the world.
+              <p className="font-body text-base text-white/75 leading-relaxed">
+                A portion of every Academy membership funds the rescue, veterinary care,
+                rehabilitation and rehoming of street dogs, starting in Morocco. Your dog
+                gets trained. Another dog gets a second chance. Every month you stay, the
+                mission keeps going.
               </p>
-              <p className="font-body text-[14.5px] text-white/65 leading-relaxed mb-5">
-                When you join the Cali K9 Online Academy, you&rsquo;re becoming part of a much
-                bigger mission.{" "}
-                <strong className="text-white">
-                  A portion of all Academy profits go toward helping save street dogs around the
-                  world
-                </strong>
-                , beginning in Morocco. Jas Leverette and the Cali K9 team are working to:
-              </p>
-              <ul className="grid grid-cols-2 gap-x-6 gap-y-2 max-[480px]:grid-cols-1 mb-6">
-                {MISSION_LIST.map((item) => (
-                  <li key={item} className="font-body text-[13.5px] text-white/80 pl-5 relative">
-                    <span className="absolute left-0 text-blue-200 font-bold">&#10003;</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <div className="bg-white/5 border border-white/10 rounded-xl p-5">
-                <h4 className="font-body text-[15px] font-bold text-white mb-1.5">
-                  Even after your dog masters Step 50, your membership keeps working.
-                </h4>
-                <p className="font-body text-[13.5px] text-white/65 leading-relaxed">
-                  Most training programs lose members the moment the dog is trained. The Academy is
-                  built to be different &mdash;{" "}
-                  <strong className="text-white/85">
-                    every month you stay is another month funding rescue, veterinary care and
-                    rehabilitation for a street dog who needs it.
-                  </strong>{" "}
-                  Your dog&rsquo;s transformation might be complete. The mission isn&rsquo;t.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="border-t border-white/10 mt-12 pt-10 text-center">
-            <span className="font-ui text-[13px] font-semibold tracking-[3px] uppercase text-blue-200 block mb-2">
-              From The Streets To A Second Chance
-            </span>
-            <h3 className="font-display text-[clamp(24px,3vw,32px)] text-white mb-3">
-              WE&rsquo;RE DOCUMENTING THE ENTIRE JOURNEY
-            </h3>
-            <p className="font-body text-[14.5px] text-white/65 leading-relaxed max-w-[560px] mx-auto mb-6">
-              From rescue, to rehabilitation, to training, to finding these dogs a new home &mdash;
-              follow Jas&rsquo;s mission on YouTube and Instagram and see exactly what we&rsquo;re
-              working toward.
-            </p>
-            <div className="flex items-center justify-center gap-3 flex-wrap mb-10">
-              <a
-                href="https://www.youtube.com/channel/UCGtJ7tl98bL-dl7lyanHmMg"
-                target="_blank"
-                rel="noopener"
-                className="btn btn-outline !border-white/40 !text-white hover:!border-white"
-              >
-                Follow On YouTube
-              </a>
-              <a
-                href="https://www.instagram.com/calik9/"
-                target="_blank"
-                rel="noopener"
-                className="btn btn-outline !border-white/40 !text-white hover:!border-white"
-              >
-                Follow On Instagram
-              </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── Final CTA ── */}
-      <section
-        className="py-16 max-md:py-10 text-center"
-        style={{ background: "linear-gradient(135deg, #0A1F3C 0%, #122E85 55%, #1A3FAB 100%)" }}
-      >
+      {/* ── 18. Final CTA ── */}
+      <section className="py-16 max-md:py-10 text-center" style={{ background: NAVY }}>
         <div className="max-w-[680px] mx-auto px-6">
           <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-[#6A9FFF] block mb-3">
             Ready When You Are
           </span>
           <h2 className="font-display text-[clamp(34px,4.5vw,52px)] leading-[0.93] text-white mb-5">
-            START YOUR DOG&rsquo;S 50-STEP TRANSFORMATION
+            START TRAINING TODAY &mdash; $97/MONTH
           </h2>
           <p className="font-body text-base text-white/70 leading-relaxed mb-8 max-w-[560px] mx-auto">
-            Stop guessing what to train next. Join the Academy for $97/month and
-            follow the exact system Jas Leverette uses with celebrity clients,
-            from Step 1 through Step 50, starting today.
+            The complete Cali K9 system, live coaching with Jas every week, and a
+            roadmap that tells you exactly what to train next. Start at Step 1 today.
           </p>
-          <JoinCta label="Join The Cali K9 Academy for $97/Month" />
-
-          <div className="flex items-center justify-center gap-6 flex-wrap mt-10">
-            {["Full 50-step roadmap", "Structured, not random videos", "Community & coaching", "Taught by a Netflix-featured trainer"].map((chip) => (
-              <span key={chip} className="font-ui text-xs font-bold tracking-[1px] uppercase text-white/60">
-                &#10003; {chip}
-              </span>
-            ))}
-          </div>
+          <JoinCta label="Start Training Today — $97/Month" />
 
           <p className="font-ui text-xs text-white/35 mt-10">
             <Link href="/privacy-policy" className="hover:text-white/60">Privacy Policy</Link>
