@@ -252,28 +252,25 @@ export default async function HomePage() {
           aria-hidden="true"
         />
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 relative z-[1]">
-          <div className="grid grid-cols-[1.15fr_1fr] gap-14 items-start max-[900px]:grid-cols-1 max-[900px]:gap-9">
-            {/* The live 13-question quiz, embedded. Results route to /free-behavior-assessment/results/[type]. */}
-            <div id="assessment-quiz" className="max-[900px]:order-2 scroll-mt-[100px]">
-              <AssessmentQuiz />
-            </div>
-            <div className="max-[900px]:order-1 min-[901px]:sticky min-[901px]:top-[120px]">
-              <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-amber-400 block mb-3">
+          <div className="grid grid-cols-[1fr_1.1fr] gap-14 items-start max-[900px]:grid-cols-1 max-[900px]:gap-9">
+            {/* Copy on the left (sticky on desktop), live quiz on the right. */}
+            <div className="min-[901px]:sticky min-[901px]:top-[120px] min-[901px]:pt-4">
+              <span className="font-ui text-[16px] font-semibold tracking-[4px] uppercase text-amber-400 block mb-4">
                 Not Sure What Your Dog Needs?
               </span>
-              <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-white mb-4">
+              <h2 className="font-display text-[clamp(40px,4.6vw,60px)] leading-[0.93] text-white mb-5">
                 TAKE THE FREE CALI K9<sup className="text-[0.42em] align-super font-ui">&reg;</sup><br />
                 <span className="text-blue-400">BEHAVIOR ASSESSMENT</span>
               </h2>
-              <div className="w-12 h-[3px] bg-amber-400 mb-6" />
-              <p className="font-body text-[15px] text-white/70 leading-[1.75] mb-6">
+              <div className="w-14 h-[3px] bg-amber-400 mb-7" />
+              <p className="font-body text-[18px] max-md:text-[16px] text-white/75 leading-[1.7] mb-8">
                 Pulling, aggression, barking, anxiety, poor recall &mdash; or you simply don&rsquo;t know where to start.
                 Answer a few questions about your dog and Jas will show you exactly what to work on next.
               </p>
-              <ul className="list-none flex flex-col gap-3 mb-8">
+              <ul className="list-none flex flex-col gap-4 mb-9">
                 {ASSESSMENT_CHECKS.map((c) => (
-                  <li key={c} className="flex items-start gap-3 font-ui text-[15px] font-semibold text-white/90">
-                    <span className="mt-0.5 w-5 h-5 shrink-0 rounded-full bg-amber-400 text-blue-700 flex items-center justify-center text-[11px] font-black" aria-hidden="true">
+                  <li key={c} className="flex items-start gap-3.5 font-ui text-[18px] max-md:text-[16px] font-semibold text-white/90 leading-snug">
+                    <span className="mt-0.5 w-6 h-6 shrink-0 rounded-full bg-amber-400 text-blue-700 flex items-center justify-center text-[13px] font-black" aria-hidden="true">
                       &#10003;
                     </span>
                     {c}
@@ -286,10 +283,14 @@ export default async function HomePage() {
                   Take My Free Assessment &darr;
                 </a>
               </div>
-              <p className="font-ui text-[12px] tracking-[1.5px] uppercase text-white/45">
+              <p className="font-ui text-[13px] tracking-[1.5px] uppercase text-white/45">
                 Free &nbsp;&bull;&nbsp; 2 Minutes &nbsp;&bull;&nbsp; Personalized Results
-                <span className="max-[900px]:hidden"> &nbsp;&bull;&nbsp; <span className="text-amber-400">Start on the left &larr;</span></span>
+                <span className="max-[900px]:hidden"> &nbsp;&bull;&nbsp; <span className="text-amber-400">Start on the right &rarr;</span></span>
               </p>
+            </div>
+            {/* The live 13-question quiz, embedded. Results route to /free-behavior-assessment/results/[type]. */}
+            <div id="assessment-quiz" className="scroll-mt-[100px]">
+              <AssessmentQuiz />
             </div>
           </div>
         </div>
