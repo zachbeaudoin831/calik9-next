@@ -205,11 +205,14 @@ const JOIN_STEPS = [
   { num: "04", title: "Train With Us Live Every Week", desc: "Bring your dog and your questions to Academy Live with Jas on Saturdays and the trainer-led session on Wednesdays." },
 ];
 
-// Live schedule. Times are Pacific.
+// Live schedule. Jas runs these from Morocco (UTC+1, no DST); the US times
+// below are the Pacific/Eastern equivalents while the US is on daylight time
+// (5:00 PM / 6:00 PM / 7:15 PM Morocco). When US clocks fall back in
+// November, each becomes one hour earlier here (8:00 AM PT, etc.).
 const SCHEDULE = [
-  { day: "Sat · 5:00 PM", title: "Kickstart", access: "Free · Community", tone: "free" },
-  { day: "Sat · 6:00 PM", title: "Live Webinar", access: "Open To Guests", tone: "guest" },
-  { day: "Sat · 7:15 PM", title: "Academy Live With Jas", access: "Members Only", tone: "members" },
+  { day: "Sat · 9:00 AM PT / 12:00 PM ET", title: "Kickstart", access: "Free · Community", tone: "free" },
+  { day: "Sat · 10:00 AM PT / 1:00 PM ET", title: "Live Webinar", access: "Open To Guests", tone: "guest" },
+  { day: "Sat · 11:15 AM PT / 2:15 PM ET", title: "Academy Live With Jas", access: "Members Only", tone: "members" },
   { day: "Wed · Evening", title: "Trainer-Led Academy Live", access: "Members Only", tone: "members" },
 ];
 
@@ -534,7 +537,7 @@ export default function AcademyPage() {
                 ))}
               </div>
               <p className="font-ui text-[11px] font-bold tracking-[1.5px] uppercase text-white/40 mt-4 max-md:text-center">
-                All Times Pacific (PT)
+                PT = Pacific Time &middot; ET = Eastern Time
               </p>
             </div>
           </div>
