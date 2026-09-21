@@ -202,7 +202,7 @@ const JOIN_STEPS = [
   { num: "01", title: "Join", desc: "Complete your $97/month membership in under two minutes." },
   { num: "02", title: "Get Instant Access", desc: "You're inside the full member portal immediately. No waiting." },
   { num: "03", title: "Start Your Personalized Roadmap", desc: "Begin at Step 1 on a recommended path built for your dog, with your progress tracker ready to go." },
-  { num: "04", title: "Train With Us Live Every Week", desc: "Bring your dog and your questions to Academy Live with Jas on Saturdays and the trainer-led session on Tuesdays." },
+  { num: "04", title: "Train With Jas Live Every Week", desc: "Bring your dog and your questions to Academy Live with Jas on Saturdays and the trainer-led session on Tuesdays." },
 ];
 
 // Live schedule. Jas runs these from Morocco (UTC+1, no DST); the US times
