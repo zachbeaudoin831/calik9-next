@@ -35,20 +35,20 @@ const PROBLEMS = [
 ];
 
 const PHASES = [
-  { num: 1, title: "Household Foundation", steps: "Steps 1–4", detail: "Boundaries at home · Building food value · Hand-feeding meals" },
-  { num: 2, title: "Engagement & Training Structure", steps: "Steps 5–9", detail: "Leash-on in the home · Household rules · Break/play value" },
-  { num: 3, title: "Markers, Luring & The Training Box", steps: "Steps 10–17", detail: "Luring mechanics · The training box · Sustainment & release markers" },
-  { num: 4, title: "Core Positions", steps: "Steps 18–25", detail: "Down, stand & front · Heel position · Middle & right" },
-  { num: 5, title: "Heeling & Movement", steps: "Steps 26–31", detail: "Recall into front · One, three & five-step heeling · Phasing out the lure" },
-  { num: 6, title: "Distance, Duration & Distraction", steps: "Steps 32–38", detail: "The three D's · The touchpad · Rear-end awareness" },
-  { num: 7, title: "Real-World Reliability", steps: "Steps 39–44", detail: "Engagement around distractions · Handler communication & leadership" },
-  { num: 8, title: "Off-Leash Mastery", steps: "Steps 45–50", detail: "Generalizing commands · Reliable recall & heel · Off-leash reliability" },
+  { num: 1, title: "Getting To Know Your Dog", steps: "Steps 1–8", detail: "Training tools · The 3 motivators & 5 pillars · Your dog's temperament · How dogs think" },
+  { num: 2, title: "Building Drive & First Commands", steps: "Steps 9–14", detail: "Ignition · Release word & hand-feeding · Luring, spin, the box & search" },
+  { num: 3, title: "Box Work: Sit, Down & Focus", steps: "Steps 15–20", detail: "Sit & down on the box · Holding position while you move · Beginner agility" },
+  { num: 4, title: "Proofing & Positions", steps: "Steps 21–26", detail: "Leash proofing · Front & heel position · Teaching the recall" },
+  { num: 5, title: "Touchpad & Heeling Basics", steps: "Steps 27–33", detail: "Heeling along a wall · Your first distractions · Touchpad sit, stand & search" },
+  { num: 6, title: "Removing The Training Wheels", steps: "Steps 34–38", detail: "Heeling without help · Higher-value rewards · Corrections & socialization" },
+  { num: 7, title: "Advanced Foundations", steps: "Steps 39–44", detail: "Ignition 2.0 · Indirect reward · Long-distance positions · Phasing out the box" },
+  { num: 8, title: "Advanced Reliability & Real-World Proofing", steps: "Steps 45–50", detail: "Commands in motion · Advanced recall & heeling · Advanced distractions" },
 ];
 
 const METHOD_FLOW = [
   { big: "3", label: "Motivators", sub: "Praise, food, toy" },
   { big: "5", label: "Pillars", sub: "The skills every dog needs" },
-  { big: "8", label: "Modules", sub: "Foundation to off-leash" },
+  { big: "8", label: "Modules", sub: "Orientation to real-world proofing" },
   { big: "50", label: "Steps", sub: "One fully trained dog" },
 ];
 
@@ -144,7 +144,7 @@ const JAS_BULLETS = [
 // Real lesson clips from inside the Academy, hosted on the GHL media CDN.
 const SAMPLE_VIDEOS = [
   {
-    level: "Beginner · Module 1–3",
+    level: "Beginner · Module 2",
     title: "Foundation: Building Value & Engagement",
     desc: "Watch Jas demonstrate the step, then see an owner and dog practice it and reach the finished result.",
     src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a96ddd7389c8c4614069da5.mp4",
@@ -156,7 +156,7 @@ const SAMPLE_VIDEOS = [
     src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a96ddfca227fec6bd91923a.mp4",
   },
   {
-    level: "Advanced · Module 7–8",
+    level: "Advanced · Module 8",
     title: "Off-Leash Reliability in the Real World",
     desc: "See the finished result — a bulletproof recall around heavy distractions, the payoff of the full roadmap.",
     src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a96de23c7069f4fc79a22c9.mp4",
@@ -218,7 +218,7 @@ const FAQS = [
   { q: "What age should my dog be?", a: "The system works from puppyhood through adulthood. Younger dogs and older dogs both move through the roadmap, just at their own pace. Older dogs often move through the foundation quickly since they're typically calmer and more focused." },
   { q: "Can I use this with a puppy?", a: "Absolutely. Many members start the same week they bring their puppy home, building good habits from Step 1 instead of fixing bad ones later." },
   { q: "How much time does it take each day?", a: "Most steps take 10 to 15 minutes a day. Consistency matters far more than duration." },
-  { q: "What equipment do I need?", a: "Just a leash, treats, and your dog to start. Any additional recommended equipment (like the training box or touchpad) is covered inside the relevant steps." },
+  { q: "What equipment do I need?", a: "Just a leash, treats, and your dog to start. Any additional recommended equipment (like the training box, touchpad or training collar) is covered inside the relevant steps." },
   { q: "What if my dog has serious aggression or safety issues?", a: "The Academy is built for everyday obedience, communication and behavior challenges. For serious aggression or safety concerns, please book an evaluation with our team first. These cases often need hands-on, professional support before or alongside a self-directed program." },
   { q: "Can I cancel?", a: "Yes. There's no contract. Manage or cancel your membership anytime from your account. Your access continues through the end of your current billing period." },
   { q: "Can my spouse or family participate?", a: "Yes. One membership covers your household, so everyone can stay consistent with the same commands and approach." },
@@ -453,7 +453,7 @@ export default function AcademyPage() {
             dark
             eyebrow="The Solution"
             title={<>8 MODULES &rarr; 50 SIMPLE STEPS &rarr; ONE FULLY TRAINED DOG</>}
-            sub="The exact progression Cali K9 uses, from household foundation to off-leash reliability, so you always know what to train next."
+            sub="The exact progression Cali K9 uses, from getting to know your dog to real-world, off-leash reliability, so you always know what to train next."
             maxW="860px"
           />
 

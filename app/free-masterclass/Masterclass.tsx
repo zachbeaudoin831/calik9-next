@@ -98,14 +98,14 @@ const LEARN_ITEMS = [
 
 // The eight modules of the 50-Step Roadmap (the actual product structure).
 const MODULES = [
-  { num: 1, title: "Household Foundation", steps: "Steps 1–4" },
-  { num: 2, title: "Engagement & Training Structure", steps: "Steps 5–9" },
-  { num: 3, title: "Markers, Luring & The Training Box", steps: "Steps 10–17" },
-  { num: 4, title: "Core Positions", steps: "Steps 18–25" },
-  { num: 5, title: "Heeling & Movement", steps: "Steps 26–31" },
-  { num: 6, title: "Distance, Duration & Distraction", steps: "Steps 32–38" },
-  { num: 7, title: "Real-World Reliability", steps: "Steps 39–44" },
-  { num: 8, title: "Off-Leash Mastery", steps: "Steps 45–50" },
+  { num: 1, title: "Getting To Know Your Dog", steps: "Steps 1–8" },
+  { num: 2, title: "Building Drive & First Commands", steps: "Steps 9–14" },
+  { num: 3, title: "Box Work: Sit, Down & Focus", steps: "Steps 15–20" },
+  { num: 4, title: "Proofing & Positions", steps: "Steps 21–26" },
+  { num: 5, title: "Touchpad & Heeling Basics", steps: "Steps 27–33" },
+  { num: 6, title: "Removing The Training Wheels", steps: "Steps 34–38" },
+  { num: 7, title: "Advanced Foundations", steps: "Steps 39–44" },
+  { num: 8, title: "Advanced Reliability & Real-World Proofing", steps: "Steps 45–50" },
 ];
 
 // Owner testimonial videos, hosted on the GHL media CDN.
@@ -500,7 +500,7 @@ export default function Masterclass({ intro }: { intro?: React.ReactNode }) {
               <p className="font-body text-[15px] text-white/70 leading-relaxed mb-6">
                 Most owners don&rsquo;t fail because they aren&rsquo;t trying. They fail because
                 they don&rsquo;t know what to work on next. The Roadmap lays out the entire
-                progression, from household foundation to off-leash reliability, in the exact
+                progression, from getting to know your dog to real-world off-leash reliability, in the exact
                 order Jas teaches it. Yours free the moment you register.
               </p>
               <RegisterCta label="Get The Roadmap + Reserve My Seat →" light />
