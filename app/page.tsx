@@ -237,6 +237,24 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* ── INTRO VIDEO (moved here from the /free-behavior-assessment hero) ── */}
+      <section className="bg-white pt-4 pb-14 max-md:pb-10" aria-label="Watch: which dog do you have?">
+        <div className="max-w-[760px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
+          <video
+            className="w-full rounded-xl bg-black shadow-[0_20px_60px_rgba(0,0,0,0.25)]"
+            poster="/images/funnel/quiz-video-poster.jpg"
+            controls
+            playsInline
+            preload="metadata"
+          >
+            <source
+              src="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6ab16f43ff484614db830523.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </div>
+      </section>
+
       {/* ── FREE BEHAVIOR ASSESSMENT ── */}
       <section id="assessment" className="relative overflow-hidden bg-blue-700 py-20 max-md:py-12 max-[480px]:py-8">
         <div
