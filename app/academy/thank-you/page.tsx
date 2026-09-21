@@ -22,7 +22,7 @@ const STEPS = [
   {
     num: "3",
     title: "TRAIN A LITTLE EVERY DAY",
-    desc: "Most steps take 10 to 15 minutes a day. Consistency beats duration. Your dog advances when they're ready, never rushed.",
+    desc: "Most steps take 15 to 20 minutes a day. Consistency beats duration. Your dog advances when they're ready, never rushed.",
   },
 ];
 

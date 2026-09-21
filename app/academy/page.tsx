@@ -220,7 +220,7 @@ const FAQS = [
   { q: "Will this work for my breed?", a: "Yes. The 50-step roadmap is built on foundational communication and obedience principles that apply across breeds. Pacing simply adjusts to your individual dog." },
   { q: "What age should my dog be?", a: "The system works from puppyhood through adulthood. Younger dogs and older dogs both move through the roadmap, just at their own pace. Older dogs often move through the foundation quickly since they're typically calmer and more focused." },
   { q: "Can I use this with a puppy?", a: "Absolutely. Many members start the same week they bring their puppy home, building good habits from Step 1 instead of fixing bad ones later." },
-  { q: "How much time does it take each day?", a: "Most steps take 10 to 15 minutes a day. Consistency matters far more than duration." },
+  { q: "How much time does it take each day?", a: "Most steps take 15 to 20 minutes a day. Consistency matters far more than duration." },
   { q: "What equipment do I need?", a: "Just a leash, treats, and your dog to start. Any additional recommended equipment (like the training box, touchpad or training collar) is covered inside the relevant steps." },
   { q: "What if my dog has serious aggression or safety issues?", a: "The Academy is built for everyday obedience, communication and behavior challenges. For serious aggression or safety concerns, please book an evaluation with our team first. These cases often need hands-on, professional support before or alongside a self-directed program." },
   { q: "Can I cancel?", a: "Yes. There's no contract. Manage or cancel your membership anytime from your account. Your access continues through the end of your current billing period." },
@@ -315,7 +315,7 @@ export default function AcademyPage() {
                 <span className="text-[#6A9FFF]">with live coaching every week.</span>
               </h2>
               <p className="font-body text-lg text-white/70 leading-relaxed mb-4 max-w-[540px]">
-                Follow the 8-module, 50-step system from home in 10&ndash;15 minutes a
+                Follow the 8-module, 50-step system from home in 15&ndash;20 minutes a
                 day. Then train live with Jas and the Cali K9 team every week.
                 Whether your dog is reactive, pushy or simply untrained, this is the
                 same method Jas uses with celebrity clients and on Netflix.
