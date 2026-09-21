@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import Script from "next/script";
-import CtaBlock from "@/components/CtaBlock";
 import ShopTeaser from "@/components/ShopTeaser";
 import HeroEntrance from "@/components/HeroEntrance";
 import CountUp from "@/components/CountUp";
@@ -53,6 +52,18 @@ const MEDIA_ROW_2 = [
   { src: "/images/media-logos/tmz.webp", alt: "TMZ", w: 192, h: "h-16 max-md:h-12" },
 ];
 
+// Homepage assessment video. PROVISIONAL: reuses the intro clip from
+// /free-behavior-assessment until Zach uploads the dedicated 45–90s cut.
+const ASSESSMENT_VIDEO = "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6ab16f43ff484614db830523.mp4";
+const ASSESSMENT_POSTER = "/images/funnel/quiz-video-poster.jpg";
+
+const ASSESSMENT_CHECKS = [
+  "Takes about 2 minutes",
+  "Identify your dog\u2019s biggest behavior challenge",
+  "Get a personalized training recommendation",
+  "See which Cali K9 program fits your dog",
+];
+
 const PILLARS = [
   { num: "01", name: "OBEDIENCE", desc: "Focused commands, distraction-proof responses.", img: "/images/cdn/659f2c414a146b09ae769799.webp" },
   { num: "02", name: "SOCIALIZATION", desc: "Confidence around people, dogs, and environments.", img: "/images/cdn/659f2e5fa8535bd2fb51264b.webp" },
@@ -100,10 +111,14 @@ const PROGRAMS = [
 ];
 
 export default async function HomePage() {
+  // Never let a Shopify hiccup 500 the homepage — the Gear teaser just renders empty.
   const [treatsRaw, equipmentRaw] = await Promise.all([
     getProductsByCollection("turbo-treats", 10),
     getProductsByCollection("training-equipment", 30),
-  ]);
+  ]).catch((err) => {
+    console.error("[home] Shopify products unavailable:", err);
+    return [[], []] as const;
+  });
   const treats = dedupeProductsByTitle(treatsRaw.filter((p) => !isServiceProduct(p)));
   const equipment = dedupeProductsByTitle(equipmentRaw.filter((p) => !isServiceProduct(p)));
   // Explicit teaser order: Turbo Treats Chicken Hearts → Turbo Treats Beef
@@ -159,12 +174,17 @@ export default async function HomePage() {
           </HeroEntrance>
 
           <HeroEntrance delay={360}>
-            <div className="flex gap-4 flex-wrap max-sm:flex-col max-sm:items-stretch">
-              <Link href="/evaluation-with-behavior-specialist" className="btn btn-white btn-lg min-w-[240px]">
-                Book Evaluation &rarr;
-              </Link>
-              <Link href="/newclientservices" className="btn btn-outline-white min-w-[240px]">
-                View Programs &rarr;
+            <div className="flex gap-4 flex-wrap items-start max-sm:flex-col max-sm:items-stretch">
+              <div className="flex flex-col gap-2.5 max-sm:items-stretch">
+                <Link href="/free-behavior-assessment" className="btn btn-white btn-lg text-center max-sm:px-5">
+                  Take the Free 2-Minute Dog Behavior Assessment &rarr;
+                </Link>
+                <span className="font-ui text-[13px] tracking-[0.5px] text-white/60 text-center">
+                  Get your dog&rsquo;s personalized training recommendation.
+                </span>
+              </div>
+              <Link href="/newclientservices" className="btn btn-outline-white btn-lg min-w-[240px]">
+                View Training Programs &rarr;
               </Link>
             </div>
           </HeroEntrance>
@@ -217,6 +237,67 @@ export default async function HomePage() {
             {MEDIA_ROW_2.map((m) => (
               <Image key={m.alt} src={m.src} alt={m.alt} width={m.w} height={128} className={`${m.h} w-auto object-contain p-2 px-3 max-md:p-1.5 max-md:px-2.5 hover:scale-[1.07] transition-transform`} />
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── FREE BEHAVIOR ASSESSMENT ── */}
+      <section id="assessment" className="relative overflow-hidden bg-blue-700 py-20 max-md:py-12 max-[480px]:py-8">
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundImage: "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
+        <div
+          className="absolute w-[520px] h-[520px] max-md:w-[300px] max-md:h-[300px] rounded-full pointer-events-none -bottom-[200px] -right-[120px]"
+          style={{ background: "radial-gradient(circle, rgba(106,159,255,0.18) 0%, transparent 70%)" }}
+          aria-hidden="true"
+        />
+        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 relative z-[1]">
+          <div className="grid grid-cols-[1.15fr_1fr] gap-14 items-center max-[900px]:grid-cols-1 max-[900px]:gap-9">
+            <div className="rounded-xl overflow-hidden bg-black shadow-[0_24px_64px_rgba(0,0,0,0.45)] ring-1 ring-white/10">
+              <video
+                className="w-full h-auto block"
+                poster={ASSESSMENT_POSTER}
+                controls
+                playsInline
+                preload="metadata"
+              >
+                <source src={ASSESSMENT_VIDEO} type="video/mp4" />
+              </video>
+            </div>
+            <div>
+              <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase text-amber-400 block mb-3">
+                Not Sure What Your Dog Needs?
+              </span>
+              <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] text-white mb-4">
+                TAKE THE FREE CALI K9<sup className="text-[0.42em] align-super font-ui">&reg;</sup><br />
+                <span className="text-blue-400">BEHAVIOR ASSESSMENT</span>
+              </h2>
+              <div className="w-12 h-[3px] bg-amber-400 mb-6" />
+              <p className="font-body text-[15px] text-white/70 leading-[1.75] mb-6">
+                Pulling, aggression, barking, anxiety, poor recall &mdash; or you simply don&rsquo;t know where to start.
+                Answer a few questions about your dog and Jas will show you exactly what to work on next.
+              </p>
+              <ul className="list-none flex flex-col gap-3 mb-8">
+                {ASSESSMENT_CHECKS.map((c) => (
+                  <li key={c} className="flex items-start gap-3 font-ui text-[15px] font-semibold text-white/90">
+                    <span className="mt-0.5 w-5 h-5 shrink-0 rounded-full bg-amber-400 text-blue-700 flex items-center justify-center text-[11px] font-black" aria-hidden="true">
+                      &#10003;
+                    </span>
+                    {c}
+                  </li>
+                ))}
+              </ul>
+              <Link href="/free-behavior-assessment" className="btn btn-gold btn-lg max-sm:w-full">
+                Take My Free Assessment &rarr;
+              </Link>
+              <p className="font-ui text-[12px] tracking-[1.5px] uppercase text-white/45 mt-4">
+                Free &nbsp;&bull;&nbsp; 2 Minutes &nbsp;&bull;&nbsp; Personalized Results
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -520,14 +601,47 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ── FINAL CTA ── */}
-      <CtaBlock
-        eyebrow="Get Started"
-        heading="READY TO TRANSFORM YOUR DOG?"
-        description="Join thousands of families who've trusted Cali K9® to unlock their dog's potential. Results guaranteed."
-        primaryCta={{ label: "Book Evaluation \u2192", href: "/evaluation-with-behavior-specialist" }}
-        secondaryCta={{ label: "View Programs \u2192", href: "/newclientservices" }}
-      />
+      {/* ── FINAL CTA: two paths (cold → assessment, hot → evaluation) ── */}
+      <section className="py-20 max-md:py-12 max-[480px]:py-8 text-center bg-gradient-to-br from-blue-700 to-blue-500">
+        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
+          <span className="font-ui text-[15px] font-semibold tracking-[4px] uppercase block mb-3 text-blue-400">
+            Get Started
+          </span>
+          <h2 className="font-display text-[clamp(36px,4.5vw,52px)] leading-[0.93] mb-4 text-white">
+            READY TO TRANSFORM YOUR DOG?
+          </h2>
+          <div className="w-12 h-[3px] mx-auto mb-6 bg-blue-400" />
+          <p className="font-body text-base leading-relaxed mb-10 text-white/70 max-w-[640px] mx-auto">
+            Join thousands of families who&rsquo;ve trusted Cali K9&reg; to unlock their dog&rsquo;s potential. Results guaranteed.
+          </p>
+          <div className="grid grid-cols-2 gap-5 max-w-[860px] mx-auto max-[720px]:grid-cols-1">
+            <div className="rounded-xl border-2 border-amber-400 bg-white/[0.06] backdrop-blur-sm p-8 max-md:p-6 flex flex-col items-center">
+              <span className="font-ui text-[12px] font-bold tracking-[3px] uppercase text-amber-400 mb-3">Start Here</span>
+              <h3 className="font-display text-[clamp(24px,2.6vw,32px)] leading-[0.95] text-white mb-3">
+                FREE BEHAVIOR ASSESSMENT
+              </h3>
+              <p className="font-body text-sm text-white/65 leading-relaxed mb-6 max-w-[320px]">
+                2 minutes. Find out what&rsquo;s driving your dog&rsquo;s behavior and which program fits.
+              </p>
+              <Link href="/free-behavior-assessment" className="btn btn-gold mt-auto w-full">
+                Take the Free Assessment &rarr;
+              </Link>
+            </div>
+            <div className="rounded-xl border-2 border-white/25 bg-white/[0.04] p-8 max-md:p-6 flex flex-col items-center">
+              <span className="font-ui text-[12px] font-bold tracking-[3px] uppercase text-white/60 mb-3">Ready to Speak With Us?</span>
+              <h3 className="font-display text-[clamp(24px,2.6vw,32px)] leading-[0.95] text-white mb-3">
+                BOOK AN EVALUATION
+              </h3>
+              <p className="font-body text-sm text-white/65 leading-relaxed mb-6 max-w-[320px]">
+                Talk to a Cali K9&reg; behavior specialist about your dog and get a custom training plan.
+              </p>
+              <Link href="/evaluation-with-behavior-specialist" className="btn btn-white mt-auto w-full">
+                Book an Evaluation &rarr;
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="lazyOnload" />
     </>

@@ -86,7 +86,7 @@ export default function Nav() {
 
           {/* Desktop links */}
           {!isLander && (
-          <ul className="flex items-center gap-7 list-none max-[768px]:hidden">
+          <ul className="flex items-center gap-7 max-[1180px]:gap-4 list-none max-[1000px]:hidden">
             {NAV_LINKS.map((link) =>
               link.hasSub ? (
                 <li key={link.href} ref={subRef} className="relative group">
@@ -116,7 +116,7 @@ export default function Nav() {
                   </ul>
                 </li>
               ) : (
-                <li key={link.href}>
+                <li key={link.href} className={link.href === "/" ? "max-[1180px]:hidden" : undefined}>
                   <Link
                     href={link.href}
                     className={`font-ui text-[13px] font-bold uppercase tracking-[2px] no-underline transition-colors ${
@@ -130,11 +130,20 @@ export default function Nav() {
                 </li>
               )
             )}
+            {/* Free Assessment CTA (contrasting) */}
+            <li>
+              <Link
+                href="/free-behavior-assessment"
+                className="font-ui text-[13px] font-bold uppercase tracking-[2px] bg-amber-400 text-ink border-2 border-amber-400 px-4 max-[1180px]:px-3 py-[7px] rounded-sm whitespace-nowrap hover:bg-amber-500 hover:border-amber-500 hover:-translate-y-px transition-all"
+              >
+                Free Assessment
+              </Link>
+            </li>
             {/* Evaluation CTA */}
             <li>
               <Link
                 href="/evaluation-with-behavior-specialist"
-                className="font-ui text-[13px] font-bold uppercase tracking-[2px] bg-blue-500 text-white border-2 border-blue-500 px-4 py-[7px] rounded-sm whitespace-nowrap hover:bg-blue-700 hover:border-blue-700 hover:-translate-y-px transition-all"
+                className="font-ui text-[13px] font-bold uppercase tracking-[2px] bg-blue-500 text-white border-2 border-blue-500 px-4 max-[1180px]:px-3 py-[7px] rounded-sm whitespace-nowrap hover:bg-blue-700 hover:border-blue-700 hover:-translate-y-px transition-all"
               >
                 Evaluation
               </Link>
@@ -144,7 +153,7 @@ export default function Nav() {
 
           {/* Mobile: cart + hamburger grouped on right */}
           {!isLander && (
-          <div className="hidden max-[768px]:flex items-center gap-2">
+          <div className="hidden max-[1000px]:flex items-center gap-2">
             <button
               onClick={openCart}
               aria-label="Open cart"
@@ -179,7 +188,7 @@ export default function Nav() {
           <button
             onClick={openCart}
             aria-label="Open cart"
-            className="relative bg-transparent border-none cursor-pointer p-2 max-[768px]:hidden"
+            className="relative bg-transparent border-none cursor-pointer p-2 max-[1000px]:hidden"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
@@ -200,7 +209,7 @@ export default function Nav() {
       <>
       {/* Mobile drawer overlay */}
       <div
-        className={`fixed inset-0 z-[998] min-[769px]:hidden transition-[opacity,visibility] duration-300 ${
+        className={`fixed inset-0 z-[998] min-[1001px]:hidden transition-[opacity,visibility] duration-300 ${
           drawerOpen ? "bg-black/30 opacity-100 visible" : "opacity-0 invisible pointer-events-none"
         }`}
         onClick={() => setDrawerOpen(false)}
@@ -208,7 +217,7 @@ export default function Nav() {
 
       {/* Mobile drawer */}
       <div
-        className={`fixed top-[68px] right-0 bottom-0 w-[min(320px,85vw)] bg-white border-l-2 border-blue-500 p-8 px-6 z-[999] overflow-y-auto min-[769px]:hidden transition-[transform,opacity] duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        className={`fixed top-[68px] right-0 bottom-0 w-[min(320px,85vw)] bg-white border-l-2 border-blue-500 p-8 px-6 z-[999] overflow-y-auto min-[1001px]:hidden transition-[transform,opacity] duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
           drawerOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
         }`}
       >
@@ -243,11 +252,20 @@ export default function Nav() {
           ))}
           <li>
             <Link
-              href="/evaluation-with-behavior-specialist"
-              className="block text-center font-ui text-[13px] font-bold uppercase tracking-[2px] bg-blue-500 text-white px-4 py-3 rounded-sm mt-4 no-underline hover:bg-blue-700 transition-colors"
+              href="/free-behavior-assessment"
+              className="block text-center font-ui text-[13px] font-bold uppercase tracking-[2px] bg-amber-400 text-ink px-4 py-3 rounded-sm mt-4 no-underline hover:bg-amber-500 transition-colors"
               onClick={() => setDrawerOpen(false)}
             >
-              Evaluation
+              Free Behavior Assessment
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/evaluation-with-behavior-specialist"
+              className="block text-center font-ui text-[13px] font-bold uppercase tracking-[2px] bg-blue-500 text-white px-4 py-3 rounded-sm mt-3 no-underline hover:bg-blue-700 transition-colors"
+              onClick={() => setDrawerOpen(false)}
+            >
+              Book Evaluation
             </Link>
           </li>
         </ul>
