@@ -32,6 +32,18 @@ export default function FreeBehaviorAssessmentPage() {
           <h1 className="font-display text-[clamp(40px,6vw,68px)] text-white leading-[0.95] mb-5">
             WHICH DOG DO YOU HAVE?
           </h1>
+          <video
+            className="w-full max-w-[760px] mx-auto rounded-xl bg-black shadow-[0_20px_60px_rgba(0,0,0,0.4)] mb-6"
+            poster="/images/funnel/quiz-video-poster.jpg"
+            controls
+            playsInline
+            preload="metadata"
+          >
+            <source
+              src="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6ab16f43ff484614db830523.mp4"
+              type="video/mp4"
+            />
+          </video>
           <p className="font-body text-lg max-md:text-base text-white/80 leading-relaxed max-w-[600px] mx-auto">
             Take the free 2-minute assessment to discover what&rsquo;s driving your dog&rsquo;s
             behavior &mdash; and what to work on next.
