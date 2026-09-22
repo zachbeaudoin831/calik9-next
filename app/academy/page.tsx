@@ -124,6 +124,7 @@ const OFFER_STACK = [
   "Complete 50-Step Roadmap™",
   "All 8 Training Modules",
   "Full Training Video Library",
+  "Saturday Kickstart Call",
   "Weekly Live Training With Jas",
   "Weekly Trainer-Led Live Training",
   "Personalized Training Path",
