@@ -203,18 +203,18 @@ const JOIN_STEPS = [
   { num: "01", title: "Join", desc: "Complete your $97/month membership in under two minutes." },
   { num: "02", title: "Get Instant Access", desc: "You're inside the full member portal immediately. No waiting." },
   { num: "03", title: "Start Your Personalized Roadmap", desc: "Begin at Step 1 on a recommended path built for your dog, with your progress tracker ready to go." },
-  { num: "04", title: "Train With Jas Live Every Week", desc: "Bring your dog and your questions to Academy Live with Jas on Saturdays and the trainer-led session on Tuesdays." },
+  { num: "04", title: "Train With Jas Live Every Week", desc: "Bring your dog and your questions to Academy Live with Jas on Saturdays and the trainer-led session on Wednesdays." },
 ];
 
 // Live schedule. Jas runs these from Morocco (UTC+1, no DST); the US times
 // below are the Pacific/Eastern equivalents while the US is on daylight time
-// (Sat 5:00 PM / 6:00 PM Morocco; Academy Live 12 PM PT and the Tuesday session 4 PM PT are set in US time directly). When US clocks fall back in
+// (Sat 5:00 PM / 6:00 PM Morocco; Academy Live 12 PM PT and the Wednesday session 6 PM PT are set in US time directly). When US clocks fall back in
 // November, each becomes one hour earlier here (8:00 AM PT, etc.).
 const SCHEDULE = [
   { day: "Sat · 9:00 AM PT / 12:00 PM ET", title: "Kickstart", access: "Free · Community", tone: "free" },
   { day: "Sat · 10:00 AM PT / 1:00 PM ET", title: "Live Webinar", access: "Open To Guests", tone: "guest" },
   { day: "Sat · 12:00 PM PT / 3:00 PM ET", title: "Academy Live With Jas", access: "Members Only", tone: "members" },
-  { day: "Tue · 4:00 PM PT / 7:00 PM ET", title: "Trainer-Led Academy Live", access: "Members Only", tone: "members" },
+  { day: "Wed · 6:00 PM PT / 9:00 PM ET", title: "Trainer-Led Academy Live", access: "Members Only", tone: "members" },
 ];
 
 const FAQS = [
@@ -512,7 +512,7 @@ export default function AcademyPage() {
                 <p className="font-body text-base text-white/70 leading-relaxed max-w-[560px] max-md:mx-auto">
                   This isn&rsquo;t a course you buy and forget. Every Saturday, Jas goes
                   live with the Academy for Q&amp;A, case breakdowns and coaching on your
-                  dog. Every Tuesday, a Cali K9 trainer runs a second live session.
+                  dog. Every Wednesday, a Cali K9 trainer runs a second live session.
                   You&rsquo;re never training alone.
                 </p>
               </div>
