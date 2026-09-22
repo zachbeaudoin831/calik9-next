@@ -50,48 +50,9 @@ const BUNDLE_ITEMS = [
   },
 ];
 
-// Cover-art placeholders drawn in code — swap for real cover images when the
-// finished art exists.
+// Bundle intro video (GHL-hosted). Poster frame lives in public/images/funnel/posters.
 const BUNDLE_VIDEO =
-  "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6660dc34c6bcc82fd3e84b3a.mp4";
-
-const COVERS = [
-  {
-    title: "10-Step Quick-Start Roadmap",
-    tag: "GUIDE 01",
-    bg: "linear-gradient(160deg, #1A3FAB, #122E85)",
-    accent: "#F59E0B",
-    icon: "map",
-  },
-  {
-    title: "7-Day Training Plan",
-    tag: "GUIDE 02",
-    bg: "linear-gradient(160deg, #5468e8, #1A3FAB)",
-    accent: "#FFFFFF",
-    icon: "calendar",
-  },
-  {
-    title: "Equipment Checklist",
-    tag: "GUIDE 03",
-    bg: "linear-gradient(160deg, #232838, #12162a)",
-    accent: "#6A9FFF",
-    icon: "list",
-  },
-  {
-    title: "Troubleshooting Guide",
-    tag: "GUIDE 04",
-    bg: "linear-gradient(160deg, #2c3149, #151827)",
-    accent: "#F59E0B",
-    icon: "help",
-  },
-];
-
-const COVER_POSITIONS = [
-  "top-2 left-0 -rotate-[10deg]",
-  "top-[34px] right-6 rotate-[8deg]",
-  "bottom-[34px] left-4 rotate-[7deg] z-[1]",
-  "bottom-3 right-0.5 -rotate-[6deg] z-[4]",
-];
+  "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6ab1c557825a8484f2e43119.mp4";
 
 const FAQS: { q: string; a: React.ReactNode }[] = [
   {
@@ -181,117 +142,6 @@ function LockIcon() {
   );
 }
 
-function ProductMockup() {
-  return (
-    <div className="relative max-w-[560px] mx-auto mt-10">
-      {/* Value badge */}
-      <div className="absolute -top-6 right-0 z-[6] bg-blue-500 text-white text-center px-4 py-2.5 rounded-xl rotate-[7deg] shadow-[0_12px_26px_rgba(26,63,171,0.4)] max-md:static max-md:inline-block max-md:rotate-0 max-md:mb-2.5">
-        <div className="font-display text-[15px] tracking-[0.4px]">$223 Value</div>
-        <div className="font-ui text-[9.5px] font-semibold uppercase tracking-[0.6px] mt-0.5">
-          Today Just $27
-        </div>
-      </div>
-
-      <div className="relative h-[400px] mx-auto max-md:h-auto max-md:flex max-md:flex-col max-md:items-center max-md:gap-4">
-        {/* Laptop playing the real bundle video */}
-        <div className="absolute top-[30px] left-1/2 -translate-x-1/2 w-[300px] z-[2] max-md:static max-md:translate-x-0 max-md:w-[88%] max-md:max-w-[280px]">
-          <div className="rounded-[10px_10px_3px_3px] border-[6px] border-[#1c2440] aspect-[16/10] relative overflow-hidden bg-black">
-            <video
-              poster={posterFor(BUNDLE_VIDEO)}
-              className="absolute inset-0 w-full h-full object-cover"
-              controls
-              playsInline
-              preload="metadata"
-            >
-              <source src={BUNDLE_VIDEO} type="video/mp4" />
-            </video>
-          </div>
-          <div
-            className="h-[9px] rounded-b-lg -mx-2.5"
-            style={{ background: "linear-gradient(180deg, #2a2e38, #191b21)" }}
-          />
-        </div>
-
-        {/* Phone */}
-        <div className="absolute right-[22px] bottom-1.5 w-[104px] bg-ink rounded-[20px] px-1.5 py-[7px] shadow-[0_16px_30px_rgba(17,18,20,0.3)] border-2 border-[#2a2c31] z-[3] max-md:hidden">
-          <div className="w-8 h-1 bg-[#2a2c31] rounded mx-auto mb-1.5" />
-          <div className="bg-white rounded-xl px-1.5 py-[7px] flex flex-col gap-1">
-            {[
-              { label: "Step 1 — Boundaries", state: "done" },
-              { label: "Step 2 — Food Value", state: "done" },
-              { label: "Step 3 — Hand-Feeding", state: "active" },
-              { label: "Step 4 — Motivation", state: "todo" },
-            ].map((row) => (
-              <div
-                key={row.label}
-                className={`flex items-center gap-[5px] text-[7.5px] px-1 py-1 rounded-[5px] ${
-                  row.state === "active"
-                    ? "bg-blue-50 text-blue-700 font-bold"
-                    : "text-[#4B4F58]"
-                }`}
-              >
-                <span
-                  className={`w-[11px] h-[11px] rounded-full flex items-center justify-center text-[6px] shrink-0 text-white ${
-                    row.state === "done"
-                      ? "bg-blue-500"
-                      : row.state === "active"
-                        ? "bg-blue-700"
-                        : "bg-[#eceef4]"
-                  }`}
-                >
-                  {row.state === "done" ? "✓" : row.state === "active" ? "▶" : ""}
-                </span>
-                {row.label}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Guide covers — drawn placeholder cover art */}
-        <div className="contents max-md:grid max-md:grid-cols-2 max-md:gap-3 max-md:w-full max-md:max-w-[280px]">
-          {COVERS.map((cover, i) => (
-            <div
-              key={cover.title}
-              className={`absolute w-[96px] aspect-[3/4] rounded-[9px] overflow-hidden flex flex-col text-white shadow-[0_12px_22px_rgba(17,18,20,0.25)] border-l-2 border-white/10 ${COVER_POSITIONS[i]} max-md:static max-md:rotate-0 max-md:w-auto`}
-              style={{ background: cover.bg }}
-            >
-              <div className="flex items-center justify-between px-2 pt-2">
-                <span className="font-ui text-[6px] font-bold tracking-[0.5px] text-white/80">
-                  CALI K9&reg;
-                </span>
-                <span
-                  className="font-ui text-[5.5px] font-bold tracking-[0.5px]"
-                  style={{ color: cover.accent }}
-                >
-                  {cover.tag}
-                </span>
-              </div>
-              <div className="flex-1 flex flex-col items-center justify-center gap-1.5 px-2 text-center">
-                <span className="w-6 h-6 rounded-full bg-white/[0.12] border border-white/[0.25] flex items-center justify-center">
-                  <CoverIcon name={cover.icon} size={12} />
-                </span>
-                <span className="font-ui text-[8.5px] font-bold leading-[1.25] uppercase tracking-[0.3px]">
-                  {cover.title}
-                </span>
-              </div>
-              <div className="px-2 pb-2">
-                <div className="h-[2px] w-7 mx-auto mb-1 rounded" style={{ background: cover.accent }} />
-                <div className="font-ui text-[5px] font-semibold tracking-[0.5px] text-white/60 text-center uppercase">
-                  The 5 Pillar, 50-Step System&trade;
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="text-center font-ui text-xs font-semibold tracking-[1.2px] text-ink/60 uppercase mt-3.5">
-        Cali K9 Foundation Starter Bundle
-      </div>
-    </div>
-  );
-}
-
 export default function StarterBundlePage() {
   return (
     <main className="bg-white">
@@ -330,7 +180,18 @@ export default function StarterBundlePage() {
             registrants.
           </p>
 
-          <ProductMockup />
+          {/* Bundle intro video (replaced the guide-card / laptop / phone mockup) */}
+          <div className="max-w-[760px] mx-auto mt-10">
+            <video
+              poster={posterFor(BUNDLE_VIDEO)}
+              className="w-full rounded-xl bg-black shadow-[0_20px_60px_rgba(0,0,0,0.25)]"
+              controls
+              playsInline
+              preload="metadata"
+            >
+              <source src={BUNDLE_VIDEO} type="video/mp4" />
+            </video>
+          </div>
 
           <Countdown />
 
