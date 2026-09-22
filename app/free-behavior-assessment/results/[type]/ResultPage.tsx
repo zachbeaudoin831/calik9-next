@@ -8,8 +8,9 @@ import { MODULES, PILLARS, RESULTS, SESSION_KEY, type DogType, type SessionResul
 // Primary CTA — the free Saturday masterclass (invite variant carries the
 // "based on your assessment" intro band).
 const MASTERCLASS_URL = "/free-masterclass/invite";
-// Secondary, high-intent CTA — the $7, 20-minute call.
-const CALL_URL = "/book-your-call";
+// The $7, 20-minute call. Secondary by default; PRIMARY when the visitor's
+// budget answer was "$500 – $1,500" or "Whatever it takes".
+const CALL_URL = "https://calik9.com/book-your-call";
 
 const MODULE_STEP_COUNTS = [4, 5, 8, 8, 6, 7, 6, 6]; // = 50
 
@@ -47,6 +48,12 @@ function isQualified(s: SessionResult | null, type: DogType) {
   );
 }
 
+// Budget answers that flip the call to the primary CTA.
+function wantsCallFirst(s: SessionResult | null) {
+  const bud = (s?.budget || "").replace(/\s/g, "").toLowerCase();
+  return bud.startsWith("$500") || bud.startsWith("whatever") || bud.startsWith("$1,500") || bud.startsWith("$5,000");
+}
+
 export default function ResultPage({ type }: { type: DogType }) {
   const r = RESULTS[type];
   // Personalization handed over by the quiz (first name + qualification).
@@ -70,6 +77,7 @@ export default function ResultPage({ type }: { type: DogType }) {
 
   const first = firstNameOf(session?.firstName || "");
   const qualified = isQualified(session, type);
+  const callFirst = wantsCallFirst(session);
   const [startA, startB] = r.roadmap.startModules;
   const [goalA, goalB] = r.roadmap.goalModules;
   const inStart = (n: number) => n >= startA && n <= startB;
@@ -343,65 +351,124 @@ export default function ResultPage({ type }: { type: DogType }) {
         </div>
       </section>
 
-      {/* ── 11. PRIMARY CTA — free Saturday masterclass ── */}
-      <section className="py-20 max-md:py-12 bg-blue-700 text-white text-center">
-        <div className="max-w-[760px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
-          <p className="font-body text-lg max-md:text-base text-white/80 leading-relaxed max-w-[600px] mx-auto mb-8">
-            Now that you understand your dog type, let me show you exactly what to do next.
-          </p>
-          <div className="font-ui text-[13px] font-semibold tracking-[3px] uppercase text-blue-200 mb-3">
-            Free Live Saturday Masterclass
-          </div>
-          <h2 className="font-display text-[clamp(32px,5vw,56px)] leading-[0.98] mb-6">
-            TRANSFORM YOUR DOG IN JUST 15 MINUTES A DAY
-          </h2>
-          <p className="font-body text-base text-white/75 leading-relaxed max-w-[600px] mx-auto mb-7">
-            Live with <strong className="text-white">Jas Leverette</strong>, host of Netflix&rsquo;s{" "}
-            <em>Canine Intervention</em>. You&rsquo;ll see the exact steps a{" "}
-            {r.label.toLowerCase()} dog needs first &mdash; and what to do with your dog this week.
-          </p>
-          <EventDate center />
-          <Link href={MASTERCLASS_URL} className="btn btn-gold btn-lg mt-8 inline-block">
-            Reserve My Free Seat &rarr;
-          </Link>
-          <p className="font-body text-[12.5px] text-white/50 mt-4">
-            Free &middot; Live on Zoom &middot; Replay sent to everyone who registers
-          </p>
-        </div>
-      </section>
-
-      {/* ── 12. SECONDARY CTA — $7 call (prominent only for qualified leads) ── */}
-      <section className="py-14 max-md:py-10 bg-cream">
-        <div className="max-w-[720px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 text-center">
-          {qualified ? (
-            <div className="bg-white border border-border rounded-2xl p-8 max-md:p-6 shadow-sm">
-              <div className="font-ui text-[12px] font-bold tracking-[2px] uppercase text-blue-500 mb-2.5">
-                Need More Personalized Help?
-              </div>
-              <h3 className="font-display text-[26px] max-md:text-[22px] text-ink leading-tight mb-3">
-                TALK TO THE CALI K9 TEAM ABOUT YOUR DOG
-              </h3>
-              <p className="font-body text-[14.5px] text-gray-muted leading-relaxed max-w-[560px] mx-auto mb-6">
-                {r.callNote}
+      {callFirst ? (
+        <>
+          {/* ── 11. PRIMARY CTA — book the call (budget $500+ / whatever it takes) ── */}
+          <section className="py-20 max-md:py-12 bg-blue-700 text-white text-center">
+            <div className="max-w-[760px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
+              <p className="font-body text-lg max-md:text-base text-white/80 leading-relaxed max-w-[600px] mx-auto mb-8">
+                Now that you understand your dog type, let&rsquo;s build the plan for your dog together.
               </p>
-              <Link href={CALL_URL} className="btn btn-outline">
-                Reserve a $7, 20-Minute Call &rarr;
-              </Link>
-              <p className="font-body text-[12px] text-gray-muted/80 mt-3">
-                Refundable reservation &middot; Credited toward any program
+              <div className="font-ui text-[13px] font-semibold tracking-[3px] uppercase text-blue-200 mb-3">
+                Your Next Step
+              </div>
+              <h2 className="font-display text-[clamp(32px,5vw,56px)] leading-[0.98] mb-6">
+                TALK TO THE CALI K9 TEAM ABOUT YOUR DOG
+              </h2>
+              <p className="font-body text-base text-white/75 leading-relaxed max-w-[600px] mx-auto mb-7">
+                {r.callNote} On a 20-minute call we walk through what your assessment revealed and map
+                the exact steps a {r.label.toLowerCase()} dog needs first.
+              </p>
+              <a href={CALL_URL} className="btn btn-gold btn-lg inline-block">
+                Book My Call &rarr;
+              </a>
+              <p className="font-body text-[12.5px] text-white/50 mt-4">
+                $7 refundable reservation &middot; 20 minutes &middot; Credited toward any program
               </p>
             </div>
-          ) : (
-            <p className="font-body text-[14px] text-gray-muted leading-relaxed">
-              <strong className="text-ink">Need more personalized help?</strong> If you&rsquo;d rather walk
-              through your results with the team one-on-one,{" "}
-              <Link href={CALL_URL} className="text-blue-500 underline">
-                reserve a 20-minute call
+          </section>
+
+          {/* ── 12. SECONDARY CTA — free Saturday masterclass ── */}
+          <section className="py-14 max-md:py-10 bg-cream">
+            <div className="max-w-[720px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 text-center">
+              <div className="bg-ink text-white rounded-2xl p-8 max-md:p-6 shadow-sm">
+                <div className="font-ui text-[12px] font-bold tracking-[2px] uppercase text-blue-200 mb-2.5">
+                  Prefer To Start With The Free Class?
+                </div>
+                <h3 className="font-display text-[26px] max-md:text-[22px] leading-tight mb-3">
+                  FREE LIVE SATURDAY MASTERCLASS
+                </h3>
+                <p className="font-body text-[14.5px] text-white/70 leading-relaxed max-w-[560px] mx-auto mb-5">
+                  Transform your dog in just 15 minutes a day &mdash; live with Jas Leverette, host of
+                  Netflix&rsquo;s <em>Canine Intervention</em>.
+                </p>
+                <EventDate center />
+                <Link href={MASTERCLASS_URL} className="btn btn-outline-white mt-6 inline-block">
+                  Reserve My Free Seat &rarr;
+                </Link>
+              </div>
+            </div>
+          </section>
+        </>
+      ) : (
+        <>
+          {/* ── 11. PRIMARY CTA — free Saturday masterclass ── */}
+          <section className="py-20 max-md:py-12 bg-blue-700 text-white text-center">
+            <div className="max-w-[760px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
+              <p className="font-body text-lg max-md:text-base text-white/80 leading-relaxed max-w-[600px] mx-auto mb-8">
+                Now that you understand your dog type, let me show you exactly what to do next.
+              </p>
+              <div className="font-ui text-[13px] font-semibold tracking-[3px] uppercase text-blue-200 mb-3">
+                Free Live Saturday Masterclass
+              </div>
+              <h2 className="font-display text-[clamp(32px,5vw,56px)] leading-[0.98] mb-6">
+                TRANSFORM YOUR DOG IN JUST 15 MINUTES A DAY
+              </h2>
+              <p className="font-body text-base text-white/75 leading-relaxed max-w-[600px] mx-auto mb-7">
+                Live with <strong className="text-white">Jas Leverette</strong>, host of Netflix&rsquo;s{" "}
+                <em>Canine Intervention</em>. You&rsquo;ll see the exact steps a{" "}
+                {r.label.toLowerCase()} dog needs first &mdash; and what to do with your dog this week.
+              </p>
+              <EventDate center />
+              <Link href={MASTERCLASS_URL} className="btn btn-gold btn-lg mt-8 inline-block">
+                Reserve My Free Seat &rarr;
               </Link>
-              .
-            </p>
-          )}
-          <p className="font-ui text-xs text-gray-muted/70 mt-12">
+              <p className="font-body text-[12.5px] text-white/50 mt-4">
+                Free &middot; Live on Zoom &middot; Replay sent to everyone who registers
+              </p>
+            </div>
+          </section>
+
+          {/* ── 12. SECONDARY CTA — $7 call (prominent only for qualified leads) ── */}
+          <section className="py-14 max-md:py-10 bg-cream">
+            <div className="max-w-[720px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 text-center">
+              {qualified ? (
+                <div className="bg-white border border-border rounded-2xl p-8 max-md:p-6 shadow-sm">
+                  <div className="font-ui text-[12px] font-bold tracking-[2px] uppercase text-blue-500 mb-2.5">
+                    Need More Personalized Help?
+                  </div>
+                  <h3 className="font-display text-[26px] max-md:text-[22px] text-ink leading-tight mb-3">
+                    TALK TO THE CALI K9 TEAM ABOUT YOUR DOG
+                  </h3>
+                  <p className="font-body text-[14.5px] text-gray-muted leading-relaxed max-w-[560px] mx-auto mb-6">
+                    {r.callNote}
+                  </p>
+                  <Link href={CALL_URL} className="btn btn-outline">
+                    Reserve a $7, 20-Minute Call &rarr;
+                  </Link>
+                  <p className="font-body text-[12px] text-gray-muted/80 mt-3">
+                    Refundable reservation &middot; Credited toward any program
+                  </p>
+                </div>
+              ) : (
+                <p className="font-body text-[14px] text-gray-muted leading-relaxed">
+                  <strong className="text-ink">Need more personalized help?</strong> If you&rsquo;d rather walk
+                  through your results with the team one-on-one,{" "}
+                  <Link href={CALL_URL} className="text-blue-500 underline">
+                    reserve a 20-minute call
+                  </Link>
+                  .
+                </p>
+              )}
+            </div>
+          </section>
+        </>
+      )}
+
+      {/* ── Footer ── */}
+      <section className="pb-10 bg-cream">
+        <div className="max-w-[720px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 text-center">
+          <p className="font-ui text-xs text-gray-muted/70">
             <Link href="/free-behavior-assessment" className="hover:text-ink underline">
               Retake the assessment
             </Link>
