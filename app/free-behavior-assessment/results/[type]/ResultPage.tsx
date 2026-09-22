@@ -40,7 +40,8 @@ function isQualified(s: SessionResult | null, type: DogType) {
   return (
     urg.startsWith("serious") ||
     urg.startsWith("crisis") ||
-    bud.startsWith("$1,500") ||
+    bud.toLowerCase().startsWith("whatever") ||
+    bud.startsWith("$1,500") || // legacy answers
     bud.startsWith("$5,000") ||
     (type === "fearful" && aggression)
   );

@@ -89,7 +89,7 @@ const SINGLE_SELECT: Record<number, { eyebrow: string; q: string; sub?: string; 
   11: {
     eyebrow: "Budget / Investment Readiness",
     q: "What's your budget range for solving this?",
-    options: ["Under $200", "$500 – $1,500", "$1,500 – $5,000", "$5,000+"],
+    options: ["Under $200", "$500 – $1,500", "Whatever it takes"],
   },
   12: {
     eyebrow: "Training Format",
@@ -232,7 +232,9 @@ export default function AssessmentQuiz() {
   // (Q1), urgency (Q4) and budget (Q11).
   const tier = (): "academy" | "elite" | "vip" => {
     if (answers[11] === 1) return "academy";
-    const total = (answers[1] || 0) + (answers[4] || 0) + (answers[11] || 0);
+    // "Whatever it takes" (option 3) scores like the old top bracket.
+    const budgetScore = answers[11] === 3 ? 4 : answers[11] || 0;
+    const total = (answers[1] || 0) + (answers[4] || 0) + budgetScore;
     if (total <= 4) return "academy";
     if (total <= 7) return "elite";
     return "vip";
