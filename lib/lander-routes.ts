@@ -21,6 +21,7 @@ const LANDER_ROUTES = new Set([
   "/turbo-treats-upsell",
   "/turbo-treats-chicken-hearts",
   "/program-welcome",
+  "/all-access",
   "/free-masterclass",
   "/free-masterclass/thank-you",
   "/free-masterclass/invite",
