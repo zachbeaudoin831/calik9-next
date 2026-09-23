@@ -36,14 +36,14 @@ const PROBLEMS = [
 ];
 
 const PHASES = [
-  { num: 1, title: "Getting To Know Your Dog", steps: "Steps 1–8", detail: "Training tools · The 3 motivators & 5 pillars · Your dog's temperament · How dogs think" },
-  { num: 2, title: "Building Drive & First Commands", steps: "Steps 9–14", detail: "Ignition · Release word & hand-feeding · Luring, spin, the box & search" },
-  { num: 3, title: "Box Work: Sit, Down & Focus", steps: "Steps 15–20", detail: "Sit & down on the box · Holding position while you move · Beginner agility" },
-  { num: 4, title: "Proofing & Positions", steps: "Steps 21–26", detail: "Leash proofing · Front & heel position · Teaching the recall" },
-  { num: 5, title: "Touchpad & Heeling Basics", steps: "Steps 27–33", detail: "Heeling along a wall · Your first distractions · Touchpad sit, stand & search" },
-  { num: 6, title: "Removing The Training Wheels", steps: "Steps 34–38", detail: "Heeling without help · Higher-value rewards · Corrections & socialization" },
-  { num: 7, title: "Advanced Foundations", steps: "Steps 39–44", detail: "Ignition 2.0 · Indirect reward · Long-distance positions · Phasing out the box" },
-  { num: 8, title: "Advanced Reliability & Real-World Proofing", steps: "Steps 45–50", detail: "Commands in motion · Advanced recall & heeling · Advanced distractions" },
+  { num: 1, title: "Getting To Know Your Dog", steps: "Steps 1–4", detail: "The 3 things that motivate your dog · The 3 phases & 3 objectives of training · 10 tips for everyday life" },
+  { num: 2, title: "Building Drive & First Commands", steps: "Steps 5–10", detail: "Ignition · Release word & hand-feeding · Luring, spin, the box & search" },
+  { num: 3, title: "Box Work: Sit, Down & Focus", steps: "Steps 11–17", detail: "Sit & down on the box · Holding position while you move · Beginner agility · Introducing the training collar" },
+  { num: 4, title: "Proofing & Positions", steps: "Steps 18–23", detail: "Leash proofing · Training collars · Front & heel position · Teaching the recall · Intermediate agility" },
+  { num: 5, title: "Touchpad & Heeling Basics", steps: "Steps 24–31", detail: "Heeling along a wall · Your first distractions · Touchpad turns, sit, down, stand & search" },
+  { num: 6, title: "Removing The Training Wheels", steps: "Steps 32–38", detail: "Removing the lure · Variable reward · Heeling without help · Higher-value rewards · Corrections & socialization" },
+  { num: 7, title: "Advanced Foundations", steps: "Steps 39–44", detail: "Agility high · Ignition 2.0 · Indirect reward · Advanced rotating & heeling · Long-distance positions · Phasing out the box" },
+  { num: 8, title: "Advanced Reliability & Real-World Proofing", steps: "Steps 45–50", detail: "Removing help outdoors · Commands in motion · Advanced recall, heeling & proofing · Advanced distractions" },
 ];
 
 const METHOD_FLOW = [
