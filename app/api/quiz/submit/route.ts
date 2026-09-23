@@ -28,7 +28,7 @@ const FIELD_NAMES: Record<string, string> = {
   tier: "Quiz: Recommended Tier",
   resultType: "Quiz: Result Type",
   dogType: "Quiz: Dog Type",
-  dogName: "Quiz: Dog Name",
+  dogName: "Dog Name", // existing GHL field, key contact.dog_name
   age: "Quiz: Dog Age",
   breed: "Quiz: Dog Breed",
   problems: "Quiz: Behavior Problems",
@@ -66,7 +66,7 @@ const QUESTION_LABELS: Record<string, string> = {
 // Existing GHL fields that should receive an answer instead of a new
 // "Quiz: …" field. Matched case/punctuation-insensitively, first hit wins.
 const FIELD_ALIASES: Record<string, string[]> = {
-  dogName: ["Dog's Name", "Dog Name", "Dogs Name", "Pet Name", "Pet's Name", "Name of Dog"],
+  dogName: ["contact.dog_name", "dog_name", "Dog Name", "Dog's Name", "Dogs Name", "Pet Name", "Pet's Name"],
 };
 
 function normName(s: string) {
@@ -136,10 +136,11 @@ async function customFieldIds(): Promise<Record<string, string>> {
   const r = await ghl(`/locations/${LOCATION_ID}/customFields?model=contact`);
   const byName: Record<string, string> = {};
   if (r.ok) {
-    const fields = ((r.json as { customFields?: { id: string; name: string }[] })?.customFields) || [];
+    const fields = ((r.json as { customFields?: { id: string; name: string; fieldKey?: string }[] })?.customFields) || [];
     for (const f of fields) {
       byName[f.name.trim().toLowerCase()] = f.id;
       byName[normName(f.name)] = f.id;
+      if (f.fieldKey) byName[normName(f.fieldKey)] = f.id; // e.g. contact.dog_name
     }
   }
   fieldCache = { at: Date.now(), byName };
