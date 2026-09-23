@@ -188,6 +188,7 @@ export default function AssessmentQuiz() {
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [problems, setProblems] = useState<string[]>([]);
   const [age, setAge] = useState("");
+  const [dogName, setDogName] = useState("");
   const [breed, setBreed] = useState("");
   const [location, setLocation] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -266,6 +267,7 @@ export default function AssessmentQuiz() {
     // signals. Session-only, never in the URL.
     const session: SessionResult = {
       firstName: firstName.trim(),
+      dogName: dogName.trim(),
       type,
       urgency: opt(4),
       budget: opt(11),
@@ -288,6 +290,7 @@ export default function AssessmentQuiz() {
       resultType: type,
       answers: {
         dogType: opt(1),
+        dogName: dogName.trim(),
         age,
         breed,
         problems,
@@ -388,6 +391,18 @@ export default function AssessmentQuiz() {
               </option>
             ))}
           </select>
+          <label className={labelClass} htmlFor="quiz-dog-name">
+            Dog&rsquo;s name
+          </label>
+          <input
+            id="quiz-dog-name"
+            className={`${fieldClass} mb-4`}
+            type="text"
+            autoComplete="off"
+            placeholder="e.g. Max"
+            value={dogName}
+            onChange={(e) => setDogName(e.target.value)}
+          />
           <label className={labelClass} htmlFor="quiz-breed">
             Breed (or closest match)
           </label>

@@ -28,6 +28,7 @@ const FIELD_NAMES: Record<string, string> = {
   tier: "Quiz: Recommended Tier",
   resultType: "Quiz: Result Type",
   dogType: "Quiz: Dog Type",
+  dogName: "Quiz: Dog Name",
   age: "Quiz: Dog Age",
   breed: "Quiz: Dog Breed",
   problems: "Quiz: Behavior Problems",
@@ -46,6 +47,7 @@ const FIELD_NAMES: Record<string, string> = {
 
 const QUESTION_LABELS: Record<string, string> = {
   dogType: "Which dog do you have?",
+  dogName: "Dog's name",
   age: "Dog's age",
   breed: "Dog's breed",
   problems: "Behavior problems (select all)",
@@ -60,6 +62,26 @@ const QUESTION_LABELS: Record<string, string> = {
   trainingFormat: "Training format of interest",
   offLeash: "Off-leash obedience today (1–10)",
 };
+
+// Existing GHL fields that should receive an answer instead of a new
+// "Quiz: …" field. Matched case/punctuation-insensitively, first hit wins.
+const FIELD_ALIASES: Record<string, string[]> = {
+  dogName: ["Dog's Name", "Dog Name", "Dogs Name", "Pet Name", "Pet's Name", "Name of Dog"],
+};
+
+function normName(s: string) {
+  return s.toLowerCase().replace(/[^a-z0-9]+/g, "");
+}
+
+// Resolve the GHL custom-field id for one of our keys: aliases first, then
+// the canonical "Quiz: …" name.
+function fieldIdFor(key: string, byNorm: Record<string, string>): string | undefined {
+  for (const alias of FIELD_ALIASES[key] || []) {
+    const id = byNorm[normName(alias)];
+    if (id) return id;
+  }
+  return byNorm[normName(FIELD_NAMES[key])];
+}
 
 type Submission = {
   name: string;
@@ -115,7 +137,10 @@ async function customFieldIds(): Promise<Record<string, string>> {
   const byName: Record<string, string> = {};
   if (r.ok) {
     const fields = ((r.json as { customFields?: { id: string; name: string }[] })?.customFields) || [];
-    for (const f of fields) byName[f.name.trim().toLowerCase()] = f.id;
+    for (const f of fields) {
+      byName[f.name.trim().toLowerCase()] = f.id;
+      byName[normName(f.name)] = f.id;
+    }
   }
   fieldCache = { at: Date.now(), byName };
   return byName;
@@ -140,7 +165,7 @@ export async function GET(req: Request) {
     const created: string[] = [];
     const failed: { name: string; error: unknown }[] = [];
     for (const [key, name] of Object.entries(FIELD_NAMES)) {
-      if (existing[name.toLowerCase()]) continue;
+      if (fieldIdFor(key, existing)) continue;
       const dataType = key === "problems" ? "LARGE_TEXT" : "TEXT";
       const r = await ghl(`/locations/${LOCATION_ID}/customFields`, {
         method: "POST",
@@ -152,7 +177,7 @@ export async function GET(req: Request) {
     const after = await customFieldIds();
     return NextResponse.json({
       created, failed,
-      nowPresent: Object.values(FIELD_NAMES).filter((n) => after[n.toLowerCase()]).length,
+      nowPresent: Object.keys(FIELD_NAMES).filter((k) => fieldIdFor(k, after)).length,
       of: Object.keys(FIELD_NAMES).length,
     });
   }
@@ -160,7 +185,7 @@ export async function GET(req: Request) {
   const probe = await ghl(`/contacts/?locationId=${LOCATION_ID}&limit=1`);
   const fields = await ghl(`/locations/${LOCATION_ID}/customFields?model=contact`);
   const byName = await customFieldIds();
-  const wanted = Object.values(FIELD_NAMES);
+  const wanted = Object.keys(FIELD_NAMES);
   const t = token();
   return NextResponse.json({
     hasToken: Boolean(t),
@@ -168,8 +193,9 @@ export async function GET(req: Request) {
     contactsError: probe.ok ? undefined : probe.json,
     contactsScope: probe.ok ? "ok" : `HTTP ${probe.status}`,
     customFieldsScope: fields.ok ? "ok" : `HTTP ${fields.status}`,
-    fieldsFound: wanted.filter((n) => byName[n.toLowerCase()]),
-    fieldsMissing: wanted.filter((n) => !byName[n.toLowerCase()]),
+    fieldsFound: wanted.filter((k) => fieldIdFor(k, byName)).map((k) => FIELD_NAMES[k]),
+    fieldsMissing: wanted.filter((k) => !fieldIdFor(k, byName)).map((k) => FIELD_NAMES[k]),
+    dogNameField: fieldIdFor("dogName", byName) || null,
   });
 }
 
@@ -230,8 +256,8 @@ export async function POST(req: Request) {
     submittedAt,
     ...(resultType ? { resultType } : {}),
   };
-  for (const [key, fieldName] of Object.entries(FIELD_NAMES)) {
-    const id = byName[fieldName.toLowerCase()];
+  for (const key of Object.keys(FIELD_NAMES)) {
+    const id = fieldIdFor(key, byName);
     const value = values[key];
     if (id && value) customFields.push({ id, field_value: value });
   }

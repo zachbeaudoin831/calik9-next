@@ -295,6 +295,7 @@ export const SESSION_KEY = "ck9-assessment";
 
 export type SessionResult = {
   firstName: string;
+  dogName?: string;
   type: DogType;
   urgency?: string;
   budget?: string;

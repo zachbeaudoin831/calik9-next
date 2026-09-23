@@ -76,6 +76,7 @@ export default function ResultPage({ type }: { type: DogType }) {
   }, [type]);
 
   const first = firstNameOf(session?.firstName || "");
+  const dog = (session?.dogName || "").trim();
   const qualified = isQualified(session, type);
   const callFirst = wantsCallFirst(session);
   const [startA, startB] = r.roadmap.startModules;
@@ -96,7 +97,7 @@ export default function ResultPage({ type }: { type: DogType }) {
           </span>
           {first && (
             <p className="font-body text-base text-white/70 mb-3">
-              {first}, here&rsquo;s what your answers point to.
+              {first}, here&rsquo;s what your answers point to{dog ? ` for ${dog}` : ""}.
             </p>
           )}
           <div className="font-ui text-[13px] font-semibold tracking-[3px] uppercase text-blue-200 mb-2">
