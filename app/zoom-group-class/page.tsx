@@ -8,6 +8,7 @@ import CelebMiniGrid from "@/components/CelebMiniGrid";
 import CelebGrid from "@/components/CelebGrid";
 import CtaBlock from "@/components/CtaBlock";
 import FormEmbed from "@/components/FormEmbed";
+import PaymentPlansSection from "@/components/PaymentPlansSection";
 
 export const metadata: Metadata = {
   title: "Zoom Group | Cali K9\u00ae",
@@ -131,6 +132,8 @@ export default function ZoomGroupPage() {
           <CelebMiniGrid celebs={MINI_CELEBS} />
         </div>
       </ServiceHero>
+
+      <PaymentPlansSection />
 
       {/* Celebrity Social Proof */}
       <CelebGrid />

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { posterFor } from "@/lib/video-poster";
+import PaymentPlansSection from "@/components/PaymentPlansSection";
 
 export const metadata: Metadata = {
   title: "Cali K9 Online Academy",
@@ -576,6 +577,8 @@ export default function AcademyPage() {
           </div>
         </div>
       </section>
+
+      <PaymentPlansSection />
 
       {/* ── 9. The Cali K9 Method™ ── */}
       <section className="py-16 max-md:py-10 bg-cream">

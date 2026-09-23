@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import PaymentPlansSection from "@/components/PaymentPlansSection";
 
 export const metadata: Metadata = {
   title: "Cali K9 Elite — $997",
@@ -409,6 +410,8 @@ export default function ElitePage() {
           </div>
         </div>
       </section>
+
+      <PaymentPlansSection />
 
       {/* ── FAQ ── */}
       <section className="py-14 max-md:py-10">

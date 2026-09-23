@@ -3,6 +3,7 @@ import Image from "next/image";
 import Carousel from "@/components/Carousel";
 import { CELEBS } from "@/components/CelebGrid";
 import BuyModal from "./BuyModal";
+import PaymentPlansSection from "@/components/PaymentPlansSection";
 
 export const metadata: Metadata = {
   title: "Webinar Special: Online Training + Evaluation Call for $79",
@@ -272,6 +273,8 @@ export default function WebinarOfferPage() {
           <BuyModal />
         </div>
       </section>
+
+      <PaymentPlansSection />
 
       {/* ── Netflix band ── */}
       <section className="bg-ink py-10">

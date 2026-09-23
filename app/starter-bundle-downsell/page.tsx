@@ -3,6 +3,7 @@ import Link from "next/link";
 import Countdown from "../starter-bundle/Countdown";
 import BundleCta from "../starter-bundle/BundleCta";
 import { posterFor } from "@/lib/video-poster";
+import PaymentPlansSection from "@/components/PaymentPlansSection";
 
 export const metadata: Metadata = {
   title: "Start With The Starter Bundle",
@@ -394,6 +395,8 @@ export default function StarterBundleDownsellPage() {
           <BundleCta />
         </div>
       </section>
+
+      <PaymentPlansSection />
 
       {/* ── Roadmap centerpiece ── */}
       <section className="pb-11">

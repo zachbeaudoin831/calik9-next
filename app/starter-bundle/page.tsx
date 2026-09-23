@@ -3,6 +3,7 @@ import Link from "next/link";
 import Countdown from "./Countdown";
 import BundleCta from "./BundleCta";
 import { posterFor } from "@/lib/video-poster";
+import PaymentPlansSection from "@/components/PaymentPlansSection";
 
 export const metadata: Metadata = {
   title: "Cali K9 Foundation Starter Bundle",
@@ -257,6 +258,8 @@ export default function StarterBundlePage() {
           <BundleCta />
         </div>
       </section>
+
+      <PaymentPlansSection />
 
       {/* ── Roadmap centerpiece ── */}
       <section className="pb-11">

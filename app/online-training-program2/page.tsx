@@ -7,6 +7,7 @@ import PriceBlock from "@/components/PriceBlock";
 import FormEmbed from "@/components/FormEmbed";
 import CelebGrid from "@/components/CelebGrid";
 import CtaBlock from "@/components/CtaBlock";
+import PaymentPlansSection from "@/components/PaymentPlansSection";
 
 export const metadata: Metadata = {
   title: "Online Dog Training Courses | Cali K9®",
@@ -182,6 +183,8 @@ export default function OnlineTrainingPage() {
           note="one-time · Payment plans available"
         />
       </ServiceHero>
+
+      <PaymentPlansSection />
 
       {/* ── Celebrity Social Proof ── */}
       <CelebGrid />

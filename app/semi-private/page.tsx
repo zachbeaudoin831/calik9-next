@@ -8,6 +8,7 @@ import CelebMiniGrid from "@/components/CelebMiniGrid";
 import CelebGrid from "@/components/CelebGrid";
 import CtaBlock from "@/components/CtaBlock";
 import FormEmbed from "@/components/FormEmbed";
+import PaymentPlansSection from "@/components/PaymentPlansSection";
 
 export const metadata: Metadata = {
   title: "Semi-Private Dog Training | Cali K9\u00ae",
@@ -209,6 +210,8 @@ export default function SemiPrivatePage() {
           and we&rsquo;ll point you in the right direction.
         </p>
       </ServiceHero>
+
+      <PaymentPlansSection />
 
       {/* ── Celebrity Social Proof ── */}
       <CelebGrid />

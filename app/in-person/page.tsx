@@ -10,6 +10,7 @@ import FormEmbed from "@/components/FormEmbed";
 import CelebMiniGrid from "@/components/CelebMiniGrid";
 import CelebGrid from "@/components/CelebGrid";
 import CtaBlock from "@/components/CtaBlock";
+import PaymentPlansSection from "@/components/PaymentPlansSection";
 
 export const metadata: Metadata = {
   title: "In-Person Dog Training",
@@ -207,6 +208,8 @@ export default function InPersonPage() {
         {/* ── Celebrity Mini Grid ── */}
         <CelebMiniGrid celebs={MINI_CELEBS} />
       </ServiceHero>
+
+      <PaymentPlansSection />
 
       {/* ── Info Section (blue gradient bg) ── */}
       <section
