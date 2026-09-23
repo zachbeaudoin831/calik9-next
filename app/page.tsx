@@ -242,7 +242,7 @@ export default async function HomePage() {
         <div className="max-w-[760px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <video
             className="w-full rounded-xl bg-black shadow-[0_20px_60px_rgba(0,0,0,0.25)]"
-            poster="/images/funnel/quiz-video-poster.jpg"
+            poster="/images/funnel/quiz-video-thumb.jpg"
             controls
             playsInline
             preload="metadata"
