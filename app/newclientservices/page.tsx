@@ -40,17 +40,6 @@ const NEW_CLIENT_CARDS = [
     imageAlt: "Certified Cali K9 trainer working with a dog in person",
     imagePosition: "center center",
   },
-  {
-    tag: "Coming Soon",
-    name: "CALI K9\nLICENSING",
-    desc: "Own and operate under the Cali K9 brand. A turnkey licensing opportunity for qualified trainers \u2014 details coming soon.",
-    href: null,
-    bg: "linear-gradient(145deg, #1A1A2E, #16213E, #0F3460)",
-    disabled: true,
-    image: "/images/cdn/66f3574be550d972a87c4363.webp",
-    imageAlt: "Cali K9 Licensing program \u2014 partner trainer in branded apparel",
-    imagePosition: "center center",
-  },
 ];
 
 const RETURNING_CLIENT_CARDS = [
