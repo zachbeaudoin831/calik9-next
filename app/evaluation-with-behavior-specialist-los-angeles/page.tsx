@@ -182,13 +182,6 @@ export default function EvaluationPage() {
       <ServiceHero
         sidebar={
           <>
-            <div className="font-ui text-[13px] font-bold tracking-[2px] uppercase text-white/85 mb-2">
-              Book Your Evaluation &mdash; Takes 60 Seconds
-            </div>
-            <div className="flex items-baseline gap-2 mb-5">
-              <span className="font-display text-[40px] text-white leading-none">$27</span>
-            </div>
-
             {/* Free Bonus */}
             <div className="bg-white/[0.07] border border-white/[0.18] rounded-xl p-5 mb-6">
               <div className="mb-3">
