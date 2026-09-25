@@ -213,7 +213,7 @@ const JOIN_STEPS = [
 // November, each becomes one hour earlier here (8:00 AM PT, etc.).
 const SCHEDULE = [
   { day: "Sat · 9:00 AM PT / 12:00 PM ET", title: "Kickstart", access: "Free · Community", tone: "free" },
-  { day: "Sat · 10:00 AM PT / 1:00 PM ET", title: "Live Webinar", access: "Open To Guests", tone: "guest" },
+  { day: "Tue · 4:00 PM PT / 7:00 PM ET", title: "Elite / VIP Members Only", access: "Elite & VIP", tone: "guest" },
   { day: "Sat · 12:00 PM PT / 3:00 PM ET", title: "Academy Live With Jas", access: "Members Only", tone: "members" },
   { day: "Wed · 6:00 PM PT / 9:00 PM ET", title: "Trainer-Led Academy Live", access: "Members Only", tone: "members" },
 ];
