@@ -27,8 +27,8 @@ export const PAYMENT_LINKS: Record<string, string | null> = {
   "vip": "https://link.fastpaydirect.com/payment-link/6aa8929fceb12d9fc1a8ce54", // $2,497
   "vip-treats": "https://link.fastpaydirect.com/payment-link/6aa892c932f95ae35594aa1e", // $2,524
   "academy": "https://link.fastpaydirect.com/payment-link/6a9617c6d6768df054449011", // $97/mo
-  "academy-kit": null, // $97/mo + $147 kit — PASTE GHL LINK (recurring + one-time in one link works)
-  "academy-treats": null, // $97/mo + $27 treats — PASTE GHL LINK
+  "academy-kit": "https://link.fastpaydirect.com/payment-link/6abae8c1c0e70c7fefb711c8", // $97/mo + $147 kit → /program-welcome?tier=academy&total=244
+  "academy-treats": "https://link.fastpaydirect.com/payment-link/6abae9b8c0e70c7fefb711ce", // $97/mo + $27 treats → /program-welcome?tier=academy&total=124
 };
 
 export function comboKey(tier: Tier, kit: boolean, treats: boolean): string {
