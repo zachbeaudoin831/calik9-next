@@ -11,9 +11,9 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-// Elite checkout runs through the order-builder flow: kit offer → treats
-// offer → the combined payment link for the exact selection (see
-// lib/package-checkout.ts).
+// Elite checkout runs through the order-builder flow: kit offer (yes →
+// checkout) → treats downsell → the combined payment link for the exact
+// selection (see lib/package-checkout.ts).
 const START_ORDER_URL = "/training-kit-upsell?tier=elite";
 
 const INCLUDED = [

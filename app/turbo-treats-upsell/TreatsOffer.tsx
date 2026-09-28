@@ -2,13 +2,7 @@
 
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
-import {
-  KIT_PRICE,
-  TIER_INFO,
-  TREATS_PRICE,
-  checkoutUrl,
-  parseTier,
-} from "@/lib/package-checkout";
+import { TIER_INFO, TREATS_PRICE, checkoutUrl, parseTier } from "@/lib/package-checkout";
 
 const FEATURES = [
   "Pea-sized — built for the split-second timing that turns a reward into real communication",
@@ -19,15 +13,13 @@ const FEATURES = [
 export default function TreatsOffer() {
   const params = useSearchParams();
   const tier = parseTier(params.get("tier"));
-  // VIP includes the Training Kit, so VIP visitors never see the kit step.
-  const kit = tier === "elite" && params.get("kit") === "1";
-  const flavor = params.get("flavor") ?? undefined;
-
   const tierInfo = TIER_INFO[tier];
-  const baseTotal = tierInfo.price + (kit ? KIT_PRICE : 0);
+  // This step only runs after the Training Kit was declined (the kit ships
+  // with both bags of treats, so a kit "yes" goes straight to checkout).
+  const baseTotal = tierInfo.price;
 
   const goToCheckout = (withTreats: boolean) => {
-    const url = checkoutUrl(tier, kit, withTreats, flavor);
+    const url = checkoutUrl(tier, false, withTreats);
     if (!url) return; // placeholder until the payment links are wired
     const w = window as typeof window & { fbq?: (...args: unknown[]) => void };
     if (typeof w.fbq === "function") {
@@ -39,13 +31,7 @@ export default function TreatsOffer() {
     window.location.href = url;
   };
 
-  const orderLines = [
-    { label: tierInfo.name, price: tierInfo.price },
-    ...(kit
-      ? [{ label: `Cali K9 Training Kit${flavor ? ` (${flavor})` : ""}`, price: KIT_PRICE }]
-      : []),
-    ...(tier === "vip" ? [{ label: "Cali K9 Training Kit — included with VIP", price: 0 }] : []),
-  ];
+  const orderLines = [{ label: tierInfo.name, price: tierInfo.priceLabel }];
 
   return (
     <>
@@ -112,7 +98,7 @@ export default function TreatsOffer() {
             className="flex justify-between font-body text-[14px] text-ink/80 py-1"
           >
             <span>{line.label}</span>
-            <span>{line.price === 0 ? "Included" : `$${line.price.toLocaleString()}`}</span>
+            <span>{line.price}</span>
           </div>
         ))}
         <div className="flex justify-between font-body text-[14px] text-gray-muted py-1">
@@ -121,7 +107,12 @@ export default function TreatsOffer() {
         </div>
         <div className="flex justify-between font-display text-lg text-ink border-t border-border mt-2 pt-2.5">
           <span>TOTAL WITH TREATS</span>
-          <span>${(baseTotal + TREATS_PRICE).toLocaleString()}</span>
+          <span>
+            ${(baseTotal + TREATS_PRICE).toLocaleString()}
+            {tier === "academy" && (
+              <span className="font-body text-[13px] text-gray-muted font-normal"> first month, then $97/month</span>
+            )}
+          </span>
         </div>
       </div>
 
@@ -132,8 +123,7 @@ export default function TreatsOffer() {
           onClick={() => goToCheckout(true)}
           className="btn btn-blue btn-lg w-full !py-5"
         >
-          Yes! Add 2 Bags &amp; Continue To Checkout &mdash; $
-          {(baseTotal + TREATS_PRICE).toLocaleString()}
+          Yes! Add 2 Bags &amp; Continue To Checkout &mdash; +${TREATS_PRICE}
         </button>
         <p className="font-body text-[12.5px] text-gray-muted mt-3 text-center">
           One secure checkout for your whole order &middot; Ships with your order confirmation
@@ -144,7 +134,7 @@ export default function TreatsOffer() {
           className="block w-full text-center font-body text-[13px] text-gray-muted underline mt-5 cursor-pointer bg-transparent border-none"
         >
           No thanks, I&rsquo;ll pass on the treats my dog would love &mdash; continue to checkout
-          without them (${baseTotal.toLocaleString()})
+          without them ({tierInfo.priceLabel})
         </button>
       </div>
 

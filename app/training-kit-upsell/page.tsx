@@ -71,8 +71,7 @@ export default function TrainingKitUpsellPage() {
             your Foundation Phase videos assume you already have on hand &mdash; so you&rsquo;re
             never left wondering what leash, treats, or tools Cali K9 actually uses.{" "}
             <strong className="text-ink">
-              One click adds it to your order &mdash; you&rsquo;ll pay for everything together in
-              one secure checkout at the end.
+              One click adds it to your order and takes you straight to one secure checkout.
             </strong>
           </p>
 

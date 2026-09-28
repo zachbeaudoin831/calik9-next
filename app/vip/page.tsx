@@ -11,10 +11,10 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-// VIP checkout runs through the order-builder flow. VIP already includes the
-// Training Kit, so it skips the kit offer and goes straight to treats (see
-// lib/package-checkout.ts).
-const START_ORDER_URL = "/turbo-treats-upsell?tier=vip";
+// VIP checkout runs through the order-builder flow: kit offer (yes →
+// checkout) → treats downsell → the combined payment link for the exact
+// selection (see lib/package-checkout.ts).
+const START_ORDER_URL = "/training-kit-upsell?tier=vip";
 
 const INCLUDED = [
   {

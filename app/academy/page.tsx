@@ -12,9 +12,11 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-// $97/mo membership checkout. Every Join CTA on the page reads from this
-// one constant.
-const JOIN_URL = "https://link.fastpaydirect.com/payment-link/6a9617c6d6768df054449011";
+// Every Join CTA on the page reads from this one constant. Academy checkout
+// runs through the order-builder flow: kit offer (yes → checkout) → treats
+// downsell → the combined payment link for the exact selection. The $97/mo
+// payment links live in lib/package-checkout.ts.
+const JOIN_URL = "/training-kit-upsell?tier=academy";
 
 const STATS = [
   { big: "10,000+", small: "Dogs Trained by Jas" },

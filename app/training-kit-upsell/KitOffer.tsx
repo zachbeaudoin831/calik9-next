@@ -1,14 +1,13 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
-import { KIT_PRICE, parseTier } from "@/lib/package-checkout";
+import { useSearchParams } from "next/navigation";
+import { KIT_PRICE, TIER_INFO, checkoutUrl, parseTier } from "@/lib/package-checkout";
 
 const KIT_CONTENTS = [
   "Training Box",
-  "Cali K9 Turbo Treats — beef or chicken hearts, your choice",
+  "Cali K9 Turbo Treats — 2 bags (Beef Hearts + Chicken Hearts)",
   "Treat Pouch",
   "Slip Leash",
   "Long Line",
@@ -16,20 +15,23 @@ const KIT_CONTENTS = [
   "Tug Ball",
 ];
 
-const FLAVORS = ["Beef Hearts", "Chicken Hearts"] as const;
-
 export default function KitOffer() {
-  const router = useRouter();
   const params = useSearchParams();
   const tier = parseTier(params.get("tier"));
-  const [flavor, setFlavor] = useState<(typeof FLAVORS)[number]>("Beef Hearts");
+  const tierInfo = TIER_INFO[tier];
 
   const addToOrder = () => {
+    const url = checkoutUrl(tier, true, false);
+    if (!url) return; // placeholder until the payment link is wired
     const w = window as typeof window & { fbq?: (...args: unknown[]) => void };
     if (typeof w.fbq === "function") {
       w.fbq("track", "AddToCart", { value: KIT_PRICE, currency: "USD" });
+      w.fbq("track", "InitiateCheckout", {
+        value: tierInfo.price + KIT_PRICE,
+        currency: "USD",
+      });
     }
-    router.push(`/turbo-treats-upsell?tier=${tier}&kit=1&flavor=${encodeURIComponent(flavor)}`);
+    window.location.href = url;
   };
 
   return (
@@ -70,38 +72,10 @@ export default function KitOffer() {
           </div>
         </div>
 
-        {/* Flavor picker */}
-        <div className="border-t border-border px-7 py-5 max-[480px]:px-5">
-          <div className="font-ui text-[12px] font-bold tracking-[1.5px] uppercase text-gray-muted mb-3">
-            Choose Your Turbo Treats Flavor
-          </div>
-          <div className="grid grid-cols-2 gap-3 max-[480px]:grid-cols-1">
-            {FLAVORS.map((f) => (
-              <button
-                key={f}
-                type="button"
-                onClick={() => setFlavor(f)}
-                className={`flex items-center gap-3 px-4 py-3.5 border-[1.5px] rounded-xl font-body text-[14.5px] font-semibold transition-colors cursor-pointer ${
-                  flavor === f
-                    ? "border-blue-500 bg-blue-50 text-ink"
-                    : "border-border bg-white text-ink/70 hover:border-blue-500"
-                }`}
-              >
-                <span
-                  className={`w-[18px] h-[18px] rounded-full border-[1.5px] shrink-0 ${
-                    flavor === f ? "bg-blue-500 border-blue-500" : "border-gray-muted"
-                  }`}
-                />
-                {f}
-              </button>
-            ))}
-          </div>
-        </div>
-
         {/* Price strip */}
         <div className="bg-cream px-7 py-5 max-[480px]:px-5 flex items-center justify-between gap-4 flex-wrap">
           <div className="font-display text-[32px] text-ink">
-            $197{" "}
+            ${KIT_PRICE}{" "}
             <span className="font-body text-[13px] text-gray-muted">
               one-time, added to your order total
             </span>
@@ -115,18 +89,16 @@ export default function KitOffer() {
       {/* CTA */}
       <div className="max-w-[640px] mx-auto mt-6">
         <button type="button" onClick={addToOrder} className="btn btn-blue btn-lg w-full !py-5">
-          Yes! Add My Implementation Accelerator &mdash; $197
+          Yes! Add My Implementation Accelerator &mdash; ${KIT_PRICE}
         </button>
         <p className="font-body text-[12.5px] text-gray-muted mt-3 text-center">
-          Added to your order total &middot; One combined checkout at the end &middot; Ships with
-          your order
+          Added to your order total &middot; One secure checkout &middot; Ships with your order
         </p>
         <Link
-          href={`/turbo-treats-upsell?tier=${tier}&kit=0`}
-          className="block text-center font-body text-[13px] text-gray-muted underline mt-5"
+          href={`/turbo-treats-upsell?tier=${tier}`}
+          className="btn btn-lg w-full mt-5 !bg-red-600 !border-red-600 !text-white hover:!bg-red-700 hover:!border-red-700 text-center"
         >
-          No thanks, I&rsquo;ll guess at my own gear and skip the tools built for this system
-          &mdash; continue without adding this
+          No Thanks! I Have Items Like These Already
         </Link>
       </div>
 

@@ -60,7 +60,7 @@ export default function TurboTreatsUpsellPage() {
       <section className="py-12 max-md:py-8 text-center">
         <div className="max-w-[860px] mx-auto px-6 max-[480px]:px-4">
           <div className="inline-block bg-amber-400/15 border border-amber-400/50 text-[#8a5b00] font-ui text-[12px] font-bold tracking-[1.5px] uppercase px-4 py-2 rounded-full mb-5">
-            &#9888; Wait &mdash; Your Order Isn&rsquo;t Finished Yet
+            Last Question &mdash; Turbo Treats Sale
           </div>
           <h1 className="font-display text-[clamp(26px,4vw,40px)] text-ink leading-[1.05] max-w-[760px] mx-auto mb-4">
             BEFORE YOU GO &mdash; ADD TURBO TREATS, THE MOTIVATION + ENGAGEMENT TOOL WE USE

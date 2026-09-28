@@ -3,9 +3,9 @@
 import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { parseTier, TIER_INFO } from "@/lib/package-checkout";
+import { parseTier, TIER_INFO, type Tier } from "@/lib/package-checkout";
 
-const NEXT_STEPS: Record<"elite" | "vip", { title: string; desc: string }[]> = {
+const NEXT_STEPS: Record<Tier, { title: string; desc: string }[]> = {
   elite: [
     { title: "Check your inbox", desc: "Your Academy login and the Start Here onboarding video arrive within a few minutes. Search for “Cali K9” if it isn't there." },
     { title: "Book your onboarding call", desc: "A member of the team reaches out within one business day to set your first Wednesday small-group coaching session with Jas." },
@@ -17,6 +17,12 @@ const NEXT_STEPS: Record<"elite" | "vip", { title: string; desc: string }[]> = {
     { title: "Your private WhatsApp line", desc: "Within one business day you'll get an invite to your direct line to the Cali K9 team — support within 24 hours, for a full year." },
     { title: "Priority coaching booking", desc: "The team schedules your first of eight Wednesday coaching sessions with Jas and walks you through priority booking." },
     { title: "Your Training Kit ships", desc: "The complete Cali K9 Training Kit is included and ships within 1–2 business days, with any Turbo Treats you added." },
+  ],
+  academy: [
+    { title: "Check your inbox", desc: "Your Academy login and the Start Here onboarding video arrive within a few minutes. Search for “Cali K9” if it isn't there." },
+    { title: "Log in and start at Step 1", desc: "Begin the 50-Step Roadmap with Step 1: Establishing Boundaries in the Home. The portal tells you exactly what comes next." },
+    { title: "Train a little every day", desc: "Most steps take 15 to 20 minutes a day. Consistency beats duration — your dog advances when they're ready, never rushed." },
+    { title: "Your gear ships", desc: "If you added the Training Kit or Turbo Treats, they ship from Cali K9 within 1–2 business days with tracking by email." },
   ],
 };
 
