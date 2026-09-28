@@ -24,6 +24,9 @@ const NEXT_STEPS: Record<Tier, { title: string; desc: string }[]> = {
     { title: "Train a little every day", desc: "Most steps take 15 to 20 minutes a day. Consistency beats duration — your dog advances when they're ready, never rushed." },
     { title: "Your gear ships", desc: "If you added the Training Kit or Turbo Treats, they ship from Cali K9 within 1–2 business days with tracking by email." },
   ],
+  get "academy-founder"() {
+    return this.academy;
+  },
 };
 
 export default function WelcomeContent() {

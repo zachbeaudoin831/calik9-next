@@ -7,12 +7,22 @@
 // tier-treats. VIP already includes the kit, so it skips the kit step and
 // has no vip-kit link.
 
-export type Tier = "elite" | "vip" | "academy";
+export type Tier = "elite" | "vip" | "academy" | "academy-founder";
 
-export const TIER_INFO: Record<Tier, { name: string; price: number; priceLabel: string }> = {
+export const TIER_INFO: Record<
+  Tier,
+  { name: string; price: number; priceLabel: string; renewalNote?: string }
+> = {
   elite: { name: "Cali K9 Elite", price: 997, priceLabel: "$997" },
   vip: { name: "Cali K9 VIP", price: 2497, priceLabel: "$2,497" },
-  academy: { name: "Cali K9 Academy", price: 97, priceLabel: "$97/month" },
+  academy: { name: "Cali K9 Academy", price: 97, priceLabel: "$97/month", renewalNote: "first month, then $97/month" },
+  // Past-client founder rate (/academy-founder): $47/mo for 12 months, then $97/mo.
+  "academy-founder": {
+    name: "Cali K9 Academy",
+    price: 47,
+    priceLabel: "$47/month",
+    renewalNote: "first month, then $47/month through month 12, then $97/month",
+  },
 };
 
 export const KIT_PRICE = 147;
@@ -29,6 +39,9 @@ export const PAYMENT_LINKS: Record<string, string | null> = {
   "academy": "https://link.fastpaydirect.com/payment-link/6a9617c6d6768df054449011", // $97/mo
   "academy-kit": "https://link.fastpaydirect.com/payment-link/6abae8c1c0e70c7fefb711c8", // $97/mo + $147 kit → /program-welcome?tier=academy&total=244
   "academy-treats": "https://link.fastpaydirect.com/payment-link/6abae9b8c0e70c7fefb711ce", // $97/mo + $27 treats → /program-welcome?tier=academy&total=124
+  "academy-founder": null, // $47/mo × 12 then $97/mo — PASTE GHL LINK → /program-welcome?tier=academy-founder&total=47
+  "academy-founder-kit": null, // $47/mo + $147 kit — PASTE GHL LINK → /program-welcome?tier=academy-founder&total=194
+  "academy-founder-treats": null, // $47/mo + $27 treats — PASTE GHL LINK → /program-welcome?tier=academy-founder&total=74
 };
 
 export function comboKey(tier: Tier, kit: boolean, treats: boolean): string {
@@ -40,6 +53,6 @@ export function checkoutUrl(tier: Tier, kit: boolean, treats: boolean): string |
 }
 
 export function parseTier(value: string | null): Tier {
-  if (value === "vip" || value === "academy") return value;
+  if (value === "vip" || value === "academy" || value === "academy-founder") return value;
   return "elite";
 }

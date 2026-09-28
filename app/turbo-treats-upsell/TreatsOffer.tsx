@@ -113,8 +113,8 @@ export default function TreatsOffer() {
           <span>TOTAL WITH TREATS</span>
           <span>
             ${(baseTotal + TREATS_PRICE).toLocaleString()}
-            {tier === "academy" && (
-              <span className="font-body text-[13px] text-gray-muted font-normal"> first month, then $97/month</span>
+            {tierInfo.renewalNote && (
+              <span className="font-body text-[13px] text-gray-muted font-normal"> {tierInfo.renewalNote}</span>
             )}
           </span>
         </div>
