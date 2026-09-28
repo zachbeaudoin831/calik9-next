@@ -27,7 +27,7 @@ export const PAYMENT_LINKS: Record<string, string | null> = {
   "vip": "https://link.fastpaydirect.com/payment-link/6aa8929fceb12d9fc1a8ce54", // $2,497
   "vip-treats": "https://link.fastpaydirect.com/payment-link/6aa892c932f95ae35594aa1e", // $2,524
   "academy": "https://link.fastpaydirect.com/payment-link/6a9617c6d6768df054449011", // $97/mo
-  "academy-kit": null, // $97/mo + $147 kit — PASTE GHL LINK
+  "academy-kit": "https://link.fastpaydirect.com/payment-link/6abadf3cc0e70c7fefb711a1", // $97/mo + $147 kit — GHL link still charges the old $197 kit ($294 today) until updated
   "academy-treats": null, // $97/mo + $27 treats — PASTE GHL LINK
 };
 
