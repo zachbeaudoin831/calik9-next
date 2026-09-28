@@ -480,11 +480,23 @@ async function handlePost(
     const bridgeLastHour = orders.filter(
       (o) => o.tags.split(",").map((t) => t.trim()).includes("GHL") && new Date(o.created_at).getTime() > hourAgo,
     );
-    if (bridgeLastHour.length >= 15) {
+    // Volume ceiling. A loop looks like the same customer repeating (caught
+    // below); real sales spikes should pass. Raise with BRIDGE_MAX_PER_HOUR.
+    const maxPerHour = Number(process.env.BRIDGE_MAX_PER_HOUR) || 300;
+    if (bridgeLastHour.length >= maxPerHour) {
       console.error("ghl-order circuit breaker tripped:", bridgeLastHour.length, "bridge orders in the last hour");
       return NextResponse.json(
-        { ok: true, skipped: true, reason: `Circuit breaker: ${bridgeLastHour.length} bridge orders in the last hour — refusing until it clears` },
+        { ok: true, skipped: true, reason: `Circuit breaker: ${bridgeLastHour.length} bridge orders in the last hour (limit ${maxPerHour}) — refusing until it clears` },
       );
+    }
+    // Loop signature: the same customer hit more than 3 times in an hour.
+    const sameCustomerLastHour = bridgeLastHour.filter((o) => (o.email || "").toLowerCase() === email.toLowerCase());
+    if (sameCustomerLastHour.length >= 3) {
+      console.error("ghl-order loop guard:", email, "has", sameCustomerLastHour.length, "bridge orders in the last hour");
+      return NextResponse.json({
+        ok: true, skipped: true, duplicate: true, shopifyOrder: sameCustomerLastHour[0].name,
+        reason: "Same customer already has 3 bridge orders in the last hour — looks like a loop, refusing",
+      });
     }
     const sameCustomerRecently = bridgeLastHour.find(
       (o) => (o.email || "").toLowerCase() === email.toLowerCase() && new Date(o.created_at).getTime() > Date.now() - 10 * 60 * 1000,
