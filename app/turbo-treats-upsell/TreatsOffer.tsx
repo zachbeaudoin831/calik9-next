@@ -15,7 +15,8 @@ export default function TreatsOffer() {
   const tier = parseTier(params.get("tier"));
   const tierInfo = TIER_INFO[tier];
   // This step only runs after the Training Kit was declined (the kit ships
-  // with both bags of treats, so a kit "yes" goes straight to checkout).
+  // with both bags of treats, so a kit "yes" goes straight to checkout) or
+  // for VIP, which includes the kit and skips that step.
   const baseTotal = tierInfo.price;
 
   const goToCheckout = (withTreats: boolean) => {
@@ -31,7 +32,10 @@ export default function TreatsOffer() {
     window.location.href = url;
   };
 
-  const orderLines = [{ label: tierInfo.name, price: tierInfo.priceLabel }];
+  const orderLines = [
+    { label: tierInfo.name, price: tierInfo.priceLabel },
+    ...(tier === "vip" ? [{ label: "Cali K9 Training Kit — included with VIP", price: "Included" }] : []),
+  ];
 
   return (
     <>

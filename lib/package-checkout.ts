@@ -4,7 +4,8 @@
 // in below. The kit now ships with BOTH bags of Turbo Treats, so saying yes
 // to the kit goes straight to checkout — the treats step only runs when the
 // kit was declined. That makes three links per tier: tier, tier-kit,
-// tier-treats.
+// tier-treats. VIP already includes the kit, so it skips the kit step and
+// has no vip-kit link.
 
 export type Tier = "elite" | "vip" | "academy";
 
@@ -24,7 +25,6 @@ export const PAYMENT_LINKS: Record<string, string | null> = {
   "elite-kit": "https://link.fastpaydirect.com/payment-link/6aa891f332f95ae35594aa1c", // $997 + $147 kit = $1,144 — GHL link still charges the old $197 kit ($1,194) until updated
   "elite-treats": "https://link.fastpaydirect.com/payment-link/6aa8922fceb12d9fc1a8ce53", // $1,024
   "vip": "https://link.fastpaydirect.com/payment-link/6aa8929fceb12d9fc1a8ce54", // $2,497
-  "vip-kit": null, // $2,497 + $147 kit = $2,644 — PASTE GHL LINK
   "vip-treats": "https://link.fastpaydirect.com/payment-link/6aa892c932f95ae35594aa1e", // $2,524
   "academy": "https://link.fastpaydirect.com/payment-link/6a9617c6d6768df054449011", // $97/mo
   "academy-kit": null, // $97/mo + $147 kit — PASTE GHL LINK

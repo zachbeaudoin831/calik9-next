@@ -1,8 +1,9 @@
 "use client";
 
+import { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { KIT_PRICE, TIER_INFO, checkoutUrl, parseTier } from "@/lib/package-checkout";
 
 const KIT_CONTENTS = [
@@ -16,9 +17,15 @@ const KIT_CONTENTS = [
 ];
 
 export default function KitOffer() {
+  const router = useRouter();
   const params = useSearchParams();
   const tier = parseTier(params.get("tier"));
   const tierInfo = TIER_INFO[tier];
+
+  // VIP already includes the Training Kit — never show this step to VIP.
+  useEffect(() => {
+    if (tier === "vip") router.replace("/turbo-treats-upsell?tier=vip");
+  }, [tier, router]);
 
   const addToOrder = () => {
     const url = checkoutUrl(tier, true, false);
