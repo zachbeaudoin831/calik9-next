@@ -7,6 +7,28 @@ export const metadata: Metadata = {
     "A thank-you for training with Cali K9: the complete Online Academy — 8 modules, 50 steps, weekly live coaching with Jas Leverette — at $47/month for your first 12 months, then $97/month.",
   // Private past-client offer sent by email. Keep out of search.
   robots: { index: false, follow: false },
+  // Link preview (email / iMessage / social): the hero video's poster frame.
+  openGraph: {
+    title: "Cali K9 Academy — Past Client Founder Rate",
+    description:
+      "A thank-you for training with Cali K9: the complete Online Academy at $47/month for your first 12 months, then $97/month.",
+    url: "https://calik9.com/academy-founder",
+    images: [
+      {
+        url: "https://calik9.com/images/funnel/academy-jas-teaching.jpg",
+        width: 1080,
+        height: 839,
+        alt: "Jas Leverette teaching inside the Cali K9 Academy",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cali K9 Academy — Past Client Founder Rate",
+    description:
+      "A thank-you for training with Cali K9: the complete Online Academy at $47/month for your first 12 months, then $97/month.",
+    images: ["https://calik9.com/images/funnel/academy-jas-teaching.jpg"],
+  },
 };
 
 // Past-client founder offer: $47/mo for the first 12 months, then $97/mo.
