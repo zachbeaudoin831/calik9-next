@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { readAttribution } from "@/lib/attribution";
 import { DOG_TYPES, SESSION_KEY, resolveDogType, type SessionResult } from "./results/content";
 
 // After the contact gate, the visitor is sent to one of three real result
@@ -287,6 +288,7 @@ export default function AssessmentQuiz() {
       phone: phone.trim(),
       tier: tier(),
       resultType: type,
+      attribution: readAttribution(),
       answers: {
         dogType: opt(1),
         dogName: dogName.trim(),

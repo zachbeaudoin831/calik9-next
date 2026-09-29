@@ -26,6 +26,7 @@ const LANDER_ROUTES = new Set([
   "/free-masterclass",
   "/free-masterclass/thank-you",
   "/free-masterclass/invite",
+  "/admin/funnel-report",
 ]);
 
 export function isLanderPath(pathname: string): boolean {

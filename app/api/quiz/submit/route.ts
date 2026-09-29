@@ -43,7 +43,17 @@ const FIELD_NAMES: Record<string, string> = {
   trainingFormat: "Quiz: Training Format",
   offLeash: "Quiz: Off-Leash Score (1-10)",
   submittedAt: "Quiz: Submitted At",
+  utmSource: "Quiz: UTM Source",
+  utmMedium: "Quiz: UTM Medium",
+  utmCampaign: "Quiz: UTM Campaign",
+  utmContent: "Quiz: UTM Content",
+  landingPage: "Quiz: Landing Page",
+  referrer: "Quiz: Referrer",
 };
+
+// Attribution fields are created on the fly the first time they're missing,
+// so the funnel report's source filter works without a manual setup step.
+const ATTRIBUTION_KEYS = ["utmSource", "utmMedium", "utmCampaign", "utmContent", "landingPage", "referrer"];
 
 const QUESTION_LABELS: Record<string, string> = {
   dogType: "Which dog do you have?",
@@ -91,6 +101,8 @@ type Submission = {
   // Which of the three result pages the visitor was shown (mixed dogs are
   // resolved to their dominant profile client-side).
   resultType?: "pushy" | "fearful" | "untrained";
+  // Where the visitor came from (components/AttributionCapture.tsx).
+  attribution?: Record<string, string | undefined>;
   answers: Record<string, string | number | string[] | undefined>;
 };
 
@@ -130,6 +142,7 @@ function splitName(full: string): [string, string] {
 
 // Custom-field lookup, cached per warm instance. Returns {} if the token
 // lacks the custom-fields scope — everything else still works.
+let attributionFieldsEnsured = false;
 let fieldCache: { at: number; byName: Record<string, string> } | null = null;
 async function customFieldIds(): Promise<Record<string, string>> {
   if (fieldCache && Date.now() - fieldCache.at < 10 * 60 * 1000) return fieldCache.byName;
@@ -250,12 +263,37 @@ export async function POST(req: Request) {
   else if (bud.startsWith("$5,000")) tags.push("quiz-budget-5000-plus");
   else if (bud) tags.push(`quiz-budget-${slug(bud)}`);
 
-  const byName = await customFieldIds();
+  // Traffic source. quiz-src-organic = no utm_source on any visit we saw;
+  // otherwise quiz-src-<utm_source>, e.g. quiz-src-meta-ads for utm_source=Meta_Ads.
+  const attr = body.attribution || {};
+  const clip = (v: unknown, n = 250) => asText(v).trim().slice(0, n);
+  const utmSource = clip(attr.utm_source, 100);
+  tags.push(utmSource ? `quiz-src-${slug(utmSource)}` : "quiz-src-organic");
+
+  let byName = await customFieldIds();
+  if (!attributionFieldsEnsured && ATTRIBUTION_KEYS.some((k) => !fieldIdFor(k, byName))) {
+    attributionFieldsEnsured = true;
+    for (const k of ATTRIBUTION_KEYS) {
+      if (fieldIdFor(k, byName)) continue;
+      await ghl(`/locations/${LOCATION_ID}/customFields`, {
+        method: "POST",
+        body: JSON.stringify({ name: FIELD_NAMES[k], dataType: "TEXT", model: "contact", placeholder: "" }),
+      });
+    }
+    fieldCache = null;
+    byName = await customFieldIds();
+  }
   const customFields: { id: string; field_value: string }[] = [];
   const values: Record<string, string> = {
     ...Object.fromEntries(Object.entries(a).map(([k, v]) => [k, asText(v)])),
     tier,
     submittedAt,
+    utmSource,
+    utmMedium: clip(attr.utm_medium, 100),
+    utmCampaign: clip(attr.utm_campaign),
+    utmContent: clip(attr.utm_content),
+    landingPage: clip(attr.landing_page),
+    referrer: clip(attr.referrer),
     ...(resultType ? { resultType } : {}),
   };
   for (const key of Object.keys(FIELD_NAMES)) {
@@ -290,6 +328,7 @@ export async function POST(req: Request) {
     `Free Behavior Assessment — ${new Date(submittedAt).toLocaleString("en-US", { timeZone: "America/Los_Angeles" })} PT`,
     `Recommended: ${tier.toUpperCase()}`,
     ...(resultType ? [`Result page shown: ${resultType} (calik9.com/free-behavior-assessment/results/${resultType})`] : []),
+    `Source: ${utmSource ? [utmSource, values.utmMedium, values.utmCampaign].filter(Boolean).join(" / ") : `organic${values.referrer ? ` (referrer ${values.referrer})` : ""}`}`,
     "",
     ...Object.entries(QUESTION_LABELS).map(([k, q]) => `${q}: ${values[k] || "—"}`),
   ];

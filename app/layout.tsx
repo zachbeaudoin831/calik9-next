@@ -7,6 +7,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import CartDrawer from "@/components/CartDrawer";
 import StickyBar from "@/components/StickyBar";
+import AttributionCapture from "@/components/AttributionCapture";
 
 export const metadata: Metadata = {
   title: { default: "Cali K9\u00ae \u2014 Elite Dog Training", template: "%s | Cali K9\u00ae" },
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Footer />
           <StickyBar />
           <CartDrawer />
+          <AttributionCapture />
         </CartProvider>
         {/* Meta Pixel */}
         <Script id="meta-pixel" strategy="afterInteractive">
