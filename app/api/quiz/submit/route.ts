@@ -243,6 +243,7 @@ export async function POST(req: Request) {
   else if (urg) tags.push(`quiz-urgency-${slug(urg)}`);
   const bud = asText(a.budget).replace(/\s/g, "");
   if (bud.startsWith("Under")) tags.push("quiz-budget-under-200");
+  else if (bud.startsWith("$200")) tags.push("quiz-budget-200-500");
   else if (bud.startsWith("$500")) tags.push("quiz-budget-500-1500");
   else if (bud.toLowerCase().startsWith("whatever")) tags.push("quiz-budget-whatever-it-takes");
   else if (bud.startsWith("$1,500")) tags.push("quiz-budget-1500-5000");

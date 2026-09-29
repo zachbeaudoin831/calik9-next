@@ -3,6 +3,7 @@
 import { useEffect, useSyncExternalStore } from "react";
 import Link from "next/link";
 import EventDate from "../../../free-masterclass/EventDate";
+import FormEmbed from "@/components/FormEmbed";
 import { MODULES, PILLARS, RESULTS, SESSION_KEY, type DogType, type SessionResult } from "../content";
 
 // Primary CTA — the free Saturday masterclass (invite variant carries the
@@ -48,6 +49,15 @@ function isQualified(s: SessionResult | null, type: DogType) {
   );
 }
 
+// GHL webinar registration form (same one the masterclass page uses).
+const WEBINAR_FORM_ID = "hZHHQAAWiOEP0ADyInGy";
+
+// "$200 – $500": masterclass stays primary AND the webinar opt-in form is
+// embedded at the bottom of the result page instead of linking out.
+function wantsWebinarEmbed(s: SessionResult | null) {
+  return (s?.budget || "").replace(/\s/g, "").startsWith("$200");
+}
+
 // Budget answers that flip the call to the primary CTA.
 function wantsCallFirst(s: SessionResult | null) {
   const bud = (s?.budget || "").replace(/\s/g, "").toLowerCase();
@@ -79,6 +89,7 @@ export default function ResultPage({ type }: { type: DogType }) {
   const dog = (session?.dogName || "").trim();
   const qualified = isQualified(session, type);
   const callFirst = wantsCallFirst(session);
+  const webinarEmbed = !callFirst && wantsWebinarEmbed(session);
   const [startA, startB] = r.roadmap.startModules;
   const [goalA, goalB] = r.roadmap.goalModules;
   const inStart = (n: number) => n >= startA && n <= startB;
@@ -421,9 +432,15 @@ export default function ResultPage({ type }: { type: DogType }) {
                 {r.label.toLowerCase()} dog needs first &mdash; and what to do with your dog this week.
               </p>
               <EventDate center />
-              <Link href={MASTERCLASS_URL} className="btn btn-gold btn-lg mt-8 inline-block">
-                Reserve My Free Seat &rarr;
-              </Link>
+              {webinarEmbed ? (
+                <a href="#register" className="btn btn-gold btn-lg mt-8 inline-block">
+                  Reserve My Free Seat &rarr;
+                </a>
+              ) : (
+                <Link href={MASTERCLASS_URL} className="btn btn-gold btn-lg mt-8 inline-block">
+                  Reserve My Free Seat &rarr;
+                </Link>
+              )}
               <p className="font-body text-[12.5px] text-white/50 mt-4">
                 Free &middot; Live on Zoom &middot; Replay sent to everyone who registers
               </p>
@@ -464,6 +481,32 @@ export default function ResultPage({ type }: { type: DogType }) {
             </div>
           </section>
         </>
+      )}
+
+      {/* ── 13. Webinar opt-in embedded at the bottom ($200 – $500 budgets) ── */}
+      {webinarEmbed && (
+        <section id="register" className="py-16 max-md:py-10 bg-ink text-white scroll-mt-24">
+          <div className="max-w-[640px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
+            <div className="text-center mb-7">
+              <div className="font-ui text-[12px] font-bold tracking-[2px] uppercase text-blue-200 mb-2.5">
+                Save Your Seat
+              </div>
+              <h2 className="font-display text-[clamp(28px,4vw,40px)] leading-[1.02] mb-4">
+                RESERVE YOUR FREE SEAT FOR SATURDAY
+              </h2>
+              <EventDate center />
+            </div>
+            <FormEmbed
+              formId={WEBINAR_FORM_ID}
+              formName="Webinar Registration"
+              title="Reserve Your Free Seat"
+              height={447}
+            />
+            <p className="font-ui text-xs tracking-[1.5px] uppercase text-white/40 text-center mt-3">
+              Free &middot; Live on Zoom &middot; Replay sent to everyone who registers
+            </p>
+          </div>
+        </section>
       )}
 
       {/* ── Footer ── */}
