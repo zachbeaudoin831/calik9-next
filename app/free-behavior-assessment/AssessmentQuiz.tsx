@@ -267,6 +267,8 @@ export default function AssessmentQuiz() {
     // signals. Session-only, never in the URL.
     const session: SessionResult = {
       firstName: firstName.trim(),
+      email: email.trim(),
+      phone: phone.trim(),
       dogName: dogName.trim(),
       type,
       urgency: opt(4),
