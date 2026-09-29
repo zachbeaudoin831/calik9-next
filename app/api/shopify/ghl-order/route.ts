@@ -350,9 +350,12 @@ export async function POST(req: Request) {
     });
     const body = (await res.clone().json().catch(() => ({}))) as Record<string, unknown>;
     const failed = res.status >= 400;
+    const skipped = Boolean(body.skipped);
     record({
-      at, status: res.status, result: String(body.error || body.shopifyOrder || "ok"), keys, items, ghlOrderId,
-      ...(failed ? { detail: body.shopify ?? body.detail ?? body.received, payload } : {}),
+      at, status: res.status,
+      result: String(body.error || (skipped ? `SKIPPED: ${body.reason}` : body.shopifyOrder || "ok")),
+      keys, items, ghlOrderId,
+      ...(failed || skipped ? { detail: body.shopify ?? body.detail ?? body.received, payload } : {}),
     });
     return res;
   } catch (e) {
