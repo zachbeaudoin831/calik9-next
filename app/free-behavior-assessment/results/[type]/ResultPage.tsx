@@ -49,6 +49,14 @@ function isQualified(s: SessionResult | null, type: DogType) {
   );
 }
 
+// Academy sales page — primary CTA for "Under $200" budgets (their follow-up
+// automations push the webinar instead of the page).
+const ACADEMY_URL = "/academy";
+
+function wantsAcademyFirst(s: SessionResult | null) {
+  return (s?.budget || "").trim().toLowerCase().startsWith("under");
+}
+
 // GHL webinar registration form (same one the masterclass page uses).
 const WEBINAR_FORM_ID = "hZHHQAAWiOEP0ADyInGy";
 
@@ -89,11 +97,51 @@ export default function ResultPage({ type }: { type: DogType }) {
   const dog = (session?.dogName || "").trim();
   const qualified = isQualified(session, type);
   const callFirst = wantsCallFirst(session);
-  const webinarEmbed = !callFirst && wantsWebinarEmbed(session);
+  const academyFirst = !callFirst && wantsAcademyFirst(session);
+  const webinarEmbed = !callFirst && !academyFirst && wantsWebinarEmbed(session);
   const [startA, startB] = r.roadmap.startModules;
   const [goalA, goalB] = r.roadmap.goalModules;
   const inStart = (n: number) => n >= startA && n <= startB;
   const inGoal = (n: number) => n >= goalA && n <= goalB;
+
+  // Secondary $7-call block shared by the masterclass-first and academy-first layouts.
+  const callSecondary = (
+    <>
+        {/* ── 12. SECONDARY CTA — $7 call (prominent only for qualified leads) ── */}
+        <section className="py-14 max-md:py-10 bg-cream">
+          <div className="max-w-[720px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 text-center">
+            {qualified ? (
+              <div className="bg-white border border-border rounded-2xl p-8 max-md:p-6 shadow-sm">
+                <div className="font-ui text-[12px] font-bold tracking-[2px] uppercase text-blue-500 mb-2.5">
+                  Need More Personalized Help?
+                </div>
+                <h3 className="font-display text-[26px] max-md:text-[22px] text-ink leading-tight mb-3">
+                  TALK TO THE CALI K9 TEAM ABOUT YOUR DOG
+                </h3>
+                <p className="font-body text-[14.5px] text-gray-muted leading-relaxed max-w-[560px] mx-auto mb-6">
+                  {r.callNote}
+                </p>
+                <Link href={CALL_URL} className="btn btn-outline">
+                  Reserve a $7, 20-Minute Call &rarr;
+                </Link>
+                <p className="font-body text-[12px] text-gray-muted/80 mt-3">
+                  Refundable reservation &middot; Credited toward any program
+                </p>
+              </div>
+            ) : (
+              <p className="font-body text-[14px] text-gray-muted leading-relaxed">
+                <strong className="text-ink">Need more personalized help?</strong> If you&rsquo;d rather walk
+                through your results with the team one-on-one,{" "}
+                <Link href={CALL_URL} className="text-blue-500 underline">
+                  reserve a 20-minute call
+                </Link>
+                .
+              </p>
+            )}
+          </div>
+        </section>
+    </>
+  );
 
   return (
     <main>
@@ -412,6 +460,51 @@ export default function ResultPage({ type }: { type: DogType }) {
             </div>
           </section>
         </>
+      ) : academyFirst ? (
+        <>
+          {/* ── 11. PRIMARY CTA — the Academy (Under $200 budgets) ── */}
+          <section className="py-20 max-md:py-12 bg-blue-700 text-white text-center">
+            <div className="max-w-[760px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
+              <p className="font-body text-lg max-md:text-base text-white/80 leading-relaxed max-w-[600px] mx-auto mb-8">
+                Now that you understand your dog type, here&rsquo;s the exact system to fix it &mdash;
+                step by step, from home.
+              </p>
+              <div className="font-ui text-[13px] font-semibold tracking-[3px] uppercase text-blue-200 mb-3">
+                The Cali K9 Academy
+              </div>
+              <h2 className="font-display text-[clamp(32px,5vw,56px)] leading-[0.98] mb-6">
+                START THE 50-STEP ROADMAP&trade; TODAY
+              </h2>
+              <p className="font-body text-base text-white/75 leading-relaxed max-w-[600px] mx-auto mb-7">
+                The complete 5 Pillar, 50-Step System&trade; across all 8 modules, filmed step by step by{" "}
+                <strong className="text-white">Jas Leverette</strong>. A {r.label.toLowerCase()} dog
+                starts at Module {r.roadmap.startModules[0]} &mdash; and you can start tonight.
+              </p>
+              <ul className="inline-flex flex-col items-start gap-2 text-left font-body text-[15px] text-white/85 mb-8">
+                {[
+                  "Every module, every step, unlocked immediately",
+                  "Saturday Live sessions with Jas",
+                  "30-Day Progress Guarantee\u2122",
+                  "Free bag of Turbo Treats",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-2.5">
+                    <span className="text-amber-400 font-bold shrink-0">&#10003;</span> {item}
+                  </li>
+                ))}
+              </ul>
+              <div>
+                <Link href={ACADEMY_URL} className="btn btn-gold btn-lg inline-block">
+                  Start The Academy &rarr;
+                </Link>
+              </div>
+              <p className="font-body text-[12.5px] text-white/50 mt-4">
+                $97/month &middot; Cancel anytime &middot; 30-Day Progress Guarantee&trade;
+              </p>
+            </div>
+          </section>
+
+          {callSecondary}
+        </>
       ) : (
         <>
           {/* ── 11. PRIMARY CTA — free Saturday masterclass ── */}
@@ -447,39 +540,7 @@ export default function ResultPage({ type }: { type: DogType }) {
             </div>
           </section>
 
-          {/* ── 12. SECONDARY CTA — $7 call (prominent only for qualified leads) ── */}
-          <section className="py-14 max-md:py-10 bg-cream">
-            <div className="max-w-[720px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 text-center">
-              {qualified ? (
-                <div className="bg-white border border-border rounded-2xl p-8 max-md:p-6 shadow-sm">
-                  <div className="font-ui text-[12px] font-bold tracking-[2px] uppercase text-blue-500 mb-2.5">
-                    Need More Personalized Help?
-                  </div>
-                  <h3 className="font-display text-[26px] max-md:text-[22px] text-ink leading-tight mb-3">
-                    TALK TO THE CALI K9 TEAM ABOUT YOUR DOG
-                  </h3>
-                  <p className="font-body text-[14.5px] text-gray-muted leading-relaxed max-w-[560px] mx-auto mb-6">
-                    {r.callNote}
-                  </p>
-                  <Link href={CALL_URL} className="btn btn-outline">
-                    Reserve a $7, 20-Minute Call &rarr;
-                  </Link>
-                  <p className="font-body text-[12px] text-gray-muted/80 mt-3">
-                    Refundable reservation &middot; Credited toward any program
-                  </p>
-                </div>
-              ) : (
-                <p className="font-body text-[14px] text-gray-muted leading-relaxed">
-                  <strong className="text-ink">Need more personalized help?</strong> If you&rsquo;d rather walk
-                  through your results with the team one-on-one,{" "}
-                  <Link href={CALL_URL} className="text-blue-500 underline">
-                    reserve a 20-minute call
-                  </Link>
-                  .
-                </p>
-              )}
-            </div>
-          </section>
+          {callSecondary}
         </>
       )}
 
