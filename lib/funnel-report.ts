@@ -34,7 +34,9 @@ export type Lead = {
   source: string; // "organic" | "untracked" | utm_source as sent (e.g. "Meta_Ads")
   campaign: string;
   result: string;
-  booked?: { at: string; title: string; status: string } | null;
+  // at = appointment start time. upcoming is set when the report is built
+  // (start time still ahead of "now"), so it never goes stale in the cache.
+  booked?: { at: string; title: string; status: string; upcoming?: boolean } | null;
   closed?: { kind: CloseKind; amount: number; at: string; label: string } | null;
 };
 
@@ -49,11 +51,14 @@ export type Report = {
     budget: Record<Budget, number>;
     qualified: number;
     booked: number;
+    bookedPast: number; // appointment time has already passed
+    bookedUpcoming: number; // appointment still ahead
+    noShow: number; // past appointments GHL marked as no-show
     closedAcademy: number;
     closedPremium: number;
     revenue: number;
   };
-  byBudget: { budget: Budget; leads: number; booked: number; academy: number; premium: number }[];
+  byBudget: { budget: Budget; leads: number; booked: number; bookedPast: number; bookedUpcoming: number; academy: number; premium: number }[];
   leads: Lead[];
   warnings: string[];
 };
@@ -330,7 +335,14 @@ export async function buildReport(opts: { from: string; to: string; source: stri
   const outcomes = demo ? qualified.map(demoOutcome) : await pool(qualified, 6, (c) => outcomeFor(c, opts.refresh));
   const leads: Lead[] = rows.map((c) => ({ ...c, booked: null, closed: null }));
   const byId = new Map(leads.map((l) => [l.id, l]));
-  qualified.forEach((c, i) => Object.assign(byId.get(c.id)!, { booked: outcomes[i].booked, closed: outcomes[i].closed }));
+  const now = Date.now();
+  qualified.forEach((c, i) => {
+    const b = outcomes[i].booked;
+    Object.assign(byId.get(c.id)!, {
+      booked: b ? { ...b, upcoming: (Date.parse(b.at) || 0) > now } : null,
+      closed: outcomes[i].closed,
+    });
+  });
 
   if (!demo && appointmentsScope === "denied") warnings.push('The GHL token can\'t read appointments — add "View Calendar Events" / "View Contacts" appointments scope to the Website Quiz private integration.');
   if (!demo && paymentsScope === "denied") warnings.push('The GHL token can\'t read payments, so closes show as 0 — add the "View Payment Transactions" scope to the Website Quiz private integration (GHL → Settings → Private Integrations).');
@@ -345,6 +357,8 @@ export async function buildReport(opts: { from: string; to: string; source: stri
       budget: b,
       leads: ls.length,
       booked: ls.filter((l) => l.booked).length,
+      bookedPast: ls.filter((l) => l.booked && !l.booked.upcoming).length,
+      bookedUpcoming: ls.filter((l) => l.booked?.upcoming).length,
       academy: ls.filter((l) => l.closed?.kind === "academy").length,
       premium: ls.filter((l) => l.closed?.kind === "premium").length,
     };
@@ -361,6 +375,9 @@ export async function buildReport(opts: { from: string; to: string; source: stri
       budget,
       qualified: q.length,
       booked: q.filter((l) => l.booked).length,
+      bookedPast: q.filter((l) => l.booked && !l.booked.upcoming).length,
+      bookedUpcoming: q.filter((l) => l.booked?.upcoming).length,
+      noShow: q.filter((l) => l.booked && !l.booked.upcoming && /no.?show/i.test(l.booked.status)).length,
       closedAcademy: q.filter((l) => l.closed?.kind === "academy").length,
       closedPremium: q.filter((l) => l.closed?.kind === "premium").length,
       revenue: q.reduce((s, l) => s + (l.closed?.amount || 0), 0),
@@ -396,7 +413,8 @@ function demoContacts(): QuizContact[] {
 
 function demoOutcome(c: QuizContact): Outcome {
   const n = parseInt(c.id.slice(5), 10);
-  const booked = n % 3 !== 0 ? { at: c.quizAt, title: "$7 Strategy Call", status: "confirmed" } : null;
+  const start = new Date(Date.parse(c.quizAt) + ((n % 5) + 2) * DAY).toISOString();
+  const booked = n % 3 !== 0 ? { at: start, title: "$7 Strategy Call", status: n % 11 === 0 ? "noshow" : "confirmed" } : null;
   const closed = booked && n % 4 === 1 ? { kind: "academy" as const, amount: 97, at: c.quizAt, label: "Academy" }
     : booked && n % 7 === 2 ? { kind: "premium" as const, amount: 2497, at: c.quizAt, label: "VIP" } : null;
   return { booked, closed, at: Date.now() };

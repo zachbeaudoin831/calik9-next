@@ -38,6 +38,11 @@ const money = (n: number) => `$${Math.round(n).toLocaleString()}`;
 const fmtDate = (s: string) =>
   s ? new Date(s).toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "America/Los_Angeles" }) : "—";
 
+const fmtDateTime = (s: string) =>
+  s
+    ? new Date(s).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit", timeZone: "America/Los_Angeles" }) + " PT"
+    : "—";
+
 function srcKey(s: string) {
   return s.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 }
@@ -180,7 +185,7 @@ export default function FunnelReport() {
             <h1 className="font-display text-[40px] leading-none tracking-wide">Quiz Funnel Report</h1>
             <p className="text-sm text-gray-muted mt-1">
               Free Behavior Assessment → budget → booked call → closed
-              {data && <> · updated {new Date(data.generatedAt).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" })}</>}
+              {data && <> · as of {new Date(data.generatedAt).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit", timeZone: "America/Los_Angeles" })} PT</>}
             </p>
           </div>
           <button
@@ -237,11 +242,13 @@ export default function FunnelReport() {
         {t && (
           <div className={loading ? "opacity-60 transition-opacity" : "transition-opacity"}>
             {/* KPI tiles */}
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-5">
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3 mb-5">
               {[
                 { label: "Completed quiz", value: t.completed.toLocaleString(), sub: `${data!.from} → ${data!.to}` },
                 { label: "$500+ budget", value: t.qualified.toLocaleString(), sub: `${pct(t.qualified, t.completed)} of completions` },
                 { label: "Booked a call", value: t.booked.toLocaleString(), sub: `${pct(t.booked, t.qualified)} of $500+` },
+                { label: "Call date passed", value: t.bookedPast.toLocaleString(), sub: t.noShow ? `${t.noShow} marked no-show` : `${pct(t.bookedPast, t.booked)} of booked` },
+                { label: "Upcoming calls", value: t.bookedUpcoming.toLocaleString(), sub: `still on the calendar` },
                 { label: "Closed", value: closed.toLocaleString(), sub: `${t.closedAcademy} Academy · ${t.closedPremium} Premium` },
                 { label: "Closed revenue", value: money(t.revenue), sub: `${pct(closed, t.booked)} of booked closed` },
               ].map((k) => (
@@ -287,7 +294,6 @@ export default function FunnelReport() {
                 <div className="space-y-4">
                   {[
                     { label: "$500+ budget", n: t.qualified, step: pct(t.qualified, t.completed) + " of completions" },
-                    { label: "Booked a call", n: t.booked, step: pct(t.booked, t.qualified) + " of $500+" },
                   ].map((s) => (
                     <div key={s.label} {...bind([s.label, `${s.n} leads`, s.step])} className="outline-none rounded focus-visible:ring-2 ring-blue-500">
                       <div className="flex justify-between text-[13px] mb-1">
@@ -299,6 +305,24 @@ export default function FunnelReport() {
                       </div>
                     </div>
                   ))}
+                  <div>
+                    <div className="flex justify-between text-[13px] mb-1">
+                      <span>Booked a call</span>
+                      <span className="text-gray-muted tabular-nums">{t.booked} <span className="text-[12px]">· {pct(t.booked, t.qualified)} of $500+</span></span>
+                    </div>
+                    <div className="h-6 rounded bg-cream/60 flex gap-[2px]">
+                      {t.bookedPast > 0 && (
+                        <div {...bind(["Call date passed", `${t.bookedPast} leads`, t.noShow ? `${t.noShow} marked no-show in GHL` : `${pct(t.bookedPast, t.booked)} of booked`])} className="h-full outline-none" style={{ width: `${(t.bookedPast / Math.max(1, t.qualified)) * 100}%`, minWidth: 4, background: "var(--color-blue-500)" }} />
+                      )}
+                      {t.bookedUpcoming > 0 && (
+                        <div {...bind(["Upcoming", `${t.bookedUpcoming} leads`, "appointment still ahead"])} className="h-full rounded-r outline-none" style={{ width: `${(t.bookedUpcoming / Math.max(1, t.qualified)) * 100}%`, minWidth: 4, background: "var(--color-blue-200)" }} />
+                      )}
+                    </div>
+                    <div className="flex gap-4 mt-2 text-[12px] text-gray-muted">
+                      <span className="flex items-center gap-1.5"><i className="inline-block w-2.5 h-2.5 rounded-sm" style={{ background: "var(--color-blue-500)" }} />Date passed {t.bookedPast}</span>
+                      <span className="flex items-center gap-1.5"><i className="inline-block w-2.5 h-2.5 rounded-sm" style={{ background: "var(--color-blue-200)" }} />Upcoming {t.bookedUpcoming}</span>
+                    </div>
+                  </div>
                   <div>
                     <div className="flex justify-between text-[13px] mb-1">
                       <span>Closed</span>
@@ -331,6 +355,8 @@ export default function FunnelReport() {
                     <th className="py-2 px-3 font-bold text-right">Leads</th>
                     <th className="py-2 px-3 font-bold text-right">Booked</th>
                     <th className="py-2 px-3 font-bold text-right">Book rate</th>
+                    <th className="py-2 px-3 font-bold text-right">Date passed</th>
+                    <th className="py-2 px-3 font-bold text-right">Upcoming</th>
                     <th className="py-2 px-3 font-bold text-right">Academy</th>
                     <th className="py-2 px-3 font-bold text-right">Premium</th>
                     <th className="py-2 pl-3 font-bold text-right">Close rate</th>
@@ -345,6 +371,8 @@ export default function FunnelReport() {
                         <td className="py-2.5 px-3 text-right">{r.leads}</td>
                         <td className="py-2.5 px-3 text-right">{tracked ? r.booked : "—"}</td>
                         <td className="py-2.5 px-3 text-right">{tracked ? pct(r.booked, r.leads) : "—"}</td>
+                        <td className="py-2.5 px-3 text-right">{tracked ? r.bookedPast : "—"}</td>
+                        <td className="py-2.5 px-3 text-right">{tracked ? r.bookedUpcoming : "—"}</td>
                         <td className="py-2.5 px-3 text-right">{tracked ? r.academy : "—"}</td>
                         <td className="py-2.5 px-3 text-right">{tracked ? r.premium : "—"}</td>
                         <td className="py-2.5 pl-3 text-right">{tracked ? pct(r.academy + r.premium, r.leads) : "—"}</td>
@@ -398,7 +426,7 @@ export default function FunnelReport() {
                       <td className="py-2 px-3">
                         {l.booked ? (
                           <>
-                            ✓ {fmtDate(l.booked.at)}
+                            {l.booked.upcoming ? "Upcoming" : /no.?show/i.test(l.booked.status) ? "No-show" : "Date passed"} · {fmtDateTime(l.booked.at)}
                             <div className="text-gray-muted text-[12px]">{l.booked.title}</div>
                           </>
                         ) : l.budget === "500-1500" || l.budget === "whatever" ? (
