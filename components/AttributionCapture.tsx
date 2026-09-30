@@ -13,7 +13,29 @@ import { usePathname } from "next/navigation";
  *
  * Read it back with readAttribution() from lib/attribution.ts.
  */
-const PARAMS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "fbclid", "gclid"];
+import { ATTRIBUTION_PARAMS as PARAMS, FIRST_KEY, LAST_KEY } from "@/lib/attribution";
+
+// Write to both stores; each is best-effort so one being blocked never
+// prevents the other (some in-app / privacy browsers throw on localStorage).
+function setBoth(key: string, value: string) {
+  for (const kind of ["localStorage", "sessionStorage"] as const) {
+    try {
+      window[kind].setItem(key, value);
+    } catch {
+      // blocked — try the other store
+    }
+  }
+}
+function hasEither(key: string): boolean {
+  for (const kind of ["localStorage", "sessionStorage"] as const) {
+    try {
+      if (window[kind].getItem(key)) return true;
+    } catch {
+      // blocked
+    }
+  }
+  return false;
+}
 
 export default function AttributionCapture() {
   const pathname = usePathname();
@@ -33,8 +55,9 @@ export default function AttributionCapture() {
         referrer: ref.slice(0, 300),
         at: new Date().toISOString(),
       };
-      if (!localStorage.getItem("ck9-attr-first")) localStorage.setItem("ck9-attr-first", JSON.stringify(record));
-      if (hasCampaign) localStorage.setItem("ck9-attr-last", JSON.stringify(record));
+      const json = JSON.stringify(record);
+      if (!hasEither(FIRST_KEY)) setBoth(FIRST_KEY, json);
+      if (hasCampaign) setBoth(LAST_KEY, json);
     } catch {
       // storage blocked — attribution is best-effort
     }
