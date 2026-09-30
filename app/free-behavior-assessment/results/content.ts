@@ -58,7 +58,7 @@ export function resolveDogType(input: {
   return order.reduce((best, t) => (score[t] > score[best] ? t : best), order[0]);
 }
 
-// ── Roadmap (mirrors the Academy page) ──────────────────────────────────────
+// ── Roadmap (mirrors app/academy/AcademyPage.tsx — keep in sync) ──────────────────────────────────────
 export const PILLARS = [
   "Obedience",
   "Socialization",
@@ -68,14 +68,14 @@ export const PILLARS = [
 ];
 
 export const MODULES = [
-  { num: 1, title: "Household Foundation", steps: "1–4" },
-  { num: 2, title: "Engagement & Training Structure", steps: "5–9" },
-  { num: 3, title: "Markers, Luring & The Training Box", steps: "10–17" },
-  { num: 4, title: "Core Positions", steps: "18–25" },
-  { num: 5, title: "Heeling & Movement", steps: "26–31" },
-  { num: 6, title: "Distance, Duration & Distraction", steps: "32–38" },
-  { num: 7, title: "Engagement & Real-World Reliability", steps: "39–44" },
-  { num: 8, title: "Off-Leash Mastery & Generalization", steps: "45–50" },
+  { num: 1, title: "Getting To Know Your Dog", steps: "1–4" },
+  { num: 2, title: "Building Drive & First Commands", steps: "5–10" },
+  { num: 3, title: "Box Work: Sit, Down & Focus", steps: "11–17" },
+  { num: 4, title: "Proofing & Positions", steps: "18–23" },
+  { num: 5, title: "Touchpad & Heeling Basics", steps: "24–31" },
+  { num: 6, title: "Removing The Training Wheels", steps: "32–38" },
+  { num: 7, title: "Advanced Foundations", steps: "39–44" },
+  { num: 8, title: "Advanced Reliability & Real-World Proofing", steps: "45–50" },
 ];
 
 export type ResultContent = {
@@ -152,7 +152,7 @@ export const RESULTS: Record<DogType, ResultContent> = {
       startModules: [1, 2],
       goalModules: [6, 8],
       pillars: ["Obedience", "Behavior Management"],
-      note: "Your dog skipped the foundation. Modules 1–2 (Steps 1–9) rebuild the household structure and engagement a pushy dog is missing — and once that's in, the rest of the roadmap moves fast.",
+      note: "Your dog skipped the foundation. Modules 1–2 (Steps 1–10) rebuild the household structure and engagement a pushy dog is missing — and once that's in, the rest of the roadmap moves fast.",
     },
     proof: {
       before: "Couldn't control him around distractions — lunging toward every dog on the street.",

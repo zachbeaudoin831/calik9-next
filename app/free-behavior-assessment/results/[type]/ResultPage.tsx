@@ -13,7 +13,7 @@ const MASTERCLASS_URL = "/free-masterclass/invite";
 // budget answer was "$500 – $1,500" or "Whatever it takes".
 const CALL_URL = "https://calik9.com/book-your-call";
 
-const MODULE_STEP_COUNTS = [4, 5, 8, 8, 6, 7, 6, 6]; // = 50
+const MODULE_STEP_COUNTS = [4, 6, 7, 6, 8, 7, 6, 6]; // = 50, matches MODULES
 
 function subscribeNoop() {
   return () => {};
