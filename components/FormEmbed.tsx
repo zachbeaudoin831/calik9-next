@@ -32,7 +32,8 @@ function prefillParams(raw: string | null): string {
     const q = new URLSearchParams();
     if (s.firstName) {
       q.set("first_name", s.firstName);
-      q.set("full_name", s.firstName); // forms with a single "Full Name" field
+      if (s.lastName) q.set("last_name", s.lastName);
+      q.set("full_name", s.fullName || s.firstName); // forms with a single "Full Name" field
     }
     if (s.email) q.set("email", s.email);
     if (s.phone) q.set("phone", s.phone);

@@ -295,6 +295,8 @@ export const SESSION_KEY = "ck9-assessment";
 
 export type SessionResult = {
   firstName: string;
+  lastName?: string;
+  fullName?: string;
   // Used to prefill GHL forms later in the funnel (masterclass, $7 call) so
   // nobody types their details twice. Lives in sessionStorage only.
   email?: string;

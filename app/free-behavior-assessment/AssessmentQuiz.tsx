@@ -245,7 +245,9 @@ export default function AssessmentQuiz() {
 
   const submitContact = () => {
     const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
-    if (!firstName.trim() || !emailOk) {
+    // Full name is required: at least a first and a last name.
+    const nameParts = firstName.trim().split(/\s+/).filter(Boolean);
+    if (nameParts.length < 2 || !emailOk) {
       setContactError(true);
       return;
     }
@@ -268,7 +270,9 @@ export default function AssessmentQuiz() {
     // Personalization for the result page — first name + qualification
     // signals. Session-only, never in the URL.
     const session: SessionResult = {
-      firstName: firstName.trim(),
+      firstName: nameParts[0],
+      lastName: nameParts.slice(1).join(" "),
+      fullName: nameParts.join(" "),
       email: email.trim(),
       phone: phone.trim(),
       dogName: dogName.trim(),
@@ -287,7 +291,7 @@ export default function AssessmentQuiz() {
     // Send the assessment to GHL (contact + tags + note + custom fields).
     // Fire-and-forget so the result page never waits on the network.
     const payload = {
-      name: firstName.trim(),
+      name: nameParts.join(" "),
       email: email.trim(),
       phone: phone.trim(),
       tier: tier(),
@@ -515,14 +519,15 @@ export default function AssessmentQuiz() {
             Tell us where to send a copy and we&rsquo;ll show you your dog type right now.
           </p>
           <label className={labelClass} htmlFor="quiz-name">
-            First name
+            Full name
           </label>
           <input
             id="quiz-name"
             className={`${fieldClass} mb-4`}
             type="text"
-            autoComplete="given-name"
-            placeholder="Your first name"
+            autoComplete="name"
+            placeholder="First and last name"
+            required
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
           />
@@ -560,7 +565,7 @@ export default function AssessmentQuiz() {
           </button>
           {contactError && (
             <p className="font-body text-[12.5px] text-red-500 mt-2.5 text-center" role="alert">
-              Please enter your first name and a valid email.
+              Please enter your full name (first and last) and a valid email.
             </p>
           )}
         </div>
