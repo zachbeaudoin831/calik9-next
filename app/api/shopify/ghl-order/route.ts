@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { ghlVerifyStatus, verifyGhlPurchase } from "@/lib/ghl-purchase-verify";
 
 /**
  * GHL → Shopify fulfillment bridge.
@@ -30,6 +31,12 @@ import { NextResponse } from "next/server";
  *   any of them can also be overridden explicitly in custom data (first_name, last_name, email,
  *   phone, address1, address2, city, state, postal_code, country).
  *
+ * Triggers: "Order Submitted" webhooks carry GHL's order object and are checked
+ * from the payload. "Payment Received" webhooks carry no order object, so the
+ * purchase is verified against GHL's payments API instead (lib/ghl-purchase-verify.ts,
+ * needs GHL_API_TOKEN with the View Payment Transactions scope): fresh, from a
+ * native GHL checkout (never a Shopify import), and not a subscription renewal.
+ *
  * GET this URL to see whether the endpoint is configured (never reveals secrets).
  */
 
@@ -38,7 +45,7 @@ export const dynamic = "force-dynamic";
 export const maxDuration = 60;
 
 const API_VERSION = "2025-01";
-const ENDPOINT_VERSION = 3; // bump to confirm which build is live
+const ENDPOINT_VERSION = 4; // bump to confirm which build is live
 
 type ProductMap = Record<string, string>;
 
@@ -325,6 +332,8 @@ export async function GET(req: Request) {
   return NextResponse.json({
     configured: Boolean(c.domain && hasAuth && c.secret && Object.keys(c.productMap).length && !c.productMapError && shopifyAuth === "ok"),
     version: ENDPOINT_VERSION,
+    // Needed for "Payment Received" workflows (no order object in the payload).
+    ghlPaymentVerify: await ghlVerifyStatus(),
     store: c.domain || null,
     auth: c.token ? "admin-token" : c.clientId && c.clientSecret ? "client-credentials" : "missing",
     shopifyAuth,
@@ -450,7 +459,8 @@ async function handlePost(
   const nestedOrderId = String(
     ((lineItems0.meta as Payload) || {}).order_id || ghlOrder.id || ghlOrder.order_id || ghlOrder._id || "",
   ).trim();
-  const ghlOrderId = nestedOrderId || pick(body, "order_id", "orderId", "transaction_id", "payment_id", "id");
+  let ghlOrderId = nestedOrderId;
+  let verifiedSource = "";
   trace({ ghlOrderId });
 
   // ── Loop guard ──
@@ -464,7 +474,17 @@ async function handlePost(
     return NextResponse.json({ ok: true, skipped: true, reason: `GHL order source "${ghlSource}" is not a GHL checkout` });
   }
   if (!nestedOrderId) {
-    return NextResponse.json({ ok: true, skipped: true, reason: "No GHL order id in payload (not an Order Submitted event from a GHL checkout)" });
+    // "Payment Received" (and any other trigger without an order object):
+    // verify the purchase with GHL's payments API. Fails closed — a Shopify
+    // import, a renewal, a stale payment or an API error all skip.
+    const verified = await verifyGhlPurchase(pick(body, "contact_id", "contactId"));
+    if (!verified.ok) {
+      const has = ["order", "payment", "invoice", "transaction", "triggerData", "customData"].filter((k) => k in body);
+      return NextResponse.json({ ok: true, skipped: true, reason: verified.reason, payloadHas: has });
+    }
+    ghlOrderId = verified.orderId;
+    verifiedSource = verified.source;
+    trace({ ghlOrderId });
   }
   // Shopify tags: max 40 chars, keep to safe characters.
   const dedupTag = ghlOrderId ? `ghl-${ghlOrderId.replace(/[^A-Za-z0-9_-]+/g, "-")}`.slice(0, 40) : "";
@@ -543,7 +563,7 @@ async function handlePost(
     phone: phone || undefined,
   };
 
-  const source = pick(body, "source", "funnel") || "GHL checkout";
+  const source = verifiedSource || pick(body, "source", "funnel") || "GHL checkout";
   const order = {
     email,
     financial_status: "paid",
