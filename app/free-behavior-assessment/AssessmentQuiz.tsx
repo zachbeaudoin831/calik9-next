@@ -196,6 +196,8 @@ export default function AssessmentQuiz() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [contactError, setContactError] = useState(false);
+  // Inline "required" errors for Q2 (dog's name) and Q3 (at least one problem).
+  const [stepError, setStepError] = useState<"dogName" | "problems" | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [history, setHistory] = useState<Step[]>([]);
 
@@ -227,6 +229,7 @@ export default function AssessmentQuiz() {
 
   const toggleProblem = (p: string) => {
     setProblems((list) => (list.includes(p) ? list.filter((x) => x !== p) : [...list, p]));
+    setStepError((e) => (e === "problems" ? null : e));
   };
 
   // Internal only — never shown to the visitor. Sent to GHL so the team can
@@ -409,8 +412,13 @@ export default function AssessmentQuiz() {
             type="text"
             autoComplete="off"
             placeholder="e.g. Max"
+            required
+            aria-invalid={stepError === "dogName"}
             value={dogName}
-            onChange={(e) => setDogName(e.target.value)}
+            onChange={(e) => {
+              setDogName(e.target.value);
+              if (stepError === "dogName") setStepError(null);
+            }}
           />
           <label className={labelClass} htmlFor="quiz-breed">
             Breed (or closest match)
@@ -423,7 +431,21 @@ export default function AssessmentQuiz() {
             value={breed}
             onChange={(e) => setBreed(e.target.value)}
           />
-          <ContinueButton onClick={() => goNext(2)} />
+          <ContinueButton
+            onClick={() => {
+              if (!dogName.trim()) {
+                setStepError("dogName");
+                return;
+              }
+              setStepError(null);
+              goNext(2);
+            }}
+          />
+          {stepError === "dogName" && (
+            <p className="font-body text-[12.5px] text-red-500 mt-2.5 text-center" role="alert">
+              Please enter your dog&rsquo;s name.
+            </p>
+          )}
         </div>
       )}
 
@@ -443,7 +465,22 @@ export default function AssessmentQuiz() {
               </OptionButton>
             ))}
           </div>
-          <ContinueButton onClick={() => goNext(3)} className="mt-4" />
+          <ContinueButton
+            onClick={() => {
+              if (problems.length === 0) {
+                setStepError("problems");
+                return;
+              }
+              setStepError(null);
+              goNext(3);
+            }}
+            className="mt-4"
+          />
+          {stepError === "problems" && (
+            <p className="font-body text-[12.5px] text-red-500 mt-2.5 text-center" role="alert">
+              Please select at least one. Choose &ldquo;Other&rdquo; if yours isn&rsquo;t listed.
+            </p>
+          )}
         </div>
       )}
 
