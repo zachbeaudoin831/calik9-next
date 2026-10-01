@@ -22,6 +22,7 @@ const LOCATION_ID = "9RVPGbjB6dCgPVsRbKEE";
 const VERSION = "2021-07-28";
 
 export type Budget = "under-200" | "200-500" | "500-1500" | "whatever" | "unknown";
+export type Urgency = "manageable" | "frustrating" | "safety" | "crisis" | "unknown";
 export type CloseKind = "academy" | "premium";
 
 export type Lead = {
@@ -31,6 +32,7 @@ export type Lead = {
   quizAt: string;
   budget: Budget;
   budgetLabel: string;
+  urgency: Urgency; // Q4 — tags quiz-urgency-* (falls back to "Quiz: Urgency")
   source: string; // "organic" | "untracked" | utm_source as sent (e.g. "Meta_Ads")
   campaign: string;
   result: string;
@@ -49,6 +51,9 @@ export type Report = {
   totals: {
     completed: number;
     budget: Record<Budget, number>;
+    urgency: Record<Urgency, number>;
+    // urgency × budget, e.g. urgencyBudget.safety.whatever
+    urgencyBudget: Record<Urgency, Record<Budget, number>>;
     qualified: number;
     booked: number;
     bookedPast: number; // appointment time has already passed
@@ -71,6 +76,14 @@ export const BUDGET_LABELS: Record<Budget, string> = {
   unknown: "No answer",
 };
 export const QUALIFIED: Budget[] = ["500-1500", "whatever"];
+
+export const URGENCY_LABELS: Record<Urgency, string> = {
+  manageable: "Manageable",
+  frustrating: "Frustrating",
+  safety: "Serious safety concern",
+  crisis: "Crisis — need help now",
+  unknown: "No answer",
+};
 
 function token(): string {
   let t = (process.env.GHL_API_TOKEN || "").trim();
@@ -156,6 +169,20 @@ function budgetFrom(tags: string[], answer: string): Budget {
   return "unknown";
 }
 
+function urgencyFrom(tags: string[], answer: string): Urgency {
+  const t = new Set(tags);
+  if (t.has("quiz-urgency-crisis")) return "crisis";
+  if (t.has("quiz-urgency-safety")) return "safety";
+  if (t.has("quiz-urgency-frustrating")) return "frustrating";
+  if (t.has("quiz-urgency-manageable")) return "manageable";
+  const a = answer.trim().toLowerCase();
+  if (a.startsWith("crisis")) return "crisis";
+  if (a.startsWith("serious")) return "safety";
+  if (a.startsWith("frustrating")) return "frustrating";
+  if (a.startsWith("manageable")) return "manageable";
+  return "unknown";
+}
+
 async function loadQuizContacts(force: boolean, warnings: string[]): Promise<QuizContact[]> {
   if (!force && contactCache && Date.now() - contactCache.at < CONTACT_TTL) return contactCache.rows;
   const ids = await fieldIds();
@@ -163,6 +190,7 @@ async function loadQuizContacts(force: boolean, warnings: string[]): Promise<Qui
   const F = {
     submittedAt: fid("Quiz: Submitted At"),
     budget: fid("Quiz: Budget"),
+    urgency: fid("Quiz: Urgency"),
     utmSource: fid("Quiz: UTM Source"),
     utmCampaign: fid("Quiz: UTM Campaign"),
     result: fid("Quiz: Result Type"),
@@ -222,6 +250,7 @@ async function loadQuizContacts(force: boolean, warnings: string[]): Promise<Qui
       quizAt,
       budget,
       budgetLabel: BUDGET_LABELS[budget],
+      urgency: urgencyFrom(tags, get(F.urgency)),
       source,
       campaign,
       result,
@@ -350,6 +379,15 @@ export async function buildReport(opts: { from: string; to: string; source: stri
 
   const budget = { "under-200": 0, "200-500": 0, "500-1500": 0, whatever: 0, unknown: 0 } as Record<Budget, number>;
   for (const r of rows) budget[r.budget]++;
+  const zeroBudget = (): Record<Budget, number> => ({ "under-200": 0, "200-500": 0, "500-1500": 0, whatever: 0, unknown: 0 });
+  const urgency = { manageable: 0, frustrating: 0, safety: 0, crisis: 0, unknown: 0 } as Record<Urgency, number>;
+  const urgencyBudget = {
+    manageable: zeroBudget(), frustrating: zeroBudget(), safety: zeroBudget(), crisis: zeroBudget(), unknown: zeroBudget(),
+  } as Record<Urgency, Record<Budget, number>>;
+  for (const r of rows) {
+    urgency[r.urgency]++;
+    urgencyBudget[r.urgency][r.budget]++;
+  }
   const q = leads.filter((l) => QUALIFIED.includes(l.budget));
   const byBudget = (["under-200", "200-500", "500-1500", "whatever"] as Budget[]).map((b) => {
     const ls = leads.filter((l) => l.budget === b);
@@ -373,6 +411,8 @@ export async function buildReport(opts: { from: string; to: string; source: stri
     totals: {
       completed: rows.length,
       budget,
+      urgency,
+      urgencyBudget,
       qualified: q.length,
       booked: q.filter((l) => l.booked).length,
       bookedPast: q.filter((l) => l.booked && !l.booked.upcoming).length,
@@ -404,6 +444,7 @@ function demoContacts(): QuizContact[] {
       quizAt: new Date(Date.now() - rnd() * 60 * DAY).toISOString(),
       budget: b,
       budgetLabel: BUDGET_LABELS[b],
+      urgency: (["manageable", "frustrating", "frustrating", "safety", "crisis"] as Urgency[])[i % 5],
       source: sources[Math.floor(rnd() * sources.length)],
       campaign: "",
       result: ["pushy", "fearful", "untrained"][i % 3],

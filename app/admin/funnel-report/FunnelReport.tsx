@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
-import type { Budget, Lead, Report } from "@/lib/funnel-report";
+import type { Budget, Lead, Report, Urgency } from "@/lib/funnel-report";
 
 const KEY_STORE = "ck9-report-key";
 const TRACKING_START = "2026-09-01";
@@ -11,6 +11,14 @@ const BUDGETS: { key: Budget; label: string; qualified: boolean }[] = [
   { key: "200-500", label: "$200 – $500", qualified: false },
   { key: "500-1500", label: "$500 – $1,500", qualified: true },
   { key: "whatever", label: "Whatever it takes", qualified: true },
+];
+
+// Q4 urgency, mildest → most severe. Severe = safety + crisis.
+const URGENCIES: { key: Urgency; label: string; severe: boolean }[] = [
+  { key: "manageable", label: "Manageable", severe: false },
+  { key: "frustrating", label: "Frustrating", severe: false },
+  { key: "safety", label: "Serious safety concern", severe: true },
+  { key: "crisis", label: "Crisis — need help now", severe: true },
 ];
 
 const SOURCES = [
@@ -259,6 +267,42 @@ export default function FunnelReport() {
                 </div>
               ))}
             </div>
+
+            {/* Urgency breakdown, each level split by budget */}
+            <section className="bg-white border border-border rounded-xl p-5 mb-5">
+              <h2 className="font-ui font-bold uppercase tracking-[1px] text-sm">Urgency answer</h2>
+              <p className="text-[13px] text-gray-muted mb-4">
+                All quiz completions in range. Dark bars = safety or crisis. The line under each bar is that group&rsquo;s budget split.
+              </p>
+              <div className="space-y-4">
+                {URGENCIES.map((u) => {
+                  const n = t.urgency[u.key];
+                  const max = Math.max(1, ...URGENCIES.map((x) => t.urgency[x.key]));
+                  const split = t.urgencyBudget[u.key];
+                  return (
+                    <div key={u.key} {...bind([u.label, `${n} leads · ${pct(n, t.completed)} of completions`])} className="outline-none rounded focus-visible:ring-2 ring-blue-500">
+                      <div className="flex justify-between text-[13px] mb-1">
+                        <span className="text-ink">{u.label}</span>
+                        <span className="text-gray-muted tabular-nums">{n} <span className="text-[12px]">({pct(n, t.completed)})</span></span>
+                      </div>
+                      <div className="h-6 rounded bg-cream/60">
+                        <div
+                          className="h-full rounded-r"
+                          style={{ width: `${(n / max) * 100}%`, minWidth: n ? 4 : 0, background: u.severe ? "var(--color-blue-500)" : "var(--color-blue-200)" }}
+                        />
+                      </div>
+                      {n > 0 && (
+                        <p className="text-[12px] text-gray-muted mt-1 tabular-nums">
+                          {BUDGETS.map((b) => `${b.label}: ${split[b.key]}`).join("  ·  ")}
+                          {split.unknown > 0 ? `  ·  No budget: ${split.unknown}` : ""}
+                        </p>
+                      )}
+                    </div>
+                  );
+                })}
+                {t.urgency.unknown > 0 && <p className="text-[12px] text-gray-muted">{t.urgency.unknown} completion(s) with no urgency answer.</p>}
+              </div>
+            </section>
 
             <div className="grid md:grid-cols-2 gap-5 mb-5">
               {/* Budget breakdown */}
