@@ -49,21 +49,15 @@ function isQualified(s: SessionResult | null, type: DogType) {
   );
 }
 
-// Academy sales page — primary CTA for "Under $200" budgets (their follow-up
-// automations push the webinar instead of the page).
-const ACADEMY_URL = "/academy";
-
-function wantsAcademyFirst(s: SessionResult | null) {
-  return (s?.budget || "").trim().toLowerCase().startsWith("under");
-}
-
 // GHL webinar registration form (same one the masterclass page uses).
 const WEBINAR_FORM_ID = "hZHHQAAWiOEP0ADyInGy";
 
-// "$200 – $500": masterclass stays primary AND the webinar opt-in form is
-// embedded at the bottom of the result page instead of linking out.
+// "Under $200" and "$200 – $500": the free masterclass is the primary CTA
+// and the webinar opt-in form is embedded at the bottom of the result page
+// instead of linking out.
 function wantsWebinarEmbed(s: SessionResult | null) {
-  return (s?.budget || "").replace(/\s/g, "").startsWith("$200");
+  const bud = (s?.budget || "").replace(/\s/g, "").toLowerCase();
+  return bud.startsWith("under") || bud.startsWith("$200");
 }
 
 // Budget answers that flip the call to the primary CTA.
@@ -97,8 +91,7 @@ export default function ResultPage({ type }: { type: DogType }) {
   const dog = (session?.dogName || "").trim();
   const qualified = isQualified(session, type);
   const callFirst = wantsCallFirst(session);
-  const academyFirst = !callFirst && wantsAcademyFirst(session);
-  const webinarEmbed = !callFirst && !academyFirst && wantsWebinarEmbed(session);
+  const webinarEmbed = !callFirst && wantsWebinarEmbed(session);
   const [startA, startB] = r.roadmap.startModules;
   const [goalA, goalB] = r.roadmap.goalModules;
   const inStart = (n: number) => n >= startA && n <= startB;
@@ -459,51 +452,6 @@ export default function ResultPage({ type }: { type: DogType }) {
               </div>
             </div>
           </section>
-        </>
-      ) : academyFirst ? (
-        <>
-          {/* ── 11. PRIMARY CTA — the Academy (Under $200 budgets) ── */}
-          <section className="py-20 max-md:py-12 bg-blue-700 text-white text-center">
-            <div className="max-w-[760px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
-              <p className="font-body text-lg max-md:text-base text-white/80 leading-relaxed max-w-[600px] mx-auto mb-8">
-                Now that you understand your dog type, here&rsquo;s the exact system to fix it &mdash;
-                step by step, from home.
-              </p>
-              <div className="font-ui text-[13px] font-semibold tracking-[3px] uppercase text-blue-200 mb-3">
-                The Cali K9 Academy
-              </div>
-              <h2 className="font-display text-[clamp(32px,5vw,56px)] leading-[0.98] mb-6">
-                START THE 50-STEP ROADMAP&trade; TODAY
-              </h2>
-              <p className="font-body text-base text-white/75 leading-relaxed max-w-[600px] mx-auto mb-7">
-                The complete 5 Pillar, 50-Step System&trade; across all 8 modules, filmed step by step by{" "}
-                <strong className="text-white">Jas Leverette</strong>. A {r.label.toLowerCase()} dog
-                starts at Module {r.roadmap.startModules[0]} &mdash; and you can start tonight.
-              </p>
-              <ul className="inline-flex flex-col items-start gap-2 text-left font-body text-[15px] text-white/85 mb-8">
-                {[
-                  "Every module, every step, unlocked immediately",
-                  "Saturday Live sessions with Jas",
-                  "30-Day Progress Guarantee\u2122",
-                  "Free bag of Turbo Treats",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-2.5">
-                    <span className="text-amber-400 font-bold shrink-0">&#10003;</span> {item}
-                  </li>
-                ))}
-              </ul>
-              <div>
-                <Link href={ACADEMY_URL} className="btn btn-gold btn-lg inline-block">
-                  Start The Academy &rarr;
-                </Link>
-              </div>
-              <p className="font-body text-[12.5px] text-white/50 mt-4">
-                $97/month &middot; Cancel anytime &middot; 30-Day Progress Guarantee&trade;
-              </p>
-            </div>
-          </section>
-
-          {callSecondary}
         </>
       ) : (
         <>
