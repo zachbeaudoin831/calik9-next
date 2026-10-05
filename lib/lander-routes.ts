@@ -13,7 +13,6 @@ const LANDER_ROUTES = new Set([
   "/academy/thank-you",
   "/academy-founder",
   "/starter-bundle",
-  "/starter-bundle-downsell",
   "/book-your-call",
   "/book-your-call/thank-you",
   "/elite",

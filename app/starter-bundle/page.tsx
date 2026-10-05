@@ -58,7 +58,7 @@ const BUNDLE_VIDEO =
 const FAQS: { q: string; a: React.ReactNode }[] = [
   {
     q: "Is this a subscription?",
-    a: "No. This is a one-time payment of $27 (plus the optional $17 add-on). Nothing recurs.",
+    a: "No. This is a one-time payment of $27. Nothing recurs.",
   },
   {
     q: "Do I still need to attend the webinar?",
