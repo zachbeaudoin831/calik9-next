@@ -4,6 +4,7 @@ import { useEffect, useSyncExternalStore } from "react";
 import Link from "next/link";
 import EventDate from "../../../free-masterclass/EventDate";
 import FormEmbed from "@/components/FormEmbed";
+import { posterFor } from "@/lib/video-poster";
 import {
   MODULES,
   PILLARS,
@@ -30,6 +31,11 @@ function readSession(): string | null {
 function firstNameOf(s: string) {
   return s.trim().split(/\s+/)[0] || "";
 }
+
+// Jas's masterclass invite (GHL-hosted). Shown after the results, at the top of
+// the masterclass block. Poster frame: public/images/funnel/posters/<id>.jpg
+const INVITE_VIDEO =
+  "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6ac434c6c478ac5535f089ca.mp4";
 
 // Every result page closes the same way, whatever the budget answer: the free
 // Saturday masterclass, with the GHL webinar registration form (same one the
@@ -387,6 +393,18 @@ export default function ResultPage({ type }: { type: DogType }) {
       {/* ── 11. PRIMARY CTA — free Saturday masterclass (all budgets) ── */}
       <section className="py-20 max-md:py-12 bg-blue-700 text-white text-center">
         <div className="max-w-[760px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
+          <div className="font-ui text-[12px] font-bold tracking-[2px] uppercase text-blue-200 mb-4">
+            A Message From Jas
+          </div>
+          <video
+            className="w-full rounded-xl bg-black shadow-[0_20px_60px_rgba(0,0,0,0.4)] mb-10 max-md:mb-8"
+            poster={posterFor(INVITE_VIDEO)}
+            controls
+            playsInline
+            preload="metadata"
+          >
+            <source src={INVITE_VIDEO} type="video/mp4" />
+          </video>
           <p className="font-body text-lg max-md:text-base text-white/80 leading-relaxed max-w-[600px] mx-auto mb-8">
             Now that you understand your dog type, let me show you exactly what
             to do next.
