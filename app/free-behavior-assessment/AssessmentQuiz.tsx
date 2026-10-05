@@ -236,12 +236,11 @@ export default function AssessmentQuiz() {
   // see which program the answers point to. Driven by primary challenge
   // (Q1), urgency (Q4) and budget (Q11).
   const tier = (): "academy" | "elite" | "vip" => {
-    // Budget gate: "Under $200" and "$200 – $500" (options 1–2) are always
-    // quiz-academy — GHL routes that tag to the Academy/Masterclass branch.
-    if (answers[11] === 1 || answers[11] === 2) return "academy";
-    // Otherwise budget scores 3–4 ($500–$1,500 / Whatever it takes) in the total.
+    // quiz-academy is ONLY for "Under $200" (option 1). Every other budget
+    // ($200–$500, $500–$1,500, Whatever it takes) is elite or vip by score,
+    // so GHL never routes them down the quiz-academy branch.
+    if (answers[11] === 1) return "academy";
     const total = (answers[1] || 0) + (answers[4] || 0) + (answers[11] || 0);
-    if (total <= 4) return "academy";
     if (total <= 7) return "elite";
     return "vip";
   };

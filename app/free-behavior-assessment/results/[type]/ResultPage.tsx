@@ -4,14 +4,14 @@ import { useEffect, useSyncExternalStore } from "react";
 import Link from "next/link";
 import EventDate from "../../../free-masterclass/EventDate";
 import FormEmbed from "@/components/FormEmbed";
-import { MODULES, PILLARS, RESULTS, SESSION_KEY, type DogType, type SessionResult } from "../content";
-
-// Primary CTA — the free Saturday masterclass (invite variant carries the
-// "based on your assessment" intro band).
-const MASTERCLASS_URL = "/free-masterclass/invite";
-// The $7, 20-minute call. Secondary by default; PRIMARY when the visitor's
-// budget answer was "$500 – $1,500" or "Whatever it takes".
-const CALL_URL = "https://calik9.com/book-your-call";
+import {
+  MODULES,
+  PILLARS,
+  RESULTS,
+  SESSION_KEY,
+  type DogType,
+  type SessionResult,
+} from "../content";
 
 const MODULE_STEP_COUNTS = [4, 6, 7, 6, 8, 7, 6, 6]; // = 50, matches MODULES
 
@@ -31,40 +31,10 @@ function firstNameOf(s: string) {
   return s.trim().split(/\s+/)[0] || "";
 }
 
-// A lead is "qualified" for the call CTA when they signalled severity or a
-// higher budget — everyone else sees the call as a quiet text link so it
-// never competes with the masterclass.
-function isQualified(s: SessionResult | null, type: DogType) {
-  if (!s) return false;
-  const urg = (s.urgency || "").toLowerCase();
-  const bud = (s.budget || "").replace(/\s/g, "");
-  const aggression = (s.problems || []).some((p) => p.toLowerCase().startsWith("aggression"));
-  return (
-    urg.startsWith("serious") ||
-    urg.startsWith("crisis") ||
-    bud.toLowerCase().startsWith("whatever") ||
-    bud.startsWith("$1,500") || // legacy answers
-    bud.startsWith("$5,000") ||
-    (type === "fearful" && aggression)
-  );
-}
-
-// GHL webinar registration form (same one the masterclass page uses).
+// Every result page closes the same way, whatever the budget answer: the free
+// Saturday masterclass, with the GHL webinar registration form (same one the
+// masterclass page uses) embedded at the bottom. No call or Academy CTA here.
 const WEBINAR_FORM_ID = "hZHHQAAWiOEP0ADyInGy";
-
-// "Under $200" and "$200 – $500": the free masterclass is the primary CTA
-// and the webinar opt-in form is embedded at the bottom of the result page
-// instead of linking out.
-function wantsWebinarEmbed(s: SessionResult | null) {
-  const bud = (s?.budget || "").replace(/\s/g, "").toLowerCase();
-  return bud.startsWith("under") || bud.startsWith("$200");
-}
-
-// Budget answers that flip the call to the primary CTA.
-function wantsCallFirst(s: SessionResult | null) {
-  const bud = (s?.budget || "").replace(/\s/g, "").toLowerCase();
-  return bud.startsWith("$500") || bud.startsWith("whatever") || bud.startsWith("$1,500") || bud.startsWith("$5,000");
-}
 
 export default function ResultPage({ type }: { type: DogType }) {
   const r = RESULTS[type];
@@ -83,65 +53,28 @@ export default function ResultPage({ type }: { type: DogType }) {
   useEffect(() => {
     const w = window as typeof window & { fbq?: (...args: unknown[]) => void };
     if (typeof w.fbq === "function") {
-      w.fbq("track", "ViewContent", { content_name: `assessment-result-${type}` });
+      w.fbq("track", "ViewContent", {
+        content_name: `assessment-result-${type}`,
+      });
     }
   }, [type]);
 
   const first = firstNameOf(session?.firstName || "");
   const dog = (session?.dogName || "").trim();
-  const qualified = isQualified(session, type);
-  const callFirst = wantsCallFirst(session);
-  const webinarEmbed = !callFirst && wantsWebinarEmbed(session);
   const [startA, startB] = r.roadmap.startModules;
   const [goalA, goalB] = r.roadmap.goalModules;
   const inStart = (n: number) => n >= startA && n <= startB;
   const inGoal = (n: number) => n >= goalA && n <= goalB;
-
-  // Secondary $7-call block shared by the masterclass-first and academy-first layouts.
-  const callSecondary = (
-    <>
-        {/* ── 12. SECONDARY CTA — $7 call (prominent only for qualified leads) ── */}
-        <section className="py-14 max-md:py-10 bg-cream">
-          <div className="max-w-[720px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 text-center">
-            {qualified ? (
-              <div className="bg-white border border-border rounded-2xl p-8 max-md:p-6 shadow-sm">
-                <div className="font-ui text-[12px] font-bold tracking-[2px] uppercase text-blue-500 mb-2.5">
-                  Need More Personalized Help?
-                </div>
-                <h3 className="font-display text-[26px] max-md:text-[22px] text-ink leading-tight mb-3">
-                  TALK TO THE CALI K9 TEAM ABOUT YOUR DOG
-                </h3>
-                <p className="font-body text-[14.5px] text-gray-muted leading-relaxed max-w-[560px] mx-auto mb-6">
-                  {r.callNote}
-                </p>
-                <Link href={CALL_URL} className="btn btn-outline">
-                  Reserve a $7, 20-Minute Call &rarr;
-                </Link>
-                <p className="font-body text-[12px] text-gray-muted/80 mt-3">
-                  Refundable reservation &middot; Credited toward any program
-                </p>
-              </div>
-            ) : (
-              <p className="font-body text-[14px] text-gray-muted leading-relaxed">
-                <strong className="text-ink">Need more personalized help?</strong> If you&rsquo;d rather walk
-                through your results with the team one-on-one,{" "}
-                <Link href={CALL_URL} className="text-blue-500 underline">
-                  reserve a 20-minute call
-                </Link>
-                .
-              </p>
-            )}
-          </div>
-        </section>
-    </>
-  );
 
   return (
     <main>
       {/* ── 6. Diagnosis ── */}
       <section
         className="relative overflow-hidden pt-[128px] pb-14 max-md:pt-[100px] max-md:pb-10 text-center"
-        style={{ background: "linear-gradient(135deg, #0A1F3C 0%, #122E85 55%, #1A3FAB 100%)" }}
+        style={{
+          background:
+            "linear-gradient(135deg, #0A1F3C 0%, #122E85 55%, #1A3FAB 100%)",
+        }}
       >
         <div className="max-w-[800px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <span className="inline-flex items-center gap-2 bg-white/[0.12] border border-white/[0.22] text-white font-ui text-[12px] font-bold tracking-[2px] uppercase px-4 py-2 rounded-full backdrop-blur-md mb-5">
@@ -149,7 +82,8 @@ export default function ResultPage({ type }: { type: DogType }) {
           </span>
           {first && (
             <p className="font-body text-base text-white/70 mb-3">
-              {first}, here&rsquo;s what your answers point to{dog ? ` for ${dog}` : ""}.
+              {first}, here&rsquo;s what your answers point to
+              {dog ? ` for ${dog}` : ""}.
             </p>
           )}
           <div className="font-ui text-[13px] font-semibold tracking-[3px] uppercase text-blue-200 mb-2">
@@ -180,8 +114,13 @@ export default function ResultPage({ type }: { type: DogType }) {
             <Block eyebrow="What You're Seeing">
               <ul className="flex flex-col gap-2.5">
                 {r.seeing.map((s) => (
-                  <li key={s} className="flex gap-2.5 font-body text-[14.5px] text-ink/85 leading-relaxed">
-                    <span className="text-blue-500 font-bold shrink-0 mt-px">&#10003;</span>
+                  <li
+                    key={s}
+                    className="flex gap-2.5 font-body text-[14.5px] text-ink/85 leading-relaxed"
+                  >
+                    <span className="text-blue-500 font-bold shrink-0 mt-px">
+                      &#10003;
+                    </span>
                     <span>{s}</span>
                   </li>
                 ))}
@@ -189,7 +128,10 @@ export default function ResultPage({ type }: { type: DogType }) {
             </Block>
             <Block eyebrow="Why It's Happening">
               {r.why.map((p) => (
-                <p key={p} className="font-body text-[14.5px] text-ink/85 leading-relaxed mb-3 last:mb-0">
+                <p
+                  key={p}
+                  className="font-body text-[14.5px] text-ink/85 leading-relaxed mb-3 last:mb-0"
+                >
                   {p}
                 </p>
               ))}
@@ -197,8 +139,13 @@ export default function ResultPage({ type }: { type: DogType }) {
             <Block eyebrow="What Owners Commonly Get Wrong">
               <ul className="flex flex-col gap-2.5">
                 {r.wrong.map((s) => (
-                  <li key={s} className="flex gap-2.5 font-body text-[14.5px] text-ink/85 leading-relaxed">
-                    <span className="text-red-500 font-bold shrink-0 mt-px">&#10007;</span>
+                  <li
+                    key={s}
+                    className="flex gap-2.5 font-body text-[14.5px] text-ink/85 leading-relaxed"
+                  >
+                    <span className="text-red-500 font-bold shrink-0 mt-px">
+                      &#10007;
+                    </span>
                     <span>{s}</span>
                   </li>
                 ))}
@@ -206,7 +153,10 @@ export default function ResultPage({ type }: { type: DogType }) {
             </Block>
             <Block eyebrow="What Needs To Happen Next" highlight>
               {r.next.map((p) => (
-                <p key={p} className="font-body text-[14.5px] text-ink/85 leading-relaxed mb-3 last:mb-0">
+                <p
+                  key={p}
+                  className="font-body text-[14.5px] text-ink/85 leading-relaxed mb-3 last:mb-0"
+                >
                   {p}
                 </p>
               ))}
@@ -226,18 +176,25 @@ export default function ResultPage({ type }: { type: DogType }) {
               3 THINGS YOU SHOULD START DOING
             </h2>
             <p className="font-body text-[15px] text-gray-muted mt-3 max-w-[560px] mx-auto">
-              Tailored to a {r.label.toLowerCase()} dog. No equipment needed &mdash; just your dog&rsquo;s
-              meals and 10 minutes.
+              Tailored to a {r.label.toLowerCase()} dog. No equipment needed
+              &mdash; just your dog&rsquo;s meals and 10 minutes.
             </p>
           </div>
           <div className="grid grid-cols-3 gap-5 max-md:grid-cols-1">
             {r.actions.map((a, i) => (
-              <div key={a.title} className="bg-white border border-border rounded-2xl p-6 shadow-sm">
+              <div
+                key={a.title}
+                className="bg-white border border-border rounded-2xl p-6 shadow-sm"
+              >
                 <div className="w-10 h-10 rounded-full bg-blue-500 text-white font-display text-lg flex items-center justify-center mb-4">
                   {i + 1}
                 </div>
-                <h3 className="font-display text-[20px] text-ink leading-tight mb-2">{a.title}</h3>
-                <p className="font-body text-[14px] text-gray-muted leading-relaxed">{a.body}</p>
+                <h3 className="font-display text-[20px] text-ink leading-tight mb-2">
+                  {a.title}
+                </h3>
+                <p className="font-body text-[14px] text-gray-muted leading-relaxed">
+                  {a.body}
+                </p>
               </div>
             ))}
           </div>
@@ -263,14 +220,23 @@ export default function ResultPage({ type }: { type: DogType }) {
               { big: "8", small: "Modules" },
               { big: "50", small: "Steps" },
             ].map((t, i) => (
-              <div key={t.small} className="flex items-center gap-3 max-md:gap-2">
+              <div
+                key={t.small}
+                className="flex items-center gap-3 max-md:gap-2"
+              >
                 <div className="bg-white/[0.06] border border-white/10 rounded-2xl px-7 py-5 max-md:px-4 max-md:py-3.5 text-center min-w-[110px] max-md:min-w-[86px]">
-                  <div className="font-display text-[40px] max-md:text-[30px] leading-none text-white">{t.big}</div>
+                  <div className="font-display text-[40px] max-md:text-[30px] leading-none text-white">
+                    {t.big}
+                  </div>
                   <div className="font-ui text-[11px] font-bold tracking-[1.5px] uppercase text-white/55 mt-1.5">
                     {t.small}
                   </div>
                 </div>
-                {i < 2 && <span className="text-white/40 text-xl max-md:text-base">&rarr;</span>}
+                {i < 2 && (
+                  <span className="text-white/40 text-xl max-md:text-base">
+                    &rarr;
+                  </span>
+                )}
               </div>
             ))}
           </div>
@@ -281,7 +247,10 @@ export default function ResultPage({ type }: { type: DogType }) {
             <span className="max-md:hidden">Control</span>
             <span>Step 50 &middot; Freedom</span>
           </div>
-          <div className="flex gap-1 h-9 max-md:h-7 rounded-lg overflow-hidden" aria-hidden="true">
+          <div
+            className="flex gap-1 h-9 max-md:h-7 rounded-lg overflow-hidden"
+            aria-hidden="true"
+          >
             {MODULES.map((m, i) => {
               const start = inStart(m.num);
               const goal = inGoal(m.num);
@@ -304,10 +273,12 @@ export default function ResultPage({ type }: { type: DogType }) {
           </div>
           <div className="flex flex-wrap gap-x-6 gap-y-2 mt-3 font-ui text-[11px] font-bold tracking-[1px] uppercase">
             <span className="flex items-center gap-2 text-white/80">
-              <span className="w-3 h-3 rounded-sm bg-blue-500 inline-block" /> Your Starting Point
+              <span className="w-3 h-3 rounded-sm bg-blue-500 inline-block" />{" "}
+              Your Starting Point
             </span>
             <span className="flex items-center gap-2 text-white/80">
-              <span className="w-3 h-3 rounded-sm bg-amber-400 inline-block" /> Your Goal
+              <span className="w-3 h-3 rounded-sm bg-amber-400 inline-block" />{" "}
+              Your Goal
             </span>
           </div>
 
@@ -334,7 +305,9 @@ export default function ResultPage({ type }: { type: DogType }) {
                     <span>Module {m.num}</span>
                     <span>Steps {m.steps}</span>
                   </div>
-                  <div className="font-ui text-[13px] font-semibold text-white leading-snug">{m.title}</div>
+                  <div className="font-ui text-[13px] font-semibold text-white leading-snug">
+                    {m.title}
+                  </div>
                   {start && (
                     <div className="font-ui text-[10px] font-bold tracking-[1px] uppercase text-blue-200 mt-1.5">
                       Start here
@@ -347,7 +320,8 @@ export default function ResultPage({ type }: { type: DogType }) {
 
           <div className="mt-8 pt-6 border-t border-white/10">
             <div className="font-ui text-[10.5px] font-bold tracking-[1.5px] uppercase text-white/45 mb-3">
-              The 5 Pillars &middot; highlighted: where your dog needs the most work
+              The 5 Pillars &middot; highlighted: where your dog needs the most
+              work
             </div>
             <div className="flex flex-wrap gap-2">
               {PILLARS.map((p) => {
@@ -356,7 +330,9 @@ export default function ResultPage({ type }: { type: DogType }) {
                   <span
                     key={p}
                     className={`font-ui text-[12px] font-semibold px-3.5 py-1.5 rounded-full border ${
-                      key ? "bg-white text-ink border-white" : "border-white/15 text-white/60"
+                      key
+                        ? "bg-white text-ink border-white"
+                        : "border-white/15 text-white/60"
                     }`}
                   >
                     {p}
@@ -385,13 +361,17 @@ export default function ResultPage({ type }: { type: DogType }) {
                 <div className="font-ui text-[10.5px] font-bold tracking-[1.5px] uppercase text-red-500 mb-2">
                   Before
                 </div>
-                <p className="font-body text-[14.5px] text-ink/85 leading-relaxed">{r.proof.before}</p>
+                <p className="font-body text-[14.5px] text-ink/85 leading-relaxed">
+                  {r.proof.before}
+                </p>
               </div>
               <div className="bg-white rounded-xl p-5 border border-green-500/30">
                 <div className="font-ui text-[10.5px] font-bold tracking-[1.5px] uppercase text-green-500 mb-2">
                   After
                 </div>
-                <p className="font-body text-[14.5px] text-ink/85 leading-relaxed">{r.proof.after}</p>
+                <p className="font-body text-[14.5px] text-ink/85 leading-relaxed">
+                  {r.proof.after}
+                </p>
               </div>
             </div>
             <blockquote className="border-l-[3px] border-blue-500 pl-4.5 font-ui text-[16px] max-md:text-[15px] italic text-ink leading-relaxed">
@@ -404,125 +384,72 @@ export default function ResultPage({ type }: { type: DogType }) {
         </div>
       </section>
 
-      {callFirst ? (
-        <>
-          {/* ── 11. PRIMARY CTA — book the call (budget $500+ / whatever it takes) ── */}
-          <section className="py-20 max-md:py-12 bg-blue-700 text-white text-center">
-            <div className="max-w-[760px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
-              <p className="font-body text-lg max-md:text-base text-white/80 leading-relaxed max-w-[600px] mx-auto mb-8">
-                Now that you understand your dog type, let&rsquo;s build the plan for your dog together.
-              </p>
-              <div className="font-ui text-[13px] font-semibold tracking-[3px] uppercase text-blue-200 mb-3">
-                Your Next Step
-              </div>
-              <h2 className="font-display text-[clamp(32px,5vw,56px)] leading-[0.98] mb-6">
-                TALK TO THE CALI K9 TEAM ABOUT YOUR DOG
-              </h2>
-              <p className="font-body text-base text-white/75 leading-relaxed max-w-[600px] mx-auto mb-7">
-                {r.callNote} On a 20-minute call we walk through what your assessment revealed and map
-                the exact steps a {r.label.toLowerCase()} dog needs first.
-              </p>
-              <a href={CALL_URL} className="btn btn-gold btn-lg inline-block">
-                Book My Call &rarr;
-              </a>
-              <p className="font-body text-[12.5px] text-white/50 mt-4">
-                $7 refundable reservation &middot; 20 minutes &middot; Credited toward any program
-              </p>
-            </div>
-          </section>
-
-          {/* ── 12. SECONDARY CTA — free Saturday masterclass ── */}
-          <section className="py-14 max-md:py-10 bg-cream">
-            <div className="max-w-[720px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 text-center">
-              <div className="bg-ink text-white rounded-2xl p-8 max-md:p-6 shadow-sm">
-                <div className="font-ui text-[12px] font-bold tracking-[2px] uppercase text-blue-200 mb-2.5">
-                  Prefer To Start With The Free Class?
-                </div>
-                <h3 className="font-display text-[26px] max-md:text-[22px] leading-tight mb-3">
-                  FREE LIVE SATURDAY MASTERCLASS
-                </h3>
-                <p className="font-body text-[14.5px] text-white/70 leading-relaxed max-w-[560px] mx-auto mb-5">
-                  Transform your dog in just 15 minutes a day &mdash; live with Jas Leverette, host of
-                  Netflix&rsquo;s <em>Canine Intervention</em>.
-                </p>
-                <EventDate center />
-                <Link href={MASTERCLASS_URL} className="btn btn-outline-white mt-6 inline-block">
-                  Reserve My Free Seat &rarr;
-                </Link>
-              </div>
-            </div>
-          </section>
-        </>
-      ) : (
-        <>
-          {/* ── 11. PRIMARY CTA — free Saturday masterclass ── */}
-          <section className="py-20 max-md:py-12 bg-blue-700 text-white text-center">
-            <div className="max-w-[760px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
-              <p className="font-body text-lg max-md:text-base text-white/80 leading-relaxed max-w-[600px] mx-auto mb-8">
-                Now that you understand your dog type, let me show you exactly what to do next.
-              </p>
-              <div className="font-ui text-[13px] font-semibold tracking-[3px] uppercase text-blue-200 mb-3">
-                Free Live Saturday Masterclass
-              </div>
-              <h2 className="font-display text-[clamp(32px,5vw,56px)] leading-[0.98] mb-6">
-                TRANSFORM YOUR DOG IN JUST 15 MINUTES A DAY
-              </h2>
-              <p className="font-body text-base text-white/75 leading-relaxed max-w-[600px] mx-auto mb-7">
-                Live with <strong className="text-white">Jas Leverette</strong>, host of Netflix&rsquo;s{" "}
-                <em>Canine Intervention</em>. You&rsquo;ll see the exact steps a{" "}
-                {r.label.toLowerCase()} dog needs first &mdash; and what to do with your dog this week.
-              </p>
-              <EventDate center />
-              {webinarEmbed ? (
-                <a href="#register" className="btn btn-gold btn-lg mt-8 inline-block">
-                  Reserve My Free Seat &rarr;
-                </a>
-              ) : (
-                <Link href={MASTERCLASS_URL} className="btn btn-gold btn-lg mt-8 inline-block">
-                  Reserve My Free Seat &rarr;
-                </Link>
-              )}
-              <p className="font-body text-[12.5px] text-white/50 mt-4">
-                Free &middot; Live on Zoom &middot; Replay sent to everyone who registers
-              </p>
-            </div>
-          </section>
-
-          {callSecondary}
-        </>
-      )}
-
-      {/* ── 13. Webinar opt-in embedded at the bottom ($200 – $500 budgets) ── */}
-      {webinarEmbed && (
-        <section id="register" className="py-16 max-md:py-10 bg-ink text-white scroll-mt-24">
-          <div className="max-w-[640px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
-            <div className="text-center mb-7">
-              <div className="font-ui text-[12px] font-bold tracking-[2px] uppercase text-blue-200 mb-2.5">
-                Save Your Seat
-              </div>
-              <h2 className="font-display text-[clamp(28px,4vw,40px)] leading-[1.02] mb-4">
-                RESERVE YOUR FREE SEAT FOR SATURDAY
-              </h2>
-              <EventDate center />
-            </div>
-            <FormEmbed
-              formId={WEBINAR_FORM_ID}
-              formName="Webinar Registration"
-              title="Reserve Your Free Seat"
-              height={447}
-            />
-            <p className="font-ui text-xs tracking-[1.5px] uppercase text-white/40 text-center mt-3">
-              Free &middot; Live on Zoom &middot; Replay sent to everyone who registers
-            </p>
+      {/* ── 11. PRIMARY CTA — free Saturday masterclass (all budgets) ── */}
+      <section className="py-20 max-md:py-12 bg-blue-700 text-white text-center">
+        <div className="max-w-[760px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
+          <p className="font-body text-lg max-md:text-base text-white/80 leading-relaxed max-w-[600px] mx-auto mb-8">
+            Now that you understand your dog type, let me show you exactly what
+            to do next.
+          </p>
+          <div className="font-ui text-[13px] font-semibold tracking-[3px] uppercase text-blue-200 mb-3">
+            Free Live Saturday Masterclass
           </div>
-        </section>
-      )}
+          <h2 className="font-display text-[clamp(32px,5vw,56px)] leading-[0.98] mb-6">
+            TRANSFORM YOUR DOG IN JUST 15 MINUTES A DAY
+          </h2>
+          <p className="font-body text-base text-white/75 leading-relaxed max-w-[600px] mx-auto mb-7">
+            Live with <strong className="text-white">Jas Leverette</strong>,
+            host of Netflix&rsquo;s <em>Canine Intervention</em>. You&rsquo;ll
+            see the exact steps a {r.label.toLowerCase()} dog needs first
+            &mdash; and what to do with your dog this week.
+          </p>
+          <EventDate center />
+          <a href="#register" className="btn btn-gold btn-lg mt-8 inline-block">
+            Reserve My Free Seat &rarr;
+          </a>
+          <p className="font-body text-[12.5px] text-white/50 mt-4">
+            Free &middot; Live on Zoom &middot; Replay sent to everyone who
+            registers
+          </p>
+        </div>
+      </section>
+
+      {/* ── 12. Webinar opt-in embedded at the bottom (everyone) ── */}
+      <section
+        id="register"
+        className="py-16 max-md:py-10 bg-ink text-white scroll-mt-24"
+      >
+        <div className="max-w-[640px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
+          <div className="text-center mb-7">
+            <div className="font-ui text-[12px] font-bold tracking-[2px] uppercase text-blue-200 mb-2.5">
+              Save Your Seat
+            </div>
+            <h2 className="font-display text-[clamp(28px,4vw,40px)] leading-[1.02] mb-4">
+              RESERVE YOUR FREE SEAT FOR SATURDAY
+            </h2>
+            <EventDate center />
+          </div>
+          <FormEmbed
+            formId={WEBINAR_FORM_ID}
+            formName="Webinar Registration"
+            title="Reserve Your Free Seat"
+            height={447}
+          />
+          <p className="font-ui text-xs tracking-[1.5px] uppercase text-white/40 text-center mt-3">
+            Free &middot; Live on Zoom &middot; Replay sent to everyone who
+            registers
+          </p>
+        </div>
+      </section>
 
       {/* ── Footer ── */}
-      <section className="pb-10 bg-cream">
+      <section className="py-10 bg-cream">
         <div className="max-w-[720px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 text-center">
           <p className="font-ui text-xs text-gray-muted/70">
-            <Link href="/free-behavior-assessment" className="hover:text-ink underline">
+            <Link
+              href="/free-behavior-assessment"
+              className="hover:text-ink underline"
+            >
               Retake the assessment
             </Link>
             {" · "}&copy; 2026 Cali K9&reg; &middot;{" "}
@@ -552,7 +479,9 @@ function Block({
   return (
     <div
       className={`rounded-2xl p-6 max-md:p-5 border ${
-        highlight ? "bg-blue-50 border-blue-100" : "bg-white border-border shadow-sm"
+        highlight
+          ? "bg-blue-50 border-blue-100"
+          : "bg-white border-border shadow-sm"
       }`}
     >
       <div className="font-ui text-[11px] font-bold tracking-[1.5px] uppercase text-blue-500 mb-3">
