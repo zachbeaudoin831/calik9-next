@@ -8,46 +8,25 @@ import PaymentPlansSection from "@/components/PaymentPlansSection";
 export const metadata: Metadata = {
   title: "Cali K9 Foundation Starter Bundle",
   description:
-    "Start the Cali K9 5 Pillar, 50-Step System™ today. The exact first 10 steps every Academy member starts with — one-time $27, for webinar registrants only.",
+    "Start the Cali K9 5 Pillar, 50-Step System™ today. Full access to Modules 1 and 2 — the first 10 steps every Academy member starts with — for a one-time $27.",
   // Post-registration offer page. Keep out of search while in review.
   robots: { index: false, follow: false },
 };
 
 const BUNDLE_ITEMS = [
   {
-    name: "Quick-Start Video Training — Steps 1–10",
-    desc: "Real, filmed lessons from Jas covering the first-step training that builds communication and structure from day one: boundaries, food value, hand-feeding, leash-on approach, household rules",
-    value: "$97 value",
+    name: "Module 1 — Getting To Know Your Dog",
+    steps: "Steps 1–4",
+    desc: "The 3 things that motivate your dog · The 3 phases of training · The 3 objectives of training · 10 tips for everyday life with your dog",
     swatch: "linear-gradient(160deg, #1A3FAB, #122E85)",
     icon: "play",
   },
   {
-    name: "10-Step Roadmap & Progress Tracker",
-    desc: "Your first 10 steps of the Cali K9 50-Step Roadmap — know exactly which step you're on and what comes next",
-    value: "$37 value",
+    name: "Module 2 — Building Drive & First Commands",
+    steps: "Steps 5–10",
+    desc: "Ignition: turning on your dog's drive · The release word & hand-feeding · Luring · Teaching the spin · Introducing the training box · Teaching your dog to search",
     swatch: "linear-gradient(160deg, #5468e8, #1A3FAB)",
-    icon: "map",
-  },
-  {
-    name: "7-Day Training Plan",
-    desc: "A structured, day-by-day checklist that builds engagement and motivation from the very first session — no guessing what to do next",
-    value: "$47 value",
-    swatch: "linear-gradient(160deg, #4b5fe8, #2c3fc9)",
-    icon: "calendar",
-  },
-  {
-    name: "Equipment Checklist",
-    desc: "Leash, rewards, training platform — the proper tool use behind every step, so you're set up to execute correctly from day one",
-    value: "$17 value",
-    swatch: "linear-gradient(160deg, #232838, #12162a)",
-    icon: "list",
-  },
-  {
-    name: "Troubleshooting Guide",
-    desc: "What to do when your dog isn't responding the way the video shows",
-    value: "$25 value",
-    swatch: "linear-gradient(160deg, #2c3149, #151827)",
-    icon: "help",
+    icon: "play",
   },
 ];
 
@@ -174,9 +153,9 @@ export default function StarterBundlePage() {
             Start learning{" "}
             <strong className="text-ink">The Cali K9 5 Pillar, 50-Step System&trade;</strong>,
             start using the same tools we use, and start seeing real wins with your dog &mdash;
-            right now, before the webinar even begins. Get the exact{" "}
-            <strong className="text-ink">first 10 steps</strong> &mdash; the same foundation phase
-            every Academy member starts with &mdash; for a{" "}
+            right now, before the webinar even begins. Get full access to{" "}
+            <strong className="text-ink">Modules 1 and 2</strong> &mdash; the first 10 steps every
+            Academy member starts with &mdash; for a{" "}
             <strong className="text-ink">one-time $27</strong>, available only here, only for
             registrants.
           </p>
@@ -206,7 +185,6 @@ export default function StarterBundlePage() {
                 CALI K9 FOUNDATION STARTER BUNDLE
               </h2>
               <div className="flex items-baseline justify-center gap-3.5">
-                <span className="font-display text-xl text-white/40 line-through">$223</span>
                 <span className="font-display text-[46px] text-white">
                   $27 <span className="font-body text-[15px] text-white/60">one-time</span>
                 </span>
@@ -238,8 +216,8 @@ export default function StarterBundlePage() {
                       </div>
                     </div>
                   </div>
-                  <div className="font-ui text-[13px] font-semibold text-gray-muted line-through whitespace-nowrap">
-                    {item.value}
+                  <div className="font-ui text-[12px] font-bold tracking-[1px] uppercase text-blue-500 whitespace-nowrap">
+                    {item.steps}
                   </div>
                 </div>
               ))}
@@ -247,7 +225,7 @@ export default function StarterBundlePage() {
 
             <div className="bg-cream px-8 pt-5 pb-6 text-center">
               <div className="font-body text-[13.5px] text-gray-muted mb-1">
-                Total Value: <b className="line-through text-ink">$223</b>
+                2 modules &middot; 10 video lessons &middot; yours to keep
               </div>
               <div className="font-display text-[19px] text-ink">
                 Today, Just <b className="text-blue-700 text-[26px]">$27</b>
@@ -269,19 +247,15 @@ export default function StarterBundlePage() {
               &mdash; The Cali K9 5 Pillar, 50-Step System&trade; &mdash;
             </div>
             <div className="text-center font-display text-[22px] max-md:text-lg mb-5">
-              THIS STARTER BUNDLE IS STEPS 1&ndash;10 OF THE FULL 50-STEP ROADMAP
+              THIS STARTER BUNDLE IS MODULES 1 &amp; 2 &mdash; STEPS 1&ndash;10 OF THE 50-STEP ROADMAP
             </div>
-            <div className="grid grid-cols-5 gap-[5px] mb-2">
-              {["Start Here", "Foundations", "Engagement", "Communication", "Basic Training"].map(
-                (phase) => (
-                  <span
-                    key={phase}
-                    className="font-ui text-[8.5px] text-center text-white/55 uppercase tracking-[0.2px] leading-[1.3]"
-                  >
-                    {phase}
-                  </span>
-                ),
-              )}
+            <div className="grid grid-cols-10 gap-[5px] mb-2">
+              <span className="col-span-4 font-ui text-[9.5px] text-center text-white/60 uppercase tracking-[0.5px] border-b border-white/20 pb-1">
+                Module 1
+              </span>
+              <span className="col-span-6 font-ui text-[9.5px] text-center text-white/60 uppercase tracking-[0.5px] border-b border-white/20 pb-1">
+                Module 2
+              </span>
             </div>
             <div className="grid grid-cols-10 gap-[5px] mb-5">
               {Array.from({ length: 10 }, (_, i) => i + 1).map((n) => (
@@ -294,7 +268,14 @@ export default function StarterBundlePage() {
               ))}
             </div>
             <div className="flex flex-col gap-2 mb-6">
-              {["Steps 11–20", "Steps 21–30", "Steps 31–40", "Steps 41–50"].map((range) => (
+              {[
+                "Module 3 · Steps 11–17",
+                "Module 4 · Steps 18–23",
+                "Module 5 · Steps 24–31",
+                "Module 6 · Steps 32–38",
+                "Module 7 · Steps 39–44",
+                "Module 8 · Steps 45–50",
+              ].map((range) => (
                 <div
                   key={range}
                   className="flex items-center justify-between bg-white/5 border border-white/10 rounded-[10px] px-4 py-3"
@@ -311,7 +292,7 @@ export default function StarterBundlePage() {
             </div>
             <div className="text-center border-t border-white/[0.12] pt-5">
               <p className="font-body text-[13.5px] text-white/65 leading-relaxed mb-3.5">
-                Steps 1&ndash;10 are yours today &mdash; your first step into engagement,
+                Modules 1 and 2 are yours today &mdash; your first step into engagement,
                 motivation, communication, and structure. The complete Cali K9 5 Pillar, 50-Step
                 System&trade; &mdash; Positions, Leash Work, Distractions, Real-World &amp;
                 Off-Leash Reliability &mdash; lives inside:
@@ -357,7 +338,8 @@ export default function StarterBundlePage() {
             Just So You Know
           </div>
           <p className="font-body text-[13.5px] text-[#4b4f58] leading-relaxed">
-            This Starter Bundle is Steps 1&ndash;10 of The Cali K9 5 Pillar, 50-Step System&trade;
+            This Starter Bundle is Modules 1 and 2 &mdash; Steps 1&ndash;10 &mdash; of The Cali K9
+            5 Pillar, 50-Step System&trade;
             &mdash; plus a free evaluation call once you&rsquo;ve worked through it. Completing the
             bundle is your first step; the Cali K9 Academy is where you unlock the complete 50-Step
             Roadmap and the rest of the journey. If you love it, you&rsquo;ll get the option to
