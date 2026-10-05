@@ -21,7 +21,7 @@ const SERVICE_LINKS = [
   { href: "/newclientservices", label: "All Services" },
   { href: "/newclientservices#new-clients", label: "New Clients" },
   { href: "/newclientservices#returning-clients", label: "Returning Clients" },
-  { href: "/online-training-program2", label: "Online Training" },
+  { href: "/online-courses", label: "Online Academy" },
 ];
 
 export default function Nav() {
@@ -53,6 +53,7 @@ export default function Nav() {
     pathname.startsWith("/newclientservices") ||
     pathname.startsWith("/returningclientservices") ||
     pathname.startsWith("/online-training-program2") ||
+    pathname.startsWith("/online-courses") ||
     pathname.startsWith("/in-person") ||
     pathname.startsWith("/group-class") ||
     pathname.startsWith("/board-and-train") ||
