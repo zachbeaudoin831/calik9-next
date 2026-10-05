@@ -93,32 +93,6 @@ export default function MasterclassThankYouPage() {
           </p>
         </div>
       </section>
-
-      {/* ── Starter bundle cross-sell ── */}
-      <section className="py-14 max-md:py-10 bg-white">
-        <div className="max-w-[760px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
-          <div className="bg-ink rounded-[18px] p-9 max-md:p-6 text-center text-white">
-            <span className="inline-block bg-blue-500 text-white font-ui text-[11px] font-bold tracking-[1.2px] uppercase px-3.5 py-1.5 rounded-full mb-4">
-              For Registrants Only
-            </span>
-            <h2 className="font-display text-[clamp(26px,3.5vw,36px)] leading-[0.95] mb-3">
-              WANT A HEAD START BEFORE CLASS?
-            </h2>
-            <p className="font-body text-[15px] text-white/70 leading-relaxed max-w-[540px] mx-auto mb-6">
-              Get the Foundation Starter Bundle &mdash; the exact first 10 steps of
-              the 50-Step System, with real video lessons from Jas &mdash; for a
-              one-time $27. Walk into the masterclass already seeing wins with
-              your dog.
-            </p>
-            <Link href="/starter-bundle" className="btn btn-white">
-              See The Starter Bundle &mdash; $27 &rarr;
-            </Link>
-            <p className="font-ui text-xs tracking-[1.5px] uppercase text-white/40 mt-4">
-              One-Time Payment &middot; Instant Access &middot; Not A Subscription
-            </p>
-          </div>
-        </div>
-      </section>
     </main>
   );
 }
