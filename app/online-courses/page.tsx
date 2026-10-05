@@ -3,7 +3,7 @@ import Link from "next/link";
 import PaymentPlansSection from "@/components/PaymentPlansSection";
 
 export const metadata: Metadata = {
-  title: "Online Dog Training Courses",
+  title: "Online Academy",
   description:
     "Three ways to train with Jas Leverette online: the Cali K9 Academy, Elite, and VIP. Same 5 Pillar, 50-Step System — choose how much coaching you want.",
   // Mockup page. Keep out of search while in review.
