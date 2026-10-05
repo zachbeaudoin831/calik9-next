@@ -393,18 +393,6 @@ export default function ResultPage({ type }: { type: DogType }) {
       {/* ── 11. PRIMARY CTA — free Saturday masterclass (all budgets) ── */}
       <section className="py-20 max-md:py-12 bg-blue-700 text-white text-center">
         <div className="max-w-[760px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
-          <div className="font-ui text-[12px] font-bold tracking-[2px] uppercase text-blue-200 mb-4">
-            A Message From Jas
-          </div>
-          <video
-            className="w-full rounded-xl bg-black shadow-[0_20px_60px_rgba(0,0,0,0.4)] mb-10 max-md:mb-8"
-            poster={posterFor(INVITE_VIDEO)}
-            controls
-            playsInline
-            preload="metadata"
-          >
-            <source src={INVITE_VIDEO} type="video/mp4" />
-          </video>
           <p className="font-body text-lg max-md:text-base text-white/80 leading-relaxed max-w-[600px] mx-auto mb-8">
             Now that you understand your dog type, let me show you exactly what
             to do next.
@@ -415,6 +403,15 @@ export default function ResultPage({ type }: { type: DogType }) {
           <h2 className="font-display text-[clamp(32px,5vw,56px)] leading-[0.98] mb-6">
             TRANSFORM YOUR DOG IN JUST 15 MINUTES A DAY
           </h2>
+          <video
+            className="w-full rounded-xl bg-black shadow-[0_20px_60px_rgba(0,0,0,0.4)] mb-8"
+            poster={posterFor(INVITE_VIDEO)}
+            controls
+            playsInline
+            preload="metadata"
+          >
+            <source src={INVITE_VIDEO} type="video/mp4" />
+          </video>
           <p className="font-body text-base text-white/75 leading-relaxed max-w-[600px] mx-auto mb-7">
             Live with <strong className="text-white">Jas Leverette</strong>,
             host of Netflix&rsquo;s <em>Canine Intervention</em>. You&rsquo;ll
