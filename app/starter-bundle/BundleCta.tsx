@@ -5,8 +5,8 @@ import { useState } from "react";
 // GHL payment links: the $27 bundle alone, and the $44 version that includes
 // the $17 Loose-Leash Walking Rapid Fix add-on. The buttons do nothing until
 // both are set.
-const CHECKOUT_URL_27: string | null = null;
-const CHECKOUT_URL_44: string | null = null;
+const CHECKOUT_URL_27: string | null = "https://link.fastpaydirect.com/payment-link/6ac43f26075ea22a20cdc7da";
+const CHECKOUT_URL_44: string | null = "https://link.fastpaydirect.com/payment-link/6ac43fb8075ea22a20cdc7de";
 
 export default function BundleCta() {
   const [bump, setBump] = useState(false);
