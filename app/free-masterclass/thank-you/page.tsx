@@ -19,7 +19,7 @@ const STEPS = [
   {
     num: "2",
     title: "BLOCK OFF THE TIME",
-    desc: "This is a live session, not a replay library. Add it to your calendar now so Saturday doesn't get away from you.",
+    desc: "This is a live session, not a replay library. Add it to your calendar now so class day doesn't get away from you.",
   },
   {
     num: "3",
@@ -49,7 +49,7 @@ export default function MasterclassThankYouPage() {
             &#10003; Seat Reserved
           </span>
           <h1 className="font-display text-[clamp(40px,5.5vw,64px)] text-white leading-[0.95] mb-5">
-            YOU&rsquo;RE IN. <span className="text-[#6A9FFF]">SEE YOU SATURDAY.</span>
+            YOU&rsquo;RE IN. <span className="text-[#6A9FFF]">SEE YOU IN CLASS.</span>
           </h1>
           <p className="font-body text-lg text-white/70 leading-relaxed max-w-[560px] mx-auto mb-7">
             Your seat at Jas&rsquo;s free live masterclass is confirmed. Your Zoom

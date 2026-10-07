@@ -5,7 +5,7 @@ import EventDate from "../EventDate";
 export const metadata: Metadata = {
   title: "Your Next Step: Free Live Masterclass",
   description:
-    "Based on your Free Behavior Assessment, the free live masterclass with Jas Leverette is the best next step for you and your dog. Live every Saturday on Zoom.",
+    "Based on your Free Behavior Assessment, the free live masterclass with Jas Leverette is the best next step for you and your dog. Live Wednesdays and Saturdays on Zoom.",
   // Funnel page. Keep out of search while in review.
   robots: { index: false, follow: false },
 };
@@ -24,10 +24,10 @@ export default function MasterclassInvitePage() {
             </span>
             <h1 className="font-display text-[clamp(34px,5vw,56px)] leading-[0.98] mb-5">
               BASED ON YOUR ASSESSMENT, YOU&rsquo;D BENEFIT MOST FROM JOINING OUR FREE MASTERCLASS
-              THIS SATURDAY
+              THIS WEEK
             </h1>
             <p className="font-body text-lg text-white/80 leading-relaxed max-w-[640px] mx-auto mb-7">
-              Live every week with <strong className="text-white">Jas Leverette</strong>, host of
+              Live twice a week with <strong className="text-white">Jas Leverette</strong>, host of
               Netflix&rsquo;s <em>Canine Intervention</em>. In one session you&rsquo;ll see the exact
               framework your assessment points to &mdash; and what to do first with your dog this
               week.

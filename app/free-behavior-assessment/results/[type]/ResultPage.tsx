@@ -398,7 +398,7 @@ export default function ResultPage({ type }: { type: DogType }) {
             to do next.
           </p>
           <div className="font-ui text-[13px] font-semibold tracking-[3px] uppercase text-blue-200 mb-3">
-            Free Live Saturday Masterclass
+            Free Live Masterclass · Wednesdays &amp; Saturdays
           </div>
           <h2 className="font-display text-[clamp(32px,5vw,56px)] leading-[0.98] mb-6">
             TRANSFORM YOUR DOG IN JUST 15 MINUTES A DAY
@@ -440,7 +440,7 @@ export default function ResultPage({ type }: { type: DogType }) {
               Save Your Seat
             </div>
             <h2 className="font-display text-[clamp(28px,4vw,40px)] leading-[1.02] mb-4">
-              RESERVE YOUR FREE SEAT FOR SATURDAY
+              RESERVE YOUR FREE SEAT
             </h2>
             <EventDate center />
           </div>

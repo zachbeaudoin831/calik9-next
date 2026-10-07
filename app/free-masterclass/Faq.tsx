@@ -25,7 +25,7 @@ const FAQS = [
   },
   {
     q: "When is it, and how long does it take?",
-    a: "It's live on Zoom every Saturday at 10:00 AM Pacific / 1:00 PM Eastern. Register and we'll send the link and a reminder.",
+    a: "It's live on Zoom twice a week: Wednesdays at 4:00 PM Pacific / 7:00 PM Eastern and Saturdays at 10:00 AM Pacific / 1:00 PM Eastern. Pick the day that works when you register and we'll send the link and reminders.",
   },
   {
     q: "What if I can't make it live?",

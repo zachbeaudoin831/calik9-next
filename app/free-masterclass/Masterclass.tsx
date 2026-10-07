@@ -417,7 +417,7 @@ export default function Masterclass({ intro }: { intro?: React.ReactNode }) {
             ))}
           </div>
           <p className="font-body text-base text-gray-muted text-center max-w-[560px] mx-auto mt-8">
-            If you nodded at even one of these, Saturday&rsquo;s masterclass was built for you and
+            If you nodded at even one of these, the masterclass was built for you and
             your dog.
           </p>
         </div>
@@ -450,7 +450,7 @@ export default function Masterclass({ intro }: { intro?: React.ReactNode }) {
           </div>
           <p className="font-body text-[15px] text-white/85 text-center max-w-[600px] mx-auto mt-9">
             A system gives your dog one clear language, one order of operations and one set of
-            rules. That&rsquo;s what makes behavior stick. That&rsquo;s what Saturday is about.
+            rules. That&rsquo;s what makes behavior stick. That&rsquo;s what the masterclass is about.
           </p>
         </div>
       </section>
@@ -584,7 +584,7 @@ export default function Masterclass({ intro }: { intro?: React.ReactNode }) {
             />
             <div>
               <span className="font-ui text-[13px] font-semibold tracking-[3px] uppercase text-blue-500 block mb-2">
-                Your Trainer This Saturday
+                Your Trainer This Week
               </span>
               <h2 className="font-display text-[clamp(32px,4.5vw,48px)] text-ink leading-[0.95] mb-4">
                 JAS LEVERETTE
@@ -597,7 +597,7 @@ export default function Masterclass({ intro }: { intro?: React.ReactNode }) {
               <p className="font-body text-[15px] text-[#4b4f58] leading-relaxed mb-5">
                 The same system has transformed family pets, serious behavioral cases and the dogs
                 of some of the world&rsquo;s most recognizable athletes and entertainers. On
-                Saturday he teaches it to you directly.
+                In the masterclass he teaches it to you directly.
               </p>
               <div className="grid grid-cols-4 gap-3 max-[560px]:grid-cols-2 mb-6">
                 {JAS_STATS.map((s) => (
@@ -642,15 +642,15 @@ export default function Masterclass({ intro }: { intro?: React.ReactNode }) {
         </div>
       </section>
 
-      {/* ── 9. Saturday details ── */}
+      {/* ── 9. Session details ── */}
       <section className="py-14 max-md:py-10 bg-ink">
         <div className="max-w-[1000px] mx-auto px-6 max-[480px]:px-4">
           <div className="text-center mb-10">
             <span className="font-ui text-[14px] font-semibold tracking-[4px] uppercase text-blue-200 block mb-3">
-              Live Saturday Masterclass
+              Live Masterclass · Wednesdays &amp; Saturdays
             </span>
             <h2 className="font-display text-[clamp(28px,4vw,42px)] leading-[0.95] text-white max-w-[760px] mx-auto mb-6">
-              ONE SATURDAY MORNING. A COMPLETELY DIFFERENT WEEK WITH YOUR DOG.
+              ONE HOUR ON ZOOM. A COMPLETELY DIFFERENT WEEK WITH YOUR DOG.
             </h2>
             <EventDate center />
           </div>
@@ -739,7 +739,7 @@ export default function Masterclass({ intro }: { intro?: React.ReactNode }) {
             TRANSFORM YOUR DOG IN JUST 15 MINUTES A DAY
           </h2>
           <p className="font-body text-base lg:text-lg text-white/70 leading-relaxed mb-7 max-w-[560px] mx-auto">
-            Join Jas live this Saturday and leave knowing exactly why your dog does what it does,
+            Join Jas live this week &mdash; Wednesday evening or Saturday morning &mdash; and leave knowing exactly why your dog does what it does,
             and what to work on first.
           </p>
           <div className="mb-8">
