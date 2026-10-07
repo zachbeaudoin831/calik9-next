@@ -5,7 +5,7 @@ import PaymentPlansSection from "@/components/PaymentPlansSection";
 export const metadata: Metadata = {
   title: "Online Academy",
   description:
-    "Three ways to train with Jas Leverette online: the Cali K9 Academy, Elite, and VIP. Same 5 Pillar, 50-Step System — choose how much coaching you want.",
+    "Four ways to train with Jas Leverette online: the Cali K9 Academy, Elite, VIP, and All Access. Same 5 Pillar, 50-Step System — choose how much coaching you want.",
   // Mockup page. Keep out of search while in review.
   robots: { index: false, follow: false },
 };
@@ -38,7 +38,7 @@ const PLANS = [
     priceNote: " one-time",
     term: "6 months of access · Not a subscription",
     href: "/elite",
-    featured: true,
+    featured: false,
     bestFor: "Owners who want Jas to look at their dog, correct their technique, and keep them accountable.",
     items: [
       "Everything in the Academy, for 6 months",
@@ -68,18 +68,38 @@ const PLANS = [
       "Payment plans available",
     ],
   },
+  {
+    key: "all-access",
+    name: "All Access",
+    tagline: "The Academy for life, plus a year of VIP coaching",
+    price: "$4,997",
+    priceNote: " one-time",
+    term: "Lifetime Academy access · Not a subscription",
+    href: "/all-access",
+    featured: false,
+    bestFor: "Owners who want the Academy for every dog they'll ever own, with Jas and the team in their corner for a full year.",
+    items: [
+      "Lifetime Cali K9 Academy — every future update included",
+      "12 months of VIP coaching & WhatsApp access",
+      "8 Train With Jas sessions",
+      "Priority video feedback",
+      "Advanced workshops & lifetime All Access community",
+      "Preferred member pricing & Turbo Treats bonus",
+    ],
+  },
 ];
 
-const COMPARE: { label: string; values: [string, string, string] }[] = [
-  { label: "Price", values: ["$97 / month", "$997 one-time", "$2,497 one-time"] },
-  { label: "Access", values: ["While you're a member", "6 months", "12 months"] },
-  { label: "50-Step Roadmap™ & all 8 modules", values: ["✓", "✓", "✓"] },
-  { label: "Saturday live training with Jas", values: ["✓", "✓", "✓"] },
-  { label: "Private member community", values: ["✓", "✓", "✓"] },
-  { label: "Train With Jas coaching sessions", values: ["—", "4 sessions", "8 sessions"] },
-  { label: "Video review & personal feedback", values: ["—", "✓", "✓ Priority"] },
-  { label: "Private WhatsApp support", values: ["—", "—", "✓ Within 24 hours"] },
-  { label: "Training Kit", values: ["Optional add-on", "Optional add-on", "Included"] },
+const COMPARE: { label: string; values: [string, string, string, string] }[] = [
+  { label: "Price", values: ["$97 / month", "$997 one-time", "$2,497 one-time", "$4,997 one-time"] },
+  { label: "Access", values: ["While you're a member", "6 months", "12 months", "Lifetime"] },
+  { label: "50-Step Roadmap™ & all 8 modules", values: ["✓", "✓", "✓", "✓ For life"] },
+  { label: "Saturday live training with Jas", values: ["✓", "✓", "✓", "✓"] },
+  { label: "Private member community", values: ["✓", "✓", "✓", "✓ Lifetime All Access community"] },
+  { label: "Train With Jas coaching sessions", values: ["—", "4 sessions", "8 sessions", "8 sessions"] },
+  { label: "Video review & personal feedback", values: ["—", "✓", "✓ Priority", "✓ Priority"] },
+  { label: "Private WhatsApp support", values: ["—", "—", "✓ Within 24 hours", "✓ 12 months"] },
+  { label: "Training Kit", values: ["Optional add-on", "Optional add-on", "Included", "Turbo Treats bonus"] },
+  { label: "Advanced workshops & preferred member pricing", values: ["—", "—", "—", "✓"] },
 ];
 
 const STATS = [
@@ -105,7 +125,7 @@ export default function OnlineCoursesPage() {
             TRAIN WITH <span className="text-[#F59E0B]">JAS LEVERETTE</span> FROM HOME
           </h1>
           <h2 className="font-display text-[clamp(22px,2.6vw,32px)] text-white/90 leading-tight mb-5">
-            ONE SYSTEM. THREE WAYS IN &mdash;{" "}
+            ONE SYSTEM. FOUR WAYS IN &mdash;{" "}
             <span className="text-[#6A9FFF]">CHOOSE HOW MUCH COACHING YOU WANT.</span>
           </h2>
           <p className="font-body text-lg text-white/70 leading-relaxed max-w-[640px] mx-auto mb-8">
@@ -137,10 +157,10 @@ export default function OnlineCoursesPage() {
               Choose Your Program
             </span>
             <h2 className="font-display text-[clamp(28px,4vw,42px)] leading-[0.95] text-ink">
-              ACADEMY, ELITE, OR VIP
+              ACADEMY, ELITE, VIP, OR ALL ACCESS
             </h2>
           </div>
-          <div className="grid grid-cols-3 gap-6 items-stretch max-lg:grid-cols-1 max-lg:max-w-[520px] max-lg:mx-auto">
+          <div className="grid grid-cols-4 gap-5 items-stretch max-xl:grid-cols-2 max-md:grid-cols-1 max-md:max-w-[520px] max-md:mx-auto">
             {PLANS.map((plan) => (
               <div
                 key={plan.key}
@@ -198,14 +218,14 @@ export default function OnlineCoursesPage() {
               Side By Side
             </span>
             <h2 className="font-display text-[clamp(28px,4vw,40px)] leading-[0.95] text-ink">
-              WHAT CHANGES BETWEEN THE THREE
+              WHAT CHANGES BETWEEN THE FOUR
             </h2>
           </div>
           <div className="overflow-x-auto rounded-xl border border-border">
-            <table className="w-full min-w-[640px] border-collapse bg-white">
+            <table className="w-full min-w-[820px] border-collapse bg-white">
               <thead>
                 <tr className="bg-ink text-white">
-                  <th className="text-left font-ui text-[12px] font-bold tracking-[1.5px] uppercase px-5 py-4 w-[34%]">
+                  <th className="text-left font-ui text-[12px] font-bold tracking-[1.5px] uppercase px-5 py-4 w-[28%]">
                     &nbsp;
                   </th>
                   {PLANS.map((p) => (

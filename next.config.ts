@@ -11,7 +11,8 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      // Retired funnel page
+      // Retired funnel page / renamed pages
+      { source: "/online-courses", destination: "/academy-menu", permanent: true },
       { source: "/starter-bundle-downsell", destination: "/starter-bundle", permanent: false },
       // Pre-migration slugs → calik9.com canonical slugs
       { source: "/about", destination: "/about-us", permanent: true },
