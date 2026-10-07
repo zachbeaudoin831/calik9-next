@@ -601,6 +601,35 @@ export default function AcademyPage({ offer }: { offer: AcademyOffer }) {
 
       <PaymentPlansSection />
 
+      {/* ── 8b. Rescue mission (moved up per Jas) ── */}
+      <section className="py-16 max-md:py-10 bg-ink">
+        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
+          <div className="grid grid-cols-[0.9fr_1.1fr] gap-12 items-center max-md:grid-cols-1">
+            <Image
+              src="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6aa43e77cbbb2538118d3b55.webp"
+              alt="A street dog resting on a curb in Morocco"
+              width={1172}
+              height={774}
+              className="w-full h-auto rounded-xl object-cover"
+            />
+            <div>
+              <span className="inline-block bg-amber-400 text-[#2b1d05] font-ui text-[11px] font-bold tracking-[1.5px] uppercase px-3.5 py-1.5 rounded-full mb-4">
+                &#10022; The Cali K9 Mission
+              </span>
+              <h2 className="font-display text-[clamp(28px,3.5vw,42px)] leading-[0.95] text-white mb-4">
+                TRAIN YOUR DOG. HELP SAVE ANOTHER.
+              </h2>
+              <p className="font-body text-base text-white/75 leading-relaxed">
+                A portion of every Academy membership funds the rescue, veterinary care,
+                rehabilitation and rehoming of street dogs, starting in Morocco. Your dog
+                gets trained. Another dog gets a second chance. Every month you stay, the
+                mission keeps going.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── 9. The Cali K9 Method™ ── */}
       <section className="py-16 max-md:py-10 bg-cream">
         <div className="max-w-[1000px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
@@ -883,35 +912,6 @@ export default function AcademyPage({ offer }: { offer: AcademyOffer }) {
                 <p className="font-body text-[15px] text-gray-muted leading-[1.75] px-5 pb-5">{faq.a}</p>
               </details>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── 17. Rescue mission ── */}
-      <section className="py-16 max-md:py-10 bg-ink">
-        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
-          <div className="grid grid-cols-[0.9fr_1.1fr] gap-12 items-center max-md:grid-cols-1">
-            <Image
-              src="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6aa43e77cbbb2538118d3b55.webp"
-              alt="A street dog resting on a curb in Morocco"
-              width={1172}
-              height={774}
-              className="w-full h-auto rounded-xl object-cover"
-            />
-            <div>
-              <span className="inline-block bg-amber-400 text-[#2b1d05] font-ui text-[11px] font-bold tracking-[1.5px] uppercase px-3.5 py-1.5 rounded-full mb-4">
-                &#10022; The Cali K9 Mission
-              </span>
-              <h2 className="font-display text-[clamp(28px,3.5vw,42px)] leading-[0.95] text-white mb-4">
-                TRAIN YOUR DOG. HELP SAVE ANOTHER.
-              </h2>
-              <p className="font-body text-base text-white/75 leading-relaxed">
-                A portion of every Academy membership funds the rescue, veterinary care,
-                rehabilitation and rehoming of street dogs, starting in Morocco. Your dog
-                gets trained. Another dog gets a second chance. Every month you stay, the
-                mission keeps going.
-              </p>
-            </div>
           </div>
         </div>
       </section>
