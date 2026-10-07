@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { parseTier, TIER_INFO, type Tier } from "@/lib/package-checkout";
 
-const NEXT_STEPS: Record<Tier, { title: string; desc: string }[]> = {
+const NEXT_STEPS: Record<Tier, { title: string; desc: string; href?: string; cta?: string }[]> = {
   elite: [
     { title: "Check your inbox", desc: "Your Academy login and the Start Here onboarding video arrive within a few minutes. Search for “Cali K9” if it isn't there." },
     { title: "Book your onboarding call", desc: "A member of the team reaches out within one business day to set your first Wednesday small-group coaching session with Jas." },
@@ -27,6 +27,12 @@ const NEXT_STEPS: Record<Tier, { title: string; desc: string }[]> = {
   get "academy-founder"() {
     return this.academy;
   },
+  "all-access": [
+    { title: "Book your onboarding call", desc: "This is where we walk you through everything included in All Access, go over your dog and your goals, and book your Train With Jas sessions directly with Jas.", href: "https://api.leadconnectorhq.com/widget/bookings/calik9-onboarding", cta: "Book my onboarding call" },
+    { title: "Join the VIP WhatsApp group", desc: "Your direct line to the team for the next 12 months — questions, videos of your dog, anything you're stuck on.", href: "https://chat.whatsapp.com/F0KUFKhEUzo7o0ES4RdOD1?mode=gi_t", cta: "Join the WhatsApp group" },
+    { title: "Check your inbox", desc: "Your lifetime Academy login and the Start Here onboarding video arrive within a few minutes. Search for “Cali K9” if it isn't there. Have a look around before the call." },
+    { title: "Your gear ships", desc: "Any Turbo Treats included with your order ship from Cali K9 within 1–2 business days with tracking by email." },
+  ],
 };
 
 export default function WelcomeContent() {
@@ -76,6 +82,11 @@ export default function WelcomeContent() {
                 <div>
                   <div className="font-ui text-base font-bold tracking-[0.5px] uppercase text-ink mb-1">{s.title}</div>
                   <p className="font-body text-[14.5px] text-[#4b4f58] leading-relaxed">{s.desc}</p>
+                  {s.href && s.cta && (
+                    <a href={s.href} target="_blank" rel="noopener" className="btn btn-blue mt-3 inline-block">
+                      {s.cta} &rarr;
+                    </a>
+                  )}
                 </div>
               </div>
             ))}
