@@ -5,7 +5,7 @@ import AssessmentQuiz from "./AssessmentQuiz";
 export const metadata: Metadata = {
   title: "Free Behavior Assessment — Which Dog Do You Have?",
   description:
-    "Take the free 2-minute assessment to discover what's driving your dog's behavior — and what to work on next. 13 questions, personalized results.",
+    "Take the free 2-minute assessment to discover what's driving your dog's behavior — and what to work on next. 12 questions, personalized results.",
   // Quiz funnel draft. Keep out of search while in review.
   robots: { index: false, follow: false },
 };
@@ -49,7 +49,7 @@ export default function FreeBehaviorAssessmentPage() {
             behavior &mdash; and what to work on next.
           </p>
           <p className="font-ui text-[12.5px] font-bold tracking-[1.5px] uppercase text-white/60 mt-5">
-            13 Questions &nbsp;&bull;&nbsp; 2 Minutes &nbsp;&bull;&nbsp; Personalized Results
+            12 Questions &nbsp;&bull;&nbsp; 2 Minutes &nbsp;&bull;&nbsp; Personalized Results
           </p>
         </div>
       </section>
@@ -71,7 +71,7 @@ export default function FreeBehaviorAssessmentPage() {
         </div>
       </div>
 
-      {/* ── 3–5. Question 1 immediately → Q13 → contact gate ── */}
+      {/* ── 3–5. Question 1 immediately → Q12 → contact gate ── */}
       <section className="py-12 max-md:py-8 bg-cream" id="quiz">
         <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <AssessmentQuiz />

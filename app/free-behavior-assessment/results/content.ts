@@ -3,7 +3,7 @@
 // Three real result types. "A mix of several" (Q1 option 4) never gets its own
 // vague page — resolveDogType() routes it to the dominant profile using the
 // behavior problems (Q3), desired outcome (Q6), previous training (Q5) and the
-// off-leash score (Q13).
+// off-leash score (Q12).
 
 export type DogType = "pushy" | "fearful" | "untrained";
 
@@ -27,7 +27,7 @@ export function resolveDogType(input: {
   problems: string[]; // Q3 labels
   previousTraining?: number; // Q5 option, 1-based
   outcome?: number; // Q6 option, 1-based
-  offLeash?: number; // Q13, 1–10
+  offLeash?: number; // Q12, 1–10
 }): DogType {
   const direct = dogTypeFromPrimary(input.primary);
   if (direct) return direct;
@@ -49,7 +49,7 @@ export function resolveDogType(input: {
   if (input.outcome === 1) score.pushy += 1; // basic listening & manners
   if (input.outcome === 2 || input.outcome === 4) score.untrained += 1; // off-leash / anywhere
 
-  // Q5 never trained + Q13 low off-leash score lean "untrained".
+  // Q5 never trained + Q12 low off-leash score lean "untrained".
   if (input.previousTraining === 1) score.untrained += 1;
   if (input.offLeash !== undefined && input.offLeash <= 3) score.untrained += 1;
 

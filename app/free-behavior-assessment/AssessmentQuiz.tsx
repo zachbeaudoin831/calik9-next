@@ -10,7 +10,7 @@ import { DOG_TYPES, SESSION_KEY, resolveDogType, type SessionResult } from "./re
 // Nothing about paid programs or the call is shown inside the assessment.
 const RESULT_BASE = "/free-behavior-assessment/results";
 
-const TOTAL_STEPS = 13;
+const TOTAL_STEPS = 12;
 
 type Step = number | "contact";
 
@@ -92,16 +92,6 @@ const SINGLE_SELECT: Record<number, { eyebrow: string; q: string; sub?: string; 
     q: "What's your budget range for solving this?",
     options: ["Under $200", "$200 – $500", "$500 – $1,500", "Whatever it takes"],
   },
-  12: {
-    eyebrow: "Training Format",
-    q: "Which format interests you most?",
-    options: [
-      "Online, self-paced",
-      "Live online group training",
-      "Structured coaching & accountability calls",
-      "Whatever gets results fastest",
-    ],
-  },
 };
 
 const BEHAVIOR_PROBLEMS = [
@@ -120,21 +110,6 @@ const AGES = [
   "Young (6 months – 2 years)",
   "Adult (2–7 years)",
   "Senior (7+ years)",
-];
-
-const CITIES = [
-  "Miami",
-  "Los Angeles",
-  "New York",
-  "San Francisco",
-  "Atlanta",
-  "Dallas",
-  "Scottsdale",
-  "Seattle",
-  "Nashville",
-  "Chicago",
-  "Not near any of these",
-  "I'm open to traveling",
 ];
 
 const fieldClass =
@@ -273,7 +248,7 @@ export default function AssessmentQuiz() {
       problems,
       previousTraining: answers[5],
       outcome: answers[6],
-      offLeash: answers[13],
+      offLeash: answers[12],
     });
 
     // Personalization for the result page — first name + qualification
@@ -320,8 +295,7 @@ export default function AssessmentQuiz() {
         location,
         timePerWeek: opt(10),
         budget: opt(11),
-        trainingFormat: opt(12),
-        offLeash: answers[13],
+        offLeash: answers[12],
       },
     };
     try {
@@ -490,34 +464,36 @@ export default function AssessmentQuiz() {
         </div>
       )}
 
-      {/* Step 9: location */}
+      {/* Step 9: location (free text, optional) */}
       {step === 9 && (
         <div>
           <div className="font-ui text-[12px] font-bold tracking-[2px] uppercase text-blue-500 mb-2.5">
             Location
           </div>
-          <h3 className="font-display text-[26px] max-md:text-[22px] text-ink leading-tight mb-5">
-            Are you near one of our in-person cities?
+          <h3 className="font-display text-[26px] max-md:text-[22px] text-ink leading-tight mb-1.5">
+            Where are you located?
           </h3>
-          <select
+          <p className="font-body text-[13px] text-gray-muted mb-5">
+            Optional &mdash; so we can point you to in-person options if you&rsquo;re near one.
+          </p>
+          <label className={labelClass} htmlFor="quiz-location">
+            City &amp; state
+          </label>
+          <input
+            id="quiz-location"
             className={`${fieldClass} mb-4`}
+            type="text"
+            autoComplete="address-level2"
+            placeholder="e.g. San Jose, CA"
             value={location}
             onChange={(e) => setLocation(e.target.value)}
-            aria-label="Closest city"
-          >
-            <option value="">Select the closest option</option>
-            {CITIES.map((c) => (
-              <option key={c} value={c}>
-                {c}
-              </option>
-            ))}
-          </select>
+          />
           <ContinueButton onClick={() => goNext(9)} />
         </div>
       )}
 
-      {/* Step 13: off-leash scale */}
-      {step === 13 && (
+      {/* Step 12: off-leash scale */}
+      {step === 12 && (
         <div>
           <div className="font-ui text-[12px] font-bold tracking-[2px] uppercase text-blue-500 mb-2.5">
             Off-Leash Engagement
@@ -535,7 +511,7 @@ export default function AssessmentQuiz() {
               <button
                 key={n}
                 type="button"
-                onClick={() => pick(13, n)}
+                onClick={() => pick(12, n)}
                 className="flex-1 aspect-square flex items-center justify-center border-[1.5px] border-border rounded-lg bg-white font-ui text-[15px] max-md:text-[12px] font-bold text-ink/80 hover:border-blue-500 hover:bg-blue-50 transition-colors cursor-pointer"
               >
                 {n}
@@ -549,7 +525,7 @@ export default function AssessmentQuiz() {
         </div>
       )}
 
-      {/* Contact gate — the only thing between Q13 and the result */}
+      {/* Contact gate — the only thing between Q12 and the result */}
       {step === "contact" && (
         <div>
           <div className="font-ui text-[12px] font-bold tracking-[2px] uppercase text-blue-500 mb-2.5">

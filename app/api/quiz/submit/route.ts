@@ -40,7 +40,6 @@ const FIELD_NAMES: Record<string, string> = {
   location: "Quiz: Location",
   timePerWeek: "Quiz: Time Per Week",
   budget: "Quiz: Budget",
-  trainingFormat: "Quiz: Training Format",
   offLeash: "Quiz: Off-Leash Score (1-10)",
   submittedAt: "Quiz: Submitted At",
   utmSource: "Quiz: UTM Source",
@@ -66,10 +65,9 @@ const QUESTION_LABELS: Record<string, string> = {
   outcome: "What does success look like?",
   ownerExperience: "Dog experience level",
   learningFormat: "How do you like to learn?",
-  location: "Closest city",
+  location: "Location (city & state)",
   timePerWeek: "Time per week",
   budget: "Budget range",
-  trainingFormat: "Training format of interest",
   offLeash: "Off-leash obedience today (1–10)",
 };
 
