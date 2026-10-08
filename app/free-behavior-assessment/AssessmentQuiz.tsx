@@ -195,7 +195,7 @@ export default function AssessmentQuiz() {
   const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [contactError, setContactError] = useState(false);
+  const [contactError, setContactError] = useState<string | null>(null);
   // Inline "required" errors for Q2 (dog's name) and Q3 (at least one problem).
   const [stepError, setStepError] = useState<"dogName" | "problems" | null>(null);
   const [submitting, setSubmitting] = useState(false);
@@ -249,11 +249,18 @@ export default function AssessmentQuiz() {
     const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
     // Full name is required: at least a first and a last name.
     const nameParts = firstName.trim().split(/\s+/).filter(Boolean);
-    if (nameParts.length < 2 || !emailOk) {
-      setContactError(true);
+    // Mobile is required: a 10-digit US number (a leading 1 is fine).
+    const phoneDigits = phone.replace(/\D/g, "");
+    const phoneOk = phoneDigits.length === 10 || (phoneDigits.length === 11 && phoneDigits.startsWith("1"));
+    const missing: string[] = [];
+    if (nameParts.length < 2) missing.push("your full name (first and last)");
+    if (!emailOk) missing.push("a valid email");
+    if (!phoneOk) missing.push("a valid mobile number");
+    if (missing.length) {
+      setContactError(`Please enter ${missing.length === 1 ? missing[0] : missing.slice(0, -1).join(", ") + " and " + missing[missing.length - 1]}.`);
       return;
     }
-    setContactError(false);
+    setContactError(null);
     setSubmitting(true);
 
     // Base pixel (init + PageView) loads globally in the root layout.
@@ -276,7 +283,7 @@ export default function AssessmentQuiz() {
       lastName: nameParts.slice(1).join(" "),
       fullName: nameParts.join(" "),
       email: email.trim(),
-      phone: phone.trim(),
+      phone: phoneDigits.length === 10 ? `+1${phoneDigits}` : `+${phoneDigits}`,
       dogName: dogName.trim(),
       type,
       urgency: opt(4),
@@ -295,7 +302,7 @@ export default function AssessmentQuiz() {
     const payload = {
       name: nameParts.join(" "),
       email: email.trim(),
-      phone: phone.trim(),
+      phone: phoneDigits.length === 10 ? `+1${phoneDigits}` : `+${phoneDigits}`,
       tier: tier(),
       resultType: type,
       attribution: readAttribution(),
@@ -580,12 +587,14 @@ export default function AssessmentQuiz() {
             onChange={(e) => setEmail(e.target.value)}
           />
           <label className={labelClass} htmlFor="quiz-phone">
-            Mobile (for a text copy of your results)
+            Mobile (we&rsquo;ll text you a copy of your results)
           </label>
           <input
             id="quiz-phone"
             className={`${fieldClass} mb-4`}
             type="tel"
+            required
+            inputMode="tel"
             autoComplete="tel"
             placeholder="(555) 555-5555"
             value={phone}
@@ -601,7 +610,7 @@ export default function AssessmentQuiz() {
           </button>
           {contactError && (
             <p className="font-body text-[12.5px] text-red-500 mt-2.5 text-center" role="alert">
-              Please enter your full name (first and last) and a valid email.
+              {contactError}
             </p>
           )}
         </div>
