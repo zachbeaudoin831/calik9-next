@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { CLASSIC_SESSIONS, sessionsFor, type SessionId } from "@/lib/masterclass-sessions";
 
 const FAQS = [
   {
@@ -25,7 +26,7 @@ const FAQS = [
   },
   {
     q: "When is it, and how long does it take?",
-    a: "It's live on Zoom twice a week: Wednesdays at 4:00 PM Pacific / 7:00 PM Eastern and Saturdays at 10:00 AM Pacific / 1:00 PM Eastern. Pick the day that works when you register and we'll send the link and reminders.",
+    a: "", // built from the page's sessions, see scheduleAnswer()
   },
   {
     q: "What if I can't make it live?",
@@ -37,12 +38,21 @@ const FAQS = [
   },
 ];
 
-export default function Faq() {
+const COUNT_WORDS = ["", "once", "twice", "three times", "four times"];
+
+function scheduleAnswer(ids: readonly SessionId[]): string {
+  const parts = sessionsFor(ids).map((x) => `${x.day}s at ${x.label}`);
+  const list = parts.length > 1 ? `${parts.slice(0, -1).join(", ")} and ${parts[parts.length - 1]}` : parts[0];
+  return `It's live on Zoom ${COUNT_WORDS[parts.length] || `${parts.length} times`} a week: ${list}. Pick the day that works when you register and we'll send the link and reminders.`;
+}
+
+export default function Faq({ sessions = CLASSIC_SESSIONS }: { sessions?: readonly SessionId[] }) {
   const [open, setOpen] = useState<number | null>(null);
+  const faqs = FAQS.map((f) => (f.a ? f : { ...f, a: scheduleAnswer(sessions) }));
 
   return (
     <div>
-      {FAQS.map((faq, i) => (
+      {faqs.map((faq, i) => (
         <div key={faq.q} className="border-b border-border">
           <button
             type="button"

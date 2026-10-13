@@ -6,6 +6,7 @@ import EventDate from "./EventDate";
 import Faq from "./Faq";
 import StickyCta from "./StickyCta";
 import { posterFor } from "@/lib/video-poster";
+import { CLASSIC_SESSIONS, dayPhrase, type SessionId } from "@/lib/masterclass-sessions";
 
 // Page order (post-audit, 2026-09-21):
 // Hero + form → Before/after videos → Problem identification → Why current
@@ -260,7 +261,20 @@ function RoadmapMockup() {
   );
 }
 
-export default function Masterclass({ intro }: { intro?: React.ReactNode }) {
+// `registration` replaces the GHL form in the hero (used by
+// /free-masterclass-live for the on-site form). `sessions` controls which
+// live sessions the page advertises; it defaults to the two the GHL form offers.
+export default function Masterclass({
+  intro,
+  registration,
+  sessions = CLASSIC_SESSIONS,
+}: {
+  intro?: React.ReactNode;
+  registration?: React.ReactNode;
+  sessions?: readonly SessionId[];
+}) {
+  const classic = sessions.length === CLASSIC_SESSIONS.length && CLASSIC_SESSIONS.every((d) => sessions.includes(d));
+  const whenPhrase = classic ? "Wednesday evening or Saturday morning" : dayPhrase(sessions);
   return (
     <main>
       {intro}
@@ -308,7 +322,7 @@ export default function Masterclass({ intro }: { intro?: React.ReactNode }) {
                 ))}
               </ul>
 
-              <EventDate />
+              <EventDate sessions={sessions} />
             </div>
 
             <div>
@@ -327,12 +341,14 @@ export default function Masterclass({ intro }: { intro?: React.ReactNode }) {
               </div>
 
               <div id="register" className="scroll-mt-24">
-                <FormEmbed
-                  formId="hZHHQAAWiOEP0ADyInGy"
-                  formName="Webinar Registration"
-                  title="Reserve Your Free Seat"
-                  height={447}
-                />
+                {registration ?? (
+                  <FormEmbed
+                    formId="hZHHQAAWiOEP0ADyInGy"
+                    formName="Webinar Registration"
+                    title="Reserve Your Free Seat"
+                    height={447}
+                  />
+                )}
                 <p className="font-ui text-xs tracking-[1.5px] uppercase text-white/40 text-center mt-3">
                   100% Free &middot; No Credit Card Required
                 </p>
@@ -647,12 +663,12 @@ export default function Masterclass({ intro }: { intro?: React.ReactNode }) {
         <div className="max-w-[1000px] mx-auto px-6 max-[480px]:px-4">
           <div className="text-center mb-10">
             <span className="font-ui text-[14px] font-semibold tracking-[4px] uppercase text-blue-200 block mb-3">
-              Live Masterclass · Wednesdays &amp; Saturdays
+              Live Masterclass · {dayPhrase(sessions, { plural: true, joiner: "&" })}
             </span>
             <h2 className="font-display text-[clamp(28px,4vw,42px)] leading-[0.95] text-white max-w-[760px] mx-auto mb-6">
               ONE HOUR ON ZOOM. A COMPLETELY DIFFERENT WEEK WITH YOUR DOG.
             </h2>
-            <EventDate center />
+            <EventDate center sessions={sessions} />
           </div>
           <div className="grid grid-cols-2 gap-5 max-w-[800px] mx-auto max-md:grid-cols-1">
             {SATURDAY.map((col) => (
@@ -722,7 +738,7 @@ export default function Masterclass({ intro }: { intro?: React.ReactNode }) {
       <section className="py-14 max-md:py-10">
         <div className="max-w-[680px] mx-auto px-6 max-[480px]:px-4">
           <SectionHead title="FREQUENTLY ASKED QUESTIONS" />
-          <Faq />
+          <Faq sessions={sessions} />
         </div>
       </section>
 
@@ -739,11 +755,11 @@ export default function Masterclass({ intro }: { intro?: React.ReactNode }) {
             TRANSFORM YOUR DOG IN JUST 15 MINUTES A DAY
           </h2>
           <p className="font-body text-base lg:text-lg text-white/70 leading-relaxed mb-7 max-w-[560px] mx-auto">
-            Join Jas live this week &mdash; Wednesday evening or Saturday morning &mdash; and leave knowing exactly why your dog does what it does,
+            Join Jas live this week &mdash; {whenPhrase} &mdash; and leave knowing exactly why your dog does what it does,
             and what to work on first.
           </p>
           <div className="mb-8">
-            <EventDate center />
+            <EventDate center sessions={sessions} />
           </div>
           <RegisterCta light />
           <p className="font-ui text-xs tracking-[1.5px] uppercase text-white/40 mt-4">
