@@ -31,10 +31,12 @@ const STEPS = [
 export default function MasterclassThankYouPage() {
   return (
     <main>
-      {/* Meta Pixel: registration event. Base pixel loads in the root layout. */}
+      {/* Meta Pixel: Lead + CompleteRegistration for a masterclass sign-up.
+          The GHL form on /free-masterclass redirects here on submit. Base pixel
+          loads in the root layout. */}
       <Script id="meta-pixel-masterclass-reg" strategy="afterInteractive">
         {`(function fireReg(tries){
-          if (typeof window.fbq === 'function') { window.fbq('track','CompleteRegistration'); }
+          if (typeof window.fbq === 'function') { window.fbq('track','Lead'); window.fbq('track','CompleteRegistration'); }
           else if (tries > 0) { setTimeout(function(){ fireReg(tries - 1); }, 300); }
         })(20);`}
       </Script>
