@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 // Paste the full GHL booking widget URL here (e.g.
 // "https://api.leadconnectorhq.com/widget/booking/<calendarId>"). While null,
 // the section is hidden unless the URL has ?preview=specialist.
-const SPECIALIST_CALENDAR_URL: string | null = null;
+const SPECIALIST_CALENDAR_URL: string | null = "https://api.leadconnectorhq.com/widget/booking/xSOfxXU2ID7QHGuwnKyp";
 
 const STEPS = [
   {

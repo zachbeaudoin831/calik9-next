@@ -28,6 +28,7 @@ type Body = {
   phone?: string;
   ghlContactId?: string; // from GHL's sticky record, logged only
   dog?: { name?: string; breed?: string; age?: string };
+  location?: string;
   answers?: Partial<Record<(typeof INTAKE)[number]["id"], string>>;
   notes?: string;
   source?: string;
@@ -63,10 +64,12 @@ export async function POST(req: Request) {
   });
   const dog = { name: clip(body.dog?.name, 60), breed: clip(body.dog?.breed, 80), age: clip(body.dog?.age, 60) };
   const notes = clip(body.notes, 1500);
+  const location = clip(body.location, 120);
   const source = slug(clip(body.source, 60) || "website");
 
   const summary = [
     `Dog: ${[dog.name, dog.breed, dog.age].filter(Boolean).join(" · ") || "—"}`,
+    `Location: ${location || "—"}`,
     ...INTAKE.map((q) => `${q.q} ${picked.find((p) => p.q.id === q.id)?.label || "—"}`),
     ...(notes ? [`Anything else: ${notes}`] : []),
   ];

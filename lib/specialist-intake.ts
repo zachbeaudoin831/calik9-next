@@ -57,10 +57,12 @@ export const INTAKE: IntakeQuestion[] = [
     q: "What's your budget range for solving this?",
     sub: "So the specialist recommends options that fit.",
     tagPrefix: "bs-budget-",
+    // Labels match the booking calendar's budget radio exactly, so the
+    // answer pre-fills there (see components/SpecialistBooking.tsx).
     options: [
-      { key: "under-200", label: "Under $200" },
-      { key: "200-500", label: "$200 – $500" },
-      { key: "500-1500", label: "$500 – $1,500" },
+      { key: "under-100", label: "Under $100" },
+      { key: "up-to-500", label: "Up to $500" },
+      { key: "1000-2000", label: "$1,000-$2,000" },
       { key: "whatever-it-takes", label: "Whatever it takes" },
     ],
   },

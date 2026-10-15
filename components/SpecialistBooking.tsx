@@ -39,9 +39,13 @@ function readSticky(): Sticky | null {
   }
 }
 
-// Calendar custom-field keys to pre-fill (GHL field keys, verified on the
-// call calendar's form). Keys a calendar doesn't have are simply ignored.
-function calendarSrc(base: string, v: { name: string; email: string; phone: string; dogName: string; breed: string; age: string; behavior: string }) {
+// Calendar fields to pre-fill. Keys are each form field's "hiddenFieldQueryKey"
+// from GHL (backend.leadconnectorhq.com/forms/data/<formId>), verified on the
+// behavior-specialist calendar xSOfxXU2ID7QHGuwnKyp. Unknown keys are ignored.
+function calendarSrc(
+  base: string,
+  v: { name: string; email: string; phone: string; dogName: string; breed: string; age: string; behavior: string; location: string; budget: string },
+) {
   const [first, ...rest] = v.name.trim().split(/\s+/);
   const params: Record<string, string> = {
     first_name: first || "",
@@ -52,6 +56,8 @@ function calendarSrc(base: string, v: { name: string; email: string; phone: stri
     breed: v.breed,
     age_of_your_dog: v.age,
     behavior_description: v.behavior,
+    "where_are_you_located?": v.location,
+    "what's_your_dog_training_budget?": v.budget,
   };
   const url = new URL(base);
   for (const [k, val] of Object.entries(params)) if (val) url.searchParams.set(k, val);
@@ -76,6 +82,7 @@ export default function SpecialistBooking({
   const [dogName, setDogName] = useState("");
   const [breed, setBreed] = useState("");
   const [age, setAge] = useState("");
+  const [location, setLocation] = useState("");
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [notes, setNotes] = useState("");
   const [name, setName] = useState("");
@@ -148,6 +155,7 @@ export default function SpecialistBooking({
           ...contact,
           ghlContactId: sticky?.id || sticky?.customer_id,
           dog: { name: dogName, breed, age },
+          location,
           answers,
           notes,
           source,
@@ -165,6 +173,8 @@ export default function SpecialistBooking({
           dogName: dogName.trim(),
           breed: breed.trim(),
           age,
+          location: location.trim(),
+          budget: INTAKE.find((q) => q.id === "budget")?.options.find((o) => o.key === answers.budget)?.label || "",
           behavior: [struggle && struggle.key !== "other" ? struggle.label : "", notes.trim()].filter(Boolean).join(". "),
         }),
       );
@@ -237,15 +247,20 @@ export default function SpecialistBooking({
                 <label className={labelClass} htmlFor="bs-breed">Breed (or closest match)</label>
                 <input id="bs-breed" className={`${fieldClass} mb-3.5`} type="text" placeholder="e.g. German Shepherd, mixed breed" value={breed} onChange={(e) => setBreed(e.target.value)} />
                 <label className={labelClass} htmlFor="bs-age">Age</label>
-                <select id="bs-age" className={`${fieldClass} mb-5`} value={age} onChange={(e) => setAge(e.target.value)}>
+                <select id="bs-age" className={`${fieldClass} mb-3.5`} value={age} onChange={(e) => setAge(e.target.value)}>
                   <option value="">Select age range</option>
                   {DOG_AGES.map((a) => <option key={a} value={a}>{a}</option>)}
                 </select>
+                <label className={labelClass} htmlFor="bs-location">Where are you located?</label>
+                <input id="bs-location" className={`${fieldClass} mb-5`} type="text" autoComplete="address-level2" placeholder="City, State" value={location} onChange={(e) => setLocation(e.target.value)} />
                 <button
                   type="button"
                   className="btn btn-blue w-full"
                   onClick={() => {
-                    if (!dogName.trim()) { setError("Please enter your dog's name."); return; }
+                    if (!dogName.trim() || !location.trim()) {
+                      setError(!dogName.trim() ? "Please enter your dog's name." : "Please enter your city and state.");
+                      return;
+                    }
                     setError(null);
                     setStep(0);
                   }}
