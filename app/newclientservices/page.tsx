@@ -40,6 +40,18 @@ const NEW_CLIENT_CARDS = [
     imageAlt: "Certified Cali K9 trainer working with a dog in person",
     imagePosition: "center center",
   },
+  {
+    tag: "Los Angeles Only · Most Intensive",
+    name: "BOARD\n& TRAIN",
+    desc: "Your dog lives with us while we build the foundation. Deep obedience, behavior modification, lifetime support. Now in Los Angeles only.",
+    href: "/board-and-train",
+    bg: "linear-gradient(160deg, #04060F, #080C25, #0D1640)",
+    image: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/67c270a01e6df2ebba9219d2.png",
+    imageAlt: "Cali K9 Board & Train residential dog training facility",
+    imagePosition: "center 65%",
+    imageScale: 1.4,
+    imageOrigin: "center 65%",
+  },
 ];
 
 const RETURNING_CLIENT_CARDS = [
