@@ -16,6 +16,9 @@ import { DOG_AGES, INTAKE } from "@/lib/specialist-intake";
 // (GHL booking widgets pre-fill from query params: standard fields plus custom
 // fields by key), so nobody types anything twice.
 //
+// Budget gate: answering "Under $100" or "Up to $500" to the budget question
+// skips the calendar and points to the Online Academy menu instead (see LOW_BUDGET_KEYS).
+//
 // Renders nothing until `calendarUrl` is set, except with ?preview=specialist
 // in the URL, so the flow can be reviewed on the live page before launch.
 
@@ -23,7 +26,34 @@ const LOCATION_ID = "9RVPGbjB6dCgPVsRbKEE";
 const STICKY_KEY = "_ud";
 
 type Sticky = { id?: string; customer_id?: string; full_name?: string; first_name?: string; last_name?: string; email?: string; phone?: string; location_id?: string };
-type Step = "dog" | number | "final" | "calendar";
+type Step = "dog" | number | "final" | "calendar" | "bundle";
+
+// Budget answers below $500: every specialist-recommended program is over
+// $500, so these visitors go to the Online Academy menu instead of the
+// calendar. Keys come from the "budget" question in lib/specialist-intake.
+const LOW_BUDGET_KEYS = ["under-100", "up-to-500"];
+const ACADEMY_MENU_URL = "/academy-menu";
+const QUIZ_SESSION_KEY = "ck9-assessment";
+
+// Contact details we already have without asking: GHL's sticky record first,
+// then the Free Behavior Assessment session in this tab.
+function knownContact(sticky: Sticky | null): { name: string; email: string; phone: string } | null {
+  if (sticky?.email) {
+    return {
+      name: sticky.full_name || [sticky.first_name, sticky.last_name].filter(Boolean).join(" "),
+      email: sticky.email,
+      phone: sticky.phone || "",
+    };
+  }
+  try {
+    const raw = window.sessionStorage.getItem(QUIZ_SESSION_KEY);
+    const q = raw ? (JSON.parse(raw) as { fullName?: string; firstName?: string; email?: string; phone?: string }) : null;
+    if (q?.email) return { name: q.fullName || q.firstName || "", email: q.email, phone: q.phone || "" };
+  } catch {
+    // no quiz session
+  }
+  return null;
+}
 
 const fieldClass =
   "w-full font-body text-[15px] text-ink bg-white border-[1.5px] border-border rounded-lg px-4 py-3 outline-none focus:border-blue-500 transition-colors";
@@ -125,6 +155,29 @@ export default function SpecialistBooking({
   const total = INTAKE.length + 2; // dog + questions + final
   const stepNum = step === "dog" ? 1 : typeof step === "number" ? step + 2 : total;
 
+  // Save the answers to the visitor's GHL contact (note + bs-* tags).
+  const sendIntake = (contact: { name: string; email: string; phone: string }, picked: Record<string, string>) => {
+    try {
+      fetch("/api/specialist/intake", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        keepalive: true,
+        body: JSON.stringify({
+          ...contact,
+          ghlContactId: sticky?.id || sticky?.customer_id,
+          dog: { name: dogName, breed, age },
+          location,
+          answers: picked,
+          notes,
+          source,
+          website,
+        }),
+      }).catch(() => {});
+    } catch {
+      // never block the visitor
+    }
+  };
+
   const finish = () => {
     let contact = { name: "", email: "", phone: "" };
     if (sticky) {
@@ -146,25 +199,7 @@ export default function SpecialistBooking({
       contact = { name: name.trim(), email: email.trim(), phone: digits.length === 10 ? `+1${digits}` : `+${digits}` };
     }
     setError(null);
-    try {
-      fetch("/api/specialist/intake", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        keepalive: true,
-        body: JSON.stringify({
-          ...contact,
-          ghlContactId: sticky?.id || sticky?.customer_id,
-          dog: { name: dogName, breed, age },
-          location,
-          answers,
-          notes,
-          source,
-          website,
-        }),
-      }).catch(() => {});
-    } catch {
-      // never block the calendar
-    }
+    sendIntake(contact, answers);
     if (calendarUrl) {
       const struggle = INTAKE[0].options.find((o) => o.key === answers.struggle);
       setCalendarLink(
@@ -225,7 +260,7 @@ export default function SpecialistBooking({
               &times;
             </button>
 
-            {step !== "calendar" && (
+            {step !== "calendar" && step !== "bundle" && (
               <>
                 <div className="flex justify-between font-ui text-[11px] font-bold tracking-[1px] uppercase text-gray-muted mb-2 pr-10">
                   <span>Step {stepNum} of {total}</span>
@@ -284,7 +319,16 @@ export default function SpecialistBooking({
                         key={o.key}
                         type="button"
                         onClick={() => {
-                          setAnswers((a) => ({ ...a, [q.id]: o.key }));
+                          const next = { ...answers, [q.id]: o.key };
+                          setAnswers(next);
+                          if (q.id === "budget" && LOW_BUDGET_KEYS.includes(o.key)) {
+                            // Under $500: no booking. Keep their answers in GHL when we
+                            // already know who they are, then point to the Academy menu.
+                            const contact = knownContact(sticky);
+                            if (contact) sendIntake(contact, next);
+                            setStep("bundle");
+                            return;
+                          }
                           setStep((step as number) < INTAKE.length - 1 ? (step as number) + 1 : "final");
                         }}
                         className={`w-full flex items-center gap-3 text-left px-4 py-3.5 border-[1.5px] rounded-xl font-body text-[15px] font-medium transition-colors cursor-pointer ${
@@ -337,6 +381,52 @@ export default function SpecialistBooking({
               </div>
             )}
 
+            {step === "bundle" && (
+              <div className="text-center pr-8 max-md:pr-0">
+                <div className="font-ui text-[12px] font-bold tracking-[2px] uppercase text-blue-500 mb-2">
+                  A Better Place To Start
+                </div>
+                <h3 className="font-display text-[28px] max-md:text-[23px] text-ink leading-tight mb-3">
+                  Our coaching packages start at over $500
+                </h3>
+                <p className="font-body text-[15px] text-gray-muted leading-relaxed mb-6">
+                  Every program our behavior specialists recommend is above $500, so a specialist call
+                  isn&rsquo;t the right fit for your budget yet. The good news: you can start the exact
+                  same system online today, for a fraction of that.
+                </p>
+                <div className="text-left bg-cream border border-border rounded-xl p-5 mb-6">
+                  <div className="flex items-baseline justify-between gap-3 mb-2">
+                    <span className="font-display text-[20px] text-ink leading-tight">Cali K9 Online Academy</span>
+                    <span className="font-display text-[20px] text-blue-500 shrink-0">
+                      $97<span className="font-body text-[13px] text-gray-muted">/mo</span>
+                    </span>
+                  </div>
+                  <p className="font-body text-[14px] text-ink/80 leading-relaxed mb-3">
+                    The complete Cali K9 5 Pillar, 50-Step System&trade; at your own pace &mdash; all 8 modules,
+                    taught by Jas.
+                  </p>
+                  <ul className="flex flex-col gap-1.5 font-body text-[13.5px] text-ink/80">
+                    {["Full training video library", "Weekly live training with Jas", "Cancel anytime, no long-term contract"].map((t) => (
+                      <li key={t} className="flex gap-2">
+                        <span className="text-blue-500 font-bold shrink-0">&#10003;</span>
+                        {t}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <a href={ACADEMY_MENU_URL} className="btn btn-blue btn-lg w-full">
+                  See The Online Academy Options &rarr;
+                </a>
+                <button
+                  type="button"
+                  onClick={() => setStep(INTAKE.length - 1)}
+                  className="block mx-auto font-body text-[12.5px] text-gray-muted underline mt-4 cursor-pointer bg-transparent border-none"
+                >
+                  &larr; Change my budget answer
+                </button>
+              </div>
+            )}
+
             {step === "calendar" && (
               <div>
                 <div className="text-center mb-5 pr-8 max-md:pr-0">
@@ -353,11 +443,11 @@ export default function SpecialistBooking({
               </div>
             )}
 
-            {error && step !== "calendar" && (
+            {error && step !== "calendar" && step !== "bundle" && (
               <p className="font-body text-[12.5px] text-red-500 mt-3 text-center" role="alert">{error}</p>
             )}
 
-            {step !== "dog" && step !== "calendar" && (
+            {step !== "dog" && step !== "calendar" && step !== "bundle" && (
               <button
                 type="button"
                 onClick={() => {
