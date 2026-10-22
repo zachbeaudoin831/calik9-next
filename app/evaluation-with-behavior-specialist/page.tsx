@@ -274,13 +274,13 @@ export default function EvaluationPage() {
                 above the cart (between intro and sidebar stacking order). */}
             <video
               className="w-full rounded-xl block mb-6 bg-black"
-              poster="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/67cf3c0717e9d95dac991999.png"
+              poster="/images/funnel/posters/6ada4a23ac05a0d91fca5d54.jpg"
               controls
               playsInline
               preload="metadata"
             >
               <source
-                src="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/67d1be3a9138277227e87326.mp4"
+                src="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6ada4a23ac05a0d91fca5d54.mp4"
                 type="video/mp4"
               />
             </video>
