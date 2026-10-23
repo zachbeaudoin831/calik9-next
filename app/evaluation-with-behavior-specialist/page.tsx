@@ -7,6 +7,7 @@ import PackageHeading from "@/components/PackageHeading";
 import FormEmbed from "@/components/FormEmbed";
 import CelebGrid from "@/components/CelebGrid";
 import CtaBlock from "@/components/CtaBlock";
+import WebinarPromo from "@/components/WebinarPromo";
 
 export const metadata: Metadata = {
   title: "Dog Behavior Evaluation",
@@ -572,10 +573,12 @@ export default function EvaluationPage() {
       {/* ── Final CTA ── */}
       <CtaBlock
         eyebrow="15 Years. 10,000+ Dogs."
-        heading="READY TO START?"
+        heading="YOUR PERFECT DOG IS JUST ONE EVALUATION AWAY"
         description="In 15 years and 10,000+ evaluations, our team has yet to encounter a dog they couldn&rsquo;t help."
         primaryCta={{ label: "Book My Evaluation \u2014 $27 \u2192", href: "#main-content" }}
       />
+
+      <WebinarPromo />
     </main>
   );
 }

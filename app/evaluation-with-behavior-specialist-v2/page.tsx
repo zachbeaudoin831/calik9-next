@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import FormEmbed from "@/components/FormEmbed";
+import WebinarPromo from "@/components/WebinarPromo";
 
 /* ── Modal ── */
 function BookingModal({ onClose }: { onClose: () => void }) {
@@ -593,6 +594,8 @@ export default function EvaluationV2Page() {
           </p>
         </div>
       </div>
+
+      <WebinarPromo />
 
       {/* ════════════ FOOTER ════════════ */}
       <footer className="bg-white border-t border-gray-200 text-center py-8 px-6">
