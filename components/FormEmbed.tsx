@@ -9,6 +9,9 @@ interface FormEmbedProps {
   formName: string;
   title: string;
   height?: number;
+  // GHL multi-step survey instead of a form. form_embed.js resizes it to fit
+  // each step, so `height` is only the initial size.
+  survey?: boolean;
 }
 
 const subscribeNoop = () => () => {};
@@ -45,7 +48,7 @@ function prefillParams(raw: string | null): string {
   }
 }
 
-export default function FormEmbed({ formId, formName, title, height = 896 }: FormEmbedProps) {
+export default function FormEmbed({ formId, formName, title, height = 896, survey = false }: FormEmbedProps) {
   // Server snapshot is null so SSR and hydration match; the iframe itself is
   // only rendered on the client so it loads once, with the prefill in place.
   const raw = useSyncExternalStore(subscribeNoop, readQuizSession, () => null);
@@ -54,14 +57,26 @@ export default function FormEmbed({ formId, formName, title, height = 896 }: For
     () => true,
     () => false,
   );
-  const src = `https://api.leadconnectorhq.com/widget/form/${formId}${prefillParams(raw)}`;
+  const src = `https://api.leadconnectorhq.com/widget/${survey ? "survey" : "form"}/${formId}${prefillParams(raw)}`;
 
   return (
     <div className="bg-white/[0.07] border border-white/[0.15] rounded-xl p-7">
       <div className="font-ui text-base font-bold tracking-[2px] uppercase text-white/85 mb-2">
         {title}
       </div>
-      {mounted ? (
+      {mounted && survey ? (
+        <iframe
+          src={src}
+          id={formId}
+          data-form-id={formId}
+          title={formName}
+          scrolling="no"
+          loading="eager"
+          allow="payment *"
+          className="w-full border-none rounded-sm block overflow-hidden"
+          style={{ height: `${height}px` }}
+        />
+      ) : mounted ? (
         <iframe
           src={src}
           id={`inline-${formId}`}

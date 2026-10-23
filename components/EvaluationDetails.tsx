@@ -8,7 +8,7 @@ const INCLUDES = [
   "The Cali K9 Starter Course Bundle, included at no extra charge",
 ];
 
-// What the $27 phone evaluation is and includes. Sits directly under the
+// What the phone evaluation is and includes. Sits directly under the
 // evaluation pages' hero; the CTA scrolls back up to the booking form.
 export default function EvaluationDetails() {
   return (
@@ -31,7 +31,7 @@ export default function EvaluationDetails() {
 
         <div className="bg-cream border border-black/[0.06] rounded-2xl p-9 max-[480px]:p-6">
           <div className="font-ui text-[15px] font-bold tracking-[2px] uppercase text-ink mb-5">
-            Your $27 evaluation includes:
+            Your evaluation includes:
           </div>
           <ul className="list-none p-0 m-0 flex flex-col gap-3.5 mb-8">
             {INCLUDES.map((item) => (
@@ -42,7 +42,7 @@ export default function EvaluationDetails() {
             ))}
           </ul>
           <Link href="#main-content" className="btn btn-gold btn-lg w-full">
-            Book My Phone Evaluation &mdash; $27
+            Book My Phone Evaluation
           </Link>
           <p className="font-ui text-[13px] font-semibold tracking-[1px] uppercase text-gray-muted text-center mt-4">
             30 minutes &bull; By phone &bull; With Jas or Jay &bull; Starter course bundle included
