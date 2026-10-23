@@ -7,7 +7,6 @@ import PackageHeading from "@/components/PackageHeading";
 import FormEmbed from "@/components/FormEmbed";
 import CelebGrid from "@/components/CelebGrid";
 import WebinarPromo from "@/components/WebinarPromo";
-import EvaluationDetails from "@/components/EvaluationDetails";
 
 export const metadata: Metadata = {
   title: "Dog Behavior Evaluation",
@@ -43,11 +42,11 @@ const BEHAVIOR_PILLS = [
 ];
 
 const CHECKLIST = [
-  "In-Depth Behavioral Assessment",
-  "Custom Training Roadmap",
-  "All Breeds Welcome",
-  "Results Guaranteed",
-  "As Seen on Netflix\u2019s Canine Intervention",
+  "A phone conversation with Jas or Jay about your dog\u2019s behavior and history",
+  "Clear training priorities based on the concerns you share",
+  "A personalized training roadmap and program recommendation",
+  "Practical next steps to begin working on",
+  "The Cali K9 Starter Course Bundle, included at no extra charge",
 ];
 
 const PROCESS_STEPS = [
@@ -316,20 +315,21 @@ export default function EvaluationPage() {
           </div>
         </div>
 
-        {/* Checklist */}
-        <div className="flex flex-col gap-2.5 mb-2">
+        {/* What the evaluation includes */}
+        <div className="font-ui text-xs font-bold tracking-[2px] uppercase text-white/45 mb-3">
+          Your evaluation includes:
+        </div>
+        <div className="flex flex-col gap-3 mb-2">
           {CHECKLIST.map((item) => (
             <div
               key={item}
-              className="flex items-center gap-2.5 font-ui text-base font-semibold tracking-[0.5px] text-white/85"
+              className="flex items-start gap-2.5 font-ui text-base font-semibold tracking-[0.5px] leading-snug text-white/85"
             >
-              <span className="text-green-500 text-xl">&#10003;</span> {item}
+              <span className="text-green-500 text-xl leading-none">&#10003;</span> {item}
             </div>
           ))}
         </div>
       </ServiceHero>
-
-      <EvaluationDetails />
 
       {/* ── What to Expect ── */}
       <section className="py-20 max-md:py-12 max-[480px]:py-8">
