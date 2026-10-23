@@ -270,8 +270,8 @@ export default function EvaluationPage() {
             />
           </>
         }
-        intro={
-          <>
+        top={
+          <div className="text-center">
             {/* Badge */}
             <div className="mb-4">
               <span className="inline-flex items-center gap-2 bg-white/[0.12] border border-white/[0.22] text-white font-ui text-base font-bold tracking-[0.08em] uppercase px-[18px] py-2 rounded-full backdrop-blur-md">
@@ -279,20 +279,19 @@ export default function EvaluationPage() {
               </span>
             </div>
 
-            <h1 className="font-display text-[clamp(40px,4.6vw,58px)] max-md:text-[clamp(42px,11vw,58px)] text-white leading-[0.93] mb-5">
+            <h1 className="font-display text-[clamp(40px,4.6vw,64px)] max-md:text-[clamp(42px,11vw,58px)] text-white leading-[0.93] mb-4">
               YOUR PERFECT DOG IS JUST <span className="text-white/50">ONE EVALUATION AWAY</span>
             </h1>
 
-            <p className="font-body text-base text-white/70 leading-relaxed mb-6">
+            <p className="font-body text-base text-white/70 leading-relaxed max-w-[640px] mx-auto mb-8">
               Book a 30-minute phone evaluation with Jas or Jay to discuss your
               dog&rsquo;s behavior, understand their training needs, and get a
               personalized roadmap for your next steps.
             </p>
 
-            {/* Hero video. Placed in the intro so on mobile it appears
-                above the cart (between intro and sidebar stacking order). */}
+            {/* Hero video — full width across the top of the page. */}
             <video
-              className="w-full rounded-xl block mb-6 bg-black"
+              className="w-full rounded-2xl block bg-black shadow-[0_24px_60px_rgba(0,0,0,0.35)]"
               poster="/images/funnel/posters/6ada4a23ac05a0d91fca5d54.jpg"
               controls
               playsInline
@@ -303,7 +302,7 @@ export default function EvaluationPage() {
                 type="video/mp4"
               />
             </video>
-          </>
+          </div>
         }
       >
         {/* We address pills */}

@@ -4,9 +4,11 @@ interface ServiceHeroProps {
   children: ReactNode;
   sidebar: ReactNode;
   intro?: ReactNode;
+  /** Full-width block above the two-column grid (e.g. a large hero video). */
+  top?: ReactNode;
 }
 
-export default function ServiceHero({ children, sidebar, intro }: ServiceHeroProps) {
+export default function ServiceHero({ children, sidebar, intro, top }: ServiceHeroProps) {
   return (
     <section className="relative overflow-hidden" style={{ background: "linear-gradient(135deg, #122E85 0%, #122E85 50%, #1A3FAB 100%)" }}>
       {/* Grid overlay */}
@@ -27,7 +29,12 @@ export default function ServiceHero({ children, sidebar, intro }: ServiceHeroPro
         aria-hidden="true"
       />
       <div className="max-w-[1200px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 relative z-[1]">
-        <div className="service-hero-grid gap-x-12 items-start pb-20 max-[900px]:gap-y-10" style={{ paddingTop: 'calc(var(--banner-h, 40px) + 88px)' }}>
+        {top && (
+          <div className="pb-12 max-md:pb-8" style={{ paddingTop: 'calc(var(--banner-h, 40px) + 88px)' }}>
+            {top}
+          </div>
+        )}
+        <div className="service-hero-grid gap-x-12 items-start pb-20 max-[900px]:gap-y-10" style={top ? undefined : { paddingTop: 'calc(var(--banner-h, 40px) + 88px)' }}>
           <div className="service-hero-left">
             {intro && <div className="service-hero-intro">{intro}</div>}
             <div className="service-hero-body">{children}</div>
