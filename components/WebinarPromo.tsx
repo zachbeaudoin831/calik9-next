@@ -52,7 +52,7 @@ export default function WebinarPromo() {
         <p className="font-body text-[15px] text-white/60 mb-8">
           Next class: <b className="text-white">{next.date}</b> &middot; {next.time}
         </p>
-        <Link href="/free-masterclass" className="btn btn-gold btn-lg max-[480px]:w-full">
+        <Link href="/free-masterclass" className="btn btn-white btn-lg max-[480px]:w-full">
           Save My Free Seat <span className="ml-2 relative -top-[2.5px] leading-none">&rarr;</span>
         </Link>
       </div>

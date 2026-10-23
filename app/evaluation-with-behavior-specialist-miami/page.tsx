@@ -7,6 +7,7 @@ import PackageHeading from "@/components/PackageHeading";
 import FormEmbed from "@/components/FormEmbed";
 import CelebGrid from "@/components/CelebGrid";
 import WebinarPromo from "@/components/WebinarPromo";
+import EvaluationDetails from "@/components/EvaluationDetails";
 
 export const metadata: Metadata = {
   title: "Dog Behavior Evaluation",
@@ -58,7 +59,7 @@ const PROCESS_STEPS = [
   {
     num: 2,
     title: "YOUR EVALUATION",
-    desc: "A 20 minute deep dive into your dog\u2019s behavior. A Cali K9 expert conducts a thorough behavioral assessment and then gives a professional recommendation to help you find solutions.",
+    desc: "A 30-minute phone call with Jas or Jay about your dog\u2019s behavior, history, and daily routines, ending with clear training priorities and a professional recommendation.",
   },
   {
     num: 3,
@@ -151,15 +152,31 @@ const REVIEWS = [
 const FAQ_ITEMS = [
   {
     q: "What does the evaluation include?",
-    a: "The evaluation is a thorough behavioral assessment conducted by a Cali K9 expert. You\u2019ll leave with a clear picture of your dog\u2019s root behaviors, a custom training roadmap, and a program recommendation tailored to your dog\u2019s needs and your schedule.",
+    a: "A 30-minute phone conversation with Jas or Jay about your dog\u2019s behavior and history. You\u2019ll come away with clear training priorities, a personalized training roadmap and program recommendation, practical next steps, and the Cali K9 Starter Course Bundle at no extra charge.",
   },
   {
     q: "How long does the evaluation take?",
-    a: "A standard evaluation is 20 minutes. We never rush an evaluation.",
+    a: "Your evaluation is a 30-minute phone call. We never rush an evaluation.",
   },
   {
-    q: "Will Jas personally do my evaluation?",
-    a: "Due to demand, Jas personally handles complex cases, while his trained specialists conduct standard evaluations. Every Cali K9 evaluator is trained in Jas\u2019s exact method to the same high standard.",
+    q: "Who will conduct my evaluation?",
+    a: "Your phone evaluation will be conducted by Jas or Jay. You\u2019ll discuss your dog\u2019s behavior, your biggest challenges, and what you\u2019d like to improve.",
+  },
+  {
+    q: "Will I speak with both Jas and Jay?",
+    a: "Your evaluation will be with Jas or Jay.",
+  },
+  {
+    q: "Does my dog need to attend in person?",
+    a: "No travel is needed. Your evaluation happens over the phone. Jas or Jay will ask questions about your dog\u2019s behavior, history, and daily routines to understand your concerns and recommend next steps.",
+  },
+  {
+    q: "What can you assess over the phone?",
+    a: "The conversation focuses on the behaviors you describe, when they happen, and what you\u2019ve already tried. Based on that information, Jas or Jay will help establish training priorities and recommend an appropriate next step. If further observation is needed, they can explain what that involves.",
+  },
+  {
+    q: "How should I prepare?",
+    a: "Choose a quiet place for the call. Have a few examples ready of the behaviors you want help with, including when they happen and how your dog responds. Bring your questions and share any previous training experience.",
   },
   {
     q: "What if I can\u2019t afford the training programs?",
@@ -260,8 +277,9 @@ export default function EvaluationPage() {
             </h1>
 
             <p className="font-body text-base text-white/70 leading-relaxed mb-6">
-              A direct consultation with a Cali K9 expert &mdash; to assess your
-              dog&rsquo;s behavioral needs and build a custom roadmap to fix them.
+              Book a 30-minute phone evaluation with Jas or Jay to discuss your
+              dog&rsquo;s behavior, understand their training needs, and get a
+              personalized roadmap for your next steps.
             </p>
 
             {/* Hero video. Placed in the intro so on mobile it appears
@@ -310,6 +328,8 @@ export default function EvaluationPage() {
           ))}
         </div>
       </ServiceHero>
+
+      <EvaluationDetails />
 
       {/* ── What to Expect ── */}
       <section className="py-20 max-md:py-12 max-[480px]:py-8">
@@ -362,7 +382,7 @@ export default function EvaluationPage() {
             </p>
             <Link
               href="#main-content"
-              className="btn btn-blue"
+              className="btn btn-gold"
             >
               Book Your Evaluation &mdash; $27
             </Link>
