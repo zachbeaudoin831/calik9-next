@@ -285,13 +285,13 @@ export default function EvaluationPage() {
             {/* Hero video — full width across the top of the page. */}
             <video
               className="w-full rounded-2xl block bg-black shadow-[0_24px_60px_rgba(0,0,0,0.35)]"
-              poster="/images/funnel/posters/6adbed70651cc02cde2c2b78.jpg"
+              poster="/images/funnel/posters/6adbf1f8c9d5b7168d43a344.jpg"
               controls
               playsInline
               preload="metadata"
             >
               <source
-                src="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6adbed70651cc02cde2c2b78.mp4"
+                src="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6adbf1f8c9d5b7168d43a344.mp4"
                 type="video/mp4"
               />
             </video>
