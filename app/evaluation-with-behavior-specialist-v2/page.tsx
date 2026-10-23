@@ -119,13 +119,13 @@ export default function EvaluationV2Page() {
           </div>
           <video
             className="w-full rounded-xl block mb-8 bg-black"
-            poster="/images/funnel/posters/6ada4a23ac05a0d91fca5d54.jpg"
+            poster="/images/funnel/posters/6adbed70651cc02cde2c2b78.jpg"
             controls
             playsInline
             preload="metadata"
           >
             <source
-              src="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6ada4a23ac05a0d91fca5d54.mp4"
+              src="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6adbed70651cc02cde2c2b78.mp4"
               type="video/mp4"
             />
           </video>
