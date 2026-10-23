@@ -81,7 +81,7 @@ const PLANS = [
     items: [
       "Lifetime Cali K9 Academy — every future update included",
       "12 months of VIP coaching & WhatsApp access",
-      "8 Train With Jas sessions",
+      "Unlimited Train With Jas coaching sessions",
       "Priority video feedback",
       "Advanced workshops & lifetime All Access community",
       "Preferred member pricing & Turbo Treats bonus",
@@ -95,7 +95,7 @@ const COMPARE: { label: string; values: [string, string, string, string] }[] = [
   { label: "50-Step Roadmap™ & all 8 modules", values: ["✓", "✓", "✓", "✓ For life"] },
   { label: "Saturday live training with Jas", values: ["✓", "✓", "✓", "✓"] },
   { label: "Private member community", values: ["✓", "✓", "✓", "✓ Lifetime All Access community"] },
-  { label: "Train With Jas coaching sessions", values: ["—", "4 sessions", "8 sessions", "8 sessions"] },
+  { label: "Train With Jas coaching sessions", values: ["—", "4 sessions", "8 sessions", "Unlimited"] },
   { label: "Video review & personal feedback", values: ["—", "✓", "✓ Priority", "✓ Priority"] },
   { label: "Private WhatsApp support", values: ["—", "—", "✓ Within 24 hours", "✓ 12 months"] },
   { label: "Training Kit", values: ["Optional add-on", "Optional add-on", "Included", "Turbo Treats bonus"] },

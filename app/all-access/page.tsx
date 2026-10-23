@@ -6,7 +6,7 @@ import PaymentPlansSection from "@/components/PaymentPlansSection";
 export const metadata: Metadata = {
   title: "Cali K9 All Access — $4,997",
   description:
-    "Lifetime access to the complete Cali K9 Academy plus 12 months of VIP coaching and 8 Train With Jas sessions. One-time payment of $4,997.",
+    "Lifetime access to the complete Cali K9 Academy plus 12 months of VIP coaching and unlimited Train With Jas coaching sessions. One-time payment of $4,997.",
   // Funnel page. Keep out of search while in review.
   robots: { index: false, follow: false },
 };
@@ -46,10 +46,10 @@ const INCLUDED = [
   },
   {
     title: "Train With Jas",
-    tag: "8 Sessions",
+    tag: "Unlimited",
     highlight: true,
     items: [
-      "8 Train With Jas sessions",
+      "Unlimited Train With Jas coaching sessions",
       "Live coaching",
       "Behavior troubleshooting",
       "Training feedback",
@@ -124,7 +124,7 @@ const INCLUDED = [
 const VALUE_STACK = [
   { item: "Lifetime Cali K9 Academy", value: "$4,997" },
   { item: "12 Months VIP Coaching", value: "$5,000" },
-  { item: "8 Train With Jas Sessions", value: "$4,000" },
+  { item: "Unlimited Train With Jas Coaching Sessions", value: "$4,000" },
   { item: "Lifetime All Access Community", value: "$2,500" },
   { item: "Priority Video Feedback", value: "$1,500" },
   { item: "Advanced Workshops", value: "$1,000+" },
@@ -133,7 +133,7 @@ const VALUE_STACK = [
 
 const YES_ITEMS = [
   "You want the Academy for the life of your dog — and every dog after — with no monthly fee",
-  "You want a full year of Jas and the team involved: WhatsApp, priority feedback, and 8 live sessions",
+  "You want a full year of Jas and the team involved: WhatsApp, priority feedback, and unlimited live sessions",
   "You're working through reactivity, aggression, or anxiety and want the advanced workshops on top of the roadmap",
   "You'd rather make one decision now than upgrade tier by tier",
   "You want first access and preferred pricing on everything Cali K9 does next",
@@ -148,7 +148,7 @@ const NO_ITEMS = [
 const PRICE_LIST = [
   "Lifetime Cali K9 Academy — all 8 modules, 6 Universities, every future update",
   "12 months of VIP coaching and WhatsApp access",
-  "8 Train With Jas sessions",
+  "Unlimited Train With Jas coaching sessions",
   "Priority video feedback",
   "Lifetime All Access community",
   "Advanced workshops",
@@ -159,23 +159,23 @@ const PRICE_LIST = [
 const FAQS = [
   {
     q: "What does “lifetime” actually mean?",
-    a: "Your access to the Cali K9 Academy — the 50-Step Roadmap™, all 8 modules, the 6 Universities, the video library, and every future core curriculum update — never expires and never has a monthly fee. The same goes for the All Access community. The VIP coaching, WhatsApp access, and the 8 Train With Jas sessions run for 12 months from the day you join.",
+    a: "Your access to the Cali K9 Academy — the 50-Step Roadmap™, all 8 modules, the 6 Universities, the video library, and every future core curriculum update — never expires and never has a monthly fee. The same goes for the All Access community. The VIP coaching, WhatsApp access, and unlimited Train With Jas coaching sessions run for 12 months from the day you join.",
   },
   {
     q: "Is this a subscription?",
     a: "No. All Access is a one-time payment of $4,997 — not a recurring membership, and nothing renews.",
   },
   {
-    q: "How do the 8 Train With Jas sessions work?",
-    a: "Each session is live coaching with Jas — behavior troubleshooting, training feedback, video breakdowns, and progress reviews on your dog. Your 8 sessions are usable across your 12 months of VIP coaching, with priority booking. Cancel or reschedule at least 24 hours ahead to keep a session; cancellations inside 24 hours or no-shows count as used.",
+    q: "How do the unlimited Train With Jas sessions work?",
+    a: "Each session is live coaching with Jas — behavior troubleshooting, training feedback, video breakdowns, and progress reviews on your dog. There is no session cap: book as many as you like across your 12 months of VIP coaching, with priority booking. Please cancel or reschedule at least 24 hours ahead.",
   },
   {
     q: "What's the difference between VIP and All Access?",
-    a: "VIP gives you 12 months of Academy access with 8 Train With Jas sessions and the WhatsApp group. All Access keeps the same 12 months of VIP-level coaching and adds lifetime Academy access, the lifetime All Access community, priority video feedback, the advanced workshops, preferred member benefits, and the Turbo Treats bonus.",
+    a: "VIP gives you 12 months of Academy access with 8 Train With Jas sessions and the WhatsApp group. All Access keeps the same 12 months of VIP-level coaching, makes Train With Jas coaching sessions unlimited, and adds lifetime Academy access, the lifetime All Access community, priority video feedback, the advanced workshops, preferred member benefits, and the Turbo Treats bonus.",
   },
   {
     q: "What happens after the 12 months?",
-    a: "Your Academy and community access continue for life. The VIP coaching, WhatsApp line, and any unused Train With Jas sessions end at the 12-month mark.",
+    a: "Your Academy and community access continue for life. The VIP coaching, WhatsApp line, and unlimited Train With Jas sessions end at the 12-month mark.",
   },
 ];
 
@@ -205,7 +205,7 @@ export default function AllAccessPage() {
           <p className="font-body text-base text-white/70 leading-relaxed max-w-[640px] mx-auto mb-6">
             All Access is the complete Cali K9 Academy &mdash; the 50-Step Roadmap&trade;, all 8
             modules, all 6 Universities, and every future update &mdash; yours for life, with no
-            monthly fee. On top of it: 12 months of VIP coaching, 8 Train With Jas sessions,
+            monthly fee. On top of it: 12 months of VIP coaching, unlimited Train With Jas coaching sessions,
             priority video feedback, the advanced workshops, and a lifetime seat in the All Access
             community.
           </p>
@@ -513,7 +513,7 @@ export default function AllAccessPage() {
           </h2>
           <p className="font-body text-base text-white/70 leading-relaxed mb-7">
             Join All Access for $4,997 and get lifetime
-            Academy access, 12 months of VIP coaching, 8 Train With Jas sessions, priority video
+            Academy access, 12 months of VIP coaching, unlimited Train With Jas coaching sessions, priority video
             feedback, the advanced workshops, and a permanent seat in the All Access community.
           </p>
           <a href={CHECKOUT_URL} className="btn btn-gold btn-lg">
