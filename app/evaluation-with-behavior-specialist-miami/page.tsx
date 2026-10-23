@@ -6,7 +6,6 @@ import StarsRow from "@/components/StarsRow";
 import PackageHeading from "@/components/PackageHeading";
 import FormEmbed from "@/components/FormEmbed";
 import CelebGrid from "@/components/CelebGrid";
-import CtaBlock from "@/components/CtaBlock";
 import WebinarPromo from "@/components/WebinarPromo";
 
 export const metadata: Metadata = {
@@ -256,8 +255,8 @@ export default function EvaluationPage() {
               </span>
             </div>
 
-            <h1 className="font-display text-[clamp(42px,6vw,64px)] max-md:text-[clamp(64px,18vw,96px)] text-white leading-[0.93] mb-5">
-              BOOK YOUR <span className="text-white/50">EVALUATION</span>
+            <h1 className="font-display text-[clamp(40px,4.6vw,58px)] max-md:text-[clamp(42px,11vw,58px)] text-white leading-[0.93] mb-5">
+              YOUR PERFECT DOG IS JUST <span className="text-white/50">ONE EVALUATION AWAY</span>
             </h1>
 
             <p className="font-body text-base text-white/70 leading-relaxed mb-6">
@@ -561,14 +560,7 @@ export default function EvaluationPage() {
         </div>
       </section>
 
-      {/* ── Final CTA ── */}
-      <CtaBlock
-        eyebrow="15 Years. 10,000+ Dogs."
-        heading="YOUR PERFECT DOG IS JUST ONE EVALUATION AWAY"
-        description="In 15 years and 10,000+ evaluations, our team has yet to encounter a dog they couldn&rsquo;t help."
-        primaryCta={{ label: "Book My Evaluation \u2014 $27 \u2192", href: "#main-content" }}
-      />
-
+      {/* ── Free live class ── */}
       <WebinarPromo />
     </main>
   );

@@ -8,8 +8,8 @@ import {
   sessionsFor,
 } from "@/lib/masterclass-sessions";
 
-// Soft "not ready to buy" offer under the evaluation pages' final CTA:
-// the next free live masterclass.
+// Closing section on the evaluation pages: the free live masterclass, as the
+// soft offer for visitors who aren't ready to book.
 export default function WebinarPromo() {
   // Weekday fallback renders on the server; the real next date fills in on
   // the client, where "now" is the visitor's clock.
@@ -27,23 +27,33 @@ export default function WebinarPromo() {
   }, []);
 
   return (
-    <section className="bg-ink py-9 max-md:py-8 border-b border-white/10">
-      <div className="max-w-[1080px] mx-auto px-6 max-[480px]:px-4 flex items-center justify-between gap-8 max-md:flex-col max-md:text-center max-md:gap-5">
-        <div className="flex items-center gap-5 max-md:flex-col max-md:gap-3">
-          <span className="shrink-0 inline-flex items-center gap-2 border border-red-500/60 text-white font-ui text-[12px] font-bold tracking-[2px] uppercase px-3 py-1.5 rounded-md">
-            <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" /> Live
-          </span>
-          <div>
-            <div className="font-display text-[clamp(24px,2.6vw,32px)] leading-none text-white mb-1.5">
-              NOT SURE YET? WATCH JAS TRAIN LIVE, FREE.
-            </div>
-            <div className="font-body text-[14px] text-white/60">
-              Next class: <b className="text-white/85">{next.date}</b> &middot; {next.time}
-            </div>
-          </div>
-        </div>
-        <Link href="/free-masterclass" className="btn btn-gold shrink-0 max-md:w-full">
-          Save My Seat <span className="ml-2 relative -top-[2.5px] leading-none">&rarr;</span>
+    <section className="relative overflow-hidden bg-[#0A0A0A] py-20 max-md:py-14 text-center border-b border-white/10">
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 60% 70% at 50% 0%, rgba(245,158,11,0.16) 0%, transparent 70%)",
+        }}
+        aria-hidden="true"
+      />
+      <div className="relative max-w-[720px] mx-auto px-6">
+        <span className="inline-flex items-center gap-2 border border-red-500/60 bg-red-500/10 text-white font-ui text-[12px] font-bold tracking-[2px] uppercase px-3.5 py-1.5 rounded-md mb-5">
+          <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" /> Live On Zoom &middot; Free
+        </span>
+        <h2 className="font-display text-[clamp(38px,5vw,60px)] leading-[0.93] text-white mb-4">
+          NOT SURE YET? WATCH JAS <span className="text-amber-400">TRAIN LIVE, FREE.</span>
+        </h2>
+        <div className="w-12 h-[3px] bg-amber-400 mx-auto mb-6" />
+        <p className="font-body text-base text-white/70 leading-relaxed mb-6 max-w-[560px] mx-auto">
+          Join Jas Leverette of Netflix&rsquo;s Canine Intervention for a free
+          live class. Learn why your dog isn&rsquo;t listening and the
+          framework Cali K9 uses to fix it, in just 15 minutes a day.
+        </p>
+        <p className="font-body text-[15px] text-white/60 mb-8">
+          Next class: <b className="text-white">{next.date}</b> &middot; {next.time}
+        </p>
+        <Link href="/free-masterclass" className="btn btn-gold btn-lg max-[480px]:w-full">
+          Save My Free Seat <span className="ml-2 relative -top-[2.5px] leading-none">&rarr;</span>
         </Link>
       </div>
     </section>
