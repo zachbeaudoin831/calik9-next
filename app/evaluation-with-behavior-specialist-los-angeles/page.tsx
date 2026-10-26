@@ -196,8 +196,9 @@ export default function EvaluationPage() {
     <main>
       {/* ── Hero with inline booking form ── */}
       <ServiceHero
+        sidebarFirstOnMobile
         sidebar={
-          <>
+          <div className="flex flex-col">
             {/* Free Bonus */}
             <div className="bg-white/[0.07] border border-white/[0.18] rounded-xl p-5 mb-6">
               <div className="mb-3">
@@ -230,45 +231,29 @@ export default function EvaluationPage() {
               </div>
             </div>
 
-            {/* Mini stats */}
-            <div className="flex gap-6 flex-wrap justify-center my-[30px]">
-              <div className="text-center">
-                <div className="font-display text-3xl text-white leading-none">10,000+</div>
-                <div className="font-ui text-[10px] font-semibold tracking-[1.5px] uppercase text-white/50 mt-1">
-                  Dogs Evaluated
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="font-display text-3xl text-white leading-none">15+</div>
-                <div className="font-ui text-[10px] font-semibold tracking-[1.5px] uppercase text-white/50 mt-1">
-                  Years Experience
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="font-display text-3xl text-white leading-none">
-                  4.9<span className="text-base align-middle ml-0.5">&#9733;</span>
-                </div>
-                <div className="font-ui text-[10px] font-semibold tracking-[1.5px] uppercase text-white/50 mt-1">
-                  Average Rating
-                </div>
-              </div>
+            {/* Booking survey: first thing under the video on mobile */}
+            <div className="max-[900px]:order-first max-[900px]:mb-6">
+              <FormEmbed
+                survey
+                formId="48oJI2o1V3LKPYL79rby"
+                formName="Evaluation Survey - Website"
+                title="Book Your Evaluation"
+                height={580}
+              />
             </div>
-
-            <FormEmbed
-              survey
-              formId="48oJI2o1V3LKPYL79rby"
-              formName="Evaluation Survey - Website"
-              title="Book Your Evaluation"
-              height={580}
-            />
-          </>
+          </div>
         }
         top={
           <div className="text-center">
             {/* Badge */}
-            <div className="mb-4">
+            <div className="mb-4 flex flex-wrap items-center justify-center gap-3">
               <span className="inline-flex items-center gap-2 bg-white/[0.12] border border-white/[0.22] text-white font-ui text-base font-bold tracking-[0.08em] uppercase px-[18px] py-2 rounded-full backdrop-blur-md">
                 Los Angeles Dog Owners
+              </span>
+              <span className="inline-flex items-center gap-2.5 bg-white rounded-full pl-4 pr-5 py-2 shadow-[0_6px_20px_rgba(0,0,0,0.25)]">
+                <span className="font-ui text-[13px] font-bold tracking-[1.5px] uppercase text-ink/60">As seen on</span>
+                <Image src="/images/netflix-wordmark.png" alt="Netflix" width={547} height={153} className="h-[17px] w-auto" />
+                <span className="font-ui text-[13px] font-bold tracking-[1.5px] uppercase text-ink">Canine Intervention</span>
               </span>
             </div>
 
@@ -544,6 +529,9 @@ export default function EvaluationPage() {
           </div>
         </div>
       </section>
+
+      {/* ── Free masterclass ── */}
+      <WebinarPromo compact />
 
       {/* ── FAQ ── */}
       <section className="py-20 max-md:py-12 max-[480px]:py-8 bg-cream">

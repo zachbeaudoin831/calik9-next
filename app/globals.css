@@ -425,6 +425,12 @@
   .service-hero-left { display: contents; }
   .service-hero-intro { grid-area: intro; }
   .service-hero-body  { grid-area: body; }
+  .service-hero-grid.sidebar-first-mobile {
+    grid-template-areas:
+      "intro"
+      "sidebar"
+      "body";
+  }
 }
 
 /* ── Standard Hero (services, evaluation, etc.) ── */

@@ -238,43 +238,35 @@ export default function EvaluationPage() {
     <main>
       {/* ── Hero with inline booking form ── */}
       <ServiceHero
+        sidebarFirstOnMobile
         sidebar={
-          <>
+          <div className="flex flex-col">
             {/* Free Bonus (mobile only — desktop copy sits under the checklist) */}
             <BonusCard className="mb-6 min-[901px]:hidden" />
 
-            {/* Mini stats */}
-            <div className="grid grid-cols-4 gap-4 text-center my-[30px] max-[480px]:grid-cols-2">
-              {STATS.map((stat) => (
-                <div key={stat.label}>
-                  <div className="font-display text-3xl text-white leading-none">
-                    {stat.num}
-                    {stat.suffix && (
-                      <span className="text-[0.6em] align-middle ml-1">{stat.suffix}</span>
-                    )}
-                  </div>
-                  <div className="font-ui text-[10px] font-semibold tracking-[1.5px] uppercase text-white/50 mt-1.5">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
+            {/* Booking survey: first thing under the video on mobile */}
+            <div className="max-[900px]:order-first max-[900px]:mb-6">
+              <FormEmbed
+                survey
+                formId="48oJI2o1V3LKPYL79rby"
+                formName="Evaluation Survey - Website"
+                title="Book Your Evaluation"
+                height={580}
+              />
             </div>
-
-            <FormEmbed
-              survey
-              formId="48oJI2o1V3LKPYL79rby"
-              formName="Evaluation Survey - Website"
-              title="Book Your Evaluation"
-              height={580}
-            />
-          </>
+          </div>
         }
         top={
           <div className="text-center">
             {/* Badge */}
-            <div className="mb-4">
+            <div className="mb-4 flex flex-wrap items-center justify-center gap-3">
               <span className="inline-flex items-center gap-2 bg-white/[0.12] border border-white/[0.22] text-white font-ui text-base font-bold tracking-[0.08em] uppercase px-[18px] py-2 rounded-full backdrop-blur-md">
                 Evaluation
+              </span>
+              <span className="inline-flex items-center gap-2.5 bg-white rounded-full pl-4 pr-5 py-2 shadow-[0_6px_20px_rgba(0,0,0,0.25)]">
+                <span className="font-ui text-[13px] font-bold tracking-[1.5px] uppercase text-ink/60">As seen on</span>
+                <Image src="/images/netflix-wordmark.png" alt="Netflix" width={547} height={153} className="h-[17px] w-auto" />
+                <span className="font-ui text-[13px] font-bold tracking-[1.5px] uppercase text-ink">Canine Intervention</span>
               </span>
             </div>
 
@@ -553,6 +545,9 @@ export default function EvaluationPage() {
           </div>
         </div>
       </section>
+
+      {/* ── Free masterclass ── */}
+      <WebinarPromo compact />
 
       {/* ── FAQ ── */}
       <section className="py-20 max-md:py-12 max-[480px]:py-8 bg-cream">

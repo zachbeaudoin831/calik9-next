@@ -9,8 +9,9 @@ import {
 } from "@/lib/masterclass-sessions";
 
 // Closing section on the evaluation pages: the free live masterclass, as the
-// soft offer for visitors who aren't ready to book.
-export default function WebinarPromo() {
+// soft offer for visitors who aren't ready to book. `compact` is a one-row
+// strip for mid-page placement.
+export default function WebinarPromo({ compact = false }: { compact?: boolean }) {
   // Weekday fallback renders on the server; the real next date fills in on
   // the client, where "now" is the visitor's clock.
   const [next, setNext] = useState(() => {
@@ -25,6 +26,31 @@ export default function WebinarPromo() {
       .sort((a, b) => a.occ.instant.getTime() - b.occ.instant.getTime())[0];
     setNext({ date: soonest.occ.dateLabel, time: soonest.s.label });
   }, []);
+
+  if (compact) {
+    return (
+      <section className="bg-[#0A0A0A] py-9 max-md:py-8">
+        <div className="max-w-[1080px] mx-auto px-6 max-[480px]:px-4 flex items-center justify-between gap-8 max-md:flex-col max-md:text-center max-md:gap-5">
+          <div className="flex items-center gap-5 max-md:flex-col max-md:gap-3">
+            <span className="shrink-0 inline-flex items-center gap-2 border border-red-500/60 bg-red-500/10 text-white font-ui text-[12px] font-bold tracking-[2px] uppercase px-3 py-1.5 rounded-md">
+              <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" /> Free Masterclass
+            </span>
+            <div>
+              <div className="font-display text-[clamp(24px,2.6vw,32px)] leading-none text-white mb-1.5">
+                SEE THE METHOD FIRST. <span className="text-amber-400">JOIN JAS LIVE, FREE.</span>
+              </div>
+              <div className="font-body text-[14px] text-white/60">
+                Next class: <b className="text-white/85">{next.date}</b> &middot; {next.time}
+              </div>
+            </div>
+          </div>
+          <Link href="/free-masterclass" className="btn btn-white shrink-0 max-md:w-full">
+            Save My Free Seat <span className="ml-2 relative -top-[2.5px] leading-none">&rarr;</span>
+          </Link>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="relative overflow-hidden bg-[#0A0A0A] py-20 max-md:py-14 text-center border-b border-white/10">

@@ -6,9 +6,11 @@ interface ServiceHeroProps {
   intro?: ReactNode;
   /** Full-width block above the two-column grid (e.g. a large hero video). */
   top?: ReactNode;
+  /** On mobile, stack the sidebar (booking form) above the body content. */
+  sidebarFirstOnMobile?: boolean;
 }
 
-export default function ServiceHero({ children, sidebar, intro, top }: ServiceHeroProps) {
+export default function ServiceHero({ children, sidebar, intro, top, sidebarFirstOnMobile = false }: ServiceHeroProps) {
   return (
     <section className="relative overflow-hidden" style={{ background: "linear-gradient(135deg, #122E85 0%, #122E85 50%, #1A3FAB 100%)" }}>
       {/* Grid overlay */}
@@ -34,7 +36,7 @@ export default function ServiceHero({ children, sidebar, intro, top }: ServiceHe
             {top}
           </div>
         )}
-        <div className="service-hero-grid gap-x-12 items-start pb-20 max-[900px]:gap-y-10" style={top ? undefined : { paddingTop: 'calc(var(--banner-h, 40px) + 88px)' }}>
+        <div className={`service-hero-grid gap-x-12 items-start pb-20 max-[900px]:gap-y-10${sidebarFirstOnMobile ? " sidebar-first-mobile" : ""}`} style={top ? undefined : { paddingTop: 'calc(var(--banner-h, 40px) + 88px)' }}>
           <div className="service-hero-left">
             {intro && <div className="service-hero-intro">{intro}</div>}
             <div className="service-hero-body">{children}</div>
