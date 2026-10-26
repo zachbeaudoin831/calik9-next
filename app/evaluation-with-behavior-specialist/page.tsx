@@ -87,14 +87,9 @@ const CELEB_CHIPS = [
 
 const SOCIAL_CARDS = [
   { name: "Steph Curry", image: "/images/social/social-6.png", alt: "Steph Curry with Cali K9" },
+  { name: "Demi Moore", image: "/images/social/social-5.png", alt: "Demi Moore with Cali K9" },
   { name: "Kevin Hart", image: "/images/social/social-4.png", alt: "Kevin Hart with Cali K9" },
   { name: "Kendrick Lamar", image: "/images/social/social-3.jpeg", alt: "Kendrick Lamar with Cali K9" },
-  { name: "Dr. Phil", image: "/images/social/social-9.png", alt: "Dr. Phil with Cali K9" },
-  { name: "Demi Moore", image: "/images/social/social-5.png", alt: "Demi Moore with Cali K9" },
-  { name: "Jason Derulo", image: "/images/social/social-2.png", alt: "Jason Derulo with Cali K9" },
-  { name: "San Jose Police", image: "/images/social/social-7.png", alt: "San Jose Police Department K9 unit" },
-  { name: "Coi Leray", image: "/images/social/social-1.png", alt: "Coi Leray with Cali K9" },
-  { name: "Turks & Caicos Military", image: "/images/social/social-8.png", alt: "Turks and Caicos Military" },
 ];
 
 const REVIEWS = [
@@ -253,6 +248,24 @@ export default function EvaluationPage() {
                 title="Book Your Evaluation"
                 height={580}
               />
+              <div className="font-ui text-xs font-bold tracking-[2px] uppercase text-white/45 mt-6 mb-3">
+                Trusted by:
+              </div>
+              <div className="grid grid-cols-4 gap-2">
+                {SOCIAL_CARDS.map((card) => (
+                  <div key={card.name} className="relative rounded-lg overflow-hidden aspect-square bg-white/[0.04]">
+                    <Image src={card.image} alt={card.alt} fill className="object-cover object-top" sizes="120px" />
+                    <div
+                      className="absolute inset-0 flex items-end p-1.5"
+                      style={{ background: "linear-gradient(0deg, rgba(13,29,48,0.9) 0%, transparent 60%)" }}
+                    >
+                      <span className="font-display text-[13px] leading-[1.05] text-white tracking-[0.5px]">
+                        {card.name}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         }
@@ -471,35 +484,6 @@ export default function EvaluationPage() {
               >
                 {name}
               </span>
-            ))}
-          </div>
-
-          {/* Social proof photo grid */}
-          <div className="grid grid-cols-3 gap-4 mb-12 max-lg:grid-cols-2 max-sm:gap-2">
-            {SOCIAL_CARDS.map((card) => (
-              <div
-                key={card.name}
-                className="relative rounded-xl overflow-hidden aspect-[4/3] bg-white/[0.04] transition-[transform,box-shadow] duration-[350ms] hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(0,0,0,0.3)] group"
-              >
-                <Image
-                  src={card.image}
-                  alt={card.alt}
-                  fill
-                  className="object-cover object-top transition-transform duration-[400ms] group-hover:scale-[1.04]"
-                  sizes="(max-width: 600px) 50vw, (max-width: 900px) 50vw, 33vw"
-                />
-                <div
-                  className="absolute inset-0 flex items-end p-4"
-                  style={{
-                    background:
-                      "linear-gradient(0deg, rgba(13,29,48,0.85) 0%, transparent 60%)",
-                  }}
-                >
-                  <span className="font-display text-[22px] text-white tracking-[1px] drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
-                    {card.name}
-                  </span>
-                </div>
-              </div>
             ))}
           </div>
 
