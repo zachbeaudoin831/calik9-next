@@ -7,6 +7,7 @@ import PackageHeading from "@/components/PackageHeading";
 import FormEmbed from "@/components/FormEmbed";
 import CelebGrid from "@/components/CelebGrid";
 import WebinarPromo from "@/components/WebinarPromo";
+import MeetJas from "@/components/MeetJas";
 
 export const metadata: Metadata = {
   title: "Dog Behavior Evaluation",
@@ -513,6 +514,9 @@ export default function EvaluationPage() {
           </div>
         </div>
       </section>
+
+      {/* ── Meet Jas ── */}
+      <MeetJas />
 
       {/* ── Free masterclass ── */}
       <WebinarPromo compact />
