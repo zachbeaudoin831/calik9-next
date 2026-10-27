@@ -33,7 +33,7 @@ export default function RegisterModal({ className = "" }: { className?: string }
           onClick={() => setOpen(true)}
           className="btn btn-white btn-lg text-center max-md:w-full"
         >
-          Join Saturday&rsquo;s Class
+          Join Wednesday&rsquo;s Class
           <span aria-hidden="true" className="ml-2 relative -top-[2.5px] leading-none">
             &rarr;
           </span>
@@ -74,7 +74,7 @@ export default function RegisterModal({ className = "" }: { className?: string }
 
             <div className="px-7 pt-8 pb-2 max-[480px]:px-5 text-center">
               <span className="inline-flex items-center gap-2 bg-green-500/15 border border-green-500/30 text-green-600 font-ui text-[11px] font-bold tracking-[2px] uppercase px-3 py-1.5 rounded-full mb-4">
-                Free Live Class &middot; Saturday 9AM PST
+                Free Live Class &middot; Wednesday 4PM PST
               </span>
               <h2 className="font-display text-[clamp(26px,3vw,34px)] text-ink leading-[0.95] mb-2">
                 SAVE YOUR SPOT

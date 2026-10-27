@@ -286,7 +286,7 @@ export default function OnlineCoursesPage() {
           <p className="font-body text-base text-[#4b4f58] leading-relaxed mb-7">
             Take the Free Behavior Assessment. Thirteen questions, about two minutes, and
             you&rsquo;ll get a recommendation matched to your dog &mdash; or watch Jas teach the
-            framework live at the free Saturday masterclass before you choose.
+            framework live at the free Wednesday masterclass before you choose.
           </p>
           <div className="flex items-center justify-center gap-3 flex-wrap">
             <Link href="/free-behavior-assessment" className="btn btn-blue btn-lg">

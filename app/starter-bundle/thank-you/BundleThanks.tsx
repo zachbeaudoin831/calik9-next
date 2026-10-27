@@ -80,7 +80,7 @@ export default function BundleThanks() {
           <div className="bg-ink rounded-[18px] p-8 max-md:p-6 text-center text-white mt-10">
             <h3 className="font-display text-[26px] leading-[0.95] mb-3">SEE THE WHOLE SYSTEM TAUGHT LIVE</h3>
             <p className="font-body text-[15px] text-white/70 leading-relaxed max-w-[520px] mx-auto mb-6">
-              Every Saturday at 10:00 AM Pacific, Jas teaches the full 5 Pillar, 50-Step framework
+              Every Wednesday at 4:00 PM Pacific / 7:00 PM Eastern, Jas teaches the full 5 Pillar, 50-Step framework
               on a free live masterclass. Modules 1 and 2 will make a lot more sense after it.
             </p>
             <Link href="/free-masterclass" className="btn btn-gold">

@@ -46,7 +46,7 @@ export default function EventDate({
   return (
     <div className={`flex flex-col gap-2.5 ${center ? "items-center text-center" : "items-center lg:items-start"}`}>
       <span className="bg-amber-400 text-[#2b1d05] font-ui text-[11px] font-bold tracking-[1.2px] uppercase px-3.5 py-1.5 rounded-full">
-        Live on Zoom &middot; {timesAWeek(list.length)}
+        Live on Zoom &middot; {list.length === 1 ? `Every ${list[0].day}` : timesAWeek(list.length)}
       </span>
       {rows.map((r) => (
         <div key={r.date} className="font-body text-[15px] text-white/85 leading-snug">
@@ -54,9 +54,11 @@ export default function EventDate({
           {r.local && <span className="block font-body text-[12px] text-white/50">Your local time: {r.local}</span>}
         </div>
       ))}
-      <p className="font-ui text-[11px] tracking-[1px] uppercase text-white/45 mt-1">
-        Pick {dayPhrase(sessions)} when you register
-      </p>
+      {list.length > 1 && (
+        <p className="font-ui text-[11px] tracking-[1px] uppercase text-white/45 mt-1">
+          Pick {dayPhrase(sessions)} when you register
+        </p>
+      )}
     </div>
   );
 }

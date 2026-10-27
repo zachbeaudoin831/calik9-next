@@ -11,7 +11,7 @@ import { CLASSIC_SESSIONS, dayPhrase, type SessionId } from "@/lib/masterclass-s
 // Page order (post-audit, 2026-09-21):
 // Hero + form → Before/after videos → Problem identification → Why current
 // training fails → What you'll learn → 50-Step Roadmap bonus → Testimonials →
-// Jas / authority → Saturday details → Rescue mission → FAQ → Final CTA.
+// Jas / authority → Session details → Rescue mission → FAQ → Final CTA.
 
 const CDN = "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media";
 
@@ -170,7 +170,7 @@ const RECOGNIZABLE_NAMES = [
   { name: "Kendrick Lamar", image: `${CDN}/6aa458abcbbb2538119005d2.png` },
 ];
 
-const SATURDAY = [
+const SESSION_DETAILS = [
   {
     title: "What To Bring",
     items: ["A phone, tablet or laptop", "Something to take notes with", "Your questions about your dog (your dog can stay on the couch)"],
@@ -273,8 +273,7 @@ export default function Masterclass({
   registration?: React.ReactNode;
   sessions?: readonly SessionId[];
 }) {
-  const classic = sessions.length === CLASSIC_SESSIONS.length && CLASSIC_SESSIONS.every((d) => sessions.includes(d));
-  const whenPhrase = classic ? "Wednesday evening or Saturday morning" : dayPhrase(sessions);
+  const whenPhrase = sessions.length === 1 ? `this ${dayPhrase(sessions)}` : `this week — ${dayPhrase(sessions)} —`;
   return (
     <main>
       {intro}
@@ -671,7 +670,7 @@ export default function Masterclass({
             <EventDate center sessions={sessions} />
           </div>
           <div className="grid grid-cols-2 gap-5 max-w-[800px] mx-auto max-md:grid-cols-1">
-            {SATURDAY.map((col) => (
+            {SESSION_DETAILS.map((col) => (
               <div key={col.title} className="bg-white/5 border border-white/10 rounded-xl p-6">
                 <h4 className="font-ui text-[12px] font-bold tracking-[1.5px] uppercase text-blue-200 mb-4">
                   {col.title}
@@ -755,7 +754,7 @@ export default function Masterclass({
             TRANSFORM YOUR DOG IN JUST 15 MINUTES A DAY
           </h2>
           <p className="font-body text-base lg:text-lg text-white/70 leading-relaxed mb-7 max-w-[560px] mx-auto">
-            Join Jas live this week &mdash; {whenPhrase} &mdash; and leave knowing exactly why your dog does what it does,
+            Join Jas live {whenPhrase} and leave knowing exactly why your dog does what it does,
             and what to work on first.
           </p>
           <div className="mb-8">

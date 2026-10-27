@@ -40,7 +40,7 @@ export default function LiveRegistration({ sessions }: { sessions: readonly Sess
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [session, setSession] = useState<SessionId | null>(null);
+  const [session, setSession] = useState<SessionId | null>(sessions.length === 1 ? sessions[0] : null);
   const [consent, setConsent] = useState(false);
   const [website, setWebsite] = useState(""); // honeypot
   const [error, setError] = useState<string | null>(null);

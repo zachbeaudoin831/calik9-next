@@ -1,9 +1,9 @@
 // Live masterclass schedule. Shared by the date blocks (EventDate), the
 // on-site registration form (/free-masterclass-live) and its API route.
 //
-// /free-masterclass still registers through the GHL form, which only offers
-// Wednesday and Saturday, so it keeps CLASSIC_SESSIONS. The on-site form
-// offers every session.
+// As of 2026-10-27 the masterclass runs once a week: Wednesday 4 PM Pacific.
+// (Monday and Saturday were dropped.) Add a row to SESSIONS to bring a day back;
+// every date block, FAQ answer and session picker follows automatically.
 
 export type SessionId = "monday" | "wednesday" | "saturday";
 
@@ -16,12 +16,11 @@ export type Session = {
 };
 
 export const SESSIONS: readonly Session[] = [
-  { id: "monday", day: "Monday", weekday: 1, hourPacific: 16, label: "4:00 PM Pacific / 7:00 PM Eastern" },
   { id: "wednesday", day: "Wednesday", weekday: 3, hourPacific: 16, label: "4:00 PM Pacific / 7:00 PM Eastern" },
-  { id: "saturday", day: "Saturday", weekday: 6, hourPacific: 10, label: "10:00 AM Pacific / 1:00 PM Eastern" },
 ];
 
-export const CLASSIC_SESSIONS: SessionId[] = ["wednesday", "saturday"];
+// Sessions /free-masterclass (GHL form) advertises.
+export const CLASSIC_SESSIONS: SessionId[] = ["wednesday"];
 export const ALL_SESSIONS: SessionId[] = SESSIONS.map((s) => s.id);
 
 const TZ = "America/Los_Angeles";
@@ -89,7 +88,7 @@ export function nextOccurrence(session: Session, now: Date = new Date()): Occurr
   throw new Error("no occurrence");
 }
 
-// "Monday, Wednesday or Saturday" / "Mondays, Wednesdays & Saturdays"
+// "Wednesday" / "Wednesdays"; with several sessions, "Monday or Wednesday" etc.
 export function dayPhrase(ids: readonly SessionId[], { plural = false, joiner = "or" } = {}): string {
   const names = sessionsFor(ids).map((s) => (plural ? `${s.day}s` : s.day));
   if (names.length <= 1) return names.join("");

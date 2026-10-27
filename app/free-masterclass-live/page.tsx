@@ -6,7 +6,7 @@ import { ALL_SESSIONS } from "@/lib/masterclass-sessions";
 export const metadata: Metadata = {
   title: "Free Live Dog Training Masterclass",
   description:
-    "Transform your dog in just 15 minutes a day. Join Jas Leverette of Netflix's Canine Intervention live on Zoom, Mondays, Wednesdays and Saturdays, for a free masterclass on the Cali K9® training system.",
+    "Transform your dog in just 15 minutes a day. Join Jas Leverette of Netflix's Canine Intervention live on Zoom every Wednesday for a free masterclass on the Cali K9® training system.",
   // Funnel page. Keep out of search while in review.
   robots: { index: false, follow: false },
 };

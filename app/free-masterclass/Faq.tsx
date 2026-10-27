@@ -41,7 +41,11 @@ const FAQS = [
 const COUNT_WORDS = ["", "once", "twice", "three times", "four times"];
 
 function scheduleAnswer(ids: readonly SessionId[]): string {
-  const parts = sessionsFor(ids).map((x) => `${x.day}s at ${x.label}`);
+  const sessions = sessionsFor(ids);
+  if (sessions.length === 1) {
+    return `It's live on Zoom every ${sessions[0].day} at ${sessions[0].label}. Register and we'll send the Zoom link and reminders.`;
+  }
+  const parts = sessions.map((x) => `${x.day}s at ${x.label}`);
   const list = parts.length > 1 ? `${parts.slice(0, -1).join(", ")} and ${parts[parts.length - 1]}` : parts[0];
   return `It's live on Zoom ${COUNT_WORDS[parts.length] || `${parts.length} times`} a week: ${list}. Pick the day that works when you register and we'll send the link and reminders.`;
 }

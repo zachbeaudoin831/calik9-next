@@ -38,7 +38,7 @@ const INVITE_VIDEO =
   "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6ac434c6c478ac5535f089ca.mp4";
 
 // Every result page closes the same way, whatever the budget answer: the free
-// Saturday masterclass, with the GHL webinar registration form (same one the
+// Wednesday masterclass, with the GHL webinar registration form (same one the
 // masterclass page uses) embedded at the bottom. No call or Academy CTA here.
 const WEBINAR_FORM_ID = "hZHHQAAWiOEP0ADyInGy";
 
@@ -390,7 +390,7 @@ export default function ResultPage({ type }: { type: DogType }) {
         </div>
       </section>
 
-      {/* ── 11. PRIMARY CTA — free Saturday masterclass (all budgets) ── */}
+      {/* ── 11. PRIMARY CTA — free Wednesday masterclass (all budgets) ── */}
       <section className="py-20 max-md:py-12 bg-blue-700 text-white text-center">
         <div className="max-w-[760px] mx-auto px-10 max-md:px-6 max-[480px]:px-4">
           <p className="font-body text-lg max-md:text-base text-white/80 leading-relaxed max-w-[600px] mx-auto mb-8">
@@ -398,7 +398,7 @@ export default function ResultPage({ type }: { type: DogType }) {
             to do next.
           </p>
           <div className="font-ui text-[13px] font-semibold tracking-[3px] uppercase text-blue-200 mb-3">
-            Free Live Masterclass · Wednesdays &amp; Saturdays
+            Free Live Masterclass · Every Wednesday
           </div>
           <h2 className="font-display text-[clamp(32px,5vw,56px)] leading-[0.98] mb-6">
             TRANSFORM YOUR DOG IN JUST 15 MINUTES A DAY

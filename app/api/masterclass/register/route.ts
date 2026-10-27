@@ -16,7 +16,8 @@ import { SURVEY, surveyLabel } from "@/lib/masterclass-survey";
  *                            when someone registers again, so a "tag added"
  *                            workflow trigger fires every time)
  *   mc-form-live             came through this on-site form
- *   mc-session-monday | mc-session-wednesday | mc-session-saturday
+ *   mc-session-wednesday (mc-session-monday / -saturday from before the
+ *                            schedule went Wednesday-only on 2026-10-27)
  *   mc-src-<utm_source> | mc-src-organic
  *   mc-sms-consent           ticked the optional marketing-consent checkbox
  *   mc-survey-completed
