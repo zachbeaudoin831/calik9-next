@@ -424,6 +424,9 @@ export default function EvaluationPage() {
         </div>
       </section>
 
+      {/* ── Free masterclass (after the results) ── */}
+      <WebinarPromo compact />
+
       {/* ── Trust Signals ── */}
       <section className="relative overflow-hidden bg-blue-700 py-20 max-md:py-12 max-[480px]:py-8">
         <div
