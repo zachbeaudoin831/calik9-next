@@ -7,6 +7,7 @@ import PackageHeading from "@/components/PackageHeading";
 import FormEmbed from "@/components/FormEmbed";
 import CelebGrid from "@/components/CelebGrid";
 import WebinarPromo from "@/components/WebinarPromo";
+import TransformationVideos from "@/components/TransformationVideos";
 import MeetJas from "@/components/MeetJas";
 
 export const metadata: Metadata = {
@@ -417,6 +418,7 @@ export default function EvaluationPage() {
             </h2>
             <div className="w-12 h-[3px] bg-blue-500 mx-auto" />
           </div>
+          <TransformationVideos />
           <div className="grid grid-cols-2 gap-6 max-w-[960px] mx-auto max-[600px]:grid-cols-1">
             <Image
               src="/images/trained-dogs1.jpeg"

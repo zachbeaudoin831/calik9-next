@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { posterFor } from "@/lib/video-poster";
+import { MEMBER_VIDEOS, TRANSFORMATION_VIDEOS } from "@/lib/member-videos";
 import PaymentPlansSection from "@/components/PaymentPlansSection";
 
 // Shared body for /academy and /academy-founder. Everything price-bearing
@@ -171,17 +172,8 @@ const SAMPLE_VIDEOS = [
 
 // Member transformation videos. The first three run high on the page under
 // the authority bar; the rest appear in "More Member Transformations".
-const TRANSFORMATIONS = [
-  { name: "Sam & Jax", label: "Reactive → Calm", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a985a23a1f3f48f4b9d915b.mp4" },
-  { name: "Jen & Prince", label: "No Control → Reliable Obedience", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a96deb8389c8c461406b4ad.mp4" },
-  { name: "Rachel & Zara", label: "Poor Recall → Off-Leash Reliability", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a96ded3389c8c461406b7da.mp4" },
-];
-
-const MEMBER_VIDEOS = [
-  { name: "Kristen", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a96dee5c7069f4fc79a363b.mp4" },
-  { name: "Courtney", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a96df0cfac7854efe093ca3.mp4" },
-  { name: "VIP Member — Miami", src: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6a96df1efac7854efe093e8f.mp4" },
-];
+// Member videos live in lib/member-videos.ts (shared with the evaluation pages).
+const TRANSFORMATIONS = TRANSFORMATION_VIDEOS;
 
 // "Inside the Academy" hero video.
 const HERO_VIDEO = "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/6ab17858966c1acf6d448da3.mp4";
