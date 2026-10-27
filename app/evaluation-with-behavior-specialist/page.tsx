@@ -8,6 +8,7 @@ import FormEmbed from "@/components/FormEmbed";
 import CelebGrid from "@/components/CelebGrid";
 import WebinarPromo from "@/components/WebinarPromo";
 import TransformationVideos from "@/components/TransformationVideos";
+import ResultsPhotos from "@/components/ResultsPhotos";
 import MeetJas from "@/components/MeetJas";
 
 export const metadata: Metadata = {
@@ -435,6 +436,7 @@ export default function EvaluationPage() {
               className="w-full h-auto rounded-lg block"
             />
           </div>
+          <ResultsPhotos />
         </div>
       </section>
 
