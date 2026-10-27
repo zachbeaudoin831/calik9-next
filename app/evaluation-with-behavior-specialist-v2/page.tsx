@@ -253,6 +253,9 @@ export default function EvaluationV2Page() {
         </div>
       </section>
 
+      {/* ── Free masterclass (after the social proof / owner videos) ── */}
+      <WebinarPromo compact />
+
       {/* ════════════ WHY NOTHING HAS WORKED ════════════ */}
       <section className="py-16 max-md:py-10 border-b border-gray-200 px-6">
         <div className="max-w-[760px] mx-auto">
