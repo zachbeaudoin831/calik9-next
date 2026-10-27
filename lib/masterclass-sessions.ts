@@ -23,6 +23,10 @@ export const SESSIONS: readonly Session[] = [
 export const CLASSIC_SESSIONS: SessionId[] = ["wednesday"];
 export const ALL_SESSIONS: SessionId[] = SESSIONS.map((s) => s.id);
 
+// The masterclass's name, shown on the masterclass pages, thank-you pages and
+// the evaluation pages' promo sections.
+export const MASTERCLASS_NAME = "Learn How To Train Your Dog With Jas Leverette";
+
 const TZ = "America/Los_Angeles";
 
 export function sessionById(id: string | null | undefined): Session | undefined {

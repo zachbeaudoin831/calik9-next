@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import {
   CLASSIC_SESSIONS,
+  MASTERCLASS_NAME,
   nextOccurrence,
   sessionsFor,
 } from "@/lib/masterclass-sessions";
@@ -33,11 +34,11 @@ export default function WebinarPromo({ compact = false }: { compact?: boolean })
         <div className="max-w-[1080px] mx-auto px-6 max-[480px]:px-4 flex items-center justify-between gap-8 max-md:flex-col max-md:text-center max-md:gap-5">
           <div className="flex items-center gap-5 max-md:flex-col max-md:gap-3">
             <span className="shrink-0 inline-flex items-center gap-2 border border-red-500/60 bg-red-500/10 text-white font-ui text-[12px] font-bold tracking-[2px] uppercase px-3 py-1.5 rounded-md">
-              <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" /> Free Masterclass
+              <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" /> Free Live Masterclass
             </span>
             <div>
-              <div className="font-display text-[clamp(24px,2.6vw,32px)] leading-none text-white mb-1.5">
-                SEE THE METHOD FIRST. <span className="text-amber-400">JOIN JAS LIVE, FREE.</span>
+              <div className="font-display text-[clamp(24px,2.6vw,32px)] leading-none text-white mb-1.5 uppercase">
+                {MASTERCLASS_NAME}
               </div>
               <div className="font-body text-[14px] text-white/60">
                 Next class: <b className="text-white/85">{next.date}</b> &middot; {next.time}
@@ -64,15 +65,16 @@ export default function WebinarPromo({ compact = false }: { compact?: boolean })
       />
       <div className="relative max-w-[720px] mx-auto px-6">
         <span className="inline-flex items-center gap-2 border border-red-500/60 bg-red-500/10 text-white font-ui text-[12px] font-bold tracking-[2px] uppercase px-3.5 py-1.5 rounded-md mb-5">
-          <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" /> Live On Zoom &middot; Free
+          <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" /> Free Live Masterclass &middot; Zoom
         </span>
         <h2 className="font-display text-[clamp(38px,5vw,60px)] leading-[0.93] text-white mb-4">
           NOT SURE YET? WATCH JAS <span className="text-amber-400">TRAIN LIVE, FREE.</span>
         </h2>
+        <div className="font-ui text-[15px] font-bold tracking-[2px] uppercase text-amber-400 mb-5">{MASTERCLASS_NAME}</div>
         <div className="w-12 h-[3px] bg-amber-400 mx-auto mb-6" />
         <p className="font-body text-base text-white/70 leading-relaxed mb-6 max-w-[560px] mx-auto">
-          Join Jas Leverette of Netflix&rsquo;s Canine Intervention for a free
-          live class. Learn why your dog isn&rsquo;t listening and the
+          Join Jas Leverette of Netflix&rsquo;s Canine Intervention live on Zoom,
+          free. Learn why your dog isn&rsquo;t listening and the
           framework Cali K9 uses to fix it, in just 15 minutes a day.
         </p>
         <p className="font-body text-[15px] text-white/60 mb-8">

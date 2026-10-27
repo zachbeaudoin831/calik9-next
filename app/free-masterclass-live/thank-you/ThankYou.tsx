@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { nextOccurrence, sessionById } from "@/lib/masterclass-sessions";
+import { MASTERCLASS_NAME, nextOccurrence, sessionById } from "@/lib/masterclass-sessions";
 import { LIVE_SESSION_KEY } from "@/lib/masterclass-survey";
 
 // Thank-you video. Text-only until Zach sends the GHL CDN URL; paste it here
@@ -76,7 +76,7 @@ export default function ThankYou({ sessionId }: { sessionId?: string }) {
             YOU&rsquo;RE IN{name ? `, ${name.toUpperCase()}` : ""}. <span className="text-[#6A9FFF]">SEE YOU IN CLASS.</span>
           </h1>
           <p className="font-body text-lg text-white/70 leading-relaxed max-w-[580px] mx-auto mb-8">
-            Your seat at Jas&rsquo;s free live masterclass is confirmed. Modules 1 and 2 are headed to
+            Your seat at <strong className="text-white">{MASTERCLASS_NAME}</strong>, Jas&rsquo;s free live masterclass, is confirmed. Modules 1 and 2 are headed to
             your inbox now so you can get started today.
           </p>
 

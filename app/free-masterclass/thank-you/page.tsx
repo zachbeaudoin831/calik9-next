@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import Link from "next/link";
 import EventDate from "../EventDate";
+import { MASTERCLASS_NAME } from "@/lib/masterclass-sessions";
 import SpecialistBooking from "@/components/SpecialistBooking";
 
 export const metadata: Metadata = {
   title: "Your Seat Is Reserved",
   description:
-    "You're registered for Jas Leverette's free live dog training masterclass. Here's what to do before class starts.",
+    "You're registered for Learn How To Train Your Dog With Jas Leverette, a free live masterclass. Here's what to do before class starts.",
   robots: { index: false, follow: false },
 };
 
@@ -61,7 +62,7 @@ export default function MasterclassThankYouPage() {
             YOU&rsquo;RE IN. <span className="text-[#6A9FFF]">SEE YOU IN CLASS.</span>
           </h1>
           <p className="font-body text-lg text-white/70 leading-relaxed max-w-[560px] mx-auto mb-7">
-            Your seat at Jas&rsquo;s free live masterclass is confirmed. Your Zoom
+            Your seat at <strong className="text-white">{MASTERCLASS_NAME}</strong>, Jas&rsquo;s free live masterclass, is confirmed. Your Zoom
             link and the 50-Step Roadmap are on the way to your inbox.
           </p>
           <EventDate center />

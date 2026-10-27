@@ -4,7 +4,7 @@ import LiveRegistration from "./LiveRegistration";
 import { ALL_SESSIONS } from "@/lib/masterclass-sessions";
 
 export const metadata: Metadata = {
-  title: "Free Live Dog Training Masterclass",
+  title: "Learn How To Train Your Dog With Jas Leverette",
   description:
     "Transform your dog in just 15 minutes a day. Join Jas Leverette of Netflix's Canine Intervention live on Zoom every Wednesday for a free masterclass on the Cali K9® training system.",
   // Funnel page. Keep out of search while in review.

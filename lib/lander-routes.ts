@@ -34,3 +34,17 @@ const LANDER_ROUTES = new Set([
 export function isLanderPath(pathname: string): boolean {
   return LANDER_ROUTES.has(pathname);
 }
+
+// Header shows only the centered logo (no menu, no cart), but the page keeps
+// its footer and banner. Used by the evaluation landing pages.
+const LOGO_ONLY_HEADER_ROUTES = new Set([
+  "/evaluation-with-behavior-specialist",
+  "/evaluation-with-behavior-specialist-v2",
+  "/evaluation-with-behavior-specialist-los-angeles",
+  "/evaluation-with-behavior-specialist-miami",
+  "/evaluation-with-behavior-specialist-san-jose",
+]);
+
+export function isLogoOnlyHeaderPath(pathname: string): boolean {
+  return LOGO_ONLY_HEADER_ROUTES.has(pathname);
+}

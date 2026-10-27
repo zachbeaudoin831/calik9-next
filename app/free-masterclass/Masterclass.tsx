@@ -6,7 +6,7 @@ import EventDate from "./EventDate";
 import Faq from "./Faq";
 import StickyCta from "./StickyCta";
 import { posterFor } from "@/lib/video-poster";
-import { CLASSIC_SESSIONS, dayPhrase, type SessionId } from "@/lib/masterclass-sessions";
+import { CLASSIC_SESSIONS, dayPhrase, MASTERCLASS_NAME, type SessionId } from "@/lib/masterclass-sessions";
 
 // Page order (post-audit, 2026-09-21):
 // Hero + form → Before/after videos → Problem identification → Why current
@@ -287,10 +287,10 @@ export default function Masterclass({
             <div className="max-lg:text-center">
               <span className="inline-flex items-center gap-2 bg-white/[0.12] border border-white/[0.22] text-white font-ui text-[11.5px] font-bold tracking-[1.5px] uppercase px-4 py-2 rounded-full backdrop-blur-md mb-6">
                 <span className="w-1.5 h-1.5 rounded-full bg-amber-400" /> Cali K9 Presents &middot;
-                Free Live Training Class
+                Free Live Masterclass
               </span>
-              <span className="font-ui text-[13px] font-semibold tracking-[3px] uppercase text-blue-200 block mb-4">
-                Free Live Dog Training Masterclass
+              <span className="font-ui text-[15px] max-md:text-[13.5px] font-bold tracking-[2px] uppercase text-amber-400 block mb-4">
+                {MASTERCLASS_NAME}
               </span>
               <h1 className="font-display text-[clamp(38px,5vw,68px)] text-white leading-[0.95] mb-7">
                 TRANSFORM YOUR DOG IN JUST 15 MINUTES A DAY

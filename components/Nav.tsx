@@ -5,7 +5,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import { useCart } from "@/context/CartContext";
-import { isLanderPath } from "@/lib/lander-routes";
+import { isLanderPath, isLogoOnlyHeaderPath } from "@/lib/lander-routes";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -47,8 +47,10 @@ export default function Nav() {
   }, [drawerOpen]);
 
   const isActive = (href: string) => pathname === href;
-  // Distraction-free lander pages: logo + cart only, no menu/links.
-  const isLander = isLanderPath(pathname);
+  // Distraction-free lander pages: logo only, no menu/links. Logo-only-header
+  // pages (evaluation pages) hide the menu the same way and center the logo.
+  const centerLogo = isLogoOnlyHeaderPath(pathname);
+  const isLander = isLanderPath(pathname) || centerLogo;
   const isServicePage =
     pathname.startsWith("/newclientservices") ||
     pathname.startsWith("/returningclientservices") ||
@@ -72,7 +74,7 @@ export default function Nav() {
           scrolled ? "shadow-[0_2px_16px_rgba(0,0,0,0.1)]" : ""
         }`}
       >
-        <div className="max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 flex justify-between items-center h-full">
+        <div className={`max-w-[1140px] mx-auto px-10 max-md:px-6 max-[480px]:px-4 flex items-center h-full ${centerLogo ? "justify-center" : "justify-between"}`}>
           {/* Logo */}
           <Link href="/" className="inline-flex items-center no-underline flex-shrink-0">
             <Image

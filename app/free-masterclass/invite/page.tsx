@@ -3,7 +3,7 @@ import Masterclass from "../Masterclass";
 import EventDate from "../EventDate";
 
 export const metadata: Metadata = {
-  title: "Your Next Step: Free Live Masterclass",
+  title: "Your Next Step: Learn How To Train Your Dog With Jas Leverette",
   description:
     "Based on your Free Behavior Assessment, the free live masterclass with Jas Leverette is the best next step for you and your dog. Live every Wednesday on Zoom.",
   // Funnel page. Keep out of search while in review.
