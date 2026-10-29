@@ -133,9 +133,12 @@ export default function OnlineCoursesPage() {
             celebrity clients and on Netflix. The roadmap is identical. What changes is how
             involved Jas and the team are while you work through it.
           </p>
-          <a href="#plans" className="btn btn-gold btn-lg">
-            Compare The Programs &rarr;
-          </a>
+          <p className="font-ui text-[15px] font-bold tracking-[1.5px] uppercase text-white/80 mb-3">
+            Not sure what&rsquo;s the best fit?
+          </p>
+          <Link href="/evaluation-with-behavior-specialist" className="btn btn-gold btn-lg">
+            Book An Evaluation <span className="ml-2 relative -top-[2.5px] leading-none">&rarr;</span>
+          </Link>
           <div className="flex items-center justify-center gap-x-10 gap-y-5 flex-wrap mt-12 pt-8 border-t border-white/[0.12]">
             {STATS.map((s) => (
               <div key={s.small} className="text-center">
