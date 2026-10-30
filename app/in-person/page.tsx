@@ -64,6 +64,20 @@ export default function InPersonPage() {
               </em>
             </h1>
 
+            {/* Hero video */}
+            <video
+              className="w-full h-auto rounded-lg mb-6 block bg-black"
+              poster="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/67f5b65ea327bf4786ed6f6c.png"
+              controls
+              playsInline
+              preload="metadata"
+            >
+              <source
+                src="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/67f5b5e93116e652821a1357.mp4"
+                type="video/mp4"
+              />
+            </video>
+
             <p className="font-body text-base text-white/70 leading-relaxed mb-6">
               Cali K9&rsquo;s In-Person Dog Training Package is a hands-on
               approach. Your trainer works directly with you and your dog, giving
@@ -94,21 +108,7 @@ export default function InPersonPage() {
           </>
         }
       >
-        {/* Hero video */}
-        <video
-          className="w-full h-auto rounded-lg mb-8 block bg-black"
-          poster="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/67f5b65ea327bf4786ed6f6c.png"
-          controls
-          playsInline
-          preload="metadata"
-        >
-          <source
-            src="https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/67f5b5e93116e652821a1357.mp4"
-            type="video/mp4"
-          />
-        </video>
-
-        <hr className="border-0 border-t border-white/[0.12] my-9" />
+        <hr className="border-0 border-t border-white/[0.12] mt-0 mb-9" />
 
         {/* ── In-Person Dog Training Package (12 Sessions) ── */}
         <PackageHeading as="h2">
