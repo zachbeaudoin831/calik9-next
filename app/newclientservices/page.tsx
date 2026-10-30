@@ -21,10 +21,10 @@ const NEW_CLIENT_CARDS = [
     imagePosition: "center center",
   },
   {
-    tag: "Online · $97/Month",
+    tag: "Online · From $97/Month",
     name: "CALI K9\nACADEMY",
-    desc: "The complete Cali K9 training system online. Follow the 8-module, 50-step roadmap and train live with Jas and the team every week.",
-    href: "/academy",
+    desc: "Train with Jas from home on the 50-step Cali K9 system. Choose your level: the Academy membership, Elite, or All Access, with more coaching at each step up.",
+    href: "/academy-menu",
     bg: "linear-gradient(145deg, #1236A0, #1A3FAB, #2255CC)",
     image: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/687ba81ce31a778a062563dc.webp",
     imageAlt: "Online dog training course on a laptop screen",
