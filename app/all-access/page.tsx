@@ -4,16 +4,16 @@ import Link from "next/link";
 import PaymentPlansSection from "@/components/PaymentPlansSection";
 
 export const metadata: Metadata = {
-  title: "Cali K9 All Access — $4,997",
+  title: "Cali K9 All Access — $2,997",
   description:
-    "Lifetime access to the complete Cali K9 Academy plus 12 months of VIP coaching and unlimited Train With Jas coaching sessions. One-time payment of $4,997.",
+    "Lifetime access to the complete Cali K9 Academy plus 12 months of VIP coaching and unlimited Train With Jas coaching sessions. One-time payment of $2,997.",
   // Funnel page. Keep out of search while in review.
   robots: { index: false, follow: false },
 };
 
 // GHL payment links for All Access. Drop them in when the products exist;
 // until then the pricing card shows a "checkout opens shortly" note.
-// GHL payment link for All Access, $4,997 one-time.
+// GHL payment link for All Access, $2,997 one-time.
 const CHECKOUT_URL = "https://link.fastpaydirect.com/payment-link/6ac6aa85075ea22a20cdcf99";
 
 const INCLUDED = [
@@ -163,7 +163,7 @@ const FAQS = [
   },
   {
     q: "Is this a subscription?",
-    a: "No. All Access is a one-time payment of $4,997 — not a recurring membership, and nothing renews.",
+    a: "No. All Access is a one-time payment of $2,997 — not a recurring membership, and nothing renews.",
   },
   {
     q: "How do the unlimited Train With Jas sessions work?",
@@ -182,7 +182,7 @@ const FAQS = [
 function PricingButtons() {
   return (
     <a href={CHECKOUT_URL} className="btn btn-gold btn-lg w-full text-center">
-      Get All Access &mdash; $4,997 &rarr;
+      Get All Access &mdash; $2,997 &rarr;
     </a>
   );
 }
@@ -197,7 +197,7 @@ export default function AllAccessPage() {
       >
         <div className="max-w-[760px] mx-auto px-6 max-[480px]:px-4">
           <span className="inline-flex items-center gap-2 bg-amber-400 text-[#2b1d05] font-ui text-[12px] font-bold tracking-[2px] uppercase px-4 py-2 rounded-full mb-5">
-            ★ Cali K9 All Access &middot; $4,997
+            ★ Cali K9 All Access &middot; $2,997
           </span>
           <h1 className="font-display text-[clamp(36px,5vw,58px)] text-white leading-[0.95] mb-5">
             LIFETIME ACCESS TO THE ACADEMY. A FULL YEAR OF VIP COACHING WITH JAS.
@@ -227,7 +227,7 @@ export default function AllAccessPage() {
             </video>
           </div>
           <a href={CHECKOUT_URL} className="btn btn-gold btn-lg">
-            Get All Access &mdash; $4,997 &rarr;
+            Get All Access &mdash; $2,997 &rarr;
           </a>
           <p className="font-ui text-xs tracking-[1.5px] uppercase text-white/40 mt-4">
             One-Time Payment &middot; Not A Subscription
@@ -315,7 +315,7 @@ export default function AllAccessPage() {
             <div className="font-ui text-[12px] font-bold tracking-[2px] uppercase text-white/50 mb-1">
               Your Investment
             </div>
-            <div className="font-display text-[48px] text-white leading-none">$4,997</div>
+            <div className="font-display text-[48px] text-white leading-none">$2,997</div>
             <p className="font-body text-[13.5px] text-white/60 mt-2">
               One-time payment
             </p>
@@ -454,7 +454,7 @@ export default function AllAccessPage() {
               <div className="inline-block bg-amber-400 text-[#2b1d05] font-ui text-[11px] font-bold tracking-[1.2px] uppercase px-3.5 py-1.5 rounded-full mb-3.5">
                 All Access
               </div>
-              <div className="font-display text-[46px] text-white leading-none">$4,997</div>
+              <div className="font-display text-[46px] text-white leading-none">$2,997</div>
               <p className="font-body text-[12.5px] text-white/60 mt-2">
                 One-time payment &middot; Not a subscription
               </p>
@@ -512,12 +512,12 @@ export default function AllAccessPage() {
             THE ACADEMY FOR LIFE. JAS IN YOUR CORNER FOR A YEAR.
           </h2>
           <p className="font-body text-base text-white/70 leading-relaxed mb-7">
-            Join All Access for $4,997 and get lifetime
+            Join All Access for $2,997 and get lifetime
             Academy access, 12 months of VIP coaching, unlimited Train With Jas coaching sessions, priority video
             feedback, the advanced workshops, and a permanent seat in the All Access community.
           </p>
           <a href={CHECKOUT_URL} className="btn btn-gold btn-lg">
-            Get All Access &mdash; $4,997 &rarr;
+            Get All Access &mdash; $2,997 &rarr;
           </a>
           <p className="font-ui text-xs text-white/35 mt-10">
             <Link href="/privacy-policy" className="hover:text-white/60">Privacy Policy</Link>

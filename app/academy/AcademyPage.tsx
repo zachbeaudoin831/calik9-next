@@ -224,7 +224,7 @@ const FAQS = [
   { q: "Can I cancel?", a: "Yes. There's no contract. Manage or cancel your membership anytime from your account. Your access continues through the end of your current billing period." },
   { q: "Can my spouse or family participate?", a: "Yes. One membership covers your household, so everyone can stay consistent with the same commands and approach." },
   { q: "When will I see progress?", a: "It depends on your dog and your consistency. Most members see noticeable changes within the first one to two modules, roughly two to three weeks." },
-  { q: "What's the difference between Academy, Elite and All Access?", a: "All three include the exact same Cali K9 method and 50-step roadmap. The difference is access, accountability and personalization. Academy is a $97/month membership with the full system and weekly live training. Elite ($997) adds a 6-month term and 4 Train With Jas small-group coaching sessions. All Access ($4,997, one-time) adds lifetime Academy access, 12 months of coaching with private WhatsApp access, unlimited Train With Jas sessions and priority video feedback." },
+  { q: "What's the difference between Academy, Elite and All Access?", a: "All three include the exact same Cali K9 method and 50-step roadmap. The difference is access, accountability and personalization. Academy is a $97/month membership with the full system and weekly live training. Elite ($997) adds a 6-month term and 4 Train With Jas small-group coaching sessions. All Access ($2,997, one-time) adds lifetime Academy access, 12 months of coaching with private WhatsApp access, unlimited Train With Jas sessions and priority video feedback." },
 ];
 
 function JoinCta({

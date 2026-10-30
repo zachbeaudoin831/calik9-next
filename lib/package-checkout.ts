@@ -15,7 +15,7 @@ export const TIER_INFO: Record<
 > = {
   elite: { name: "Cali K9 Elite", price: 997, priceLabel: "$997" },
   vip: { name: "Cali K9 VIP", price: 2497, priceLabel: "$2,497" },
-  "all-access": { name: "Cali K9 All Access", price: 4997, priceLabel: "$4,997" },
+  "all-access": { name: "Cali K9 All Access", price: 2997, priceLabel: "$2,997" },
   academy: { name: "Cali K9 Academy", price: 97, priceLabel: "$97/month", renewalNote: "first month, then $97/month" },
   // Past-client founder rate (/academy-founder): $47/mo for 12 months, then $97/mo.
   "academy-founder": {

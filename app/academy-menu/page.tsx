@@ -53,7 +53,7 @@ const PLANS = [
     key: "all-access",
     name: "All Access",
     tagline: "The Academy for life, plus a full year of coaching",
-    price: "$4,997",
+    price: "$2,997",
     priceNote: " one-time",
     term: "Lifetime Academy access · Not a subscription",
     href: "/all-access",
@@ -71,7 +71,7 @@ const PLANS = [
 ];
 
 const COMPARE: { label: string; values: [string, string, string] }[] = [
-  { label: "Price", values: ["$97 / month", "$997 one-time", "$4,997 one-time"] },
+  { label: "Price", values: ["$97 / month", "$997 one-time", "$2,997 one-time"] },
   { label: "Access", values: ["While you're a member", "6 months", "Lifetime"] },
   { label: "50-Step Roadmap™ & all 8 modules", values: ["✓", "✓", "✓ For life"] },
   { label: "Saturday live training with Jas", values: ["✓", "✓", "✓"] },
