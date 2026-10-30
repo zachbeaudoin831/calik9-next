@@ -15,15 +15,17 @@ import PaymentPlansSection from "@/components/PaymentPlansSection";
 export const metadata: Metadata = {
   title: "In-Person Dog Training",
   description:
-    "In-person dog training with certified Cali K9 trainers. 12-session and Elite 24-session packages, plus VIP one-on-one training. Bay Area, LA, Miami & New York.",
+    "Hands-on, in-person dog training with certified Cali K9 trainers. 12-session and Elite 24-session packages, plus VIP one-on-one training. San Jose, North Hollywood, Brooklyn & Miami.",
   openGraph: {
     title: "In-Person Dog Training | Cali K9\u00ae",
     description:
-      "In-person dog training with certified Cali K9 trainers. 12-session and Elite 24-session packages, plus VIP one-on-one training. Bay Area, LA, Miami & New York.",
+      "Hands-on, in-person dog training with certified Cali K9 trainers. 12-session and Elite 24-session packages, plus VIP one-on-one training. San Jose, North Hollywood, Brooklyn & Miami.",
     url: "https://calik9.com/in-person",
     images: ["https://calik9.com/images/cdn/66a311486dce452f20d2ffcd.webp"],
   },
 };
+
+const LOCATIONS = ["San Jose, CA", "North Hollywood, CA", "Brooklyn, NY", "Miami, FL"];
 
 const MINI_CELEBS = [
   { name: "Kevin Hart", image: "/images/celebs/kevin-hart.png" },
@@ -63,16 +65,32 @@ export default function InPersonPage() {
             </h1>
 
             <p className="font-body text-base text-white/70 leading-relaxed mb-6">
-              Work directly with a certified Cali K9 trainer to address your
-              dog&rsquo;s specific behaviors &mdash; in your home, our facility, or
-              both. Every session follows Jas Leverette&rsquo;s proven 5-Pillar
-              Method, not guesswork.
+              Cali K9&rsquo;s In-Person Dog Training Package is a hands-on
+              approach. Your trainer works directly with you and your dog, giving
+              real-time feedback and guidance so you understand your dog&rsquo;s
+              behavior and learn training techniques that fit your dog&rsquo;s
+              individual needs.
             </p>
             <p className="font-body text-base text-white/70 leading-relaxed mb-6 -mt-3">
-              Whether you&rsquo;re dealing with aggression, reactivity, anxiety, or
-              simply want a well-trained companion &mdash; our in-person programs
-              deliver real, lasting results.
+              Every dog is unique. Personalized training goes straight to your
+              dog&rsquo;s specific behavior problems and training goals, and the
+              Cali K9 Method is motivation-based: it reinforces the behaviors you
+              want and effectively redirects the ones you don&rsquo;t.
             </p>
+
+            <div className="font-ui text-xs font-bold tracking-[2px] uppercase text-white/45 mb-3">
+              Classes take place at our facilities in:
+            </div>
+            <div className="flex flex-wrap gap-2 mb-8">
+              {LOCATIONS.map((city) => (
+                <span
+                  key={city}
+                  className="inline-flex items-center gap-1.5 font-ui text-[14px] font-semibold tracking-[0.5px] text-white/85 bg-white/[0.08] border border-white/[0.16] rounded-full px-3.5 py-1.5"
+                >
+                  <span aria-hidden="true">📍</span> {city}
+                </span>
+              ))}
+            </div>
           </>
         }
       >
