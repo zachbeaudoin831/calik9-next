@@ -186,7 +186,7 @@ export default function SemiPrivatePage() {
             "All dogs must be current on core vaccinations prior to their first session.",
             "Handler must attend all sessions \u2014 your presence and participation are essential.",
             "Not suitable for dogs with active dog-to-dog aggression. Contact us if unsure.",
-            "Sessions are held at our Bay Area, Los Angeles, Miami, and New York facilities.",
+            "Sessions are held at our San Jose, North Hollywood, Brooklyn, and Miami facilities.",
           ].map((item) => (
             <li
               key={item}

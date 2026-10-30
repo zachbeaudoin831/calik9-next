@@ -588,7 +588,7 @@ export default function EvaluationV2Page() {
         <p className="font-body text-[12px] text-gray-500">
           &copy; 2026 Cali K9 &nbsp;&middot;&nbsp;{" "}
           <a href="https://calik9.com" className="text-[#1251CC] no-underline hover:underline">calik9.com</a>
-          &nbsp;&middot;&nbsp; San Jose &middot; Los Angeles &middot; Miami &middot; New York
+          &nbsp;&middot;&nbsp; San Jose &middot; North Hollywood &middot; Brooklyn &middot; Miami
         </p>
         <p className="font-body text-[12px] text-gray-500 mt-2">
           Questions? Email{" "}

@@ -9,11 +9,11 @@ import CountUp from "@/components/CountUp";
 export const metadata: Metadata = {
   title: "About Jas Leverette",
   description:
-    "Jas Leverette is the star of Canine Intervention on Netflix. He has appeared on the Ellen DeGeneres Show, TMZ, and news worldwide. Founder of Cali K9\u00ae, training dogs in Los Angeles, San Jose & online since 2009.",
+    "Jas Leverette is the star of Canine Intervention on Netflix. He has appeared on the Ellen DeGeneres Show, TMZ, and news worldwide. Founder of Cali K9\u00ae, training dogs in San Jose, North Hollywood, Brooklyn, Miami & online since 2009.",
   openGraph: {
     title: "About Jas Leverette | Cali K9\u00ae",
     description:
-      "Jas Leverette is the star of Canine Intervention on Netflix. Founder of Cali K9\u00ae, training dogs in Los Angeles, San Jose & online since 2009.",
+      "Jas Leverette is the star of Canine Intervention on Netflix. Founder of Cali K9\u00ae, training dogs in San Jose, North Hollywood, Brooklyn, Miami & online since 2009.",
     url: "https://calik9.com/about-us",
     images: ["https://calik9.com/images/cdn/66a3147ce455c59ccdcdbe67.webp"],
   },
@@ -369,8 +369,8 @@ export default function AboutPage() {
               <p className="font-body text-[15px] text-white/70 leading-[1.85] mb-8">
                 Voted Best Dog Trainer by Metro Silicon Valley&apos;s readers
                 &mdash; a title Cali K9 has received multiple times year after
-                year since 2012. Serving the Bay Area, Los Angeles, Miami, New
-                York, and online, the Cali K9&reg; 5-Pillar Method is recognized
+                year since 2012. Serving San Jose, North Hollywood, Brooklyn, Miami,
+                and online, the Cali K9&reg; 5-Pillar Method is recognized
                 as the standard for professional dog training in the region.
               </p>
             </div>

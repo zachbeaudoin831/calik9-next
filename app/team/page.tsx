@@ -5,11 +5,11 @@ import CtaBlock from "@/components/CtaBlock";
 export const metadata: Metadata = {
   title: "Certified Dog Trainers",
   description:
-    "Meet the certified Cali K9\u00ae trainers. Balanced training experts serving Bay Area, LA, Miami, and New York.",
+    "Meet the certified Cali K9\u00ae trainers. Balanced training experts serving San Jose, North Hollywood, Brooklyn, and Miami.",
   openGraph: {
     title: "Certified Dog Trainers | Cali K9\u00ae",
     description:
-      "Meet the certified Cali K9\u00ae trainers. Balanced training experts serving Bay Area, LA, Miami, and New York.",
+      "Meet the certified Cali K9\u00ae trainers. Balanced training experts serving San Jose, North Hollywood, Brooklyn, and Miami.",
     url: "https://calik9.com/team",
     images: ["https://calik9.com/images/cdn/66a311486dce452f20d2ffcd.webp"],
   },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Certified Dog Trainers | Cali K9\u00ae",
     description:
-      "Meet the certified Cali K9\u00ae trainers. Balanced training experts serving Bay Area, LA, Miami, and New York.",
+      "Meet the certified Cali K9\u00ae trainers. Balanced training experts serving San Jose, North Hollywood, Brooklyn, and Miami.",
     images: ["https://calik9.com/images/cdn/66a311486dce452f20d2ffcd.webp"],
   },
 };

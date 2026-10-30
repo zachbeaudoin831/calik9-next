@@ -20,10 +20,10 @@ const COMPANY_LINKS = [
 ];
 
 const LOCATIONS = [
-  "Bay Area, CA",
-  "Los Angeles, CA",
+  "San Jose, CA",
+  "North Hollywood, CA",
+  "Brooklyn, NY",
   "Miami, FL",
-  "New York, NY",
   "Online Worldwide",
 ];
 

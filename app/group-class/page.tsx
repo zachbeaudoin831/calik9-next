@@ -13,11 +13,11 @@ import PaymentPlansSection from "@/components/PaymentPlansSection";
 export const metadata: Metadata = {
   title: "In-Person Group Dog Training Classes | Cali K9\u00ae",
   description:
-    "Monthly in-person group dog training classes with certified Cali K9 trainers. Attend as often as you'd like for $197/month. Bay Area, LA, Miami & New York.",
+    "Monthly in-person group dog training classes with certified Cali K9 trainers. Attend as often as you'd like for $197/month. San Jose, North Hollywood, Brooklyn & Miami.",
   openGraph: {
     title: "In-Person Group Dog Training Classes | Cali K9\u00ae",
     description:
-      "Monthly in-person group dog training classes with certified Cali K9 trainers. Attend as often as you'd like for $197/month. Bay Area, LA, Miami & New York.",
+      "Monthly in-person group dog training classes with certified Cali K9 trainers. Attend as often as you'd like for $197/month. San Jose, North Hollywood, Brooklyn & Miami.",
     url: "https://calik9.com/group-class",
     images: ["https://calik9.com/images/cdn/66a311486dce452f20d2ffcd.webp"],
   },
@@ -67,7 +67,7 @@ export default function GroupClassPage() {
             "Certified Cali K9 Trainer Every Session",
             "Structured Monthly Curriculum",
             "Community App Access & Training Resources",
-            "Bay Area, Los Angeles, Miami & New York Locations",
+            "San Jose, North Hollywood, Brooklyn & Miami Facilities",
           ]}
         />
 

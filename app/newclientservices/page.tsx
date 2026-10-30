@@ -97,10 +97,10 @@ const SPECIALIZATIONS = [
 ];
 
 const LOCATIONS = [
-  { name: "Bay Area, CA", desc: "Flagship location \u2014 in-person training and group classes throughout the San Francisco Bay Area." },
-  { name: "Los Angeles, CA", desc: "Private sessions and intensive programs serving LA and surrounding communities." },
-  { name: "Miami, FL", desc: "East Coast private sessions and intensive programs \u2014 same elite Cali K9 standard." },
-  { name: "New York, NY", desc: "Private sessions and select programs available. Contact us to check current availability." },
+  { name: "San Jose, CA", desc: "Our flagship facility, with in-person training and group classes for the Bay Area." },
+  { name: "North Hollywood, CA", desc: "In-person training and classes for the Los Angeles area." },
+  { name: "Brooklyn, NY", desc: "In-person training and classes for New York City." },
+  { name: "Miami, FL", desc: "In-person training and classes on the East Coast, to the same Cali K9 standard." },
   { name: "Online \u00b7 Worldwide", desc: "The full 5-Pillar Online Program and Zoom Group Classes available to clients anywhere in the world.", globe: true },
 ];
 
@@ -198,7 +198,7 @@ export default function ServicesPage() {
               15+ Years &middot; Celebrity Trainers &middot; Netflix Featured
             </span>
             <span className="font-ui text-sm font-bold tracking-[2px] uppercase text-[#7B8CC4]">
-              Est. 2009 &middot; Bay Area &middot; Los Angeles &middot; Miami &middot; New York
+              Est. 2009 &middot; San Jose &middot; North Hollywood &middot; Brooklyn &middot; Miami
             </span>
           </div>
           <h1 className="font-display text-[clamp(40px,6vw,72px)] leading-none tracking-[1px] text-white mb-5">

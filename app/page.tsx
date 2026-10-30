@@ -12,7 +12,7 @@ import { dedupeProductsByTitle, getProductsByCollection, isServiceProduct } from
 export const metadata = {
   title: "Elite Dog Training | Cali K9\u00ae",
   description:
-    "Cali K9\u00ae \u2014 elite dog training by Jas Leverette, star of Netflix\u2019s Canine Intervention. 15+ years, 10,000+ dogs transformed. Bay Area, Los Angeles, Miami, New York & online.",
+    "Cali K9\u00ae \u2014 elite dog training by Jas Leverette, star of Netflix\u2019s Canine Intervention. 15+ years, 10,000+ dogs transformed. San Jose, North Hollywood, Brooklyn, Miami & online.",
 };
 
 const MARQUEE_ITEMS = [
@@ -151,7 +151,7 @@ export default async function HomePage() {
                 <span className="text-[#E50914] text-base font-black leading-none">N</span> Canine Intervention
               </span>
               <span className="font-ui text-sm font-bold tracking-[2px] uppercase text-[#7B8CC4]">
-                Est. 2009 &middot; Bay Area &middot; Los Angeles &middot; Miami &middot; New York
+                Est. 2009 &middot; San Jose &middot; North Hollywood &middot; Brooklyn &middot; Miami
               </span>
             </div>
           </HeroEntrance>

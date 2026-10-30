@@ -6,11 +6,11 @@ import CtaBlock from "@/components/CtaBlock";
 export const metadata: Metadata = {
   title: "Contact Cali K9\u00ae Dog Training",
   description:
-    "Contact Cali K9\u00ae \u2014 reach our San Jose and Los Angeles locations. Call, email, or send a message. Elite dog training since 2009.",
+    "Contact Cali K9\u00ae \u2014 reach our San Jose, North Hollywood, Brooklyn, and Miami locations. Call, email, or send a message. Elite dog training since 2009.",
   openGraph: {
     title: "Contact Cali K9\u00ae Dog Training",
     description:
-      "Contact Cali K9\u00ae \u2014 reach our San Jose and Los Angeles locations. Call, email, or send a message. Elite dog training since 2009.",
+      "Contact Cali K9\u00ae \u2014 reach our San Jose, North Hollywood, Brooklyn, and Miami locations. Call, email, or send a message. Elite dog training since 2009.",
     url: "https://calik9.com/contact-us",
     images: ["https://calik9.com/images/cdn/66a311486dce452f20d2ffcd.webp"],
   },
@@ -21,13 +21,13 @@ export const metadata: Metadata = {
 const LOCATIONS = [
   {
     city: "San Jose",
-    brand: "Cali K9\u00ae Bay Area",
+    brand: "Cali K9\u00ae San Jose",
     phone: "(510)\u00a0890\u20110298",
     phoneHref: "tel:5108900298",
   },
   {
-    city: "Los Angeles",
-    brand: "Cali K9\u00ae LA",
+    city: "North Hollywood",
+    brand: "Cali K9\u00ae North Hollywood",
     phone: "(510)\u00a0890\u20110298",
     phoneHref: "tel:5108900298",
   },
@@ -38,8 +38,8 @@ const LOCATIONS = [
     phoneHref: "tel:5108900298",
   },
   {
-    city: "New York",
-    brand: "Cali K9\u00ae New York",
+    city: "Brooklyn",
+    brand: "Cali K9\u00ae Brooklyn",
     phone: "(510)\u00a0890\u20110298",
     phoneHref: "tel:5108900298",
   },
@@ -165,7 +165,7 @@ export default function ContactPage() {
               We&rsquo;re Here To Help
             </span>
             <span className="font-ui text-sm font-bold tracking-[2px] uppercase text-[#7B8CC4]">
-              Bay Area &middot; Los Angeles &middot; Miami &middot; New York
+              San Jose &middot; North Hollywood &middot; Brooklyn &middot; Miami
             </span>
           </div>
           <h1 className="font-display text-[clamp(40px,6vw,72px)] leading-none tracking-[1px] text-white mb-5">
