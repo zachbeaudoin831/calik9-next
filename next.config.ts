@@ -13,6 +13,8 @@ const nextConfig: NextConfig = {
     return [
       // Retired funnel page / renamed pages
       { source: "/online-courses", destination: "/academy-menu", permanent: true },
+      // Academy VIP tier retired from the menu (2026-10-30). Temporary so it can return.
+      { source: "/vip", destination: "/academy-menu", permanent: false },
       { source: "/starter-bundle-downsell", destination: "/starter-bundle", permanent: false },
       // Pre-migration slugs → calik9.com canonical slugs
       { source: "/about", destination: "/about-us", permanent: true },

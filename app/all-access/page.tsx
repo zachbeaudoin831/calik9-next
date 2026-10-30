@@ -140,9 +140,9 @@ const YES_ITEMS = [
 ];
 
 const NO_ITEMS = [
-  "12 months of Academy access is enough for your situation",
+  "6 months of Academy access is enough for your situation",
   "You don't need the advanced workshops or the lifetime community",
-  "You'd rather start at $2,497 and decide on lifetime later",
+  "You'd rather start at $997 and decide on lifetime later",
 ];
 
 const PRICE_LIST = [
@@ -170,8 +170,8 @@ const FAQS = [
     a: "Each session is live coaching with Jas — behavior troubleshooting, training feedback, video breakdowns, and progress reviews on your dog. There is no session cap: book as many as you like across your 12 months of VIP coaching, with priority booking. Please cancel or reschedule at least 24 hours ahead.",
   },
   {
-    q: "What's the difference between VIP and All Access?",
-    a: "VIP gives you 12 months of Academy access with 8 Train With Jas sessions and the WhatsApp group. All Access keeps the same 12 months of VIP-level coaching, makes Train With Jas coaching sessions unlimited, and adds lifetime Academy access, the lifetime All Access community, priority video feedback, the advanced workshops, preferred member benefits, and the Turbo Treats bonus.",
+    q: "What's the difference between Elite and All Access?",
+    a: "Elite gives you 6 months of Academy access with 4 Train With Jas sessions. All Access gives you 12 months of VIP coaching with WhatsApp access, makes Train With Jas coaching sessions unlimited, and adds lifetime Academy access, the lifetime All Access community, priority video feedback, the advanced workshops, preferred member benefits, and the Turbo Treats bonus.",
   },
   {
     q: "What happens after the 12 months?",
@@ -350,7 +350,7 @@ export default function AllAccessPage() {
             </div>
             <div className="bg-white border border-border rounded-xl p-7">
               <h5 className="font-ui text-sm font-bold tracking-[1px] uppercase text-gray-muted mb-4">
-                Consider VIP Instead If &mdash;
+                Consider Elite Instead If &mdash;
               </h5>
               <ul className="space-y-2.5">
                 {NO_ITEMS.map((item) => (
@@ -360,8 +360,8 @@ export default function AllAccessPage() {
                   </li>
                 ))}
               </ul>
-              <Link href="/vip" className="font-body text-[13.5px] text-blue-500 underline block mt-5">
-                See VIP &mdash; $2,497 &rarr;
+              <Link href="/elite" className="font-body text-[13.5px] text-blue-500 underline block mt-5">
+                See Elite &mdash; $997 &rarr;
               </Link>
             </div>
           </div>

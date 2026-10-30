@@ -86,7 +86,7 @@ export default function BookYourCallPage() {
             <strong className="text-ink">Cali K9 5 Pillar, 50-Step System&trade;</strong> they need
             next, then point you to <strong className="text-ink">Academy</strong>,{" "}
             <strong className="text-ink">Elite</strong>, or{" "}
-            <strong className="text-ink">VIP</strong> &mdash; whichever fits. A small, refundable
+            <strong className="text-ink">All Access</strong> &mdash; whichever fits. A small, refundable
             reservation holds your spot and is fully credited toward any program you join &mdash; no pressure
             to buy anything.
           </p>

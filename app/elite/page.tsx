@@ -433,27 +433,6 @@ export default function ElitePage() {
         </div>
       </section>
 
-      {/* ── VIP tease ── */}
-      <section className="py-14 max-md:py-10 bg-ink text-center">
-        <div className="max-w-[680px] mx-auto px-6">
-          <span className="font-ui text-[13px] font-semibold tracking-[3px] uppercase text-blue-200 block mb-3">
-            Want Even More Access?
-          </span>
-          <h3 className="font-display text-[clamp(26px,3.5vw,36px)] text-white leading-[0.95] mb-4">
-            VIP ADDS 8 SESSION TOKENS AND A FULL YEAR OF ACCESS
-          </h3>
-          <p className="font-body text-[14.5px] text-white/70 leading-relaxed mb-6">
-            VIP is everything in Elite, plus a full year of Academy access, 8 total Train With Jas
-            session tokens with priority booking, a private VIP WhatsApp group with 24-hour text
-            and video support, and the full Cali K9 Training Kit &mdash; for owners who want the
-            most hands-on experience available.
-          </p>
-          <Link href="/vip" className="btn btn-white">
-            See VIP &mdash; $2,497 &rarr;
-          </Link>
-        </div>
-      </section>
-
       {/* ── Final CTA ── */}
       <section
         className="py-14 max-md:py-10 text-center"

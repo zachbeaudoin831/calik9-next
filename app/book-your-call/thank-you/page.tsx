@@ -26,7 +26,7 @@ const CALL_STEPS = [
   {
     num: "3",
     title: "LEAVE WITH A PLAN",
-    desc: "In 20 minutes we'll show you where your dog sits on the 50-Step Roadmap and point you to Academy, Elite, VIP — or nothing at all. Your $7 is credited toward any program.",
+    desc: "In 20 minutes we'll show you where your dog sits on the 50-Step Roadmap and point you to Academy, Elite, All Access — or nothing at all. Your $7 is credited toward any program.",
   },
 ];
 

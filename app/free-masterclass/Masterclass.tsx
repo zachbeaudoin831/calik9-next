@@ -36,7 +36,7 @@ const BEFORE_AFTER = [
   {
     before: "Pulling",
     after: "Loose Leash",
-    name: "VIP Transformation",
+    name: "Leash Transformation",
     src: `${CDN}/6a97042bef6af944f0f9a708.mp4`,
   },
   {

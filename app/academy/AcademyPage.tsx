@@ -209,7 +209,7 @@ const joinSteps = (offer: AcademyOffer) => [
 // November, each becomes one hour earlier here (8:00 AM PT, etc.).
 const SCHEDULE = [
   { day: "Sat · 9:00 AM PT / 12:00 PM ET", title: "Kickstart", access: "Free · Community", tone: "free" },
-  { day: "Tue · 4:00 PM PT / 7:00 PM ET", title: "Elite / VIP Members Only", access: "Elite & VIP", tone: "guest" },
+  { day: "Tue · 4:00 PM PT / 7:00 PM ET", title: "Elite / All Access Members Only", access: "Elite & All Access", tone: "guest" },
   { day: "Sat · 10:00 AM PT / 1:00 PM ET", title: "Academy Live With Jas", access: "Members Only", tone: "members" },
   { day: "Wed · 6:00 PM PT / 9:00 PM ET", title: "Trainer-Led Academy Live", access: "Members Only", tone: "members" },
 ];
@@ -224,7 +224,7 @@ const FAQS = [
   { q: "Can I cancel?", a: "Yes. There's no contract. Manage or cancel your membership anytime from your account. Your access continues through the end of your current billing period." },
   { q: "Can my spouse or family participate?", a: "Yes. One membership covers your household, so everyone can stay consistent with the same commands and approach." },
   { q: "When will I see progress?", a: "It depends on your dog and your consistency. Most members see noticeable changes within the first one to two modules, roughly two to three weeks." },
-  { q: "What's the difference between Academy, Elite and VIP?", a: "All three include the exact same Cali K9 method and 50-step roadmap. The difference is access, accountability and personalization. Academy is a $97/month membership with the full system and weekly live training. Elite ($997) adds a 6-month term and 4 Train With Jas small-group coaching sessions. VIP ($2,497) adds a 12-month term, 8 sessions, priority booking, a private VIP WhatsApp group and the Training Kit." },
+  { q: "What's the difference between Academy, Elite and All Access?", a: "All three include the exact same Cali K9 method and 50-step roadmap. The difference is access, accountability and personalization. Academy is a $97/month membership with the full system and weekly live training. Elite ($997) adds a 6-month term and 4 Train With Jas small-group coaching sessions. All Access ($4,997, one-time) adds lifetime Academy access, 12 months of coaching with private WhatsApp access, unlimited Train With Jas sessions and priority video feedback." },
 ];
 
 function JoinCta({
