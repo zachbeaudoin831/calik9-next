@@ -22,13 +22,13 @@ const NEW_CLIENT_CARDS = [
   },
   {
     tag: "Online · From $97/Month",
-    name: "CALI K9\nACADEMY",
+    name: "ONLINE\nACADEMY",
     desc: "Train with Jas from home on the 50-step Cali K9 system. Choose your level: the Academy membership, Elite, or All Access, with more coaching at each step up.",
     href: "/academy-menu",
     bg: "linear-gradient(145deg, #1236A0, #1A3FAB, #2255CC)",
-    image: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/687ba81ce31a778a062563dc.webp",
-    imageAlt: "Online dog training course on a laptop screen",
-    imagePosition: "center center",
+    image: "/images/funnel/academy-jas-teaching.jpg",
+    imageAlt: "Jas Leverette teaching a live online Cali K9 Academy session",
+    imagePosition: "center 30%",
   },
   {
     tag: "Private Sessions",
