@@ -13,11 +13,11 @@ import CtaBlock from "@/components/CtaBlock";
 export const metadata: Metadata = {
   title: "Board & Train Program | Cali K9®",
   description:
-    "Residential board and train dog training in Los Angeles. Four-week Board & Train and seven-week Elite Board & Train programs with certified Cali K9 trainers.",
+    "Residential board and train dog training at our North Hollywood facility in Los Angeles. Four-week Board & Train and seven-week Elite Board & Train programs with certified Cali K9 trainers.",
   openGraph: {
     title: "Board & Train Program | Cali K9®",
     description:
-      "Residential board and train dog training in Los Angeles. Four-week Board & Train and seven-week Elite Board & Train programs with certified Cali K9 trainers.",
+      "Residential board and train dog training at our North Hollywood facility in Los Angeles. Four-week Board & Train and seven-week Elite Board & Train programs with certified Cali K9 trainers.",
     url: "https://calik9.com/board-and-train",
     images: ["https://calik9.com/images/cdn/66a311486dce452f20d2ffcd.webp"],
   },
@@ -37,7 +37,7 @@ export default function BoardAndTrainPage() {
         sidebar={
           <>
             <div className="font-ui text-[13px] font-bold tracking-[2px] uppercase text-white/85 mb-4 text-center">
-              📍 Now Available In Los Angeles Only
+              📍 Only At Our North Hollywood, CA Facility
             </div>
             <FormEmbed
               formId="y6VSKPK4ruaCbRo0hZnM"
@@ -173,7 +173,7 @@ export default function BoardAndTrainPage() {
                 {[
                   "Dogs must be up to date on vaccinations including Bordetella (kennel cough)",
                   "Program duration may be extended based on your dog's needs — discussed during evaluation",
-                  "Board & Train is available in Los Angeles, CA only",
+                  "Board & Train is available only at our North Hollywood, CA facility",
                   "Spots are limited — we only take a small number of dogs at a time to ensure quality",
                 ].map((note) => (
                   <li

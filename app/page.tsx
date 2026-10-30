@@ -95,7 +95,7 @@ const TESTIMONIALS = [
 const PROGRAMS = [
   {
     title: "BOARD & TRAIN",
-    desc: "Full immersive program. Maximum results in minimum time — all 5 Pillars addressed, weekly video updates, and a handoff session. Los Angeles only.",
+    desc: "Full immersive program. Maximum results in minimum time — all 5 Pillars addressed, weekly video updates, and a handoff session. At our North Hollywood (LA) facility only.",
     href: "/board-and-train",
   },
   {

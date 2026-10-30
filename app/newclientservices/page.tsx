@@ -41,9 +41,9 @@ const NEW_CLIENT_CARDS = [
     imagePosition: "center center",
   },
   {
-    tag: "Los Angeles Only · Most Intensive",
+    tag: "North Hollywood Only · Most Intensive",
     name: "BOARD\n& TRAIN",
-    desc: "Your dog lives with us while we build the foundation. Deep obedience, behavior modification, lifetime support. Now in Los Angeles only.",
+    desc: "Your dog lives with us while we build the foundation. Deep obedience, behavior modification, lifetime support. At our North Hollywood, CA facility only.",
     href: "/board-and-train",
     bg: "linear-gradient(160deg, #04060F, #080C25, #0D1640)",
     image: "https://assets.cdn.filesafe.space/9RVPGbjB6dCgPVsRbKEE/media/67c270a01e6df2ebba9219d2.png",
@@ -98,7 +98,7 @@ const SPECIALIZATIONS = [
 
 const LOCATIONS = [
   { name: "San Jose, CA", desc: "Our flagship facility, with in-person training and group classes for the Bay Area." },
-  { name: "North Hollywood, CA", desc: "In-person training and classes for the Los Angeles area." },
+  { name: "North Hollywood, CA", desc: "In-person training, classes, and Board & Train for the Los Angeles area." },
   { name: "Brooklyn, NY", desc: "In-person training and classes for New York City." },
   { name: "Miami, FL", desc: "In-person training and classes on the East Coast, to the same Cali K9 standard." },
   { name: "Online \u00b7 Worldwide", desc: "The full 5-Pillar Online Program and Zoom Group Classes available to clients anywhere in the world.", globe: true },
